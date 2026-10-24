@@ -3,9 +3,9 @@ id: product-taxonomy
 title: Taxonomía de clases de producto — marco metodológico
 layer: method
 status: propuesta
-version: 1.0
+version: 1.1
 updated: 2026-10-24
-sources: [TAX Resumen, TAX §1]
+sources: [TAX Resumen, TAX §1, INTAKE 2026-10-24-define-class]
 ---
 
 # Taxonomía de clases de producto — marco metodológico
@@ -61,6 +61,7 @@ La taxonomía es transversal a esos ámbitos: **no se diseña una clase distinta
 | Clase interna | Conjunto de productos u ofertas delimitado por reglas claras y necesidades informativas suficientemente homogéneas. |
 | Subclase interna | Clase más específica cuya delimitación y diferenciación informativa están justificadas. |
 | Faceta | Dimensión transversal (uso, protección, estilo, material...) que ayuda a segmentar sin exigir una rama exclusiva. |
+| Clase de estudio | Clase objeto del modelo de demanda: clase general más todas las especializaciones aplicables ([definición canónica](../../10-model/demand-model.md#clase-de-estudio)). |
 | Modelo de demanda | Catálogo de requisitos informativos pertinentes para la clase ([definición canónica](../../10-model/demand-model.md)). |
 | Variante u oferta | Entidades comerciales sobre las que recaen preguntas; no son automáticamente categorías taxonómicas. |
 

@@ -14,6 +14,12 @@ Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módul
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
 
+## 2026-10-24 — Intake «definición de la clase» · aplicado
+
+- **canon** — `demand-model` 1.2: nueva sección «Clase de estudio». La clase objeto del modelo de demanda se compone de la clase general y de todas las especializaciones relevantes, que pueden ser facetas concurrentes. Incluye una regla en cuatro pasos y el principio de especificidad informativa necesaria ([D-020](decisions.md#d-020)).
+- **método** — `product-taxonomy`, `subclasses`, `integration` y `data-model-governance` pasan a la versión 1.1: enlazan la clase de estudio, y el grado de especialización sale de las decisiones pendientes.
+- **gobernanza** — OQ-09 cerrada → D-020; nuevas OQ-37 y OQ-38. Glosario: clase de estudio, clase general y especialización. Nueva incidencia I-11, sobre la definición de `vigente` frente al intake, detectada en la revisión. Artefacto archivado en `archive/intake/2026-10-24-define-class.md`.
+
 ## 2026-10-24 — Intake «prominencia informativa» · aplicado
 
 - **gobernanza** — El intake prevalece sobre el contenido existente y se aplica sin aprobación previa ([D-016](decisions.md#d-016)). Skill `docs-update` reescrita.

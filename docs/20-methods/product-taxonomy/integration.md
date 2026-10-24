@@ -3,9 +3,9 @@ id: product-taxonomy-integration
 title: Taxonomía — estrategia de integración y alineación de conceptos
 layer: method
 status: propuesta
-version: 1.0
+version: 1.1
 updated: 2026-10-24
-sources: [TAX §3, TAX §4]
+sources: [TAX §3, TAX §4, INTAKE 2026-10-24-define-class]
 ---
 
 # Taxonomía — estrategia de integración y alineación de conceptos
@@ -36,7 +36,7 @@ La clasificación principal puede mantener una relación **general-específico**
 
 Si la herramienta operativa solo admite un padre, conservar un **padre primario** para navegación y representar las demás relaciones mediante facetas y vínculos tipados. Este es un compromiso de implementación, no una afirmación ontológica de exclusividad.
 
-**No establecer un nivel de profundidad fijo.** El objetivo práctico de obtener al menos una especialización adicional se aplica donde exista una diferencia significativa de demanda y evidencias; no como mandato de subdividir todas las clases Shopify.
+**No establecer un nivel de profundidad fijo.** El objetivo práctico de obtener al menos una especialización adicional se aplica donde exista una diferencia significativa de demanda y evidencias; no como mandato de subdividir todas las clases Shopify. Para componer la [clase de estudio](../../10-model/demand-model.md#clase-de-estudio), en cambio, basta con que una especialización introduzca o modifique cuestiones informativas relevantes ([D-020](../../30-governance/decisions.md#d-020)). La relación entre ambos umbrales está pendiente ([OQ-38](../../30-governance/open-questions.md)).
 
 ## Relaciones que debe poder registrar un mapeo
 
@@ -75,3 +75,4 @@ Estos estados son controles de **gobierno de la taxonomía**, no grados de satis
 
 - Ficha de correspondencia: [data-model-governance.md](data-model-governance.md#anexo-b-ficha-de-correspondencia-propuesta).
 - Creación de subclases: [subclasses.md](subclasses.md).
+- Composición de la clase de estudio con facetas concurrentes (canon): [demand-model](../../10-model/demand-model.md#clase-de-estudio).

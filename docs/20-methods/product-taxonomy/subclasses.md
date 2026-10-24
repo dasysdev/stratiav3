@@ -3,9 +3,9 @@ id: product-taxonomy-subclasses
 title: Taxonomía — subclases y paso de la clase al modelo de demanda
 layer: method
 status: propuesta
-version: 1.0
+version: 1.1
 updated: 2026-10-24
-sources: [TAX §5, TAX §6, TAX §7]
+sources: [TAX §5, TAX §6, TAX §7, INTAKE 2026-10-24-define-class]
 ---
 
 # Taxonomía — subclases y paso de la clase al modelo de demanda
@@ -35,6 +35,8 @@ El mero hecho de que Amazon disponga de un nodo adicional o Shopify ofrezca un v
 - **Conservar la clase y condicionar requisitos:** algunas cuestiones aplican solo bajo determinadas características, sin construir un modelo independiente.
 - **Crear una faceta transversal:** una dimensión (uso, estilo, protección) segmenta productos de diversas clases.
 - **Crear una subclase con modelo propio:** cambia de forma estable un conjunto importante de cuestiones, con una definición clara y evidencias suficientes.
+
+Cómo se representan estas salidas al componer una [clase de estudio](../../10-model/demand-model.md#clase-de-estudio) está pendiente ([OQ-37](../../30-governance/open-questions.md)).
 
 Cuando hay herencia de requisitos, la clase hija puede **reutilizar preguntas compartidas**, pero la aplicabilidad y la importancia relativa se revisan expresamente. No se hereda automáticamente la criticidad ni se asignan pesos numéricos universales ([importancia relativa](../../10-model/demand-model.md)).
 
@@ -76,7 +78,7 @@ La pregunta no es «¿dónde está en el árbol de Amazon?», sino **«¿la dist
 
 ## De la clase al modelo de demanda
 
-El canon ya fija el método general de construcción del catálogo: **observar atributos e información comercial publicada; inferir cuestiones relevantes; formular y normalizar requisitos; justificar su inclusión e importancia relativa** ([modelo de demanda](../../10-model/demand-model.md)). La taxonomía organiza la **selección de la clase y la detección de diferencias**, no modifica ese procedimiento.
+El canon fija la clase objeto del modelo de demanda, la **[clase de estudio](../../10-model/demand-model.md#clase-de-estudio)**: clase general más todas las especializaciones aplicables, que pueden ser facetas concurrentes ([D-020](../../30-governance/decisions.md#d-020)). También fija el método general de construcción del catálogo: **observar atributos e información comercial publicada; inferir cuestiones relevantes; formular y normalizar requisitos; justificar su inclusión e importancia relativa** ([modelo de demanda](../../10-model/demand-model.md)). La taxonomía organiza la **selección de la clase y la detección de diferencias**, no modifica ese procedimiento.
 
 Para cada clase aprobada se recomienda mantener una **matriz de continuidad**: requisitos comunes de la familia, requisitos específicos, requisitos condicionados y cuestiones excluidas por no aplicables. Cada requisito conservará su pregunta, dimensión, entidad, alcance, aplicabilidad, importancia relativa, fundamento y fuentes. Un mismo requisito podrá asociarse a varias clases sin duplicar su definición.
 

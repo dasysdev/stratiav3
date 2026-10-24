@@ -46,6 +46,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-017](#d-017) | Escala del IR: 0–10 | aceptada | 2026-10-24 |
 | [D-018](#d-018) | Prominencia informativa, IP y calidad ajustada (propuesta) | aceptada | 2026-10-24 |
 | [D-019](#d-019) | Estado binario de resolución = «suficientemente resuelto» de la TRI | aceptada | 2026-10-24 |
+| [D-020](#d-020) | Clase de estudio: clase general más especializaciones relevantes | aceptada | 2026-10-24 |
 
 ---
 
@@ -270,3 +271,29 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 - **Contexto:** el artefacto introduce una «normalización binaria del IR (0/1)» que distingue resolución suficiente e insuficiente. La TRI (BASE §6.1) ya se basa en RI «suficientemente resueltos».
 - **Decisión:** el estado binario de resolución es **la misma noción** que usa la TRI. Así hay un único concepto, con la regla de normalización pendiente (OQ-31). Su estado es propuesta.
 - **Consecuencias:** sección «Estado binario de resolución» en [scoring-systems](../10-model/scoring-systems.md) y entrada en el glosario.
+
+### D-020
+
+**Clase de estudio: clase general más especializaciones relevantes.** · aceptada · 2026-10-24
+
+- **Contexto:** `INTAKE 2026-10-24-define-class`. El canon define el modelo de demanda sobre una «clase de producto u oferta» (BASE §4), pero no decía cómo se determina esa clase. La taxonomía (propuesta) ofrece subclases, facetas y aplicabilidad condicionada, y dejaba abierto el grado de especialización ([OQ-09](open-questions.md)).
+- **Decisión:**
+  - La **clase objeto del modelo de demanda** se compone de una **clase general** y de **todas las especializaciones aplicables** (por uso, material, función u otras características) que introduzcan o modifiquen cuestiones informativas relevantes. No es necesario que formen una jerarquía estricta: pueden ser facetas que concurren.
+  - El modelo de demanda integra los requisitos comunes y los específicos, sin duplicados y revisando su aplicabilidad e importancia relativa.
+  - «La medida de cama (por ejemplo, 90 cm) caracteriza una variante, pero no obliga por sí sola a crear otra clase».
+  - **Principio:** buscar la especificidad informativa necesaria, no el mayor número posible de subclases.
+  - Cierra OQ-09.
+- **Interpretaciones adoptadas:**
+  - «Clase objeto del modelo de demanda» y «clase de estudio» son sinónimos en el artefacto. El término canónico es **clase de estudio**, y la «clase estudiada» de BASE §4.1 y §4.2 designa la misma clase.
+  - Va a `10-model` porque introduce conceptos. Se incorpora como **vigente**, porque el artefacto la formula como regla y no la presenta como provisional.
+  - El ejemplo de los juegos de sábanas se marca como **ilustrativo**: no es una clase aprobada (regla de ejemplos hipotéticos de `docs/CLAUDE.md`).
+  - El artefacto no deroga la taxonomía: la prueba de especialización y sus cuatro salidas siguen como propuesta de método. Sus umbrales («cambien sustancialmente», «cuestiones informativas centrales distintas») se refieren a crear subclases o niveles. Para incorporar una especialización a la clase de estudio rige el criterio del artefacto, menos exigente, y la relación entre ambos umbrales pasa a OQ-38. Queda abierto cómo se representa en la taxonomía una clase de estudio compuesta ([OQ-37](open-questions.md)) y qué evidencia acredita que una especialización es pertinente ([OQ-38](open-questions.md)).
+  - OQ-09 se cierra porque el artefacto fija el criterio de grado: tantas especializaciones como sean relevantes, con la especificidad informativa necesaria. Los criterios operativos y la evidencia mínima siguen en OQ-06 y OQ-38.
+  - El paso 4 («construir el modelo de demanda») se realiza con el recorrido vigente del sistema de construcción (observar → inferir → formular y normalizar → justificar), que no cambia.
+  - La frase de la medida de cama se recoge literal, como ejemplo, sin generalizarla a una regla sobre variantes.
+  - OQ-05 sigue abierta: la regla trata de la composición de la clase de estudio, no de la estructura de padres de las clases internas.
+- **Consecuencias:**
+  - [demand-model](../10-model/demand-model.md) pasa a la versión 1.2, con la nueva sección «Clase de estudio».
+  - Se enlaza desde [product-taxonomy](../20-methods/product-taxonomy/README.md), [subclasses](../20-methods/product-taxonomy/subclasses.md), [integration](../20-methods/product-taxonomy/integration.md) y [data-model-governance](../20-methods/product-taxonomy/data-model-governance.md), todos en la versión 1.1.
+  - Nuevas entradas del glosario: clase de estudio, clase general y especialización. Nuevas OQ-37 y OQ-38.
+- **Relacionado:** OQ-05, OQ-06, OQ-09, OQ-37, OQ-38.

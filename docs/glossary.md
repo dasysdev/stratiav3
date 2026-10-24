@@ -5,7 +5,7 @@ layer: meta
 status: vigente
 version: 1.0
 updated: 2026-10-24
-sources: [BASE, FUND, GSC0 Anexo C, TAX, MPIR]
+sources: [BASE, FUND, GSC0 Anexo C, TAX, MPIR, INTAKE 2026-10-24-define-class]
 ---
 
 # Glosario y registro de conceptos
@@ -42,6 +42,9 @@ Esta es la capa de enrutamiento. Cada término tiene una definición breve (orie
 | **Requisito técnico general** | Condición de implementación, publicación, acceso, consumo o distribución de un ámbito. Obligatoria o recomendada. | [evaluation-scopes](10-model/evaluation-scopes.md#requisitos-técnicos-generales) | V |
 | **Perfil de consumo** | Condiciones bajo las que un recurso se obtiene y lee en un ámbito. | [evaluation-scopes](10-model/evaluation-scopes.md#perfil-de-consumo-no-interactivo) · operativa: [inputs-outputs](20-methods/audit-gsc/inputs-outputs.md#perfil-de-consumo) | P |
 | **Modelo de demanda** | Representación estructurada de las cuestiones informativas relevantes para una clase de producto u oferta. Se materializa en un catálogo de RI. | [demand-model](10-model/demand-model.md#modelo-de-demanda) | V |
+| **Clase de estudio** | Clase objeto del modelo de demanda: clase general + todas las especializaciones aplicables, que pueden ser facetas concurrentes. Se busca la especificidad informativa necesaria, no el mayor número de subclases. | [demand-model](10-model/demand-model.md#clase-de-estudio) | V |
+| **Clase general** | Clase a la que pertenece el producto; punto de partida de la clase de estudio. | [demand-model](10-model/demand-model.md#clase-de-estudio) | V |
+| **Especialización** | Característica de uso, material, función u otro tipo. Se incorpora a la clase de estudio si es pertinente: si introduce o modifica cuestiones informativas relevantes. Una variante (p. ej., la medida de cama) no obliga por sí sola a crear otra clase. | [demand-model](10-model/demand-model.md#clase-de-estudio) | V |
 | **Relevancia** | Poder responder la cuestión cumple un papel justificable en la evaluación de la clase. | [demand-model](10-model/demand-model.md#modelo-de-demanda) | V |
 | **RI (requisito informativo)** | Necesidad de conocimiento formulada como cuestión evaluable sobre una oferta. | [demand-model](10-model/demand-model.md#requisito-informativo-ri) | V |
 | **Importancia relativa** | Crítico / Principal / Complementario. Cualitativa y ordinal, sin pesos. | [demand-model](10-model/demand-model.md#importancia-relativa) | V |

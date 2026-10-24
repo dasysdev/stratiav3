@@ -24,6 +24,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 | [I-08](#i-08) | Alcance de las propiedades: ¿también fundamentan requisitos técnicos? | Media | resuelta → [D-007](decisions.md#d-007) |
 | [I-09](#i-09) | Denominación del artefacto taxonómico | Baja | resuelta → [D-012](decisions.md#d-012) |
 | [I-10](#i-10) | P07 en las propiedades asociadas a Aplicabilidad | Baja | resuelta → [D-014](decisions.md#d-014) |
+| [I-11](#i-11) | Definición del estado `vigente` frente al contenido procedente del intake | Baja | abierta |
 
 ---
 
@@ -133,3 +134,12 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - **Afecta a:** [quality-properties](../10-model/quality-properties.md#asociaciones-orientativas-con-los-criterios), [property-checks](../20-methods/audit-gsc/property-checks.md).
 - **Propuesta:** añadir P07 a la tabla canónica de Aplicabilidad, con la marca «según el hallazgo». Las asociaciones son orientativas, así que el cambio no altera ninguna regla.
 - **Resolución (2026-10-24):** aceptada. → [D-014](decisions.md#d-014).
+
+### I-11
+
+**Definición del estado `vigente` frente al contenido procedente del intake.**
+
+- [docs/CLAUDE.md](../CLAUDE.md#estados) define `vigente` como lo «definido en los documentos rectores (CTX, BASE) o en FUND».
+- [D-016](decisions.md#d-016) y la skill `docs-update` incorporan como vigente lo que un intake afirma como vigente. Así lo hacen [D-017](decisions.md#d-017) (escala del IR) y [D-020](decisions.md#d-020) (clase de estudio).
+- **Afecta a:** [docs/CLAUDE.md](../CLAUDE.md#estados).
+- **Propuesta:** ampliar la definición: «`vigente` — definido en los documentos rectores (CTX, BASE), en FUND o en un intake procesado que lo formule como vigente (D-016); forma parte del canon».

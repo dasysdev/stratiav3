@@ -3,9 +3,9 @@ id: demand-model
 title: Modelo de demanda y requisitos informativos
 layer: model
 status: vigente
-version: 1.1
+version: 1.2
 updated: 2026-10-24
-sources: [BASE §4, FUND §3, FUND §11.1]
+sources: [BASE §4, FUND §3, FUND §11.1, INTAKE 2026-10-24-define-class]
 ---
 
 # Modelo de demanda y requisitos informativos
@@ -17,6 +17,8 @@ sources: [BASE §4, FUND §3, FUND §11.1]
 > El **modelo de demanda** es la representación estructurada de las **cuestiones informativas relevantes** que necesitan poder resolverse sobre una **clase de producto u oferta** para apoyar su comprensión, comparación y evaluación durante la decisión de compra. Se materializa en un catálogo de requisitos informativos. — BASE §4
 
 > La **relevancia** expresa que poder responder una cuestión desempeña un papel justificable en la evaluación general de esa clase de oferta. — BASE §4
+
+La clase sobre la que se construye el modelo es la [clase de estudio](#clase-de-estudio) ([D-020](../30-governance/decisions.md#d-020)).
 
 ### Requisito informativo (RI)
 
@@ -70,6 +72,37 @@ Desarrollo de FUND §3.3:
 | Condición de compra | «Apto para caminar con lluvia intensa». | Expresa una exigencia de un uso o comprador concreto. |
 | Escenario de compra | «Botas talla 42, impermeables, por menos de 120 €». | Combina varias necesidades y valores de un caso particular. |
 | Requisito técnico de interfaz | «El feed debe contener `availability`», si su especificación lo exige. | Es una condición técnica, no una cuestión de conocimiento de la demanda. |
+
+## Clase de estudio
+
+> La **clase objeto del modelo de demanda** se define partiendo de una **clase general** e incorporando **tantas especializaciones como sean relevantes** para las necesidades informativas del producto estudiado. — INTAKE 2026-10-24-define-class
+
+Es la «clase estudiada» a la que se refieren BASE §4.1 y §4.2 ([D-020](../30-governance/decisions.md#d-020)).
+
+### Regla metodológica
+
+> 1. **Identificar la clase general** a la que pertenece el producto.
+> 2. **Reconocer las especializaciones pertinentes** por uso, material, función u otras características, siempre que introduzcan o modifiquen cuestiones informativas relevantes.
+> 3. **Componer la clase de estudio** mediante la clase general y todas las especializaciones aplicables. No es necesario que formen una jerarquía estricta: pueden ser facetas que concurren.
+> 4. **Construir el modelo de demanda** integrando los requisitos comunes y los específicos, sin duplicados y revisando su aplicabilidad e importancia relativa.
+>
+> — INTAKE 2026-10-24-define-class
+
+> **Principio:** buscar la **especificidad informativa necesaria**, no el mayor número posible de subclases. — INTAKE 2026-10-24-define-class
+
+| Elemento | Papel en la clase de estudio |
+|---|---|
+| **Clase general** | Clase a la que pertenece el producto. Es el punto de partida. |
+| **Especialización** | Por uso, material, función u otras características. Se incorpora a la clase de estudio si es **pertinente**: si introduce o modifica cuestiones informativas relevantes. |
+| **Variante** | «La medida de cama (por ejemplo, 90 cm) caracteriza una variante, pero no obliga por sí sola a crear otra clase». — INTAKE 2026-10-24-define-class |
+
+La clase general y las especializaciones no tienen que formar una jerarquía estricta: pueden ser facetas que concurren.
+
+El paso 4 se realiza con el recorrido del [sistema de construcción](#sistema-de-construcción-vigente). Cómo se representa en la taxonomía una clase de estudio compuesta está pendiente ([OQ-37](../30-governance/open-questions.md)), igual que la evidencia que acredita una especialización pertinente ([OQ-38](../30-governance/open-questions.md)).
+
+**Ejemplo** (ilustrativo; no es una clase aprobada):
+
+> **Juegos de sábanas** (clase general) + **uso invernal** (especialización) + **tejido de coralina** (especialización) → **clase de estudio: juegos de sábanas de coralina para invierno**. — INTAKE 2026-10-24-define-class
 
 ## Sistema de construcción vigente
 
@@ -143,6 +176,7 @@ Un **escenario de compra** concreta las necesidades, preferencias, restricciones
 Ver [open-questions](../30-governance/open-questions.md):
 
 - contraste empírico del catálogo;
+- representación de la clase de estudio en la taxonomía y evidencia de especialización pertinente;
 - calibración de la importancia relativa;
 - forma definitiva del perfil de RI;
 - función de los escenarios de compra.
@@ -152,3 +186,4 @@ Ver [open-questions](../30-governance/open-questions.md):
 - [evaluation-scopes](evaluation-scopes.md)
 - [effective-availability](effective-availability.md)
 - [scoring-systems](scoring-systems.md)
+- [product-taxonomy](../20-methods/product-taxonomy/README.md) (método, propuesta)

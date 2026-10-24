@@ -3,9 +3,9 @@ id: product-taxonomy-data-model-governance
 title: Taxonomía — modelo de datos, procedimiento, gobierno y decisiones pendientes
 layer: method
 status: propuesta
-version: 1.0
+version: 1.1
 updated: 2026-10-24
-sources: [TAX §8, TAX §9, TAX §10, TAX §11, TAX Anexo A, TAX Anexo B]
+sources: [TAX §8, TAX §9, TAX §10, TAX §11, TAX Anexo A, TAX Anexo B, INTAKE 2026-10-24-define-class]
 ---
 
 # Taxonomía — modelo de datos, procedimiento, gobierno y decisiones pendientes
@@ -113,8 +113,9 @@ Referencias R1–R16 en [sources.md](sources.md#referencias-externas-consulta-24
 - Los criterios operativos y la evidencia mínima para aprobar equivalencias y nuevas subclases.
 - La disponibilidad de acceso SP-API para obtener el árbol vigente de Amazon.es y las restricciones de reutilización de esos datos.
 - La selección de ecommerce referentes y casos frontera para el piloto de botas.
-- El grado de especialización que realmente reduce ambigüedad sin fragmentar innecesariamente los modelos de demanda.
 - El mecanismo de gobierno, revisión y calendario de actualización de fuentes externas.
+
+El grado de especialización que reduce la ambigüedad sin fragmentar innecesariamente los modelos de demanda quedó resuelto en el canon ([D-020](../../30-governance/decisions.md#d-020)): tantas especializaciones como sean relevantes, buscando la especificidad informativa necesaria ([clase de estudio](../../10-model/demand-model.md#clase-de-estudio)).
 
 ## Anexo A. Ficha de clase propuesta
 

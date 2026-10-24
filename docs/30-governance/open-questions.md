@@ -5,7 +5,7 @@ layer: governance
 status: pendiente
 version: 1.0
 updated: 2026-10-24
-sources: [FUND §12, GSC0 §18.1-18.3, TAX §11.3, MPIR §15.2, INTAKE 2026-10-24-prominencia-informativa]
+sources: [FUND §12, GSC0 §18.1-18.3, TAX §11.3, MPIR §15.2, INTAKE 2026-10-24-prominencia-informativa, INTAKE 2026-10-24-define-class]
 ---
 
 # Cuestiones abiertas y parámetros pendientes de calibración
@@ -46,8 +46,10 @@ Los instrumentos operativos (perfiles de RI, pruebas de pertinencia, rutas de re
 | OQ-06 | Criterios operativos y evidencia mínima para aprobar equivalencias y nuevas subclases. | abierta | TAX §11.3 |
 | OQ-07 | Disponibilidad de acceso a SP-API para obtener el árbol vigente de Amazon.es y restricciones de reutilización. | abierta | TAX §11.3 |
 | OQ-08 | Selección de ecommerce referentes y casos frontera para el piloto de botas (compartida con MPIR: OQ-11). | abierta | TAX §11.3 |
-| OQ-09 | Grado de especialización que reduce la ambigüedad sin fragmentar innecesariamente los modelos de demanda. | abierta | TAX §11.3 |
+| OQ-09 | Grado de especialización que reduce la ambigüedad sin fragmentar innecesariamente los modelos de demanda. | cerrada → [D-020](decisions.md#d-020) (principio; el criterio operativo pasa a OQ-38) | TAX §11.3 |
 | OQ-10 | Mecanismo de gobierno, revisión y calendario de actualización de las fuentes externas. | abierta | TAX §11.3 |
+| OQ-37 | Representación de la [clase de estudio](../10-model/demand-model.md#clase-de-estudio) en la taxonomía: si las composiciones de clase general y especializaciones se registran como clases internas (ficha, ID, versión) o se componen en cada estudio, y cómo encajan con las cuatro salidas de la prueba de especialización (en especial, «conservar la clase y condicionar requisitos»); relación con la «clase interna» que registra el MPIR ([sampling-capture](../20-methods/mpir/sampling-capture.md#delimitación-por-clase)); y si la regla, formulada para el «producto estudiado», se aplica igual a las clases de oferta (BASE §4: «clase de producto u oferta»). Relacionada con OQ-05. | abierta | INTAKE 2026-10-24-define-class, D-020 |
+| OQ-38 | Evidencia y criterio operativo para reconocer que una especialización «introduce o modifica cuestiones informativas relevantes». Relación con la prueba de especialización, con OQ-06 y con los umbrales más exigentes de la taxonomía para crear subclases o niveles («cambien sustancialmente», «cuestiones informativas centrales distintas»). | abierta | INTAKE 2026-10-24-define-class, D-020 |
 
 Métodos: [product-taxonomy](../20-methods/product-taxonomy/README.md).
 

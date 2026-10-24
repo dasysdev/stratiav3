@@ -1,0 +1,391 @@
+#!/usr/bin/env python3
+"""Minimal work tracker for agents: one Markdown file per task under work/.
+
+The state is computed from the task files, never kept in a file of its own.
+`pm ready` prints a bounded summary (one line per open task) that the
+SessionStart hook injects into every new session. Closing a task compacts it:
+the file moves to work/done/ and work/log.md gains a single line.
+
+Usage:
+  pm [ready]                        open tasks: in progress, ready, blocked, waiting
+  pm show ID                        print a task
+  pm new TITLE [--goal G] [--ac A]... [--depends ID,ID] [--milestone M]
+  pm start ID                       status -> en-curso (also unblocks)
+  pm next ID TEXT                   set "Siguiente paso", the handoff to the next session
+  pm note ID TEXT                   append a dated line to Notas
+  pm check ID N [N ...]             tick acceptance criteria by number
+  pm block ID REASON                status -> bloqueada
+  pm close ID SUMMARY               every criterion ticked -> hecha, moved to work/done/
+  pm log [N]                        last N lines of work/log.md (default 10)
+
+PM_DIR overrides the work/ directory (tests).
+"""
+
+import argparse
+import os
+import re
+import sys
+import unicodedata
+from datetime import date
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+WORK = Path(os.environ.get("PM_DIR") or ROOT / "work")
+DONE = WORK / "done"
+LOG = WORK / "log.md"
+
+STATUSES = ("pendiente", "en-curso", "bloqueada", "hecha")
+KEYS = ("id", "title", "status", "depends", "milestone", "reason", "created", "closed")
+AC_HEADING = "Criterios de aceptación"
+NEXT_HEADING = "Siguiente paso"
+PLACEHOLDER = "(por definir)"
+MAX_READY = 10      # ready tasks listed before "+N más"
+MAX_LINE = 110      # characters of "Siguiente paso" or reason shown by `ready`
+
+ID_RE = re.compile(r"^T-(\d+)")
+AC_RE = re.compile(r"^- \[([ xX])\] (.*)$")
+SECTION_RE = re.compile(r"^## (.+?)\s*$")
+
+
+class Task:
+    def __init__(self, path: Path, meta: dict, body: str):
+        self.path, self.meta, self.body = path, meta, body
+
+    @property
+    def id(self) -> str:
+        return self.meta["id"]
+
+    @property
+    def num(self) -> int:
+        return int(ID_RE.match(self.id).group(1))
+
+    @property
+    def status(self) -> str:
+        return self.meta.get("status", "pendiente")
+
+    @property
+    def depends(self) -> list:
+        return [d.strip() for d in self.meta.get("depends", "").split(",") if d.strip()]
+
+    def label(self) -> str:
+        milestone = self.meta.get("milestone")
+        return f"{self.id} {self.meta.get('title', '')}" + (f" [{milestone}]" if milestone else "")
+
+
+def fail(msg: str) -> None:
+    print(f"pm: {msg}", file=sys.stderr)
+    sys.exit(1)
+
+
+def parse(path: Path) -> Task:
+    text = path.read_text(encoding="utf-8")
+    meta, body = {}, text
+    if text.startswith("---\n"):
+        end = text.find("\n---\n", 4)
+        if end != -1:
+            for line in text[4:end].splitlines():
+                key, sep, value = line.partition(":")
+                if sep:
+                    meta[key.strip()] = value.strip()
+            body = text[end + 5:]
+    if not ID_RE.match(meta.get("id", "")):
+        fail(f"{path}: frontmatter sin `id` válido")
+    return Task(path, meta, body)
+
+
+def save(task: Task) -> None:
+    keys = [k for k in KEYS if k in task.meta] + [k for k in task.meta if k not in KEYS]
+    head = "\n".join(f"{k}: {task.meta[k]}".rstrip() for k in keys)
+    task.path.write_text(f"---\n{head}\n---\n{task.body}", encoding="utf-8")
+
+
+def load_all() -> list:
+    paths = sorted(WORK.glob("T-*.md")) + sorted(DONE.glob("T-*.md"))
+    return sorted((parse(p) for p in paths), key=lambda t: t.num)
+
+
+def normalize_id(raw: str) -> str:
+    m = re.fullmatch(r"(?:[Tt]-?)?0*(\d+)", raw.strip())
+    if not m:
+        fail(f"identificador no válido: {raw}")
+    return f"T-{int(m.group(1)):03d}"
+
+
+def find(raw: str) -> Task:
+    tid = normalize_id(raw)
+    for task in load_all():
+        if task.id == tid:
+            return task
+    fail(f"no existe {tid}")
+
+
+def sections(body: str) -> list:
+    """Split a body into [(heading or None, lines)], keeping order."""
+    out = [(None, [])]
+    for line in body.splitlines():
+        m = SECTION_RE.match(line)
+        if m:
+            out.append((m.group(1), []))
+        else:
+            out[-1][1].append(line)
+    return out
+
+
+def join(parts: list) -> str:
+    chunks = []
+    for heading, lines in parts:
+        if heading is not None:
+            chunks.append(f"## {heading}")
+        chunks.extend(lines)
+    return "\n" + "\n".join(chunks).strip("\n") + "\n"
+
+
+def get_section(body: str, heading: str) -> list:
+    for h, lines in sections(body):
+        if h == heading:
+            return [l for l in lines if l.strip()]
+    return []
+
+
+def set_section(body: str, heading: str, text) -> str:
+    """Replace a section's content; text=None removes the section. A new section goes before Notas."""
+    parts = sections(body)
+    content = None if text is None else ["", text.strip(), ""]
+    for i, (h, _) in enumerate(parts):
+        if h == heading:
+            if content is None:
+                del parts[i]
+            else:
+                parts[i] = (heading, content)
+            return join(parts)
+    if content is not None:
+        at = next((i for i, (h, _) in enumerate(parts) if h == "Notas"), len(parts))
+        parts.insert(at, (heading, content))
+    return join(parts)
+
+
+def criteria(task: Task) -> list:
+    """[(ticked, text)] of the acceptance criteria."""
+    return [(m.group(1) != " ", m.group(2))
+            for m in map(AC_RE.match, get_section(task.body, AC_HEADING)) if m]
+
+
+def short(text: str) -> str:
+    text = " ".join(text.split())
+    return text if len(text) <= MAX_LINE else text[:MAX_LINE - 1] + "…"
+
+
+def slugify(title: str) -> str:
+    ascii_ = unicodedata.normalize("NFKD", title).encode("ascii", "ignore").decode()
+    slug = re.sub(r"[^a-z0-9]+", "-", ascii_.lower()).strip("-")
+    return slug[:48].rsplit("-", 1)[0] if len(slug) > 48 else slug
+
+
+# --------------------------------------------------------------------- commands
+
+def cmd_ready(_args) -> None:
+    tasks = load_all()
+    done = {t.id for t in tasks if t.status == "hecha"}
+    open_ = [t for t in tasks if t.status != "hecha"]
+    doing = [t for t in open_ if t.status == "en-curso"]
+    blocked = [t for t in open_ if t.status == "bloqueada"]
+    pending = [t for t in open_ if t.status == "pendiente"]
+    ready = [t for t in pending if all(d in done for d in t.depends)]
+    waiting = [t for t in pending if t not in ready]
+
+    if not open_:
+        print('Trabajo (bin/pm): sin tareas abiertas. Abrir una: bin/pm new "título" --goal "…" --ac "…"')
+        return
+    print(f"Trabajo (bin/pm): {len(doing)} en curso · {len(ready)} listas · "
+          f"{len(blocked)} bloqueadas · {len(waiting)} en espera")
+    if doing:
+        print("en curso:")
+        for t in doing:
+            acs = criteria(t)
+            progress = f" ({sum(ok for ok, _ in acs)}/{len(acs)} AC)" if acs else ""
+            nxt = get_section(t.body, NEXT_HEADING)
+            print(f"  {t.label()}{progress}" + (f" → {short(' '.join(nxt))}" if nxt else ""))
+    if ready:
+        print("listas:")
+        for t in ready[:MAX_READY]:
+            print(f"  {t.label()}")
+        if len(ready) > MAX_READY:
+            print(f"  +{len(ready) - MAX_READY} más")
+    if blocked:
+        print("bloqueadas:")
+        for t in blocked:
+            print(f"  {t.label()} — {short(t.meta.get('reason', 'sin motivo'))}")
+    if waiting:
+        pend = ", ".join(f"{t.id} (← {', '.join(d for d in t.depends if d not in done)})" for t in waiting)
+        print(f"en espera: {pend}")
+
+
+def cmd_show(args) -> None:
+    print(find(args.id).path.read_text(encoding="utf-8"), end="")
+
+
+def cmd_new(args) -> None:
+    WORK.mkdir(parents=True, exist_ok=True)
+    tasks = load_all()
+    tid = f"T-{max((t.num for t in tasks), default=0) + 1:03d}"
+    known = {t.id for t in tasks}
+    depends = [normalize_id(d) for d in (args.depends or "").split(",") if d.strip()]
+    missing = [d for d in depends if d not in known]
+    if missing:
+        fail(f"dependencias inexistentes: {', '.join(missing)}")
+    acs = "\n".join(f"- [ ] {a}" for a in (args.ac or [PLACEHOLDER]))
+    body = (f"\n## Objetivo\n\n{args.goal or PLACEHOLDER}\n\n"
+            f"## {AC_HEADING}\n\n{acs}\n\n## Notas\n")
+    meta = {"id": tid, "title": args.title, "status": "pendiente",
+            "depends": ", ".join(depends), "milestone": args.milestone or "",
+            "created": date.today().isoformat()}
+    task = Task(WORK / f"{tid}-{slugify(args.title)}.md", meta, body)
+    save(task)
+    print(f"{tid} creada: {task.path.relative_to(ROOT) if task.path.is_relative_to(ROOT) else task.path}")
+
+
+def cmd_start(args) -> None:
+    task = find(args.id)
+    if task.status == "hecha":
+        fail(f"{task.id} ya está hecha")
+    task.meta["status"] = "en-curso"
+    task.meta.pop("reason", None)
+    save(task)
+    print(f"{task.id} → en-curso")
+
+
+def cmd_next(args) -> None:
+    task = find(args.id)
+    task.body = set_section(task.body, NEXT_HEADING, args.text)
+    save(task)
+    print(f"{task.id}: siguiente paso actualizado")
+
+
+def cmd_note(args) -> None:
+    task = find(args.id)
+    line = f"- {date.today().isoformat()} {' '.join(args.text.split())}"
+    parts = sections(task.body)
+    for i, (heading, lines) in enumerate(parts):
+        if heading == "Notas":
+            while lines and not lines[-1].strip():
+                lines.pop()
+            parts[i] = (heading, (lines or [""]) + [line, ""])
+            break
+    else:
+        parts.append(("Notas", ["", line, ""]))
+    task.body = join(parts)
+    save(task)
+    print(f"{task.id}: nota añadida")
+
+
+def cmd_check(args) -> None:
+    task = find(args.id)
+    total = len(criteria(task))
+    wanted = set(args.n)
+    bad = [n for n in wanted if not 1 <= n <= total]
+    if bad:
+        fail(f"{task.id} tiene {total} criterios; no existe el {bad[0]}")
+    lines, k, section = [], 0, None
+    for line in task.body.splitlines():
+        m = SECTION_RE.match(line)
+        if m:
+            section = m.group(1)
+        elif section == AC_HEADING and (ac := AC_RE.match(line)):
+            k += 1
+            if k in wanted:
+                line = f"- [x] {ac.group(2)}"
+        lines.append(line)
+    task.body = "\n".join(lines) + "\n"
+    save(task)
+    acs = criteria(task)
+    print(f"{task.id}: {sum(ok for ok, _ in acs)}/{len(acs)} AC")
+
+
+def cmd_block(args) -> None:
+    task = find(args.id)
+    task.meta["status"] = "bloqueada"
+    task.meta["reason"] = " ".join(args.reason.split())
+    save(task)
+    print(f"{task.id} → bloqueada")
+
+
+def cmd_close(args) -> None:
+    task = find(args.id)
+    if task.status == "hecha":
+        fail(f"{task.id} ya está hecha")
+    acs = criteria(task)
+    if not acs or any(text == PLACEHOLDER for _, text in acs):
+        fail(f"{task.id} no tiene criterios de aceptación definidos")
+    pending = [f"  {i}. {text}" for i, (ok, text) in enumerate(acs, 1) if not ok]
+    if pending:
+        fail(f"{task.id} tiene criterios sin marcar (bin/pm check {task.id} N):\n" + "\n".join(pending))
+    summary = " ".join(args.summary.split())
+    task.meta["status"] = "hecha"
+    task.meta["closed"] = date.today().isoformat()
+    task.meta.pop("reason", None)
+    task.body = set_section(task.body, NEXT_HEADING, None)
+    task.body = set_section(task.body, "Resultado", summary)
+    DONE.mkdir(parents=True, exist_ok=True)
+    old = task.path
+    task.path = DONE / old.name
+    save(task)
+    old.unlink()
+    with LOG.open("a", encoding="utf-8") as f:
+        f.write(f"- {task.meta['closed']} {task.id} {task.meta.get('title', '')} — {summary}\n")
+    print(f"{task.id} → hecha")
+
+
+def cmd_log(args) -> None:
+    if not LOG.exists():
+        print("work/log.md vacío")
+        return
+    lines = LOG.read_text(encoding="utf-8").splitlines()
+    print("\n".join(lines[-args.n:]))
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(prog="pm", description="Gestor de trabajo mínimo (work/).")
+    sub = parser.add_subparsers(dest="cmd")
+    sub.add_parser("ready", help="tareas abiertas").set_defaults(func=cmd_ready)
+    p = sub.add_parser("show", help="mostrar una tarea")
+    p.add_argument("id")
+    p.set_defaults(func=cmd_show)
+    p = sub.add_parser("new", help="abrir una tarea")
+    p.add_argument("title")
+    p.add_argument("--goal")
+    p.add_argument("--ac", action="append", help="criterio de aceptación (repetible)")
+    p.add_argument("--depends", help="IDs separados por comas")
+    p.add_argument("--milestone")
+    p.set_defaults(func=cmd_new)
+    p = sub.add_parser("start", help="pasar a en-curso")
+    p.add_argument("id")
+    p.set_defaults(func=cmd_start)
+    p = sub.add_parser("next", help="fijar el siguiente paso")
+    p.add_argument("id")
+    p.add_argument("text")
+    p.set_defaults(func=cmd_next)
+    p = sub.add_parser("note", help="añadir una nota fechada")
+    p.add_argument("id")
+    p.add_argument("text")
+    p.set_defaults(func=cmd_note)
+    p = sub.add_parser("check", help="marcar criterios por número")
+    p.add_argument("id")
+    p.add_argument("n", type=int, nargs="+")
+    p.set_defaults(func=cmd_check)
+    p = sub.add_parser("block", help="bloquear con motivo")
+    p.add_argument("id")
+    p.add_argument("reason")
+    p.set_defaults(func=cmd_block)
+    p = sub.add_parser("close", help="cerrar con resumen de una línea")
+    p.add_argument("id")
+    p.add_argument("summary")
+    p.set_defaults(func=cmd_close)
+    p = sub.add_parser("log", help="últimas líneas del registro")
+    p.add_argument("n", type=int, nargs="?", default=10)
+    p.set_defaults(func=cmd_log)
+    args = parser.parse_args()
+    (getattr(args, "func", None) or cmd_ready)(args)
+
+
+if __name__ == "__main__":
+    main()

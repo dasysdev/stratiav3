@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bin/pm)",
+      "Bash(bin/pm *)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/bin/pm ready 2>&1 || true",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

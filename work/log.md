@@ -1,0 +1,1 @@
+- 2026-10-24 T-001 Gestor de trabajo mínimo (bin/pm) y hook de arranque — bin/pm, work/, hook SessionStart y sección «Gestión del trabajo» en CLAUDE.md.

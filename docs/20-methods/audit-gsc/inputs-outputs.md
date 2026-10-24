@@ -1,0 +1,70 @@
+---
+id: audit-gsc-inputs-outputs
+title: Contratos de entrada y de salida
+layer: method
+status: propuesta
+version: 0.1
+updated: 2026-10-24
+sources: [GSC0 §3, GSC0 Anexo D]
+---
+
+# Contratos de entrada y de salida
+
+> **Estado: propuesta V1.** Forma parte del [marco operativo GSC](README.md).
+
+## Contrato de entrada mínimo
+
+Antes de ejecutar, deben estar disponibles:
+
+| Entrada | Exigencia mínima | Quién la aporta |
+|---|---|---|
+| **RI identificado** | ID, redacción exacta, dimensión y clase de oferta. | Modelo de demanda. |
+| **Objeto y alcance** | Entidad/es interrogadas, desagregación, condiciones y aplicabilidad. | Modelo de demanda; aclaración de auditoría si procede. |
+| **Ámbito pertinente** | Catálogos distribuidos, Web o Web Schema.org. | Modelo de demanda. |
+| **Perfil informativo del RI** | Núcleo del hecho/relación solicitados y componentes de respuesta; puede elaborarse con el protocolo de [ri-profile.md](ri-profile.md) si no existe. | Modelo de demanda o fase preparatoria controlada. |
+| **Caso evaluado** | Ecommerce, oferta/recurso, identificadores disponibles y momento/mercado relevantes. | Configuración de auditoría. |
+| **Perfil de consumo** | Qué vías de obtención/lectura están permitidas y qué recursos se incluyen. | Configuración de ámbito. |
+| **Soporte de inspección** | Acceso a recursos o instantáneas realmente obtenidos y posibilidad de guardar evidencias. | Entorno de ejecución. |
+
+La **importancia relativa** del RI puede acompañar al expediente, pero **no altera individualmente un GSC**; pertenece al [modelo de demanda](../../10-model/demand-model.md#importancia-relativa) y actúa en niveles superiores de síntesis ([ICI](../../10-model/scoring-systems.md#indicador-de-calidad-informativa-ici)).
+
+### Perfil de consumo
+
+Condiciones bajo las que el recurso se obtiene y lee en un ámbito: vías de obtención/lectura permitidas y recursos incluidos. La modalidad es **sin navegación interactiva**; el perfil documentado determina qué es utilizable, sin establecer una prohibición universal de JavaScript desvinculada de él ([ámbitos de evaluación](../../10-model/evaluation-scopes.md)). Se versiona cuando cambian las representaciones o vías admitidas; no se comparan resultados de distintos perfiles sin advertirlo.
+
+## Validación previa de entradas
+
+- Si falta un dato **inferible sin alterar el significado** (por ejemplo, enumerar los componentes explícitos de un RI bien formulado), crear una **propuesta de descomposición** y señalar su procedencia.
+- Si falta una decisión que determina el alcance (por ejemplo, «disponibilidad» sin especificar canal cuando el RI lo requiere), **no elegir silenciosamente** una interpretación. Registrar la ambigüedad; continuar únicamente con las partes inequívocas o solicitar definición del modelo de demanda.
+- Si no puede delimitarse la entidad, el ámbito o el perfil de consumo, **no emitir un GSC como si la evaluación estuviera completa**. Registrar **bloqueo de preparación** o evaluación inconclusa, sin convertirlo en NA ni NE automáticamente.
+- Si el RI no es aplicable a la oferta concreta, registrar **NA del RI** con fundamento. Esto es distinto de declarar NA a un AC aislado dentro de un RI aplicable.
+
+## Contrato de salida mínimo
+
+Cada caso debe producir:
+
+1. Identificación y configuración.
+2. Perfil RI utilizado.
+3. Recursos y cobertura.
+4. Candidatos significativos y decisiones de pertinencia.
+5. Conjunto pertinente.
+6. Disponibilidad efectiva o estado procedimental inconcluso.
+7. Evidencias originales.
+8. Hallazgos con propiedades.
+9. Valoración **por cada AC pertinente** (GSC o NA/NE).
+10. Justificación de cada decisión.
+11. Limitaciones y controles de validación.
+
+La estructura de registros figura en [dossier.md](dossier.md), [evidence.md](evidence.md) y [gsc-decision.md](gsc-decision.md).
+
+## Unidad evaluada
+
+La unidad básica es **RI × ámbito pertinente**, aplicada a la entidad, oferta, recurso y condiciones concretas de la inspección ([arquitectura](../../10-model/evaluation-architecture.md)). En este contexto, «requisito informativo × interfaz pertinente» (BASE) y «RI × ámbito» son sinónimos ([D-010](../../30-governance/decisions.md#d-010)).
+
+Es admisible procesar varios RI sobre una misma representación obtenida, siempre que cada evaluación conserve su pertinencia, cobertura y GSC **por unidad RI × ámbito** ([execution.md](execution.md)).
+
+## Relacionado
+
+- [ri-profile.md](ri-profile.md) — elaboración del perfil del RI.
+- [execution.md](execution.md) — secuencia OP-01..12.
+- [qa.md](qa.md) — QA-01 a QA-03 verifican estas entradas.

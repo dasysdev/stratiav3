@@ -3,9 +3,9 @@ id: product-taxonomy-data-model-governance
 title: Taxonomía — modelo de datos, procedimiento, gobierno y decisiones pendientes
 layer: method
 status: propuesta
-version: 1.1
-updated: 2026-10-24
-sources: [TAX §8, TAX §9, TAX §10, TAX §11, TAX Anexo A, TAX Anexo B, INTAKE 2026-10-24-define-class]
+version: 1.2
+updated: 2026-10-25
+sources: [TAX §8, TAX §9, TAX §10, TAX §11, TAX Anexo A, TAX Anexo B, INTAKE 2026-10-24-define-class, INTAKE 2026-10-25-amazon-source-blocks]
 ---
 
 # Taxonomía — modelo de datos, procedimiento, gobierno y decisiones pendientes
@@ -89,7 +89,7 @@ Son **medidas de gobierno y cobertura**, no los indicadores IR, ICI, GSC o los i
 ### Respaldadas por fuentes
 
 1. Shopify ofrece una clasificación estructurada con categorías y atributos versionados, adecuada como punto de partida abierto [R1-R4].
-2. Amazon aporta nodos de navegación y esquemas PTD diferentes, que pueden suministrar especializaciones y atributos; su consulta completa mediante informes requiere acceso de vendedor [R5-R8].
+2. Amazon aporta nodos de navegación y esquemas PTD diferentes, que pueden suministrar especializaciones, atributos y, a través de los PTD, requisitos de la categoría ([D-039](../../30-governance/decisions.md#d-039)); su consulta completa mediante informes requiere acceso de vendedor [R5-R8].
 3. Google dispone de categorías propias, especificaciones de atributos, `product_type` comerciante y `product_detail`, pero no equivale a un árbol universal de subclases funcionales con atributos cerrados [R9-R15].
 4. Las correspondencias entre sistemas pueden ser jerárquicas, aproximadas o asociativas; la normalización semántica requiere decisiones explícitas y evidencia [R16].
 5. El modelo de demanda del proyecto exige requisitos inferidos y justificados; no se obtiene automáticamente de campos taxonómicos.
@@ -99,7 +99,7 @@ Referencias R1–R16 en [sources.md](sources.md#referencias-externas-consulta-24
 ### Orientaciones de diseño recomendadas (no decisiones rectoras ya aprobadas)
 
 - Adoptar **Shopify v2026-08 como instantánea inicial** y estructura principal de familias.
-- Incorporar **Amazon** como fuente de especializaciones y atributos, cuando el acceso y las evidencias lo permitan.
+- Incorporar **Amazon** como fuente de especializaciones, atributos y requisitos de la categoría ([D-039](../../30-governance/decisions.md#d-039)), cuando el acceso y las evidencias lo permitan.
 - Incorporar **Google** como referencia de clasificación, atributos y reglas comerciales, separando semántica de obligación de interfaz.
 - Mantener **clases internas con IDs propios**, definiciones, facetas y mapeos versionados.
 - Crear subclases solo cuando existan **fronteras positivas y diferencias sustantivas de necesidades de información**.
@@ -115,7 +115,7 @@ Referencias R1–R16 en [sources.md](sources.md#referencias-externas-consulta-24
 - La selección de ecommerce referentes y casos frontera para el piloto de botas.
 - El mecanismo de gobierno, revisión y calendario de actualización de fuentes externas.
 
-El grado de especialización que reduce la ambigüedad sin fragmentar innecesariamente los modelos de demanda quedó resuelto en el canon ([D-020](../../30-governance/decisions.md#d-020)): tantas especializaciones como sean relevantes, buscando la especificidad informativa necesaria ([clase de estudio](../../10-model/demand-model.md#clase-de-estudio)).
+El grado de especialización que reduce la ambigüedad sin fragmentar innecesariamente los modelos de demanda quedó resuelto en el canon ([D-020](../../30-governance/decisions.md#d-020)): tantas especializaciones como sean relevantes, buscando la especificidad informativa necesaria ([clase de estudio](../../10-model/study-class.md)).
 
 ## Anexo A. Ficha de clase propuesta
 

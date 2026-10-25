@@ -1,0 +1,187 @@
+{
+  "id": "cat.fundas-de-almohada",
+  "type": "categoría",
+  "name": "Fundas de almohada",
+  "shopify": "hg-15-1-8-2",
+  "parent": "cat.fundas-de-almohada-y-cojines",
+  "refs": [
+    "shopify:hg-15-1-8-2@v2026-08",
+    "google:2927@2021-09-21",
+    "amazon-ptd:PILLOWCASE@2026-10-24",
+    "amazon-btg:3250027031@2026-10-24"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.fundas-de-almohada/01",
+      "question": "¿Cuántas fundas incluye la oferta?",
+      "dimension": "unidades incluidas",
+      "trait": "contenido",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOWCASE.number_of_pieces",
+        "amazon-ptd-prop:PILLOWCASE.number_of_sets"
+      ],
+      "applicability": "universal",
+      "rationale": "Las fundas de almohada se venden sueltas, por pares o en packs; sin saberlo no se puede comparar el precio. Une número de piezas y número de juegos. Concreta para la clase la cuestión general gen/01. Se mantiene (criterio 3): son unidades de la misma pieza (sueltas, por pares o en packs), no piezas distintas de un juego; concreta gen/01 con algo propio de la clase, como la cantidad neta del pienso.",
+      "seed_importance": "principal",
+      "rule": "imp:contenido@hg-15-1-8-2"
+    },
+    {
+      "id": "cat.fundas-de-almohada/03",
+      "question": "¿Qué número de hilos tiene el tejido?",
+      "dimension": "densidad del tejido",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOWCASE.thread"
+      ],
+      "applicability": "si es un tejido de calada (percal, satén, sarga…); no aplica a tejidos de punto ni de pelo o perchados (franela, coralina, polar)",
+      "rationale": "«Rosca» es la traducción de Amazon de thread count (número de hilos). En los tejidos de algodón es un criterio habitual de comparación (144, 200, 300 hilos…); los casos documentados lo cuentan en la base de la clase (D-026). Queda repetido (criterio 4): el número de hilos no vale para todas las hijas de Ropa de cama (mantas, protectores).",
+      "seed_importance": "principal",
+      "rule": "imp:construccion@hg-15-1-8-2"
+    },
+    {
+      "id": "cat.fundas-de-almohada/04",
+      "question": "¿Qué protección ofrece a la piel, al cabello o a la almohada (hipoalergénica, frente a ácaros, chinches o manchas)?",
+      "dimension": "protección e higiene",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOWCASE.recommended_uses_for_product",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Hipoalergénica",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Resistente a los ácaros del polvo"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa los usos recomendados de Amazon (protección de la piel, del cabello, contra chinches, prevención de manchas…) y los valores de special_feature sobre higiene. Queda en el bloque (criterio 4): la higiene no vale para todas las hijas de Ropa de cama (doseles, cubrecanapés).",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@hg-15-1-8-2"
+    },
+    {
+      "id": "cat.fundas-de-almohada/05",
+      "question": "¿Qué sensación térmica y de transpiración ofrece (efecto frío, transpirable, gestión de la humedad y el sudor)?",
+      "dimension": "confort térmico",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Enfriamiento",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Transpirable",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Retención de humedad",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Resistente al sudor"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa los valores de special_feature sobre comportamiento térmico y humedad. Queda en el bloque (criterio 4): el confort térmico no vale para todas las hijas de Ropa de cama (doseles, cubrecanapés).",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@hg-15-1-8-2"
+    },
+    {
+      "id": "cat.fundas-de-almohada/06",
+      "question": "¿Qué resistencia al uso y al lavado tiene (decoloración, encogimiento, bolitas, arrugas, manchas, desgarro…)?",
+      "dimension": "durabilidad y mantenimiento",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Resistente a la decoloración",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Resistente a la estática",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Resistente a la formación de bolitas",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Resistente a las arrugas",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Resistente a las manchas",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Resistente a los derrames",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Resistente a los olores",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Resistente al desgarro",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Resistente al encogimiento",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Secado rápido",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Dobladillo con doble vuelta"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa los valores de special_feature sobre durabilidad, mantenimiento y confección resistente. No sube a Ropa de casa (criterio 4 y D-040): Protectores para colchones y Manteles tienen la durabilidad como atributo propio de Shopify.",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@hg-15-1-8-2"
+    },
+    {
+      "id": "cat.fundas-de-almohada/07",
+      "question": "¿Es reversible o tiene ajuste elástico?",
+      "dimension": "diseño y confección",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Reversible",
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Elástico"
+      ],
+      "applicability": "universal",
+      "rationale": "Valores de special_feature que cambian el uso de la funda (dos caras utilizables, ajuste a la almohada).",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@hg-15-1-8-2"
+    },
+    {
+      "id": "cat.fundas-de-almohada/08",
+      "question": "¿Qué tejido o ligamento tiene (percal, satén, sarga, franela, jersey…)?",
+      "dimension": "tejido y ligamento",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Cuestión inferida (criterio 5; añadido provisional hasta su aprobación, D-041): el PTD PILLOWCASE no recoge el ligamento, y en la cadena no hay atributo que lo cubra (fabric-weave es de Fundas de nórdico). El ligamento determina el tacto, el aspecto y el comportamiento sobre la piel y el cabello; percal frente a satén es un criterio habitual para elegir fundas de almohada.",
+      "seed_importance": "principal",
+      "rule": "imp:construccion@hg-15-1-8-2"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:PILLOWCASE.fabric_type",
+      "reason": "Composición en fibras con porcentajes: la cubre cat.ropa-de-casa/01 (shopify-attr:fabric y material), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOWCASE.initial_character",
+      "reason": "Letra o inicial que forma parte del diseño: es un valor de la decoración (patrón, en Casa y jardín), no una cuestión de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOWCASE.letter_character",
+      "reason": "Letra o inicial que forma parte del diseño: es un valor de la decoración (patrón, en Casa y jardín), no una cuestión de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOWCASE.closure",
+      "reason": "Cierre (botón, cremallera, solapa…): lo cubre cat.fundas-de-almohada-y-cojines/01 (shopify-attr:closure-style), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOWCASE.pillow_type",
+      "reason": "Tipo de almohada: en Fundas de almohada es, por definición, la almohada de cama; las fundas de cojín decorativo son otra categoría (hg-15-1-8-1). El tamaño y las medidas los cubren cat.ropa-de-cama/01 y /02."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOWCASE.collection_item",
+      "reason": "Dato de colección o catálogo del vendedor; no informa sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOWCASE.item_weight",
+      "reason": "Peso del artículo: dato logístico; no es criterio de comparación de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOWCASE.special_feature=Decorativo",
+      "reason": "Corresponde a Fundas de almohada decorativas (hg-15-1-8-1), fuera del plan; el diseño lo cubre el patrón."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOWCASE.special_feature=Reutilizable",
+      "reason": "Una funda textil es reutilizable por naturaleza; el valor es propio de fundas desechables y no informa sobre la clase."
+    },
+    {
+      "source": "cat.fundas-de-almohada/02",
+      "reason": "Requisito retirado: movido a cat.ropa-de-cama/02 (criterio 4: item_length_width se repite en los PTD de ropa de cama y las medidas valen para todas sus hijas), con sus fuentes amazon-ptd-prop:PILLOWCASE.item_length_width, .item_width e .item_length."
+    }
+  ],
+  "compiled_by": "reglas 3"
+}

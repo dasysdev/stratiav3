@@ -1,0 +1,65 @@
+{
+  "id": "pienso-josera-sea-fish",
+  "url": "https://guaw.com/josera-high-protein-adult-sea-fish-pienso-para-perros-con-pescado.html",
+  "retailer": "guaw.com",
+  "vertical": "mascotas",
+  "split": "dev",
+  "page": "var/pages/pienso-josera-sea-fish.html",
+  "source": "docs/20-methods/product-taxonomy/cases.md#pienso-para-perros",
+  "rules": [
+    "D-025",
+    "D-026"
+  ],
+  "expected": {
+    "components": [
+      {
+        "shopify": "ap-2-3-3-1",
+        "name": "Comida para perros sin prescripción médica",
+        "piece": null,
+        "entry": "aporta requisitos"
+      }
+    ],
+    "rejected_categories": [],
+    "specializations": [
+      {
+        "name": "pienso seco",
+        "kind": "producto",
+        "questions": [
+          "tamaño de la croqueta"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "feature": "adulto",
+        "role": "valor"
+      },
+      {
+        "feature": "sin cereales, alto en proteína, perros activos, sabor, 12,5 kg",
+        "role": "valor"
+      },
+      {
+        "feature": "cuidado articular",
+        "role": "beneficio reclamado"
+      }
+    ],
+    "class": "Comida para perros sin prescripción → seco"
+  },
+  "expected_v1": {
+    "categories": [
+      "ap-2-3-3-1"
+    ],
+    "alias": [],
+    "specializations": [
+      {
+        "name": "pienso seco",
+        "questions": [
+          "tamaño de la croqueta"
+        ]
+      }
+    ],
+    "application": null,
+    "inferred_any_of": [],
+    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+  }
+}

@@ -3,9 +3,9 @@ id: product-taxonomy
 title: Taxonomía de clases de producto — marco metodológico
 layer: method
 status: propuesta
-version: 1.1
-updated: 2026-10-24
-sources: [TAX Resumen, TAX §1, INTAKE 2026-10-24-define-class]
+version: 1.7
+updated: 2026-10-25
+sources: [TAX Resumen, TAX §1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks]
 ---
 
 # Taxonomía de clases de producto — marco metodológico
@@ -20,7 +20,7 @@ El proyecto necesita una **taxonomía propia de clases de producto u oferta** qu
 
 La conclusión de la investigación es que **Shopify, Amazon y Google son fuentes complementarias, pero sus estructuras no son directamente fusionables en un único árbol sin interpretación semántica**. Shopify constituye una buena estructura principal de referencia por sus categorías y atributos normalizados; Amazon puede aportar especializaciones de navegación y esquemas de atributos; Google sirve para contrastar categorías, vocabulario comercial y reglas de datos. La información publicada por ecommerce referentes sigue siendo una fuente principal para inferir requisitos informativos ([modelo de demanda](../../10-model/demand-model.md); vía desarrollada en [MPIR](../mpir/README.md)).
 
-> El canon reconoce dos vías de construcción del modelo de demanda: esta taxonomía y el [MPIR](../mpir/README.md) ([D-009](../../30-governance/decisions.md#d-009)). Amazon y Google son fuentes de apoyo de la taxonomía, no fuentes directas de RI.
+> El canon reconoce dos vías de construcción del modelo de demanda: esta taxonomía y el [MPIR](../mpir/README.md) ([D-009](../../30-governance/decisions.md#d-009)); y, como tercera vía provisional, las cuestiones inferidas ([D-036](../../30-governance/decisions.md#d-036)). Amazon y Google son fuentes de apoyo de la taxonomía; los PTD de Amazon pueden además ser fuente de requisitos de la categoría cuando son relevantes para la clase ([D-039](../../30-governance/decisions.md#d-039)).
 
 La estrategia es **conservar las fuentes externas sin modificarlas, construir correspondencias auditables y derivar una capa interna de clases y facetas**. Un siguiente nivel de especialización es deseable allí donde cambien sustancialmente las necesidades informativas, pero no debe imponerse a todas las ramas ni justificarse por la mera existencia de una subcategoría en Amazon.
 
@@ -61,7 +61,7 @@ La taxonomía es transversal a esos ámbitos: **no se diseña una clase distinta
 | Clase interna | Conjunto de productos u ofertas delimitado por reglas claras y necesidades informativas suficientemente homogéneas. |
 | Subclase interna | Clase más específica cuya delimitación y diferenciación informativa están justificadas. |
 | Faceta | Dimensión transversal (uso, protección, estilo, material...) que ayuda a segmentar sin exigir una rama exclusiva. |
-| Clase de estudio | Clase objeto del modelo de demanda: clase general más todas las especializaciones aplicables ([definición canónica](../../10-model/demand-model.md#clase-de-estudio)). |
+| Clase de estudio | Clase objeto del modelo de demanda: clase general más todas las especializaciones aplicables ([definición canónica](../../10-model/study-class.md)). |
 | Modelo de demanda | Catálogo de requisitos informativos pertinentes para la clase ([definición canónica](../../10-model/demand-model.md)). |
 | Variante u oferta | Entidades comerciales sobre las que recaen preguntas; no son automáticamente categorías taxonómicas. |
 
@@ -73,7 +73,9 @@ La taxonomía es transversal a esos ámbitos: **no se diseña una clase distinta
 |---|---|---|
 | [sources.md](sources.md) | Inventario razonado de fuentes externas y referencias R1–R16. | TAX §2, §12 |
 | [integration.md](integration.md) | Integración semántica, arquitectura de cinco capas, jerarquía y facetas, reglas de alineación, semáforo de validación. | TAX §3–4 |
-| [subclasses.md](subclasses.md) | Cuándo crear una subclase, prueba de especialización, ejemplo de botas, de la clase al modelo de demanda. | TAX §5–7 |
+| [subclasses.md](subclasses.md) | Cuándo crear una subclase, prueba de especialización, ejemplo de botas, caso de trabajo de las sábanas de coralina, de la clase al modelo de demanda. | TAX §5–7 |
+| [cases.md](cases.md) | Casos de evaluación de la clase de estudio: toallas, sofá cama, juguete de cuerda, bota de equitación, sofá reclinable de exposición, funda nórdica, pienso, manta, plaid, zapatillas de baño, protector de colchón, cojín y funda nórdica bordada. | — |
+| [requirement-blocks.md](requirement-blocks.md) | Bloques de requisitos, capa general con importancias por defecto, pruebas de importancia, formato del catálogo, denominación y cuestiones inferidas (propuesta). | — |
 | [data-model-governance.md](data-model-governance.md) | Modelo de datos, procedimiento, piloto, gobierno, riesgos, indicadores de salud, conclusiones, decisiones pendientes y fichas (Anexos A–B). | TAX §8–11, Anexos |
 
 **Nota sobre evidencia:** este marco registra conclusiones de documentación externa y decisiones metodológicas propuestas. No constituye una extracción del árbol completo de Amazon.es ni certifica mapeos específicos entre hojas de las tres plataformas. La aprobación de clases requiere la comprobación indicada en el método.

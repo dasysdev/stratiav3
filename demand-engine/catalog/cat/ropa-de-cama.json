@@ -1,0 +1,60 @@
+{
+  "id": "cat.ropa-de-cama",
+  "type": "categoría",
+  "name": "Ropa de cama",
+  "shopify": "hg-15-1",
+  "parent": "cat.ropa-de-casa",
+  "refs": [
+    "shopify:hg-15-1@v2026-08",
+    "google:569@2021-09-21",
+    "amazon-ptd:FITTED_SHEET@2026-10-24",
+    "amazon-ptd:FLAT_SHEET@2026-10-24",
+    "amazon-ptd:PILLOWCASE@2026-10-24",
+    "amazon-ptd:DUVET_COVER@2026-10-24",
+    "amazon-ptd:BLANKET@2026-10-24"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.ropa-de-cama/01",
+      "question": "¿Para qué tamaño de cama, colchón o almohada está hecha la pieza?",
+      "dimension": "tamaño",
+      "trait": "medida-que-fija",
+      "entity": "producto",
+      "importance": "crítico",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bedding-size"
+      ],
+      "applicability": "universal; por variante cuando la medida define las variantes. En piezas que no se venden por tamaño de cama (p. ej., mantas de sofá) se resuelve con las medidas de la pieza",
+      "rationale": "Una pieza de ropa de cama solo sirve si corresponde a la cama, al colchón o a la almohada: sin el tamaño no se sabe qué se vende y no se pueden comparar precios, que dependen de la medida. Las denominaciones de Shopify (Queen, King…) son estadounidenses; en España se usa el ancho del colchón (90, 135, 150…) o las medidas en cm, que responden igual a la cuestión. Criterio 1: es crítica porque la medida de cama, colchón o almohada fija la variante que se vende.",
+      "seed_importance": "crítico",
+      "rule": "marco:D-043.1/medida-que-fija"
+    },
+    {
+      "id": "cat.ropa-de-cama/02",
+      "question": "¿Qué medidas tiene la pieza en cm (largo × ancho; en la bajera, las del colchón al que se ajusta)?",
+      "dimension": "medidas",
+      "trait": "medida",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:FITTED_SHEET.item_length_width",
+        "amazon-ptd-prop:FLAT_SHEET.item_length_width",
+        "amazon-ptd-prop:PILLOWCASE.item_length_width",
+        "amazon-ptd-prop:PILLOWCASE.item_width",
+        "amazon-ptd-prop:PILLOWCASE.item_length",
+        "amazon-ptd-prop:DUVET_COVER.item_length_width",
+        "amazon-ptd-prop:BLANKET.item_length_width"
+      ],
+      "applicability": "universal",
+      "rationale": "Recoge cat.sabanas-ajustables/02, cat.sabanas-planas/01, cat.fundas-de-almohada/02, cat.fundas-de-nordico/04 y cat.mantas/04 con todas sus fuentes (criterio 4: item_length_width se repite en los PTD de las hijas y las medidas valen para toda la ropa de cama). Un mismo tamaño de cama admite medidas distintas según el fabricante (largo del colchón, caída de la encimera o del nórdico). Criterio 1: principal, porque describe la pieza; lo que fija la variante es /01, que en las piezas que no se venden por tamaño de cama (mantas, fundas de almohada) se resuelve con estas medidas. No sube a Ropa de casa: en Toallas la medida fija la variante y es crítica (cat.toallas/01). La altura del colchón que admiten la bajera y el protector la preguntan cat.sabanas-ajustables/01 y cat.protectores-de-colchon/05. Se mantiene en Ropa de cama: ninguna hija de Shopify tiene las medidas como atributo propio (bedding-size es de esta categoría) (criterio 4 y D-040).",
+      "seed_importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva"
+    }
+  ],
+  "excluded": [],
+  "compiled_by": "reglas 3"
+}

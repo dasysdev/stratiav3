@@ -1,0 +1,136 @@
+{
+  "id": "sabanas-coralina-999",
+  "url": "https://www.burritoblanco.com/juego-de-sabanas-coralina-color-marfil-diseno-trenzado-999-p-6153-95005.html#/449-medidas_de_cama-cama_90_cm",
+  "retailer": "burritoblanco.com",
+  "vertical": "textil hogar",
+  "split": "dev",
+  "page": "var/pages/sabanas-coralina-999.html",
+  "source": "docs/20-methods/product-taxonomy/subclasses.md#caso-de-trabajo-juego-de-sábanas-de-coralina",
+  "rules": [
+    "D-020",
+    "D-021",
+    "D-022",
+    "D-023",
+    "D-026",
+    "D-029",
+    "D-030"
+  ],
+  "expected": {
+    "components": [
+      {
+        "shopify": "hg-15-1-2-2",
+        "name": "Sábanas planas",
+        "piece": "encimera",
+        "entry": "aporta requisitos"
+      },
+      {
+        "shopify": "hg-15-1-2-1",
+        "name": "Sábanas ajustables",
+        "piece": "bajera",
+        "entry": "aporta requisitos"
+      },
+      {
+        "shopify": "hg-15-1-8-2",
+        "name": "Fundas de almohada",
+        "piece": "fundas",
+        "entry": "aporta requisitos"
+      }
+    ],
+    "rejected_categories": [
+      {
+        "shopify": "hg-15-1-11",
+        "name": "Juegos de cama",
+        "reason": "Google la mapea a la genérica 569 y su nivel de calidez es del edredón o la colcha"
+      }
+    ],
+    "specializations": [
+      {
+        "name": "juego",
+        "kind": "producto",
+        "questions": [
+          "qué piezas incluye",
+          "cuántas",
+          "en qué medidas"
+        ]
+      },
+      {
+        "name": "uso invernal",
+        "kind": "producto",
+        "questions": [
+          "abrigo",
+          "temporada"
+        ]
+      },
+      {
+        "name": "tejido polar",
+        "kind": "producto",
+        "questions": [
+          "bolitas",
+          "electricidad estática",
+          "pérdida de pelo"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "feature": "coralina",
+        "role": "valor"
+      },
+      {
+        "feature": "diseño trenzado, marfil",
+        "role": "estético"
+      },
+      {
+        "feature": "medida de 90 cm",
+        "role": "variante"
+      },
+      {
+        "feature": "infantil",
+        "role": "no declarado"
+      },
+      {
+        "feature": "100 % poliéster",
+        "role": "valor"
+      }
+    ],
+    "class": "Sábanas planas + Sábanas ajustables + Fundas de almohada → juego + uso invernal + tejido polar"
+  },
+  "expected_v1": {
+    "categories": [
+      "hg-15-1-2-2",
+      "hg-15-1-2-1",
+      "hg-15-1-8-2"
+    ],
+    "alias": [],
+    "specializations": [
+      {
+        "name": "juego",
+        "questions": [
+          "qué piezas incluye",
+          "cuántas",
+          "en qué medidas"
+        ]
+      },
+      {
+        "name": "uso invernal",
+        "questions": [
+          "abrigo",
+          "temporada"
+        ]
+      },
+      {
+        "name": "tejido polar",
+        "questions": [
+          "bolitas",
+          "electricidad estática",
+          "pérdida de pelo"
+        ]
+      }
+    ],
+    "application": [
+      "gen.variantes"
+    ],
+    "inferred_any_of": [],
+    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+  }
+}

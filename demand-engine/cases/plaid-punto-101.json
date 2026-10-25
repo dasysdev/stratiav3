@@ -1,0 +1,72 @@
+{
+  "id": "plaid-punto-101",
+  "url": "https://www.burritoblanco.com/plaid-de-punto-color-arena-diseno-101-p-5454-90771.html#/71-medidas_de_plaid-130x170_cm",
+  "retailer": "burritoblanco.com",
+  "vertical": "textil hogar",
+  "split": "dev",
+  "page": "var/pages/plaid-punto-101.html",
+  "source": "docs/20-methods/product-taxonomy/cases.md#plaid-de-punto",
+  "rules": [
+    "D-026",
+    "D-028",
+    "D-029"
+  ],
+  "expected": {
+    "components": [
+      {
+        "shopify": "hg-15-1-4-2",
+        "name": "Mantas decorativas",
+        "piece": null,
+        "entry": "clasificación objetiva"
+      }
+    ],
+    "rejected_categories": [
+      {
+        "shopify": "hg-3-77",
+        "name": "Mantas para sillones y sofás",
+        "reason": "entrada duplicada para el mismo tipo de producto"
+      }
+    ],
+    "specializations": [
+      {
+        "name": "tejido de punto",
+        "kind": "producto",
+        "questions": [
+          "enganchones",
+          "deformación",
+          "bolitas"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "feature": "acrílico",
+        "role": "valor"
+      },
+      {
+        "feature": "trenzas",
+        "role": "estético"
+      }
+    ],
+    "class": "Mantas decorativas → tejido de punto"
+  },
+  "expected_v1": {
+    "categories": [
+      "hg-15-1-4-2"
+    ],
+    "alias": [],
+    "specializations": [
+      {
+        "name": "tejido de punto",
+        "questions": [
+          "enganchones",
+          "deformación",
+          "bolitas"
+        ]
+      }
+    ],
+    "application": null,
+    "inferred_any_of": [],
+    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+  }
+}

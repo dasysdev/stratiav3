@@ -1,0 +1,86 @@
+{
+  "id": "funda-nordica-salvia-642",
+  "url": "https://www.burritoblanco.com/juego-de-funda-nordica-algodon-144-hilos-salvia-floral-642-p-6179-95168.html#/449-medidas_de_cama-cama_90_cm",
+  "retailer": "burritoblanco.com",
+  "vertical": "textil hogar",
+  "split": "dev",
+  "page": "var/pages/funda-nordica-salvia-642.html",
+  "source": "docs/20-methods/product-taxonomy/cases.md#juego-de-funda-nórdica",
+  "rules": [
+    "D-023",
+    "D-026",
+    "D-032"
+  ],
+  "expected": {
+    "components": [
+      {
+        "shopify": "hg-15-1-5",
+        "name": "Fundas de nórdico",
+        "piece": "funda nórdica",
+        "entry": "aporta requisitos"
+      },
+      {
+        "shopify": "hg-15-1-2-1",
+        "name": "Sábanas ajustables",
+        "piece": "bajera",
+        "entry": "aporta requisitos"
+      },
+      {
+        "shopify": "hg-15-1-8-2",
+        "name": "Fundas de almohada",
+        "piece": "fundas",
+        "entry": "aporta requisitos"
+      }
+    ],
+    "rejected_categories": [],
+    "specializations": [
+      {
+        "name": "juego",
+        "kind": "producto",
+        "questions": [
+          "qué piezas incluye",
+          "cuántas",
+          "en qué medidas"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "feature": "algodón, 144 hilos",
+        "role": "valor"
+      },
+      {
+        "feature": "estampado floral",
+        "role": "estético"
+      },
+      {
+        "feature": "32 cm, medidas",
+        "role": "valor o variante"
+      }
+    ],
+    "class": "Fundas de nórdico + Sábanas ajustables + Fundas de almohada → juego"
+  },
+  "expected_v1": {
+    "categories": [
+      "hg-15-1-5",
+      "hg-15-1-2-1",
+      "hg-15-1-8-2"
+    ],
+    "alias": [],
+    "specializations": [
+      {
+        "name": "juego",
+        "questions": [
+          "qué piezas incluye",
+          "cuántas",
+          "en qué medidas"
+        ]
+      }
+    ],
+    "application": [
+      "gen.variantes"
+    ],
+    "inferred_any_of": [],
+    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+  }
+}

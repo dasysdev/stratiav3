@@ -1,0 +1,301 @@
+{
+  "id": "cat.mantas",
+  "type": "categoría",
+  "name": "Mantas",
+  "shopify": "hg-15-1-4",
+  "parent": "cat.ropa-de-cama",
+  "refs": [
+    "shopify:hg-15-1-4@v2026-08",
+    "google:1985@2021-09-21",
+    "amazon-ptd:BLANKET@2026-10-24",
+    "amazon-btg:3250001031@2026-10-24"
+  ],
+  "version": "2",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.mantas/01",
+      "question": "¿Qué nivel de abrigo tiene y para qué época del año es adecuada?",
+      "dimension": "abrigo",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:warmth-rating",
+        "shopify-attr:season",
+        "amazon-ptd-prop:BLANKET.thermal_performance_description",
+        "amazon-ptd-prop:BLANKET.special_feature=Térmica"
+      ],
+      "applicability": "universal",
+      "rationale": "Une Calificación de calidez y Estación, casi idénticas (la estación adecuada se deriva del abrigo), con el «peso del edredón» y el valor «Térmica» de Amazon. El abrigo es uno de los criterios con los que se elige una manta.",
+      "seed_importance": "principal",
+      "rule": "imp:prestacion@hg-15-1-4"
+    },
+    {
+      "id": "cat.mantas/02",
+      "question": "¿Qué tipo de manta es por su construcción (de una capa, acolchada o colcha, con peso, muselina, arrullo…)?",
+      "dimension": "tipo",
+      "trait": "identidad",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.blanket_form"
+      ],
+      "applicability": "universal",
+      "rationale": "Distingue productos con usos y prestaciones distintas dentro de la clase; concreta la cuestión general gen/01. La «manta pesada» corresponde a Mantas con peso (hg-15-1-4-3), fuera del plan, que traería cuestiones propias.",
+      "seed_importance": "principal",
+      "rule": "imp:identidad@hg-15-1-4"
+    },
+    {
+      "id": "cat.mantas/03",
+      "question": "¿Qué tipo de tejido tiene (punto, pelo o polar, jacquard, gofre, sarga…)?",
+      "dimension": "tejido",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.weave_type",
+        "amazon-ptd-prop:BLANKET.compliance_weave_type",
+        "amazon-ptd-prop:BLANKET.compliance_fabric_type"
+      ],
+      "applicability": "universal",
+      "rationale": "El tejido determina el tacto, el abrigo y el comportamiento (pelusa, bolitas); es un criterio habitual de elección. La composición en fibras es cat.ropa-de-casa/01. Se suman las propiedades de cumplimiento sobre el tejido (calada, punto o ganchillo; perchado, afieltrado o no tejido). No sube a Ropa de casa (criterio 4 y D-040): Fundas de nórdico y Toallas tienen el ligamento como atributo propio de Shopify.",
+      "seed_importance": "principal",
+      "rule": "imp:construccion@hg-15-1-4"
+    },
+    {
+      "id": "cat.mantas/05",
+      "question": "¿Qué peso y qué grosor tiene la manta?",
+      "dimension": "peso y grosor",
+      "trait": "magnitud",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.item_weight",
+        "amazon-ptd-prop:BLANKET.item_thickness",
+        "amazon-ptd-prop:BLANKET.special_feature=Ligera"
+      ],
+      "applicability": "universal",
+      "rationale": "Informa del cuerpo y del abrigo de la manta. No suele ser central salvo en las mantas con peso, fuera del plan. El gramaje del tejido (g/m²) se pregunta en cat.ropa-de-casa/05.",
+      "seed_importance": "complementario",
+      "rule": "imp:magnitud@hg-15-1-4"
+    },
+    {
+      "id": "cat.mantas/06",
+      "question": "¿De qué material es el relleno?",
+      "dimension": "relleno",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:filler-material"
+      ],
+      "applicability": "si la manta es acolchada o tiene relleno",
+      "rationale": "La mayoría de las mantas son de una capa; en las acolchadas el relleno determina el abrigo y el cuidado.",
+      "seed_importance": "complementario",
+      "rule": "imp:material@hg-15-1-4"
+    },
+    {
+      "id": "cat.mantas/07",
+      "question": "¿Para qué edad o tipo de usuario está pensada (bebé, infantil, adulto)?",
+      "dimension": "edad",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:age-group",
+        "amazon-ptd-prop:BLANKET.recommended_user_type"
+      ],
+      "applicability": "universal",
+      "rationale": "Las mantas de bebé tienen medidas y exigencias propias; en el resto de ofertas la edad no suele ser criterio. Une el tipo de usuario recomendado de Amazon (texto libre).",
+      "seed_importance": "complementario",
+      "rule": "imp:uso@hg-15-1-4"
+    },
+    {
+      "id": "cat.mantas/08",
+      "question": "¿Qué tacto y confort ofrece (suave, esponjosa, transpirable)?",
+      "dimension": "tacto y confort",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.special_feature=Agradable para la piel",
+        "amazon-ptd-prop:BLANKET.special_feature=Esponjosa",
+        "amazon-ptd-prop:BLANKET.special_feature=Transpirable"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa los valores de special_feature sobre tacto y confort. Queda en el bloque (criterio 4): el confort térmico («Transpirable») no vale para todas las hijas de Ropa de cama (doseles, cubrecanapés).",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@hg-15-1-4"
+    },
+    {
+      "id": "cat.mantas/09",
+      "question": "¿Qué resistencia al uso y al lavado tiene (pelusa, electricidad estática, decoloración, arrugas, manchas, olores, desgarro…)?",
+      "dimension": "durabilidad y mantenimiento",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.special_feature=Duradera",
+        "amazon-ptd-prop:BLANKET.special_feature=Sin pelusa",
+        "amazon-ptd-prop:BLANKET.special_feature=Antiestático",
+        "amazon-ptd-prop:BLANKET.special_feature=Resistente a la decoloración",
+        "amazon-ptd-prop:BLANKET.special_feature=Resistente a las arrugas",
+        "amazon-ptd-prop:BLANKET.special_feature=Resistente a las manchas",
+        "amazon-ptd-prop:BLANKET.special_feature=Resistente a los olores",
+        "amazon-ptd-prop:BLANKET.special_feature=Resistente al cabello",
+        "amazon-ptd-prop:BLANKET.special_feature=Resistente al desgarro",
+        "amazon-ptd-prop:BLANKET.special_feature=Secado rápido"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa los valores de special_feature sobre durabilidad y mantenimiento. La pelusa y la electricidad estática son dimensiones de la base de Mantas (D-030); las bolitas no están en la lista (las trae la especialización de tejido polar). No sube a Ropa de casa (criterio 4 y D-040): Protectores para colchones y Manteles tienen la durabilidad como atributo propio de Shopify.",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@hg-15-1-4"
+    },
+    {
+      "id": "cat.mantas/10",
+      "question": "¿Qué propiedades de salud y seguridad declara (hipoalergénica, antibacteriana, no tóxica, resistente a las llamas)?",
+      "dimension": "salud y seguridad",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.special_feature=Hipoalergénica",
+        "amazon-ptd-prop:BLANKET.special_feature=Antibacteriana",
+        "amazon-ptd-prop:BLANKET.special_feature=Antimicrobiana",
+        "amazon-ptd-prop:BLANKET.special_feature=No tóxico",
+        "amazon-ptd-prop:BLANKET.special_feature=Resistente a las llamas"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa los valores de special_feature sobre higiene y seguridad. Queda en el bloque (criterio 4): la higiene no vale para todas las hijas de Ropa de cama.",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@hg-15-1-4"
+    },
+    {
+      "id": "cat.mantas/11",
+      "question": "¿Tiene características de diseño que cambian su uso (reversible, bolsa para los pies, sin costuras)?",
+      "dimension": "diseño y confección",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.special_feature=Reversible",
+        "amazon-ptd-prop:BLANKET.special_feature=Bolsa para los pies",
+        "amazon-ptd-prop:BLANKET.special_feature=Sin costuras"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa los valores de special_feature sobre diseño funcional.",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@hg-15-1-4"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:BLANKET.fabric_type",
+      "reason": "Composición en fibras con porcentajes: la cubre cat.ropa-de-casa/01 (shopify-attr:fabric y material), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_size_type",
+      "reason": "Tamaño especial (Reina, Rey, Sencillo…): lo cubre cat.ropa-de-cama/01 (shopify-attr:bedding-size), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.fit_type",
+      "reason": "Tipo de corte: propiedad de prendas, sin valores; no aplica a mantas."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.voltage",
+      "reason": "Solo aplica a Mantas eléctricas (hg-15-1-4-1), fuera del plan; iría a su bloque si se incorpora."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.item_form",
+      "reason": "Forma del artículo: texto libre sin valores; lo que pueda indicar lo cubre el tipo de manta (/02)."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.included_components",
+      "reason": "Sus valores son de mantas eléctricas o de viaje (cable, controlador, batería, bolsa, mosquetón…); qué incluye la oferta lo cubre gen/01."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.recommended_uses_for_product",
+      "reason": "Uso de exterior (playa, pícnic, acampada): propio de mantas de viaje o de pícnic, no de la ropa de cama; no informa sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.thread",
+      "reason": "Número de hilos: no es un criterio de comparación en mantas (punto, pelo, polar); el tejido lo cubre /03."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=A prueba de arena",
+      "reason": "Uso de exterior (playa, pícnic, acampada): propio de mantas de viaje o de pícnic, no de la ropa de cama; no informa sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=A prueba de viento",
+      "reason": "Uso de exterior (playa, pícnic, acampada): propio de mantas de viaje o de pícnic, no de la ropa de cama; no informa sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Impermeable",
+      "reason": "Uso de exterior (playa, pícnic, acampada): propio de mantas de viaje o de pícnic, no de la ropa de cama; no informa sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Protección solar",
+      "reason": "Uso de exterior (playa, pícnic, acampada): propio de mantas de viaje o de pícnic, no de la ropa de cama; no informa sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Absorbente",
+      "reason": "Propios de mantas de playa o de alfombrillas; no informan sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Antideslizante",
+      "reason": "Propios de mantas de playa o de alfombrillas; no informan sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Alimentado por batería",
+      "reason": "Solo aplica a Mantas eléctricas (hg-15-1-4-1), fuera del plan; iría a su bloque si se incorpora."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Eléctrico con cable",
+      "reason": "Solo aplica a Mantas eléctricas (hg-15-1-4-1), fuera del plan; iría a su bloque si se incorpora."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Brilla en la oscuridad",
+      "reason": "Efecto decorativo: es un valor del diseño (patrón, en Casa y jardín)."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Sublimación",
+      "reason": "Técnica de estampado: es un valor del diseño (patrón, en Casa y jardín)."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Elástico",
+      "reason": "No aplica a las mantas en general."
+    },
+    {
+      "source": "cat.mantas/04",
+      "reason": "Requisito retirado: movido a cat.ropa-de-cama/02 (criterio 4: item_length_width se repite en los PTD de ropa de cama y las medidas valen para todas sus hijas), con su fuente amazon-ptd-prop:BLANKET.item_length_width."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.compliance_fabric_weight",
+      "reason": "Movida a cat.ropa-de-casa/05 (criterio 4): gramaje (umbral de 339 g/m²), equivalente a fabric_weight de TOWEL y FITTED_SHEET."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.compliance_operation_mode",
+      "reason": "Fuente de energía a efectos de cumplimiento: solo aplica a Mantas eléctricas (hg-15-1-4-1), fuera del plan."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.compliance_printing_method",
+      "reason": "Método de estampación a efectos aduaneros (batik, estampado a mano); el estampado lo cubre cat.casa-y-jardin/02."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.compliance_warp_or_filling_coloring",
+      "reason": "Número de colores de la urdimbre o la trama a efectos aduaneros; el diseño lo cubre cat.casa-y-jardin/02."
+    }
+  ],
+  "compiled_by": "reglas 3"
+}

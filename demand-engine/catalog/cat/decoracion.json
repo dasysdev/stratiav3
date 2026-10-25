@@ -1,0 +1,65 @@
+{
+  "id": "cat.decoracion",
+  "type": "categoría",
+  "name": "Decoración",
+  "shopify": "hg-3",
+  "parent": "cat.casa-y-jardin",
+  "refs": [
+    "shopify:hg-3@v2026-08",
+    "google:696@2021-09-21"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.decoracion/01",
+      "question": "¿De qué material principal está hecho?",
+      "dimension": "materiales",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:material"
+      ],
+      "applicability": "universal",
+      "rationale": "En un objeto decorativo, el material determina el aspecto, el tacto y la durabilidad: es un criterio con el que se comparan las ofertas. Las categorías hijas con piezas diferenciadas (por ejemplo, la funda y el relleno de un cojín) lo detallan en su propio bloque.",
+      "seed_importance": "principal",
+      "rule": "imp:material@hg"
+    },
+    {
+      "id": "cat.decoracion/02",
+      "question": "Si lleva adornos o aplicaciones (lentejuelas, plumas, abalorios…), ¿de qué material son?",
+      "dimension": "materiales",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:decoration-material"
+      ],
+      "applicability": "si lleva adornos o aplicaciones",
+      "rationale": "Shopify lo define como el material de los adornos (lentejuelas, plumas), distinto del material principal. Amplía el conocimiento sobre el acabado y el cuidado del producto, pero no es un criterio central de comparación.",
+      "seed_importance": "complementario",
+      "rule": "imp:material@hg"
+    },
+    {
+      "id": "cat.decoracion/03",
+      "question": "¿Cómo se limpia y cuida (lavado, secado, planchado, limpieza en seco u otras indicaciones)?",
+      "dimension": "cuidado",
+      "trait": "cuidado",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:care-instructions"
+      ],
+      "applicability": "universal",
+      "rationale": "Es relevante para el uso y la conservación. En el conjunto de la decoración no es un criterio central: en muchos objetos no textiles el cuidado es trivial. Cubre también las características especiales de Amazon sobre lavado («Lavable») de las categorías hijas.",
+      "seed_importance": "complementario",
+      "rule": "imp:cuidado@hg"
+    }
+  ],
+  "excluded": [],
+  "compiled_by": "reglas 3"
+}

@@ -1,0 +1,67 @@
+{
+  "id": "cat.camas-de-enfriamiento-para-mascotas",
+  "type": "categoría",
+  "name": "Camas de enfriamiento para mascotas",
+  "shopify": "ap-2-9-4",
+  "parent": "cat.camas-para-mascotas",
+  "refs": [
+    "shopify:ap-2-9-4@v2026-08",
+    "google:2@2021-09-21",
+    "amazon-ptd:PET_BED_MAT@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.camas-de-enfriamiento-para-mascotas/01",
+      "question": "¿Cómo enfría: con qué sistema o material refrigerante (gel que se activa por presión, agua, tejido refrigerante, ventilación, eléctrico) y qué necesita para funcionar (refrigeración previa, llenado de agua, corriente)?",
+      "dimension": "sistema de enfriamiento",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Refrescante",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Ajuste de temperatura"
+      ],
+      "applicability": "universal",
+      "rationale": "El sistema de enfriamiento define la categoría y es el primer criterio con que se comparan sus ofertas: de él dependen la eficacia, el mantenimiento y lo que exige al comprador. Los valores «Refrescante» y «Ajuste de temperatura» de PET_BED_MAT solo se aplican a esta hija de Camas para mascotas, por lo que se ubican aquí (DRAFTING, punto 4).",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:construccion@ap-2-9-4"
+    },
+    {
+      "id": "cat.camas-de-enfriamiento-para-mascotas/02",
+      "question": "¿Cuánto dura el efecto refrescante y cómo y en cuánto tiempo se recupera (o si enfría de forma continua)?",
+      "dimension": "duración y recuperación del enfriamiento",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Criterio 5: cuestión de toda la clase que no recoge ninguna referencia. La duración del frescor y su recuperación distinguen una cama de enfriamiento eficaz de otra que deja de enfriar al poco; criterio de comparación entre ofertas de la clase.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:prestacion@ap-2-9-4"
+    },
+    {
+      "id": "cat.camas-de-enfriamiento-para-mascotas/03",
+      "question": "Si contiene gel o líquido refrigerante, ¿es no tóxico y qué ocurre si el animal muerde o perfora la cama?",
+      "dimension": "seguridad del refrigerante",
+      "entity": "producto",
+      "trait": "seguridad",
+      "vote": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "si contiene gel o líquido refrigerante",
+      "rationale": "Criterio 5: cuestión que no recoge ninguna referencia. El animal puede morder la cama y acceder al refrigerante; su toxicidad es un riesgo propio de esta categoría y un criterio de elección.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:seguridad@ap-2-9-4"
+    }
+  ],
+  "excluded": [],
+  "status": "compilado",
+  "version": "1",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 3"
+}

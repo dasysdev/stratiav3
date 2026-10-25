@@ -1,0 +1,317 @@
+{
+  "id": "cat.camas-para-mascotas",
+  "type": "categoría",
+  "name": "Camas para mascotas",
+  "shopify": "ap-2-9",
+  "parent": "cat.productos-para-mascotas",
+  "refs": [
+    "shopify:ap-2-9@v2026-08",
+    "google:2@2021-09-21",
+    "amazon-ptd:PET_BED_MAT@2026-10-24",
+    "amazon-btg:13442178031@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.camas-para-mascotas/01",
+      "question": "¿Qué tipo de cama es (colchoneta o tapete, cojín, cesta, nido, cueva, cuna, hamaca, sofá, cama elevada, convertible…)?",
+      "dimension": "tipo de cama",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_BED_MAT.item_form",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Elevada",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Convertible"
+      ],
+      "applicability": "universal",
+      "rationale": "El tipo de cama (plana, con bordes, cerrada, elevada, colgante) decide cómo descansa el animal y es el primer criterio con que se comparan ofertas de la clase. Se unen la forma de artículo de Amazon y los valores «Elevada» y «Convertible», que describen tipos de cama.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:identidad@ap-2"
+    },
+    {
+      "id": "cat.camas-para-mascotas/02",
+      "question": "¿Qué forma tiene (rectangular, redonda, ovalada, cuadrada…)?",
+      "dimension": "forma",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:shape"
+      ],
+      "applicability": "universal",
+      "rationale": "La forma condiciona dónde se coloca la cama y cómo se acomoda el animal; relevante sin ser central frente al tipo y la medida.",
+      "seed_importance": "complementario",
+      "importance": "principal",
+      "rule": "imp:identidad@ap-2"
+    },
+    {
+      "id": "cat.camas-para-mascotas/03",
+      "question": "¿Qué talla tiene y qué medidas (largo × ancho y grosor o altura, en cm)?",
+      "dimension": "talla y medidas",
+      "entity": "variante",
+      "trait": "medida-que-fija",
+      "vote": "crítico",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:accessory-size",
+        "amazon-ptd-prop:PET_BED_MAT.size",
+        "amazon-ptd-prop:PET_BED_MAT.item_length_width_thickness"
+      ],
+      "applicability": "universal; por variante cuando la medida define las variantes",
+      "rationale": "Criterio 1 de D-043: en una cama para mascotas la talla o la medida identifica la variante que se vende (como la medida de cama, colchón o almohada). Se unen la talla de Shopify, la de Amazon y las dimensiones, que describen la misma dimensión.",
+      "seed_importance": "crítico",
+      "importance": "crítico",
+      "rule": "marco:D-043.1/medida-que-fija"
+    },
+    {
+      "id": "cat.camas-para-mascotas/04",
+      "question": "¿Para qué tamaño o raza de animal está indicada?",
+      "dimension": "adecuación al tamaño del animal",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_BED_MAT.dog_breed_size",
+        "amazon-ptd-prop:PET_BED_MAT.breed_recommendation"
+      ],
+      "applicability": "universal",
+      "rationale": "Una cama inadecuada al tamaño del animal no cumple su función; la adecuación al tamaño o la raza es criterio de elección. Se unen las dos propiedades de Amazon, que describen la misma dimensión.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@ap-2"
+    },
+    {
+      "id": "cat.camas-para-mascotas/05",
+      "question": "¿De qué material es la superficie o funda y, si es textil, cuál es su composición en fibras?",
+      "dimension": "material de la superficie",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:material",
+        "amazon-ptd-prop:PET_BED_MAT.cover",
+        "ley:UE-1007/2011-16.1@2011-10-18"
+      ],
+      "applicability": "universal",
+      "rationale": "El material de la superficie decide el tacto, la resistencia a uñas y mordidas y la limpieza, y es criterio de comparación. Se unen el material de Shopify y la cubierta de Amazon. Cuando la cama es un producto textil, la composición en fibras tiene además apoyo normativo (criterio 6: Reglamento (UE) 1007/2011, art. 16.1).",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "marco:D-043.6/composicion-textil"
+    },
+    {
+      "id": "cat.camas-para-mascotas/06",
+      "question": "Si tiene relleno o acolchado, ¿de qué material es y qué soporte ofrece (espuma viscoelástica u ortopédica, fibra, grosor)?",
+      "dimension": "relleno y soporte",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_BED_MAT.fill_material",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Ortopédica"
+      ],
+      "applicability": "si tiene relleno o acolchado",
+      "rationale": "El relleno decide el mullido, el soporte de las articulaciones y la recuperación de la forma; criterio de comparación en las camas acolchadas. «Ortopédica» se une aquí porque describe el soporte del relleno; Camas ortopédicas (ap-2-9-8) no está en este plan.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:material@ap-2"
+    },
+    {
+      "id": "cat.camas-para-mascotas/07",
+      "question": "¿Dónde está pensada para usarse (interior, exterior, coche, viajes)?",
+      "dimension": "lugar de uso",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:suitable-space",
+        "amazon-ptd-prop:PET_BED_MAT.recommended_uses_for_product",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Viaje"
+      ],
+      "applicability": "universal",
+      "rationale": "El espacio de uso orienta la elección (cama de interior, de exterior o de viaje). Se unen el espacio adecuado de Shopify, los usos recomendados de Amazon y el valor «Viaje».",
+      "seed_importance": "complementario",
+      "importance": "principal",
+      "rule": "imp:uso@ap-2"
+    },
+    {
+      "id": "cat.camas-para-mascotas/08",
+      "question": "¿Qué resistencia tiene a mordidas, arañazos y desgarros, y a la decoloración?",
+      "dimension": "resistencia y durabilidad",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a las mordidas",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a los arañazos",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente al desgarro",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a la decoloración"
+      ],
+      "applicability": "universal",
+      "rationale": "Criterio 2: los valores de special_feature sobre la durabilidad mecánica se agrupan en una cuestión. La resistencia a mordidas y uñas es un criterio con que se comparan camas para mascotas.",
+      "seed_importance": "principal",
+      "importance": "complementario",
+      "rule": "imp:prestacion@ap-2-9"
+    },
+    {
+      "id": "cat.camas-para-mascotas/09",
+      "question": "¿Es resistente al agua y a la intemperie (lluvia, humedad, rayos UV)?",
+      "dimension": "resistencia al agua y a la intemperie",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente al agua",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a las condiciones meteorológicas",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a los Rayos UV"
+      ],
+      "applicability": "universal",
+      "rationale": "Criterio 2: los valores sobre el agua y la intemperie forman un tema propio. Relevante para el uso exterior o con animales que se mojan, sin ser central en la clase.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@ap-2-9"
+    },
+    {
+      "id": "cat.camas-para-mascotas/10",
+      "question": "¿Qué propiedades higiénicas y de confort tiene la superficie (transpirable, absorbente, antimicrobiana, control de olores, hipoalergénica)?",
+      "dimension": "higiene y confort de la superficie",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Transpirable",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Absorbente",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Antimicrobiana",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Control de Olores",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Hipoalergénica"
+      ],
+      "applicability": "universal",
+      "rationale": "Criterio 2: los valores de special_feature sobre higiene y transpirabilidad se agrupan. Relevantes (animales con alergias, incontinencia u olores) sin ser centrales.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@ap-2-9"
+    },
+    {
+      "id": "cat.camas-para-mascotas/11",
+      "question": "¿Cómo se limpia: es lavable (a máquina, a mano, solo por manchas), tiene funda extraíble y resiste las manchas?",
+      "dimension": "limpieza y mantenimiento",
+      "entity": "producto",
+      "trait": "cuidado",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_BED_MAT.care_instructions",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Lavable",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Funda extraíble",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistenter a las manchas"
+      ],
+      "applicability": "universal",
+      "rationale": "Una cama para mascotas acumula pelo, suciedad y olores: cómo se limpia es un criterio con que se comparan ofertas. Se unen las instrucciones de cuidado y los valores de special_feature sobre limpieza.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:cuidado@ap-2-9"
+    },
+    {
+      "id": "cat.camas-para-mascotas/12",
+      "question": "¿Es plegable, ligera o portátil para transportarla o guardarla, y cuánto pesa?",
+      "dimension": "transporte y peso",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Plegable",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Portátil",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Ligera",
+        "amazon-ptd-prop:PET_BED_MAT.item_weight"
+      ],
+      "applicability": "universal",
+      "rationale": "Criterio 2: los valores sobre transporte se agrupan con el peso del artículo. Relevante para viajes y almacenaje, sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@ap-2-9"
+    },
+    {
+      "id": "cat.camas-para-mascotas/13",
+      "question": "¿Qué detalles de construcción tiene (base antideslizante, reversible, ajustable)?",
+      "dimension": "detalles de construcción",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Parte inferior antideslizante",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Reversible",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Ajustable"
+      ],
+      "applicability": "universal",
+      "rationale": "Criterio 2: los valores de special_feature sobre la construcción se agrupan. Relevantes para el uso (que no se desplace, que se pueda dar la vuelta) sin ser centrales.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@ap-2-9"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "shopify-attr:pet-bedding-features",
+      "reason": "Atributo sin valores ni descripción en la versión fijada de Shopify; sus temas los cubren los valores de special_feature agrupados en /08 a /13."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_BED_MAT.special_feature=Refrescante",
+      "reason": "Solo se aplica a Camas de enfriamiento (ap-2-9-4): se ubica en cat.camas-de-enfriamiento-para-mascotas/01 (DRAFTING, punto 4)."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_BED_MAT.special_feature=Ajuste de temperatura",
+      "reason": "Describe la regulación térmica de las camas de enfriamiento: se ubica en cat.camas-de-enfriamiento-para-mascotas/01 (DRAFTING, punto 4)."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_BED_MAT.special_feature=Calefacción",
+      "reason": "Define un tipo de cama (calefactada) sin categoría propia en la cadena de Shopify; sus cuestiones (fuente de calor, regulación, seguridad eléctrica) no se aplican a las demás camas y corresponderían a una especialización de función cuando se declare."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_BED_MAT.warranty_type",
+      "reason": "La garantía la cubre la capa general (gen/12)."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_BED_MAT.product_benefit",
+      "reason": "Texto libre de beneficios reclamados: no es una cuestión neutral sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_BED_MAT.has_energy_efficiency_label",
+      "reason": "Dato de cumplimiento energético de la plataforma, no aplicable a camas para mascotas."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_BED_MAT.eprel_registration_number",
+      "reason": "Identificador de registro (EPREL), no aplicable a camas para mascotas."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_BED_MAT.included_components",
+      "reason": "Las piezas incluidas las cubren gen/01 y, en su caso, esp.juego (criterio 3)."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_BED_MAT.specific_uses_for_product",
+      "reason": "Enumeración compartida con alimentos (bolas de pelo, tiroides, tracto urinario…); los valores aplicables (ansiedad, articulaciones) son beneficios reclamados y los de lugar (interior, exterior) los cubre /07."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_BED_MAT.pet_type",
+      "reason": "Repite shopify-attr:animal-type de la cadena (cat.productos-para-mascotas/01)."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_BED_MAT.collection_item",
+      "reason": "Dato de plataforma sin título ni valores."
+    }
+  ],
+  "status": "compilado",
+  "version": "1",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 3"
+}

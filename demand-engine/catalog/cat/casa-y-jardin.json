@@ -1,0 +1,65 @@
+{
+  "id": "cat.casa-y-jardin",
+  "type": "categoría",
+  "name": "Casa y jardín",
+  "shopify": "hg",
+  "parent": null,
+  "refs": [
+    "shopify:hg@v2026-08",
+    "google:536@2021-09-21"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.casa-y-jardin/01",
+      "question": "¿De qué color es?",
+      "dimension": "aspecto",
+      "trait": "estetica",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:color"
+      ],
+      "applicability": "universal",
+      "rationale": "En los productos del hogar, sobre todo en decoración y textiles, el color es uno de los criterios con los que se eligen y comparan las ofertas. Las extensiones de Shopify que aplican este atributo a una pieza (cover-color en cojines, seat-/backrest-upholstery-color en sofás) quedan cubiertas aquí y no se repiten en los bloques hijos. Si hay varios colores a elegir, qué variantes existen lo pregunta gen.variantes.",
+      "seed_importance": "principal",
+      "rule": "imp:estetica@hg"
+    },
+    {
+      "id": "cat.casa-y-jardin/02",
+      "question": "¿Qué estampado o motivo tiene (liso, rayas, floral, geométrico…)?",
+      "dimension": "aspecto",
+      "trait": "estetica",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:pattern"
+      ],
+      "applicability": "universal",
+      "rationale": "Junto con el color, es un criterio de elección en decoración y en textiles del hogar. «Liso» también resuelve la cuestión. Las extensiones de Shopify que lo aplican a una pieza (cover-pattern) quedan cubiertas aquí.",
+      "seed_importance": "principal",
+      "rule": "imp:estetica@hg"
+    },
+    {
+      "id": "cat.casa-y-jardin/03",
+      "question": "¿Tiene alguna certificación ecológica, orgánica o de comercio justo (GOTS, Fairtrade…) y cuál?",
+      "dimension": "certificaciones",
+      "trait": "certificacion-origen",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:organic-certification"
+      ],
+      "applicability": "universal",
+      "rationale": "Aporta información relevante sobre origen y sostenibilidad, pero no es un criterio central de comparación en el conjunto de Casa y jardín. Que no se publique una certificación no prueba que el producto no la tenga.",
+      "seed_importance": "complementario",
+      "rule": "imp:certificacion-origen@hg"
+    }
+  ],
+  "excluded": [],
+  "compiled_by": "reglas 3"
+}

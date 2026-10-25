@@ -1,0 +1,91 @@
+{
+  "id": "stressless-wave-outlet",
+  "url": "https://www.grupotodoplano.com/sofa-stressless-wave-cinema-outlet",
+  "retailer": "grupotodoplano.com",
+  "vertical": "mobiliario",
+  "split": "dev",
+  "page": "var/pages/stressless-wave-outlet.html",
+  "source": "docs/20-methods/product-taxonomy/cases.md#sofá-reclinable-de-exposición",
+  "rules": [
+    "D-026",
+    "D-027",
+    "D-033",
+    "D-034",
+    "D-037"
+  ],
+  "notes": "Apoyo de la tapicería de piel no documentado (I-13).",
+  "expected": {
+    "components": [
+      {
+        "shopify": "fr-22",
+        "name": "Sofás",
+        "piece": null,
+        "entry": "aporta requisitos"
+      }
+    ],
+    "rejected_categories": [],
+    "specializations": [
+      {
+        "name": "tapicería de piel",
+        "kind": "producto",
+        "questions": [
+          "tipo de piel",
+          "acabado de la piel"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "feature": "reclinable",
+        "role": "valor que condiciona",
+        "questions": [
+          "mecanismo",
+          "posiciones",
+          "espacio necesario"
+        ]
+      },
+      {
+        "feature": "outlet: unidad de exposición",
+        "role": "aplicación (unidad no nueva)",
+        "questions": [
+          "estado y motivo",
+          "marcas o defectos",
+          "qué unidad se entrega",
+          "garantía",
+          "devoluciones"
+        ]
+      },
+      {
+        "feature": "Cinema",
+        "role": "no declarado"
+      }
+    ],
+    "class": "Sofás → tapicería de piel",
+    "application": [
+      "unidad no nueva",
+      "con descuento"
+    ]
+  },
+  "expected_v1": {
+    "categories": [
+      "fr-22"
+    ],
+    "alias": [],
+    "specializations": [
+      {
+        "name": "tapicería de piel",
+        "questions": [
+          "tipo de piel",
+          "acabado de la piel"
+        ]
+      }
+    ],
+    "application": [
+      "gen.cantidad-limitada",
+      "gen.descuento",
+      "gen.unidad-no-nueva"
+    ],
+    "inferred_any_of": [],
+    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+  }
+}

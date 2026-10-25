@@ -1,0 +1,100 @@
+{
+  "id": "cat.ropa-de-casa",
+  "type": "categoría",
+  "name": "Ropa de casa",
+  "shopify": "hg-15",
+  "parent": "cat.casa-y-jardin",
+  "refs": [
+    "shopify:hg-15@v2026-08",
+    "google:4171@2021-09-21",
+    "ley:UE-1007/2011-16.1@2011-10-18",
+    "amazon-ptd:FITTED_SHEET@2026-10-24",
+    "amazon-ptd:BLANKET@2026-10-24",
+    "amazon-ptd:TOWEL@2026-10-24"
+  ],
+  "version": "2",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.ropa-de-casa/01",
+      "question": "¿De qué materiales está hecho y cuál es su composición en fibras, con sus porcentajes?",
+      "dimension": "materiales y composición",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "normativa",
+      "sources": [
+        "ley:UE-1007/2011-16.1@2011-10-18",
+        "shopify-attr:fabric",
+        "shopify-attr:material"
+      ],
+      "applicability": "universal",
+      "rationale": "Apoyo normativo (criterio 6): según el Reglamento (UE) 1007/2011, art. 16.1, la composición en fibras de un producto textil «será claramente visible para el consumidor antes de la adquisición, incluso en los casos en que esta se realice por medios electrónicos». La obligación legal no la hace crítica: la importancia sigue siendo principal, porque el material es uno de los primeros criterios con que se comparan piezas de ropa de casa. Se mantienen como fuentes Tejido y Material de Shopify, casi idénticos en textiles y unidos en uno. Las propiedades de composición de los PTD de las hijas (fabric_type, compliance_outer_surface_material) no suben (criterio 4 y D-040): Almohadas tiene cover-material como atributo propio de Shopify; se excluyen en cada bloque como cubiertas por esta cuestión.",
+      "seed_importance": "principal",
+      "rule": "marco:D-043.6/composicion-textil"
+    },
+    {
+      "id": "cat.ropa-de-casa/02",
+      "question": "¿Cómo se lava y se cuida (temperatura de lavado, secadora, planchado, limpieza en seco)?",
+      "dimension": "cuidado y mantenimiento",
+      "trait": "cuidado",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:care-instructions"
+      ],
+      "applicability": "universal",
+      "rationale": "Son piezas que se lavan con frecuencia: el cuidado afecta al uso y a la duración, pero no suele ser un criterio central de elección.",
+      "seed_importance": "complementario",
+      "rule": "imp:cuidado@hg"
+    },
+    {
+      "id": "cat.ropa-de-casa/03",
+      "question": "¿Qué certificaciones de seguridad o de ausencia de sustancias nocivas acredita (p. ej., OEKO-TEX Standard 100)?",
+      "dimension": "certificaciones",
+      "trait": "seguridad",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:safety-certifications"
+      ],
+      "applicability": "universal",
+      "rationale": "En textiles en contacto con la piel la certificación habitual es OEKO-TEX; la lista de Shopify incluye normas de otros sectores (juguetes, electrónica, mobiliario) que no aplican. La certificación orgánica o de sostenibilidad (GOTS…) está en la madre, Casa y jardín (organic-certification).",
+      "seed_importance": "complementario",
+      "rule": "imp:seguridad@hg-15"
+    },
+    {
+      "id": "cat.ropa-de-casa/05",
+      "question": "¿Qué gramaje tiene el tejido (g/m²)?",
+      "dimension": "gramaje",
+      "trait": "magnitud",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:TOWEL.fabric_weight",
+        "amazon-ptd-prop:TOWEL.special_feature=Ligero",
+        "amazon-ptd-prop:TOWEL.special_feature=Peso medio",
+        "amazon-ptd-prop:FITTED_SHEET.fabric_weight",
+        "amazon-ptd-prop:BLANKET.compliance_fabric_weight"
+      ],
+      "applicability": "universal",
+      "rationale": "El gramaje indica el cuerpo y la densidad del tejido. Es el criterio más habitual para comparar toallas, y en ropa de cama es la medida de densidad de los tejidos de punto o de pelo (franela, coralina, polar), donde no se usa el número de hilos; los casos lo cuentan en la base (D-026). Recoge cat.toallas/02 (criterio 4: fabric_weight está en TOWEL y FITTED_SHEET, y BLANKET lo declara como compliance_fabric_weight; el gramaje vale para toda la ropa de casa). «Ligero» y «Peso medio» de TOWEL son clases de gramaje. El peso del artículo de TOWEL se excluye en Toallas. Se mantiene en Ropa de casa: ninguna hija de Shopify tiene el gramaje como atributo propio (criterio 4 y D-040).",
+      "seed_importance": "principal",
+      "rule": "imp:magnitud@hg-15"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "cat.ropa-de-casa/04",
+      "reason": "Requisito retirado: el tejido y su ligamento no suben a Ropa de casa (criterio 4 y D-040): Fundas de nórdico (fabric-weave), Toallas (towel-weave) y Mantelería y Sets de cocina (fabric-structure) los tienen como atributo propio de Shopify. Cada bloque conserva el suyo: cat.fundas-de-nordico/02, cat.mantas/03, cat.toallas/03, cat.sabanas-ajustables/04 y cat.protectores-de-colchon/08; en Sábanas planas y Fundas de almohada, cuyo PTD no lo recoge, es inferido (cat.sabanas-planas/03, cat.fundas-de-almohada/08)."
+    },
+    {
+      "source": "cat.ropa-de-casa/06",
+      "reason": "Requisito retirado: la durabilidad no sube a Ropa de casa (criterio 4 y D-040): Protectores para colchones (mattress-protector-features) y Manteles (tablecloth-features) la tienen como atributo propio de Shopify. Vuelve a cat.fundas-de-almohada/06, cat.mantas/09, cat.protectores-de-colchon/06 y cat.toallas/07 con sus fuentes."
+    }
+  ],
+  "compiled_by": "reglas 3"
+}

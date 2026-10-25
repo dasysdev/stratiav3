@@ -3,9 +3,9 @@ id: mpir
 title: MPIR — Modelo de Prácticas Informativas de Referencia
 layer: method
 status: propuesta
-version: 1.0
-updated: 2026-10-24
-sources: [MPIR Resumen, MPIR §1, MPIR §2]
+version: 1.1
+updated: 2026-10-25
+sources: [MPIR Resumen, MPIR §1, MPIR §2, INTAKE 2026-10-25-requirement-blocks]
 ---
 
 # MPIR — Modelo de Prácticas Informativas de Referencia
@@ -20,7 +20,7 @@ El **Modelo de Prácticas Informativas de Referencia (MPIR)** es una base de con
 
 El MPIR complementa la [Taxonomía de clases de producto](../product-taxonomy/README.md), basada en la integración semántica de Shopify, Amazon y Google. La taxonomía delimita las clases y facilita reconocer atributos, facetas y dimensiones del dominio. El MPIR permite observar **qué preguntas se anticipan, qué criterios de elección se emplean, qué contextos y relaciones se explican y cómo se ayuda a tomar decisiones**. Las dos fuentes se utilizan posteriormente para inferir, formular y justificar requisitos informativos del [modelo de demanda](../../10-model/demand-model.md).
 
-> El canon reconoce dos vías de construcción del modelo de demanda: la [taxonomía de clases de producto](../product-taxonomy/README.md) y este MPIR ([D-009](../../30-governance/decisions.md#d-009)).
+> El canon reconoce dos vías de construcción del modelo de demanda: la [taxonomía de clases de producto](../product-taxonomy/README.md) y este MPIR ([D-009](../../30-governance/decisions.md#d-009)); y, como tercera vía provisional, las cuestiones inferidas ([D-036](../../30-governance/decisions.md#d-036)), que el MPIR confirmará o revisará.
 
 La estrategia de adquisición será **híbrida, estructural y semántica**, con responsabilidades separadas: **capturar y preservar las fuentes originales → construir un corpus estructurado de unidades informativas → identificar señales y prácticas candidatas → consolidar patrones entre referentes → transferir evidencia contrastada al proceso de construcción de requisitos informativos**. Las etapas pueden ejecutarse en ciclos incrementales; la interpretación no sustituye ni altera la evidencia conservada.
 
@@ -61,7 +61,7 @@ La exploración de referentes puede incluir páginas y herramientas interactivas
 
 No se investigan la preparación operativa de la compra, la ejecución de pagos, los procesos postcompra ni la infraestructura general de los ecommerce. Sí pueden observarse políticas de devolución o garantía en la medida en que **su conocimiento previo** sea relevante para valorar una oferta, sin auditar los procesos operativos correspondientes.
 
-### Relación con las dos vías de referencia
+### Relación con las vías de referencia
 
 | Vía | Objeto observado | Contribución principal | Límite |
 |---|---|---|---|

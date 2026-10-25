@@ -1,0 +1,67 @@
+{
+  "id": "bota-polo-e",
+  "url": "https://5vvalverde.com/es/producto/bota-polo-e/",
+  "retailer": "5vvalverde.com",
+  "vertical": "calzado",
+  "split": "dev",
+  "page": "var/pages/bota-polo-e.html",
+  "source": "docs/20-methods/product-taxonomy/cases.md#bota-de-equitación",
+  "rules": [
+    "D-022",
+    "D-026"
+  ],
+  "expected": {
+    "components": [
+      {
+        "shopify": "aa-8-3",
+        "name": "Botas",
+        "piece": null,
+        "entry": "aporta requisitos"
+      }
+    ],
+    "rejected_categories": [],
+    "specializations": [
+      {
+        "name": "uso de equitación",
+        "kind": "producto",
+        "questions": [
+          "compatibilidad con el estribo",
+          "ajuste de la caña"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "feature": "subtipo (largas…)",
+        "role": "no declarado"
+      },
+      {
+        "feature": "piel de novillo",
+        "role": "valor"
+      },
+      {
+        "feature": "Goodyear, hombre, cremallera, broches",
+        "role": "valor"
+      }
+    ],
+    "class": "Botas → equitación"
+  },
+  "expected_v1": {
+    "categories": [
+      "aa-8-3"
+    ],
+    "alias": [],
+    "specializations": [
+      {
+        "name": "uso de equitación",
+        "questions": [
+          "compatibilidad con el estribo",
+          "ajuste de la caña"
+        ]
+      }
+    ],
+    "application": null,
+    "inferred_any_of": [],
+    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+  }
+}

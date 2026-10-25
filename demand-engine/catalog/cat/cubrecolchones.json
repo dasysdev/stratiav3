@@ -1,0 +1,150 @@
+{
+  "id": "cat.cubrecolchones",
+  "type": "categoría",
+  "name": "Cubrecolchones",
+  "shopify": "hg-15-1-6-2",
+  "parent": "cat.protectores-de-colchon",
+  "refs": [
+    "shopify:hg-15-1-6-2@v2026-08",
+    "google:2991@2021-09-21",
+    "amazon-ptd:MATTRESS_COVER@2026-10-24",
+    "amazon-btg:27003778031@2026-10-24"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.cubrecolchones/01",
+      "question": "¿De qué material es el relleno del acolchado?",
+      "dimension": "relleno",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:filler-material",
+        "amazon-ptd-prop:MATTRESS_COVER.compliance_padding_material"
+      ],
+      "applicability": "universal",
+      "rationale": "El acolchado define la categoría (Mattress Pads) frente al resto de protectores; su relleno determina el confort, el abrigo y el cuidado. Se suma compliance_padding_material del PTD MATTRESS_COVER (asignado a la madre), trasladado aquí porque solo se aplica a los protectores acolchados.",
+      "seed_importance": "principal",
+      "rule": "imp:material@hg"
+    },
+    {
+      "id": "cat.cubrecolchones/02",
+      "question": "¿Qué grosor y qué firmeza tiene el acolchado?",
+      "dimension": "acolchado",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:MATTRESS_COVER.item_thickness",
+        "amazon-ptd-prop:MATTRESS_COVER.item_firmness_description",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Acolchado",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Parte superior acolchada"
+      ],
+      "applicability": "universal",
+      "rationale": "Candidatos de MATTRESS_COVER (PTD asignado a la madre) trasladados aquí: solo se aplican a protectores acolchados, que son esta categoría; en un protector fino no tienen sentido. Amazon usa MATTRESS_COVER también en su nodo «Almohadillas de colchón» (27003778031).",
+      "seed_importance": "principal",
+      "rule": "imp:prestacion@hg-15-1-6"
+    },
+    {
+      "id": "cat.cubrecolchones/03",
+      "question": "¿Es compatible con somieres articulados y se puede usar por las dos caras?",
+      "dimension": "compatibilidad y uso",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:mattress-features=Compatibilidad de base regulable",
+        "shopify-attr:mattress-features=Volteable"
+      ],
+      "applicability": "universal",
+      "rationale": "Criterio 2: cubre los valores propios de mattress-features (Compatibilidad de base regulable, Volteable). Los demás valores repiten cuestiones de la cadena o son de colchones, y van a excluded con su motivo.",
+      "seed_importance": "complementario",
+      "rule": "imp:uso@hg-15-1-6-2"
+    },
+    {
+      "id": "cat.cubrecolchones/04",
+      "question": "¿El acolchado es fijo, separable o reemplazable?",
+      "dimension": "construcción",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:pad-type=Despegables",
+        "shopify-attr:pad-type=Reemplazable"
+      ],
+      "applicability": "universal",
+      "rationale": "Criterio 2: valores Despegables y Reemplazable de pad-type; el valor Lavable a máquina lo cubre cat.ropa-de-casa/02.",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@hg-15-1-6-2"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "shopify-attr:mattress-features=Aislamiento de movimiento",
+      "reason": "Propio de colchones; no aplica a cubrecolchones."
+    },
+    {
+      "source": "shopify-attr:mattress-features=Soporte de borde",
+      "reason": "Propio de colchones; no aplica a cubrecolchones."
+    },
+    {
+      "source": "shopify-attr:mattress-features=Antimicrobiano",
+      "reason": "Lo cubre cat.protectores-de-colchon/02 (protección e higiene)."
+    },
+    {
+      "source": "shopify-attr:mattress-features=Hipoalergénico",
+      "reason": "Lo cubre cat.protectores-de-colchon/02 (protección e higiene)."
+    },
+    {
+      "source": "shopify-attr:mattress-features=Materiales seguros y no tóxicos",
+      "reason": "Lo cubre cat.protectores-de-colchon/02 (protección e higiene)."
+    },
+    {
+      "source": "shopify-attr:mattress-features=Resistente a chinches",
+      "reason": "Lo cubre cat.protectores-de-colchon/02 (protección e higiene)."
+    },
+    {
+      "source": "shopify-attr:mattress-features=Resistente a los ácaros del polvo",
+      "reason": "Lo cubre cat.protectores-de-colchon/02 (protección e higiene)."
+    },
+    {
+      "source": "shopify-attr:mattress-features=Impermeable",
+      "reason": "Lo cubre cat.protectores-de-colchon/01 (impermeabilidad)."
+    },
+    {
+      "source": "shopify-attr:mattress-features=Función de refrigeración",
+      "reason": "Lo cubre cat.protectores-de-colchon/03 (confort)."
+    },
+    {
+      "source": "shopify-attr:mattress-features=Reducción de ruido",
+      "reason": "Lo cubre cat.protectores-de-colchon/03 (confort)."
+    },
+    {
+      "source": "shopify-attr:mattress-features=Retención de calor",
+      "reason": "Lo cubre cat.protectores-de-colchon/03 (confort térmico)."
+    },
+    {
+      "source": "shopify-attr:mattress-features=Cubierta extraíble",
+      "reason": "Lo cubre cat.protectores-de-colchon/07 (cubierta extraíble)."
+    },
+    {
+      "source": "shopify-attr:mattress-features=Funda lavable a máquina",
+      "reason": "Lo cubre cat.ropa-de-casa/02 (cuidado)."
+    },
+    {
+      "source": "shopify-attr:mattress-features=Resistente a las manchas",
+      "reason": "Lo cubre cat.protectores-de-colchon/06 (durabilidad y mantenimiento)."
+    },
+    {
+      "source": "shopify-attr:pad-type=Lavable a máquina",
+      "reason": "Lo cubre cat.ropa-de-casa/02 (cuidado)."
+    }
+  ],
+  "compiled_by": "reglas 3"
+}

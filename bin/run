@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+# Control del entorno: bin/run <dev> <comando>
+#
+#   up | stop | restart | build | rebuild | ps | logs
+#   shell                    consola en el contenedor
+#   test [args]              pytest dentro del contenedor (con Chrome)
+#   lock                     regenera uv.lock a partir de los pyproject.toml del workspace
+#   exec <orden> [args]      una orden dentro del contenedor (p. ej. demand-engine/bin/mpir)
+#
+# dev -> ./docker-compose.yml (código montado en /work, Chrome sobre Xvfb o el escritorio)
+# Cada sistema es un directorio de primer nivel y un miembro del workspace de uv.
+# Variables opcionales en ./.env: CAPTURE_DISPLAY (:99 Xvfb | :0 escritorio del host).
+set -euo pipefail
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+usage() {
+  # La cabecera de este script, hasta la primera línea que no es comentario
+  sed -n '2,/^[^#]/{/^#/s/^# \{0,1\}//p}' "${BASH_SOURCE[0]}"
+  exit 1
+}
+
+ENVIRONMENT="${1:-}"; COMMAND="${2:-}"
+[ -n "$ENVIRONMENT" ] && [ -n "$COMMAND" ] || usage
+shift 2
+
+case "$ENVIRONMENT" in
+  dev) COMPOSE_FILE="$ROOT/docker-compose.yml" ;;
+  *)   echo "Entorno no reconocido: $ENVIRONMENT (dev)"; usage ;;
+esac
+
+# El contenedor escribe en <sistema>/var/: mismo usuario que el host.
+export HOST_UID="$(id -u)" HOST_GID="$(id -g)"
+
+ENV_ARGS=()
+[ -f "$ROOT/.env" ] && ENV_ARGS=(--env-file "$ROOT/.env")
+dc() { docker compose "${ENV_ARGS[@]}" -f "$COMPOSE_FILE" "$@"; }
+
+# Sin terminal (agentes, tuberías), exec sin TTY
+TTY=(); [ -t 0 ] && [ -t 1 ] || TTY=(-T)
+
+case "$COMMAND" in
+  up)      dc up -d "$@" && dc ps ;;
+  stop)    dc down "$@" ;;
+  restart) dc restart "$@" ;;
+  build)   dc build "$@" ;;
+  rebuild) dc build --no-cache "$@" ;;
+  ps)      dc ps "$@" ;;
+  logs)    dc logs -f --tail=80 "$@" ;;
+  shell)   dc exec app bash "$@" ;;
+  test)    dc exec "${TTY[@]}" app python -m pytest -q "$@" ;;
+  # La imagen se construye con uv.lock: para regenerarlo basta la etapa base (Python + uv)
+  lock)    docker build -q --target base -t stratia-cic/app:base -f "$ROOT/env/docker/app/Dockerfile" "$ROOT" >/dev/null
+           docker run --rm -u "$HOST_UID:$HOST_GID" -v "$ROOT:/work" -w /work stratia-cic/app:base uv lock "$@" ;;
+  exec)    dc exec "${TTY[@]}" app "$@" ;;
+  *)       echo "Comando no reconocido: $COMMAND"; usage ;;
+esac

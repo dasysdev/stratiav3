@@ -1,0 +1,77 @@
+{
+  "id": "toallas-azul-080",
+  "url": "https://www.burritoblanco.com/juego-de-toallas-azul-080-p-1820-1879.html",
+  "retailer": "burritoblanco.com",
+  "vertical": "textil hogar",
+  "split": "dev",
+  "page": "var/pages/toallas-azul-080.html",
+  "source": "docs/20-methods/product-taxonomy/cases.md#juego-de-toallas",
+  "rules": [
+    "D-023",
+    "D-026"
+  ],
+  "notes": "La pieza de bidé queda provisional entre Toallas de mano y Toallitas (hg-15-4-1-2).",
+  "expected": {
+    "components": [
+      {
+        "shopify": "hg-15-4-1-1",
+        "name": "Toallas de baño",
+        "piece": "ducha",
+        "entry": "aporta requisitos"
+      },
+      {
+        "shopify": "hg-15-4-5",
+        "name": "Toallas de mano",
+        "piece": "lavabo",
+        "entry": "aporta requisitos"
+      }
+    ],
+    "rejected_categories": [],
+    "specializations": [
+      {
+        "name": "juego",
+        "kind": "producto",
+        "questions": [
+          "qué piezas incluye",
+          "cuántas",
+          "en qué medidas"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "feature": "algodón",
+        "role": "valor"
+      },
+      {
+        "feature": "cenefa jacquard, azul",
+        "role": "estético"
+      },
+      {
+        "feature": "toalla de bidé",
+        "role": "provisional: Toallas de mano o Toallitas"
+      }
+    ],
+    "class": "Toallas de baño + Toallas de mano (bidé provisional) → juego"
+  },
+  "expected_v1": {
+    "categories": [
+      "hg-15-4-1-1",
+      "hg-15-4-5"
+    ],
+    "alias": [],
+    "specializations": [
+      {
+        "name": "juego",
+        "questions": [
+          "qué piezas incluye",
+          "cuántas",
+          "en qué medidas"
+        ]
+      }
+    ],
+    "application": null,
+    "inferred_any_of": [],
+    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+  }
+}

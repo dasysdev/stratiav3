@@ -1,0 +1,105 @@
+{
+  "id": "cat.sabanas-ajustables",
+  "type": "categoría",
+  "name": "Sábanas ajustables",
+  "shopify": "hg-15-1-2-1",
+  "parent": "cat.sabanas",
+  "refs": [
+    "shopify:hg-15-1-2-1@v2026-08",
+    "google:2314@2021-09-21",
+    "amazon-ptd:FITTED_SHEET@2026-10-24",
+    "amazon-btg:3250023031@2026-10-24"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.sabanas-ajustables/01",
+      "question": "¿Hasta qué altura de colchón se ajusta (profundidad del bolsillo)?",
+      "dimension": "ajuste al colchón",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:FITTED_SHEET.fitted_sheet_pocket_depth"
+      ],
+      "applicability": "universal",
+      "rationale": "Junto con el ancho y el largo, decide si la bajera sirve para un colchón concreto; la altura de los colchones varía mucho (de 15 a más de 30 cm). Criterio 1: principal; la variante la fija el tamaño del colchón (cat.ropa-de-cama/01). Queda en el bloque: la altura del colchón no vale para todas las hijas de Ropa de cama (mantas, fundas de nórdico) (criterio 4).",
+      "seed_importance": "principal",
+      "rule": "imp:uso@hg-15-1-2-1"
+    },
+    {
+      "id": "cat.sabanas-ajustables/04",
+      "question": "¿Qué tejido o ligamento tiene (de calada o de punto; percal, satén, sarga, franela, jersey…)?",
+      "dimension": "tejido y ligamento",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:FITTED_SHEET.compliance_weave_type",
+        "amazon-ptd-prop:FITTED_SHEET.compliance_fabric_type"
+      ],
+      "applicability": "universal",
+      "rationale": "El tejido y su ligamento determinan el tacto, la elasticidad y el comportamiento al lavado: la bajera de punto (jersey) se elige frente a la de calada (percal, satén). FITTED_SHEET lo recoge como tipo de tejido de cumplimiento (calada, punto o ganchillo) y tipo de tela (perchada, afieltrada, no tejida). No sube a Sábanas ni a Ropa de casa (criterio 4 y D-040): Fundas de nórdico y Toallas tienen el ligamento como atributo propio de Shopify.",
+      "seed_importance": "principal",
+      "rule": "imp:construccion@hg-15-1-2"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:FITTED_SHEET.fabric_type",
+      "reason": "Composición en fibras con porcentajes: la cubre cat.ropa-de-casa/01 (shopify-attr:fabric y material), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:FITTED_SHEET.number_of_pieces",
+      "reason": "Piezas incluidas en un juego: las cubre esp.juego (criterio 3)."
+    },
+    {
+      "source": "amazon-ptd-prop:FITTED_SHEET.voltage",
+      "reason": "Tensión eléctrica: solo aplica a sábanas térmicas eléctricas, que no son la clase general y traerían una especialización propia."
+    },
+    {
+      "source": "amazon-ptd-prop:FITTED_SHEET.collection_item",
+      "reason": "Dato de colección o catálogo del vendedor; no informa sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:FITTED_SHEET.item_weight",
+      "reason": "Peso del artículo: dato logístico; no es criterio de comparación de la clase."
+    },
+    {
+      "source": "cat.sabanas-ajustables/02",
+      "reason": "Requisito retirado: movido a cat.ropa-de-cama/02 (criterio 4: item_length_width se repite en los PTD de ropa de cama y las medidas valen para todas sus hijas), con su fuente amazon-ptd-prop:FITTED_SHEET.item_length_width."
+    },
+    {
+      "source": "cat.sabanas-ajustables/03",
+      "reason": "Requisito retirado: movido a cat.sabanas/03 (criterio 4: thread está en FITTED_SHEET y FLAT_SHEET y vale para las dos hijas de Sábanas), con su fuente amazon-ptd-prop:FITTED_SHEET.thread."
+    },
+    {
+      "source": "amazon-ptd-prop:FITTED_SHEET.fabric_weight",
+      "reason": "Movida a cat.ropa-de-casa/05 (criterio 4): gramaje, común con TOWEL y válido para toda la ropa de casa."
+    },
+    {
+      "source": "amazon-ptd-prop:FITTED_SHEET.compliance_bed_linen_width",
+      "reason": "Tramos de ancho a efectos aduaneros; el tamaño y las medidas los cubren cat.ropa-de-cama/01 y /02."
+    },
+    {
+      "source": "amazon-ptd-prop:FITTED_SHEET.compliance_filling_type",
+      "reason": "Tipo de relleno a efectos de cumplimiento: una sábana ajustable no lleva relleno (las bajeras acolchadas son protectores de colchón)."
+    },
+    {
+      "source": "amazon-ptd-prop:FITTED_SHEET.compliance_printing_method",
+      "reason": "Método de estampación a efectos aduaneros (batik, estampado a mano); el estampado lo cubre cat.casa-y-jardin/02."
+    },
+    {
+      "source": "amazon-ptd-prop:FITTED_SHEET.compliance_outer_surface_material",
+      "reason": "Material de la superficie exterior a efectos de cumplimiento: lo cubre cat.ropa-de-casa/01 (composición), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:FITTED_SHEET.compliance_embellishment_feature",
+      "reason": "Adornos a efectos aduaneros (bordado, encaje, lentejuelas…); el diseño lo cubre cat.casa-y-jardin/02."
+    }
+  ],
+  "compiled_by": "reglas 3"
+}

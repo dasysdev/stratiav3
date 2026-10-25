@@ -1,0 +1,57 @@
+{
+  "id": "protector-basic-010",
+  "url": "https://www.burritoblanco.com/protector-de-colchon-basic-010-p-699-28.html#/453-medidas_de_cama-cama_200_cm",
+  "retailer": "burritoblanco.com",
+  "vertical": "textil hogar",
+  "split": "dev",
+  "page": "var/pages/protector-basic-010.html",
+  "source": "docs/20-methods/product-taxonomy/cases.md#protector-de-colchón",
+  "rules": [
+    "D-021",
+    "D-028",
+    "D-029"
+  ],
+  "expected": {
+    "components": [
+      {
+        "shopify": "hg-15-1-6-2",
+        "name": "Cubrecolchones (Mattress Pads)",
+        "piece": null,
+        "entry": "aporta requisitos"
+      }
+    ],
+    "rejected_categories": [
+      {
+        "shopify": "hg-15-1-12",
+        "name": "Cubrecolchones (Mattress Toppers)",
+        "reason": "homónimo; no es su clasificación objetiva"
+      }
+    ],
+    "specializations": [],
+    "features": [
+      {
+        "feature": "acolchado",
+        "role": "cubierta por la categoría"
+      },
+      {
+        "feature": "algodón",
+        "role": "valor"
+      },
+      {
+        "feature": "impermeabilidad, relleno",
+        "role": "no declarado"
+      }
+    ],
+    "class": "Cubrecolchones"
+  },
+  "expected_v1": {
+    "categories": [
+      "hg-15-1-6-2"
+    ],
+    "alias": [],
+    "specializations": [],
+    "application": null,
+    "inferred_any_of": [],
+    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+  }
+}

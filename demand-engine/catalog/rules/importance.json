@@ -1,0 +1,781 @@
+{
+  "global": {
+    "identidad": "no crítico",
+    "contenido": "no crítico"
+  },
+  "tree": {
+    "certificacion-origen@hg": "complementario",
+    "construccion@aa-8": "complementario",
+    "construccion@fr-22": "complementario",
+    "construccion@ap-2-9": "complementario",
+    "construccion@fr-22-7": "principal",
+    "construccion@hg-15-4": "principal",
+    "construccion@hg-3-64": "complementario",
+    "construccion@ap-2-3-7": "principal",
+    "construccion@ap-2-9-4": "principal",
+    "construccion@hg-15-1-2": "principal",
+    "construccion@hg-15-1-4": "principal",
+    "construccion@hg-15-1-5": "principal",
+    "construccion@hg-15-1-6": "principal",
+    "construccion@hg-15-1-8": "complementario",
+    "construccion@hg-15-1-6-2": "complementario",
+    "construccion@hg-15-1-8-2": "principal",
+    "contenido@fr-22-7": "principal",
+    "contenido@ap-2-3-3": "complementario",
+    "contenido@ap-2-3-7": "principal",
+    "contenido@hg-15-1-8-2": "principal",
+    "cuidado@fr": "complementario",
+    "cuidado@hg": "complementario",
+    "cuidado@aa-8": "complementario",
+    "cuidado@fr-22": "principal",
+    "cuidado@ap-2-3": "complementario",
+    "cuidado@ap-2-9": "principal",
+    "estetica@aa": "principal",
+    "estetica@fr": "principal",
+    "estetica@hg": "principal",
+    "estetica@aa-8": "complementario",
+    "estetica@ap-2": "complementario",
+    "estetica@fr-22": "complementario",
+    "estetica@hg-3-64": "complementario",
+    "identidad@aa-8": "principal",
+    "identidad@ap-2": "principal",
+    "identidad@fr-22": "principal",
+    "identidad@hg-3-64": "complementario",
+    "identidad@hg-15-1-4": "principal",
+    "magnitud@aa-8": "complementario",
+    "magnitud@hg-15": "principal",
+    "magnitud@hg-15-1-4": "complementario",
+    "material@hg": "principal",
+    "material@aa-8": "complementario",
+    "material@ap-2": "principal",
+    "material@fr-22": "principal",
+    "material@aa-8-3": "principal",
+    "material@hg-15-1-4": "complementario",
+    "prestacion@aa-8": "complementario",
+    "prestacion@fr-22": "principal",
+    "prestacion@aa-8-3": "principal",
+    "prestacion@aa-8-7": "principal",
+    "prestacion@ap-2-9": "complementario",
+    "prestacion@hg-15-4": "complementario",
+    "prestacion@hg-3-64": "complementario",
+    "prestacion@ap-2-3-7": "principal",
+    "prestacion@ap-2-9-4": "principal",
+    "prestacion@hg-15-1-4": "complementario",
+    "prestacion@hg-15-1-6": "principal",
+    "prestacion@hg-15-1-8-2": "complementario",
+    "seguridad@fr-22": "complementario",
+    "seguridad@hg-15": "complementario",
+    "seguridad@ap-2-3-7": "principal",
+    "seguridad@ap-2-9-4": "principal",
+    "uso@aa": "principal",
+    "uso@ap-2": "principal",
+    "uso@fr-22": "complementario",
+    "uso@fr-22-7": "principal",
+    "uso@hg-3-64": "complementario",
+    "uso@ap-2-3-7": "complementario",
+    "uso@hg-15-1-4": "complementario",
+    "uso@hg-15-1-6": "principal",
+    "uso@hg-15-1-2-1": "principal",
+    "uso@hg-15-1-6-2": "complementario"
+  },
+  "violations": [],
+  "relevance": {
+    "cat.calzado/06@aa-8-7": "excluido",
+    "cat.calzado/12@aa-8-7": "excluido",
+    "cat.casa-y-jardin/02@hg-15-1-6-2": "excluido",
+    "cat.productos-para-mascotas/02@ap-2-3-3-1": "excluido",
+    "cat.productos-para-mascotas/03@ap-2-3-3-1": "excluido",
+    "cat.productos-para-perros/01@ap-2-3-3-1": "excluido"
+  },
+  "relevance_conflicts": [],
+  "rules": [
+    {
+      "id": "imp:certificacion-origen@hg",
+      "trait": "certificacion-origen",
+      "node": "hg",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@aa-8",
+      "trait": "construccion",
+      "node": "aa-8",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@fr-22",
+      "trait": "construccion",
+      "node": "fr-22",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@ap-2-9",
+      "trait": "construccion",
+      "node": "ap-2-9",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@fr-22-7",
+      "trait": "construccion",
+      "node": "fr-22-7",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@hg-15-4",
+      "trait": "construccion",
+      "node": "hg-15-4",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@hg-3-64",
+      "trait": "construccion",
+      "node": "hg-3-64",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@ap-2-3-7",
+      "trait": "construccion",
+      "node": "ap-2-3-7",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@ap-2-9-4",
+      "trait": "construccion",
+      "node": "ap-2-9-4",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@hg-15-1-2",
+      "trait": "construccion",
+      "node": "hg-15-1-2",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@hg-15-1-4",
+      "trait": "construccion",
+      "node": "hg-15-1-4",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@hg-15-1-5",
+      "trait": "construccion",
+      "node": "hg-15-1-5",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@hg-15-1-6",
+      "trait": "construccion",
+      "node": "hg-15-1-6",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@hg-15-1-8",
+      "trait": "construccion",
+      "node": "hg-15-1-8",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@hg-15-1-6-2",
+      "trait": "construccion",
+      "node": "hg-15-1-6-2",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@hg-15-1-8-2",
+      "trait": "construccion",
+      "node": "hg-15-1-8-2",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:contenido@fr-22-7",
+      "trait": "contenido",
+      "node": "fr-22-7",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:contenido@ap-2-3-3",
+      "trait": "contenido",
+      "node": "ap-2-3-3",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:contenido@ap-2-3-7",
+      "trait": "contenido",
+      "node": "ap-2-3-7",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:contenido@hg-15-1-8-2",
+      "trait": "contenido",
+      "node": "hg-15-1-8-2",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:cuidado@fr",
+      "trait": "cuidado",
+      "node": "fr",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:cuidado@hg",
+      "trait": "cuidado",
+      "node": "hg",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": true
+    },
+    {
+      "id": "imp:cuidado@aa-8",
+      "trait": "cuidado",
+      "node": "aa-8",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:cuidado@fr-22",
+      "trait": "cuidado",
+      "node": "fr-22",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:cuidado@ap-2-3",
+      "trait": "cuidado",
+      "node": "ap-2-3",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": true
+    },
+    {
+      "id": "imp:cuidado@ap-2-9",
+      "trait": "cuidado",
+      "node": "ap-2-9",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:estetica@aa",
+      "trait": "estetica",
+      "node": "aa",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:estetica@fr",
+      "trait": "estetica",
+      "node": "fr",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:estetica@hg",
+      "trait": "estetica",
+      "node": "hg",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:estetica@aa-8",
+      "trait": "estetica",
+      "node": "aa-8",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:estetica@ap-2",
+      "trait": "estetica",
+      "node": "ap-2",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:estetica@fr-22",
+      "trait": "estetica",
+      "node": "fr-22",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:estetica@hg-3-64",
+      "trait": "estetica",
+      "node": "hg-3-64",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:identidad@aa-8",
+      "trait": "identidad",
+      "node": "aa-8",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": true
+    },
+    {
+      "id": "imp:identidad@ap-2",
+      "trait": "identidad",
+      "node": "ap-2",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": true
+    },
+    {
+      "id": "imp:identidad@fr-22",
+      "trait": "identidad",
+      "node": "fr-22",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:identidad@hg-3-64",
+      "trait": "identidad",
+      "node": "hg-3-64",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:identidad@hg-15-1-4",
+      "trait": "identidad",
+      "node": "hg-15-1-4",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@aa-8",
+      "trait": "magnitud",
+      "node": "aa-8",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@hg-15",
+      "trait": "magnitud",
+      "node": "hg-15",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@hg-15-1-4",
+      "trait": "magnitud",
+      "node": "hg-15-1-4",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:material@hg",
+      "trait": "material",
+      "node": "hg",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": true
+    },
+    {
+      "id": "imp:material@aa-8",
+      "trait": "material",
+      "node": "aa-8",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:material@ap-2",
+      "trait": "material",
+      "node": "ap-2",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": true
+    },
+    {
+      "id": "imp:material@fr-22",
+      "trait": "material",
+      "node": "fr-22",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:material@aa-8-3",
+      "trait": "material",
+      "node": "aa-8-3",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:material@hg-15-1-4",
+      "trait": "material",
+      "node": "hg-15-1-4",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:prestacion@aa-8",
+      "trait": "prestacion",
+      "node": "aa-8",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:prestacion@fr-22",
+      "trait": "prestacion",
+      "node": "fr-22",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:prestacion@aa-8-3",
+      "trait": "prestacion",
+      "node": "aa-8-3",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:prestacion@aa-8-7",
+      "trait": "prestacion",
+      "node": "aa-8-7",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:prestacion@ap-2-9",
+      "trait": "prestacion",
+      "node": "ap-2-9",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:prestacion@hg-15-4",
+      "trait": "prestacion",
+      "node": "hg-15-4",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:prestacion@hg-3-64",
+      "trait": "prestacion",
+      "node": "hg-3-64",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:prestacion@ap-2-3-7",
+      "trait": "prestacion",
+      "node": "ap-2-3-7",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:prestacion@ap-2-9-4",
+      "trait": "prestacion",
+      "node": "ap-2-9-4",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:prestacion@hg-15-1-4",
+      "trait": "prestacion",
+      "node": "hg-15-1-4",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:prestacion@hg-15-1-6",
+      "trait": "prestacion",
+      "node": "hg-15-1-6",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:prestacion@hg-15-1-8-2",
+      "trait": "prestacion",
+      "node": "hg-15-1-8-2",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:seguridad@fr-22",
+      "trait": "seguridad",
+      "node": "fr-22",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:seguridad@hg-15",
+      "trait": "seguridad",
+      "node": "hg-15",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:seguridad@ap-2-3-7",
+      "trait": "seguridad",
+      "node": "ap-2-3-7",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:seguridad@ap-2-9-4",
+      "trait": "seguridad",
+      "node": "ap-2-9-4",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@aa",
+      "trait": "uso",
+      "node": "aa",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@ap-2",
+      "trait": "uso",
+      "node": "ap-2",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@fr-22",
+      "trait": "uso",
+      "node": "fr-22",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@fr-22-7",
+      "trait": "uso",
+      "node": "fr-22-7",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@hg-3-64",
+      "trait": "uso",
+      "node": "hg-3-64",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@ap-2-3-7",
+      "trait": "uso",
+      "node": "ap-2-3-7",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@hg-15-1-4",
+      "trait": "uso",
+      "node": "hg-15-1-4",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@hg-15-1-6",
+      "trait": "uso",
+      "node": "hg-15-1-6",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@hg-15-1-2-1",
+      "trait": "uso",
+      "node": "hg-15-1-2-1",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@hg-15-1-6-2",
+      "trait": "uso",
+      "node": "hg-15-1-6-2",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:contenido@*",
+      "trait": "contenido",
+      "node": "*",
+      "importance": "no crítico",
+      "kind": "global"
+    },
+    {
+      "id": "imp:identidad@*",
+      "trait": "identidad",
+      "node": "*",
+      "importance": "no crítico",
+      "kind": "global"
+    },
+    {
+      "id": "rel:cat.calzado/06@aa-8-7",
+      "requirement": "cat.calzado/06",
+      "node": "aa-8-7",
+      "relevance": "excluido",
+      "kind": "relevancia"
+    },
+    {
+      "id": "rel:cat.calzado/12@aa-8-7",
+      "requirement": "cat.calzado/12",
+      "node": "aa-8-7",
+      "relevance": "excluido",
+      "kind": "relevancia"
+    },
+    {
+      "id": "rel:cat.casa-y-jardin/02@hg-15-1-6-2",
+      "requirement": "cat.casa-y-jardin/02",
+      "node": "hg-15-1-6-2",
+      "relevance": "excluido",
+      "kind": "relevancia"
+    },
+    {
+      "id": "rel:cat.productos-para-mascotas/02@ap-2-3-3-1",
+      "requirement": "cat.productos-para-mascotas/02",
+      "node": "ap-2-3-3-1",
+      "relevance": "excluido",
+      "kind": "relevancia"
+    },
+    {
+      "id": "rel:cat.productos-para-mascotas/03@ap-2-3-3-1",
+      "requirement": "cat.productos-para-mascotas/03",
+      "node": "ap-2-3-3-1",
+      "relevance": "excluido",
+      "kind": "relevancia"
+    },
+    {
+      "id": "rel:cat.productos-para-perros/01@ap-2-3-3-1",
+      "requirement": "cat.productos-para-perros/01",
+      "node": "ap-2-3-3-1",
+      "relevance": "excluido",
+      "kind": "relevancia"
+    }
+  ],
+  "version": "3",
+  "induced": "2026-10-25",
+  "points": {
+    "catalog": 186,
+    "votes": 234
+  },
+  "runs": [
+    "var/runs/2026-10-25-v3-a",
+    "var/runs/2026-10-25-v3-b"
+  ],
+  "accepted": {
+    "date": "2026-10-25",
+    "better": [
+      "coherencia de relevancia: 6 → 0"
+    ],
+    "families": {
+      "importancia": false,
+      "relevancia": true
+    },
+    "metrics": {
+      "coherence": {
+        "catalog": 0,
+        "models": 0,
+        "catalog_requirements": 186,
+        "catalog_without_rule": 0
+      },
+      "stability": {
+        "cases": 5,
+        "composition": 5,
+        "key": 5,
+        "specializations": 5,
+        "application": 5,
+        "common": 119,
+        "same_importance": 119
+      },
+      "relevance": {
+        "incoherence": 0,
+        "coverage_gaps": 2
+      }
+    }
+  },
+  "refs": {
+    "amazon-btg": "2026-10-24",
+    "amazon-ptd": "2026-10-24",
+    "google": "2021-09-21",
+    "shopify": "v2026-08",
+    "shopify-google": "v2026-08"
+  }
+}

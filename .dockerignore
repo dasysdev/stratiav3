@@ -1,0 +1,11 @@
+# Build context: only what the Dockerfile copies (workspace manifests, code, entrypoint).
+# Data (var/), secrets (.env), docs and the rest of the project stay out.
+*
+!pyproject.toml
+!uv.lock
+!env/docker/
+!demand-engine/pyproject.toml
+!demand-engine/src/
+**/.env
+**/__pycache__
+**/.pytest_cache

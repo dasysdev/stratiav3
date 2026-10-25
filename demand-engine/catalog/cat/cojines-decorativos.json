@@ -1,0 +1,371 @@
+{
+  "id": "cat.cojines-decorativos",
+  "type": "categoría",
+  "name": "Cojines decorativos",
+  "shopify": "hg-3-64",
+  "parent": "cat.decoracion",
+  "refs": [
+    "shopify:hg-3-64@v2026-08",
+    "google:4454@2021-09-21",
+    "amazon-ptd:PILLOW@2026-10-24",
+    "amazon-btg:2844244031@2026-10-24",
+    "ley:UE-1007/2011-16.1@2011-10-18"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.cojines-decorativos/01",
+      "question": "¿Qué medidas tiene (largo, ancho y grosor)?",
+      "dimension": "dimensiones físicas",
+      "trait": "medida",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOW.item_length_width",
+        "amazon-ptd-prop:PILLOW.item_thickness"
+      ],
+      "applicability": "universal",
+      "rationale": "La medida es un criterio con el que se eligen y comparan los cojines (encaje en el sofá, proporción, compatibilidad con fundas). Ningún atributo de Shopify de la cadena la recoge.",
+      "seed_importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva"
+    },
+    {
+      "id": "cat.cojines-decorativos/02",
+      "question": "¿Qué forma tiene (cuadrado, rectangular, redondo, cilíndrico…)?",
+      "dimension": "dimensiones físicas",
+      "trait": "identidad",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:throw-pillow-shape"
+      ],
+      "applicability": "universal",
+      "rationale": "throw-pillow-shape extiende pillow-shape en Shopify (cuadrado, rectangular, redondo, rollo…). Las medidas (/01) ya resuelven la elección entre cuadrado y rectangular; la forma añade los casos redondos, cilíndricos o irregulares.",
+      "seed_importance": "complementario",
+      "rule": "imp:identidad@hg-3-64"
+    },
+    {
+      "id": "cat.cojines-decorativos/03",
+      "question": "¿De qué material es la funda y cuál es su composición en fibras?",
+      "dimension": "materiales",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "normativa",
+      "sources": [
+        "ley:UE-1007/2011-16.1@2011-10-18",
+        "shopify-attr:cover-material",
+        "amazon-ptd-prop:PILLOW.fabric_type"
+      ],
+      "applicability": "universal",
+      "rationale": "Apoyo normativo (criterio 6): la funda de un cojín es un producto textil, y el Reglamento (UE) 1007/2011, art. 16.1, exige que su composición en fibras sea claramente visible antes de la adquisición, también por medios electrónicos. La importancia sigue siendo principal: la funda es la parte visible y la que se toca, y su material decide el aspecto, el tacto y el cuidado. Se mantienen como fuentes el atributo de Shopify y PILLOW.fabric_type (composición en porcentaje).",
+      "seed_importance": "principal",
+      "rule": "marco:D-043.6/composicion-textil"
+    },
+    {
+      "id": "cat.cojines-decorativos/04",
+      "question": "¿Con qué material está relleno?",
+      "dimension": "materiales",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:filler-material"
+      ],
+      "applicability": "si incluye relleno",
+      "rationale": "El relleno (fibra, plumas, espuma…) decide el mullido, la recuperación de la forma y el cuidado, y es un criterio con el que se comparan cojines. Si se vende o no con relleno lo pregunta gen/01.",
+      "seed_importance": "principal",
+      "rule": "imp:material@hg"
+    },
+    {
+      "id": "cat.cojines-decorativos/05",
+      "question": "¿Qué firmeza o mullido tiene el relleno?",
+      "dimension": "confort",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:filler-support"
+      ],
+      "applicability": "si incluye relleno",
+      "rationale": "Shopify lo llama «compatibilidad del relleno»: firmeza o tipo de soporte (blando, medio, firme…). En un cojín decorativo, la firmeza importa menos que en una almohada de cama: amplía el conocimiento sin ser un criterio central.",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@hg-3-64"
+    },
+    {
+      "id": "cat.cojines-decorativos/06",
+      "question": "¿Se puede quitar la funda y con qué cierre (cremallera, solapa, botones…)?",
+      "dimension": "construcción",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:cover-closure-design",
+        "amazon-ptd-prop:PILLOW.special_feature=Funda extraíble"
+      ],
+      "applicability": "universal",
+      "rationale": "Que la funda se pueda quitar condiciona el lavado y la posibilidad de cambiarla. Es relevante, pero no es un criterio central para elegir un cojín decorativo.",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@hg-3-64"
+    },
+    {
+      "id": "cat.cojines-decorativos/07",
+      "question": "¿Cómo está hecho el diseño de la funda (bordado, estampado, impreso…) y es igual por las dos caras o reversible?",
+      "dimension": "aspecto",
+      "trait": "estetica",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOW.merch_manufacturing_method",
+        "amazon-ptd-prop:PILLOW.special_feature=Reversible"
+      ],
+      "applicability": "universal",
+      "rationale": "Completa el aspecto, que ya preguntan cat.casa-y-jardin/01 y /02: la técnica (bordado frente a impreso) y si el reverso es liso, igual o distinto. Es relevante en un producto decorativo sin ser un criterio central.",
+      "seed_importance": "complementario",
+      "rule": "imp:estetica@hg-3-64"
+    },
+    {
+      "id": "cat.cojines-decorativos/08",
+      "question": "¿Cómo resiste el uso: la funda frente al desgaste, las manchas, la decoloración, la pérdida de pelo o las arrugas, y el relleno frente a la deformación?",
+      "dimension": "durabilidad",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOW.special_feature=Resistente a la abrasión",
+        "amazon-ptd-prop:PILLOW.special_feature=Resistente al desgaste",
+        "amazon-ptd-prop:PILLOW.special_feature=Resistente a las manchas",
+        "amazon-ptd-prop:PILLOW.special_feature=Resistente a la decoloración",
+        "amazon-ptd-prop:PILLOW.special_feature=Resistente a la caída de pelo",
+        "amazon-ptd-prop:PILLOW.special_feature=Resistente a los olores",
+        "amazon-ptd-prop:PILLOW.special_feature=Antiarrugas",
+        "amazon-ptd-prop:PILLOW.special_feature=Mantiene la forma",
+        "amazon-ptd-prop:PILLOW.material_feature=Duradero",
+        "amazon-ptd-prop:PILLOW.material_feature=Resiliente"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa las características especiales de Amazon sobre durabilidad, más los valores «Duradero» y «Resiliente» de material_feature. Son relevantes para valorar la oferta, pero en un cojín decorativo no son criterios centrales de comparación. Criterio 2: se citan los valores de material_feature que cubre.",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@hg-3-64"
+    },
+    {
+      "id": "cat.cojines-decorativos/09",
+      "question": "¿Es apto para exterior y cómo resiste el agua, el sol y la intemperie?",
+      "dimension": "uso",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOW.indoor_outdoor_usage",
+        "amazon-ptd-prop:PILLOW.special_feature=Impermeable",
+        "amazon-ptd-prop:PILLOW.special_feature=Resistente al agua",
+        "amazon-ptd-prop:PILLOW.special_feature=Resistente a los rayos UV",
+        "amazon-ptd-prop:PILLOW.special_feature=Resistente al clima"
+      ],
+      "applicability": "universal",
+      "rationale": "Los cojines decorativos de exterior no tienen categoría propia en Shopify (fr-16-3 es para cojines de asiento de muebles de exterior), así que la cuestión es de la clase. «Solo interior» también la resuelve. Es central solo para quien busca uso exterior.",
+      "seed_importance": "complementario",
+      "rule": "imp:uso@hg-3-64"
+    },
+    {
+      "id": "cat.cojines-decorativos/10",
+      "question": "¿Qué propiedades higiénicas o de seguridad tiene (hipoalergénico, antiácaros, antibacteriano, resistencia al fuego)?",
+      "dimension": "salud y seguridad",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOW.special_feature=Antialérgica",
+        "amazon-ptd-prop:PILLOW.special_feature=Hipoalergénico",
+        "amazon-ptd-prop:PILLOW.special_feature=Antiácaros",
+        "amazon-ptd-prop:PILLOW.special_feature=Antibacteriana",
+        "amazon-ptd-prop:PILLOW.special_feature=Antimicrobiana",
+        "amazon-ptd-prop:PILLOW.special_feature=Resistente al fuego",
+        "amazon-ptd-prop:PILLOW.material_feature=Hipoalergénico"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa las características especiales de higiene y de comportamiento ante el fuego, más el valor «Hipoalergénico» de material_feature. Es relevante para personas alérgicas, pero no es un criterio central en cojines decorativos. Criterio 2: se citan los valores de material_feature que cubre.",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@hg-3-64"
+    },
+    {
+      "id": "cat.cojines-decorativos/11",
+      "question": "¿Qué características ambientales tienen sus materiales (reciclados, orgánicos, naturales, biodegradables) y en qué partes (funda, relleno)?",
+      "dimension": "sostenibilidad",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOW.material_feature=Biodegradable",
+        "amazon-ptd-prop:PILLOW.material_feature=Natural",
+        "amazon-ptd-prop:PILLOW.material_feature=Orgánico",
+        "amazon-ptd-prop:PILLOW.material_feature=Reciclable",
+        "amazon-ptd-prop:PILLOW.material_feature=Renovable",
+        "amazon-ptd-prop:PILLOW.material_feature=Respetuoso con el medio ambiente",
+        "amazon-ptd-prop:PILLOW.special_feature=Reciclada"
+      ],
+      "applicability": "universal",
+      "rationale": "Pregunta por las características declaradas del material, no por una certificación, que ya pregunta cat.casa-y-jardin/03. Amplía el conocimiento sin ser un criterio central. Criterio 2: se citan los valores de material_feature que cubre.",
+      "seed_importance": "complementario",
+      "rule": "imp:material@hg"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "shopify-attr:cover-color",
+      "reason": "En Shopify es una extensión de shopify-attr:color (extended_attributes). En un cojín, el color visible es el de la funda: ya lo pregunta cat.casa-y-jardin/01, y repetirlo contaría dos veces la misma cuestión."
+    },
+    {
+      "source": "shopify-attr:cover-pattern",
+      "reason": "En Shopify es una extensión de shopify-attr:pattern. Ya lo pregunta cat.casa-y-jardin/02, por el mismo motivo que cover-color."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.size",
+      "reason": "Son tallas normalizadas de almohadas de cama (Estándar, King, Queen, Dakimakura…). En cojines decorativos, la medida la resuelve /01."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.construction_type",
+      "reason": "No tiene valores, y su descripción en el PTD es ajena (tipo de neumático): no define una cuestión evaluable."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.temperature_rating",
+      "reason": "Es la temperatura de almacenamiento en el almacén: un dato logístico."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.item_firmness_description",
+      "reason": "Es la misma dimensión que shopify-attr:filler-support (/05)."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.item_form",
+      "reason": "No tiene valores. La forma ya la cubre shopify-attr:throw-pillow-shape (/02)."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.recommended_uses_for_product",
+      "reason": "Son posturas para dormir, propias de las almohadas de cama: el PTD PILLOW es más amplio que la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.cover",
+      "reason": "Es el material de la cubierta: la misma dimensión que shopify-attr:cover-material (/03)."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.length_range",
+      "reason": "Según el PTD es un rango de medidas para persianas, y no tiene valores. Las medidas las resuelve /01."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.width_range",
+      "reason": "Según el PTD es un rango de medidas para persianas, y no tiene valores. Las medidas las resuelve /01."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.thread",
+      "reason": "El número de hilos es propio de la ropa de cama; no es un criterio de elección en cojines decorativos."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.pillowcase_closure_depth",
+      "reason": "Es una medida de la funda de una almohada de cama. En un cojín decorativo, la funda mide lo mismo que el cojín (/01), y el cierre lo pregunta /06."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.pillowcase_closure_width",
+      "reason": "Es una medida de la funda de una almohada de cama. En un cojín decorativo, la funda mide lo mismo que el cojín (/01), y el cierre lo pregunta /06."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.pillowcase_width",
+      "reason": "Es una medida de la funda de una almohada de cama. En un cojín decorativo, la funda mide lo mismo que el cojín (/01)."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.pillowcase_length",
+      "reason": "Es una medida de la funda de una almohada de cama. En un cojín decorativo, la funda mide lo mismo que el cojín (/01)."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.letter_character",
+      "reason": "Es la letra que representa el diseño: un valor de nicho, no una cuestión de la clase. Lo resuelve el estampado (cat.casa-y-jardin/02)."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.collection_item",
+      "reason": "No tiene título ni descripción: es un dato de plataforma."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.item_weight",
+      "reason": "El peso del artículo es un dato logístico; no es un criterio de elección en cojines decorativos."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.pillow_type",
+      "reason": "Es el tipo de producto (cojín decorativo, almohada de cama, de suelo o de asiento, relleno interior). Lo resuelven gen/01 y la clasificación: los cojines de asiento son otra categoría (hg-3-15)."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.special_feature=Absorbe la humedad",
+      "reason": "Es confort térmico durante el sueño, propio de las almohadas de cama."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.special_feature=Control de temperatura",
+      "reason": "Es confort térmico durante el sueño, propio de las almohadas de cama."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.special_feature=Refrescante",
+      "reason": "Es confort térmico durante el sueño, propio de las almohadas de cama."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.special_feature=Transpirable",
+      "reason": "Es confort térmico durante el sueño, propio de las almohadas de cama."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.special_feature=Ajustable",
+      "reason": "Es el ajuste del relleno al cuerpo, propio de las almohadas de cama."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.special_feature=Ergonómica",
+      "reason": "Es el soporte del cuerpo al dormir, propio de las almohadas de cama o terapéuticas."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.special_feature=Soporte para el cuello",
+      "reason": "Es el soporte cervical, propio de las almohadas de cama o de viaje."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.special_feature=Ponderado",
+      "reason": "Las almohadas con peso son de uso terapéutico, no decorativo."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.special_feature=Comprimible",
+      "reason": "Es una característica de transporte, propia de las almohadas de viaje."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.special_feature=Inflable",
+      "reason": "Es una característica de transporte, propia de las almohadas de viaje o de playa."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.special_feature=Ligera",
+      "reason": "Es una característica de transporte, propia de las almohadas de viaje."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.special_feature=Portátil",
+      "reason": "Es una característica de transporte, propia de las almohadas de viaje."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.special_feature=Bolsillo profundo",
+      "reason": "Es propia de las sábanas ajustables; no se aplica a los cojines."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.special_feature=Lavable",
+      "reason": "La cubre shopify-attr:care-instructions (cat.decoracion/03)."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.material_feature=Transpirable",
+      "reason": "Confort térmico durante el sueño, propio de las almohadas de cama (como special_feature=Transpirable)."
+    },
+    {
+      "source": "amazon-ptd-prop:PILLOW.compliance_filling_type",
+      "reason": "Tipo de relleno a efectos de cumplimiento: lo cubre /04 (shopify-attr:filler-material)."
+    }
+  ],
+  "compiled_by": "reglas 3"
+}

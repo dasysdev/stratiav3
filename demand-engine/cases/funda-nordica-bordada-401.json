@@ -1,0 +1,122 @@
+{
+  "id": "funda-nordica-bordada-401",
+  "url": "https://www.burritoblanco.com/fundas-nordicas-bordadas-algodon-percal-200-hilos401-blanco-p-5191-10308.html#/450-medidas_de_cama-cama_135_cm_1_alm",
+  "retailer": "burritoblanco.com",
+  "vertical": "textil hogar",
+  "split": "dev",
+  "page": "var/pages/funda-nordica-bordada-401.html",
+  "source": "docs/20-methods/product-taxonomy/cases.md#juego-de-funda-nórdica-bordada",
+  "rules": [
+    "D-023",
+    "D-025",
+    "D-026",
+    "D-032",
+    "D-036"
+  ],
+  "expected": {
+    "components": [
+      {
+        "shopify": "hg-15-1-5",
+        "name": "Fundas de nórdico",
+        "piece": "funda nórdica",
+        "entry": "aporta requisitos"
+      },
+      {
+        "shopify": "hg-15-1-2-1",
+        "name": "Sábanas ajustables",
+        "piece": "bajera",
+        "entry": "aporta requisitos"
+      },
+      {
+        "shopify": "hg-15-1-8-2",
+        "name": "Fundas de almohada",
+        "piece": "fundas",
+        "entry": "aporta requisitos"
+      }
+    ],
+    "rejected_categories": [
+      {
+        "shopify": "hg-15-1-11",
+        "name": "Juegos de cama",
+        "reason": "traería un requisito que no aplica (nivel de calidez del edredón o la colcha)"
+      }
+    ],
+    "specializations": [
+      {
+        "name": "juego",
+        "kind": "producto",
+        "questions": [
+          "qué piezas incluye",
+          "cuántas",
+          "en qué medidas"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "feature": "peinado, mercerizado",
+        "role": "respuesta a cuestión inferida de la clase (peinado); el mercerizado responde a finish_type",
+        "questions": [
+          "¿qué preparación tiene el algodón?"
+        ]
+      },
+      {
+        "feature": "percal, 200 hilos",
+        "role": "valor"
+      },
+      {
+        "feature": "más resistente y suave, mayor brillo",
+        "role": "beneficio reclamado"
+      },
+      {
+        "feature": "bordado, pliegues",
+        "role": "estético"
+      },
+      {
+        "feature": "-30 %",
+        "role": "aplicación (con descuento)"
+      },
+      {
+        "feature": "alta calidad",
+        "role": "promocional"
+      }
+    ],
+    "class": "Fundas de nórdico + Sábanas ajustables + Fundas de almohada → juego",
+    "application": [
+      "con descuento"
+    ]
+  },
+  "expected_v1": {
+    "categories": [
+      "hg-15-1-5",
+      "hg-15-1-2-1",
+      "hg-15-1-8-2"
+    ],
+    "alias": [],
+    "specializations": [
+      {
+        "name": "juego",
+        "questions": [
+          "qué piezas incluye",
+          "cuántas",
+          "en qué medidas"
+        ]
+      }
+    ],
+    "application": [
+      "gen.descuento",
+      "gen.variantes"
+    ],
+    "inferred_any_of": [
+      [
+        "algodón",
+        "peinado"
+      ],
+      [
+        "algodón",
+        "preparación"
+      ]
+    ],
+    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "cat.sofas-cama",
+  "type": "categoría",
+  "name": "Sofás cama",
+  "shopify": "fr-22-7",
+  "parent": "cat.sofas",
+  "refs": [
+    "shopify:fr-22-7@v2026-08",
+    "google:460@2021-09-21",
+    "amazon-ptd:SOFA@2026-10-24"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.sofas-cama/01",
+      "question": "¿Qué medidas tiene la cama abierta (largo y ancho de la superficie de descanso y altura al suelo)?",
+      "dimension": "dimensiones físicas",
+      "trait": "medida",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SOFA.sleeping_area_dimensions"
+      ],
+      "applicability": "universal",
+      "rationale": "Se traslada desde los candidatos de Sofás (PTD SOFA): según el PTD, son las medidas «cuando el artículo se convierte en una cama», así que solo se aplica a los sofás cama. Decide quién puede dormir en él y qué ropa de cama le sirve, y es un criterio con el que se comparan los sofás cama. Criterio 1: principal, porque describe el producto (las medidas de la cama abierta no fijan la variante).",
+      "seed_importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva"
+    },
+    {
+      "id": "cat.sofas-cama/02",
+      "question": "¿Incluye colchón y, si lo incluye, qué medida, material y grosor tiene y se puede retirar?",
+      "dimension": "componentes",
+      "trait": "contenido",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SOFA.mattress",
+        "amazon-ptd-prop:SOFA.special_feature=Colchón desmontable"
+      ],
+      "applicability": "universal",
+      "rationale": "Se traslada desde los candidatos de Sofás (PTD SOFA): el colchón incluido (SOFA.mattress.size_name) y el colchón desmontable solo tienen sentido en un sofá cama. El colchón decide la comodidad para dormir y es un criterio de comparación. «No incluye colchón» también resuelve la cuestión.",
+      "seed_importance": "principal",
+      "rule": "imp:contenido@fr-22-7"
+    },
+    {
+      "id": "cat.sofas-cama/03",
+      "question": "¿Qué mecanismo de apertura tiene (italiano, clic-clac, libro, nido, extensible…) y cómo se acciona?",
+      "dimension": "funciones",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Es una cuestión inferida (D-036): no la recoge ninguna referencia (ni Shopify Sofás cama ni el PTD SOFA tienen la dimensión; solo existe futon-frame-conversion-mechanism, en Futones). Está documentada en cases.md («Sofá cama») como cuestión del bloque de la clase, con importancia principal. El usuario la puso como ejemplo de principal o complementario: «no impide comprar». Se mantiene como cuestión inferida provisional (criterio 5), pendiente de aprobación.",
+      "seed_importance": "principal",
+      "rule": "imp:construccion@fr-22-7"
+    },
+    {
+      "id": "cat.sofas-cama/04",
+      "question": "¿Está pensado para dormir a diario o para un uso ocasional (invitados)?",
+      "dimension": "uso previsto",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Cuestión inferida (criterio 5; añadido provisional hasta su aprobación, D-041): ninguna referencia la recoge (ni Shopify Sofás cama ni el PTD SOFA). El caso «Sofá cama» de cases.md la declara («para uso diario o para invitados»). Decide si el mecanismo y el colchón están pensados para el uso diario y es un criterio con que se comparan los sofás cama; «uso ocasional» también resuelve la cuestión.",
+      "seed_importance": "principal",
+      "rule": "imp:uso@fr-22-7"
+    }
+  ],
+  "excluded": [],
+  "compiled_by": "reglas 3"
+}

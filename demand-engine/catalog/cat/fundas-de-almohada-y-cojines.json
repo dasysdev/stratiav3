@@ -1,0 +1,33 @@
+{
+  "id": "cat.fundas-de-almohada-y-cojines",
+  "type": "categoría",
+  "name": "Fundas de almohada y de cojines",
+  "shopify": "hg-15-1-8",
+  "parent": "cat.ropa-de-cama",
+  "refs": [
+    "shopify:hg-15-1-8@v2026-08",
+    "google:2927@2021-09-21"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.fundas-de-almohada-y-cojines/01",
+      "question": "¿Cómo se cierra la funda (solapa, cremallera, botones…) y el cierre queda oculto o a la vista?",
+      "dimension": "cierre",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:closure-style"
+      ],
+      "applicability": "universal",
+      "rationale": "Shopify recoge el estilo (oculto o tradicional); el mecanismo responde a la misma cuestión. Influye en la sujeción de la almohada y en el aspecto; no suele ser un criterio central.",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@hg-15-1-8"
+    }
+  ],
+  "excluded": [],
+  "compiled_by": "reglas 3"
+}

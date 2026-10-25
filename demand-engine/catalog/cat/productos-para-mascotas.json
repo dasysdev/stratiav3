@@ -1,0 +1,65 @@
+{
+  "id": "cat.productos-para-mascotas",
+  "type": "categoría",
+  "name": "Productos para mascotas",
+  "shopify": "ap-2",
+  "parent": null,
+  "refs": [
+    "shopify:ap-2@v2026-08",
+    "google:2@2021-09-21"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.productos-para-mascotas/01",
+      "question": "¿A qué especie o tipo de animal va destinado?",
+      "dimension": "especie destinataria",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:animal-type"
+      ],
+      "applicability": "universal",
+      "rationale": "Decide si la oferta sirve para el animal del comprador; a menudo la resuelve el propio nombre del producto (gen/01), pero es la primera condición de adecuación en la clase.",
+      "seed_importance": "principal",
+      "rule": "imp:uso@ap-2"
+    },
+    {
+      "id": "cat.productos-para-mascotas/02",
+      "question": "¿De qué color o colores es?",
+      "dimension": "color",
+      "trait": "estetica",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:color"
+      ],
+      "applicability": "si el producto es un objeto (accesorio, juguete, cama, comedero…); no se aplica a alimentos ni a otros consumibles",
+      "rationale": "En productos para mascotas el color es un rasgo estético secundario frente a la función y el tamaño; suele ser eje de variante. Es una característica del producto (criterio 7); si es seleccionable, lo cubre además gen.variantes.",
+      "seed_importance": "complementario",
+      "rule": "imp:estetica@ap-2"
+    },
+    {
+      "id": "cat.productos-para-mascotas/03",
+      "question": "¿Qué estampado o motivo tiene, o es liso?",
+      "dimension": "estampado",
+      "trait": "estetica",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:pattern"
+      ],
+      "applicability": "si el producto es un objeto (accesorio, juguete, cama, comedero…); no se aplica a alimentos ni a otros consumibles",
+      "rationale": "Rasgo estético secundario en esta clase; «liso» resuelve la cuestión. Como el color, es una característica del producto (criterio 7, aplicado también al estampado por coherencia); si es seleccionable, lo cubre además gen.variantes.",
+      "seed_importance": "complementario",
+      "rule": "imp:estetica@ap-2"
+    }
+  ],
+  "excluded": [],
+  "compiled_by": "reglas 3"
+}

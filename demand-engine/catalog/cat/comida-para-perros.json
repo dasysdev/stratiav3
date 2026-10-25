@@ -1,0 +1,369 @@
+{
+  "id": "cat.comida-para-perros",
+  "type": "categoría",
+  "name": "Comida para perros",
+  "shopify": "ap-2-3-3",
+  "parent": "cat.productos-para-perros",
+  "refs": [
+    "shopify:ap-2-3-3@v2026-08",
+    "google:3530@2021-09-21",
+    "amazon-ptd:PET_FOOD@2026-10-24",
+    "amazon-btg:13441954031@2026-10-24",
+    "ley:CE-767/2009-11.3@2009-09-01",
+    "ley:CE-767/2009-15.a@2009-09-01",
+    "ley:CE-767/2009-17.1.f@2009-09-01"
+  ],
+  "version": "2",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.comida-para-perros/01",
+      "question": "¿Para qué etapa de vida del perro está formulada (cachorro, júnior, adulto, sénior o todas las etapas)?",
+      "dimension": "etapa de vida",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:dog-age-group"
+      ],
+      "applicability": "universal",
+      "rationale": "Las necesidades nutricionales cambian con la edad; es uno de los primeros criterios con que se eligen alimentos para perros. La propiedad age_range_description de PET_FOOD, ahora en este bloque, repite la dimensión y se excluye.",
+      "seed_importance": "principal",
+      "rule": "imp:uso@ap-2"
+    },
+    {
+      "id": "cat.comida-para-perros/02",
+      "question": "¿En qué forma se presenta (pienso seco, húmeda, semihúmeda, liofilizada, congelada…)?",
+      "dimension": "forma",
+      "trait": "identidad",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:pet-food-form"
+      ],
+      "applicability": "universal",
+      "rationale": "La forma separa ofertas poco comparables entre sí (seco frente a húmedo) y condiciona ración, conservación y precio por kilo.",
+      "seed_importance": "principal",
+      "rule": "imp:identidad@ap-2"
+    },
+    {
+      "id": "cat.comida-para-perros/03",
+      "question": "¿De qué sabor es o cuál es su ingrediente principal (pollo, cordero, salmón…)?",
+      "dimension": "sabor o proteína principal",
+      "trait": "material",
+      "entity": "variante",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:pet-food-flavor"
+      ],
+      "applicability": "universal",
+      "rationale": "Criterio habitual de elección (preferencia del perro, intolerancias); suele ser eje de variante.",
+      "seed_importance": "principal",
+      "rule": "imp:material@ap-2"
+    },
+    {
+      "id": "cat.comida-para-perros/04",
+      "question": "¿Para qué necesidades de salud está formulada (control de peso, estómago sensible, alergias, salud dental, articulaciones…), o es de uso general?",
+      "dimension": "necesidades de salud",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:pet-dietary-requirements=Alergia y sensibilidad alimentaria",
+        "shopify-attr:pet-dietary-requirements=Control de bolas de pelo",
+        "shopify-attr:pet-dietary-requirements=Control de peso",
+        "shopify-attr:pet-dietary-requirements=Cuidado cardiovascular",
+        "shopify-attr:pet-dietary-requirements=Cuidado de articulaciones y movilidad",
+        "shopify-attr:pet-dietary-requirements=Cuidado de la diabetes",
+        "shopify-attr:pet-dietary-requirements=Cuidado de la piel y el pelaje",
+        "shopify-attr:pet-dietary-requirements=Cuidado de la tiroides",
+        "shopify-attr:pet-dietary-requirements=Cuidado de los riñones",
+        "shopify-attr:pet-dietary-requirements=Cuidado del hígado",
+        "shopify-attr:pet-dietary-requirements=Estómago sensible",
+        "shopify-attr:pet-dietary-requirements=Salud dental",
+        "shopify-attr:pet-dietary-requirements=Salud digestiva",
+        "shopify-attr:pet-dietary-requirements=Salud urinaria"
+      ],
+      "applicability": "universal",
+      "rationale": "Es uno de los criterios con que se comparan alimentos para perros; «uso general» resuelve la cuestión. Los beneficios reclamados se fundamentan en la auditoría (D-025). Criterio 2: se citan los valores de pet-dietary-requirements sobre salud; «Alto en proteínas» pasa a las declaraciones nutricionales y «Sin gluten» y «Sin granos» al tipo de dieta.",
+      "seed_importance": "principal",
+      "rule": "imp:uso@ap-2"
+    },
+    {
+      "id": "cat.comida-para-perros/05",
+      "question": "¿Qué complementos nutricionales lleva añadidos (aceite de pescado, omega-3, probióticos…)?",
+      "dimension": "complementos nutricionales",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:pet-food-supplements"
+      ],
+      "applicability": "universal",
+      "rationale": "Amplía la comparación de la composición sin ser criterio central.",
+      "seed_importance": "complementario",
+      "rule": "imp:material@ap-2"
+    },
+    {
+      "id": "cat.comida-para-perros/06",
+      "question": "¿En qué tipo de envase se presenta (saco, lata, bolsita, tarrina…)?",
+      "dimension": "envase",
+      "trait": "contenido",
+      "entity": "variante",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:package-type"
+      ],
+      "applicability": "universal",
+      "rationale": "Condiciona la conservación y la comodidad de uso; relevante sin ser central.",
+      "seed_importance": "complementario",
+      "rule": "imp:contenido@ap-2-3-3"
+    },
+    {
+      "id": "cat.comida-para-perros/07",
+      "question": "¿Qué cantidad neta contiene (peso o volumen por envase y número de envases)?",
+      "dimension": "cantidad neta",
+      "trait": "medida-que-fija",
+      "entity": "variante",
+      "importance": "crítico",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_FOOD.item_weight"
+      ],
+      "applicability": "universal",
+      "rationale": "Sin la cantidad no se sabe qué se vende ni se puede comparar el precio entre envases (3 kg frente a 12 kg); la oferta deja de ser evaluable. Concreta para la clase lo que gen/01 pregunta en general («qué incluye exactamente»). Se mantiene en el bloque de categoría (criterio 3: «la cantidad neta del pienso se queda»). Criterio 1: crítica, porque fija la variante que se vende. Movido desde cat.comida-para-perros-sin-prescripcion/01: el PTD PET_FOOD pasa a Comida para perros porque sus propiedades valen para toda la comida para perros, también la de prescripción. Sin apoyo normativo previo a la compra: el art. 11.3 del Reglamento (CE) 767/2009 permite dar la cantidad neta (art. 15.e) en la entrega.",
+      "seed_importance": "crítico",
+      "rule": "marco:D-043.1/medida-que-fija"
+    },
+    {
+      "id": "cat.comida-para-perros/08",
+      "question": "¿Qué ingredientes contiene y en qué proporción?",
+      "dimension": "composición",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_FOOD.ingredients",
+        "amazon-ptd-prop:PET_FOOD.special_ingredients"
+      ],
+      "applicability": "universal",
+      "rationale": "La composición es el criterio central para comparar la calidad de alimentos para perros y para descartar ingredientes que el perro no tolera. Se unen los ingredientes y los ingredientes destacados. Movido desde cat.comida-para-perros-sin-prescripcion/02: el PTD PET_FOOD pasa a Comida para perros porque sus propiedades valen para toda la comida para perros, también la de prescripción.",
+      "seed_importance": "principal",
+      "rule": "imp:material@ap-2"
+    },
+    {
+      "id": "cat.comida-para-perros/09",
+      "question": "¿Qué declaraciones nutricionales hace (alto en proteínas, bajo en grasa, bajo en fósforo, sin azúcar añadido…)?",
+      "dimension": "declaraciones nutricionales",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_FOOD.animal_food_nutrient_content_claim",
+        "shopify-attr:pet-dietary-requirements=Alto en proteínas"
+      ],
+      "applicability": "universal",
+      "rationale": "Permite comparar el valor nutricional que se reclama entre ofertas; distinto de las necesidades de salud (/04), que dicen para qué está formulada. Su fundamento se evalúa en la auditoría (D-025). Recoge la parte de declaraciones de cat.comida-para-perros-sin-prescripcion/03; la composición analítica pasa a una cuestión propia, inferida. Movido desde cat.comida-para-perros-sin-prescripcion/03: el PTD PET_FOOD pasa a Comida para perros porque sus propiedades valen para toda la comida para perros, también la de prescripción.",
+      "seed_importance": "principal",
+      "rule": "imp:material@ap-2"
+    },
+    {
+      "id": "cat.comida-para-perros/10",
+      "question": "¿Qué tipo de dieta sigue (convencional, sin cereales, cruda, de ingrediente limitado, vegetariana o vegana…)?",
+      "dimension": "tipo de dieta",
+      "trait": "identidad",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_FOOD.animal_food_diet_type",
+        "shopify-attr:pet-dietary-requirements=Sin gluten",
+        "shopify-attr:pet-dietary-requirements=Sin granos"
+      ],
+      "applicability": "universal",
+      "rationale": "Amplía la comparación entre enfoques de alimentación. Se suman los valores «Sin gluten» y «Sin granos» de pet-dietary-requirements (criterio 2). El valor «Dieta veterinaria» del PTD corresponde a la comida con prescripción, que ahora también cubre este bloque. Movido desde cat.comida-para-perros-sin-prescripcion/05: el PTD PET_FOOD pasa a Comida para perros porque sus propiedades valen para toda la comida para perros, también la de prescripción.",
+      "seed_importance": "complementario",
+      "rule": "imp:identidad@ap-2"
+    },
+    {
+      "id": "cat.comida-para-perros/11",
+      "question": "¿Qué declara sobre el origen o la calidad de sus ingredientes (ecológico, sin aditivos ni colorantes artificiales, sin OGM, apto para consumo humano…)?",
+      "dimension": "declaraciones sobre ingredientes",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_FOOD.animal_food_ingredient_claim"
+      ],
+      "applicability": "universal",
+      "rationale": "Relevantes para comparar, sin ser centrales; su fundamento se evalúa en la auditoría. Movido desde cat.comida-para-perros-sin-prescripcion/06: el PTD PET_FOOD pasa a Comida para perros porque sus propiedades valen para toda la comida para perros, también la de prescripción.",
+      "seed_importance": "complementario",
+      "rule": "imp:material@ap-2"
+    },
+    {
+      "id": "cat.comida-para-perros/12",
+      "question": "¿Qué ración diaria recomienda según el peso, la edad o la actividad del perro?",
+      "dimension": "ración recomendada",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_FOOD.serving_recommendation",
+        "amazon-ptd-prop:PET_FOOD.nutritional_info"
+      ],
+      "applicability": "universal",
+      "rationale": "Permite estimar la duración del envase y el coste diario; amplía la comparación de precio. Movido desde cat.comida-para-perros-sin-prescripcion/07: el PTD PET_FOOD pasa a Comida para perros porque sus propiedades valen para toda la comida para perros, también la de prescripción.",
+      "seed_importance": "complementario",
+      "rule": "imp:uso@ap-2"
+    },
+    {
+      "id": "cat.comida-para-perros/13",
+      "question": "¿Cómo se conserva y cuánto dura antes y después de abrir el envase?",
+      "dimension": "conservación y caducidad",
+      "trait": "cuidado",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_FOOD.use_by_recommendation",
+        "amazon-ptd-prop:PET_FOOD.storage_instructions"
+      ],
+      "applicability": "universal",
+      "rationale": "Relevante para elegir el tamaño del envase y para el uso del producto, sin ser central. Movido desde cat.comida-para-perros-sin-prescripcion/08: el PTD PET_FOOD pasa a Comida para perros porque sus propiedades valen para toda la comida para perros, también la de prescripción.",
+      "seed_importance": "complementario",
+      "rule": "imp:cuidado@ap-2-3"
+    },
+    {
+      "id": "cat.comida-para-perros/14",
+      "question": "¿Es un alimento completo, que cubre por sí solo la ración diaria, o complementario (premio, topper, complemento de otra comida)?",
+      "dimension": "tipo de alimento: completo o complementario",
+      "trait": "identidad",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "normativa",
+      "sources": [
+        "ley:CE-767/2009-11.3@2009-09-01",
+        "ley:CE-767/2009-15.a@2009-09-01"
+      ],
+      "applicability": "universal",
+      "rationale": "Cuestión inferida (criterio 5; añadido provisional hasta su aprobación, D-041): ninguna referencia del esqueleto la recoge (ni Shopify ni PET_FOOD). Decide si la oferta puede ser la alimentación única del perro y si es comparable con otra; un alimento complementario no se compara con uno completo. Apoyo normativo: Reglamento (CE) 767/2009, art. 11.3 (en la venta a distancia, las indicaciones obligatorias del etiquetado deben figurar antes de la celebración del contrato), art. 15.a (tipo de pienso: completo o complementario).",
+      "seed_importance": "principal",
+      "rule": "imp:identidad@ap-2"
+    },
+    {
+      "id": "cat.comida-para-perros/15",
+      "question": "¿Qué composición analítica declara (proteína bruta, grasa bruta, fibra bruta, materia mineral, humedad) y qué aporte energético?",
+      "dimension": "composición analítica",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "normativa",
+      "sources": [
+        "ley:CE-767/2009-11.3@2009-09-01",
+        "ley:CE-767/2009-17.1.f@2009-09-01"
+      ],
+      "applicability": "universal",
+      "rationale": "Cuestión inferida (criterio 5; añadido provisional hasta su aprobación, D-041): ninguna referencia del esqueleto la recoge (nutritional_info de PET_FOOD es el tamaño de la ración). Es la base para comparar el valor nutricional entre ofertas y para fundamentar las declaraciones nutricionales (/09). Apoyo normativo: Reglamento (CE) 767/2009, art. 11.3 (en la venta a distancia, las indicaciones obligatorias del etiquetado deben figurar antes de la celebración del contrato), art. 17.1.f (componentes analíticos de los piensos compuestos).",
+      "seed_importance": "principal",
+      "rule": "imp:material@ap-2"
+    },
+    {
+      "id": "cat.comida-para-perros/16",
+      "question": "¿Para qué tamaño o raza de perro está indicada (mini, pequeño, mediano, grande, gigante o todos)?",
+      "dimension": "adecuación al tamaño del perro",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_FOOD.dog_breed_size",
+        "amazon-ptd-prop:PET_FOOD.breed_recommendation"
+      ],
+      "applicability": "universal",
+      "rationale": "El tamaño del perro condiciona la formulación y el tamaño de la croqueta; es un criterio habitual de elección. No lo cubre ningún atributo de Shopify de la cadena. Viene de cat.comida-para-perros-sin-prescripcion/04 (bloque eliminado, queda como alias): el PTD PET_FOOD pasa a Comida para perros. No sube a Productos para perros (criterio 4 y D-040): Juguetes y Cintas de caminar tienen suitable-for-breed-size como atributo propio de Shopify.",
+      "seed_importance": "principal",
+      "rule": "imp:uso@ap-2"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.age_range_description",
+      "reason": "Cubierta por /01 (etapa de vida, shopify-attr:dog-age-group)."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.size",
+      "reason": "Propiedad genérica sin valores; la cantidad la cubre /07."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.package_size_name",
+      "reason": "Nombre comercial del tamaño del envase («maxipaquete»…); la cantidad la cubre /07."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.product_benefit",
+      "reason": "Beneficio reclamado en texto libre (D-025); las necesidades que atiende las cubre /04."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.contains_food_or_beverage",
+      "reason": "Indicador de plataforma (en comida siempre «sí»)."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.has_energy_efficiency_label",
+      "reason": "Dato regulatorio de feed para aparatos con etiqueta energética; no aplica."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.eprel_registration_number",
+      "reason": "Identificador de registro (EPREL); no aplica."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.allergen_information",
+      "reason": "Lista de alérgenos de la alimentación humana; en comida para perros la sensibilidad se resuelve con los ingredientes (/08) y las necesidades de salud (/04)."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.is_expiration_dated_product",
+      "reason": "Indicador de plataforma; la duración la cubre /13."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.product_expiration_type",
+      "reason": "Método de control de caducidad de la plataforma; la duración la cubre /13."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.fc_shelf_life",
+      "reason": "Vida útil en el centro de distribución: dato logístico."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.item_form",
+      "reason": "Cubierta por /02 (forma, shopify-attr:pet-food-form)."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.specific_uses_for_product",
+      "reason": "Cubierta por /04 (necesidades de salud, shopify-attr:pet-dietary-requirements)."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.recommended_uses_for_product",
+      "reason": "Sin valores en el PTD; los usos los cubre /04."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.container",
+      "reason": "Cubierta por /06 (envase, shopify-attr:package-type)."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.target_species",
+      "reason": "Cubierta por cat.productos-para-mascotas/01 (especie destinataria)."
+    },
+    {
+      "source": "amazon-ptd-prop:PET_FOOD.pet_type",
+      "reason": "Cubierta por cat.productos-para-mascotas/01 (especie destinataria)."
+    }
+  ],
+  "compiled_by": "reglas 3"
+}

@@ -1,0 +1,292 @@
+{
+  "id": "cat.protectores-de-colchon",
+  "type": "categoría",
+  "name": "Protectores para colchones",
+  "shopify": "hg-15-1-6",
+  "parent": "cat.ropa-de-cama",
+  "refs": [
+    "shopify:hg-15-1-6@v2026-08",
+    "google:4452@2021-09-21",
+    "amazon-ptd:MATTRESS_COVER@2026-10-24",
+    "amazon-btg:2822732031@2026-10-24"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.protectores-de-colchon/01",
+      "question": "¿Protege frente a líquidos y con qué nivel (impermeable, resistente o repelente al agua, sin protección)?",
+      "dimension": "impermeabilidad",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:mattress-protector-features=Impermeable",
+        "shopify-attr:mattress-protector-features=Resistente al agua",
+        "amazon-ptd-prop:MATTRESS_COVER.water_resistance_level",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Impermeable",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=A prueba de derrames",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Antihumedad",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Superabsorbente"
+      ],
+      "applicability": "universal",
+      "rationale": "Es la función que más distingue unos protectores de otros. De mattress-protector-features cubre Impermeable y Resistente al agua. Criterio 2: se citan los valores de mattress-protector-features que cubre.",
+      "seed_importance": "principal",
+      "rule": "imp:prestacion@hg-15-1-6"
+    },
+    {
+      "id": "cat.protectores-de-colchon/02",
+      "question": "¿Qué protección ofrece frente a ácaros, alérgenos, chinches, hongos o bacterias?",
+      "dimension": "protección e higiene",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:mattress-protector-features=Hipoalergénico",
+        "shopify-attr:mattress-protector-features=Antimicrobiano",
+        "shopify-attr:mattress-protector-features=Resistente a chinches",
+        "shopify-attr:mattress-protector-features=Resistente a los ácaros del polvo",
+        "shopify-attr:mattress-protector-features=Materiales seguros y no tóxicos",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Barrera Antialérgenos",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Control de ácaros",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Control de insectos",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Hipoalergénico",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Antimicrobiano",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Antifúngico",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Resistente al moho",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=A prueba de polvo"
+      ],
+      "applicability": "universal",
+      "rationale": "Proteger el colchón y al usuario es el propósito de la clase. De mattress-protector-features cubre Hipoalergénico, Antimicrobiano, Resistente a chinches, Resistente a los ácaros del polvo y Materiales seguros y no tóxicos. Criterio 2: se citan los valores de mattress-protector-features que cubre. Queda en el bloque (criterio 4): en los protectores la protección es la función de la clase, y la higiene no vale para todas las hijas de Ropa de cama.",
+      "seed_importance": "principal",
+      "rule": "imp:prestacion@hg-15-1-6"
+    },
+    {
+      "id": "cat.protectores-de-colchon/03",
+      "question": "¿Qué confort ofrece en la superficie (acolchado, transpirabilidad, regulación térmica, ruido)?",
+      "dimension": "confort",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:mattress-protector-features=Diseño transpirable",
+        "shopify-attr:mattress-protector-features=Función de refrigeración",
+        "shopify-attr:mattress-protector-features=Reducción de ruido",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Transpirable",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Enfriamiento",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Control de temperatura",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Silencioso",
+        "shopify-attr:mattress-protector-features=Acolchada"
+      ],
+      "applicability": "universal",
+      "rationale": "En los protectores impermeables, el calor y el ruido son criterios habituales de comparación. Criterio 2: se citan los valores de mattress-protector-features que cubre, incluido Acolchada, que se queda en el bloque de su atributo (D-040); el grosor y la firmeza del acolchado los pregunta cat.cubrecolchones/02. Queda en el bloque (criterio 4): el confort térmico no vale para todas las hijas de Ropa de cama, y aquí lo concreta la capa impermeable.",
+      "seed_importance": "principal",
+      "rule": "imp:prestacion@hg-15-1-6"
+    },
+    {
+      "id": "cat.protectores-de-colchon/04",
+      "question": "¿Cómo se sujeta o cubre el colchón (ajustable como una bajera, gomas en las esquinas, funda integral con cremallera)?",
+      "dimension": "sujeción",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:closure-type",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Ajustable",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Totalmente revestido",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Antideslizante"
+      ],
+      "applicability": "universal",
+      "rationale": "La forma de sujeción distingue tipos de protector (ajustable, de gomas, funda integral) y decide si se mueve durante el uso.",
+      "seed_importance": "principal",
+      "rule": "imp:construccion@hg-15-1-6"
+    },
+    {
+      "id": "cat.protectores-de-colchon/05",
+      "question": "¿Hasta qué altura de colchón se ajusta?",
+      "dimension": "ajuste al colchón",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:MATTRESS_COVER.item_length_width_depth.depth",
+        "amazon-ptd-prop:MATTRESS_COVER.item_depth",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Bolsillo profundo"
+      ],
+      "applicability": "universal",
+      "rationale": "Como en la bajera, la altura del colchón decide si el protector sirve. El largo y el ancho los pregunta cat.ropa-de-cama/02; item_length_width_depth aporta aquí la profundidad. Queda en el bloque (criterio 4): no es la misma propiedad que item_length_width y la altura no vale para todas las hijas de Ropa de cama. Criterio 1: principal. De item_length_width_depth se cita el subcampo depth.",
+      "seed_importance": "principal",
+      "rule": "imp:uso@hg-15-1-6"
+    },
+    {
+      "id": "cat.protectores-de-colchon/06",
+      "question": "¿Qué resistencia al uso y qué facilidad de mantenimiento tiene (antimanchas, secado rápido, no encoge, sin pelusa…)?",
+      "dimension": "durabilidad y mantenimiento",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:mattress-protector-features=Resistente a las manchas",
+        "shopify-attr:mattress-protector-features=Lavable a máquina",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Protección contra manchas",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Secado rápido",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Resistente al encogimiento",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Resistente a las arrugas",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Resistente a los olores",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Antipelusas",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Antiestático",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Antidesgarro"
+      ],
+      "applicability": "universal",
+      "rationale": "De mattress-protector-features cubre Resistente a las manchas y Lavable a máquina (el lavado también lo cubre cat.ropa-de-casa/02); se citan los valores (criterio 2). La cubierta extraíble se separa en /07 por tema (criterio 2). No sube a Ropa de casa (criterio 4 y D-040): esta categoría tiene la durabilidad como atributo propio de Shopify.",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@hg-15-1-6"
+    },
+    {
+      "id": "cat.protectores-de-colchon/07",
+      "question": "¿Se puede retirar la cubierta o la capa superior para lavarla aparte?",
+      "dimension": "mantenimiento",
+      "trait": "cuidado",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:mattress-protector-features=Cubierta extraíble",
+        "amazon-ptd-prop:MATTRESS_COVER.special_feature=Extraíble"
+      ],
+      "applicability": "universal",
+      "rationale": "Separada de /06 por tema (criterio 2): de mattress-protector-features toma Cubierta extraíble, y de MATTRESS_COVER, Extraíble. Facilita el lavado y alarga la vida del protector; relevante sin ser central.",
+      "seed_importance": "complementario",
+      "rule": "imp:cuidado@hg"
+    },
+    {
+      "id": "cat.protectores-de-colchon/08",
+      "question": "¿De qué tejido es la cara superior (de calada o de punto; rizo, punto, acolchado…)?",
+      "dimension": "tejido",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:MATTRESS_COVER.compliance_weave_type"
+      ],
+      "applicability": "universal",
+      "rationale": "Candidato nuevo del grupo de cumplimiento de MATTRESS_COVER (calada, punto o ganchillo). El tejido de la cara superior influye en el tacto, la absorción y el ruido, pero lo que se compara en un protector es la protección y el confort (/01–/03). No sube a Ropa de casa (criterio 4 y D-040): Fundas de nórdico y Toallas tienen el ligamento como atributo propio de Shopify.",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@hg-15-1-6"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.age_range_description",
+      "reason": "Rango de edad (adulto, bebé…): en un protector lo determina la medida del colchón (cuna, infantil), que cubre cat.ropa-de-cama/01."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.fabric_type",
+      "reason": "Composición en fibras con porcentajes: la cubre cat.ropa-de-casa/01 (shopify-attr:fabric y material), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.length_range",
+      "reason": "Según la propia definición de Amazon son rangos «para persianas»: error del PTD. Las medidas las cubre /05."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.width_range",
+      "reason": "Según la propia definición de Amazon son rangos «para persianas»: error del PTD. Las medidas las cubre /05."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.thread",
+      "reason": "Número de hilos: no es un criterio habitual en protectores; el tejido de la cara superior lo cubre cat.ropa-de-casa/01."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.collection_item",
+      "reason": "Dato de colección o catálogo del vendedor; no informa sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.item_weight",
+      "reason": "Peso del artículo: dato logístico; no es criterio de comparación de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.special_feature=Calefactable",
+      "reason": "Protectores o almohadillas eléctricas (Amazon tiene un nodo propio): traerían una especialización con cuestiones propias (alimentación, seguridad eléctrica)."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.special_feature=Ecológico",
+      "reason": "Los cubre la certificación orgánica o de sostenibilidad de la madre, Casa y jardín (organic-certification)."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.special_feature=Orgánico",
+      "reason": "Los cubre la certificación orgánica o de sostenibilidad de la madre, Casa y jardín (organic-certification)."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.special_feature=Lavable",
+      "reason": "Lo cubre cat.ropa-de-casa/02 (cuidado)."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.special_feature=Grabado",
+      "reason": "Acabados estéticos: no informan sobre la función de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.special_feature=Ribete",
+      "reason": "Acabados estéticos: no informan sobre la función de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.special_feature=Plegable",
+      "reason": "Propios de colchonetas o de productos de viaje; no son criterios de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.special_feature=Portátil",
+      "reason": "Propios de colchonetas o de productos de viaje; no son criterios de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.special_feature=Ligera",
+      "reason": "Propios de colchonetas o de productos de viaje; no son criterios de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.special_feature=Reversible",
+      "reason": "Poco aplicable a protectores (la capa impermeable tiene una cara de uso); no es criterio de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.special_feature=Antiincrustante",
+      "reason": "Valor sin sentido claro en un textil; no informa sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.special_feature=Resistente al fuego",
+      "reason": "Exigencia propia de usos profesionales (hostelería, sanitario); no es criterio general de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.compliance_printing_method",
+      "reason": "Método de estampación a efectos aduaneros (batik, estampado a mano); el estampado lo cubre cat.casa-y-jardin/02."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.compliance_outer_surface_material",
+      "reason": "Material de la superficie exterior a efectos de cumplimiento: lo cubre cat.ropa-de-casa/01 (composición), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.compliance_embellishment_feature",
+      "reason": "Adornos a efectos aduaneros (bordado, encaje, lentejuelas…); el diseño lo cubre cat.casa-y-jardin/02."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.compliance_padding_material",
+      "reason": "Trasladada a cat.cubrecolchones/01: el material del acolchado solo se aplica a los protectores acolchados."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.compliance_is_padded",
+      "reason": "Estar acolchado define la categoría Cubrecolchones (hg-15-1-6-2); no es una cuestión de los protectores en general."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.item_length_width_depth.length",
+      "reason": "Subcampo de largo o ancho: las medidas de la pieza las pregunta cat.ropa-de-cama/02, en la cadena; aquí se usa depth (/05)."
+    },
+    {
+      "source": "amazon-ptd-prop:MATTRESS_COVER.item_length_width_depth.width",
+      "reason": "Subcampo de largo o ancho: las medidas de la pieza las pregunta cat.ropa-de-cama/02, en la cadena; aquí se usa depth (/05)."
+    }
+  ],
+  "compiled_by": "reglas 3"
+}

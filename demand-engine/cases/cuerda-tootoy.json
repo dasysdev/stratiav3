@@ -1,0 +1,82 @@
+{
+  "id": "cuerda-tootoy",
+  "url": "https://www.kiwoko.com/perros/accesorios-para-perros/juguetes-para-perros/cuerdas/tootoy-hueso-mordedor-de-cuerda-verde-y-azul-para-perros/TOO43945_M.html",
+  "retailer": "kiwoko.com",
+  "vertical": "mascotas",
+  "split": "dev",
+  "page": "var/pages/cuerda-tootoy.html",
+  "source": "docs/20-methods/product-taxonomy/cases.md#juguete-de-cuerda-para-perro",
+  "rules": [
+    "D-022",
+    "D-025",
+    "D-026",
+    "D-030",
+    "D-032"
+  ],
+  "notes": "Mordedor como valor: interpretación de Claude en D-032, provisional.",
+  "expected": {
+    "components": [
+      {
+        "shopify": "ap-2-3-7",
+        "name": "Juguetes para perros",
+        "piece": null,
+        "entry": "aporta requisitos"
+      }
+    ],
+    "rejected_categories": [],
+    "specializations": [
+      {
+        "name": "cuerda",
+        "kind": "producto",
+        "questions": [
+          "deshilachado",
+          "ingestión de fibras"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "feature": "mordedor",
+        "role": "valor que condiciona (provisional)",
+        "questions": [
+          "resistencia a la mordida"
+        ]
+      },
+      {
+        "feature": "lavado",
+        "role": "base"
+      },
+      {
+        "feature": "tirar, lanzar",
+        "role": "absorbidas por cuerda"
+      },
+      {
+        "feature": "higiene dental",
+        "role": "beneficio reclamado"
+      },
+      {
+        "feature": "polipropileno, forma de hueso, 20 cm, color",
+        "role": "valor"
+      }
+    ],
+    "class": "Juguetes para perros → cuerda"
+  },
+  "expected_v1": {
+    "categories": [
+      "ap-2-3-7"
+    ],
+    "alias": [],
+    "specializations": [
+      {
+        "name": "cuerda",
+        "questions": [
+          "deshilachado",
+          "ingestión de fibras"
+        ]
+      }
+    ],
+    "application": null,
+    "inferred_any_of": [],
+    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+  }
+}

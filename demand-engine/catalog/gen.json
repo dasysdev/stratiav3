@@ -1,0 +1,457 @@
+{
+  "catalog": "capa general",
+  "version": "0.3",
+  "source": "docs/20-methods/product-taxonomy/requirement-blocks.md#capa-general",
+  "decisions": [
+    "D-034",
+    "D-038",
+    "D-047",
+    "D-049",
+    "D-052"
+  ],
+  "blocks": [
+    {
+      "id": "gen",
+      "type": "general universal",
+      "name": "Capa general",
+      "trigger": null,
+      "version": "0.3",
+      "status": "marco",
+      "refs": [
+        "amazon-ptd:todos@2026-10-24",
+        "ley:TRLGDCU-97.1.a@2026-02-28",
+        "ley:TRLGDCU-97.1.b@2026-02-28",
+        "ley:TRLGDCU-97.1.c@2026-02-28",
+        "ley:TRLGDCU-97.1.d@2026-02-28",
+        "ley:TRLGDCU-97.1.e@2026-02-28",
+        "ley:TRLGDCU-97.1.h@2026-02-28",
+        "ley:TRLGDCU-97.1.j@2026-02-28",
+        "ley:TRLGDCU-97.1.k@2026-02-28",
+        "ley:TRLGDCU-97.1.m@2026-02-28",
+        "ley:TRLGDCU-97.1.n@2026-02-28",
+        "ley:TRLGDCU-97.1.ñ@2026-02-28",
+        "ley:UE-2023/988-19.a@2023-05-23",
+        "ley:UE-2023/988-19.b@2023-05-23",
+        "ley:UE-2023/988-19.c@2023-05-23",
+        "ley:UE-2023/988-19.d@2023-05-23"
+      ],
+      "requirements": [
+        {
+          "id": "gen/01",
+          "question": "¿Qué es el producto y qué incluye exactamente?",
+          "entity": "producto",
+          "importance": "crítico",
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-97.1.a@2026-02-28"
+          ],
+          "applicability": "universal",
+          "validated_by": "D-038"
+        },
+        {
+          "id": "gen/02",
+          "question": "¿Qué marca y modelo es?",
+          "entity": "producto",
+          "importance": "principal",
+          "origin": "normativa",
+          "sources": [
+            "ley:UE-2023/988-19.a@2023-05-23",
+            "ley:UE-2023/988-19.c@2023-05-23"
+          ],
+          "applicability": "universal",
+          "validated_by": "D-052",
+          "note": "Origen normativo por el GPSR en su ámbito (no alimentos ni piensos); fuera de él la cuestión sigue siendo universal (OQ-45)."
+        },
+        {
+          "id": "gen/03",
+          "question": "¿Qué identificadores tiene (EAN/GTIN, referencia)?",
+          "entity": "producto",
+          "importance": "principal",
+          "origin": "normativa",
+          "sources": [
+            "ley:UE-2023/988-19.c@2023-05-23"
+          ],
+          "applicability": "universal",
+          "validated_by": "D-052",
+          "note": "Origen normativo por el GPSR en su ámbito (no alimentos ni piensos); fuera de él la cuestión sigue siendo universal (OQ-45)."
+        },
+        {
+          "id": "gen/04",
+          "question": "¿Cuál es el precio total que paga el comprador, con impuestos y envío a España?",
+          "entity": "oferta",
+          "importance": "crítico",
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-97.1.e@2026-02-28"
+          ],
+          "applicability": "universal",
+          "validated_by": "D-038"
+        },
+        {
+          "id": "gen/05",
+          "question": "¿De qué depende el coste del envío?",
+          "entity": "entrega",
+          "importance": "principal",
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-97.1.e@2026-02-28"
+          ],
+          "applicability": "universal",
+          "validated_by": "D-038"
+        },
+        {
+          "id": "gen/06",
+          "question": "¿Está disponible y en qué variantes?",
+          "entity": "oferta",
+          "importance": "crítico",
+          "origin": "inferida",
+          "sources": [],
+          "applicability": "universal",
+          "validated_by": "D-034"
+        },
+        {
+          "id": "gen/07",
+          "question": "¿En qué estado se vende la unidad que se entrega?",
+          "entity": "oferta",
+          "importance": "principal",
+          "origin": "inferida",
+          "sources": [],
+          "applicability": "universal",
+          "validated_by": "D-034"
+        },
+        {
+          "id": "gen/08",
+          "question": "¿En qué plazo se entrega?",
+          "entity": "entrega",
+          "importance": "principal",
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-97.1.h@2026-02-28"
+          ],
+          "applicability": "universal",
+          "validated_by": "D-038"
+        },
+        {
+          "id": "gen/09",
+          "question": "Modalidades de entrega o recogida",
+          "entity": "entrega",
+          "importance": "complementario",
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-97.1.h@2026-02-28"
+          ],
+          "applicability": "universal",
+          "validated_by": "D-038"
+        },
+        {
+          "id": "gen/10",
+          "question": "¿Qué medios de pago se aceptan?",
+          "entity": "oferta",
+          "importance": "complementario",
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-97.1.h@2026-02-28"
+          ],
+          "applicability": "universal",
+          "validated_by": "D-038"
+        },
+        {
+          "id": "gen/11",
+          "question": "¿Se puede desistir o devolver, en qué condiciones y plazo, con qué coste de devolución, y cuándo no procede?",
+          "entity": "condiciones",
+          "importance": "principal",
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-97.1.j@2026-02-28",
+            "ley:TRLGDCU-97.1.k@2026-02-28",
+            "ley:TRLGDCU-97.1.m@2026-02-28"
+          ],
+          "applicability": "universal",
+          "validated_by": "D-038"
+        },
+        {
+          "id": "gen/12",
+          "question": "¿Qué garantía legal y, si las hay, qué garantías comerciales y asistencia posventa tiene?",
+          "entity": "condiciones",
+          "importance": "principal",
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-97.1.n@2026-02-28",
+            "ley:TRLGDCU-97.1.ñ@2026-02-28"
+          ],
+          "applicability": "universal",
+          "validated_by": "D-038"
+        },
+        {
+          "id": "gen/13",
+          "question": "¿Quién vende la oferta?",
+          "entity": "vendedor",
+          "importance": "principal",
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-97.1.b@2026-02-28"
+          ],
+          "applicability": "universal",
+          "validated_by": "D-038"
+        },
+        {
+          "id": "gen/14",
+          "question": "¿Cómo se contacta con el vendedor?",
+          "entity": "vendedor",
+          "importance": "complementario",
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-97.1.c@2026-02-28",
+            "ley:TRLGDCU-97.1.d@2026-02-28"
+          ],
+          "applicability": "universal",
+          "validated_by": "D-038"
+        },
+        {
+          "id": "gen/15",
+          "question": "¿Qué opiniones de compradores tiene y, si se publican, cómo se garantiza que proceden de compradores reales?",
+          "entity": "oferta",
+          "importance": "complementario",
+          "origin": "inferida",
+          "sources": [],
+          "applicability": "universal",
+          "validated_by": "D-034"
+        },
+        {
+          "id": "gen/16",
+          "question": "¿Tiene la oferta alguna promoción o descuento vigente (rebaja, cupón, regalo, unidades gratis…) y en qué consiste?",
+          "entity": "oferta",
+          "importance": "complementario",
+          "origin": "inferida",
+          "sources": [],
+          "applicability": "universal (un «no» fundamentado la resuelve)",
+          "validated_by": "D-049"
+        },
+        {
+          "id": "gen/17",
+          "question": "¿Quién es el fabricante (nombre, nombre comercial registrado o marca) y cuál es su dirección postal y electrónica?",
+          "entity": "producto",
+          "importance": "complementario",
+          "origin": "normativa",
+          "sources": [
+            "ley:UE-2023/988-19.a@2023-05-23"
+          ],
+          "applicability": "universal (apoyo normativo del GPSR en su ámbito; fuera de él, por comprobar: OQ-45)",
+          "validated_by": "D-052"
+        },
+        {
+          "id": "gen/18",
+          "question": "Si el fabricante no está establecido en la UE, ¿quién es la persona responsable en la UE y cuál es su dirección postal y electrónica?",
+          "entity": "producto",
+          "importance": "complementario",
+          "origin": "normativa",
+          "sources": [
+            "ley:UE-2023/988-19.b@2023-05-23"
+          ],
+          "applicability": "si el fabricante no está establecido en la UE (requisito condicionado a un hecho del producto; lo decide la auditoría)",
+          "validated_by": "D-052"
+        },
+        {
+          "id": "gen/19",
+          "question": "¿Qué advertencias o información de seguridad acompañan al producto?",
+          "entity": "producto",
+          "importance": "principal",
+          "origin": "normativa",
+          "sources": [
+            "ley:UE-2023/988-19.d@2023-05-23"
+          ],
+          "applicability": "universal (apoyo normativo del GPSR en su ámbito; fuera de él, por comprobar: OQ-45)",
+          "validated_by": "D-052"
+        },
+        {
+          "id": "gen/20",
+          "question": "¿Dónde se ha fabricado (país de fabricación)?",
+          "entity": "producto",
+          "importance": "complementario",
+          "origin": "referencias",
+          "sources": [
+            "amazon-ptd-prop:country_of_origin@2026-10-24"
+          ],
+          "applicability": "universal",
+          "validated_by": "D-052",
+          "note": "Presente en los 1.877 PTD de Amazon (etiqueta «País de origen»; «País de publicación» en 33 PTD de mascotas)."
+        }
+      ]
+    },
+    {
+      "id": "gen.cantidad-limitada",
+      "type": "general condicionado",
+      "name": "Cantidad limitada",
+      "trigger": "la cantidad disponible es limitada",
+      "version": "0.1",
+      "status": "marco",
+      "refs": [],
+      "requirements": [
+        {
+          "id": "gen.cantidad-limitada/01",
+          "question": "¿En qué cantidad está disponible?",
+          "entity": "oferta",
+          "importance": "crítico",
+          "origin": "inferida",
+          "sources": [],
+          "applicability": "si la cantidad disponible es limitada",
+          "validated_by": "D-034"
+        }
+      ],
+      "scope": "oferta"
+    },
+    {
+      "id": "gen.variantes",
+      "type": "general condicionado",
+      "name": "Con variantes",
+      "trigger": "hay variantes",
+      "version": "0.1",
+      "status": "marco",
+      "refs": [],
+      "requirements": [
+        {
+          "id": "gen.variantes/01",
+          "question": "¿Qué variantes hay y en qué se diferencian?",
+          "entity": "variante",
+          "importance": "crítico",
+          "origin": "inferida",
+          "sources": [],
+          "applicability": "si hay variantes",
+          "validated_by": "D-034"
+        }
+      ],
+      "scope": "oferta"
+    },
+    {
+      "id": "gen.unidad-no-nueva",
+      "type": "general condicionado",
+      "name": "Unidad no nueva",
+      "trigger": "la unidad que se entrega no es nueva",
+      "version": "0.1",
+      "status": "marco",
+      "refs": [],
+      "requirements": [
+        {
+          "id": "gen.unidad-no-nueva/01",
+          "question": "¿Por qué motivo (exposición, devolución, tara, fin de serie…) y con qué marcas o defectos se vende, y qué unidad se entrega?",
+          "entity": "oferta",
+          "importance": "principal",
+          "origin": "inferida",
+          "sources": [],
+          "applicability": "si la unidad que se entrega no es nueva",
+          "validated_by": "D-034"
+        }
+      ],
+      "scope": "oferta"
+    },
+    {
+      "id": "gen.descuento",
+      "type": "general condicionado",
+      "name": "Con descuento",
+      "trigger": "hay descuento",
+      "version": "0.1",
+      "status": "marco",
+      "refs": [],
+      "requirements": [
+        {
+          "id": "gen.descuento/01",
+          "question": "¿Desde qué precio de referencia y en qué condiciones se aplica el descuento?",
+          "entity": "oferta",
+          "importance": "complementario",
+          "origin": "inferida",
+          "sources": [],
+          "applicability": "si hay descuento",
+          "validated_by": "D-034"
+        }
+      ],
+      "scope": "oferta"
+    },
+    {
+      "id": "gen.precio-personalizado",
+      "type": "general condicionado",
+      "name": "Precio personalizado",
+      "trigger": "el precio está personalizado por una decisión automatizada",
+      "version": "0.1",
+      "status": "marco",
+      "refs": [
+        "ley:TRLGDCU-97.1.f@2026-02-28"
+      ],
+      "requirements": [
+        {
+          "id": "gen.precio-personalizado/01",
+          "question": "¿El precio está personalizado por una decisión automatizada y con qué parámetros?",
+          "entity": "oferta",
+          "importance": "principal",
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-97.1.f@2026-02-28"
+          ],
+          "applicability": "si el precio está personalizado por una decisión automatizada",
+          "validated_by": "D-038"
+        }
+      ],
+      "scope": "oferta"
+    },
+    {
+      "id": "gen.elementos-digitales",
+      "type": "general condicionado",
+      "name": "Con elementos digitales",
+      "trigger": "el bien tiene elementos digitales",
+      "version": "0.1",
+      "status": "marco",
+      "refs": [
+        "ley:TRLGDCU-97.1.s@2026-02-28",
+        "ley:TRLGDCU-97.1.t@2026-02-28"
+      ],
+      "requirements": [
+        {
+          "id": "gen.elementos-digitales/01",
+          "question": "¿Qué funcionalidad y qué compatibilidad e interoperabilidad tiene?",
+          "entity": "producto",
+          "importance": "principal",
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-97.1.s@2026-02-28",
+            "ley:TRLGDCU-97.1.t@2026-02-28"
+          ],
+          "applicability": "si el bien tiene elementos digitales",
+          "validated_by": "D-038"
+        }
+      ],
+      "scope": "producto"
+    },
+    {
+      "id": "gen.suscripcion",
+      "type": "general condicionado",
+      "name": "Suscripción o depósito",
+      "trigger": "es una suscripción o hay depósito",
+      "version": "0.1",
+      "status": "marco",
+      "refs": [
+        "ley:TRLGDCU-97.1.p@2026-02-28",
+        "ley:TRLGDCU-97.1.q@2026-02-28",
+        "ley:TRLGDCU-97.1.r@2026-02-28"
+      ],
+      "requirements": [
+        {
+          "id": "gen.suscripcion/01",
+          "question": "¿Qué duración, duración mínima, condiciones de resolución y depósitos tiene?",
+          "entity": "oferta",
+          "importance": null,
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-97.1.p@2026-02-28",
+            "ley:TRLGDCU-97.1.q@2026-02-28",
+            "ley:TRLGDCU-97.1.r@2026-02-28"
+          ],
+          "applicability": "si es una suscripción o hay depósito",
+          "note": "importancia por fijar (OQ-45)",
+          "validated_by": "D-038"
+        }
+      ],
+      "scope": "oferta"
+    }
+  ],
+  "note_status": "La capa general es parte del marco (D-044, D-045): sus importancias son fijas y no tiene estado de compilación.",
+  "note_scope": "Los bloques condicionados de alcance «oferta» forman la aplicación de la oferta; los de alcance «producto» entran en el modelo de demanda (D-047)."
+}

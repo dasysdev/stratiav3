@@ -1,0 +1,68 @@
+{
+  "id": "cojin-018",
+  "url": "https://www.burritoblanco.com/cojines-decorativos-con-relleno-018-azul-p-5777-92767.html#/64-medidas_de_cojin-50x50_cm",
+  "retailer": "burritoblanco.com",
+  "vertical": "textil hogar",
+  "split": "dev",
+  "page": "var/pages/cojin-018.html",
+  "source": "docs/20-methods/product-taxonomy/cases.md#cojín-decorativo-con-relleno",
+  "rules": [
+    "D-025",
+    "D-030",
+    "D-031"
+  ],
+  "expected": {
+    "components": [
+      {
+        "shopify": "hg-3-64",
+        "name": "Cojines",
+        "piece": null,
+        "entry": "aporta requisitos"
+      }
+    ],
+    "rejected_categories": [],
+    "specializations": [
+      {
+        "name": "material reciclado",
+        "kind": "producto",
+        "questions": [
+          "qué proporción",
+          "en qué parte"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "feature": "funda y relleno",
+        "role": "cubierta por la categoría"
+      },
+      {
+        "feature": "sostenible",
+        "role": "beneficio reclamado"
+      },
+      {
+        "feature": "jacquard, colores",
+        "role": "valor o estético"
+      }
+    ],
+    "class": "Cojines → material reciclado"
+  },
+  "expected_v1": {
+    "categories": [
+      "hg-3-64"
+    ],
+    "alias": [],
+    "specializations": [
+      {
+        "name": "material reciclado",
+        "questions": [
+          "qué proporción",
+          "en qué parte"
+        ]
+      }
+    ],
+    "application": null,
+    "inferred_any_of": [],
+    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+  }
+}

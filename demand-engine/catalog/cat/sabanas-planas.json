@@ -1,0 +1,62 @@
+{
+  "id": "cat.sabanas-planas",
+  "type": "categoría",
+  "name": "Sábanas planas",
+  "shopify": "hg-15-1-2-2",
+  "parent": "cat.sabanas",
+  "refs": [
+    "shopify:hg-15-1-2-2@v2026-08",
+    "google:2314@2021-09-21",
+    "amazon-ptd:FLAT_SHEET@2026-10-24",
+    "amazon-btg:3250024031@2026-10-24"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.sabanas-planas/03",
+      "question": "¿Qué tejido o ligamento tiene (percal, satén, sarga, franela, jersey…)?",
+      "dimension": "tejido y ligamento",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Cuestión inferida (criterio 5; añadido provisional hasta su aprobación, D-041): el PTD FLAT_SHEET no recoge el ligamento, y en la cadena no hay atributo que lo cubra (fabric-weave es de Fundas de nórdico). El ligamento determina el tacto y el aspecto; percal frente a satén es un criterio habitual para elegir sábanas.",
+      "seed_importance": "principal",
+      "rule": "imp:construccion@hg-15-1-2"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:FLAT_SHEET.fabric_type",
+      "reason": "Composición en fibras con porcentajes: la cubre cat.ropa-de-casa/01 (shopify-attr:fabric y material), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:FLAT_SHEET.number_of_pieces",
+      "reason": "Piezas incluidas en un juego: las cubre esp.juego (criterio 3)."
+    },
+    {
+      "source": "amazon-ptd-prop:FLAT_SHEET.voltage",
+      "reason": "Tensión eléctrica: solo aplica a sábanas térmicas eléctricas, que no son la clase general y traerían una especialización propia."
+    },
+    {
+      "source": "amazon-ptd-prop:FLAT_SHEET.collection_item",
+      "reason": "Dato de colección o catálogo del vendedor; no informa sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:FLAT_SHEET.item_weight",
+      "reason": "Peso del artículo: dato logístico; no es criterio de comparación de la clase."
+    },
+    {
+      "source": "cat.sabanas-planas/01",
+      "reason": "Requisito retirado: movido a cat.ropa-de-cama/02 (criterio 4: item_length_width se repite en los PTD de ropa de cama y las medidas valen para todas sus hijas), con su fuente amazon-ptd-prop:FLAT_SHEET.item_length_width."
+    },
+    {
+      "source": "cat.sabanas-planas/02",
+      "reason": "Requisito retirado: movido a cat.sabanas/03 (criterio 4: thread está en FITTED_SHEET y FLAT_SHEET y vale para las dos hijas de Sábanas), con su fuente amazon-ptd-prop:FLAT_SHEET.thread."
+    }
+  ],
+  "compiled_by": "reglas 3"
+}

@@ -3,9 +3,9 @@ id: product-taxonomy-sources
 title: Taxonomía — inventario de fuentes externas y referencias
 layer: method
 status: propuesta
-version: 1.0
-updated: 2026-10-24
-sources: [TAX §2, TAX §12]
+version: 1.1
+updated: 2026-10-25
+sources: [TAX §2, TAX §12, INTAKE 2026-10-25-amazon-source-blocks]
 ---
 
 # Taxonomía — inventario de fuentes externas y referencias
@@ -30,7 +30,7 @@ Además, las **Product Type Definitions (PTD)** proporcionan esquemas JSON de at
 
 El informe `GET_XML_BROWSE_TREE_DATA` expone la jerarquía y los refinamientos de la navegación por marketplace, pero requiere acceso autorizado como vendedor mediante la SP-API [R5]. Por ello **no se afirma la existencia o vigencia en Amazon.es de un nodo concreto de botas de montaña** hasta contrastarlo con una extracción actual del marketplace español.
 
-**Tratamiento:** usar el árbol Amazon como descubridor de especializaciones candidatas y los PTD como fuente adicional de atributos y condiciones descriptivas. Documentar marketplace, fecha, identificador de nodo o tipo, ruta y nivel de comprobación.
+**Tratamiento:** usar el árbol Amazon como descubridor de especializaciones candidatas y los PTD como fuente adicional de atributos y condiciones descriptivas y, cuando son relevantes para la clase, de requisitos de la categoría ([D-039](../../30-governance/decisions.md#d-039)). Documentar marketplace, fecha, identificador de nodo o tipo, ruta y nivel de comprobación.
 
 ## Google: contraste, datos comerciales y vocabulario de exposición
 

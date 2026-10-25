@@ -1,0 +1,77 @@
+{
+  "id": "sofa-cama-luna",
+  "url": "https://www.grupotodoplano.com/sofa-cama-luna-de-dos-plazas",
+  "retailer": "grupotodoplano.com",
+  "vertical": "mobiliario",
+  "split": "dev",
+  "page": "var/pages/sofa-cama-luna.html",
+  "source": "docs/20-methods/product-taxonomy/cases.md#sofá-cama",
+  "rules": [
+    "D-024",
+    "D-026",
+    "D-028",
+    "D-029",
+    "D-030",
+    "D-032",
+    "D-033",
+    "D-036"
+  ],
+  "expected": {
+    "components": [
+      {
+        "shopify": "fr-22-7",
+        "name": "Sofás cama",
+        "piece": null,
+        "entry": "aporta requisitos"
+      },
+      {
+        "shopify": "fr-22-4",
+        "name": "Sofás de dos plazas",
+        "piece": null,
+        "entry": "clasificación objetiva (alias)"
+      }
+    ],
+    "rejected_categories": [],
+    "specializations": [],
+    "features": [
+      {
+        "feature": "mecanismo de apertura (no declarado; «apertura fácil»)",
+        "role": "cuestión inferida de la clase",
+        "questions": [
+          "¿qué mecanismo de apertura tiene?"
+        ]
+      },
+      {
+        "feature": "tela Victor (tapicería textil)",
+        "role": "valor que condiciona",
+        "questions": [
+          "resistencia a la abrasión",
+          "desenfundable",
+          "antimanchas"
+        ]
+      },
+      {
+        "feature": "color, revistero, cojines, medidas",
+        "role": "valor"
+      }
+    ],
+    "class": "Sofás cama + Sofás de dos plazas"
+  },
+  "expected_v1": {
+    "categories": [
+      "fr-22-7"
+    ],
+    "alias": [
+      "fr-22-4"
+    ],
+    "specializations": [],
+    "application": null,
+    "inferred_any_of": [
+      [
+        "mecanismo",
+        "apertura"
+      ]
+    ],
+    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+  }
+}

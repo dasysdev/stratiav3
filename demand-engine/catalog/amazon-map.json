@@ -1,0 +1,72 @@
+{
+  "note": "Correspondencia Shopify → PTD de Amazon para el catálogo de bloques de categoría (D-039, D-040). Las propiedades de un PTD van al bloque de la categoría más general de la cadena que lo tiene asignado. Estado: propuesta, pendiente de revisión.",
+  "map": {
+    "hg-15-1-4": {
+      "ptd": "BLANKET",
+      "node": "3250001031",
+      "relation": "más amplia"
+    },
+    "hg-15-1-2-2": {
+      "ptd": "FLAT_SHEET",
+      "node": "3250024031",
+      "relation": "equivalente"
+    },
+    "hg-15-1-2-1": {
+      "ptd": "FITTED_SHEET",
+      "node": "3250023031",
+      "relation": "equivalente"
+    },
+    "hg-15-1-8-2": {
+      "ptd": "PILLOWCASE",
+      "node": "3250027031",
+      "relation": "equivalente"
+    },
+    "hg-15-1-5": {
+      "ptd": "DUVET_COVER",
+      "node": "3250006031",
+      "relation": "equivalente"
+    },
+    "hg-15-4": {
+      "ptd": "TOWEL",
+      "node": "3244784031",
+      "relation": "equivalente"
+    },
+    "hg-15-1-6": {
+      "ptd": "MATTRESS_COVER",
+      "node": "2822732031",
+      "relation": "equivalente"
+    },
+    "hg-3-64": {
+      "ptd": "PILLOW",
+      "node": "2844244031",
+      "relation": "más amplia"
+    },
+    "fr-22": {
+      "ptd": "SOFA",
+      "node": "2822922031",
+      "relation": "equivalente"
+    },
+    "aa-8-3": {
+      "ptd": "BOOT",
+      "node": "2008195031",
+      "relation": "equivalente"
+    },
+    "aa-8-7": {
+      "ptd": "SLIPPER",
+      "node": "2008202031",
+      "relation": "equivalente"
+    },
+    "ap-2-3-7": {
+      "ptd": "PET_TOY",
+      "node": null,
+      "relation": "equivalente",
+      "note": "El nodo general 13441958031 (Perros > Juguetes) tiene PTD PET_SUPPLIES; PET_TOY es el PTD de sus hijos (Cuerdas, Juguetes para morder…)."
+    },
+    "ap-2-3-3": {
+      "ptd": "PET_FOOD",
+      "node": "13441954031",
+      "relation": "equivalente",
+      "note": "Movido desde ap-2-3-3-1: sus propiedades valen para toda la comida para perros (criterio 4 de la revisión del catálogo)."
+    }
+  }
+}

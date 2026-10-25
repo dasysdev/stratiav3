@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+"""Wrapper: see src/demand_engine/demand/train.py (standard library only; runs on the host)."""
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+from demand_engine.demand.train import main  # noqa: E402
+
+main()

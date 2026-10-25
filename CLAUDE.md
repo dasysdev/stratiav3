@@ -51,6 +51,13 @@ Decisiones explícitamente no adoptadas: [D-006](docs/30-governance/decisions.md
 | [docs/20-methods/](docs/README.md#20-methods--procedimientos-propuesta) | Procedimientos (propuesta V1): taxonomía de clases, MPIR y auditoría GSC. |
 | [docs/30-governance/](docs/30-governance/decisions.md) | Decisiones, cuestiones abiertas, incidencias y changelog. |
 | `tools/check_docs.py` | Validador de integridad de la documentación. |
+| [demand-engine/](demand-engine/README.md) | Sistema de construcción del modelo de demanda: referencias, taxo, catálogo de bloques, clasificador y motor de captura compartido. **Cada sistema del proyecto es un directorio de primer nivel** y un miembro del workspace de uv. |
+| `demand-engine/bin/refs` · `demand-engine/var/refs/` | Material de referencia externo de la taxonomía (Shopify, su mapeo oficial a Google, Google y Amazon.es), congelado por versión y fuera de git; las versiones usadas quedan en las reglas del entrenamiento y en cada modelo. `demand-engine/bin/refs --help`. Ficheros grandes: consúltalos con `zcat`/`grep`, no los leas enteros. |
+| `demand-engine/classifier/` · `cases/` · `var/runs/` · `training/reports/` · `bin/taxo` · `bin/compare` | Clasificador de la clase de estudio: reglamento operativo v2 (condensa D-020 a D-049; el canon prevalece), conjunto de control (14 casos con lo esperado), ejecuciones (desechables) y el informe de cada ciclo, consulta de referencias y páginas congeladas (`var/pages/`). |
+| `demand-engine/bin/model` · `bin/train` · `catalog/` | Motor de demanda, primera versión ([D-045](docs/30-governance/decisions.md#d-045)): ensamblado del modelo desde el catálogo compilado y las reglas de importancia; entrenamiento (rasgos, reglas por el árbol de Shopify, compilación, informe). Producto real: `/demand-model URL`. |
+| `demand-engine/src/demand_engine/capture/` | Motor de captura compartido ([D-046](docs/30-governance/decisions.md#d-046)): Chrome real por CDP, legitimidad (robots.txt, reservas TDM), parada ante desafíos; por lotes a ritmo de lector (MPIR, entrenamiento) o una página suelta (`bin/taxo page fetch`, que desde el host delega en el contenedor). Ver [su README](demand-engine/src/demand_engine/capture/README.md). |
+| `demand-engine/src/demand_engine/mpir/` · `bin/mpir` | MPIR, capa A: plan de observación, fichas de referente, inventario e ingesta manual sobre el motor de captura. Lo que se define, en `demand-engine/studies/`; corpus y estado, en `demand-engine/var/mpir/`, fuera de git. Ver [su README](demand-engine/src/demand_engine/mpir/README.md). |
+| `bin/run` · `docker-compose.yml` · `env/docker/` · `pyproject.toml` | Entorno dockerizado del código (Python 3.13, uv, Chrome sobre Xvfb): `bin/run dev up\|test\|shell\|lock\|exec`. Workspace de uv con un miembro por sistema y un solo `uv.lock`. |
 | `bin/pm` · `work/` | Gestión del trabajo del entorno y del código: una tarea por fichero. |
 
 ## Reglas de trabajo
@@ -62,6 +69,7 @@ Decisiones explícitamente no adoptadas: [D-006](docs/30-governance/decisions.md
 - **Para modificar documentación,** usa la skill **`/docs-update`**. Los updates se depositan en [docs/intake/](docs/intake/README.md). La skill sigue el flujo de [docs/CLAUDE.md](docs/CLAUDE.md#flujo-de-cambio) y termina ejecutando `python3 tools/check_docs.py`.
 - `docs/archive/` es de solo lectura: contiene la línea base v0 y los artefactos de intake procesados. Los originales de `tmp/docs/` se eliminaron; su única copia es `docs/archive/v0-2026-10-24/`.
 - El proyecto **no usa git** por ahora: la trazabilidad depende de `changelog.md` y del archivo v0.
+- **Qué entra en git** (cuando se adopte, T-003): lo que gobierna el sistema y los resultados del entrenamiento. `demand-engine/var/` es desechable y no tiene copia; git no es una copia de seguridad. Detalle en [demand-engine/README.md](demand-engine/README.md#qué-entra-en-git).
 
 ## Gestión del trabajo
 

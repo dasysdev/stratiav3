@@ -1,0 +1,230 @@
+{
+  "id": "cat.pantuflas",
+  "type": "categoría",
+  "name": "Pantuflas (zapatillas de estar por casa)",
+  "shopify": "aa-8-7",
+  "parent": "cat.calzado",
+  "refs": [
+    "shopify:aa-8-7@v2026-08",
+    "google:187@2021-09-21",
+    "amazon-ptd:SLIPPER@2026-10-24",
+    "amazon-btg:2008202031@2026-10-24"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.pantuflas/01",
+      "question": "¿Qué tipo de zapatilla de casa es (cerrada, abierta o destalonada, chancla, botín, zueco, calcetín…) y qué altura tiene?",
+      "dimension": "tipo y altura",
+      "trait": "identidad",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:slipper-style",
+        "amazon-ptd-prop:SLIPPER.height_map",
+        "amazon-ptd-prop:SLIPPER.compliance_height_map"
+      ],
+      "applicability": "universal",
+      "rationale": "El tipo es el primer criterio para comparar zapatillas de casa; la altura (baja, media, tipo botín) forma parte del mismo rasgo, por eso se unen. Se suma la propiedad de cumplimiento sobre la altura (cubre o no el tobillo). No sube a Calzado aunque height_map también está en BOOT: la altura no vale para todas las hijas de Calzado (sandalias, tacones, zapatos planos) (criterio 4).",
+      "seed_importance": "principal",
+      "rule": "imp:identidad@aa-8"
+    },
+    {
+      "id": "cat.pantuflas/02",
+      "question": "¿Qué tipo de suela tiene: blanda, solo para interior, o firme y apta también para exterior?",
+      "dimension": "suela: uso interior o exterior",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SLIPPER.special_feature=Suave suela exterior"
+      ],
+      "applicability": "universal",
+      "rationale": "Decide dónde se pueden usar y cuánto duran; es un criterio habitual para elegir zapatillas de casa. El material de la suela (cat.calzado/08) no basta para saberlo. La flexibilidad de la suela («Flexible») sube a cat.calzado/22 (criterio 4).",
+      "seed_importance": "principal",
+      "rule": "imp:uso@aa"
+    },
+    {
+      "id": "cat.pantuflas/03",
+      "question": "¿Qué abrigo ofrece (aislamiento térmico, interior de peluche o borreguillo, grosor del tejido)?",
+      "dimension": "abrigo",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SLIPPER.special_feature=Aislado",
+        "amazon-ptd-prop:SLIPPER.special_feature=Peluche",
+        "amazon-ptd-prop:SLIPPER.apparel_fabric_weight_class"
+      ],
+      "applicability": "universal",
+      "rationale": "En zapatillas de casa la calidez separa los modelos de invierno de los de verano y es criterio central de elección; el material del forro (cat.calzado/07) no basta para saberlo. No sube a Calzado aunque «Aislado» también está en BOOT (cat.botas/07): el abrigo no vale para todas las hijas de Calzado (sandalias, tacones…) (criterio 4); por eso se mantiene aquí como principal y en Botas como complementario.",
+      "seed_importance": "principal",
+      "rule": "imp:prestacion@aa-8-7"
+    },
+    {
+      "id": "cat.pantuflas/04",
+      "question": "¿De qué material es la plantilla (espuma viscoelástica, lana, borreguillo…)?",
+      "dimension": "plantilla",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SLIPPER.insole",
+        "amazon-ptd-prop:SLIPPER.compliance_insole_material"
+      ],
+      "applicability": "universal",
+      "rationale": "Influye en el confort, que en esta clase se valora mucho; amplía cat.calzado/16. Se suma la propiedad de cumplimiento sobre la plantilla. No sube a Calzado aunque insole también está en BOOT (criterio 4 y D-040): Zapatos planos tiene insole-material como atributo propio de Shopify.",
+      "seed_importance": "complementario",
+      "rule": "imp:material@aa-8"
+    },
+    {
+      "id": "cat.pantuflas/06",
+      "question": "¿Qué tipo de cuero o piel es (ante, nobuk, piel de oveja…) y, si lleva piel con pelo, es natural o sintética y de qué animal?",
+      "dimension": "tipo de cuero",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SLIPPER.leather_type",
+        "amazon-ptd-prop:SLIPPER.fur"
+      ],
+      "applicability": "si el exterior o el forro es de cuero o piel",
+      "rationale": "Desagrega el material cuando es cuero o piel. En zapatillas de casa es secundario frente al tipo y al abrigo (en botas se propone principal). Se suma fur (piel con pelo), candidato nuevo. No sube a Calzado aunque leather_type y fur también están en BOOT (criterio 4 y D-040): Zapatillas tiene upper-material (Cuero, Gamuza, Nobuk) como atributo propio de Shopify.",
+      "seed_importance": "complementario",
+      "rule": "imp:material@aa-8"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:SLIPPER.material",
+      "reason": "Cubierta por cat.calzado/04 (material del corte)."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.outer",
+      "reason": "Cubierta por cat.calzado/04 (material del corte)."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.lining_description",
+      "reason": "Movida a cat.calzado/07 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.special_size_type",
+      "reason": "Movida a cat.calzado/03 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.footwear_size",
+      "reason": "Movida a cat.calzado (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado. Por subcampos: size_system, size_class, size y to_size a /01; width a /02; age_group a /03; gender lo cubre cat.ropa-y-accesorios/03."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.sole_material",
+      "reason": "Movida a cat.calzado/08 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.toe_style",
+      "reason": "Movida a cat.calzado/10 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.heel",
+      "reason": "Cubierta por cat.calzado/05 (altura del tacón); en zapatillas de casa el tipo de tacón no es criterio de elección. No sube a Calzado (criterio 4 y D-040): Tacones tiene heel-shape como atributo propio de Shopify."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.shoe_width",
+      "reason": "Movida a cat.calzado/02 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.apparel_fabric_stretch",
+      "reason": "Dato de confección de ropa; el ajuste al pie lo cubren cat.calzado/02 (horma) y cat.calzado/09 (cierre elástico)."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.item_weight",
+      "reason": "Movida a cat.calzado/18 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.special_feature=Absorbe la humedad",
+      "reason": "Cubierta por cat.calzado/17 (transpirabilidad e higiene)."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.special_feature=Antimicrobiano",
+      "reason": "Movida a cat.calzado/17 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.special_feature=Transpirable",
+      "reason": "Movida a cat.calzado/17 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.special_feature=Acolchado",
+      "reason": "Cubierta por cat.calzado/16 (confort y soporte)."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.special_feature=Soporte de arco",
+      "reason": "Cubierta por cat.calzado/16 (confort y soporte)."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.special_feature=Adaptable",
+      "reason": "Valor ambiguo; si se refiere a la adaptación al pie, lo cubre cat.calzado/16 (confort y soporte)."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.special_feature=Antideslizante",
+      "reason": "Movida a cat.calzado/15 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.special_feature=Gore elástico",
+      "reason": "Cubierta por cat.calzado/09 (cierre o sujeción, valor «Elástico»)."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.special_feature=Lavable",
+      "reason": "Cubierta por cat.calzado/13 (cuidado y limpieza)."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.special_feature=Ligero",
+      "reason": "Movida a cat.calzado/18 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.special_feature=Materiales reciclables",
+      "reason": "Cubierta por cat.calzado/19 (composición sostenible y atributos ambientales)."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.special_feature=Resistente al agua",
+      "reason": "Movida a cat.calzado/14 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "cat.pantuflas/05",
+      "reason": "Requisito retirado: movido a cat.calzado/23 (criterio 4: los valores de durabilidad son comunes a BOOT y SLIPPER y valen para todo el calzado), con sus fuentes amazon-ptd-prop:SLIPPER.special_feature=Resistente a la abrasión, =Resistente a la formación de bolitas y =Resistente a las manchas."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.special_feature=Flexible",
+      "reason": "Movida a cat.calzado/22 (criterio 4): valor común a BOOT y SLIPPER, válido para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.compliance_sole_weave_type",
+      "reason": "Suela tejida o no a efectos aduaneros; el material de la suela lo cubre cat.calzado/08."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.compliance_upper_material",
+      "reason": "Material del corte a efectos de cumplimiento: lo cubre cat.calzado/04, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.compliance_upper_weave_design",
+      "reason": "Ligamento del corte textil a efectos aduaneros (tafetán, panamá); no es un criterio para comparar zapatillas de casa."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.compliance_slipper_type",
+      "reason": "Sujeción a efectos aduaneros (sin cierre, con o sin talonera); la cubre cat.calzado/09 (cierre o sujeción)."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.compliance_sole_construction_type",
+      "reason": "Movida a cat.calzado/11 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:SLIPPER.compliance_sole_material",
+      "reason": "Movida a cat.calzado/08 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    }
+  ],
+  "compiled_by": "reglas 3"
+}

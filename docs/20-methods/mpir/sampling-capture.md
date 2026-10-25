@@ -3,9 +3,9 @@ id: mpir-sampling-capture
 title: MPIR — diseño de la muestra y estrategia de captura
 layer: method
 status: propuesta
-version: 1.0
-updated: 2026-10-24
-sources: [MPIR §4, MPIR §5]
+version: 1.3
+updated: 2026-10-25
+sources: [MPIR §4, MPIR §5, INTAKE 2026-10-25-mpir-capture-engine]
 ---
 
 # MPIR — diseño de la muestra y estrategia de captura
@@ -87,13 +87,17 @@ No se utilizará una única conversión a texto plano si destruye relaciones. Pa
 
 Si un bloque comercial de interés no figura en la respuesta inicial, podrá utilizarse un navegador automatizado (por ejemplo, Playwright) para obtener el DOM renderizado y, cuando resulte pertinente, abrir desplegables, selectores o comparadores. Se registra qué acciones se realizaron y qué estado del recurso quedó observado.
 
-El renderizado se empleará **selectivamente** para evitar coste y complejidad innecesarios. La presencia de JavaScript, por sí misma, no debe confundirse con una limitación metodológica ni con un incumplimiento técnico del ecommerce.
+El renderizado se empleará **selectivamente** para evitar coste y complejidad innecesarios. La presencia de JavaScript, por sí misma, no debe confundirse con una limitación metodológica ni con un incumplimiento técnico del ecommerce. ⚠ Ver [I-18](../../30-governance/issues.md#i-18)
 
 No se eludirán autenticaciones, controles de acceso, bloqueos ni medidas anti-bot. El rastreo respetará las políticas aplicables, las condiciones de uso y límites conservadores de solicitudes; si una fuente no puede inspeccionarse legítimamente, se documentará la limitación y se ajustará la muestra.
+
+Entre las políticas aplicables, el [motor de captura](../../../demand-engine/src/demand_engine/capture/README.md) aplica robots.txt (RFC 9309) y las reservas de minería de textos y datos expresadas por medios de lectura mecánica (art. 67.3 TRLPI: TDMRep, cabecera y meta `tdm-reservation`). Ante una reserva no conserva el contenido ([D-042](../../30-governance/decisions.md#d-042)).
 
 ### Qué se conserva en la capa original
 
 Para cada recurso obtenido se preservan: URL solicitada y final; fecha/hora; ecommerce; clase y perfil; idioma/mercado; método de obtención; código/estado relevante; contenido original o referencia a la instantánea; DOM renderizado cuando exista; acciones de interacción; versión o huella del recurso; restricciones de lectura y errores; y enlaces con otras capturas.
+
+No se conservan capturas de pantalla ([D-042](../../30-governance/decisions.md#d-042)): el método no las exige y evitan juzgar por la prominencia ([cautela 4](README.md#hipótesis-de-observación-y-límites-de-inferencia)).
 
 Se distinguen **fuente no recuperada**, **fuente recuperada sin determinado contenido**, **contenido no inspeccionado** y **contenido inspeccionado donde no se halló una señal**. Ninguna de estas situaciones equivale automáticamente a que la necesidad informativa sea irrelevante.
 

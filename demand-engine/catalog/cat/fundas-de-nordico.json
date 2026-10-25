@@ -1,0 +1,100 @@
+{
+  "id": "cat.fundas-de-nordico",
+  "type": "categoría",
+  "name": "Fundas de nórdico",
+  "shopify": "hg-15-1-5",
+  "parent": "cat.ropa-de-cama",
+  "refs": [
+    "shopify:hg-15-1-5@v2026-08",
+    "google:2541@2021-09-21",
+    "amazon-ptd:DUVET_COVER@2026-10-24",
+    "amazon-btg:3250006031@2026-10-24"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.fundas-de-nordico/02",
+      "question": "¿Qué ligamento o tipo de tejido tiene (percal, satén, franela, microfibra…)?",
+      "dimension": "tejido",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:fabric-weave"
+      ],
+      "applicability": "universal",
+      "rationale": "El ligamento determina el tacto, el aspecto y el comportamiento del tejido; percal frente a satén es un criterio habitual para elegir fundas nórdicas. Queda en el bloque (criterio 4 y D-040): fabric-weave es atributo propio de esta categoría.",
+      "seed_importance": "principal",
+      "rule": "imp:construccion@hg-15-1-5"
+    },
+    {
+      "id": "cat.fundas-de-nordico/03",
+      "question": "¿Qué número de hilos tiene el tejido?",
+      "dimension": "densidad del tejido",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DUVET_COVER.thread"
+      ],
+      "applicability": "si es un tejido de calada (percal, satén, sarga…); no aplica a tejidos de punto ni de pelo o perchados (franela, coralina, polar)",
+      "rationale": "«Rosca» es la traducción de Amazon de thread count (número de hilos). En los tejidos de algodón es un criterio habitual de comparación (144, 200, 300 hilos…); los casos documentados lo cuentan en la base de la clase (D-026). Queda repetido (criterio 4): el número de hilos no vale para todas las hijas de Ropa de cama (mantas, protectores).",
+      "seed_importance": "principal",
+      "rule": "imp:construccion@hg-15-1-5"
+    },
+    {
+      "id": "cat.fundas-de-nordico/05",
+      "question": "¿Cómo se cierra la funda (botones, cremallera, solapa…)?",
+      "dimension": "cierre",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:closure-type"
+      ],
+      "applicability": "universal",
+      "rationale": "Influye en la comodidad de uso y en que el nórdico no se desplace dentro de la funda; no suele ser un criterio central.",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@hg-15-1-5"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:DUVET_COVER.fabric_type",
+      "reason": "Composición en fibras con porcentajes: la cubre cat.ropa-de-casa/01 (shopify-attr:fabric y material), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:DUVET_COVER.thermal_performance_description",
+      "reason": "«Peso del edredón» (ligero, mediano, pesado) describe el relleno, que es otra clase: una funda sin relleno no tiene un nivel de abrigo propio (mismo criterio que Juegos de cama en D-032). El abrigo de una funda de franela o coralina correspondería a una especialización."
+    },
+    {
+      "source": "amazon-ptd-prop:DUVET_COVER.collection_item",
+      "reason": "Dato de colección o catálogo del vendedor; no informa sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:DUVET_COVER.item_weight",
+      "reason": "Peso del artículo: dato logístico; no es criterio de comparación de la clase."
+    },
+    {
+      "source": "cat.fundas-de-nordico/01",
+      "reason": "Requisito retirado (criterio 3): las piezas incluidas no van en los bloques de categoría; las cubre la especialización esp.juego. Fuentes: shopify-attr:bedding-pieces-included y amazon-ptd-prop:DUVET_COVER.number_of_pieces."
+    },
+    {
+      "source": "shopify-attr:bedding-pieces-included",
+      "reason": "Piezas incluidas en un juego: las cubre esp.juego (criterio 3)."
+    },
+    {
+      "source": "amazon-ptd-prop:DUVET_COVER.number_of_pieces",
+      "reason": "Piezas incluidas en un juego: las cubre esp.juego (criterio 3)."
+    },
+    {
+      "source": "cat.fundas-de-nordico/04",
+      "reason": "Requisito retirado: movido a cat.ropa-de-cama/02 (criterio 4: item_length_width se repite en los PTD de ropa de cama y las medidas valen para todas sus hijas), con su fuente amazon-ptd-prop:DUVET_COVER.item_length_width."
+    }
+  ],
+  "compiled_by": "reglas 3"
+}

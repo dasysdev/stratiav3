@@ -1,0 +1,78 @@
+{
+  "id": "manta-nacarina-046",
+  "url": "https://www.burritoblanco.com/manta-super-suave-tejido-nacarina-diseno-046-color-secuoya-p-6008-93553.html#/438-medidas_de_manta-140x200_cm",
+  "retailer": "burritoblanco.com",
+  "vertical": "textil hogar",
+  "split": "dev",
+  "page": "var/pages/manta-nacarina-046.html",
+  "source": "docs/20-methods/product-taxonomy/cases.md#manta-de-cama-o-de-sofá",
+  "rules": [
+    "D-026",
+    "D-028",
+    "D-030"
+  ],
+  "expected": {
+    "components": [
+      {
+        "shopify": "hg-15-1-4",
+        "name": "Mantas",
+        "piece": null,
+        "entry": "aporta requisitos"
+      }
+    ],
+    "rejected_categories": [
+      {
+        "shopify": "hg-15-1-4-2",
+        "name": "Mantas decorativas",
+        "reason": "el uso en sofá depende de la medida (variante)"
+      }
+    ],
+    "specializations": [
+      {
+        "name": "tejido polar",
+        "kind": "producto",
+        "questions": [
+          "bolitas"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "feature": "Nacarina®",
+        "role": "valor"
+      },
+      {
+        "feature": "electricidad estática, pelusa",
+        "role": "base"
+      },
+      {
+        "feature": "invierno",
+        "role": "valor"
+      },
+      {
+        "feature": "poliéster, color secuoya, medidas",
+        "role": "valor o variante"
+      }
+    ],
+    "class": "Mantas → tejido polar"
+  },
+  "expected_v1": {
+    "categories": [
+      "hg-15-1-4"
+    ],
+    "alias": [],
+    "specializations": [
+      {
+        "name": "tejido polar",
+        "questions": [
+          "bolitas"
+        ]
+      }
+    ],
+    "application": [
+      "gen.variantes"
+    ],
+    "inferred_any_of": [],
+    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+  }
+}

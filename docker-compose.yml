@@ -1,0 +1,32 @@
+# Development environment. One service for the Python code of every system (top-level
+# directories, members of the uv workspace), with the repo mounted at /work and Chrome
+# available for the capture engine of demand-engine.
+# Start: bin/run dev up   |   commands: bin/run dev exec <command>, bin/run dev test
+#
+# No port is published: Chrome's DevTools port must never leave the container.
+name: ${PROJECT_NAME:-stratia-cic}-dev
+
+services:
+  app:
+    container_name: "${PROJECT_NAME:-stratia-cic}-app"
+    image: ${PROJECT_NAME:-stratia-cic}/app:dev
+    build:
+      context: .
+      dockerfile: ./env/docker/app/Dockerfile
+      target: dev
+    # Files created in <system>/var/ belong to the host user
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    # Fixed hostname: Chrome stamps the profile lock with it and refuses a profile that
+    # looks open on "another machine" after the container is recreated.
+    hostname: stratia-cic
+    environment:
+      # :99 = virtual screen (Xvfb) | :0 = host desktop (WSLg), to watch the windows
+      DISPLAY: "${CAPTURE_DISPLAY:-:99}"
+      CAPTURE_NO_SANDBOX: "${CAPTURE_NO_SANDBOX:-1}"
+      CAPTURE_DISABLE_GPU: "${CAPTURE_DISABLE_GPU:-1}"
+    volumes:
+      - ./:/work:cached
+      # Host desktop, linked into /tmp/.X11-unix only when DISPLAY=:0 (see entrypoint.sh)
+      - /tmp/.X11-unix:/tmp/.X11-host:ro
+    shm_size: 1g
+    restart: unless-stopped

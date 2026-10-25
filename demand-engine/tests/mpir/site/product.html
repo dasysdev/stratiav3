@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Sábanas Coralina</title>
+<style>#lazy { min-height: 20px; }</style></head>
+<body>
+<h1>Sábanas Coralina</h1>
+<p>Juego de sábanas de franela.</p>
+<details><summary>¿Qué medidas tiene?</summary><p>Respuesta plegada: 150 x 200 cm</p></details>
+<div id="tabla" style="display:none"><p>Tabla de tallas oculta</p></div>
+<div class="acordeon" style="height:0; overflow:hidden"><p>Composición: 100 % algodón</p></div>
+<div style="display: contents"><p>Visible dentro de display contents</p></div>
+<div style="height: 1500px">Separador</div>
+<div id="lazy"></div>
+<script>
+new IntersectionObserver((entries, obs) => {
+  if (entries.some(e => e.isIntersecting)) {
+    document.getElementById('lazy').textContent = 'Contenido diferido cargado';
+    obs.disconnect();
+  }
+}).observe(document.getElementById('lazy'));
+</script>
+</body></html>

@@ -1,0 +1,353 @@
+{
+  "id": "cat.botas",
+  "type": "categoría",
+  "name": "Botas",
+  "shopify": "aa-8-3",
+  "parent": "cat.calzado",
+  "refs": [
+    "shopify:aa-8-3@v2026-08",
+    "google:187@2021-09-21",
+    "amazon-ptd:BOOT@2026-10-24",
+    "amazon-btg:2008195031@2026-10-24"
+  ],
+  "version": "1",
+  "status": "compilado",
+  "requirements": [
+    {
+      "id": "cat.botas/01",
+      "question": "¿Qué tipo de bota es y para qué uso está pensada (botín, Chelsea, chukka, de agua, de nieve, de montaña, de trabajo, de montar, vaquera, motera…)?",
+      "dimension": "tipo y uso",
+      "trait": "identidad",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:boot-style",
+        "amazon-ptd-prop:BOOT.boot_form_type",
+        "amazon-ptd-prop:BOOT.specific_uses_for_product"
+      ],
+      "applicability": "universal",
+      "rationale": "El tipo de bota es el primer criterio para comparar ofertas de la clase. Se unen el estilo de Shopify, la forma de Amazon y los usos específicos de Amazon porque los tres describen la misma dimensión (Shopify ya mezcla estilos y usos: senderismo, trabajo, lluvia, nieve).",
+      "seed_importance": "principal",
+      "rule": "imp:identidad@aa-8"
+    },
+    {
+      "id": "cat.botas/02",
+      "question": "¿Qué altura tiene la caña (tobillo, media pantorrilla, rodilla, por encima de la rodilla) y cuánto mide?",
+      "dimension": "altura de la caña",
+      "trait": "medida",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOOT.height_map",
+        "amazon-ptd-prop:BOOT.shaft.height",
+        "amazon-ptd-prop:BOOT.compliance_height_map",
+        "amazon-ptd-prop:BOOT.compliance_boot_height"
+      ],
+      "applicability": "universal",
+      "rationale": "La altura de la caña es el rasgo que más diferencia unas botas de otras y condiciona su uso y su ajuste. Se suman las propiedades de cumplimiento sobre la altura (cubre o no el tobillo y la pantorrilla; botín, media caña, rodilla, muslo). Criterio 1: principal, porque describe el producto. No sube a Calzado aunque height_map también está en SLIPPER: la altura de la caña no vale para todas las hijas de Calzado (sandalias, tacones, zapatos planos) (criterio 4).",
+      "seed_importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva"
+    },
+    {
+      "id": "cat.botas/03",
+      "question": "¿Qué contorno o anchura tiene la caña a la altura de la pantorrilla (estrecha, normal, ancha)?",
+      "dimension": "contorno de la caña",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOOT.calf_width_description",
+        "amazon-ptd-prop:BOOT.special_feature=Pantorrilla ancha",
+        "amazon-ptd-prop:BOOT.shaft.circumference"
+      ],
+      "applicability": "si la caña sube por encima del tobillo",
+      "rationale": "En botas de caña media o alta el contorno decide si la bota cierra o ajusta; es un criterio de ajuste equiparable al ancho de horma. Se suma el subcampo circumference de BOOT.shaft (contorno de la caña); su altura va a /02.",
+      "seed_importance": "principal",
+      "rule": "imp:uso@aa"
+    },
+    {
+      "id": "cat.botas/04",
+      "question": "¿Qué tipo de cuero o piel es (flor entera, nobuk, ante, serraje, charol…) y, si lleva piel con pelo, es natural o sintética y de qué animal?",
+      "dimension": "tipo de cuero",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOOT.leather_type",
+        "amazon-ptd-prop:BOOT.fur"
+      ],
+      "applicability": "si el corte, el forro o la plantilla llevan cuero o piel",
+      "rationale": "Desagrega el material (cat.calzado/04) cuando es cuero; en botas el tipo de cuero condiciona durabilidad, resistencia al agua y precio. Al estar en la base de la clase (PTD), «cuero» es un valor que condiciona, no una especialización. Se suma fur (piel con pelo), candidato nuevo. No sube a Calzado aunque leather_type y fur también están en SLIPPER (criterio 4 y D-040): Zapatillas tiene upper-material (Cuero, Gamuza, Nobuk) como atributo propio de Shopify.",
+      "seed_importance": "principal",
+      "rule": "imp:material@aa-8-3"
+    },
+    {
+      "id": "cat.botas/05",
+      "question": "¿Qué tipo de tacón tiene (sin tacón, plano, de bloque, cuña, aguja, cubano…) y, si tiene plataforma, qué altura?",
+      "dimension": "tacón: tipo y plataforma",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOOT.heel",
+        "amazon-ptd-prop:BOOT.footwear_platform_height"
+      ],
+      "applicability": "universal",
+      "rationale": "Completa la altura del tacón (cat.calzado/05) con su forma y la plataforma, relevantes en botas de moda. No sube a Calzado aunque heel también está en SLIPPER (criterio 4 y D-040): Tacones tiene heel-shape como atributo propio de Shopify.",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@aa-8"
+    },
+    {
+      "id": "cat.botas/06",
+      "question": "¿De qué material es la plantilla y es extraíble?",
+      "dimension": "plantilla",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOOT.insole",
+        "amazon-ptd-prop:BOOT.special_feature=Plantilla extraíble",
+        "amazon-ptd-prop:BOOT.compliance_inner_sole_material"
+      ],
+      "applicability": "universal",
+      "rationale": "Influye en el confort y en la posibilidad de usar plantillas propias; relevante sin ser central. Se suma la propiedad de cumplimiento sobre la suela interior. No sube a Calzado aunque insole también está en SLIPPER (criterio 4 y D-040): Zapatos planos tiene insole-material como atributo propio de Shopify.",
+      "seed_importance": "complementario",
+      "rule": "imp:material@aa-8-3"
+    },
+    {
+      "id": "cat.botas/07",
+      "question": "¿Qué aislamiento térmico o abrigo ofrece (forro aislante, felpa…) y, si se indica, hasta qué temperatura?",
+      "dimension": "aislamiento térmico",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOOT.special_feature=Aislado",
+        "amazon-ptd-prop:BOOT.special_feature=De felpa"
+      ],
+      "applicability": "universal",
+      "rationale": "Relevante para botas de invierno o de nieve; el material del forro (cat.calzado/07) no basta para saber si la bota abriga. No sube a Calzado aunque «Aislado» también está en SLIPPER (cat.pantuflas/03): el abrigo no vale para todas las hijas de Calzado (sandalias, tacones…) (criterio 4).",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@aa-8-3"
+    },
+    {
+      "id": "cat.botas/08",
+      "question": "¿Qué protecciones de seguridad ofrece (suela antiperforación, disipación de electricidad estática, resistencia a llamas, a productos químicos o a impactos, elementos reflectantes)?",
+      "dimension": "protección y seguridad",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOOT.special_feature=Resistente a pinchazos",
+        "amazon-ptd-prop:BOOT.special_feature=Disipativo estático",
+        "amazon-ptd-prop:BOOT.special_feature=Resistente a las llamas",
+        "amazon-ptd-prop:BOOT.special_feature=Resistente a productos químicos",
+        "amazon-ptd-prop:BOOT.special_feature=Resistente a los golpes",
+        "amazon-ptd-prop:BOOT.special_feature=Reflectante"
+      ],
+      "applicability": "si es bota de trabajo o de seguridad, o declara alguna protección",
+      "rationale": "En botas de trabajo y de seguridad las protecciones son el criterio central de comparación; complementa la puntera de protección (cat.calzado/06).",
+      "seed_importance": "principal",
+      "rule": "imp:prestacion@aa-8-3"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:BOOT.lifestyle",
+      "reason": "Cubierta por cat.calzado/12 (ocasión o estilo)."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.formality_level",
+      "reason": "Cubierta por cat.calzado/12 (ocasión o estilo)."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.material",
+      "reason": "Cubierta por cat.calzado/04 (material del corte)."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.outer",
+      "reason": "Cubierta por cat.calzado/04 (material del corte)."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.lining_description",
+      "reason": "Movida a cat.calzado/07 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.water_resistance_level",
+      "reason": "Cubierta por cat.calzado/14 (protección frente al agua, que pregunta por el grado)."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.special_size_type",
+      "reason": "Movida a cat.calzado/03 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.footwear_size",
+      "reason": "Movida a cat.calzado (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado. Por subcampos: size_system, size_class, size y to_size a /01; width a /02; age_group a /03; gender lo cubre cat.ropa-y-accesorios/03."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.metal_type",
+      "reason": "No informa sobre botas: propiedad de joyería o adornos metálicos, sin valores en el PTD."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.occasion_type",
+      "reason": "Ocasiones de regalo (cumpleaños, boda…): contexto de compra, no información sobre el producto."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.holiday_type",
+      "reason": "Festividades: contexto de compra, no información sobre el producto."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.life_event",
+      "reason": "Eventos de la vida: contexto de compra, no información sobre el producto."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.sole_material",
+      "reason": "Movida a cat.calzado/08 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.toe_style",
+      "reason": "Movida a cat.calzado/06 y /10 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.shoe_width",
+      "reason": "Movida a cat.calzado/02 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.item_weight",
+      "reason": "Movida a cat.calzado/18 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.special_feature=Acolchado",
+      "reason": "Cubierta por cat.calzado/16 (confort y soporte)."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.special_feature=Apoyo del arco",
+      "reason": "Cubierta por cat.calzado/16 (confort y soporte)."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.special_feature=Apoyo del metatarso",
+      "reason": "Cubierta por cat.calzado/16 (confort y soporte)."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.special_feature=Tecnología ortopédica",
+      "reason": "Cubierta por cat.calzado/16 (confort y soporte)."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.special_feature=Antideslizante",
+      "reason": "Movida a cat.calzado/15 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.special_feature=Antimicrobiano",
+      "reason": "Movida a cat.calzado/17 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.special_feature=Transpirable",
+      "reason": "Movida a cat.calzado/17 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.special_feature=Impermeable",
+      "reason": "Cubierta por cat.calzado/14 (protección frente al agua)."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.special_feature=Resistente al agua",
+      "reason": "Movida a cat.calzado/14 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.special_feature=Ligero",
+      "reason": "Movida a cat.calzado/18 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.special_feature=Ajustable",
+      "reason": "Cubierta por cat.calzado/09 (cierre o sujeción)."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.special_feature=Dobleces",
+      "reason": "Valor ambiguo (caña con vuelta o bota plegable); si es la vuelta de la caña, es un rasgo de estilo cubierto por /01."
+    },
+    {
+      "source": "cat.botas/09",
+      "reason": "Requisito retirado: movido a cat.calzado/22 (criterio 4: «Flexible» es común a BOOT y SLIPPER y vale para todo el calzado), con sus fuentes amazon-ptd-prop:BOOT.item_firmness_description y amazon-ptd-prop:BOOT.special_feature=Flexible."
+    },
+    {
+      "source": "cat.botas/10",
+      "reason": "Requisito retirado: movido a cat.calzado/23 (criterio 4: los valores de durabilidad son comunes a BOOT y SLIPPER y valen para todo el calzado), con sus fuentes amazon-ptd-prop:BOOT.special_feature=Resistente a la abrasión y amazon-ptd-prop:BOOT.special_feature=Resistente a las manchas."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_upper_height",
+      "reason": "Umbral aduanero de altura (15 cm); la altura de la caña la cubre /02 con más detalle."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_upper_manufacturing_process",
+      "reason": "Proceso de montaje del corte a efectos de cumplimiento (clavado, cosido, remachado…); la construcción la cubre cat.calzado/11."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_upper_material",
+      "reason": "Material del corte a efectos de cumplimiento: lo cubre cat.calzado/04, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_upper_textile_material",
+      "reason": "Clasificación de cumplimiento (corte textil con piel o cuero); el cuero y la piel los cubre /04."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_upper_weave_design",
+      "reason": "Ligamento del corte textil a efectos aduaneros (tafetán, panamá); no es un criterio para comparar botas."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_waterproof_footwear_type",
+      "reason": "Clasificación aduanera (impermeable con suela moldeada); la protección frente al agua la cubre cat.calzado/14."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_footwear_coating_material",
+      "reason": "Porcentaje de revestimiento de PVC, caucho o plástico a efectos aduaneros; el material lo cubre cat.calzado/04."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_shoe_special_feature",
+      "reason": "Tacos o similares a efectos aduaneros, propios del calzado deportivo; el agarre lo cubre cat.calzado/15."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_shoe_type",
+      "reason": "Tipos aduaneros de calzado deportivo (esquí, snowboard, buceo, montar); el tipo de bota lo cubre /01."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_is_disposable",
+      "reason": "Calzado desechable: clasificación de cumplimiento que no informa sobre botas."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_sole_construction_type",
+      "reason": "Movida a cat.calzado/11 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_sole_material",
+      "reason": "Movida a cat.calzado/08 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_toe_style",
+      "reason": "Clasificación de cumplimiento (puntera abierta o metálica); la cubren cat.calzado/06 y /10."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_band_application",
+      "reason": "Unión de la banda a la suela a efectos aduaneros; la construcción la cubre cat.calzado/11."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_boot_construction_type",
+      "reason": "Construcción a efectos de cumplimiento (inyectada, cosida, de vira); la cubre cat.calzado/11."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_upper_textile_coverage",
+      "reason": "Porcentaje de superficie textil del corte a efectos aduaneros; el material lo cubre cat.calzado/04."
+    },
+    {
+      "source": "amazon-ptd-prop:BOOT.compliance_upper_textile_grammage",
+      "reason": "Umbral aduanero de gramaje del corte textil (200 g/m²); no es un criterio para comparar botas."
+    }
+  ],
+  "compiled_by": "reglas 3"
+}

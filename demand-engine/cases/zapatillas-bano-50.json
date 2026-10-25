@@ -1,0 +1,60 @@
+{
+  "id": "zapatillas-bano-50",
+  "url": "https://www.burritoblanco.com/zapatillas-de-bano-color-blanco-50-p-573-1841.html#/9-tallas-46",
+  "retailer": "burritoblanco.com",
+  "vertical": "calzado",
+  "split": "dev",
+  "page": "var/pages/zapatillas-bano-50.html",
+  "source": "docs/20-methods/product-taxonomy/cases.md#zapatillas-de-baño",
+  "rules": [
+    "D-024",
+    "D-026",
+    "D-030"
+  ],
+  "expected": {
+    "components": [
+      {
+        "shopify": "aa-8-7",
+        "name": "Pantuflas",
+        "piece": null,
+        "entry": "aporta requisitos"
+      }
+    ],
+    "rejected_categories": [],
+    "specializations": [],
+    "features": [
+      {
+        "feature": "uso de baño",
+        "role": "requisito condicionado",
+        "questions": [
+          "agarre sobre suelo mojado"
+        ]
+      },
+      {
+        "feature": "rizo 450 g/m²",
+        "role": "valor"
+      },
+      {
+        "feature": "1 juego (un par)",
+        "role": "no es juego"
+      },
+      {
+        "feature": "tallas",
+        "role": "variante"
+      }
+    ],
+    "class": "Pantuflas"
+  },
+  "expected_v1": {
+    "categories": [
+      "aa-8-7"
+    ],
+    "alias": [],
+    "specializations": [],
+    "application": [
+      "gen.variantes"
+    ],
+    "inferred_any_of": [],
+    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+  }
+}

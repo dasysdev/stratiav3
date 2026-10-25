@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Motor de captura del MPIR, dentro del contenedor (necesita Chrome).
+# demand-engine/bin/mpir --help lista los comandos; manual: src/demand_engine/mpir/README.md
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+exec "$ROOT/bin/run" dev exec python -m demand_engine.mpir "$@"

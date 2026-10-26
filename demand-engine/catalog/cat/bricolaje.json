@@ -1,0 +1,94 @@
+{
+  "id": "cat.bricolaje",
+  "type": "categoría",
+  "name": "Bricolaje",
+  "shopify": "ha",
+  "parent": null,
+  "refs": [
+    "shopify:ha@v2026-08",
+    "google:632@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.bricolaje/01",
+      "question": "¿De qué color es?",
+      "dimension": "aspecto",
+      "entity": "producto",
+      "trait": "estetica",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:color"
+      ],
+      "applicability": "universal",
+      "rationale": "En bricolaje (herramientas, ferretería, materiales) el color identifica el producto y, en algunos artículos visibles (herrajes, pinturas, revestimientos), es un criterio de elección; en el conjunto del sector es relevante sin ser central. Si hay varios colores a elegir, qué variantes existen lo pregunta gen.variantes.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:estetica@ha",
+      "resolving_info": [
+        {
+          "contribution": "color principal",
+          "component": "color",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:color"
+          ]
+        },
+        {
+          "contribution": "combinación de colores",
+          "component": "color",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:color"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bricolaje/02",
+      "question": "¿Qué estampado, patrón o motivo tiene (liso, a rayas, imitación de madera…)?",
+      "dimension": "aspecto",
+      "entity": "producto",
+      "trait": "estetica",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:pattern"
+      ],
+      "applicability": "universal",
+      "rationale": "Informa en productos de acabado visible del sector (revestimientos, herrajes decorativos); en herramientas suele ser irrelevante, por lo que en el sector es, como mucho, complementario. Cada clase vota su relevancia.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:estetica@ha",
+      "resolving_info": [
+        {
+          "contribution": "tipo de estampado o patrón",
+          "component": "estampado, patrón o motivo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pattern"
+          ]
+        },
+        {
+          "contribution": "motivo representado",
+          "component": "estampado, patrón o motivo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pattern"
+          ]
+        },
+        {
+          "contribution": "material que imita el acabado",
+          "component": "estampado, patrón o motivo",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

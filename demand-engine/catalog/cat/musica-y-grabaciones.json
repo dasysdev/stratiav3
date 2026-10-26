@@ -1,0 +1,88 @@
+{
+  "id": "cat.musica-y-grabaciones",
+  "type": "categoría",
+  "name": "Música y grabaciones",
+  "shopify": "me-3",
+  "parent": "cat.multimedia",
+  "refs": [
+    "shopify:me-3@v2026-08",
+    "google:855@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.musica-y-grabaciones/01",
+      "question": "¿En qué formato o soporte se publica la grabación (vinilo, CD, casete, descarga digital…)?",
+      "dimension": "formato o soporte",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "crítico",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:media-format"
+      ],
+      "applicability": "universal",
+      "rationale": "La misma grabación se vende en soportes distintos que no son intercambiables (requieren reproductores distintos); sin el soporte no se sabe qué se vende.",
+      "seed_importance": "crítico",
+      "importance": "crítico",
+      "rule": "imp:cat.musica-y-grabaciones/01@me-3",
+      "resolving_info": [
+        {
+          "contribution": "tipo de soporte físico",
+          "component": "formato o soporte",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:media-format"
+          ]
+        },
+        {
+          "contribution": "formato de archivo digital",
+          "component": "formato o soporte",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:media-format"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.musica-y-grabaciones/02",
+      "question": "¿A qué género o estilo musical pertenece la grabación?",
+      "dimension": "género musical",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:music-genre"
+      ],
+      "applicability": "universal",
+      "rationale": "El género es el eje con el que se descubren y comparan las grabaciones de música.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:identidad@me-3",
+      "resolving_info": [
+        {
+          "contribution": "género musical principal",
+          "component": "género o estilo musical",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:music-genre"
+          ]
+        },
+        {
+          "contribution": "subgénero o estilo específico",
+          "component": "género o estilo musical",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:music-genre"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "status": "compilado",
+  "version": "3",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

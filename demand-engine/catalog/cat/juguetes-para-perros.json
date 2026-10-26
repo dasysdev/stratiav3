@@ -9,12 +9,12 @@
     "google:5010@2021-09-21",
     "amazon-ptd:PET_TOY@2026-10-24"
   ],
-  "version": "2",
+  "version": "6",
   "status": "compilado",
   "requirements": [
     {
       "id": "cat.juguetes-para-perros/01",
-      "question": "¿Qué tipo de juguete es y para qué tipo de juego está pensado (pelota, mordedor, cuerda para tirar, peluche, chirriante, dispensador de premios, rompecabezas, para lanzar, de entrenamiento…)?",
+      "question": "¿Qué tipo de juguete es (pelota, mordedor, cuerda, peluche, chirriante, dispensador de premios, rompecabezas, frisbi…)?",
       "dimension": "tipo y uso",
       "trait": "identidad",
       "entity": "producto",
@@ -22,20 +22,38 @@
       "origin": "referencias",
       "sources": [
         "shopify-attr:dog-toy-type=Chirriante",
-        "shopify-attr:dog-toy-type=Entrenamiento",
         "shopify-attr:dog-toy-type=Felpa",
-        "shopify-attr:dog-toy-type=Interactivo",
         "shopify-attr:dog-toy-type=Mordedor",
         "shopify-attr:dog-toy-type=Soga",
         "amazon-ptd-prop:PET_TOY.pet_toy_type",
-        "amazon-ptd-prop:PET_TOY.recommended_uses_for_product",
-        "amazon-ptd-prop:PET_TOY.special_feature=Interactivo",
         "amazon-ptd-prop:PET_TOY.special_feature=Chirriador"
       ],
       "applicability": "universal",
-      "rationale": "El tipo de juguete y el juego que propone son el primer criterio para comparar ofertas de la clase. Se unen el tipo de Shopify, el de Amazon, los usos recomendados y los valores «Interactivo» y «Chirriador», que repiten valores del tipo de Shopify. Criterio 2: se citan los valores de dog-toy-type sobre el tipo y el uso; «Mordedor agresivo», que indica la intensidad de mordida, pasa a /04.",
+      "rationale": "El tipo de juguete y el juego que propone son el primer criterio para comparar ofertas de la clase. Se unen el tipo de Shopify, el de Amazon, los usos recomendados y los valores «Interactivo» y «Chirriador», que repiten valores del tipo de Shopify. Criterio 2: se citan los valores de dog-toy-type sobre el tipo y el uso; «Mordedor agresivo», que indica la intensidad de mordida, pasa a /04. Redacción con D-060 (T-031, regla 3): el tipo (identidad) y el juego o la actividad para los que está pensado (uso) toman otro rasgo y otra importancia.",
       "seed_importance": "principal",
-      "rule": "imp:identidad@ap-2"
+      "rule": "imp:identidad@ap-2",
+      "resolving_info": [
+        {
+          "contribution": "tipo de juguete",
+          "component": "tipo de juguete",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.pet_toy_type",
+            "shopify-attr:dog-toy-type=Felpa",
+            "shopify-attr:dog-toy-type=Mordedor",
+            "shopify-attr:dog-toy-type=Soga"
+          ]
+        },
+        {
+          "contribution": "indicación de si lleva chirriador",
+          "component": "tipo de juguete",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dog-toy-type=Chirriante",
+            "amazon-ptd-prop:PET_TOY.special_feature=Chirriador"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.juguetes-para-perros/02",
@@ -43,7 +61,7 @@
       "dimension": "adecuación al tamaño del perro",
       "trait": "uso",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "referencias",
       "sources": [
         "shopify-attr:suitable-for-breed-size",
@@ -53,11 +71,36 @@
       "applicability": "universal",
       "rationale": "Un juguete inadecuado al tamaño del perro es inútil o peligroso (asfixia, rotura); criterio central de elección. Se unen los tres atributos, que describen la misma dimensión. Queda en el bloque (criterio 4 y D-040): suitable-for-breed-size es atributo propio de esta categoría.",
       "seed_importance": "principal",
-      "rule": "imp:uso@ap-2-3-7"
+      "rule": "imp:cat.juguetes-para-perros/02@ap-2-3-7",
+      "resolving_info": [
+        {
+          "contribution": "tamaño de raza al que se destina",
+          "component": "tamaño",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:suitable-for-breed-size",
+            "amazon-ptd-prop:PET_TOY.dog_breed_size"
+          ]
+        },
+        {
+          "contribution": "raza recomendada",
+          "component": "raza",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.breed_recommendation"
+          ]
+        },
+        {
+          "contribution": "intervalo de peso del perro al que se destina",
+          "component": "tamaño",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.juguetes-para-perros/03",
-      "question": "¿Qué tamaño, medidas y peso tiene el juguete?",
+      "question": "¿Qué tamaño y medidas tiene el juguete?",
       "dimension": "tamaño y peso del juguete",
       "trait": "medida",
       "entity": "variante",
@@ -66,14 +109,52 @@
       "sources": [
         "amazon-ptd-prop:PET_TOY.size",
         "amazon-ptd-prop:PET_TOY.item_length_width_height",
-        "amazon-ptd-prop:PET_TOY.item_weight",
-        "amazon-ptd-prop:PET_TOY.special_feature=Ligero",
         "amazon-ptd-prop:PET_TOY.special_feature=Portátil"
       ],
       "applicability": "universal",
-      "rationale": "Las medidas permiten comprobar la adecuación al perro y comparar ofertas; la talla (S, M, L…) suele ser eje de variante.",
+      "rationale": "Las medidas permiten comprobar la adecuación al perro y comparar ofertas; la talla (S, M, L…) suele ser eje de variante. Redacción con D-060 (T-031, regla 3): el peso (magnitud) toma otro rasgo que las medidas (medida).",
       "seed_importance": "principal",
-      "rule": "marco:D-043.1/medida-descriptiva"
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "talla del juguete",
+          "component": "tamaño",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.size"
+          ]
+        },
+        {
+          "contribution": "largo del juguete",
+          "component": "medidas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.item_length_width_height"
+          ]
+        },
+        {
+          "contribution": "ancho del juguete",
+          "component": "medidas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.item_length_width_height"
+          ]
+        },
+        {
+          "contribution": "altura del juguete",
+          "component": "medidas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.item_length_width_height"
+          ]
+        },
+        {
+          "contribution": "diámetro, si es esférico",
+          "component": "medidas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.juguetes-para-perros/04",
@@ -94,7 +175,36 @@
       "applicability": "universal",
       "rationale": "La resistencia a la mordida es uno de los criterios con que se comparan juguetes para perros. Se suma el valor «Mordedor agresivo» de dog-toy-type (criterio 2). Si el juguete tiene piezas que se puedan desprender lo pregunta la cuestión de seguridad (/11).",
       "seed_importance": "principal",
-      "rule": "imp:prestacion@ap-2-3-7"
+      "rule": "imp:cat.juguetes-para-perros/04@ap-2-3-7",
+      "resolving_info": [
+        {
+          "contribution": "intensidad de masticación para la que está indicado",
+          "component": "resistencia a la mordida",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dog-toy-type=Mordedor agresivo",
+            "amazon-ptd-prop:PET_TOY.special_feature=Uso rudo"
+          ]
+        },
+        {
+          "contribution": "declaración de refuerzo contra la masticación",
+          "component": "resistencia a la mordida",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.special_feature=Tecnología Chew Guard"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a los arañazos, la decoloración o el óxido",
+          "component": "durabilidad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.special_feature=Resistente a los arañazos",
+            "amazon-ptd-prop:PET_TOY.special_feature=Resistente a la decoloración",
+            "amazon-ptd-prop:PET_TOY.special_feature=Resistente al óxido"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.juguetes-para-perros/05",
@@ -110,15 +220,31 @@
       "applicability": "universal",
       "rationale": "Relevante (por ejemplo, juguetes de dentición para cachorros) sin ser central: el tamaño y la resistencia pesan más.",
       "seed_importance": "complementario",
-      "rule": "imp:uso@ap-2-3-7"
+      "rule": "imp:uso@ap-2-3-7",
+      "resolving_info": [
+        {
+          "contribution": "etapa de vida del perro a la que se destina",
+          "component": "etapa de vida",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dog-age-group"
+          ]
+        },
+        {
+          "contribution": "edad mínima recomendada",
+          "component": "etapa de vida",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.juguetes-para-perros/06",
-      "question": "¿Cómo se alimenta: qué pilas o batería usa, si se incluyen y si es recargable?",
+      "question": "¿Qué pilas o batería usa y es recargable?",
       "dimension": "alimentación eléctrica",
       "trait": "construccion",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "shopify-attr:battery-size",
@@ -126,46 +252,120 @@
         "amazon-ptd-prop:PET_TOY.special_feature=Recargable"
       ],
       "applicability": "si el juguete funciona con pilas o batería",
-      "rationale": "En los juguetes electrónicos (lanzadores de pelotas, juguetes interactivos) la alimentación condiciona el uso y el coste. Se unen tamaño y tipo de batería.",
+      "rationale": "En los juguetes electrónicos (lanzadores de pelotas, juguetes interactivos) la alimentación condiciona el uso y el coste. Se unen tamaño y tipo de batería. D-087 (I-37): la regla 3 prevalece sobre la forma de sí o no con detalle cuando el detalle toma otro rasgo o importancia. Si se incluyen (contenido) pasa a /16.",
       "seed_importance": "principal",
-      "rule": "imp:construccion@ap-2-3-7"
+      "rule": "imp:construccion@ap-2-3-7",
+      "resolving_info": [
+        {
+          "contribution": "tipo o tamaño de las pilas o la batería",
+          "component": "qué pilas o batería usa",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:battery-size",
+            "shopify-attr:battery-type"
+          ]
+        },
+        {
+          "contribution": "indicación de si es recargable",
+          "component": "si es recargable",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:battery-type",
+            "amazon-ptd-prop:PET_TOY.special_feature=Recargable"
+          ]
+        },
+        {
+          "contribution": "número de pilas necesarias",
+          "component": "qué pilas o batería usa",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.juguetes-para-perros/16",
+      "question": "¿Se incluyen las pilas o la batería?",
+      "dimension": "pilas incluidas",
+      "trait": "contenido",
+      "entity": "producto",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:battery-type"
+      ],
+      "applicability": "si el juguete funciona con pilas o batería",
+      "rationale": "Parte de cat.juguetes-para-perros/06 separada por D-087 (I-37): la regla 3 prevalece sobre la forma de sí o no con detalle cuando el detalle toma otro rasgo o importancia.",
+      "seed_importance": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si las pilas o la batería se incluyen",
+          "component": "se incluyen",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:battery-type"
+          ]
+        }
+      ],
+      "importance": "complementario",
+      "rule": "sin-regla:voto"
     },
     {
       "id": "cat.juguetes-para-perros/07",
-      "question": "¿En qué entorno se puede usar (interior, exterior, agua) y resiste el agua o flota?",
+      "question": "¿En qué entorno se puede usar (interior, exterior, agua)?",
       "dimension": "entorno de uso",
       "trait": "uso",
       "entity": "producto",
       "importance": "complementario",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:PET_TOY.indoor_outdoor_usage",
-        "amazon-ptd-prop:PET_TOY.water_resistance_level",
-        "amazon-ptd-prop:PET_TOY.special_feature=Flotante"
+        "amazon-ptd-prop:PET_TOY.indoor_outdoor_usage"
       ],
       "applicability": "universal",
-      "rationale": "Amplía la evaluación del uso previsto; central solo en juguetes acuáticos, que ya identifica el tipo (/01).",
+      "rationale": "Amplía la evaluación del uso previsto; central solo en juguetes acuáticos, que ya identifica el tipo (/01). Redacción con D-060 (T-031, regla 3): el entorno (uso) y la resistencia al agua o la flotación (prestación) toman otro rasgo y otra importancia.",
       "seed_importance": "complementario",
-      "rule": "imp:uso@ap-2-3-7"
+      "rule": "imp:uso@ap-2-3-7",
+      "resolving_info": [
+        {
+          "contribution": "indicación de uso en interior o exterior",
+          "component": "entorno",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.indoor_outdoor_usage"
+          ]
+        },
+        {
+          "contribution": "indicación de aptitud para el juego en el agua",
+          "component": "entorno",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.juguetes-para-perros/08",
-      "question": "¿Contiene o incluye comida o premios y, si es así, qué ingredientes tienen y cómo se conservan?",
+      "question": "¿Qué ingredientes tienen la comida o los premios que contiene o incluye?",
       "dimension": "contenido comestible",
-      "trait": "contenido",
+      "trait": "material",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:PET_TOY.contains_food_or_beverage",
-        "amazon-ptd-prop:PET_TOY.ingredients",
-        "amazon-ptd-prop:PET_TOY.use_by_recommendation",
-        "amazon-ptd-prop:PET_TOY.storage_instructions"
+        "amazon-ptd-prop:PET_TOY.ingredients"
       ],
       "applicability": "si el juguete es comestible o contiene o incluye comida o premios",
-      "rationale": "En juguetes comestibles o con premios incluidos los ingredientes y la conservación son centrales para evaluar la oferta (alergias, caducidad).",
+      "rationale": "En juguetes comestibles o con premios incluidos los ingredientes y la conservación son centrales para evaluar la oferta (alergias, caducidad). Redacción con D-060 (T-031, reglas 2 y 3): que contenga comida es la condición (ya en applicability); su detalle reúne dos necesidades de otro rasgo: los ingredientes (material, este requisito) y la conservación (cuidado). El rasgo pasa de contenido a material.",
       "seed_importance": "principal",
-      "rule": "imp:contenido@ap-2-3-7"
+      "rule": "imp:cat.juguetes-para-perros/08@ap-2-3-7",
+      "resolving_info": [
+        {
+          "contribution": "lista de ingredientes de la comida o los premios",
+          "component": "ingredientes",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.ingredients"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.juguetes-para-perros/09",
@@ -173,7 +373,7 @@
       "dimension": "estímulos y mecanismos",
       "trait": "prestacion",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:PET_TOY.special_feature=Arrugado",
@@ -192,7 +392,63 @@
       "applicability": "universal",
       "rationale": "Agrupa por tema los valores de special_feature que describen cómo estimula el juguete; amplían la comparación entre juguetes del mismo tipo.",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@ap-2-3-7"
+      "rule": "imp:prestacion@ap-2-3-7",
+      "resolving_info": [
+        {
+          "contribution": "estímulo sonoro que produce",
+          "component": "estímulos o mecanismos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.special_feature=Arrugado",
+            "amazon-ptd-prop:PET_TOY.special_feature=Funcionamiento silencioso"
+          ]
+        },
+        {
+          "contribution": "indicación de luces",
+          "component": "estímulos o mecanismos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.special_feature=Iluminado"
+          ]
+        },
+        {
+          "contribution": "mecanismo de movimiento propio",
+          "component": "estímulos o mecanismos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.special_feature=Vibratorio",
+            "amazon-ptd-prop:PET_TOY.special_feature=Rotatorio"
+          ]
+        },
+        {
+          "contribution": "comportamiento elástico del material",
+          "component": "estímulos o mecanismos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.special_feature=Saltarín",
+            "amazon-ptd-prop:PET_TOY.special_feature=Elástico",
+            "amazon-ptd-prop:PET_TOY.special_feature=Inflable"
+          ]
+        },
+        {
+          "contribution": "textura de la superficie o relleno",
+          "component": "estímulos o mecanismos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.special_feature=Con púas",
+            "amazon-ptd-prop:PET_TOY.special_feature=Relleno"
+          ]
+        },
+        {
+          "contribution": "posibilidad de usarlo congelado o templado",
+          "component": "estímulos o mecanismos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.special_feature=Congelable",
+            "amazon-ptd-prop:PET_TOY.special_feature=Calentado"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.juguetes-para-perros/10",
@@ -208,7 +464,23 @@
       "applicability": "universal",
       "rationale": "Información de mantenimiento e higiene relevante sin ser central.",
       "seed_importance": "complementario",
-      "rule": "imp:cuidado@ap-2-3"
+      "rule": "imp:cuidado@ap-2-3",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si es lavable",
+          "component": "se puede lavar",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.special_feature=Lavable"
+          ]
+        },
+        {
+          "contribution": "método de lavado admitido",
+          "component": "cómo",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.juguetes-para-perros/11",
@@ -222,7 +494,181 @@
       "applicability": "universal",
       "rationale": "Cuestión inferida (criterio 5; añadido provisional hasta su aprobación, D-041): ninguna referencia del esqueleto la recoge (PET_TOY no tiene propiedades de seguridad ni de toxicidad; el material lo pregunta cat.productos-para-perros/01). El riesgo de ingestión o asfixia y la toxicidad de los materiales son una cuestión de todos los juguetes para perros; la resistencia a la mordida (/04) no basta para saberlo.",
       "seed_importance": "principal",
-      "rule": "imp:seguridad@ap-2-3-7"
+      "rule": "imp:seguridad@ap-2-3-7",
+      "resolving_info": [
+        {
+          "contribution": "advertencia sobre piezas pequeñas o que se puedan desprender",
+          "component": "piezas pequeñas o que se puedan desprender",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "declaración de materiales no tóxicos",
+          "component": "materiales no tóxicos",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "informe de ensayo de sustancias de los materiales",
+          "component": "materiales no tóxicos",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.juguetes-para-perros/12",
+      "question": "¿Para qué tipo de juego o actividad está pensado (lanzar y traer, morder, tirar, estimulación mental, entrenamiento…)?",
+      "dimension": "tipo de juego",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_TOY.recommended_uses_for_product",
+        "shopify-attr:dog-toy-type=Entrenamiento",
+        "shopify-attr:dog-toy-type=Interactivo",
+        "amazon-ptd-prop:PET_TOY.special_feature=Interactivo"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.juguetes-para-perros/01 separada por la regla 3 de D-060 (T-031): el tipo (identidad) y el juego o la actividad para los que está pensado (uso) toman otro rasgo y otra importancia.",
+      "seed_importance": "complementario",
+      "rule": "imp:uso@ap-2-3-7",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "uso o actividad recomendados",
+          "component": "tipo de juego o actividad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.recommended_uses_for_product",
+            "shopify-attr:dog-toy-type=Entrenamiento"
+          ]
+        },
+        {
+          "contribution": "indicación de si es interactivo",
+          "component": "tipo de juego o actividad",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dog-toy-type=Interactivo",
+            "amazon-ptd-prop:PET_TOY.special_feature=Interactivo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.juguetes-para-perros/13",
+      "question": "¿Cuánto pesa el juguete?",
+      "dimension": "peso",
+      "trait": "magnitud",
+      "entity": "variante",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_TOY.item_weight",
+        "amazon-ptd-prop:PET_TOY.special_feature=Ligero"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.juguetes-para-perros/03 separada por la regla 3 de D-060 (T-031): el peso (magnitud) toma otro rasgo que las medidas (medida).",
+      "seed_importance": "complementario",
+      "rule": "imp:magnitud@ap-2-3-7",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "peso del juguete",
+          "component": "peso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.item_weight"
+          ]
+        },
+        {
+          "contribution": "indicación cualitativa de ligereza",
+          "component": "peso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.special_feature=Ligero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.juguetes-para-perros/14",
+      "question": "¿Resiste el agua y flota?",
+      "dimension": "resistencia al agua y flotación",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_TOY.water_resistance_level",
+        "amazon-ptd-prop:PET_TOY.special_feature=Flotante"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.juguetes-para-perros/07 separada por la regla 3 de D-060 (T-031): el entorno (uso) y la resistencia al agua o la flotación (prestación) toman otro rasgo y otra importancia.",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@ap-2-3-7",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "nivel de resistencia al agua",
+          "component": "resiste el agua",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.water_resistance_level"
+          ]
+        },
+        {
+          "contribution": "indicación de si flota",
+          "component": "flota",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.special_feature=Flotante"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.juguetes-para-perros/15",
+      "question": "¿Cómo se conservan la comida o los premios que contiene o incluye y hasta cuándo se pueden consumir?",
+      "dimension": "conservación",
+      "trait": "cuidado",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_TOY.use_by_recommendation",
+        "amazon-ptd-prop:PET_TOY.storage_instructions"
+      ],
+      "applicability": "si el juguete es comestible o contiene o incluye comida o premios",
+      "rationale": "Parte de cat.juguetes-para-perros/08 separada por la reglas 2 y 3 de D-060 (T-031): que contenga comida es la condición (ya en applicability); su detalle reúne dos necesidades de otro rasgo: los ingredientes (material, este requisito) y la conservación (cuidado). El rasgo pasa de contenido a material.",
+      "seed_importance": "complementario",
+      "rule": "imp:cuidado@ap-2-3",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "condiciones de almacenamiento de la comida o los premios",
+          "component": "cómo se conservan",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.storage_instructions"
+          ]
+        },
+        {
+          "contribution": "fecha o plazo de consumo",
+          "component": "hasta cuándo se pueden consumir",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_TOY.use_by_recommendation"
+          ]
+        },
+        {
+          "contribution": "plazo de consumo una vez abierto",
+          "component": "hasta cuándo se pueden consumir",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [
@@ -275,5 +721,5 @@
       "reason": "Solo aplica a juguetes para gatos."
     }
   ],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

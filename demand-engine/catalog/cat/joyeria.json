@@ -1,0 +1,322 @@
+{
+  "id": "cat.joyeria",
+  "type": "categoría",
+  "name": "Joyería",
+  "shopify": "aa-6",
+  "parent": "cat.ropa-y-accesorios",
+  "refs": [
+    "shopify:aa-6@v2026-08",
+    "google:188@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.joyeria/01",
+      "question": "¿De qué material es la pieza (metal base, plata, oro, acero, aleación…)?",
+      "dimension": "material y baño",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:jewelry-material"
+      ],
+      "applicability": "universal",
+      "rationale": "El material y el baño determinan el valor, la durabilidad y la tolerancia de la piel: es uno de los criterios con que se comparan joyas. Redacción con D-060 (T-031, regla 2): el baño es un hecho que solo afecta a una parte: requisito condicionado propio.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:material@aa-6",
+      "resolving_info": [
+        {
+          "contribution": "material principal de la pieza",
+          "component": "material de la pieza",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:jewelry-material"
+          ]
+        },
+        {
+          "contribution": "metal base de la pieza",
+          "component": "material de la pieza",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:jewelry-material"
+          ]
+        },
+        {
+          "contribution": "ley o pureza del metal precioso",
+          "component": "material de la pieza",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "marca de contraste o punzón de garantía",
+          "component": "material de la pieza",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.joyeria/02",
+      "question": "¿Es joyería fina (metal precioso) o bisutería o joya de imitación?",
+      "dimension": "tipo de joyería",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:jewelry-type"
+      ],
+      "applicability": "universal",
+      "rationale": "Separa dos mercados con precios y expectativas distintas; sin ella no se comparan ofertas homogéneas.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:identidad@aa-6",
+      "resolving_info": [
+        {
+          "contribution": "clasificación como joyería fina o de imitación",
+          "component": "joyería fina o bisutería",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:jewelry-type"
+          ]
+        },
+        {
+          "contribution": "marca de contraste o punzón de garantía",
+          "component": "joyería fina o bisutería",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.joyeria/03",
+      "question": "Si lleva diamantes o piedras clasificadas, ¿qué grado de color, claridad, talla y fluorescencia tienen?",
+      "dimension": "calidad de las piedras",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:diamond-color-grade",
+        "shopify-attr:gemstone-clarity-grade",
+        "shopify-attr:stone-cut-grade",
+        "shopify-attr:fluorescence-grade"
+      ],
+      "applicability": "si lleva diamantes o piedras preciosas clasificadas",
+      "rationale": "Cuatro atributos de un mismo tema (la gradación de la piedra) se unen en una cuestión. En joyas con piedras clasificadas son el criterio de comparación del valor.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:material@aa-6",
+      "resolving_info": [
+        {
+          "contribution": "grado de color del diamante",
+          "component": "grado de color",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:diamond-color-grade"
+          ]
+        },
+        {
+          "contribution": "grado de claridad de la piedra",
+          "component": "claridad",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:gemstone-clarity-grade"
+          ]
+        },
+        {
+          "contribution": "grado de talla de la piedra",
+          "component": "talla",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:stone-cut-grade"
+          ]
+        },
+        {
+          "contribution": "grado de fluorescencia del diamante",
+          "component": "fluorescencia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:fluorescence-grade"
+          ]
+        },
+        {
+          "contribution": "certificado de clasificación de un laboratorio gemológico",
+          "component": "color, claridad, talla y fluorescencia",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.joyeria/04",
+      "question": "Si lleva piedras, ¿son naturales, cultivadas en laboratorio o simuladas?",
+      "dimension": "origen de la piedra",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:stone-creation-method"
+      ],
+      "applicability": "si lleva piedras",
+      "rationale": "Una piedra natural y una de laboratorio o simulada no son comparables en valor: la distinción es criterio de elección.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:material@aa-6",
+      "resolving_info": [
+        {
+          "contribution": "método de creación de la piedra",
+          "component": "naturales, cultivadas en laboratorio o simuladas",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:stone-creation-method"
+          ]
+        },
+        {
+          "contribution": "certificado gemológico del origen de la piedra",
+          "component": "naturales, cultivadas en laboratorio o simuladas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.joyeria/05",
+      "question": "¿Para qué grupo de edad está pensada (adultos, niños, bebés)?",
+      "dimension": "grupo de edad",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:age-group"
+      ],
+      "applicability": "universal",
+      "rationale": "Distingue joyería infantil (tamaño, cierres) de la de adulto; relevante sin ser central en la mayoría de ofertas.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:uso@aa-6",
+      "resolving_info": [
+        {
+          "contribution": "grupo de edad al que se destina",
+          "component": "grupo de edad",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:age-group"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.joyeria/06",
+      "question": "¿Cómo se limpia, se cuida y se guarda la joya?",
+      "dimension": "cuidado",
+      "entity": "producto",
+      "trait": "cuidado",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:care-instructions"
+      ],
+      "applicability": "universal",
+      "rationale": "Los valores de Shopify son textiles, pero el atributo se aplica a joyería (limpieza, conservación del baño y de las piedras). Relevante sin ser criterio de elección.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:cuidado@aa",
+      "resolving_info": [
+        {
+          "contribution": "instrucciones de limpieza",
+          "component": "cómo se limpia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "instrucciones de cuidado",
+          "component": "cómo se cuida",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicaciones de conservación y almacenamiento",
+          "component": "cómo se guarda",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "precauciones frente al agua, los cosméticos o los productos químicos",
+          "component": "cómo se cuida",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.joyeria/07",
+      "question": "¿De qué es el baño o recubrimiento (oro, oro rosa, rodio, paladio…)?",
+      "dimension": "baño o recubrimiento",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:jewelry-material=Bañado en bronce",
+        "shopify-attr:jewelry-material=Bañado en cobre",
+        "shopify-attr:jewelry-material=Bañado en oro",
+        "shopify-attr:jewelry-material=Bañado en oro blanco",
+        "shopify-attr:jewelry-material=Bañado en oro rosa",
+        "shopify-attr:jewelry-material=Bañado en paladio",
+        "shopify-attr:jewelry-material=Bañado en rodio",
+        "shopify-attr:jewelry-material=Bañado en rodio negro",
+        "shopify-attr:jewelry-material=Dorado",
+        "shopify-attr:jewelry-material=Plateado",
+        "shopify-attr:jewelry-material=Niquelado",
+        "shopify-attr:jewelry-material=Platinado",
+        "shopify-attr:jewelry-material=Estañado"
+      ],
+      "applicability": "si la pieza está bañada o recubierta",
+      "rationale": "Parte de cat.joyeria/01 separada por la regla 2 de D-060 (T-031): el baño es un hecho que solo afecta a una parte: requisito condicionado propio.",
+      "seed_importance": "principal",
+      "rule": "imp:material@aa-6",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "metal del baño o recubrimiento",
+          "component": "baño o recubrimiento",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:jewelry-material=Bañado en bronce",
+            "shopify-attr:jewelry-material=Bañado en cobre",
+            "shopify-attr:jewelry-material=Bañado en oro",
+            "shopify-attr:jewelry-material=Bañado en oro blanco",
+            "shopify-attr:jewelry-material=Bañado en oro rosa",
+            "shopify-attr:jewelry-material=Bañado en paladio",
+            "shopify-attr:jewelry-material=Bañado en rodio",
+            "shopify-attr:jewelry-material=Bañado en rodio negro",
+            "shopify-attr:jewelry-material=Dorado",
+            "shopify-attr:jewelry-material=Plateado",
+            "shopify-attr:jewelry-material=Niquelado",
+            "shopify-attr:jewelry-material=Platinado",
+            "shopify-attr:jewelry-material=Estañado"
+          ]
+        },
+        {
+          "contribution": "ley o quilataje del metal del baño",
+          "component": "baño o recubrimiento",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

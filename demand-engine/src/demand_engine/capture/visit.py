@@ -10,7 +10,8 @@ is kept only when the page is not a challenge, an error or under a TDM reservati
   page.mhtml.gz      the page with its resources (MHTML, frames included)
 
 With a pacer (batch captures) the page is read at a reader's pace; without one (a single
-page) it is only scrolled through, so that lazy content loads. No screenshots (D-042).
+page) it is only scrolled through, so that lazy content loads. A pacing without scroll keeps
+the first load: no scrolling and no dwell (the training catalog, D-053). No screenshots (D-042).
 """
 from __future__ import annotations
 
@@ -163,12 +164,17 @@ def _visit(page, url, pacer, tdm_entries, stop, meta, folder, files, t0) -> tupl
             outcome, detail = "reserved", "reserva TDM (cabecera, meta o tdmrep.json): no se conserva el contenido"
         else:
             page.wait_stable()
-            dwell = pacer.dwell() if pacer else 0.0
-            steps = page.scroll_through(budget=dwell * 0.8 if pacer else SINGLE_SCROLL_S,
-                                        rng=pacer.rng if pacer else random.Random(), stop=stop)
-            page.wait_stable()
-            if pacer:
-                page.idle(max(0.0, dwell - (time.monotonic() - t0)), stop)
+            if pacer and not pacer.pacing.scroll:
+                actions = [{"action": "first_load", "seconds": round(time.monotonic() - t0, 1)}]
+            else:
+                dwell = pacer.dwell() if pacer else 0.0
+                steps = page.scroll_through(budget=dwell * 0.8 if pacer else SINGLE_SCROLL_S,
+                                            rng=pacer.rng if pacer else random.Random(), stop=stop)
+                page.wait_stable()
+                if pacer:
+                    page.idle(max(0.0, dwell - (time.monotonic() - t0)), stop)
+                actions = [{"action": "scroll", "wheel_steps": steps},
+                           {"action": "dwell", "seconds": round(time.monotonic() - t0, 1)}]
             hidden = page.eval(MARK_HIDDEN, timeout=60)
             try:
                 dom = page.eval(SERIALIZE, timeout=90)
@@ -179,7 +185,6 @@ def _visit(page, url, pacer, tdm_entries, stop, meta, folder, files, t0) -> tupl
             files["page.mhtml"] = write_evidence(folder, "page.mhtml", page.mhtml())
             meta["dom"] = {"title": dom["title"], "elements": dom["elements"],
                            "shadow_roots": dom["shadow_roots"], "hidden_roots": hidden}
-            meta["actions"] = [{"action": "scroll", "wheel_steps": steps},
-                               {"action": "dwell", "seconds": round(time.monotonic() - t0, 1)}]
+            meta["actions"] = actions
             outcome, detail = "captured", dom["title"][:80]
     return outcome, detail

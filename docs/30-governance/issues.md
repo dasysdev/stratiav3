@@ -4,7 +4,7 @@ title: Registro de incidencias e incoherencias documentales
 layer: governance
 status: vigente
 version: 1.0
-updated: 2026-10-25
+updated: 2026-10-26
 sources: []
 ---
 
@@ -24,15 +24,35 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 | [I-08](#i-08) | Alcance de las propiedades: ¿también fundamentan requisitos técnicos? | Media | resuelta → [D-007](decisions.md#d-007) |
 | [I-09](#i-09) | Denominación del artefacto taxonómico | Baja | resuelta → [D-012](decisions.md#d-012) |
 | [I-10](#i-10) | P07 en las propiedades asociadas a Aplicabilidad | Baja | resuelta → [D-014](decisions.md#d-014) |
-| [I-11](#i-11) | Definición del estado `vigente` frente al contenido procedente del intake | Baja | abierta |
+| [I-11](#i-11) | Definición del estado `vigente` frente al contenido procedente del intake | Baja | resuelta → [D-070](decisions.md#d-070) |
 | [I-12](#i-12) | Apoyo del caso de las sábanas en una categoría que ya no es componente | Baja | resuelta → [D-029](decisions.md#d-029) |
-| [I-13](#i-13) | Casos que no reflejan del todo la regla de las cuestiones propias | Baja | abierta |
+| [I-13](#i-13) | Casos que no reflejan del todo la regla de las cuestiones propias | Baja | resuelta → [D-071](decisions.md#d-071) |
 | [I-14](#i-14) | Casos documentados que cambian con la base ampliada | Media | resuelta → [D-032](decisions.md#d-032) |
-| [I-15](#i-15) | `warmth-level` no está solo en Juegos de cama | Baja | abierta |
+| [I-15](#i-15) | `warmth-level` no está solo en Juegos de cama | Baja | resuelta → [D-071](decisions.md#d-071) |
 | [I-16](#i-16) | Cuestiones inferidas dentro de un bloque de categoría de contenido fijo | Media | resuelta → [D-041](decisions.md#d-041) |
-| [I-17](#i-17) | Relevancia de las propiedades de Amazon (D-039) frente a la base de D-030 | Media | abierta |
-| [I-18](#i-18) | Renderizado selectivo del MPIR frente al motor de captura, que renderiza siempre | Baja | abierta |
+| [I-17](#i-17) | Relevancia de las propiedades de Amazon (D-039) frente a la base de D-030 | Media | resuelta → [D-072](decisions.md#d-072) |
+| [I-18](#i-18) | Renderizado selectivo del MPIR frente al motor de captura, que renderiza siempre | Baja | resuelta → [D-073](decisions.md#d-073) |
 | [I-19](#i-19) | Estados y versiones del catálogo en ejecución | Media | resuelta → [D-045](decisions.md#d-045) |
+| [I-20](#i-20) | Rasgos mal etiquetados en los bloques generados en ejecución | Media | resuelta → [D-056](decisions.md#d-056) |
+| [I-21](#i-21) | Entrada de una hoja sin requisitos propios y de una hermana en la composición | Baja | resuelta → [D-057](decisions.md#d-057) |
+| [I-22](#i-22) | Unidad no nueva en el outlet del caso de control Stressless | Baja | resuelta → [D-057](decisions.md#d-057) |
+| [I-23](#i-23) | Mensajes comunes de la tienda como hechos declarados de la oferta | Baja | resuelta → [D-074](decisions.md#d-074) |
+| [I-24](#i-24) | «Críticos pocos» sin métrica que lo vigile | Baja | resuelta → [D-059](decisions.md#d-059) (no aplica) |
+| [I-25](#i-25) | «Aportación» con dos sentidos: la aportación resolutiva y las aportaciones del MPIR | Baja | resuelta → [D-075](decisions.md#d-075) |
+| [I-26](#i-26) | Requisitos condicionados a hechos de la oferta fuera de la aplicación | Media | resuelta → [D-066](decisions.md#d-066) |
+| [I-27](#i-27) | `gen.precio-personalizado/01` repite el hecho de su disparador | Baja | resuelta → [D-067](decisions.md#d-067) |
+| [I-28](#i-28) | Origen de las aportaciones que salen de una norma en los bloques de categoría | Baja | resuelta → [D-068](decisions.md#d-068) |
+| [I-29](#i-29) | Opiniones sobre la tienda frente a opiniones del producto | Baja | resuelta → [D-076](decisions.md#d-076) |
+| [I-30](#i-30) | Descuento de toda la tienda condicionado a una acción del comprador | Media | resuelta → [D-078](decisions.md#d-078) |
+| [I-31](#i-31) | Unidad de exposición que la ficha identifica sin nombrarla | Baja | resuelta → [D-079](decisions.md#d-079) |
+| [I-32](#i-32) | Fabricante de un producto que la tienda importa y vende con su marca | Media | resuelta → [D-080](decisions.md#d-080) |
+| [I-33](#i-33) | Garantía nombrada sin contenido ni condiciones | Baja | resuelta → [D-081](decisions.md#d-081) |
+| [I-34](#i-34) | Variantes con opciones visibles sin nombre y selectores de una sola opción | Baja | resuelta → [D-082](decisions.md#d-082) |
+| [I-35](#i-35) | Política de cambios sin pregunta en la capa general | Media | resuelta → [D-085](decisions.md#d-085) |
+| [I-36](#i-36) | Alcance de la especialización «juego» frente a las medidas de cada pieza | Baja | resuelta → [D-086](decisions.md#d-086) |
+| [I-37](#i-37) | Pregunta de sí o no con detalle cuyas partes toman otro rasgo o importancia | Baja | resuelta → [D-087](decisions.md#d-087) |
+| [I-38](#i-38) | Cuestiones con fuente en las referencias que el bloque no recoge | Baja | resuelta → [D-088](decisions.md#d-088) |
+| [I-39](#i-39) | Aportaciones que fija la norma ausentes de las listas de la capa general | Baja | resuelta → [D-089](decisions.md#d-089) |
 
 ---
 
@@ -152,6 +172,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - D-021 a D-037 proceden de updates descritos por el usuario en la conversación, que la skill transcribió como artefactos archivados. D-016 habla de lo que «se deposita en `docs/intake/`»; conviene precisar que los updates conversacionales se tratan igual.
 - **Afecta a:** [docs/CLAUDE.md](../CLAUDE.md#estados).
 - **Propuesta:** ampliar la definición: «`vigente` — definido en los documentos rectores (CTX, BASE), en FUND o en un intake procesado que lo formule como vigente (D-016); forma parte del canon».
+- **Resolución (2026-10-26):** se acepta la propuesta. → [D-070](decisions.md#d-070).
 
 ### I-12
 
@@ -173,6 +194,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - **Afecta a:** [subclasses](../20-methods/product-taxonomy/subclasses.md#caso-de-trabajo-juego-de-sábanas-de-coralina) y [cases](../20-methods/product-taxonomy/cases.md#sofá-reclinable-de-exposición).
 - **Propuesta:** reescribir el efecto del polar con solo las cuestiones propias y dejar transpirabilidad, abrigo y gramaje como cuestiones de la base condicionadas por el tejido; comprobar en Shopify Sofás (`material`) y en PTD `SOFA` si hay un valor de piel que dé apoyo a la tapicería de piel y, si no lo hay, tratarla como requisito condicionado de Sofás.
 - **Anotación (2026-10-25):** en las sábanas, el abrigo no está en la base: lo trae «uso invernal» (caso de la manta, `INTAKE 2026-10-25-objective-classification`). La propuesta debe dejar el abrigo fuera de las cuestiones de la base. Las características especiales de los PTD ([D-030](decisions.md#d-030)) también afectan al polar: ver [I-14](#i-14), resuelta por [D-032](decisions.md#d-032). El polar sigue siendo especialización, porque la pérdida de pelo no está en ninguna base; queda por reescribir su efecto.
+- **Resolución (2026-10-26):** se acepta la propuesta. → [D-071](decisions.md#d-071).
 
 ### I-14
 
@@ -201,6 +223,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - En Shopify v2026-08 también lo tienen Colchas y edredones (`hg-15-1-10`) y Cubrecolchones (`hg-15-1-12`, *Mattress Toppers*). Ninguna de las dos es componente del caso, así que el apoyo de «uso invernal» no cambia.
 - **Afecta a:** [subclasses](../20-methods/product-taxonomy/subclasses.md#caso-de-trabajo-juego-de-sábanas-de-coralina).
 - **Propuesta:** corregir el dato: «asignado a Juegos de cama, Colchas y edredones y Cubrecolchones (*Mattress Toppers*), que no son componentes del caso».
+- **Resolución (2026-10-26):** se acepta la propuesta. → [D-071](decisions.md#d-071).
 
 ### I-16
 
@@ -225,6 +248,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - **Anotación (2026-10-25):** con [D-044](decisions.md#d-044), la relevancia de las propiedades de Amazon la deciden reglas inducidas en el entrenamiento, no una revisión. La propuesta se reformula: la comprobación de base de D-030 usa las propiedades que retienen esas reglas, o el efecto sobre D-030 se mide como parte de la validación automática.
 - **Anotación (2026-10-25):** la primera versión del entrenamiento ([D-045](decisions.md#d-045)) no induce todavía la relevancia de Amazon ([OQ-49](open-questions.md)); hasta entonces, la decide la redacción automática del bloque, como declara D-045.
 - **Anotación (2026-10-25):** con [D-050](decisions.md#d-050), además de incluir la propiedad en el bloque (redacción), se puede excluir en una clase concreta (filtro de relevancia). La exclusión puede reabrir este hueco; la salvaguarda de cobertura lo evita en parte, porque una exclusión que deja sin pregunta un hecho declarado se descarta.
+- **Resolución (2026-10-26):** se adopta la segunda alternativa de las anotaciones: lo mide la validación automática (salvaguarda de D-050). → [D-072](decisions.md#d-072).
 
 ### I-18
 
@@ -235,6 +259,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - Motivos: la incoherencia entre capas (curl con user-agent de navegador, headless) es lo que más bloqueos provoca; con el volumen del piloto, el coste es despreciable. — INTAKE 2026-10-25-mpir-capture-engine
 - **Afecta a:** [sampling-capture](../20-methods/mpir/sampling-capture.md#contenido-dinámico-e-interacción-selectiva).
 - **Propuesta:** actualizar `sampling-capture` para que el renderizado sea el procedimiento por defecto, con esa justificación, y mantener que la presencia de JavaScript no es una limitación metodológica.
+- **Resolución (2026-10-26):** se acepta la propuesta. → [D-073](decisions.md#d-073).
 
 ### I-19
 
@@ -247,3 +272,264 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - **Propuesta:** «no revisado» = todo lo que no está en estado validado; un bloque generado en ejecución entra en el catálogo en estado propuesta; en entrenamiento se revisan todas las inferidas encoladas (la muestra solo para las ya incorporadas); la clave incluye la versión de cada bloque.
 - **Anotación (2026-10-25):** con [D-044](decisions.md#d-044) desaparece la muestra humana: lo encolado lo convierte el entrenamiento en casos y reglas, que se aceptan o descartan por validación automática; queda resuelta la parte de muestra frente a aceptación. «No revisado» pasa a significar no compilado por el entrenamiento. Siguen abiertas la versión en la clave y el estado de los bloques generados en ejecución.
 - **Resuelta → [D-045](decisions.md#d-045) (2026-10-25):** la clave lleva la versión de cada bloque (`<bloque>@<versión>`), y un bloque generado en ejecución está «no compilado» hasta que el entrenamiento lo compila; los estados del bloque pasan a ser «no compilado» y «compilado».
+
+### I-20
+
+**Rasgos mal etiquetados en los bloques generados en ejecución.**
+
+- En el ciclo de reglas 4 (T-028, `demand-engine/training/reports/2026-10-26-v4-report.md`), 16 votos «crítico» caen en rasgos que no lo admiten ([D-045](decisions.md#d-045): solo identidad, contenido y medida que fija lo vendido), y cuentan como principal. Son cuestiones que dicen qué se vende, pero el bloque generado las etiqueta con otro rasgo: el sabor de una confitura (`cat.alimentos/06`, material), el grado de viscosidad SAE de un aceite de motor (`cat.aceite-para-motores-de-vehiculos/01`, prestación), el material de una joya (`cat.joyeria/01`, material), la especie de destino de un producto para mascotas (`cat.productos-para-mascotas/01`, uso) y el compartimento para portátil de una mochila (`cat.mochilas/13`, uso).
+- La duración de una grabación (`cat.discos-y-lp/03`, `cat.cd-de-musica/03`) está etiquetada como medida descriptiva, que el marco fija en principal, aunque no es una dimensión.
+- El índice de rasgos (`bin/train index`) da a cada fuente el rasgo de los requisitos que la citan, de modo que una etiqueta errónea se propaga a toda categoría que use esa fuente (p. ej., `shopify-attr:flavor` → material). Dos fuentes tienen ya rasgos distintos según el requisito y quedan fuera del índice: `amazon-ptd-prop:BOOT.toe_style` (prestación o estética) y `ley:CE-767/2009-11.3` (identidad o material).
+- El rasgo lo decide quien redacta el bloque ([D-045](decisions.md#d-045)) y la primera versión del entrenamiento no lo revisa: solo induce importancia y relevancia.
+- **Afecta a:** [model-training](../10-model/model-training.md#rasgos), `demand-engine/catalog/DRAFTING.md`.
+- **Propuesta:** que el informe agregado liste como señal de rasgo mal etiquetado los requisitos con votos «crítico» fuera de los rasgos que lo admiten; precisar en `DRAFTING.md` que la cuestión que distingue variedades de lo vendido (sabor, grado, especie) es identidad; y dejar la corrección del rasgo a la inducción de la versión siguiente ([OQ-49](open-questions.md)), sin retocar el catálogo a mano.
+- **Resuelta → [D-056](decisions.md#d-056) (2026-10-26):** el vocabulario de rasgos queda abierto: los agentes proponen y votan rasgos, y cada requisito toma el rasgo que gana. Manda el rasgo votado del requisito; el índice por fuentes solo da el de partida, y una fuente cuyos requisitos tienen rasgos distintos sale del índice, de modo que una etiqueta errónea ya no se propaga. El crítico se decide por requisito y clase ([D-055](decisions.md#d-055)); que solo pudieran serlo los rasgos nuevos que dicen qué se vende quedó sustituido por [D-058](decisions.md#d-058): cualquier propiedad puede ser crítica si sus votos lo dicen.
+
+### I-21
+
+**Entrada de una hoja sin requisitos propios y de una hermana en la composición.**
+
+- El reglamento (`demand-engine/classifier/rulebook.md`, P5 y paso 2) hace alias a la categoría que entra sin aportar requisitos. En la pasada de control de reglas 4 (T-028), los agentes dudan en las hojas registradas como vacías ([D-043](decisions.md#d-043), criterio 7), cuyos requisitos son todos de las madres: Comida para perros sin prescripción médica, Mantas decorativas, Toallas de baño y Toallas de mano. Las dejan como categoría por clasificación objetiva y no como alias, porque si no la clase se queda sin categorías. Lo hacen de forma estable en las dos ejecuciones.
+- En el sofá cama, las dos ejecuciones rechazan Sofás de dos plazas por duplicada (hermana de Sofás cama, sin requisitos propios). El caso de control la espera como alias, y el reglamento no dice cuándo una hermana es alias y cuándo duplicado.
+- **Afecta a:** [study-class](../10-model/study-class.md), `demand-engine/classifier/rulebook.md` (paso 2) y los casos de control.
+- **Propuesta:** precisar en el reglamento que la hoja más específica que cumple el producto entra como categoría aunque herede todos sus requisitos, y que una hermana sin requisitos propios que nombra otra característica del producto (las plazas) entra como alias por clasificación objetiva.
+- **Resuelta → [D-057](decisions.md#d-057) (2026-10-26):** se aceptan las dos precisiones de la propuesta.
+
+### I-22
+
+**Unidad no nueva en el outlet del caso de control Stressless.**
+
+- [D-037](decisions.md#d-037) lleva el outlet del Stressless a la aplicación como unidad no nueva, porque la ficha declara el estado (la última unidad de exposición). El reglamento (paso 6) dice que «outlet» sin estado declarado no activa `gen.unidad-no-nueva`.
+- En la pasada de control de reglas 4 (T-028), los dos agentes leen la ficha y no lo activan: ven indicios fuertes («visita la exposición para aprovechar la última unidad», «revisado bajo estrictos controles de calidad», «garantía de 1 año por ser producto outlet»), pero no un estado declarado. El control lo cuenta como aplicación incompleta.
+- **Afecta a:** `demand-engine/classifier/rulebook.md` (paso 6) y el caso de control `stressless-wave-outlet`.
+- **Propuesta:** precisar en el reglamento que la unidad de exposición que la ficha identifica como tal cuenta como estado declarado, y mantener la regla de que la etiqueta «outlet» sola no basta.
+- **Resuelta → [D-057](decisions.md#d-057) (2026-10-26):** se acepta la propuesta.
+
+### I-23
+
+**Mensajes comunes de la tienda como hechos declarados de la oferta.**
+
+- La tienda pone en todas sus fichas los mismos mensajes, como «manta de regalo en pedidos de más de 99 €» o «envío gratis desde 49 €». En la pasada de control de reglas 4 (T-028), unos agentes los cuentan como información de la oferta (en la pregunta de promociones o en la de coste de envío) y otros como afirmaciones genéricas de la tienda, que no cuentan como declaradas. El mismo producto sale con hechos distintos en dos ejecuciones. — INTAKE 2026-10-26-training-v4-review, apartado 5
+- El reglamento (`demand-engine/classifier/rulebook.md`, paso 1) excluye «las afirmaciones genéricas de la tienda» sin decir si un mensaje común con una condición concreta lo es.
+- **Afecta a:** el reglamento del clasificador, la cobertura por hechos declarados y la pregunta universal de promociones ([D-049](decisions.md#d-049), [OQ-50](open-questions.md)).
+- **Propuesta:** un mensaje común de la tienda que fija una condición comprobable para esta oferta (un importe mínimo, un plazo, un coste) cuenta como declarado en la pregunta que responde; el que no fija nada comprobable («la mejor calidad») es una afirmación genérica.
+- **Resolución (2026-10-26):** se acepta la propuesta. → [D-074](decisions.md#d-074).
+
+### I-24
+
+**«Críticos pocos» sin métrica que lo vigile.**
+
+- El marco del entrenamiento pide, entre las características del resultado, «críticos pocos» ([model-training](../10-model/model-training.md#marco)). Con [D-055](decisions.md#d-055) y [D-058](decisions.md#d-058), cualquier propiedad puede ser crítica si sus votos en la clase lo dicen, y la métrica de aceptación, la coherencia por requisito, acepta una regla que aumente los críticos si así lo dicen los votos.
+- Ninguna de las métricas de [D-045](decisions.md#d-045) (cobertura, estabilidad, coherencia) mide cuántos críticos tiene un modelo.
+- **Afecta a:** [model-training](../10-model/model-training.md#métricas-y-aceptación) y el informe agregado.
+- **Propuesta:** que el informe agregado dé, por clase, cuántos requisitos son críticos y cuántos cambian frente a la versión anterior, sin umbral, para que el usuario lo vea al leer el informe y ajuste el marco si hace falta.
+- **Resuelta → [D-059](decisions.md#d-059) (2026-10-26), no aplica:** «críticos pocos» era una suposición y sale del marco; puede haber muchos críticos si así se determina. No hace falta vigilar su número.
+
+### I-25
+
+**«Aportación» con dos sentidos: la aportación resolutiva y las aportaciones del MPIR.**
+
+- [D-064](decisions.md#d-064) llama **aportación resolutiva** a cada entrada de la [información resolutiva](../10-model/resolving-information.md) de un requisito. Su artefacto dice que el nombre «no choca con nada».
+- El MPIR ya usa «aportación» en otro sentido: lo que una observación aporta al modelo de demanda. Lo hace en [interpretation-transfer](../20-methods/mpir/interpretation-transfer.md) («Tipos de aportación»: confirmación, ampliación, profundización…), [concepts-architecture](../20-methods/mpir/concepts-architecture.md) («tipo de aportación») y [operation-validation](../20-methods/mpir/operation-validation.md) («Matriz de aportaciones al modelo de demanda», «aportaciones informativas»).
+- Los dos sentidos tocan el modelo de demanda, y los módulos de la información resolutiva usan a veces «aportación» sin adjetivo.
+- **Afecta a:** [resolving-information](../10-model/resolving-information.md), glosario y los tres módulos del MPIR.
+- **Propuesta:** mantener «aportación resolutiva» y escribirla siempre con el adjetivo fuera de su módulo canónico, y nombrar las del MPIR como «aportación al modelo de demanda». Hay una nota de distinción en el glosario y en el módulo. Si el usuario prefiere evitar la coincidencia, la alternativa es renombrar una de las dos.
+- **Resolución (2026-10-26):** se acepta la propuesta (las dos con su complemento), tras tres rondas. → [D-075](decisions.md#d-075).
+
+### I-26
+
+**Requisitos condicionados a hechos de la oferta fuera de la aplicación.**
+
+- [D-065](decisions.md#d-065) crea en la capa general tres requisitos condicionados a hechos de la oferta: la garantía comercial, la asistencia o los servicios posventa (si los tiene) y la autenticidad de las opiniones (si se publican). Los artefactos no dicen en qué bloque van; Claude los puso en el bloque universal con su condición en la aplicabilidad, como la persona responsable en la UE de [D-052](decisions.md#d-052), que es un hecho del producto.
+- El canon define la aplicación como «la lista de condiciones de la oferta que se dan» ([demand-model](../10-model/demand-model.md), [glosario](../glossary.md)), y [D-047](decisions.md#d-047) lleva a la aplicación lo que depende de la oferta. Con la lectura adoptada hay hechos de la oferta que condicionan requisitos sin formar parte de la aplicación.
+- **Afecta a:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general), [demand-model](../10-model/demand-model.md), glosario (aplicación, requisito condicionado) y `demand-engine/catalog/gen.json`.
+- **Propuesta:** mantener la lectura adoptada, porque son hechos que evalúa la auditoría (como `gen/18`) y la aplicación solo recoge las condiciones que activan bloques, y precisar en el canon que la aplicación es la lista de disparadores de los bloques condicionados. La alternativa es crear bloques condicionados propios (`gen.garantia-comercial`, `gen.posventa`, `gen.opiniones`), cuyos disparadores entrarían en la aplicación y en la salida del clasificador.
+- **Resolución (2026-10-26):** el usuario eligió la alternativa, bloques condicionados propios, que Claude recomendó al presentarla. → [D-066](decisions.md#d-066).
+
+### I-27
+
+**`gen.precio-personalizado/01` repite el hecho de su disparador.**
+
+- Tras [D-065](decisions.md#d-065), `gen.precio-personalizado/01` pregunta «¿Está personalizado el precio por una decisión automatizada?» dentro de un bloque cuyo disparador es ese mismo hecho: cuando el bloque está activo, la respuesta es siempre sí, y sin hecho declarado el bloque queda en gris (NA, [D-047](decisions.md#d-047)). El art. 97.1.f exige informar de que el precio se ha personalizado, y la pregunta original ya tenía esta forma; la división lo hace más visible.
+- **Afecta a:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) y `demand-engine/catalog/gen.json`.
+- **Propuesta:** convertirla en una pregunta universal de sí o no del bloque `gen`, como la de promociones ([D-049](decisions.md#d-049)), para que la auditoría compruebe si la oferta informa de la personalización; el bloque condicionado conservaría la de los parámetros. Requiere decisión del usuario, porque cambia la capa general.
+- **Resolución (2026-10-26):** se retira la pregunta; el 97.1.f queda como apoyo del disparador. → [D-067](decisions.md#d-067).
+
+### I-28
+
+**Origen de las aportaciones que salen de una norma en los bloques de categoría.**
+
+- [D-063](decisions.md#d-063) define cuatro orígenes: el **marco**, «de la ley que ya es fuente del requisito», solo para la capa general; las **referencias**, que salen de las propiedades de Amazon y los atributos de Shopify; las **fichas**; y la **inferida**.
+- Algunos requisitos de categoría tienen origen «normativa» y una ley entre sus fuentes: la composición textil (Reglamento 1007/2011), la información alimentaria (Reglamento 1169/2011), los piensos (Reglamento 767/2009) y las confituras (RD 863/2003). Las aportaciones que salen de esa norma no encajan en ninguno de los cuatro orígenes.
+- En T-031 se registraron con origen «referencias» y la ley en el respaldo: salen de las fuentes del requisito, como dice `requirement-blocks`, y la comprobación del catálogo lo admite.
+- **Afecta a:** [resolving-information](../10-model/resolving-information.md#orígenes), [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formato-del-catálogo) y el catálogo de `demand-engine`.
+- **Propuesta:** precisar que el origen «referencias» incluye la norma que es fuente de un requisito de categoría. La alternativa es extender el origen «marco» a esos requisitos; en ese caso, sus aportaciones las aprobaría el usuario, como las de la capa general.
+- **Resolución (2026-10-26):** aceptada la propuesta. → [D-068](decisions.md#d-068).
+
+### I-29
+
+**Opiniones sobre la tienda frente a opiniones del producto.**
+
+- [D-066](decisions.md#d-066) crea `gen.opiniones`, que se activa si la ficha publica opiniones de compradores, junto a la pregunta universal `gen/15` («¿Qué opiniones de compradores tiene?»). No dice si cuentan las opiniones sobre la tienda: valoraciones globales del comercio, reseñas en Google o en Tripadvisor, o un `aggregateRating` del sitio.
+- En las fichas congeladas de los casos hay de los dos tipos: `cojin-018` publica opiniones de clientes y una valoración agregada de la tienda; `bota-polo-e` muestra reseñas de la tienda en Google y en Tripadvisor.
+- **Afecta a:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general), el reglamento del clasificador (paso 6) y la aplicación de las ofertas.
+- **Propuesta:** solo las opiniones sobre el producto o la oferta responden `gen/15` y activan `gen.opiniones`. Las opiniones sobre la tienda son una afirmación general del comercio, como los mensajes comunes de [I-23](#i-23).
+- **Resolución (2026-10-26):** se acepta la propuesta. → [D-076](decisions.md#d-076).
+
+> Las incidencias I-30 a I-39 salen de la tanda de control T-032: los 14 casos con el reglamento v3 y las reglas 6, en dos ejecuciones (A y B), comparados con la v4. Informe: `demand-engine/training/reports/2026-10-26-t032-control-report.md`.
+
+### I-30
+
+**Descuento de toda la tienda condicionado a una acción del comprador.**
+
+- Según [D-074](decisions.md#d-074), un mensaje común de la tienda cuenta si fija una condición comprobable, y activa el bloque condicionado que declara: «un descuento para toda la tienda activa `gen.descuento`».
+- Las nueve fichas de burritoblanco.com del control llevan el mensaje «Suscríbete a la news y ahorra un 10 %». Es un descuento que exige suscribirse al boletín; la ficha no rebaja el precio («Descuento actual 0,00 €»).
+- En los siete casos sin rebaja propia, 11 de las 14 salidas activan `gen.descuento` con ese mensaje; las otras 3 lo llevan solo a `gen/16`.
+- En `cojin-018`, `manta-nacarina-046` y `sabanas-coralina-999`, la ejecución A y la B no coinciden. Es la causa principal de que la aplicación de la oferta solo sea estable en 8 de 14 casos; en la v4 lo era en 14 de 14.
+- **Afecta a:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) (D-074) y el reglamento del clasificador (pasos 1 y 6).
+- **Propuesta:** precisar que un descuento de toda la tienda activa `gen.descuento` aunque dependa de una acción del comprador: suscribirse, un código, la primera compra o un importe mínimo. Sus condiciones las pregunta `gen.descuento/02` («¿En qué condiciones se aplica el descuento?»). Es la lectura literal de D-074 y la de 11 de las 14 salidas.
+- **Alternativa:** que solo active el bloque una rebaja que se aplica al precio de la oferta sin otra acción del comprador; lo demás sería una promoción de `gen/16`.
+- **Resolución (2026-10-26):** el usuario acepta la propuesta («Aplica según recomendado»). → [D-078](decisions.md#d-078).
+
+### I-31
+
+**Unidad de exposición que la ficha identifica sin nombrarla.**
+
+- Según [D-057](decisions.md#d-057), «la unidad de exposición que la ficha identifica como tal cuenta como estado declarado; "outlet" solo, no».
+- La ficha de `stressless-wave-outlet` no usa la expresión «unidad de exposición». Lo que sí dice:
+  - «Visita la exposición en Les Corts para aprovechar la última unidad a precio único»;
+  - el producto está en la zona outlet;
+  - el sillón «ha sido revisado»;
+  - la garantía baja a un año «por ser producto outlet».
+- En T-032, la ejecución A no activa `gen.unidad-no-nueva`, porque no hay identificación expresa. La B sí la activa: entiende que la ficha sitúa la última unidad en la exposición.
+- El caso de control la espera activada. En la v4 no se activaba en ninguna ejecución ([I-22](#i-22)).
+- **Afecta a:** [D-037](decisions.md#d-037) y D-057, [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) y el reglamento del clasificador (paso 6).
+- **Propuesta:** precisar que la ficha identifica la unidad de exposición cuando sitúa en la exposición de la tienda la unidad que se vende, aunque no use esa expresión («la última unidad, en exposición»; «visita la exposición para aprovechar la última unidad»). «Outlet», «revisado» o una garantía reducida, por sí solos, siguen sin bastar. Añadir el ejemplo al paso 6 del reglamento.
+- **Resolución (2026-10-26):** el usuario acepta la propuesta («Aplica según recomendado»). → [D-079](decisions.md#d-079).
+
+### I-32
+
+**Fabricante de un producto que la tienda importa y vende con su marca.**
+
+- Las fichas de burritoblanco.com dicen «Importado y comercializado por Burrito Blanco, S.L.U.», «Diseño: España» y «Fabricado en» un país de fuera de la UE o de la UE. No nombran al fabricante, y el producto lleva la marca de la tienda.
+- En T-032, las 18 salidas de esa tienda reparten así el hecho «importado y comercializado»:
+  - `gen/18` (persona responsable en la UE): 9;
+  - `gen/13` (vendedor): 6;
+  - `gen/17` (fabricante, por derivación): 3;
+  - ninguna pregunta: 1.
+- Dos agentes proponen aportaciones nuevas en `gen/17` y en `gen/18`.
+- **Afecta a:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) (`gen/17` y `gen/18`, [D-052](decisions.md#d-052)), la lista de información resolutiva de `gen/17`, aprobada por [D-069](decisions.md#d-069), y el reglamento del clasificador.
+- **Propuesta:**
+  - El Reglamento (UE) 2023/988 (art. 3, punto 8), fuente de `gen/17`, considera fabricante a quien encarga el diseño o la fabricación de un producto y lo comercializa con su nombre o marca. Precisar que quien vende el producto con su marca responde `gen/17`.
+  - Añadir a la lista de `gen/17` la aportación «nombre o marca de quien encarga el diseño o la fabricación y comercializa el producto con su marca», con origen «marco». Requiere aprobar la lista (D-069).
+  - `gen/18` queda para el fabricante establecido fuera de la UE.
+- **Resolución (2026-10-26):** el usuario acepta la propuesta («Aplica según recomendado»). → [D-080](decisions.md#d-080).
+
+### I-33
+
+**Garantía nombrada sin contenido ni condiciones.**
+
+- Las fichas de burritoblanco.com incluyen, en una lista de responsables, «Garantía de calidad: Burrito Blanco, S.L.U.», sin alcance, plazo ni condiciones.
+- Según [D-066](decisions.md#d-066), `gen.garantia-comercial` se activa «si tiene garantía comercial»; la garantía legal no lo activa.
+- En T-032, las dos ejecuciones de `toallas-azul-080` activan el bloque con esa frase y las otras 16 salidas de la tienda no: unas la tratan como afirmación genérica y otras la dejan sin pregunta. Es una incoherencia entre casos con la misma frase.
+- **Afecta a:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) (D-066) y el reglamento del clasificador (paso 6).
+- **Propuesta:**
+  - Precisar que una garantía nombrada sin contenido ni condiciones no permite saber que es distinta de la legal y no activa `gen.garantia-comercial`. Activarla sería suponer un hecho que la ficha no declara.
+  - La activa una garantía que declara algo que la legal no da: más plazo, otra cobertura u otro garante.
+- **Alternativa:** activarla siempre que la ficha nombre una garantía distinta de la legal y dejar a la auditoría la falta de condiciones.
+- **Resolución (2026-10-26):** el usuario acepta la propuesta («Aplica según recomendado»). → [D-081](decisions.md#d-081).
+
+### I-34
+
+**Variantes con opciones visibles sin nombre y selectores de una sola opción.**
+
+- El reglamento del clasificador (paso 1) no cuenta como declarado lo que solo aparece en atributos HTML.
+- En `toallas-azul-080`, el selector «Color» muestra seis muestras y el color elegido («Azul»). Los nombres de los demás colores solo están en `title` y `aria-label`. La ejecución B activa `gen.variantes` y la A no.
+- En `cojin-018`, `protector-basic-010` y `plaid-punto-101`, el selector de medida tiene una sola opción. Ninguna ejecución activa `gen.variantes`, como en la v4: es coherente, pero ninguna regla lo dice.
+- **Afecta a:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) (disparador de `gen.variantes`) y el reglamento del clasificador (pasos 1 y 6).
+- **Propuesta:**
+  - Precisar que un selector con varias opciones visibles en la ficha declara que hay variantes y activa `gen.variantes`, aunque sus nombres estén solo en atributos. Esos nombres no cuentan como valores declarados.
+  - Un selector de una sola opción no lo activa.
+- **Resolución (2026-10-26):** el usuario acepta la propuesta («Aplica según recomendado»). → [D-082](decisions.md#d-082).
+
+### I-35
+
+**Política de cambios sin pregunta en la capa general.**
+
+- Según [D-064](decisions.md#d-064) y el paso 8 del reglamento, un plazo de cambio no aporta a la pregunta de desistimiento (`gen/11`). Si ningún otro requisito lo pregunta, queda sin pregunta.
+- En T-032, el plazo de cambio de 14 días de las fichas de burritoblanco.com aparece 18 veces sin pregunta, de los 66 hechos sin pregunta de la tanda. En la v4 había 14 en total.
+- Ningún requisito de la capa general pregunta si la tienda admite cambios ni en qué condiciones.
+- **Afecta a:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) y `demand-engine/catalog/gen.json`.
+- **Propuesta:** decidir si la política de cambios es una condición de la oferta.
+  - Si lo es: un bloque condicionado propio, como los de [D-066](decisions.md#d-066) («si admite cambios»), que pregunte el plazo y las condiciones del cambio, con su lista de información resolutiva.
+  - Si no lo es: dejarla fuera del modelo; la cobertura la seguirá mostrando como hecho sin pregunta.
+  - **Recomendación:** el bloque condicionado. El cambio de talla, medida o color es un criterio de compra en ropa, calzado y textil del hogar, y las fichas lo publican a menudo.
+- **Resolución (2026-10-26):** el usuario acepta la recomendación («Aplica según recomendado»). → [D-083](decisions.md#d-083).
+- **Revisión (2026-10-26):** el usuario corrige que los cambios son condiciones de devolución y cambio, no de la oferta: van en `gen/11` y `gen/26`. → [D-085](decisions.md#d-085), que sustituye a D-083.
+
+### I-36
+
+**Alcance de la especialización «juego» frente a las medidas de cada pieza.**
+
+- [study-class](../10-model/study-class.md#composición-de-la-clase): «La especialización "juego" aporta los requisitos del conjunto: qué piezas incluye, cuántas y en qué medidas».
+- Las medidas de cada pieza ya las preguntan los bloques de su categoría (`cat.ropa-de-cama/02`, `cat.toallas/01`). Además, la regla 3 de [D-060](decisions.md#d-060) separa lo que toma otro rasgo, como el contenido y la medida.
+- En T-032 hay 8 salidas con `esp.juego`. Cinco se quedan en qué piezas y cuántas. Tres añaden un requisito de medidas: las dos de `sabanas-coralina-999` y la B de `toallas-azul-080`, esta con rasgo «medida que fija» y voto crítico.
+- Los agentes señalan que se solapa con `cat.ropa-de-cama/02`, `cat.fundas-de-almohada/01` y `gen/21`. Los requisitos de la especialización cambian entre A y B.
+- **Afecta a:** [study-class](../10-model/study-class.md#composición-de-la-clase) (texto literal del intake), [subclasses](../20-methods/product-taxonomy/subclasses.md), [cases](../20-methods/product-taxonomy/cases.md) y el reglamento del clasificador (paso 4).
+- **Propuesta:** precisar que «juego» aporta lo que es del conjunto:
+  - qué piezas incluye y cuántas de cada una;
+  - si cambian con la medida elegida, eso va como aplicabilidad por variante;
+  - las medidas de cada pieza las preguntan los bloques de su categoría, y solo forman requisito del juego si ningún bloque de las piezas las pregunta.
+- **Resolución (2026-10-26):** el usuario acepta la propuesta («Resuelve todas las incidencias con tus propias recomendaciones»). → [D-086](decisions.md#d-086).
+
+### I-37
+
+**Pregunta de sí o no con detalle cuyas partes toman otro rasgo o importancia.**
+
+- [D-060](decisions.md#d-060) tiene dos reglas que aquí chocan:
+  - regla 2: «la pregunta de sí o no seguida del detalle del mismo hecho se mantiene»;
+  - regla 3: se divide la cuestión cuando sus partes «tomarían otro rasgo u otra importancia».
+- `cat.sofas-cama/02` («¿Incluye colchón y, si lo incluye, de qué medida es y se puede retirar?») tiene la forma de la regla 2.
+- En T-032, los dos agentes del sofá cama la votan crítica, porque sin saber si incluye colchón no se sabe qué se vende. La medida del colchón y si se puede retirar son, en cambio, medida y construcción: un solo voto decide la importancia de partes que tomarían otra.
+- En la misma situación, por las mismas reglas, están `cat.mantas/05` («¿Qué peso y qué grosor tiene la manta?») y `cat.juguetes-para-perros/06` (pilas o batería, si se incluyen y si es recargable).
+- **Afecta a:** D-060, [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md), `demand-engine/catalog/DRAFTING.md`, el reglamento del clasificador (paso 4) y esos bloques.
+- **Propuesta:**
+  - La regla 3 prevalece: la forma de sí o no con detalle se mantiene solo si el detalle toma el mismo rasgo y la misma importancia que la pregunta.
+  - Si no los toma, el detalle pasa a requisitos condicionados al hecho («si incluye colchón»).
+  - Revisar con esa regla los tres requisitos citados.
+- **Resolución (2026-10-26):** el usuario acepta la propuesta («Resuelve todas las incidencias con tus propias recomendaciones»). → [D-087](decisions.md#d-087).
+
+### I-38
+
+**Cuestiones con fuente en las referencias que el bloque no recoge.**
+
+- Según el paso 5 del reglamento, las cuestiones inferidas son las que «ni la capa general ni los bloques del paso 3 recogen», «sin duplicar la base».
+- La base de una categoría incluye las propiedades y el `special_feature` del PTD de Amazon ([D-030](decisions.md#d-030), [D-039](decisions.md#d-039)). Una inferida no tiene fuente (D-060, regla 4).
+- En T-032 aparecen las dos lecturas:
+  - la ejecución B de `plaid-punto-101` redacta dos inferidas con fuente en el PTD BLANKET (`embellishment_feature` y `handmade_classification`), que el bloque de mantas ni recoge ni excluye;
+  - la ejecución A de `zapatillas-bano-50` duda si la absorción, que solo está en el `special_feature` del PTD SLIPPER, «duplica la base».
+- Una lectura deja sin pregunta lo que el bloque olvidó. La otra crea inferidas con fuente, que el formato no prevé.
+- **Afecta a:** [D-036](decisions.md#d-036), el reglamento del clasificador (P3 y paso 5), `demand-engine/catalog/DRAFTING.md` y el entrenamiento.
+- **Propuesta:**
+  - Lo que recoge una referencia de la base y el bloque ni pregunta ni excluye es una omisión del bloque.
+  - El clasificador lo propone como cuestión inferida con su fuente, marcada como propuesta al bloque, y el entrenamiento la lleva al catálogo al compilar.
+  - «Sin duplicar la base» se lee como no duplicar los requisitos de los bloques ni los de la capa general.
+- **Resolución (2026-10-26):** el usuario acepta la propuesta («Resuelve todas las incidencias con tus propias recomendaciones»). → [D-088](decisions.md#d-088).
+
+### I-39
+
+**Aportaciones que fija la norma ausentes de las listas de la capa general.**
+
+- Las listas de información resolutiva de la capa general salen de la ley y están aprobadas ([D-063](decisions.md#d-063), [D-065](decisions.md#d-065), [D-069](decisions.md#d-069)).
+- En T-032, los agentes proponen desde las fichas dos aportaciones que fija la norma y que esas listas no tienen:
+  - **En `gen.descuento/01`** («¿Desde qué precio de referencia se aplica el descuento?»), cuya lista es inferida: «precio más bajo aplicado en los 30 días anteriores».
+    - La proponen `funda-nordica-bordada-401` y `zapatillas-bano-50`; burritoblanco.com publica «PVP más bajo en los últimos 30 días».
+    - La Directiva 98/6/CE (art. 6 bis, introducido por la Directiva (UE) 2019/2161) fija ese precio como precio anterior de una reducción.
+  - **En `gen/04`** («¿Cuál es el precio con impuestos incluidos?»): «precio por unidad de medida».
+    - La propone `pienso-josera-sea-fish` en las dos ejecuciones (4,10 €/kg).
+    - La Directiva 98/6/CE obliga a indicarlo, con excepciones, en los productos que se ofrecen por cantidad (peso, volumen, longitud…); en España, el Real Decreto 3423/2000.
+- Como las proponen fichas de una sola tienda, el entrenamiento no las acepta, porque D-063 pide dos tiendas distintas. Además, su origen no son las fichas, sino el marco.
+- **Afecta a:** [resolving-information](../10-model/resolving-information.md) y `demand-engine/catalog/gen.json`.
+- **Propuesta:** añadirlas a sus listas con origen «marco» y su norma como fuente; con [D-084](decisions.md#d-084) no requieren aprobación. Antes hay que comprobar el artículo de la transposición española.
+- **Alternativa para el precio unitario:** un requisito propio de los productos que se venden por cantidad, en lugar de una aportación de `gen/04`.
+- **Resolución (2026-10-26):** el usuario acepta la propuesta («Resuelve todas las incidencias con tus propias recomendaciones»). → [D-089](decisions.md#d-089).

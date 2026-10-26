@@ -1,0 +1,59 @@
+{
+  "id": "cat.aceite-de-motor-sintetico",
+  "type": "categoría",
+  "name": "Aceite de motor sintético",
+  "shopify": "vp-1-5-5-8-4",
+  "parent": "cat.aceite-para-motores-de-vehiculos",
+  "refs": [
+    "shopify:vp-1-5-5-8-4@v2026-08",
+    "google:3044@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.aceite-de-motor-sintetico/01",
+      "question": "¿Qué tipo de base o formulación sintética tiene (hidrocraqueado Grupo III, PAO Grupo IV, ésteres Grupo V, totalmente sintético)?",
+      "dimension": "formulación de la base",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:synthetic-formulation-type"
+      ],
+      "applicability": "universal",
+      "rationale": "La base sintética distingue la calidad y el comportamiento de los aceites sintéticos y se usa para compararlos; relevante, pero secundaria frente a viscosidad y especificaciones.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:material@vp-1-5-5-8-4",
+      "resolving_info": [
+        {
+          "contribution": "tipo o grupo del aceite base",
+          "component": "tipo de base o formulación sintética",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:synthetic-formulation-type"
+          ]
+        },
+        {
+          "contribution": "declaración de formulación total o parcialmente sintética",
+          "component": "tipo de base o formulación sintética",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:synthetic-formulation-type"
+          ]
+        },
+        {
+          "contribution": "ficha de datos de seguridad con la composición del aceite base",
+          "component": "tipo de base o formulación sintética",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

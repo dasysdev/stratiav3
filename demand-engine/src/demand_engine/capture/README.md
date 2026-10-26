@@ -2,7 +2,7 @@
 
 Motor de [demand-engine](../../../README.md) compartido por el [MPIR](../mpir/README.md) y por el modelo de demanda ([D-046](../../../../docs/30-governance/decisions.md#d-046)). Captura páginas de ecommerce de referencia de dos formas:
 
-- **Por lotes** (`crawl`): a ritmo de lector, con un sitio por ventana.
+- **Por lotes** (`crawl`): a ritmo de lector, con un sitio por ventana. Lo usan el MPIR y la captura del catálogo de entrenamiento (`bin/train capture`).
 - **Una página suelta** (`once`): la usa `taxo page fetch` para congelar la ficha de un caso.
 
 ## Principio
@@ -56,6 +56,7 @@ Estas políticas son del motor y se aplican igual a todas las capturas ([D-042](
 | Pausa larga | 2–5 min cada 15–25 páginas |
 | Tope diario por sitio | 150 visitas |
 | Horario | 9–21 h, Europe/Madrid |
+| Desplazamiento (`scroll`) | Sí. Con `false`, la visita guarda la primera carga, sin desplazamiento ni permanencia (catálogo de entrenamiento, D-053) |
 
 Las duraciones tienden al límite inferior: la mayoría son cortas y unas pocas, largas. El desplazamiento se hace con la rueda del ratón, lo que carga el contenido diferido. Unas 25 páginas por sitio llevan una media hora.
 

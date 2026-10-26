@@ -1,0 +1,398 @@
+{
+  "id": "cat.bloques-de-lija",
+  "type": "categoría",
+  "name": "Bloques de lija",
+  "shopify": "ha-15-60",
+  "parent": "cat.herramientas",
+  "refs": [
+    "shopify:ha-15-60@v2026-08",
+    "google:4419@2021-09-21",
+    "amazon-ptd:TOOLS@2026-10-24",
+    "amazon-btg:3053002031@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.bloques-de-lija/01",
+      "question": "¿Qué medidas tiene la superficie de lijado (largo × ancho)?",
+      "dimension": "medidas",
+      "entity": "producto",
+      "trait": "medida-que-fija",
+      "vote": "crítico",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:TOOLS.size"
+      ],
+      "applicability": "universal",
+      "rationale": "Los bloques de lija se venden por formato (p. ej., 93 × 230 o 115 × 280 mm): la medida identifica qué se vende y fija qué hojas o tiras se pueden montar (D-043, criterio 1). Redacción con D-060 (T-031, regla 4): el formato de hoja que admite no tiene fuente en TOOLS.size; lo pregunta ya la inferida /07 (compatibilidad de hojas), así que no se propone otra.",
+      "seed_importance": "crítico",
+      "importance": "crítico",
+      "rule": "marco:D-043.1/medida-que-fija",
+      "resolving_info": [
+        {
+          "contribution": "largo de la superficie de lijado",
+          "component": "largo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOOLS.size"
+          ]
+        },
+        {
+          "contribution": "ancho de la superficie de lijado",
+          "component": "ancho",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOOLS.size"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bloques-de-lija/02",
+      "question": "¿Qué forma tiene la superficie de lijado (plana rectangular, triangular, perfilada o de contorno, esponja flexible…)?",
+      "dimension": "forma",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:TOOLS.item_form"
+      ],
+      "applicability": "universal",
+      "rationale": "La forma determina en qué superficies sirve (planas, molduras, esquinas): es un criterio con el que se elige entre bloques.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:identidad@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "forma de la superficie de lijado",
+          "component": "forma de la superficie de lijado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOOLS.item_form"
+          ]
+        },
+        {
+          "contribution": "perfil plano o de contorno de la superficie de lijado",
+          "component": "forma de la superficie de lijado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOOLS.item_form"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bloques-de-lija/03",
+      "question": "¿De qué material está hecho el bloque, incluida su base o almohadilla de lijado (corcho, goma, plástico, espuma, aluminio…)?",
+      "dimension": "materiales",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:hardware-material",
+        "amazon-ptd-prop:TOOLS.material"
+      ],
+      "applicability": "universal",
+      "rationale": "Shopify y Amazon recogen el material; se unen en una cuestión. El material condiciona el agarre, la durabilidad y el comportamiento sobre la pieza. Redacción con D-060 (T-031, regla 2): «si la tiene» sobra: todo bloque tiene base de lijado, del mismo material que el cuerpo o de otro.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:material@ha-15-60",
+      "resolving_info": [
+        {
+          "contribution": "material del cuerpo del bloque",
+          "component": "bloque",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:hardware-material",
+            "amazon-ptd-prop:TOOLS.material"
+          ]
+        },
+        {
+          "contribution": "material de la base o almohadilla de lijado",
+          "component": "base o almohadilla de lijado",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:hardware-material",
+            "amazon-ptd-prop:TOOLS.material"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bloques-de-lija/04",
+      "question": "¿Qué firmeza tiene la base de lijado (rígida, semirrígida, flexible, blanda)?",
+      "dimension": "firmeza",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:material-firmness"
+      ],
+      "applicability": "universal",
+      "rationale": "La firmeza decide si el bloque sirve para dejar planas las superficies o para adaptarse a curvas y perfiles: es criterio de elección.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:prestacion@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "grado de firmeza o flexibilidad de la base",
+          "component": "firmeza",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:material-firmness"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bloques-de-lija/05",
+      "question": "Si incluye abrasivo o lo lleva integrado, ¿qué grano tiene (grueso, medio, fino, extrafino o número de grano)?",
+      "dimension": "grano",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:grit-type",
+        "amazon-ptd-prop:TOOLS.grit"
+      ],
+      "applicability": "si incluye abrasivo o lo lleva integrado",
+      "rationale": "Shopify y Amazon recogen el grano; se unen. En los bloques con abrasivo (esponjas, bloques con hoja incluida) el grano decide para qué fase del lijado sirve. En un soporte que se vende sin abrasivo no aplica.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:prestacion@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "categoría de grano",
+          "component": "grano",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:grit-type",
+            "amazon-ptd-prop:TOOLS.grit"
+          ]
+        },
+        {
+          "contribution": "número de grano",
+          "component": "grano",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "escala o norma de graduación del grano",
+          "component": "grano",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.bloques-de-lija/06",
+      "question": "¿Cómo se sujeta la hoja abrasiva al bloque (pinzas, velcro o gancho y lazo, autoadhesivo, tornillos) y cómo se cambia?",
+      "dimension": "sujeción del abrasivo",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "si admite hojas o abrasivos intercambiables",
+      "rationale": "Ninguna referencia lo recoge, pero todo bloque que monta abrasivos intercambiables tiene un sistema de sujeción, que determina qué abrasivos se pueden usar y la comodidad del cambio. Inferida y provisional (DRAFTING, criterio 5).",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:construccion@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "sistema de sujeción de la hoja abrasiva",
+          "component": "cómo se sujeta",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "procedimiento de cambio de la hoja",
+          "component": "cómo se cambia",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.bloques-de-lija/07",
+      "question": "¿Con qué hojas, rollos o abrasivos es compatible (formato, sistema de sujeción, gamas o marcas)?",
+      "dimension": "compatibilidad",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "si admite hojas o abrasivos intercambiables",
+      "rationale": "Un soporte de lija solo es útil con los abrasivos que admite; la compatibilidad es criterio de compra y no la recoge ninguna referencia. Inferida y provisional.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "formato o medida de las hojas compatibles",
+          "component": "formato",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "sistema de sujeción de los abrasivos compatibles",
+          "component": "sistema de sujeción",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "gamas o marcas de abrasivos compatibles",
+          "component": "gamas o marcas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.bloques-de-lija/08",
+      "question": "¿Para qué nivel de uso (aficionado o profesional) y entorno (interior o exterior) está pensado?",
+      "dimension": "uso",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:TOOLS.specific_uses_for_product",
+        "amazon-ptd-prop:TOOLS.product_grade"
+      ],
+      "applicability": "universal",
+      "rationale": "Amazon recoge el uso (aficionado, profesional, interior, exterior) y el grado del producto; se unen. Orienta la elección, aunque la medida, la forma y la firmeza ya lo determinan en buena parte. Redacción con D-060 (T-031, regla 4): los trabajos y las superficies no los recogen TOOLS.specific_uses_for_product ni TOOLS.product_grade (nivel de uso y entorno): salen como inferida.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:cat.bloques-de-lija/08@ha-15-60",
+      "resolving_info": [
+        {
+          "contribution": "nivel de uso al que se destina",
+          "component": "nivel de uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOOLS.specific_uses_for_product",
+            "amazon-ptd-prop:TOOLS.product_grade"
+          ]
+        },
+        {
+          "contribution": "entorno de uso previsto",
+          "component": "entorno",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOOLS.specific_uses_for_product"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bloques-de-lija/09",
+      "question": "¿Cuánto pesa?",
+      "dimension": "peso",
+      "entity": "producto",
+      "trait": "magnitud",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:TOOLS.item_weight"
+      ],
+      "applicability": "universal",
+      "rationale": "El peso influye en la fatiga y el manejo en lijados largos, pero no es un criterio central entre bloques de lija.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:magnitud@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "peso del bloque",
+          "component": "peso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOOLS.item_weight"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bloques-de-lija/10",
+      "question": "¿Para qué trabajos o superficies está pensado (grandes superficies o detalle; madera, pintura, masilla…)?",
+      "dimension": "trabajos y superficies",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Cuestión inferida (D-036) que sale de cat.bloques-de-lija/08 por la regla 4 de D-060 (T-031): los trabajos y las superficies no los recogen TOOLS.specific_uses_for_product ni TOOLS.product_grade (nivel de uso y entorno): salen como inferida. Provisional hasta que la valide el entrenamiento.",
+      "seed_importance": "complementario",
+      "rule": "imp:uso@ha-15",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "tipo de trabajo para el que está pensado",
+          "component": "trabajos",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "superficies o materiales sobre los que se usa",
+          "component": "superficies",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:TOOLS.power_source_type",
+      "reason": "Un bloque de lija es manual por definición: la fuente de alimentación no distingue ofertas de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:TOOLS.wattage",
+      "reason": "Propiedad de herramientas eléctricas; no aplica a un bloque de lija."
+    },
+    {
+      "source": "amazon-ptd-prop:TOOLS.voltage",
+      "reason": "Propiedad de herramientas eléctricas; no aplica a un bloque de lija."
+    },
+    {
+      "source": "amazon-ptd-prop:TOOLS.power_plug_type",
+      "reason": "Propiedad de herramientas eléctricas; no aplica a un bloque de lija."
+    },
+    {
+      "source": "amazon-ptd-prop:TOOLS.accepted_voltage_frequency",
+      "reason": "Propiedad de herramientas eléctricas; no aplica a un bloque de lija."
+    },
+    {
+      "source": "amazon-ptd-prop:TOOLS.temperature_rating",
+      "reason": "Temperatura de almacenamiento en el almacén: dato logístico de la plataforma."
+    },
+    {
+      "source": "amazon-ptd-prop:TOOLS.lens",
+      "reason": "Propiedad genérica del PTD TOOLS (ópticas) sin sentido en un bloque de lija."
+    },
+    {
+      "source": "amazon-ptd-prop:TOOLS.line_weight",
+      "reason": "Peso del sedal: propiedad genérica del PTD TOOLS ajena a la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:TOOLS.weight_range",
+      "reason": "Rango de peso: propiedad genérica del PTD TOOLS sin sentido en un bloque de lija; el peso lo cubre /09."
+    },
+    {
+      "source": "amazon-ptd-prop:TOOLS.finish_type",
+      "reason": "Los valores son acabados de herramientas metálicas (cromado, pulido…); en un bloque de lija no informa: material y firmeza ya lo cubren."
+    },
+    {
+      "source": "amazon-ptd-prop:TOOLS.included_components",
+      "reason": "Las piezas incluidas las cubren gen/01 y, si es un juego, esp.juego (DRAFTING, criterio 3)."
+    }
+  ],
+  "status": "compilado",
+  "version": "3",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

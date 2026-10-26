@@ -10,12 +10,12 @@
     "amazon-ptd:BOOT@2026-10-24",
     "amazon-ptd:SLIPPER@2026-10-24"
   ],
-  "version": "2",
+  "version": "4",
   "status": "compilado",
   "requirements": [
     {
       "id": "cat.calzado/01",
-      "question": "¿Qué talla tiene cada variante y en qué sistema de tallas (EU, UK, US…) se expresa, con su equivalencia?",
+      "question": "¿Qué talla tiene cada variante y en qué sistema de tallas (EU, UK, US…) se expresa?",
       "dimension": "talla",
       "trait": "medida-que-fija",
       "entity": "variante",
@@ -33,9 +33,48 @@
         "amazon-ptd-prop:SLIPPER.footwear_size.to_size"
       ],
       "applicability": "universal",
-      "rationale": "Sin la talla y su sistema no se puede saber si el calzado sirve a quien lo compra: la oferta deja de ser evaluable. Shopify mezcla tallas alfabéticas (XS–XXXL) y numéricas no europeas, por lo que el sistema forma parte de la respuesta. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4). Criterio 1: es crítica porque la talla fija la variante que se vende. De footwear_size se citan los subcampos de talla; width va a /02, age_group a /03 y gender lo cubre cat.ropa-y-accesorios/03.",
+      "rationale": "Sin la talla y su sistema no se puede saber si el calzado sirve a quien lo compra: la oferta deja de ser evaluable. Shopify mezcla tallas alfabéticas (XS–XXXL) y numéricas no europeas, por lo que el sistema forma parte de la respuesta. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4). Criterio 1: es crítica porque la talla fija la variante que se vende. De footwear_size se citan los subcampos de talla; width va a /02, age_group a /03 y gender lo cubre cat.ropa-y-accesorios/03. Redacción con D-060 (T-031, regla 4): la equivalencia entre sistemas no la recoge ninguna fuente (footwear_size da sistema, clase y talla): sale como inferida.",
       "seed_importance": "crítico",
-      "rule": "marco:D-043.1/medida-que-fija"
+      "rule": "marco:D-043.1/medida-que-fija",
+      "resolving_info": [
+        {
+          "contribution": "talla de cada variante",
+          "component": "talla de cada variante",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shoe-size",
+            "amazon-ptd-prop:BOOT.footwear_size.size",
+            "amazon-ptd-prop:SLIPPER.footwear_size.size"
+          ]
+        },
+        {
+          "contribution": "intervalo de tallas cuando la talla se expresa como rango",
+          "component": "talla de cada variante",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.footwear_size.to_size",
+            "amazon-ptd-prop:SLIPPER.footwear_size.to_size"
+          ]
+        },
+        {
+          "contribution": "sistema de tallas en que se expresa la talla",
+          "component": "sistema de tallas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.footwear_size.size_system",
+            "amazon-ptd-prop:SLIPPER.footwear_size.size_system"
+          ]
+        },
+        {
+          "contribution": "clase de talla en que se expresa",
+          "component": "sistema de tallas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.footwear_size.size_class",
+            "amazon-ptd-prop:SLIPPER.footwear_size.size_class"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.calzado/02",
@@ -55,7 +94,34 @@
       "applicability": "universal",
       "rationale": "Junto con la talla, el ancho decide el ajuste, que es el criterio central para elegir calzado a distancia. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4).",
       "seed_importance": "principal",
-      "rule": "imp:uso@aa"
+      "rule": "imp:uso@aa",
+      "resolving_info": [
+        {
+          "contribution": "ancho de horma",
+          "component": "ancho de horma",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shoe-fit",
+            "amazon-ptd-prop:BOOT.footwear_size.width",
+            "amazon-ptd-prop:SLIPPER.footwear_size.width"
+          ]
+        },
+        {
+          "contribution": "código de ancho según un sistema de anchos de calzado",
+          "component": "ancho de horma",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.shoe_width",
+            "amazon-ptd-prop:SLIPPER.shoe_width"
+          ]
+        },
+        {
+          "contribution": "anchura o perímetro del pie al que corresponde la horma",
+          "component": "ancho de horma",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.calzado/03",
@@ -75,7 +141,28 @@
       "applicability": "universal",
       "rationale": "Separa ofertas que no son comparables entre sí (adulto, infantil, bebé) y condiciona el sistema de tallas. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4).",
       "seed_importance": "principal",
-      "rule": "imp:uso@aa"
+      "rule": "imp:uso@aa",
+      "resolving_info": [
+        {
+          "contribution": "grupo de edad al que se destina",
+          "component": "grupo de edad",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:age-group",
+            "amazon-ptd-prop:BOOT.footwear_size.age_group",
+            "amazon-ptd-prop:SLIPPER.footwear_size.age_group"
+          ]
+        },
+        {
+          "contribution": "categoría de tallaje infantil",
+          "component": "grupo de edad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.special_size_type",
+            "amazon-ptd-prop:SLIPPER.special_size_type"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.calzado/04",
@@ -91,11 +178,27 @@
       "applicability": "universal",
       "rationale": "El material del corte es uno de los criterios con que se comparan calzados (durabilidad, transpirabilidad, cuidado, precio). Las propiedades de material del corte de BOOT y SLIPPER no suben (criterio 4 y D-040): Zapatillas tiene upper-material como atributo propio de Shopify; se excluyen en cada bloque como cubiertas por esta cuestión.",
       "seed_importance": "principal",
-      "rule": "imp:material@aa-8"
+      "rule": "imp:material@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "material del corte",
+          "component": "material del exterior o corte",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:footwear-material"
+          ]
+        },
+        {
+          "contribution": "etiquetado de materiales del calzado por partes",
+          "component": "material del exterior o corte",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.calzado/05",
-      "question": "¿Qué altura de tacón tiene (plano, bajo, medio, alto) y cuánto mide?",
+      "question": "¿Qué altura tiene el tacón (plano, bajo, medio o alto)?",
       "dimension": "tacón: altura",
       "trait": "medida",
       "entity": "producto",
@@ -105,9 +208,25 @@
         "shopify-attr:heel-height-type"
       ],
       "applicability": "universal",
-      "rationale": "La altura del tacón es un criterio de elección habitual del calzado; «plano» o «sin tacón» resuelve la cuestión. El tipo de tacón no sube a Calzado (criterio 4 y D-040): Tacones tiene heel-shape como atributo propio de Shopify; queda en cat.botas/05 y, en Pantuflas, excluido.",
+      "rationale": "La altura del tacón es un criterio de elección habitual del calzado; «plano» o «sin tacón» resuelve la cuestión. El tipo de tacón no sube a Calzado (criterio 4 y D-040): Tacones tiene heel-shape como atributo propio de Shopify; queda en cat.botas/05 y, en Pantuflas, excluido. Redacción con D-060 (T-031, regla 4): «y cuánto mide» pedía la medida en cm, sin fuente en heel-height-type; no es un componente aparte, sino otra expresión de la altura (RI-06), así que no se propone inferida.",
       "seed_importance": "principal",
-      "rule": "marco:D-043.1/medida-descriptiva"
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "categoría de altura del tacón",
+          "component": "altura del tacón",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:heel-height-type"
+          ]
+        },
+        {
+          "contribution": "altura del tacón medida",
+          "component": "altura del tacón",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.calzado/06",
@@ -121,10 +240,36 @@
         "shopify-attr:toe-protection-type",
         "amazon-ptd-prop:BOOT.toe_style"
       ],
-      "applicability": "si es calzado de seguridad o de trabajo, o declara protección en la puntera",
-      "rationale": "En el calzado de seguridad o de trabajo el tipo de puntera es un criterio central de comparación; fuera de ese uso la cuestión no se aplica. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4).",
+      "applicability": "si es calzado de seguridad o de trabajo",
+      "rationale": "En el calzado de seguridad o de trabajo el tipo de puntera es un criterio central de comparación; fuera de ese uso la cuestión no se aplica. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4). Redacción con D-060 (T-031, regla 1): «o declara protección en la puntera» condicionaba a la existencia de la información.",
       "seed_importance": "principal",
-      "rule": "imp:prestacion@aa-8"
+      "rule": "imp:prestacion@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si lleva puntera de protección",
+          "component": "tiene puntera de protección",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:toe-protection-type",
+            "amazon-ptd-prop:BOOT.toe_style"
+          ]
+        },
+        {
+          "contribution": "material o tipo de la puntera de protección",
+          "component": "de qué tipo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:toe-protection-type",
+            "amazon-ptd-prop:BOOT.toe_style"
+          ]
+        },
+        {
+          "contribution": "norma de calzado de seguridad que cumple y categoría de protección",
+          "component": "puntera de protección",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.calzado/07",
@@ -142,7 +287,33 @@
       "applicability": "universal",
       "rationale": "Influye en la comodidad, la transpirabilidad y la calidez; relevante sin ser central para el calzado en general. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4).",
       "seed_importance": "complementario",
-      "rule": "imp:material@aa-8"
+      "rule": "imp:material@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "material del forro interior",
+          "component": "material del forro interior",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:lining-material",
+            "amazon-ptd-prop:BOOT.lining_description",
+            "amazon-ptd-prop:SLIPPER.lining_description"
+          ]
+        },
+        {
+          "contribution": "indicación de si no lleva forro",
+          "component": "no tiene forro",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.lining_description"
+          ]
+        },
+        {
+          "contribution": "etiquetado de materiales del calzado por partes",
+          "component": "material del forro interior",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.calzado/08",
@@ -162,7 +333,28 @@
       "applicability": "universal",
       "rationale": "Influye en el agarre, la flexibilidad y la durabilidad; amplía la comparación sin ser uno de sus criterios centrales. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4).",
       "seed_importance": "complementario",
-      "rule": "imp:material@aa-8"
+      "rule": "imp:material@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "material de la suela exterior",
+          "component": "material de la suela exterior",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:outsole-material",
+            "amazon-ptd-prop:BOOT.sole_material",
+            "amazon-ptd-prop:SLIPPER.sole_material"
+          ]
+        },
+        {
+          "contribution": "categoría del material de la suela a efectos de etiquetado",
+          "component": "material de la suela exterior",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.compliance_sole_material",
+            "amazon-ptd-prop:SLIPPER.compliance_sole_material"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.calzado/09",
@@ -178,7 +370,17 @@
       "applicability": "universal",
       "rationale": "Condiciona la facilidad de calzado y el ajuste; relevante para algunos compradores (niños, mayores) sin ser central.",
       "seed_importance": "complementario",
-      "rule": "imp:construccion@aa-8"
+      "rule": "imp:construccion@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "tipo de cierre o sujeción",
+          "component": "sistema de cierre o sujeción",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:closure-type"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.calzado/10",
@@ -196,7 +398,29 @@
       "applicability": "universal",
       "rationale": "Rasgo de diseño y de comodidad que amplía la descripción del modelo. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4).",
       "seed_importance": "complementario",
-      "rule": "imp:estetica@aa-8"
+      "rule": "imp:estetica@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "forma de la punta",
+          "component": "forma de la punta",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:toe-style",
+            "amazon-ptd-prop:BOOT.toe_style",
+            "amazon-ptd-prop:SLIPPER.toe_style"
+          ]
+        },
+        {
+          "contribution": "indicación de si la puntera es abierta o cerrada",
+          "component": "forma de la punta",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:toe-style",
+            "amazon-ptd-prop:BOOT.toe_style",
+            "amazon-ptd-prop:SLIPPER.toe_style"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.calzado/11",
@@ -214,7 +438,26 @@
       "applicability": "universal",
       "rationale": "Según Shopify, influye en la durabilidad, la posibilidad de cambiar la suela y el precio; relevante para justificar diferencias de precio. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4). compliance_sole_construction_type («suela unida al corte con adhesivo») corresponde al cementado.",
       "seed_importance": "complementario",
-      "rule": "imp:construccion@aa-8"
+      "rule": "imp:construccion@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "método de unión del corte a la suela",
+          "component": "método de unión del corte a la suela",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:footwear-construction-method"
+          ]
+        },
+        {
+          "contribution": "indicación de si la suela va unida al corte con adhesivo",
+          "component": "método de unión del corte a la suela",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.compliance_sole_construction_type",
+            "amazon-ptd-prop:SLIPPER.compliance_sole_construction_type"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.calzado/12",
@@ -230,7 +473,17 @@
       "applicability": "universal",
       "rationale": "Clasificación de estilo que ayuda a comparar ofertas equivalentes; el tipo de producto (gen/01) suele aportar buena parte de la respuesta.",
       "seed_importance": "complementario",
-      "rule": "imp:uso@aa"
+      "rule": "imp:uso@aa",
+      "resolving_info": [
+        {
+          "contribution": "ocasión o estilo de uso",
+          "component": "ocasión o estilo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:occasion-style"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.calzado/13",
@@ -246,7 +499,31 @@
       "applicability": "universal",
       "rationale": "Información de mantenimiento relevante para evaluar el uso, sin ser criterio central de elección.",
       "seed_importance": "complementario",
-      "rule": "imp:cuidado@aa-8"
+      "rule": "imp:cuidado@aa",
+      "resolving_info": [
+        {
+          "contribution": "método de lavado o limpieza admitido",
+          "component": "cómo se limpia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicaciones de secado",
+          "component": "cómo se cuida",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "productos de limpieza o mantenimiento recomendados",
+          "component": "cómo se cuida",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.calzado/14",
@@ -264,7 +541,31 @@
       "applicability": "universal",
       "rationale": "Tema del atributo «Características del zapato» (se separa por temas para que cada cuestión sea concreta y evaluable). Pregunta por el grado, no solo por la impermeabilidad; «ninguna» resuelve la cuestión. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4).",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@aa-8"
+      "rule": "imp:prestacion@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "nivel de protección frente al agua",
+          "component": "protección frente al agua",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shoe-features=Impermeable",
+            "amazon-ptd-prop:BOOT.special_feature=Resistente al agua",
+            "amazon-ptd-prop:SLIPPER.special_feature=Resistente al agua"
+          ]
+        },
+        {
+          "contribution": "membrana o tratamiento impermeabilizante empleado",
+          "component": "protección frente al agua",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "resultado de un ensayo de impermeabilidad",
+          "component": "protección frente al agua",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.calzado/15",
@@ -282,7 +583,31 @@
       "applicability": "universal",
       "rationale": "Tema del atributo «Características del zapato»: seguridad al caminar en superficies resbaladizas. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4).",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@aa-8"
+      "rule": "imp:prestacion@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "declaración de suela antideslizante",
+          "component": "agarre de la suela",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shoe-features=Antideslizante",
+            "amazon-ptd-prop:BOOT.special_feature=Antideslizante",
+            "amazon-ptd-prop:SLIPPER.special_feature=Antideslizante"
+          ]
+        },
+        {
+          "contribution": "clasificación de resistencia al deslizamiento según norma técnica",
+          "component": "agarre de la suela",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "dibujo o diseño de la banda de rodadura",
+          "component": "agarre de la suela",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.calzado/16",
@@ -300,7 +625,45 @@
       "applicability": "universal",
       "rationale": "Tema del atributo «Características del zapato»: confort y sujeción del pie. El acolchado y el soporte del arco de BOOT y SLIPPER no suben (criterio 4 y D-040): Zapatos para deporte y Zapatillas tienen footwear-support-type y pronation-support como atributos propios de Shopify.",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@aa-8"
+      "rule": "imp:prestacion@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "declaración de acolchado",
+          "component": "acolchado",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shoe-features=Acolchado"
+          ]
+        },
+        {
+          "contribution": "declaración de soporte del arco",
+          "component": "soporte del pie",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shoe-features=Soporte de arco"
+          ]
+        },
+        {
+          "contribution": "declaración de diseño ortopédico",
+          "component": "soporte del pie",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shoe-features=Ortopédico"
+          ]
+        },
+        {
+          "contribution": "sistema o material de amortiguación",
+          "component": "amortiguación",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "tipo de plantilla y su forma anatómica",
+          "component": "soporte del pie",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.calzado/17",
@@ -321,7 +684,35 @@
       "applicability": "universal",
       "rationale": "Tema del atributo «Características del zapato»: gestión de la humedad y del olor. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4).",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@aa-8"
+      "rule": "imp:prestacion@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "declaración de transpirabilidad",
+          "component": "transpirable",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shoe-features=Diseño transpirable",
+            "amazon-ptd-prop:BOOT.special_feature=Transpirable",
+            "amazon-ptd-prop:SLIPPER.special_feature=Transpirable"
+          ]
+        },
+        {
+          "contribution": "declaración de tratamiento antimicrobiano o antiolor",
+          "component": "tratamiento antimicrobiano o antiolor",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shoe-features=Antimicrobiano",
+            "amazon-ptd-prop:BOOT.special_feature=Antimicrobiano",
+            "amazon-ptd-prop:SLIPPER.special_feature=Antimicrobiano"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de permeabilidad al vapor de agua",
+          "component": "transpirable",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.calzado/18",
@@ -341,11 +732,44 @@
       "applicability": "universal",
       "rationale": "Tema del atributo «Características del zapato»: la ligereza se fundamenta con el peso; relevante en calzado deportivo, de montaña o de trabajo. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4). item_weight es el peso del artículo con su unidad.",
       "seed_importance": "complementario",
-      "rule": "imp:magnitud@aa-8"
+      "rule": "imp:magnitud@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "peso del calzado",
+          "component": "peso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.item_weight",
+            "amazon-ptd-prop:SLIPPER.item_weight"
+          ]
+        },
+        {
+          "contribution": "declaración de ligereza",
+          "component": "peso",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shoe-features=Liviano",
+            "amazon-ptd-prop:BOOT.special_feature=Ligero",
+            "amazon-ptd-prop:SLIPPER.special_feature=Ligero"
+          ]
+        },
+        {
+          "contribution": "indicación de si el peso corresponde a una unidad o al par",
+          "component": "por unidad o por par",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "talla a la que corresponde el peso declarado",
+          "component": "peso",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.calzado/19",
-      "question": "¿Lleva materiales reciclados o de origen animal, y qué atributos ambientales declara (ecológico, origen sostenible…)?",
+      "question": "¿Lleva materiales reciclados o de origen animal, o es vegano?",
       "dimension": "composición sostenible",
       "trait": "material",
       "entity": "producto",
@@ -353,32 +777,76 @@
       "origin": "referencias",
       "sources": [
         "shopify-attr:shoe-features=Materiales reciclados",
-        "shopify-attr:shoe-features=Producto vegano",
-        "shopify-attr:shoe-features=Ecológico",
-        "shopify-attr:shoe-features=Abastecimiento sostenible"
+        "shopify-attr:shoe-features=Producto vegano"
       ],
       "applicability": "universal",
-      "rationale": "Tema del atributo «Características del zapato». El material reciclado y la ausencia de materiales animales son composición verificable (D-031); «ecológico» y «sostenible» son beneficios reclamados cuyo fundamento se evalúa en la auditoría (D-025).",
+      "rationale": "Tema del atributo «Características del zapato». El material reciclado y la ausencia de materiales animales son composición verificable (D-031); «ecológico» y «sostenible» son beneficios reclamados cuyo fundamento se evalúa en la auditoría (D-025). Redacción con D-060 (T-031, regla 3): los materiales (material) y los atributos ambientales declarados (certificación u origen) toman otro rasgo.",
       "seed_importance": "complementario",
-      "rule": "imp:material@aa-8"
+      "rule": "imp:material@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "declaración de materiales reciclados",
+          "component": "materiales reciclados",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shoe-features=Materiales reciclados"
+          ]
+        },
+        {
+          "contribution": "declaración de producto vegano",
+          "component": "de origen animal o vegano",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shoe-features=Producto vegano"
+          ]
+        },
+        {
+          "contribution": "proporción de material reciclado",
+          "component": "materiales reciclados",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "certificación vegana de un tercero",
+          "component": "de origen animal o vegano",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.calzado/22",
-      "question": "¿Qué flexibilidad o rigidez tiene la suela (y, en el calzado de caña, la caña)?",
+      "question": "¿Qué flexibilidad o rigidez tiene la suela?",
       "dimension": "flexibilidad",
       "trait": "prestacion",
       "entity": "producto",
       "importance": "complementario",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:BOOT.item_firmness_description",
         "amazon-ptd-prop:BOOT.special_feature=Flexible",
         "amazon-ptd-prop:SLIPPER.special_feature=Flexible"
       ],
       "applicability": "universal",
-      "rationale": "Recoge cat.botas/09 y el valor «Flexible» de cat.pantuflas/02: el valor es común a BOOT y SLIPPER y la flexibilidad de la suela vale para todo el calzado (criterio 4). Relevante para la sujeción en calzado de montaña o de trabajo y para la comodidad.",
+      "rationale": "Recoge cat.botas/09 y el valor «Flexible» de cat.pantuflas/02: el valor es común a BOOT y SLIPPER y la flexibilidad de la suela vale para todo el calzado (criterio 4). Relevante para la sujeción en calzado de montaña o de trabajo y para la comodidad. Redacción con D-060 (T-031, regla 2): la caña es un hecho que solo afecta a una parte; su rigidez pasa a un requisito de las botas, el bloque al que se aplica (con BOOT.item_firmness_description).",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@aa-8"
+      "rule": "imp:prestacion@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "declaración de suela flexible",
+          "component": "flexibilidad o rigidez de la suela",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.special_feature=Flexible",
+            "amazon-ptd-prop:SLIPPER.special_feature=Flexible"
+          ]
+        },
+        {
+          "contribution": "grado de rigidez de la suela",
+          "component": "flexibilidad o rigidez de la suela",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.calzado/23",
@@ -398,7 +866,41 @@
       "applicability": "universal",
       "rationale": "Recoge cat.botas/10 y cat.pantuflas/05: los valores son comunes a BOOT y SLIPPER y la durabilidad vale para todo el calzado (criterio 4). Amplía la evaluación de la durabilidad y del mantenimiento.",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@aa-8"
+      "rule": "imp:prestacion@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "declaración de resistencia a la abrasión",
+          "component": "resistencia al desgaste",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.special_feature=Resistente a la abrasión",
+            "amazon-ptd-prop:SLIPPER.special_feature=Resistente a la abrasión"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a las manchas",
+          "component": "resistencia al desgaste",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.special_feature=Resistente a las manchas",
+            "amazon-ptd-prop:SLIPPER.special_feature=Resistente a las manchas"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a la formación de bolitas",
+          "component": "resistencia al desgaste",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SLIPPER.special_feature=Resistente a la formación de bolitas"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de resistencia a la abrasión",
+          "component": "resistencia al desgaste",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.calzado/24",
@@ -412,7 +914,98 @@
       "applicability": "universal",
       "rationale": "Cuestión inferida (criterio 5; añadido provisional hasta su aprobación, D-041): ninguna referencia recoge si el calzado viene grande o pequeño (shoe-fit es el ancho de horma, /02). En la compra a distancia decide, con /01 y /02, qué talla pedir. «Talla normal» también resuelve la cuestión.",
       "seed_importance": "principal",
-      "rule": "imp:uso@aa"
+      "rule": "imp:uso@aa",
+      "resolving_info": [
+        {
+          "contribution": "indicación del ajuste del modelo respecto a la talla habitual",
+          "component": "cómo talla el modelo",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "recomendación sobre la talla que conviene pedir",
+          "component": "talla más o una menos",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "longitud interior del calzado en cada talla",
+          "component": "cómo talla el modelo",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.calzado/25",
+      "question": "¿Con qué tallas de otros sistemas o con qué longitud del pie (cm) se corresponde la talla?",
+      "dimension": "equivalencia de tallas",
+      "trait": "uso",
+      "entity": "variante",
+      "importance": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Cuestión inferida (D-036) que sale de cat.calzado/01 por la regla 4 de D-060 (T-031): la equivalencia entre sistemas no la recoge ninguna fuente (footwear_size da sistema, clase y talla): sale como inferida. Provisional hasta que la valide el entrenamiento.",
+      "seed_importance": "complementario",
+      "rule": "imp:uso@aa",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "tabla de equivalencias entre sistemas de tallas",
+          "component": "tallas de otros sistemas",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "longitud del pie que corresponde a cada talla",
+          "component": "longitud del pie",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.calzado/26",
+      "question": "¿Qué atributos ambientales declara (ecológico, abastecimiento sostenible…)?",
+      "dimension": "atributos ambientales",
+      "trait": "certificacion-origen",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:shoe-features=Ecológico",
+        "shopify-attr:shoe-features=Abastecimiento sostenible"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.calzado/19 separada por la regla 3 de D-060 (T-031): los materiales (material) y los atributos ambientales declarados (certificación u origen) toman otro rasgo.",
+      "seed_importance": "complementario",
+      "rule": "imp:certificacion-origen@aa-8",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "declaración de producto ecológico",
+          "component": "atributos ambientales",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shoe-features=Ecológico"
+          ]
+        },
+        {
+          "contribution": "declaración de abastecimiento sostenible",
+          "component": "atributos ambientales",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shoe-features=Abastecimiento sostenible"
+          ]
+        },
+        {
+          "contribution": "certificación o etiqueta ambiental de un tercero",
+          "component": "atributos ambientales",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [
@@ -433,5 +1026,5 @@
       "reason": "Requisito retirado: la plantilla no sube a Calzado (criterio 4 y D-040): Zapatos planos tiene insole-material como atributo propio de Shopify. Vuelve a cat.botas/06 y cat.pantuflas/04 con sus fuentes."
     }
   ],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

@@ -10,12 +10,12 @@
     "amazon-ptd:BOOT@2026-10-24",
     "amazon-btg:2008195031@2026-10-24"
   ],
-  "version": "1",
+  "version": "4",
   "status": "compilado",
   "requirements": [
     {
       "id": "cat.botas/01",
-      "question": "¿Qué tipo de bota es y para qué uso está pensada (botín, Chelsea, chukka, de agua, de nieve, de montaña, de trabajo, de montar, vaquera, motera…)?",
+      "question": "¿Qué tipo de bota es (botín, Chelsea, chukka, de agua, de nieve, vaquera, motera…)?",
       "dimension": "tipo y uso",
       "trait": "identidad",
       "entity": "producto",
@@ -23,13 +23,32 @@
       "origin": "referencias",
       "sources": [
         "shopify-attr:boot-style",
-        "amazon-ptd-prop:BOOT.boot_form_type",
-        "amazon-ptd-prop:BOOT.specific_uses_for_product"
+        "amazon-ptd-prop:BOOT.boot_form_type"
       ],
       "applicability": "universal",
-      "rationale": "El tipo de bota es el primer criterio para comparar ofertas de la clase. Se unen el estilo de Shopify, la forma de Amazon y los usos específicos de Amazon porque los tres describen la misma dimensión (Shopify ya mezcla estilos y usos: senderismo, trabajo, lluvia, nieve).",
+      "rationale": "El tipo de bota es el primer criterio para comparar ofertas de la clase. Se unen el estilo de Shopify, la forma de Amazon y los usos específicos de Amazon porque los tres describen la misma dimensión (Shopify ya mezcla estilos y usos: senderismo, trabajo, lluvia, nieve). Redacción con D-060 (T-031, regla 3): el tipo (identidad) y el uso o la actividad (uso) se responden por separado y toman otro rasgo.",
       "seed_importance": "principal",
-      "rule": "imp:identidad@aa-8"
+      "rule": "imp:identidad@aa-8-3",
+      "resolving_info": [
+        {
+          "contribution": "estilo o forma de la bota",
+          "component": "tipo de bota",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:boot-style",
+            "amazon-ptd-prop:BOOT.boot_form_type"
+          ]
+        },
+        {
+          "contribution": "tipo de bota según el uso al que se destina",
+          "component": "tipo de bota",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:boot-style",
+            "amazon-ptd-prop:BOOT.boot_form_type"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.botas/02",
@@ -48,7 +67,36 @@
       "applicability": "universal",
       "rationale": "La altura de la caña es el rasgo que más diferencia unas botas de otras y condiciona su uso y su ajuste. Se suman las propiedades de cumplimiento sobre la altura (cubre o no el tobillo y la pantorrilla; botín, media caña, rodilla, muslo). Criterio 1: principal, porque describe el producto. No sube a Calzado aunque height_map también está en SLIPPER: la altura de la caña no vale para todas las hijas de Calzado (sandalias, tacones, zapatos planos) (criterio 4).",
       "seed_importance": "principal",
-      "rule": "marco:D-043.1/medida-descriptiva"
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "categoría de altura de la caña",
+          "component": "altura de la caña",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.height_map",
+            "amazon-ptd-prop:BOOT.shaft.height",
+            "amazon-ptd-prop:BOOT.compliance_boot_height"
+          ]
+        },
+        {
+          "contribution": "parte de la pierna que cubre la caña",
+          "component": "altura de la caña",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.compliance_height_map"
+          ]
+        },
+        {
+          "contribution": "medida de la altura de la caña",
+          "component": "cuánto mide",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.shaft.height",
+            "amazon-ptd-prop:BOOT.compliance_height_map"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.botas/03",
@@ -66,76 +114,182 @@
       "applicability": "si la caña sube por encima del tobillo",
       "rationale": "En botas de caña media o alta el contorno decide si la bota cierra o ajusta; es un criterio de ajuste equiparable al ancho de horma. Se suma el subcampo circumference de BOOT.shaft (contorno de la caña); su altura va a /02.",
       "seed_importance": "principal",
-      "rule": "imp:uso@aa"
+      "rule": "imp:uso@aa",
+      "resolving_info": [
+        {
+          "contribution": "categoría de anchura de la caña en la pantorrilla",
+          "component": "anchura",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.calf_width_description",
+            "amazon-ptd-prop:BOOT.special_feature=Pantorrilla ancha"
+          ]
+        },
+        {
+          "contribution": "contorno de la caña medido",
+          "component": "contorno",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.shaft.circumference"
+          ]
+        },
+        {
+          "contribution": "intervalo de ajuste del contorno de la caña",
+          "component": "contorno",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.botas/04",
-      "question": "¿Qué tipo de cuero o piel es (flor entera, nobuk, ante, serraje, charol…) y, si lleva piel con pelo, es natural o sintética y de qué animal?",
+      "question": "¿Qué tipo de cuero o piel es (flor entera, nobuk, ante, serraje, charol…)?",
       "dimension": "tipo de cuero",
       "trait": "material",
       "entity": "producto",
       "importance": "principal",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:BOOT.leather_type",
-        "amazon-ptd-prop:BOOT.fur"
+        "amazon-ptd-prop:BOOT.leather_type"
       ],
       "applicability": "si el corte, el forro o la plantilla llevan cuero o piel",
-      "rationale": "Desagrega el material (cat.calzado/04) cuando es cuero; en botas el tipo de cuero condiciona durabilidad, resistencia al agua y precio. Al estar en la base de la clase (PTD), «cuero» es un valor que condiciona, no una especialización. Se suma fur (piel con pelo), candidato nuevo. No sube a Calzado aunque leather_type y fur también están en SLIPPER (criterio 4 y D-040): Zapatillas tiene upper-material (Cuero, Gamuza, Nobuk) como atributo propio de Shopify.",
+      "rationale": "Desagrega el material (cat.calzado/04) cuando es cuero; en botas el tipo de cuero condiciona durabilidad, resistencia al agua y precio. Al estar en la base de la clase (PTD), «cuero» es un valor que condiciona, no una especialización. Se suma fur (piel con pelo), candidato nuevo. No sube a Calzado aunque leather_type y fur también están en SLIPPER (criterio 4 y D-040): Zapatillas tiene upper-material (Cuero, Gamuza, Nobuk) como atributo propio de Shopify. Redacción con D-060 (T-031, regla 2): la piel con pelo es un hecho que solo afecta a una parte: requisito condicionado propio.",
       "seed_importance": "principal",
-      "rule": "imp:material@aa-8-3"
+      "rule": "imp:material@aa-8-3",
+      "resolving_info": [
+        {
+          "contribution": "capa o calidad de la piel empleada",
+          "component": "tipo de cuero o piel",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.leather_type"
+          ]
+        },
+        {
+          "contribution": "acabado de la superficie del cuero",
+          "component": "tipo de cuero o piel",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.leather_type"
+          ]
+        },
+        {
+          "contribution": "animal del que procede el cuero",
+          "component": "tipo de cuero o piel",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.leather_type"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.botas/05",
-      "question": "¿Qué tipo de tacón tiene (sin tacón, plano, de bloque, cuña, aguja, cubano…) y, si tiene plataforma, qué altura?",
+      "question": "¿Qué tipo de tacón tiene (sin tacón, plano, de bloque, cuña, aguja, cubano…)?",
       "dimension": "tacón: tipo y plataforma",
       "trait": "construccion",
       "entity": "producto",
       "importance": "complementario",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:BOOT.heel",
-        "amazon-ptd-prop:BOOT.footwear_platform_height"
+        "amazon-ptd-prop:BOOT.heel"
       ],
       "applicability": "universal",
-      "rationale": "Completa la altura del tacón (cat.calzado/05) con su forma y la plataforma, relevantes en botas de moda. No sube a Calzado aunque heel también está en SLIPPER (criterio 4 y D-040): Tacones tiene heel-shape como atributo propio de Shopify.",
+      "rationale": "Completa la altura del tacón (cat.calzado/05) con su forma y la plataforma, relevantes en botas de moda. No sube a Calzado aunque heel también está en SLIPPER (criterio 4 y D-040): Tacones tiene heel-shape como atributo propio de Shopify. Redacción con D-060 (T-031, reglas 2 y 3): la plataforma es un hecho que solo afecta a una parte, y su altura es una medida (otro rasgo).",
       "seed_importance": "complementario",
-      "rule": "imp:construccion@aa-8"
+      "rule": "imp:cat.botas/05@aa-8-3",
+      "resolving_info": [
+        {
+          "contribution": "tipo de tacón",
+          "component": "tipo de tacón",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.heel"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.botas/06",
-      "question": "¿De qué material es la plantilla y es extraíble?",
+      "question": "¿De qué material es la plantilla?",
       "dimension": "plantilla",
       "trait": "material",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:BOOT.insole",
-        "amazon-ptd-prop:BOOT.special_feature=Plantilla extraíble",
         "amazon-ptd-prop:BOOT.compliance_inner_sole_material"
       ],
       "applicability": "universal",
-      "rationale": "Influye en el confort y en la posibilidad de usar plantillas propias; relevante sin ser central. Se suma la propiedad de cumplimiento sobre la suela interior. No sube a Calzado aunque insole también está en SLIPPER (criterio 4 y D-040): Zapatos planos tiene insole-material como atributo propio de Shopify.",
+      "rationale": "Influye en el confort y en la posibilidad de usar plantillas propias; relevante sin ser central. Se suma la propiedad de cumplimiento sobre la suela interior. No sube a Calzado aunque insole también está en SLIPPER (criterio 4 y D-040): Zapatos planos tiene insole-material como atributo propio de Shopify. Redacción con D-060 (T-031, regla 3): el material (material) y que sea extraíble (construcción) toman otro rasgo.",
       "seed_importance": "complementario",
-      "rule": "imp:material@aa-8-3"
+      "rule": "imp:cat.botas/06@aa-8-3",
+      "resolving_info": [
+        {
+          "contribution": "material de la plantilla",
+          "component": "material de la plantilla",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.insole"
+          ]
+        },
+        {
+          "contribution": "categoría del material de la plantilla a efectos de etiquetado",
+          "component": "material de la plantilla",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.compliance_inner_sole_material"
+          ]
+        },
+        {
+          "contribution": "etiquetado de materiales del calzado por partes",
+          "component": "material de la plantilla",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.botas/07",
-      "question": "¿Qué aislamiento térmico o abrigo ofrece (forro aislante, felpa…) y, si se indica, hasta qué temperatura?",
+      "question": "¿Qué aislamiento térmico o abrigo ofrece (forro aislante, felpa…)?",
       "dimension": "aislamiento térmico",
       "trait": "prestacion",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:BOOT.special_feature=Aislado",
         "amazon-ptd-prop:BOOT.special_feature=De felpa"
       ],
       "applicability": "universal",
-      "rationale": "Relevante para botas de invierno o de nieve; el material del forro (cat.calzado/07) no basta para saber si la bota abriga. No sube a Calzado aunque «Aislado» también está en SLIPPER (cat.pantuflas/03): el abrigo no vale para todas las hijas de Calzado (sandalias, tacones…) (criterio 4).",
+      "rationale": "Relevante para botas de invierno o de nieve; el material del forro (cat.calzado/07) no basta para saber si la bota abriga. No sube a Calzado aunque «Aislado» también está en SLIPPER (cat.pantuflas/03): el abrigo no vale para todas las hijas de Calzado (sandalias, tacones…) (criterio 4). Redacción con D-060 (T-031, reglas 1 y 4): «si se indica» condiciona a la existencia de la información, y la temperatura no tiene fuente (los valores Aislado y De felpa no la recogen): sale como inferida condicionada.",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@aa-8-3"
+      "rule": "imp:prestacion@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "declaración de aislamiento térmico",
+          "component": "aislamiento térmico",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.special_feature=Aislado"
+          ]
+        },
+        {
+          "contribution": "declaración de forro o interior de felpa",
+          "component": "abrigo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.special_feature=De felpa"
+          ]
+        },
+        {
+          "contribution": "material y gramaje del aislante",
+          "component": "aislamiento térmico",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.botas/08",
@@ -143,7 +297,7 @@
       "dimension": "protección y seguridad",
       "trait": "prestacion",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:BOOT.special_feature=Resistente a pinchazos",
@@ -153,10 +307,231 @@
         "amazon-ptd-prop:BOOT.special_feature=Resistente a los golpes",
         "amazon-ptd-prop:BOOT.special_feature=Reflectante"
       ],
-      "applicability": "si es bota de trabajo o de seguridad, o declara alguna protección",
-      "rationale": "En botas de trabajo y de seguridad las protecciones son el criterio central de comparación; complementa la puntera de protección (cat.calzado/06).",
+      "applicability": "si es bota de trabajo o de seguridad",
+      "rationale": "En botas de trabajo y de seguridad las protecciones son el criterio central de comparación; complementa la puntera de protección (cat.calzado/06). Redacción con D-060 (T-031, regla 1): «o declara alguna protección» condicionaba a la existencia de la información.",
       "seed_importance": "principal",
-      "rule": "imp:prestacion@aa-8-3"
+      "rule": "imp:prestacion@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "declaración de suela resistente a la perforación",
+          "component": "protecciones de seguridad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.special_feature=Resistente a pinchazos"
+          ]
+        },
+        {
+          "contribution": "declaración de propiedades disipativas o antiestáticas",
+          "component": "protecciones de seguridad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.special_feature=Disipativo estático"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a llamas o a productos químicos",
+          "component": "protecciones de seguridad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.special_feature=Resistente a las llamas",
+            "amazon-ptd-prop:BOOT.special_feature=Resistente a productos químicos"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a impactos",
+          "component": "protecciones de seguridad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.special_feature=Resistente a los golpes"
+          ]
+        },
+        {
+          "contribution": "declaración de elementos reflectantes",
+          "component": "protecciones de seguridad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.special_feature=Reflectante"
+          ]
+        },
+        {
+          "contribution": "norma de calzado de seguridad que cumple y categoría de protección",
+          "component": "protecciones de seguridad",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.botas/19",
+      "question": "¿Para qué uso o actividad está pensada (montaña, trabajo, equitación, nieve, ciudad…)?",
+      "dimension": "uso previsto",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOOT.specific_uses_for_product"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.botas/01 separada por la regla 3 de D-060 (T-031): el tipo (identidad) y el uso o la actividad (uso) se responden por separado y toman otro rasgo.",
+      "seed_importance": "principal",
+      "rule": "imp:uso@aa",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "uso o actividad para la que está pensada",
+          "component": "uso o actividad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.specific_uses_for_product"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.botas/20",
+      "question": "¿La piel con pelo es natural o sintética y de qué animal procede?",
+      "dimension": "piel con pelo",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOOT.fur"
+      ],
+      "applicability": "si lleva piel con pelo",
+      "rationale": "Parte de cat.botas/04 separada por la regla 2 de D-060 (T-031): la piel con pelo es un hecho que solo afecta a una parte: requisito condicionado propio.",
+      "seed_importance": "principal",
+      "rule": "imp:material@aa-8-3",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si la piel con pelo es natural o sintética",
+          "component": "natural o sintética",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.fur"
+          ]
+        },
+        {
+          "contribution": "especie animal de la que procede la piel",
+          "component": "de qué animal procede",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.fur"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.botas/21",
+      "question": "¿Qué altura tiene la plataforma?",
+      "dimension": "altura de la plataforma",
+      "trait": "medida",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOOT.footwear_platform_height"
+      ],
+      "applicability": "si tiene plataforma",
+      "rationale": "Parte de cat.botas/05 separada por la reglas 2 y 3 de D-060 (T-031): la plataforma es un hecho que solo afecta a una parte, y su altura es una medida (otro rasgo).",
+      "seed_importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "altura de la plataforma",
+          "component": "altura de la plataforma",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.footwear_platform_height"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.botas/22",
+      "question": "¿Es extraíble la plantilla?",
+      "dimension": "plantilla extraíble",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOOT.special_feature=Plantilla extraíble"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.botas/06 separada por la regla 3 de D-060 (T-031): el material (material) y que sea extraíble (construcción) toman otro rasgo.",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@aa-8-3",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si la plantilla es extraíble",
+          "component": "plantilla extraíble",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.special_feature=Plantilla extraíble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.botas/23",
+      "question": "¿Hasta qué temperatura exterior protege del frío?",
+      "dimension": "temperatura de uso",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "si ofrece aislamiento térmico o abrigo",
+      "rationale": "Cuestión inferida (D-036) que sale de cat.botas/07 por la reglas 1 y 4 de D-060 (T-031): «si se indica» condiciona a la existencia de la información, y la temperatura no tiene fuente (los valores Aislado y De felpa no la recogen): sale como inferida condicionada. Provisional hasta que la valide el entrenamiento.",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@aa-8",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "temperatura mínima de uso recomendada",
+          "component": "temperatura exterior",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "clasificación de aislamiento frente al frío según norma técnica",
+          "component": "temperatura exterior",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.botas/24",
+      "question": "¿Qué rigidez tiene la caña (blanda, semirrígida, rígida)?",
+      "dimension": "rigidez de la caña",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOOT.item_firmness_description"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.calzado/22 separada por la regla 2 de D-060 (T-031): la caña es un hecho que solo afecta a una parte; su rigidez pasa a un requisito de las botas, el bloque al que se aplica (con BOOT.item_firmness_description).",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@aa-8",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "grado de firmeza o rigidez de la caña",
+          "component": "rigidez de la caña",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.item_firmness_description"
+          ]
+        }
+      ]
     }
   ],
   "excluded": [
@@ -349,5 +724,5 @@
       "reason": "Umbral aduanero de gramaje del corte textil (200 g/m²); no es un criterio para comparar botas."
     }
   ],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

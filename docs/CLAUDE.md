@@ -43,7 +43,7 @@ sources: [BASE §5.2, FUND §6]  # trazabilidad al archivo v0 (claves abajo); []
 
 ## Estados
 
-- `vigente` — definido en los documentos rectores (CTX, BASE) o en FUND; forma parte del canon.
+- `vigente` — definido en los documentos rectores (CTX, BASE), en FUND o en un intake procesado que lo formule como vigente ([D-016](30-governance/decisions.md#d-016), [D-070](30-governance/decisions.md#d-070)); forma parte del canon.
 - `propuesta` — propuesta operativa V1 o diseño metodológico pendiente de calibración (GSC0, MPIR, TAX).
 - `pendiente` — identificado pero sin especificar.
 - `historico` — superado; solo consulta.

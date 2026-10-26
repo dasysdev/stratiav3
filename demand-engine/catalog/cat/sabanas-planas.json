@@ -10,7 +10,7 @@
     "amazon-ptd:FLAT_SHEET@2026-10-24",
     "amazon-btg:3250024031@2026-10-24"
   ],
-  "version": "1",
+  "version": "2",
   "status": "compilado",
   "requirements": [
     {
@@ -25,7 +25,21 @@
       "applicability": "universal",
       "rationale": "Cuestión inferida (criterio 5; añadido provisional hasta su aprobación, D-041): el PTD FLAT_SHEET no recoge el ligamento, y en la cadena no hay atributo que lo cubra (fabric-weave es de Fundas de nórdico). El ligamento determina el tacto y el aspecto; percal frente a satén es un criterio habitual para elegir sábanas.",
       "seed_importance": "principal",
-      "rule": "imp:construccion@hg-15-1-2"
+      "rule": "imp:construccion@hg-15-1-2",
+      "resolving_info": [
+        {
+          "contribution": "nombre del ligamento o del tejido comercial",
+          "component": "tejido o ligamento",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "técnica de formación del tejido, de calada o de punto",
+          "component": "tejido o ligamento",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [
@@ -58,5 +72,5 @@
       "reason": "Requisito retirado: movido a cat.sabanas/03 (criterio 4: thread está en FITTED_SHEET y FLAT_SHEET y vale para las dos hijas de Sábanas), con su fuente amazon-ptd-prop:FLAT_SHEET.thread."
     }
   ],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

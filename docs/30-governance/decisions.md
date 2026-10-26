@@ -4,7 +4,7 @@ title: Registro de decisiones
 layer: governance
 status: vigente
 version: 1.0
-updated: 2026-10-25
+updated: 2026-10-26
 sources: [GSC0 §18.4]
 ---
 
@@ -42,14 +42,14 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-013](#d-013) | Tres ámbitos de evaluación también en CTX | aceptada | 2026-10-24 |
 | [D-014](#d-014) | P07 en las asociaciones orientativas de Aplicabilidad | aceptada | 2026-10-24 |
 | [D-015](#d-015) | Intake de updates y skill `docs-update` | aceptada (modificada por D-016) | 2026-10-24 |
-| [D-016](#d-016) | El intake prevalece; aplicación sin aprobación previa | aceptada | 2026-10-24 |
+| [D-016](#d-016) | El intake prevalece; aplicación sin aprobación previa | aceptada (estado «vigente» precisado por D-070) | 2026-10-24 |
 | [D-017](#d-017) | Escala del IR: 0–10 | aceptada | 2026-10-24 |
 | [D-018](#d-018) | Prominencia informativa, IP y calidad ajustada (propuesta) | aceptada | 2026-10-24 |
 | [D-019](#d-019) | Estado binario de resolución = «suficientemente resuelto» de la TRI | aceptada | 2026-10-24 |
 | [D-020](#d-020) | Clase de estudio: clase general más especializaciones relevantes | aceptada (precisada por D-033) | 2026-10-24 |
 | [D-021](#d-021) | Shopify fija el eje de base de la clase general | aceptada (modificada por D-023) | 2026-10-24 |
 | [D-022](#d-022) | Criterio de especialización: cinco condiciones y evidencia | aceptada (precisada por D-024 y D-026, ampliada por D-025; condición 1 enmendada por D-027; matizada por D-041; validación precisada por D-044; condición 1 restablecida por D-048) | 2026-10-24 |
-| [D-023](#d-023) | Composición de la clase de estudio por categorías y piezas | aceptada (modificada por D-028, precisada por D-029) | 2026-10-25 |
+| [D-023](#d-023) | Composición de la clase de estudio por categorías y piezas | aceptada (modificada por D-028, precisada por D-029; alcance de «juego» enmendado por D-086) | 2026-10-25 |
 | [D-024](#d-024) | Condición 4 del criterio de especialización: lectura estricta | aceptada (precisada por D-029 y D-030) | 2026-10-25 |
 | [D-025](#d-025) | Beneficios reclamados: no son especializaciones | aceptada (precisada por D-031) | 2026-10-25 |
 | [D-026](#d-026) | Regla de las cuestiones propias para dimensiones que todo producto tiene | aceptada (precisada por D-029 y D-030; consecuencia del sofá cama revisada por D-032; ampliada por D-037) | 2026-10-25 |
@@ -59,26 +59,63 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-030](#d-030) | Características especiales de un PTD: dimensiones de la base y apoyo | aceptada | 2026-10-25 |
 | [D-031](#d-031) | El material reciclado es especialización, no beneficio reclamado | aceptada | 2026-10-25 |
 | [D-032](#d-032) | Propósito de la clase de estudio: los requisitos informativos | aceptada (precisada por D-033) | 2026-10-25 |
-| [D-033](#d-033) | Identidad del modelo de demanda: composición de bloques de requisitos | aceptada (formato y denominación fijados por D-038; precisada por D-040; la aplicación pasa a la oferta por D-047) | 2026-10-25 |
-| [D-034](#d-034) | Capa general de requisitos: universales y condicionados | aceptada (borrador revisado por D-038; importancias fijas por D-045; elementos digitales al modelo por D-047; pregunta universal de promociones por D-049; fabricante, origen y seguridad por D-052) | 2026-10-25 |
+| [D-033](#d-033) | Identidad del modelo de demanda: composición de bloques de requisitos | aceptada (formato y denominación fijados por D-038; precisada por D-040 y D-057; la aplicación pasa a la oferta por D-047) | 2026-10-25 |
+| [D-034](#d-034) | Capa general de requisitos: universales y condicionados | aceptada (borrador revisado por D-038; importancias fijas por D-045; elementos digitales al modelo por D-047; pregunta universal de promociones por D-049; fabricante, origen y seguridad por D-052; formulación dividida por D-065; bloques condicionados de garantía comercial, posventa y opiniones por D-066; pregunta del precio personalizado retirada por D-067; los cambios en `gen/11` y `gen/26` por D-085) | 2026-10-25 |
 | [D-035](#d-035) | Pruebas operativas de importancia relativa | aceptada (la duda no baja la importancia ni excluye: D-050) | 2026-10-25 |
-| [D-036](#d-036) | Cuestiones inferidas: tercera vía de construcción, provisional | aceptada (régimen: lectura de Claude no objetada; matizada por D-041; enmendada por D-044) | 2026-10-25 |
-| [D-037](#d-037) | Valores de oferta y activación de cuestiones condicionadas | aceptada (sin especializaciones de oferta por D-048) | 2026-10-25 |
-| [D-038](#d-038) | Catálogo de bloques: capa general contrastada, identificadores propios y denominación | aceptada (precisada por D-040; matizada por D-041; estados y clave enmendados por D-045; clave y nombre sin aplicación por D-047) | 2026-10-25 |
+| [D-036](#d-036) | Cuestiones inferidas: tercera vía de construcción, provisional | aceptada (régimen: lectura de Claude no objetada; matizada por D-041; enmendada por D-044; con fuente, propuesta al bloque por D-088) | 2026-10-25 |
+| [D-037](#d-037) | Valores de oferta y activación de cuestiones condicionadas | aceptada (sin especializaciones de oferta por D-048; unidad de exposición precisada por D-057) | 2026-10-25 |
+| [D-038](#d-038) | Catálogo de bloques: capa general contrastada, identificadores propios y denominación | aceptada (precisada por D-040; matizada por D-041; estados y clave enmendados por D-045; clave y nombre sin aplicación por D-047; sectores en el nombre por D-077) | 2026-10-25 |
 | [D-039](#d-039) | Los PTD de Amazon, fuente de requisitos de la categoría | aceptada (precisada por D-044; ampliada por D-052: fuente también de la capa general) | 2026-10-25 |
 | [D-040](#d-040) | Bloques de categoría deterministas y catálogo revisado | aceptada (matizada por D-041; precisada por D-044 y D-045) | 2026-10-25 |
 | [D-041](#d-041) | Entrenamiento y ejecución: la revisión humana no bloquea la ejecución | aceptada (enmendada por D-044) | 2026-10-25 |
-| [D-042](#d-042) | Capa original del MPIR: sin capturas de pantalla y políticas de acceso del motor | aceptada (motor compartido: D-046) | 2026-10-25 |
-| [D-043](#d-043) | Criterios de redacción del catálogo de bloques de categoría | aceptada (criterio 5 sustituido por D-044; criterio 1 precisado por D-051) | 2026-10-25 |
-| [D-044](#d-044) | Marco humano y reglas inducidas: el usuario define el marco, no revisa reglas ni requisitos | aceptada (operación: D-045) | 2026-10-25 |
-| [D-045](#d-045) | Operación del entrenamiento, primera versión: rasgos, reglas de importancia por el árbol de Shopify y métricas | aceptada (relevancia inducida por D-050; vocabulario ampliado por D-051) | 2026-10-25 |
-| [D-046](#d-046) | Motor de captura compartido por el MPIR y el entrenamiento del modelo de demanda | aceptada | 2026-10-25 |
-| [D-047](#d-047) | El modelo de demanda va con el producto; la aplicación, con la oferta | aceptada | 2026-10-25 |
+| [D-042](#d-042) | Capa original del MPIR: sin capturas de pantalla y políticas de acceso del motor | aceptada (motor compartido: D-046; renderizado siempre en el método: D-073) | 2026-10-25 |
+| [D-043](#d-043) | Criterios de redacción del catálogo de bloques de categoría | aceptada (criterio 5 sustituido por D-044; criterio 1 precisado por D-051 y enmendado por D-055; reglas de formulación añadidas por D-060) | 2026-10-25 |
+| [D-044](#d-044) | Marco humano y reglas inducidas: el usuario define el marco, no revisa reglas ni requisitos | aceptada (operación: D-045; «críticos pocos» retirado del marco por D-059) | 2026-10-25 |
+| [D-045](#d-045) | Operación del entrenamiento, primera versión: rasgos, reglas de importancia por el árbol de Shopify y métricas | aceptada (relevancia inducida por D-050; vocabulario ampliado por D-051 y abierto por D-056; ejecución a escala enmendada por D-054; crítico por requisito y clase por D-055; excepciones por requisito y crítico de cualquier propiedad por D-058; información resolutiva inducida por D-063) | 2026-10-25 |
+| [D-046](#d-046) | Motor de captura compartido por el MPIR y el entrenamiento del modelo de demanda | aceptada (primera selección: D-053) | 2026-10-25 |
+| [D-047](#d-047) | El modelo de demanda va con el producto; la aplicación, con la oferta | aceptada (tres disparadores nuevos por D-066; nombre con sectores por D-077) | 2026-10-25 |
 | [D-048](#d-048) | La oferta no aporta requisitos: activa requisitos condicionados de la clase | aceptada | 2026-10-25 |
 | [D-049](#d-049) | Pregunta universal de promociones y descuentos | aceptada | 2026-10-25 |
 | [D-050](#d-050) | Filtro de relevancia aprendido: lo no relevante sale del modelo de la clase | aceptada | 2026-10-25 |
-| [D-051](#d-051) | Peso, grosor y gramaje: rasgo «magnitud física», fuera de la regla de las medidas | aceptada | 2026-10-25 |
-| [D-052](#d-052) | Fabricante, país de fabricación y seguridad en la capa general, según su origen | aceptada | 2026-10-25 |
+| [D-051](#d-051) | Peso, grosor y gramaje: rasgo «magnitud física», fuera de la regla de las medidas | aceptada (vocabulario abierto por D-056) | 2026-10-25 |
+| [D-052](#d-052) | Fabricante, país de fabricación y seguridad en la capa general, según su origen | aceptada (ampliada a hechos de la oferta por D-065; ampliación sin efecto por D-066; fabricante con marca propia por D-080) | 2026-10-25 |
+| [D-053](#d-053) | Catálogo de entrenamiento, primera selección: El Corte Inglés, amplitud de tipos y piloto | aceptada | 2026-10-25 |
+| [D-054](#d-054) | El entrenamiento a escala clasifica con agentes de Claude Code, no con la API | aceptada | 2026-10-25 |
+| [D-055](#d-055) | Crítico por requisito y clase; la medida descriptiva puede ser crítica | aceptada (generalizada por D-058) | 2026-10-26 |
+| [D-056](#d-056) | Vocabulario de rasgos abierto: rasgos propuestos y votados por los agentes | aceptada (criterio de crítico sustituido por D-058) | 2026-10-26 |
+| [D-057](#d-057) | Composición y aplicación: hoja más específica, hermana como alias y unidad de exposición | aceptada (unidad de exposición precisada por D-079) | 2026-10-26 |
+| [D-058](#d-058) | Excepciones de importancia por requisito y clase en cualquier propiedad, también para el crítico | aceptada | 2026-10-26 |
+| [D-059](#d-059) | «Críticos pocos» no es un objetivo del marco | aceptada | 2026-10-26 |
+| [D-060](#d-060) | Formulación de las cuestiones del catálogo: condiciones, una necesidad por requisito y componentes con fuente | aceptada (aplicada a la capa general por D-065; la regla 3 prevalece sobre la forma de sí o no por D-087) | 2026-10-26 |
+| [D-061](#d-061) | Tipos de información potencialmente resolutiva: forma de la respuesta, con vocabulario cerrado | sustituida por D-062 | 2026-10-26 |
+| [D-062](#d-062) | Información resolutiva: los tipos de información que pueden resolver cada requisito, para localizar y recomendar | aceptada (reglas del motor: D-063; entradas renombradas «aportación resolutiva» por D-064) | 2026-10-26 |
+| [D-063](#d-063) | Información resolutiva: cuatro orígenes compilados por el entrenamiento y aceptación en dos tiendas distintas | aceptada (entradas renombradas «aportación resolutiva» por D-064; en la capa general, las que se redactan sin apoyo en la ley son inferidas por D-065; la norma de un requisito de categoría da referencias por D-068; listas de la capa general sin aprobación del usuario por D-084) | 2026-10-26 |
+| [D-064](#d-064) | «Aportación resolutiva»: nombre de cada entrada de la información resolutiva | aceptada (siempre con su adjetivo por D-075; el plazo de cambio aporta a `gen/11` por D-085) | 2026-10-26 |
+| [D-065](#d-065) | Formulación de la capa general: reglas de D-060, también para las partes de igual importancia, y aportaciones sin ley como inferidas | aceptada (condicionados de la oferta en bloques propios por D-066; `gen.precio-personalizado/01` retirada por D-067; listas de información resolutiva aprobadas por D-069) | 2026-10-26 |
+| [D-066](#d-066) | Garantía comercial, asistencia posventa y opiniones publicadas: bloques condicionados de la capa general | aceptada (solo opiniones del producto u oferta por D-076; garantía sin contenido por D-081) | 2026-10-26 |
+| [D-067](#d-067) | Se retira la pregunta del precio personalizado que repite su disparador | aceptada | 2026-10-26 |
+| [D-068](#d-068) | La norma que es fuente de un requisito de categoría da aportaciones de origen «referencias» | aceptada | 2026-10-26 |
+| [D-069](#d-069) | Información resolutiva de la capa general aprobada | sustituida por D-084 en la aprobación de las listas (`gen/17` ampliada por D-080) | 2026-10-26 |
+| [D-070](#d-070) | El estado «vigente» incluye lo que un intake procesado formula como vigente | aceptada | 2026-10-26 |
+| [D-071](#d-071) | Casos de taxonomía corregidos: polar, tapicería de piel y `warmth-level` | aceptada | 2026-10-26 |
+| [D-072](#d-072) | El efecto de la relevancia sobre la base de D-030 lo mide la validación automática | aceptada | 2026-10-26 |
+| [D-073](#d-073) | En el MPIR se renderiza siempre con un navegador real | aceptada | 2026-10-26 |
+| [D-074](#d-074) | Mensajes comunes de la tienda: cuentan si fijan una condición comprobable para la oferta | aceptada (descuento condicionado precisado por D-078) | 2026-10-26 |
+| [D-075](#d-075) | «Aportación» siempre con su complemento: resolutiva o al modelo de demanda | aceptada | 2026-10-26 |
+| [D-076](#d-076) | Solo las opiniones del producto o de la oferta cuentan como opiniones publicadas | aceptada | 2026-10-26 |
+| [D-077](#d-077) | El nombre del modelo de demanda muestra la composición completa, con los sectores | aceptada | 2026-10-26 |
+| [D-078](#d-078) | Un descuento de toda la tienda activa `gen.descuento` aunque dependa de una acción del comprador | aceptada | 2026-10-26 |
+| [D-079](#d-079) | La ficha identifica la unidad de exposición cuando sitúa en la exposición la unidad que se vende | aceptada | 2026-10-26 |
+| [D-080](#d-080) | Quien comercializa el producto con su nombre o marca responde la pregunta del fabricante | aceptada | 2026-10-26 |
+| [D-081](#d-081) | Una garantía nombrada sin contenido ni condiciones no activa `gen.garantia-comercial` | aceptada | 2026-10-26 |
+| [D-082](#d-082) | Varias opciones visibles en un selector activan `gen.variantes`; una sola, no | aceptada | 2026-10-26 |
+| [D-083](#d-083) | Política de cambios: bloque condicionado `gen.cambios` de la capa general | sustituida por D-085 | 2026-10-26 |
+| [D-084](#d-084) | La información resolutiva de la capa general no requiere la aprobación del usuario | aceptada | 2026-10-26 |
+| [D-085](#d-085) | Los cambios son condiciones de devolución y cambio: van en `gen/11` y `gen/26`, no en la aplicación | aceptada | 2026-10-26 |
+| [D-086](#d-086) | La especialización «juego» aporta qué piezas incluye y cuántas de cada una; las medidas, los bloques de cada pieza | aceptada | 2026-10-26 |
+| [D-087](#d-087) | La regla 3 prevalece sobre la forma de sí o no con detalle | aceptada | 2026-10-26 |
+| [D-088](#d-088) | Una cuestión con fuente que el bloque ni pregunta ni excluye es una propuesta al bloque | aceptada | 2026-10-26 |
+| [D-089](#d-089) | Precio anterior y precio por unidad de medida en la capa general, con su norma | aceptada | 2026-10-26 |
 
 ---
 
@@ -601,7 +638,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - Extensión de [D-026](#d-026): un valor que activa cuestiones condicionadas ya previstas en la base también es valor que condiciona; solo es especialización si trae cuestiones que la base no prevé.
 - **Interpretaciones adoptadas:**
   - Sustituye el ejemplo de D-027; se mantiene que la condición 1 incluye la oferta. (Sustituida por [D-048](#d-048): la condición 1 solo admite características del producto.)
-  - Cierra OQ-42: en ambos casos el valor condiciona cuestiones generales.
+  - Cierra OQ-42: en ambos casos el valor condiciona cuestiones generales. (Precisada por [D-057](#d-057): la unidad de exposición que la ficha identifica como tal es estado declarado; «outlet» solo no basta.)
   - Revisión de casos (bloque F, aplicación de Claude aceptada): en el Stressless, el reclinable pasa a valor que condiciona, la piel sigue siendo especialización y el outlet pasa a valor (aplicación: unidad no nueva); polar, punto, seco y cuerda siguen siendo especialización.
 - **Consecuencias:** [study-class](../10-model/study-class.md#criterio-de-especialización) 1.0, con la cita «Oferta» sustituida; [cases](../20-methods/product-taxonomy/cases.md) 1.3; OQ-42 cerrada.
 - **Relacionado:** D-026, D-027, D-034, OQ-42.
@@ -693,7 +730,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 **Criterios de redacción del catálogo de bloques de categoría.** · aceptada · 2026-10-25
 
 - **Contexto:** `INTAKE 2026-10-25-catalog-criteria`, tarea T-016. Tres agentes redactaron un borrador de 27 bloques de categoría ([D-040](#d-040)) con criterios distintos: importancia de las medidas, atributos con muchos valores, solapes con la capa general, propiedades repetidas de Amazon y cuestiones inferidas.
-- **Decisión (aceptada: «si»):** cinco criterios: una medida es crítica cuando fija qué se vende y principal cuando solo describe; los atributos que mezclan temas se dividen por tema; un bloque de categoría solo repite una cuestión general si la concreta con algo propio de la clase, y las piezas incluidas pasan a esp.juego; una propiedad de Amazon repetida en categorías hermanas sube a la madre común solo si vale para todas sus hijas; las cuestiones inferidas propuestas se incluyen como provisionales y el usuario las aprueba una a una.
+- **Decisión (aceptada: «si»):** cinco criterios (el 1, enmendado por [D-055](#d-055): la medida descriptiva puede ser crítica si lo dicen los votos de su clase): una medida es crítica cuando fija qué se vende y principal cuando solo describe; los atributos que mezclan temas se dividen por tema; un bloque de categoría solo repite una cuestión general si la concreta con algo propio de la clase, y las piezas incluidas pasan a esp.juego; una propiedad de Amazon repetida en categorías hermanas sube a la madre común solo si vale para todas sus hijas; las cuestiones inferidas propuestas se incluyen como provisionales y el usuario las aprueba una a una.
 - **Interpretaciones adoptadas:**
   - Son criterios de método (`requirement-blocks`, propuesta) que aplican las pruebas de importancia de [D-035](#d-035) y la asignación de [D-040](#d-040); no cambian el canon.
   - El criterio 4 completa la lectura de D-040 sobre las propiedades de Amazon (que van a la categoría que la tabla de correspondencia asocia a su PTD).
@@ -708,7 +745,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 - **Contexto:** `INTAKE 2026-10-25-induced-rules`, tarea T-016. [D-041](#d-041) preveía que en entrenamiento el usuario revisara bloques, inferidas, especializaciones e importancias, y [D-036](#d-036) que validara siempre las inferidas críticas. Ante el borrador del catálogo de bloques de categoría, el usuario rechazó la revisión manual de requisitos y también la de reglas sueltas.
 - **Decisión:**
   - Palabras del usuario: «Lo que defino es el marco general, objetivos, características del resultado, etc. Las reglas concretas deben ser producto del entrenamiento también» y «La parametrización específica puede formar parte del sistema, pero como un resultado compilado, no como un diseño específico».
-  - Marco del usuario, única intervención humana: propósito, objetivos y características del resultado, criterios de éxito e invariantes del canon. El usuario lee el informe agregado del entrenamiento y, si hace falta, ajusta el marco.
+  - Marco del usuario, única intervención humana: propósito, objetivos y características del resultado, criterios de éxito e invariantes del canon. El usuario lee el informe agregado del entrenamiento y, si hace falta, ajusta el marco. (Precisada por [D-059](#d-059): «críticos pocos» sale del marco.)
   - Entrenamiento en ocho pasos (reunir casos, aplicar las reglas vigentes dos veces por caso, medir contra el marco, detectar patrones, inducir reglas generales y específicas, compilar el catálogo, validar automáticamente, publicar versión e informe) y ejecución automática con lo compilado, según el diagrama aprobado («documenta»).
 - **Interpretaciones adoptadas:**
   - Enmienda D-041 (el entrenamiento ya no es una revisión humana) y [D-036](#d-036) (la validación de las inferidas la hace el entrenamiento contra el marco). Precisa [D-022](#d-022) (la «validación del usuario» de una especialización pasa a ser la del entrenamiento), [D-039](#d-039) (la relevancia de las propiedades de Amazon la deciden las reglas inducidas, paso 5 del entrenamiento) y [D-040](#d-040) (el catálogo se compila, no se revisa a mano). Sustituye el criterio 5 de [D-043](#d-043) (la aprobación una a una de las inferidas) por la validación automática.
@@ -727,27 +764,27 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 - **Contexto:** `INTAKE 2026-10-25-training-operation`, tarea T-019. [OQ-47](open-questions.md) dejaba abiertos el vocabulario de rasgos, la forma operativa de las métricas, el informe agregado y los casos de entrenamiento; [I-19](issues.md#i-19), la versión de los bloques en la clave y el estado de los bloques generados en ejecución. Claude propuso un plan para una primera versión. El usuario objetó que las reglas de importancia se miraran a nivel global («Lo único que no me encaja es que se mire a nivel global. Estas reglas deberían ser al menos para clases generales»). Claude respondió que lo global contradice D-035 («principal» es relativo a la clase) y arrastraría el sesgo textil del catálogo, y que solo por clase no generaliza; el usuario aprobó la opción C (por el árbol de Shopify) y el resto del plan. Después, con su matiz sobre el entrenamiento a escala ([D-046](#d-046)), aprobó los ajustes de los casos y de la cobertura.
 - **Decisión:**
-  - **Rasgos:** el rasgo principal de un requisito es qué resuelve la cuestión, de una lista cerrada (identidad, contenido, medida que fija lo vendido, medida descriptiva, material, construcción, prestación, uso y compatibilidad, seguridad, cuidado, estética, certificación u origen), más la entidad, el origen, la aplicabilidad y la posición del bloque. Cada atributo de Shopify o propiedad de Amazon se etiqueta una sola vez y se reutiliza.
-  - **Reglas de importancia por el árbol de Shopify:** la regla vive en la clase y sube a la categoría madre solo si vale para todas sus hijas (el principio de [D-043](#d-043), criterio 4). El crítico es global. Su prueba no depende de la clase: «sin la cuestión, ¿se sabe qué se vende, cuánto cuesta y si se puede adquirir?». A una clase sin regla no se le aplica la de otra rama: se usa la importancia que propone el agente, provisional y encolada. Las importancias de partida salen del catálogo y de los votos de los agentes con las pruebas de [D-035](#d-035); manda la regla compilada. El marco pone límites que ninguna regla puede saltarse: «ninguna regla puede hacer crítica la estética, ni tocar la capa general ni el criterio de las medidas».
+  - **Rasgos:** el rasgo principal de un requisito es qué resuelve la cuestión, de una lista cerrada (identidad, contenido, medida que fija lo vendido, medida descriptiva, material, construcción, prestación, uso y compatibilidad, seguridad, cuidado, estética, certificación u origen), más la entidad, el origen, la aplicabilidad y la posición del bloque. Cada atributo de Shopify o propiedad de Amazon se etiqueta una sola vez y se reutiliza. (Enmendada por [D-056](#d-056): la lista deja de ser cerrada; los agentes proponen y votan rasgos.)
+  - **Reglas de importancia por el árbol de Shopify:** la regla vive en la clase y sube a la categoría madre solo si vale para todas sus hijas (el principio de [D-043](#d-043), criterio 4). El crítico es global. Su prueba no depende de la clase: «sin la cuestión, ¿se sabe qué se vende, cuánto cuesta y si se puede adquirir?». A una clase sin regla no se le aplica la de otra rama: se usa la importancia que propone el agente, provisional y encolada. Las importancias de partida salen del catálogo y de los votos de los agentes con las pruebas de [D-035](#d-035); manda la regla compilada. El marco pone límites que ninguna regla puede saltarse: «ninguna regla puede hacer crítica la estética, ni tocar la capa general ni el criterio de las medidas». (Enmendada por [D-055](#d-055): el crítico se decide por requisito y clase con esa misma prueba, y la medida descriptiva puede ser crítica.) (Enmendada por [D-058](#d-058): un requisito cuyos votos contradicen la regla de su rasgo en una clase tiene su propia regla, y cualquier propiedad puede ser crítica; desaparece el límite «ninguna regla puede hacer crítica la estética».)
   - **Métricas, sin umbrales:** cobertura (en el conjunto de control, cuestiones clave esperadas presentes; en el catálogo de entrenamiento, hechos declarados sin pregunta en el modelo); estabilidad (mismo resultado en dos ejecuciones: composición, bloques e importancia); coherencia (cuántos requisitos con los mismos rasgos tienen importancias distintas). Una regla se acepta si ninguna métrica empeora y al menos una mejora.
   - **Casos:** el conjunto de entrenamiento es un catálogo grande capturado con el motor de captura compartido ([D-046](#d-046)); los 14 casos actuales son el conjunto de control.
   - **Alcance de la primera versión:** solo se induce la importancia; para composición, especializaciones, relevancia de Amazon e inferidas se miden las divergencias y el informe las agrupa por patrón.
   - **I-19:** la clave del modelo lleva la versión de cada bloque; un bloque generado en ejecución lleva el estado «no compilado» hasta que el entrenamiento lo compila.
-  - **Ejecución:** un comando de Claude Code (`/demand-model URL`) que lanza los agentes y llama al código determinista, para probar productos reales; el entrenamiento a escala, por lotes con la API (T-020).
+  - **Ejecución:** un comando de Claude Code (`/demand-model URL`) que lanza los agentes y llama al código determinista, para probar productos reales; el entrenamiento a escala, por lotes con la API (T-020). (Enmendada por [D-054](#d-054): el entrenamiento a escala clasifica con agentes de Claude Code.)
 - **Interpretaciones adoptadas:**
   - La opción C sustituye solo el ámbito global del punto 2 («lo único que no me encaja es que se mire a nivel global»); el resto del mecanismo explicado se mantiene: etiquetas, regla que sale de las importancias con la misma etiqueta, excepciones constantes como reglas específicas, votos, «manda la regla» y límites del marco.
   - Se incorpora a `10-model` como vigente, igual que D-044: es la operación aprobada para la primera versión; lo que no fija queda en OQ-48 y OQ-49.
   - «Vale para todas sus hijas» cuenta las hijas que tienen requisitos o votos de ese rasgo. Una regla sube cuando al menos dos hijas con datos la comparten y ninguna la contradice. Es un mínimo estructural, no un umbral de calidad: con una sola hija no se distingue la regla de la madre de la de la hija, y subir aplicaría a sus hermanas la regla de otra rama, que el artefacto excluye. Es la misma lectura que D-043, criterio 4, que trata de una propiedad «en varias categorías hermanas». Las hijas sin datos heredan la regla de la madre. Las reglas no suben por encima de las verticales de Shopify: una vertical sin datos no hereda reglas de otra.
   - En el ejemplo del artefacto, Cojines no es hija de Ropa de casa (cuelga de Decoración), así que su excepción no impide que la regla de la estética suba a Ropa de casa.
   - Dentro de una misma clase, la regla es la importancia mayoritaria de sus requisitos y votos («la regla sale de mirar qué importancia tienen hoy los requisitos con la misma etiqueta»). En un empate, Claude elige la más alta, por analogía con que la duda no baja la importancia ([D-035](#d-035)); es una elección propia, revisable en el marco.
-  - La importancia de un requisito en un modelo se resuelve desde la clase del producto hacia arriba: la regla más específica del rasgo en la cadena de la categoría. En un juego, desde cada pieza a la que se aplica el bloque, y se toma la más alta.
-  - «El crítico es global» y su prueba («¿se sabe qué se vende, cuánto cuesta y si se puede adquirir?»): solo pueden ser críticos los rasgos que dicen qué se vende (identidad, contenido, medida que fija lo vendido). La medida que fija lo vendido es siempre crítica y la medida descriptiva siempre principal (D-043, criterio 1). Para identidad y contenido, si son críticos lo decide una regla global; si no lo son, el árbol decide entre principal y complementario. Un voto crítico en otro rasgo cuenta como principal y el informe lo señala. El artefacto solo excluye expresamente la estética; la restricción a tres rasgos es lectura de Claude (el catálogo solo tiene críticos de esos rasgos) y tiene un riesgo: una cuestión de compatibilidad o de seguridad que fijara qué se vende no podría ser crítica. Se revisa en el marco si el informe lo muestra.
-  - «Coherencia» se mide dentro de cada clase: requisitos con el mismo rasgo en la misma clase. Una excepción legítima de una clase (la estética de Cojines) no cuenta como incoherencia, porque la opción C la admite.
+  - La importancia de un requisito en un modelo se resuelve desde la clase del producto hacia arriba: la regla más específica del rasgo en la cadena de la categoría. En un juego, desde cada pieza a la que se aplica el bloque, y se toma la más alta. (Enmendada por [D-058](#d-058): primero la excepción del requisito, si la tiene.)
+  - «El crítico es global» y su prueba («¿se sabe qué se vende, cuánto cuesta y si se puede adquirir?»): solo pueden ser críticos los rasgos que dicen qué se vende (identidad, contenido, medida que fija lo vendido). La medida que fija lo vendido es siempre crítica y la medida descriptiva siempre principal (D-043, criterio 1). Para identidad y contenido, si son críticos lo decide una regla global; si no lo son, el árbol decide entre principal y complementario. Un voto crítico en otro rasgo cuenta como principal y el informe lo señala. El artefacto solo excluye expresamente la estética; la restricción a tres rasgos es lectura de Claude (el catálogo solo tiene críticos de esos rasgos) y tiene un riesgo: una cuestión de compatibilidad o de seguridad que fijara qué se vende no podría ser crítica. Se revisa en el marco si el informe lo muestra. (Enmendada por [D-055](#d-055): el crítico se decide por requisito y clase, y la medida descriptiva puede ser crítica; por [D-056](#d-056), también pueden serlo los rasgos nuevos que dicen qué se vende.) (Sustituida por [D-058](#d-058) en cuanto a qué rasgos pueden ser críticos: cualquier propiedad, si sus votos lo dicen.)
+  - «Coherencia» se mide dentro de cada clase: requisitos con el mismo rasgo en la misma clase. Una excepción legítima de una clase (la estética de Cojines) no cuenta como incoherencia, porque la opción C la admite. (Precisada por [D-055](#d-055): un crítico por requisito tampoco es incoherencia.) (Generalizada por [D-058](#d-058): ninguna excepción por requisito cuenta como incoherencia.)
   - «No tocar la capa general»: sus importancias quedan fijas como parte del marco, y ninguna regla, general ni específica, las revisa por clase. Enmienda en este punto [D-034](#d-034) («revisables por clase con justificación») y la interpretación de D-044 sobre la revisión por clase, que queda para los bloques de categoría. La capa general no tiene estado de compilación: no es «no compilado» ni se encola.
   - «Compila al vuelo» un bloque generado en ejecución: se le aplican el índice de rasgos y las reglas vigentes; queda en estado «no compilado» («no revisada» en la cita de D-044) hasta que lo compila el entrenamiento. Si su rama no tiene regla, la importancia es el voto del agente, provisional.
-  - **Quién decide cada cosa en la primera versión:** la importancia, las reglas compiladas (o el voto, sin regla); la composición, las especializaciones, las inferidas y la aplicación, el clasificador, con las especializaciones y las inferidas siempre provisionales; la relevancia de las propiedades de Amazon, la redacción automática del bloque cuando se genera. Las reglas de las demás decisiones quedan en OQ-49.
+  - **Quién decide cada cosa en la primera versión:** la importancia, las reglas compiladas (o el voto, sin regla); la composición, las especializaciones, las inferidas y la aplicación, el clasificador, con las especializaciones y las inferidas siempre provisionales; la relevancia de las propiedades de Amazon, la redacción automática del bloque cuando se genera. Las reglas de las demás decisiones quedan en OQ-49. (Enmendada por [D-055](#d-055) y [D-056](#d-056): el crítico lo deciden las reglas por requisito y clase, y el rasgo, los votos de los agentes.)
   - En el rasgo «certificación u origen», «origen» es el lugar de fabricación; no es el origen del requisito (referencias, inferida o normativa), que es otro rasgo.
-  - Un requisito toma el rasgo de sus fuentes. Las cuestiones inferidas y las de especialización, sin fuente de referencia, se etiquetan en el propio requisito.
+  - Un requisito toma el rasgo de sus fuentes. Las cuestiones inferidas y las de especialización, sin fuente de referencia, se etiquetan en el propio requisito. (Enmendada por [D-056](#d-056): manda el rasgo votado del requisito; el de las fuentes es el de partida.)
   - Los votos los emite el agente de cada caso para los requisitos de categoría, especialización e inferidos de su modelo, no para la capa general, que es fija. Se registran con la clase en que se emiten.
   - **Cobertura:** las cuestiones clave esperadas se miden en el conjunto de control; los hechos declarados sin pregunta, en todos los casos. Cuentan todos los hechos declarados menos lo estético y lo promocional (el artefacto) y los beneficios reclamados, que [D-025](#d-025) deja fuera de la clase.
   - **Informe agregado:** métricas frente a la versión anterior, reglas añadidas o retiradas con el número de requisitos que decide cada una, votos que contradicen el marco, lo usado sin compilar y las divergencias de las decisiones no inducidas agrupadas por patrón.
@@ -871,7 +908,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 - **Contexto:** `INTAKE 2026-10-25-relevance-origin`. La regla del marco «la medida descriptiva es principal» ([D-043](#d-043), criterio 1) tuvo 27 votos en contra en la pasada de control con las reglas 1 (informe `demand-engine/training/reports/2026-10-25-v2-report.md` de entonces). Claude explicó en la conversación que el criterio habla de «la medida o la talla», con dimensiones y tallas como ejemplos, y que el peso, el grosor y el gramaje habían entrado en «medida descriptiva» por la definición del vocabulario que él redactó. Los votos sobre esas tres magnitudes dependen de la clase: el gramaje es principal en toallas y en la manta polar, y complementario en fundas nórdicas y en el protector.
 - **Decisión** (opción A, «2. Confirmo»): el peso, el grosor y el gramaje salen de «medida descriptiva» y pasan a un rasgo propio, **magnitud física**, sin regla fija: su importancia la decide el árbol por clase. D-043, criterio 1, se aplica a las dimensiones y las tallas.
 - **Interpretaciones adoptadas:**
-  - El vocabulario cerrado de D-045 pasa a tener 13 rasgos.
+  - El vocabulario cerrado de D-045 pasa a tener 13 rasgos. (Enmendada por [D-056](#d-056): son el vocabulario de partida, que amplían los agentes.)
   - Las dimensiones de detalle (altura de tacón, medidas de uso del sofá, largo reclinado) siguen bajo D-043, criterio 1, hasta tener datos del entrenamiento a escala: [OQ-51](open-questions.md).
   - Una pregunta que mezcla una dimensión con un peso se etiqueta por su parte dominante.
 - **Consecuencias:** [model-training](../10-model/model-training.md#rasgos) 1.2; glosario (rasgo); catálogo reetiquetado y recompilado; nueva OQ-51.
@@ -896,3 +933,551 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - La capa general pasa a la versión 0.3.
 - **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.9; [demand-model](../10-model/demand-model.md#capa-general) 2.7; `demand-engine/catalog/gen.json`; OQ-45 anotada.
 - **Relacionado:** D-024, D-034, D-038, D-039, D-040, D-045, D-047, D-049, OQ-45.
+
+### D-053
+
+**Catálogo de entrenamiento, primera selección: El Corte Inglés, amplitud de tipos y piloto.** · aceptada · 2026-10-25
+
+- **Contexto:** `INTAKE 2026-10-25-training-catalog-selection`, tareas T-020 y T-024. [OQ-48](open-questions.md) dejaba abierta la selección del catálogo de entrenamiento ([D-045](#d-045), [D-046](#d-046)). El usuario pidió «una lista representativa de productos para entrenamiento. utiliza un grupo pequeño de productos de cada categoría, pero quiero suficiente variedad de categorías», a partir del sitemap de variantes de El Corte Inglés, y fijó «3 fichas», 300 fichas en una misma jornada de captura y un piloto: «empecemos con 30 para validar el sistema de entrenamiento». Para la captura eligió un ritmo moderado y «no apliques la técnica del scroll. entra y descarga el html de primera carga».
+- **Decisión:**
+  - **Amplitud antes que profundidad:** pocas fichas de cada tipo de producto (3) y tantos tipos como sea posible.
+  - **Primera tienda:** El Corte Inglés (generalista, con muchos departamentos). Sin Amazon.es.
+  - **Tamaño:** 300 fichas (100 tipos); antes, un **piloto de 30** (10 tipos de departamentos distintos) valida el sistema de entrenamiento.
+  - **Captura del catálogo de entrenamiento:** con el motor de captura, a ritmo moderado (pausa de 10–30 s; pausa larga de 1–3 min cada 20–30 fichas), con las 300 fichas en una misma jornada, por encima del tope por defecto del motor (150 visitas por sitio y día), y **sin desplazamiento**: se conserva el HTML de la primera carga.
+- **Interpretaciones adoptadas** (criterio aplicado por Claude, pendiente de que el usuario lo revise):
+  - Que el piloto valide «el sistema de entrenamiento» se lee como recorrer la cadena completa: captura, clasificación, ciclo de entrenamiento e informe.
+  - «Categoría» se lee como **tipo de producto conocido antes de capturar**: la primera palabra del nombre del producto en la URL, en singular y sin palabras vacías, dentro de cada departamento; solo cuentan los tipos que nombra alguna categoría de la tienda. Es una aproximación: la clase de cada ficha es la que le da el clasificador. Las excepciones operativas (en los departamentos de títulos, como libros, cine y música, el tipo es el departamento; mínimo de productos por tipo; departamentos excluidos porque sus nombres empiezan por la marca) están en `demand-engine/training/selection/README.md`.
+  - «Representativa» se lee como un sorteo determinista (semilla fija) por rondas de departamentos, sin repetir tipo, con una ficha por producto (las variantes cuentan una vez) y reservas para las fichas que ya no existan. Quedan fuera los departamentos que no venden productos (entradas, tarifa plana, tarjetas y cajas regalo).
+  - «Evitar bloqueos» se lee como no provocarlos (ritmo, robots.txt, reservas TDM, parada ante desafíos), no como eludirlos ([D-042](#d-042), [D-046](#d-046)).
+  - El artefacto limita la captura sin desplazamiento a «lo que necesitamos», es decir, al catálogo de entrenamiento: el MPIR y la captura suelta (`taxo page fetch`) siguen desplazándose para que cargue lo diferido.
+- **Consecuencias:** [model-training](../10-model/model-training.md#casos-alcance-y-ejecución) 1.3; glosario (catálogo de entrenamiento); OQ-48 anotada: siguen abiertas otras tiendas y la relación con el panel de referentes del MPIR. Criterio operativo y selección en `demand-engine/training/selection/` (`eci-2026-10-25.json`: 100 tipos de 26 departamentos, 300 fichas y 200 reservas).
+- **Relacionado:** D-042, D-045, D-046, OQ-11, OQ-12, OQ-48.
+
+### D-054
+
+**El entrenamiento a escala clasifica con agentes de Claude Code, no con la API.** · aceptada · 2026-10-25
+
+- **Contexto:** `INTAKE 2026-10-25-training-classifier`, tareas T-020 y T-026. [D-045](#d-045) reservaba Claude Code para probar productos reales y preveía, para el entrenamiento con miles de fichas, «llamadas a la API por lotes». Con el piloto de 30 fichas ya capturado ([D-053](#d-053)), Claude propuso clasificarlo con la API de Anthropic y pidió una clave. El usuario respondió: «para clasificar usamos claude code».
+- **Decisión:** la clasificación del catálogo de entrenamiento se hace con agentes de Claude Code, como `/demand-model`, y no con llamadas a la API. Enmienda el punto «Ejecución» de D-045.
+- **Interpretación adoptada:** «Claude Code» se lee como agentes lanzados desde una sesión de Claude Code, con el mismo reglamento, la misma salida y la misma comprobación que la ejecución. El reparto de las fichas entre agentes es detalle del procedimiento (T-026).
+- **Consecuencias:** [model-training](../10-model/model-training.md#casos-alcance-y-ejecución) 1.4; T-026 pasa de la API a un procedimiento de clasificación por lotes con agentes; no hace falta `ANTHROPIC_API_KEY`.
+- **Relacionado:** D-045, D-053.
+
+### D-055
+
+**Crítico por requisito y clase; la medida descriptiva puede ser crítica.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-training-v4-review`, apartados 1 y 2, tras el ciclo de entrenamiento de reglas 4 (T-028, informe `demand-engine/training/reports/2026-10-26-v4-report.md`). Con la lectura de [D-045](#d-045), una regla global por rasgo decide si la identidad y el contenido son críticos; como casi todas las cuestiones de identidad no lo son, la regla da «no crítico» en todo el catálogo y ninguna clase puede tener una identidad crítica (el artista de un CD queda principal, como el género musical). Los votos ven críticas, entre otras, qué piezas incluye un juego, el formato de una grabación, el artista de un CD o LP, el tipo de joya para piercing y el tipo de sofá. La medida descriptiva, fija en principal ([D-043](#d-043), criterio 1), recibe votos «crítico» donde la medida en centímetros es la variante que se vende (manta 140×200, cojín 50×50). Hay requisitos compartidos por varias clases: la medida en centímetros del sector Ropa de cama es crítica en los votos de mantas y plaids, y principal en los de sábanas, fundas y protectores.
+- **Decisión:**
+  - Opción elegida: «Por requisito: misma prueba para todas las clases, aplicada a cada pregunta», por requisito y clase, como la relevancia.
+  - Sobre la medida descriptiva, Claude propuso reetiquetar como «medida que fija lo vendido» la medida que define la variante. Palabras del usuario: «¿no estaría resuelto con la pregunta anterior?». Opción elegida: «Sí, extender: la medida descriptiva es principal salvo que los votos de su clase la hagan crítica. Las dimensiones de detalle (tacón, largo reclinado) siguen abiertas en OQ-51 hasta T-029.»
+- **Interpretaciones adoptadas:**
+  - Se mantiene la prueba de crítico de D-045 («sin la cuestión, ¿se sabe qué se vende, cuánto cuesta y si se puede adquirir?»), que es la misma en todas las clases. Se sustituye la regla global de identidad y contenido.
+  - El mecanismo es el de la relevancia ([D-050](#d-050)): por requisito y clase, la mayoría de los votos del requisito en la clase, con la importancia del catálogo como voto de partida, igual que en la importancia. Sube a la madre con el mismo mínimo estructural y no pasa de las verticales. En un empate se queda lo que había, como en la relevancia y en el rasgo (D-056); así, un solo voto «crítico» frente a la importancia del catálogo no basta para hacer crítico un requisito.
+  - Pueden ser críticos la identidad, el contenido, la medida descriptiva y los rasgos que dicen qué se vende ([D-056](#d-056)). La medida que fija lo vendido sigue siendo siempre crítica (D-043, criterio 1); la estética, nunca; la capa general sigue fija. (Sustituida por [D-058](#d-058): cualquier propiedad puede ser crítica.)
+  - Si un requisito no es crítico, su importancia se decide como hasta ahora: el árbol por rasgo, y la medida descriptiva en principal por el marco. Un voto «crítico» en un rasgo que no lo admite cuenta como principal. (Enmendada por [D-058](#d-058): entre principal y complementario manda la excepción del requisito, si la tiene; el voto crítico cuenta como principal en la regla del rasgo y como crítico en la excepción.)
+  - En un juego, como la importancia: se resuelve desde cada pieza y se toma la más alta.
+  - La coherencia sigue comparando lo que decide el árbol: un crítico por requisito no cuenta como incoherencia frente a otros requisitos de su rasgo y clase, igual que una excepción de la opción C. Es un cambio de una métrica del marco que la decisión necesita. (Generalizada por [D-058](#d-058): ninguna excepción por requisito cuenta como incoherencia.)
+  - Con esa exclusión, ninguna métrica de D-045 puede mejorar con una regla de crítico, y la validación nunca la aceptaría. Por analogía con la coherencia de relevancia de D-050, se añade la **coherencia del crítico**: requisitos cuya importancia contradice la mayoría de sus votos de crítico en su clase. Debe bajar. Es lectura de Claude, revisable en el marco. (Generalizada por [D-058](#d-058): coherencia por requisito.)
+  - Las reglas de crítico se escriben `crit:<requisito>@<clase>` y, como las de relevancia, mandan sobre el voto; sin regla, decide el voto, provisional. (Enmendada por [D-058](#d-058): son excepciones por requisito, `imp:<requisito>@<clase>`.)
+  - Descartado (apartado 6 del artefacto): contar las dos ejecuciones de un caso como un solo voto en la inducción. La simulación solo cambia dos reglas de los juguetes para perros; las de pantuflas y sofás cama salen de la granularidad por rasgo y de un solo caso por clase.
+- **Consecuencias:** [model-training](../10-model/model-training.md#reglas-de-importancia) 1.5; [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#criterios-de-redacción-del-catálogo) 1.10; glosario (regla inducida); D-043, criterio 1, y D-045 enmendadas; nueva métrica, coherencia del crítico; I-20 resuelta en lo que toca al crítico; OQ-51 anotada (en parte); el código del entrenamiento se adapta en una tarea aparte.
+- **Relacionado:** D-035, D-043, D-045, D-050, D-051, D-056, I-20, OQ-51.
+
+### D-056
+
+**Vocabulario de rasgos abierto: rasgos propuestos y votados por los agentes.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-training-v4-review`, apartado 3. Los bloques generados en ejecución etiquetan algunos requisitos con rasgos que no encajan (el sabor de una confitura como material, la viscosidad SAE de un aceite como prestación, la especie de destino como uso, la duración de una grabación como medida descriptiva), y el índice de rasgos propaga la etiqueta por fuente a todas las categorías ([I-20](issues.md#i-20)).
+- **Decisión:**
+  - Palabras del usuario: «Se deberían proponer nuevos rasgos a medida que van siendo necesarios. Se aprueban solos si los agentes los van votando. Sabor en material no tiene sentido. Quizás un rasgo de sabor es más adecuado, pero esto lo dejamos a criterio de los agentes que los van encontrando.»
+  - Mecanismo aceptado:
+    1. **Proponer:** un agente que redacta un bloque o vota un requisito puede proponer un rasgo nuevo cuando ninguno encaja, con nombre y una frase de definición. Lo encuentra el agente.
+    2. **Votar:** cada agente que vota un requisito vota también su rasgo: mantiene el actual o propone otro, de la lista o nuevo.
+    3. **Aprobarse solo:** «mayoría de votos de rasgo en el requisito (empate: se queda el actual); entra en el vocabulario en cuanto gana en alguno. Luego, la validación de siempre de las reglas.»
+  - Qué rasgos pueden ser críticos: «al proponer un rasgo, el agente indica si dice qué se vende; solo esos (y identidad, contenido, medidas) pueden ser críticos.» (Sustituido por [D-058](#d-058): cualquier propiedad puede ser crítica y el agente ya no indica si el rasgo dice qué se vende.)
+- **Interpretaciones adoptadas:**
+  - Sustituye «de una lista cerrada» de D-045 y el «vocabulario cerrado» de [D-051](#d-051): los 13 rasgos actuales son el vocabulario de partida.
+  - Manda el rasgo votado del requisito. El índice por fuentes solo da el rasgo de partida a lo que no tiene votos, incluidos los requisitos de un bloque generado en ejecución. Una fuente toma el rasgo de sus requisitos cuando todos coinciden; si sus requisitos tienen rasgos distintos, sale del índice, como ya pasa con `amazon-ptd-prop:BOOT.toe_style` y `ley:CE-767/2009-11.3`.
+  - «Mayoría» se lee como el rasgo más votado del requisito (mayoría relativa), porque puede haber más de dos candidatos.
+  - El voto de rasgo lo emiten los mismos agentes que votan la importancia (D-045), para los requisitos que votan. Sin votos, se queda el rasgo actual.
+  - «Medidas» son la medida que fija lo vendido y la medida descriptiva. La magnitud física no, porque D-051 la sacó de la regla de las medidas; un agente puede proponer otro rasgo si alguna magnitud dice qué se vende. (Sin efecto desde [D-058](#d-058).)
+  - Un rasgo nuevo sin regla en una clase recibe la importancia del voto, provisional y encolada, como cualquier requisito sin regla (D-045).
+  - El artefacto no dice qué pasa cuando dos agentes proponen nombres distintos para el mismo rasgo, ni si se retira un rasgo que deja de ganar, ni el estado de un rasgo propuesto por quien redacta un bloque mientras nadie lo ha votado (se usa como provisional): [OQ-52](open-questions.md).
+- **Consecuencias:** [model-training](../10-model/model-training.md#rasgos) 1.5; [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formato-del-catálogo) 1.10; glosario (rasgo); D-045 y D-051 enmendadas; I-20 resuelta; nueva OQ-52; el código del entrenamiento, el reglamento y `catalog/DRAFTING.md` se adaptan en una tarea aparte.
+- **Relacionado:** D-045, D-051, D-055, I-20, OQ-49, OQ-52.
+
+### D-057
+
+**Composición y aplicación: hoja más específica, hermana como alias y unidad de exposición.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-training-v4-review`, apartado 4. En la pasada de control de reglas 4, los agentes dudan si una hoja registrada como vacía ([D-043](#d-043), criterio 7) entra como categoría o como alias, rechazan como duplicada una hermana que el caso de control espera como alias (Sofás de dos plazas en el sofá cama) y no activan la unidad no nueva en el Stressless, que [D-037](#d-037) lleva a la aplicación ([I-21](issues.md#i-21), [I-22](issues.md#i-22)).
+- **Decisión** (opciones elegidas):
+  - «La hoja más específica entra como categoría aunque herede todo; una hermana que nombra otra característica (dos plazas), como alias.»
+  - «La unidad de exposición que la ficha identifica como tal cuenta como estado declarado; "outlet" solo, no.»
+- **Interpretaciones adoptadas:**
+  - La hoja más específica que cumple el producto es el componente por el que entran los requisitos de sus madres ([D-029](#d-029)): los aporta al producto, aunque su bloque esté vacío, y por eso no es alias. Una hermana del mismo nivel trae por herencia esos mismos requisitos, ya aportados, y no añade ninguno sin duplicarlo ([D-023](#d-023)): nombra otra característica y es alias. Responde en parte a [OQ-39](open-questions.md); cómo se elige la hoja más específica entre dos hermanas que el producto cumple queda en [OQ-43](open-questions.md).
+  - Una hermana que nombra otra característica del producto no es una entrada duplicada: la duplicada sigue siendo otra entrada para el mismo tipo de producto (el plaid, [OQ-43](open-questions.md)).
+  - La unidad de exposición se lee con D-037: es un estado de la unidad declarado en la ficha, que activa `gen.unidad-no-nueva`; la etiqueta «outlet» sola no basta como estado declarado.
+- **Consecuencias:** [study-class](../10-model/study-class.md#composición-de-la-clase) 1.4; [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md) 1.10; glosario (alias, clasificación objetiva); D-033 y D-037 precisadas; I-21 e I-22 resueltas; OQ-39 y OQ-43 anotadas; el reglamento del clasificador (`demand-engine/classifier/rulebook.md`, pasos 2 y 6) se adapta en una tarea aparte.
+- **Relacionado:** D-023, D-028, D-033, D-037, I-21, I-22, OQ-39, OQ-43.
+
+### D-058
+
+**Excepciones de importancia por requisito y clase en cualquier propiedad, también para el crítico.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-color-and-requirement-exceptions`, tras la revisión del ciclo de reglas 4 (T-028). Palabras del usuario: «Duda sobre el color en el rasgo de estética. No sé si con estos cambios ya quedaría resuelto. En los casos de control veo que el color se está estableciendo como complementario, pero esto no tiene sentido. En muchos casos el color es principal o incluso crítico, por ejemplo en zapatillas o sofás. No puedes compararlo si no sabes el color.» Los votos dan el color principal en calzado (10 de 10), sofás y sofás cama (4 de 4) y cojines (2 de 2), y la regla de la estética lo deja complementario en todas esas clases: el color comparte rasgo con el estampado, el estilo, el acabado o las patas, que los agentes votan complementarios. Pasa lo mismo con el abrigo de las pantuflas y el mecanismo de apertura del sofá cama; en el piloto, 97 de 375 combinaciones de requisito y clase tienen una mayoría clara de votos contra el nivel que aplica la regla. Ningún agente ha votado el color crítico; cuando el color es lo que se elige entre variantes, la capa general ya lo pregunta como crítico (`gen.variantes/01`). [D-055](#d-055) solo decidía el crítico, y el marco prohibía hacer crítica la estética.
+- **Decisión:**
+  - Opción elegida (A): «Excepción por requisito: la regla por rasgo es la general; si los votos de un requisito en una clase la contradicen, ese requisito tiene su propia regla (mayoría; empate, se queda lo que había). D-055 pasa a ser un caso de esto.»
+  - Sobre el color, opción elegida: «Sí, si sus votos lo dicen: el color se excepciona de la prohibición de la estética: puede ser crítico por requisito y clase si los votos lo hacen crítico.» Precisión del usuario: «Esto no solo es para el color, es para cualquier propiedad.» Y después, sobre su alcance (`INTAKE 2026-10-26-any-property-precision`): «Me refería a las 2 respuestas. No solo a que pueda ser crítico, también como principal.»
+- **Interpretaciones adoptadas:**
+  - «Cualquier propiedad» vale para las dos respuestas: la excepción por requisito y el crítico. Se lee como cualquier requisito de un bloque de categoría o de especialización, o inferido: puede tener su propia importancia en una clase (principal, complementario o crítico) si sus votos contradicen la regla de su rasgo. Desaparecen el límite del marco «ninguna regla puede hacer crítica la estética» (INTAKE 2026-10-25-training-operation, [D-045](#d-045)), la lista de rasgos que podían ser críticos (D-055) y la indicación de si un rasgo propuesto dice qué se vende ([D-056](#d-056)), que solo servía para eso. La capa general sigue fija y la medida que fija lo vendido, siempre crítica.
+  - El mecanismo es el de D-055 en todos los niveles. La regla `imp:<requisito>@<clase>` es la mayoría de los votos del requisito en la clase, con la importancia del catálogo como voto de partida. En un empate se queda lo que da la regla del rasgo. Sube a la madre con el mismo mínimo estructural, no pasa de las verticales y manda sobre la regla del rasgo; sin votos, decide la regla del rasgo. Las reglas de crítico de D-055 son excepciones de este tipo.
+  - La regla por rasgo sigue decidiendo entre principal y complementario y no da crítico: ya no lo daba con D-045 (salvo la regla global de identidad y contenido), y D-055 llevó el crítico al requisito. Un voto «crítico» cuenta como principal en la regla del rasgo y como crítico en la excepción del requisito.
+  - Las excepciones no bajan lo que fija el marco: la medida descriptiva no baja de principal ([D-043](#d-043), criterio 1; las dimensiones de detalle siguen en [OQ-51](open-questions.md)). Tampoco la composición textil, que es principal por su origen normativo según las interpretaciones de D-043 (Reglamento (UE) 1007/2011, art. 16.1); es lectura de Claude, porque D-043 forma parte del marco ([D-044](#d-044)).
+  - Una excepción no cuenta como incoherencia. La métrica de aceptación de D-055 pasa a ser la **coherencia por requisito**: requisitos cuya importancia contradice la mayoría de sus votos en su clase. Debe bajar.
+- **Consecuencias:** [model-training](../10-model/model-training.md#reglas-de-importancia) 1.6 y 1.7 (precisión `INTAKE 2026-10-26-any-property-precision`); glosario (regla inducida, rasgo); D-045, D-055 y D-056 enmendadas; I-20 anotada; nueva I-24; el código del entrenamiento se adapta en T-030.
+- **Relacionado:** D-035, D-043, D-045, D-050, D-055, D-056, OQ-51.
+
+### D-059
+
+**«Críticos pocos» no es un objetivo del marco.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-critical-count-not-a-goal`. El marco del entrenamiento ([D-044](#d-044), diagrama de `INTAKE 2026-10-25-induced-rules`, redactado por Claude y aprobado por el usuario con «documenta») incluía «críticos pocos» entre los objetivos y características del resultado. Tras [D-058](#d-058), Claude registró [I-24](issues.md#i-24): ninguna métrica vigila que haya pocos críticos.
+- **Decisión:** palabras del usuario: «Eso era una suposición, no una regla. Podría haber muchos críticos si así se determina.» «Críticos pocos» sale de los objetivos y características del resultado del marco.
+- **Interpretaciones adoptadas:**
+  - Cuántos requisitos son críticos lo determinan la prueba de crítico ([D-045](#d-045), [D-055](#d-055)) y las reglas que salen de los votos ([D-058](#d-058)); el marco no pone límite a su número.
+  - Siguen en el marco los demás objetivos y características del resultado: identidad por bloques, especificidad necesaria y nada de conjeturas.
+- **Consecuencias:** [model-training](../10-model/model-training.md#marco) 1.8; [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#pruebas-de-importancia) 1.12 (se retira «los críticos son pocos y casi todos generales»); D-044 precisada; I-24 resuelta (no aplica); en T-030 se retiran las frases equivalentes del reglamento del clasificador («Los críticos son pocos») y de `catalog/DRAFTING.md` («Los críticos son raros fuera de la capa general»), que sesgan los votos.
+- **Relacionado:** D-044, D-045, D-055, D-058, I-24.
+
+### D-060
+
+**Formulación de las cuestiones del catálogo: condiciones, una necesidad por requisito y componentes con fuente.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-question-formulation`, antes del escalado del entrenamiento (T-029). Palabras del usuario: «Veo que los requisitos se están construyendo con unas preguntas muy extensas, abarcando demasiado análisis en cada uno. También veo que muchas de estas preguntas contienen subpreguntas condicionales»; pidió estudiar si convenía ya una regla o esperar a trabajar más a fondo la valoración de los AC. En el catálogo (409 requisitos), unas 104 cuestiones hacen dos o más preguntas y 19 llevan una condición dentro. Con una parte basta para que la disponibilidad efectiva sea 1, y la ausencia de las demás baja a Concreción 1; cada GSC juzga varios hechos con un solo valor; las partes secundarias heredan el rasgo y la importancia de la cabeza (2 de los 5 rasgos mal etiquetados de [I-20](issues.md#i-20) son cuestiones compuestas). Dividir después del escalado invalidaría los votos, los rasgos y las reglas por requisito ligados a su identificador. Una muestra con el modelo `sofa-cama-luna` (v4-b) confirmó el enfoque; tras ella, la regla de dividir se estrechó.
+- **Decisión** (opción C, regla estrecha ahora y granularidad después; «Aplícalo así»):
+  - Cuatro reglas para formular las cuestiones del catálogo: (1) ninguna condición sobre la existencia de la información («si se indica», «si procede»); (2) una condición sobre un hecho que afecta solo a una parte se convierte en un requisito condicionado propio, con la condición en `applicability`, y la pregunta de sí o no seguida de su detalle se mantiene, porque un «no» fundamentado lo resuelve todo; (3) una necesidad por RI: se divide cuando las partes se responden por separado, cada una sirve por sí sola para comparar y tomarían otro rasgo u otra importancia; tras la muestra, estrecha: «solo divide cuando las partes tomarían otro rasgo u otra importancia»; (4) cada componente de la cuestión tiene fuente y, si no la tiene, va como cuestión inferida. Texto literal en [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formulación-de-las-cuestiones).
+  - Aplazado al trabajo de los AC: la granularidad cuando las partes comparten rasgo e importancia (par `cat.sofas/13` frente a `cat.sofas/05`) y qué hacer con las listas de ejemplos. La capa general, que es marco, no se toca: `gen/01`, `gen/12` y `gen/15` quedan como candidatas para decisión del usuario.
+- **Interpretaciones adoptadas:**
+  - Son criterios de método que se añaden a los de [D-043](#d-043) (`requirement-blocks`, propuesta) y, como ellos, forman parte del marco ([D-044](#d-044)). No crean conceptos: usan el requisito condicionado ([D-048](#d-048)), la cuestión inferida ([D-036](#d-036), [D-041](#d-041)), el rasgo ([D-056](#d-056)) y la importancia, y aplican la neutralidad de la formulación de un RI ([demand-model](../10-model/demand-model.md#reglas-e-invariantes)). «Necesidad», en la regla 3, es la necesidad de conocimiento del RI; las «necesidades constitutivas» de la RI-03 del perfil del RI son sus componentes.
+  - Las reglas 1 a 3 se aplican a las cuestiones de los bloques de categoría y de especialización y a las inferidas, es decir, a todo lo que redactan la redacción de bloques y el clasificador. La regla 4, a las cuestiones con fuente de referencia (origen «referencias» o «normativa»): las de especialización y las inferidas no la tienen ([D-045](#d-045)). La capa general no cambia sin decisión del usuario.
+  - Regla 1: la condición prohibida es la que no nombra un hecho del producto o de la oferta. Si corresponde a un hecho identificable, se nombra ese hecho y rige la regla 2.
+  - Regla 2: el detalle del mismo hecho es lo que solo existe si la respuesta es sí. Si ese detalle reúne varias necesidades, rige la regla 3.
+  - Regla 3: las tres condiciones se cumplen a la vez. El rasgo y la importancia son los que tomaría cada parte por sí sola con el vocabulario y las reglas vigentes. Cuando las partes comparten rasgo e importancia, la cuestión no se divide por esta regla; sigue rigiendo el criterio 2 de D-043 (un atributo con valores de temas distintos se divide por tema).
+  - Regla 4: la fuente es un atributo, una propiedad o un valor de las `sources` del requisito, o la norma en el origen «normativa». El componente sin fuente sale de la cuestión y se propone como cuestión inferida, con sus controles; la valida el entrenamiento ([D-044](#d-044)).
+  - Las listas de ejemplos siguen la RI-07 del perfil del RI: son ayudas de interpretación, no componentes.
+  - El catálogo vigente se corrige con estas reglas antes del escalado. La implantación queda fuera de la documentación: `demand-engine/catalog/DRAFTING.md` y el reglamento del clasificador, en T-030; la nueva redacción del catálogo, en T-031.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formulación-de-las-cuestiones) 1.11 y 1.13 (revisión independiente); [demand-model](../10-model/demand-model.md#reglas-e-invariantes) 2.8 (enlace a las reglas); D-043 ampliada; OQ-22 y OQ-45 anotadas; el catálogo de `demand-engine/catalog/cat/` se corrige con estas reglas (tareas del código).
+- **Relacionado:** D-036, D-041, D-043, D-044, D-048, D-056, I-20, OQ-22, OQ-45.
+
+### D-061
+
+**Tipos de información potencialmente resolutiva: forma de la respuesta, con vocabulario cerrado.** · sustituida por [D-062](#d-062) · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-answer-form`. El usuario pidió revisar en el canon la estructura de propiedades del requisito («¿Qué está faltando?»). El canon ([demand-model](../10-model/demand-model.md#requisito-informativo-ri), FUND §3.3) nombra como registro opcional del catálogo los «tipos de información potencialmente resolutiva», sin definirlos; ni el método ni el catálogo los registraban. Claude presentó tres lecturas: forma de la respuesta, soporte donde suele aparecer, o las dos.
+- **Decisión:** palabras del usuario: «Empezaremos por añadir este campo: "Tipos de información que pueden resolverlo".» Opción elegida, «Forma de la respuesta (Recomendado)»: «Qué clase de dato o afirmación responde la cuestión, con vocabulario cerrado. Se deduce en parte de las fuentes; sirve a Precisión, Comparabilidad y a los ámbitos pertinentes.» Vocabulario cerrado (borrador): valor con unidad, valor de lista, sí/no, relación, condición, identidad, acreditación y descripción, con los ejemplos del artefacto. Descartadas: «Soporte donde aparece» y «Ambas, en dos listas».
+- **Interpretaciones adoptadas:**
+  - El campo conserva el nombre del canon, «tipos de información potencialmente resolutiva», con la etiqueta «forma de la respuesta». Su definición va al canon (`demand-model`); el vocabulario, por ser borrador, como propuesta en el mismo módulo.
+  - «Añadir este campo» se lee como pasar de registro opcional a campo del catálogo: cada requisito lleva uno o varios valores del vocabulario (los ejemplos del artefacto combinan dos, «sí/no · valor con unidad»). Se registra en todos los requisitos, también en la capa general, como en los ejemplos del artefacto (`gen/06`, relación; `gen/11`, condición); en ella, que es marco, se fija con la capa general, sin cambiar sus preguntas ni sus importancias.
+  - «Potencialmente» y el principio de independencia de un campo o formato ([demand-model](../10-model/demand-model.md#reglas-e-invariantes)): el campo no prescribe un formato de publicación ni excluye una respuesta de otra forma que esté fundamentada, y no es una lista de respuestas esperadas (objetivo y límite del perfil del RI; RI-06). Su finalidad es la que da la opción elegida: servir a la Precisión, la Comparabilidad y los ámbitos pertinentes. La localización, función de la opción descartada «Soporte donde aparece», no se le atribuye.
+  - «Se deduce en parte de las fuentes»: lo registra quien redacta el requisito (la redacción del bloque o el clasificador), apoyándose en el tipo de sus fuentes. No lo inducen ni lo votan las reglas del entrenamiento.
+  - Los usos que cita la opción (Precisión, Comparabilidad, ámbitos pertinentes) son su finalidad; no cambian las guías de los AC ni deciden por sí solos los ámbitos pertinentes, que siguen sin registrarse.
+  - No es el rasgo ([D-056](#d-056)): el rasgo dice qué resuelve la cuestión; la forma, cómo es la respuesta. «Identidad» está en los dos vocabularios con sentidos distintos: como rasgo, la cuestión que dice qué se vende; como forma, una respuesta que es un nombre, una dirección o un identificador.
+  - El vocabulario es cerrado: un valor nuevo o un cambio requieren decisión. Cómo se ajusta con el uso queda abierto ([OQ-53](open-questions.md)).
+- **Consecuencias:** [demand-model](../10-model/demand-model.md#requisito-informativo-ri) 2.9 y 2.10 (revisión independiente); [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formato-del-catálogo) 1.14 y 1.15 (campos de un requisito); glosario (nueva entrada); nueva OQ-53. La implantación (formato del catálogo y de la salida del clasificador, comprobación con el vocabulario, registro en los requisitos existentes) queda fuera de la documentación: T-030 y T-031.
+- **Relacionado:** D-034, D-044, D-045, D-056, D-060, OQ-03.
+
+### D-062
+
+**Información resolutiva: los tipos de información que pueden resolver cada requisito, para localizar y recomendar.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-resolving-information`. Tras [D-061](#d-061), el usuario pidió un sistema de reglas del motor que determinara el campo y una muestra simulada con el modelo `sofa-cama-luna`. Ante el resultado: «No me convence el resultado. Revisa en el canon para qué sirve "Tipos de información que pueden resolverlo": 1. localizar información pertinente; 2. recomendación.» El canon nombra el campo sin definirlo (FUND §3.3), pero lo sitúa en esas dos funciones: localizar la información que puede responder un RI (núcleo de conocimiento y perfil de resolución, FUND §3.6) y recomendar con acciones verificables (FUND §9.5). La forma de la respuesta de D-061 describe cómo es el dato, no qué información resuelve la cuestión, y D-061 llegó a excluir la localización.
+- **Decisión** (respuesta del usuario: «Sí»):
+  - Definición propuesta por Claude: para cada requisito, los tipos de información comercial (datos, afirmaciones, relaciones o contenidos) que pueden contribuir a resolverlo, cada uno ligado al componente de la cuestión al que aporta; orientativa y no exhaustiva (RI-07), admite otras representaciones (RI-06), no impone formato ni ubicación (PR-06) y no son valores esperados. Se retira el vocabulario de formas.
+  - Alcance, en palabras del usuario: «Solo me interesa la columna "Tipos de información que pueden resolverlo" (por ahora).»
+  - Denominación, elegida entre «Información resolutiva», «Guía de resolución», «Contribuciones posibles» y «Repertorio de información»: «Información resolutiva (Recomendado)», forma corta del término del canon; la definición conserva el «potencialmente».
+  - Las reglas del motor que la determinan se diseñan después, con el contenido ya fijado.
+- **Interpretaciones adoptadas:**
+  - Sustituye a D-061 en todo: definición, finalidad, contenido y vocabulario. El catálogo la sigue registrando en cada requisito («para cada requisito»), como D-061 había decidido para el campo.
+  - «Solo la columna» delimita el campo a la lista de tipos de información de cada requisito; las demás columnas de la muestra quedan fuera del campo.
+  - Las dos funciones son finalidad del campo; no cambian las reglas de la exploración, la pertinencia, la cobertura ni las recomendaciones de la auditoría (`audit-gsc`), que lo usan como apoyo.
+  - No es el rasgo ([D-056](#d-056)): el rasgo dice qué resuelve la cuestión; la información resolutiva, qué información puede resolverla.
+  - Quién la registra y con qué reglas queda abierto ([OQ-54](open-questions.md)); mientras tanto no se registra en el catálogo. [OQ-53](open-questions.md), sobre el vocabulario de formas, deja de aplicar. (Resuelto por [D-063](#d-063), que añade a cada tipo su origen, su respaldo y las tiendas en que se observa.)
+- **Consecuencias:** [demand-model](../10-model/demand-model.md#requisito-informativo-ri) 2.11 y 2.12 (revisión independiente); [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formato-del-catálogo) 1.16 y 1.17; glosario (la entrada pasa a «Información resolutiva»); OQ-53 cerrada; nueva OQ-54. Los criterios de D-061 en T-030 y T-031 se retiran hasta que se diseñen las reglas.
+- **Relacionado:** D-044, D-056, D-060, D-061, OQ-03.
+
+### D-063
+
+**Información resolutiva: cuatro orígenes compilados por el entrenamiento y aceptación en dos tiendas distintas.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-resolving-information-rules`. [D-062](#d-062) dejó abiertas las reglas del motor que determinan la información resolutiva ([OQ-54](open-questions.md)). Ante la tanda de control con los 14 casos de referencia, el usuario eligió diseñarlas antes de T-030, para que esa tanda las mida también. Claude presentó la propuesta con una muestra de datos reales de las ejecuciones v4 y del control: las 31 fichas con hechos de `gen/11` vienen de solo 4 tiendas.
+- **Decisión** («OK»): una lista por requisito con cuatro orígenes, que compila el entrenamiento. Cada tipo lleva su componente, su origen y respaldo y las tiendas en que se ha observado, que son evidencia, no un peso ni una importancia.
+  - **Marco** (capa general): de la ley que ya es fuente del requisito; la decide el usuario y se fija como el resto de la capa general.
+  - **Referencias:** el código extrae los títulos y las descripciones de las propiedades de Amazon (y de sus subpropiedades) y los atributos de Shopify con sus valores; quien redacta los convierte en tipos ligados a componentes.
+  - **Fichas reales:** el clasificador indica qué tipo de la lista es cada hecho declarado o propone uno nuevo ligado a un componente; el entrenamiento lo acepta cuando aparece en dos tiendas distintas y aporta a un componente de la pregunta.
+  - **Inferida:** la propone quien redacta; queda provisional y marcada.
+  - Ningún tipo se retira por no observarse. Mínimo de aceptación: «dos tiendas distintas», no «dos fichas».
+- **Interpretaciones adoptadas:**
+  - Es un concepto del canon con definición, finalidad y reglas propias, y `demand-model` y `model-training` están en el límite de longitud: va a un módulo nuevo, [resolving-information](../10-model/resolving-information.md), que recibe la definición de D-062; `demand-model` la enlaza.
+  - «Tú», en la tabla del artefacto, es el usuario. Las listas de la capa general las redacta Claude a partir de la ley y las aprueba el usuario, como dice el artefacto.
+  - Capa general frente a D-045 («ninguna regla puede tocar la capa general»): la muestra acepta en `gen/11` un tipo observado en las fichas. Se lee así: los tipos de origen «marco» los fija el usuario; el entrenamiento solo añade tipos observados, sin tocar las preguntas ni las importancias de la capa general, que es lo que D-045 protege. Es lectura de Claude.
+  - Amplía el alcance de la primera versión del entrenamiento ([D-045](#d-045): «inducción solo para la importancia»), como ya hizo [D-050](#d-050) con la relevancia: la regla de las dos tiendas es una regla inducida de la información resolutiva.
+  - Cada tipo registra las tiendas en que se ha observado, sea cual sea su origen; la regla de las dos tiendas solo decide la entrada de los tipos nuevos propuestos desde las fichas.
+  - Cómo deja de ser provisional un tipo inferido no lo dice el artefacto: [OQ-55](open-questions.md).
+  - «Aporta a un componente de la pregunta» es la condición que excluye lo próximo al tema (invariante 10); en la muestra, el plazo de cambio se rechaza en `gen/11`.
+  - Las tiendas en que se observa un tipo se guardan como evidencia para localizar y recomendar; no entran en el GSC, en el IR ni en la importancia.
+  - La relación con los componentes y las expresiones de ejemplo del perfil del RI, que OQ-54 también recogía, no la resuelve el artefacto: pasa a [OQ-03](open-questions.md).
+- **Consecuencias:** nuevo módulo [resolving-information](../10-model/resolving-information.md) 1.0; [demand-model](../10-model/demand-model.md#requisito-informativo-ri) 2.13 y 2.14; [model-training](../10-model/model-training.md#conexiones-y-principios) 1.9 y 1.10 (capa general y quién decide); [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formato-del-catálogo) 1.18 y 1.19; D-045 ampliada (como D-050); nueva OQ-55; glosario; índice de `docs/README.md`; OQ-54 cerrada; OQ-03 anotada. La implantación va en T-030 (formato, salida del clasificador y `bin/train`: extracción de referencias, aceptación e informe) y T-031 (listas de los requisitos de categoría).
+- **Relacionado:** D-044, D-045, D-056, D-060, D-062, OQ-03, OQ-54.
+
+### D-064
+
+**«Aportación resolutiva»: nombre de cada entrada de la información resolutiva.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-resolving-contribution-name`. [D-062](#d-062) y [D-063](#d-063) llaman «tipo» a cada entrada de la lista de información resolutiva de un requisito. Ante una interpretación de D-063 sobre la capa general, el usuario preguntó: «¿A qué te refieres con "tipos"?». Claude lo explicó: es una clase de información que puede contribuir a responder la pregunta («plazo para desistir o devolver» en `gen/11`), no el valor que publica una tienda, ni el rasgo, ni las formas retiradas de D-061.
+- **Decisión:** «Vamos a cambiar el nombre. A algo más claro y alineado con información resolutiva.» Entre «Aportación resolutiva», «Tipo de información resolutiva», «Ítem de información resolutiva» y «Dato resolutivo», opción elegida: «Aportación resolutiva (Recomendado)», que «enlaza con la propia definición ("pueden contribuir… cada uno ligado al componente al que aporta") y con la pertinencia del canon ("contribución identificable")».
+- **Interpretaciones adoptadas:**
+  - Cambia el nombre, no el concepto: las reglas de D-063 se aplican igual a las aportaciones.
+  - La lista sigue llamándose «información resolutiva», y la definición literal de D-062 conserva «tipos de información», el término general del canon (FUND §3.3). Las citas literales de las fuentes de D-062 y D-063 conservan «tipo», con una nota que remite a esta decisión.
+  - De la explicación del artefacto sale una distinción nueva en el módulo: aportación frente a valor publicado («plazo» frente a «30 días»).
+  - D-062 y D-063 no se reescriben, porque el registro de decisiones es de solo adición; su fila en la tabla remite a esta.
+  - El artefacto dice que el nombre «no choca con nada», pero el MPIR usa «aportación» en otro sentido («tipos de aportación» al modelo de demanda). No se resuelve en silencio: [I-25](issues.md#i-25).
+- **Consecuencias:** [resolving-information](../10-model/resolving-information.md) 1.1; [demand-model](../10-model/demand-model.md#requisito-informativo-ri) 2.15; [model-training](../10-model/model-training.md) 1.11; [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formato-del-catálogo) 1.20; glosario (nueva entrada «Aportación resolutiva» y entrada de información resolutiva); OQ-55 anotada en su texto. T-030, T-031 y T-032 adoptan el nombre.
+- **Relacionado:** D-062, D-063, OQ-55.
+
+### D-065
+
+**Formulación de la capa general: reglas de D-060, también para las partes de igual importancia, y aportaciones sin ley como inferidas.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-general-layer-formulation` e `INTAKE 2026-10-26-general-layer-formulation-2`. En T-031, Claude presentó desde la ley el borrador de la información resolutiva de la capa general ([D-063](#d-063): la redacta Claude y la aprueba el usuario). El usuario no aprobó las aportaciones de origen marco: «sigo viendo varios con requsisitos compuestos». La capa general, que es marco, había quedado fuera de las reglas de [D-060](#d-060) sin decisión del usuario, con `gen/01`, `gen/12` y `gen/15` como candidatas ([OQ-45](open-questions.md)). Hubo dos rondas:
+  - **Primera ronda.** Claude propuso aplicar las cuatro reglas con la regla 3 estrecha. El usuario eligió «Reglas de D-060 tal cual (Recomendado)», frente a «Dividir también lo de igual importancia» y «No tocar la capa general».
+  - **Segunda ronda.** Al presentarle de nuevo las aportaciones, el usuario respondió: «aun veo algunos compuestos que deberians epararse. pe: el del precio. peor hay otros». Claude propuso separar también las partes de igual importancia, y el usuario eligió «Sí, como en la tabla (Recomendado)», frente a «También gen/17, gen/18 y gen/19».
+- **Decisión:** la capa general se formula con las cuatro reglas de D-060, pero la regla 3 no se limita a las partes de otro rasgo u otra importancia: se separan las partes que se responden por separado. Divisiones:
+  - `gen/01` → qué es el producto, y qué incluye exactamente la oferta (los dos críticos);
+  - `gen/02` → marca, y modelo;
+  - `gen/04` → precio con impuestos incluidos, y coste del envío a España (los dos críticos, 97.1.e);
+  - `gen/06` → si está disponible, y en `gen.variantes`, qué variantes están disponibles;
+  - `gen/11` → si se puede desistir o devolver, en qué plazo y condiciones (97.1.j); qué coste de devolución asume el comprador (k); cuándo no procede o se pierde el derecho (m);
+  - `gen/12` → garantía legal de conformidad (97.1.n), y dos requisitos condicionados (97.1.ñ, «cuando proceda»): si tiene garantía comercial, cuál y en qué condiciones; si tiene asistencia o servicios posventa, cuáles y en qué condiciones;
+  - `gen/15` → opiniones de compradores, y un requisito condicionado «si publica opiniones»: cómo garantiza que son de compradores reales;
+  - `gen.variantes` → qué variantes hay; en qué se diferencian; qué variantes están disponibles;
+  - `gen.unidad-no-nueva` → marcas o defectos (principal); qué unidad se entrega (principal); motivo (complementario);
+  - `gen.descuento` → desde qué precio de referencia; en qué condiciones se aplica;
+  - `gen.precio-personalizado` → si el precio está personalizado por una decisión automatizada (97.1.f), y una cuestión inferida, con qué parámetros (regla 4: no están en la ley);
+  - `gen.elementos-digitales` → funcionalidad y medidas técnicas de protección (97.1.s); compatibilidad e interoperabilidad (97.1.t): cuatro requisitos;
+  - `gen.suscripcion` → duración o, si es indefinido o se prorroga solo, condiciones de resolución (97.1.p); duración mínima (q); depósitos y sus condiciones (r).
+  - Quedan juntos `gen/17` y `gen/18` (nombre y dirección: ejemplo literal de D-060 de lo que solo tiene sentido unido), `gen/16` (pregunta de sí o no con su detalle, regla 2) y `gen/19` (advertencias o información de seguridad: una sola exigencia del GPSR, art. 19.d). `gen/09` solo pasa a forma de pregunta.
+  - Aportaciones de la capa general sin apoyo en la ley: opción elegida «Inferidas provisionales (Recomendado)», frente a «Como marco» y «Retirarlas»: «Se registran con origen "inferida", como en los bloques de categoría, hasta que se decida cómo dejan de ser provisionales (OQ-55)».
+- **Interpretaciones adoptadas:**
+  - La regla 3 más amplia solo vale para la capa general: en los bloques de categoría y de especialización sigue la estrecha de D-060, y la granularidad de las partes que comparten rasgo e importancia sigue aplazada al trabajo de los AC ([OQ-22](open-questions.md)).
+  - Importancias: las de las tablas; donde no se dijo, cada parte conserva la del requisito original. La suscripción sigue por fijar ([OQ-45](open-questions.md)). Siguen siendo fijas como parte del marco ([D-045](#d-045)).
+  - Los requisitos condicionados nuevos (garantía comercial; asistencia o servicios posventa; autenticidad de las opiniones publicadas) dependen de hechos de la oferta. Los artefactos no dicen en qué bloque van: van en el bloque universal con su condición en la aplicabilidad, como la persona responsable en la UE ([D-052](#d-052)), que era un hecho del producto; los evalúa la auditoría y no son disparadores nuevos de la aplicación ([D-047](#d-047)), cuya lista no cambia. Es una lectura de Claude que amplía D-052 a hechos de la oferta y choca con la definición de la aplicación del canon: [I-26](issues.md#i-26), con la alternativa de bloques condicionados propios.
+  - Origen de las cuestiones: sigue su fuente, como en toda la capa general; la de los parámetros del precio personalizado es inferida. En la capa general, el origen «inferida» de una cuestión no la hace provisional: es marco fijado por el usuario, como `gen/06`, `gen/07` o `gen/15`.
+  - Redacciones de Claude que los artefactos no fijan: «qué incluye exactamente la oferta» con entidad oferta; «¿Qué unidad se entrega?»; el motivo conserva su lista de ejemplos (exposición, devolución, tara, fin de serie…); la compatibilidad y la interoperabilidad se refieren a aparatos y programas, como el art. 97.1.t.
+  - `gen.precio-personalizado/01` repite el hecho de su disparador: con el bloque activo, la respuesta es siempre sí. No se resuelve en silencio: [I-27](issues.md#i-27).
+  - Las aportaciones de origen marco se presentan al usuario tras la división: siguen pendientes de su aprobación. Las que se redactan sin apoyo en la ley se registran como inferidas y provisionales, como en los bloques de categoría ([OQ-55](open-questions.md)).
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.21 (tabla de la capa general y alcance de las reglas de formulación); [resolving-information](../10-model/resolving-information.md) 1.3 (orígenes en la capa general); [model-training](../10-model/model-training.md) 1.12; D-034, D-052, D-060 y D-063 anotadas en la tabla; OQ-45 anotada (candidatas resueltas); nuevas I-26 e I-27. La implantación en `demand-engine/catalog/gen.json` va en T-031: la capa general pasa a la versión 0.4.
+- **Relacionado:** D-034, D-038, D-045, D-047, D-052, D-060, D-063, OQ-22, OQ-45, OQ-55.
+
+### D-066
+
+**Garantía comercial, asistencia posventa y opiniones publicadas: bloques condicionados de la capa general.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-general-layer-issues`. [D-065](#d-065) dejó en el bloque universal tres requisitos condicionados a hechos de la oferta (la garantía comercial, la asistencia o los servicios posventa, la autenticidad de las opiniones publicadas), fuera de la aplicación, que el canon define como las condiciones de la oferta que se dan ([D-047](#d-047)). Incidencia [I-26](issues.md#i-26). Claude presentó dos opciones y recomendó la de bloques propios, frente a la propuesta escrita en la incidencia.
+- **Decisión:** «Bloques condicionados propios (Recomendado)»: «gen.garantia-comercial, gen.posventa y gen.opiniones, con su disparador; entran en la aplicación como el descuento. El canon no cambia.» Descartada: «Seguir en el bloque universal».
+- **Interpretaciones adoptadas:**
+  - Disparadores: `gen.garantia-comercial`, si tiene garantía comercial; `gen.posventa`, si tiene asistencia o servicios posventa; `gen.opiniones`, si publica opiniones de compradores. Alcance: la oferta. Como en los demás bloques condicionados, los activa el hecho declarado ([D-037](#d-037)) y, si la ficha no lo declara, sus requisitos quedan en gris (NA).
+  - Cada bloque lleva el requisito que estaba en el bloque universal, con la pregunta sin la condición, que pasa al disparador; conserva su importancia, su origen y su información resolutiva. Los ids nuevos son `gen.garantia-comercial/01`, `gen.posventa/01` y `gen.opiniones/01`; sustituyen a `gen/22`, `gen/28` y `gen/23`, que no se reutilizan ([D-038](#d-038)).
+  - Relación con las preguntas universales: la garantía legal de conformidad no activa `gen.garantia-comercial`, porque la responde `gen/12`. Las opiniones las pregunta `gen/15` en toda oferta; si la ficha publica opiniones, `gen.opiniones` añade su autenticidad. Es como el descuento: la pregunta universal de promociones ([D-049](#d-049)) convive con el bloque `gen.descuento`. Así se matiza [D-047](#d-047), según la cual, salvo el descuento, las condiciones no tienen pregunta universal. Si las opiniones sobre la tienda, y no sobre el producto, activan el bloque: [I-29](issues.md#i-29).
+  - «El canon no cambia» se lee como que no cambia la definición de la aplicación; su lista de condiciones (canon y glosario) se amplía con las tres nuevas, como pide el principio de una sola fuente de verdad.
+  - El bloque universal vuelve a llevar un solo requisito condicionado, el de la persona responsable en la UE ([D-052](#d-052)), y queda sin efecto la ampliación de D-052 a hechos de la oferta que hizo D-065.
+  - Consecuencia: una oferta que declara garantía comercial, asistencia posventa u opiniones deja de ser una oferta estándar, porque estas condiciones entran en su aplicación. El reglamento del clasificador las lista entre las condiciones que activa.
+- **Consecuencias:** [demand-model](../10-model/demand-model.md#composición-e-identidad-del-modelo) 2.17 (lista de la aplicación); glosario (aplicación); [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.22 (tabla y disparadores); D-034, D-047, D-052 y D-065 anotadas en la tabla; I-26 resuelta; nueva I-29 (opiniones de la tienda). La implantación en `demand-engine/catalog/gen.json` (capa general 0.5) y en el reglamento del clasificador va en T-033.
+- **Relacionado:** D-037, D-047, D-052, D-065, I-26.
+
+### D-067
+
+**Se retira la pregunta del precio personalizado que repite su disparador.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-general-layer-issues`. Tras [D-065](#d-065), `gen.precio-personalizado/01` preguntaba «¿Está personalizado el precio por una decisión automatizada?» dentro de un bloque cuyo disparador es ese mismo hecho declarado: con el bloque activo, la respuesta es siempre sí. Incidencia [I-27](issues.md#i-27).
+- **Decisión:** «Retirarla (Recomendado)»: «El 97.1.f queda como apoyo del disparador; el bloque conserva la pregunta de los parámetros.» Descartadas: «Pregunta universal sí/no» y «Dejarla como está».
+- **Interpretaciones adoptadas:**
+  - El art. 97.1.f sigue en las referencias del bloque `gen.precio-personalizado` como apoyo de su disparador. La aportación de origen marco que llevaba la pregunta retirada («indicación de que el precio se ha personalizado») sale con ella.
+  - El bloque queda con un solo requisito, `gen.precio-personalizado/02`, que conserva su id, su importancia (principal) y su origen inferido. El id `gen.precio-personalizado/01` no se reutiliza.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.22; D-034 y D-065 anotadas en la tabla; I-27 resuelta. La implantación va en T-033.
+- **Relacionado:** D-047, D-065, I-27.
+
+### D-068
+
+**La norma que es fuente de un requisito de categoría da aportaciones de origen «referencias».** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-general-layer-issues`. [D-063](#d-063) reserva el origen «marco» a la capa general y describe las referencias como las propiedades de Amazon y los atributos de Shopify. Las aportaciones que salen de la norma de un requisito de categoría (composición textil, información alimentaria, piensos, confituras) no encajaban en ninguno de los dos. En T-031 se registraron con origen «referencias» y la ley en el respaldo. Incidencia [I-28](issues.md#i-28).
+- **Decisión:** «Referencias, con la ley en el respaldo (Recomendado)»: «Se precisa que «referencias» incluye la norma que es fuente del requisito. Ya está así en el catálogo.» Descartada: «Marco, con tu aprobación».
+- **Interpretaciones adoptadas:**
+  - Las aportaciones que salen de una norma, en un bloque de categoría, las redacta quien redacta el bloque, como las demás de referencias, sin aprobación del usuario. El marco sigue siendo solo de la capa general.
+  - Solo recogen lo que esa norma exige.
+- **Consecuencias:** [resolving-information](../10-model/resolving-information.md#orígenes) 1.4; [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formato-del-catálogo) 1.22; D-063 anotada en la tabla; I-28 resuelta.
+- **Relacionado:** D-063, D-065, I-28.
+
+### D-069
+
+**Información resolutiva de la capa general aprobada.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-general-layer-resolving-approval`. [D-063](#d-063) dispone que Claude redacta desde la ley las listas de la capa general y que el usuario las aprueba. [D-065](#d-065) las dejó pendientes de aprobación tras dividir la capa general. Tras dos rondas de división, Claude presentó la tercera versión: 60 aportaciones de origen marco, 28 inferidas y 1 de referencias.
+- **Decisión:** «Aprobar (Recomendado)»: «Se fijan en catalog/gen.json con la letra de la ley en su respaldo, junto con las 28 inferidas provisionales y la de referencias de gen/20.» Descartada: «Aplazar».
+- **Interpretaciones adoptadas:**
+  - La aprobación se dio sobre la capa general de D-065. Los cambios posteriores de D-066 y D-067 mueven listas aprobadas sin cambiar su contenido, salvo la aportación de la pregunta retirada, que sale con ella. Las listas siguen aprobadas.
+  - Las aportaciones inferidas siguen siendo provisionales ([OQ-55](open-questions.md)).
+- **Consecuencias:** [resolving-information](../10-model/resolving-information.md#ejemplo-mínimo) 1.5 (ejemplo y pendientes); D-065 anotada en la tabla. Implantado en `demand-engine/catalog/gen.json` (T-031).
+- **Relacionado:** D-063, D-065, D-066, D-067, OQ-55.
+
+### D-070
+
+**El estado «vigente» incluye lo que un intake procesado formula como vigente.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-open-issues-resolution`. [I-11](issues.md#i-11): `docs/CLAUDE.md` definía «vigente» como lo definido en los documentos rectores (CTX, BASE) o en FUND, mientras que desde [D-016](#d-016) lo que un intake formula como vigente se incorpora como vigente. El usuario pidió contexto y Claude se lo dio: la regla escrita y la práctica no coincidían.
+- **Decisión:** «Cambiar el texto (Recomendado)»: «La regla pasa a decir lo que ya se hace. Ningún módulo cambia de estado.» Descartada: «Dejarlo».
+- **Interpretaciones adoptadas:** el texto es el de la propuesta de I-11; vale también para los updates descritos en la conversación, que la skill transcribe como artefactos archivados.
+- **Consecuencias:** `docs/CLAUDE.md` (estados); I-11 resuelta.
+- **Relacionado:** D-016, I-11.
+
+### D-071
+
+**Casos de taxonomía corregidos: polar, tapicería de piel y `warmth-level`.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-open-issues-resolution`. [I-13](issues.md#i-13) e [I-15](issues.md#i-15): dos casos no aplicaban del todo la regla de las cuestiones propias, y uno citaba mal un atributo de Shopify. El usuario pidió contexto y Claude lo dio con los datos comprobados.
+- **Decisión:** I-13: «Corregir los dos (Recomendado)»: «Cambia el texto de los ejemplos; las conclusiones (polar y piel son especializaciones) se mantienen.» I-15: «Corregir el dato (Recomendado)»: «Se añaden las otras dos categorías que lo tienen; el resultado del caso no cambia.»
+- **Interpretaciones adoptadas:**
+  - Polar: trae bolitas, electricidad estática y pérdida de pelo; el gramaje y la transpirabilidad ya los pregunta la base (el polar cambia sus valores); el abrigo lo trae «uso invernal» (anotación de I-13).
+  - Tapicería de piel: apoyo en el atributo `material` de Sofás en Shopify («Piel», «Cuero») y en `SOFA.upholstery.fabric_type` de Amazon («Cuero»), que cumple la condición 4 del criterio de especialización.
+  - `warmth-level`: asignado a Juegos de cama, Colchas y edredones y Cubrecolchones (*Mattress Toppers*), que no son componentes del caso.
+- **Consecuencias:** [subclasses](../20-methods/product-taxonomy/subclasses.md#caso-de-trabajo-juego-de-sábanas-de-coralina) 1.7; [cases](../20-methods/product-taxonomy/cases.md#sofá-reclinable-de-exposición) 1.8; I-13 e I-15 resueltas.
+- **Relacionado:** D-024, D-026, I-13, I-15.
+
+### D-072
+
+**El efecto de la relevancia sobre la base de D-030 lo mide la validación automática.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-open-issues-resolution`. [I-17](issues.md#i-17): si una propiedad de Amazon que cuenta como base para decidir una especialización ([D-030](#d-030)) queda fuera del modelo de una clase por la relevancia ([D-039](#d-039), [D-050](#d-050)), una característica podría quedarse sin pregunta.
+- **Decisión:** «Cerrar con la salvaguarda (Recomendado)»: «El efecto sobre D-030 se mide en la validación automática: no se acepta una relevancia que deje hechos declarados sin pregunta (D-050).» Descartada: «Comprobación de base explícita».
+- **Interpretaciones adoptadas:** es la segunda alternativa de las anotaciones de I-17; la salvaguarda es la métrica «hechos declarados sin pregunta», que ya valida cada ciclo del entrenamiento. Alcance que se acepta al cerrar: un bloque generado en ejecución no se valida hasta que se compila, y su relevancia de Amazon la decide la redacción ([D-045](#d-045), [OQ-49](open-questions.md)); la salvaguarda tampoco alcanza hechos que no declaran las fichas de la clase (D-050 la describe como protección «en parte»).
+- **Consecuencias:** [demand-model](../10-model/demand-model.md#sistema-de-construcción-vigente) 2.18; I-17 resuelta.
+- **Relacionado:** D-030, D-039, D-050, I-17.
+
+### D-073
+
+**En el MPIR se renderiza siempre con un navegador real.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-open-issues-resolution`. [I-18](issues.md#i-18): `sampling-capture` decía que el renderizado se usaría «selectivamente», pero el motor de captura que aprobó el usuario ([D-042](#d-042)) abre siempre Chrome real.
+- **Decisión:** «Actualizarlo (Recomendado)»: «sampling-capture dice que se renderiza siempre, con el motivo de los bloqueos, como hace el motor que aprobaste.» Descartada: «Dejarlo».
+- **Interpretaciones adoptadas:** el renderizado deja de ser selectivo; las interacciones (desplegables, selectores, comparadores) siguen haciéndose cuando son pertinentes. Se mantiene que la presencia de JavaScript no es una limitación metodológica.
+- **Consecuencias:** [sampling-capture](../20-methods/mpir/sampling-capture.md#contenido-dinámico-e-interacción-selectiva) 1.4; [MPIR](../20-methods/mpir/README.md) 1.2 y [operation-validation](../20-methods/mpir/operation-validation.md) 1.1 (fase de captura); D-042 anotada en la tabla; I-18 resuelta.
+- **Relacionado:** D-042, I-18.
+
+### D-074
+
+**Mensajes comunes de la tienda: cuentan si fijan una condición comprobable para la oferta.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-open-issues-resolution`. [I-23](issues.md#i-23): mensajes que la tienda repite en todas sus fichas («envío gratis desde 49 €», «manta de regalo en pedidos de más de 99 €») unos agentes los contaban como información de la oferta y otros como afirmaciones genéricas.
+- **Decisión:** «Sí, si fijan una condición comprobable (Recomendado)»: «Un importe, un plazo o un coste que vale para esta oferta cuenta en la pregunta que responde; las frases genéricas no cuentan.» Descartada: «No, nunca».
+- **Interpretaciones adoptadas:** cuenta como hecho declarado de la oferta en la pregunta que responde (coste del envío, promociones…) y, como el disparador es el hecho declarado ([D-037](#d-037)), también activa el bloque condicionado que declara (un descuento para toda la tienda activa `gen.descuento`); un mensaje sin condición comprobable sigue siendo una afirmación genérica de la tienda, que no cuenta.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.23; I-23 resuelta. La implantación en el reglamento del clasificador (paso 1) va en T-034.
+- **Relacionado:** D-049, I-23, OQ-50.
+
+### D-075
+
+**«Aportación» siempre con su complemento: resolutiva o al modelo de demanda.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-open-issues-resolution`. [I-25](issues.md#i-25): «aportación» nombraba dos cosas, la aportación resolutiva ([D-064](#d-064)) y lo que un resultado del MPIR aporta al modelo de demanda (confirmación, ampliación…). Hubo tres rondas:
+  1. El usuario eligió «Renombrar el del MPIR».
+  2. Eligió «Hallazgo (Recomendado)». Claude lo había presentado como un nombre que no coincidía con nada del canon.
+  3. Antes de aplicarlo, Claude comprobó que «hallazgo» ya es un término de la auditoría y se lo dijo al usuario, que eligió «Siempre con su adjetivo» frente a «Resultado del contraste (Recomendado)», «Efecto sobre el modelo» y «Hallazgo igualmente».
+- **Decisión:** «Siempre con su adjetivo»: «No se renombra: «aportación resolutiva» y «aportación al modelo de demanda».»
+- **Interpretaciones adoptadas:**
+  - Prevalece la tercera respuesta, que vuelve a abrir la elección; la segunda se basaba en un dato erróneo de Claude. En la primera ronda, «Siempre con su adjetivo» era la opción recomendada y se descartó.
+  - El «adjetivo» del MPIR es el complemento «al modelo de demanda». Regla única: Fuera de `resolving-information`, la aportación resolutiva lleva siempre su adjetivo, y la del MPIR, siempre «al modelo de demanda».
+- **Consecuencias:** [interpretation-transfer](../20-methods/mpir/interpretation-transfer.md#tipos-de-aportación-al-modelo-de-demanda) 1.1, [operation-validation](../20-methods/mpir/operation-validation.md) 1.1 y [concepts-architecture](../20-methods/mpir/concepts-architecture.md) 1.1; [resolving-information](../10-model/resolving-information.md#definición) 1.6; [model-training](../10-model/model-training.md) 1.13, [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formato-del-catálogo), glosario (nueva entrada «Aportación al modelo de demanda») y OQ-03 con «aportación resolutiva»; D-064 anotada en la tabla; I-25 resuelta.
+- **Relacionado:** D-064, I-25.
+
+### D-076
+
+**Solo las opiniones del producto o de la oferta cuentan como opiniones publicadas.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-open-issues-resolution`. [I-29](issues.md#i-29): [D-066](#d-066) no decía si las opiniones sobre la tienda (reseñas en Google o Tripadvisor, valoración global del comercio) responden `gen/15` y activan `gen.opiniones`.
+- **Decisión:** «Solo las del producto u oferta (Recomendado)»: «Las de la tienda no responden gen/15 ni activan gen.opiniones.» Descartada: «También las de la tienda».
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.23; I-29 resuelta. La implantación en el reglamento del clasificador (pasos 1 y 6) va en T-034.
+- **Relacionado:** D-066, D-074, I-29.
+
+### D-077
+
+**El nombre del modelo de demanda muestra la composición completa, con los sectores.** · aceptada · 2026-10-26
+
+- **Contexto:** `INTAKE 2026-10-26-model-name-full-composition`. Por [D-038](#d-038), «los bloques universales y los de sector no se nombran»: el nombre empezaba por las categorías de la clase y solo la clave llevaba los sectores. En la versión de Shopify usada (v2026-08), 311 nombres de categoría se repiten y afectan a 702 categorías, así que dos modelos distintos podían llevar el mismo nombre. Claude propuso tres alternativas y recomendó nombrar el sector solo cuando el nombre de la categoría se repite.
+- **Decisión:** palabras del usuario: «Me interesa que figure la composición completa». Los bloques de sector se nombran delante de las categorías. Sustituye en ese punto a D-038 y a la sintaxis del nombre de [D-047](#d-047). Descartadas: dejar el nombre como estaba y nombrar el sector solo cuando el nombre se repite.
+- **Interpretaciones adoptadas:**
+  - Sintaxis: «Sectores › Categorías (alias) · especializaciones». Los sectores van de lo general a lo particular, en el orden de la clave, separados por «›»; los del mismo nivel de Shopify se unen con «+», como las categorías; un último «›» los separa de las categorías. Ejemplo: «Casa y jardín › Ropa de casa › Ropa de cama › Sábanas + Fundas de almohada y de cojines › Sábanas planas + Sábanas ajustables + Fundas de almohada · juego».
+  - «Composición completa» son los bloques del modelo: se nombran los sectores que tienen bloque. Un nivel de Shopify sin bloque no forma parte de la composición y no se nombra; las categorías de la clase y los alias se siguen nombrando aunque no tengan bloque, como hasta ahora. El ejemplo de la opción B del artefacto («Casa y jardín › Ropa de casa › Toallas · juego») omitía las categorías de la clase sin bloque; con esta lectura, ese producto se nombra «Casa y jardín › Ropa de casa › Toallas › Toallas de baño + Toallas de mano · juego».
+  - La capa general sigue sin nombrarse (el bloque universal y los condicionados de la oferta): está en todos los modelos y la clave ya la abre con su versión. Los bloques generales del producto siguen tras las especializaciones.
+  - Los sectores y las categorías se nombran con su nombre en Shopify, en la versión fijada, no con el nombre del bloque, que puede diferir («Cojines decorativos» frente a «Cojines»).
+- **Consecuencias:** [demand-model](../10-model/demand-model.md#composición-e-identidad-del-modelo) 2.19; [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#denominación) 1.24 (ejemplos); [cases](../20-methods/product-taxonomy/cases.md) 1.9 (nombre del caso del Stressless); glosario (modelo de demanda); motor de demanda (`demand-engine/src/demand_engine/demand/model.py`, ensamblado del nombre).
+- **Relacionado:** D-033, D-038, D-040, D-047.
+
+### D-078
+
+**Un descuento de toda la tienda activa `gen.descuento` aunque dependa de una acción del comprador.** · aceptada · 2026-10-26
+
+- **Contexto:** [I-30](issues.md#i-30). En la tanda de control T-032, el mensaje común «Suscríbete a la news y ahorra un 10 %» de burritoblanco.com activa `gen.descuento` en 11 de las 14 salidas sin rebaja propia y en 3 no; la oferta de tres casos cambia entre las dos ejecuciones. [D-074](#d-074) dice que un descuento para toda la tienda activa el bloque, pero no si cuenta uno que depende de una acción del comprador.
+- **Decisión:** palabras del usuario: «Aplica según recomendado». Se acepta la propuesta de I-30: un descuento de toda la tienda activa `gen.descuento` aunque dependa de una acción del comprador (suscribirse, un código, la primera compra o un importe mínimo); sus condiciones las pregunta `gen.descuento/02`. Descartada: que solo active el bloque una rebaja que se aplica sin otra acción del comprador.
+- **Interpretación adoptada:** sigue haciendo falta una condición comprobable (D-074): un importe o un porcentaje. Un mensaje sin cifra («descuentos exclusivos para suscriptores») sigue siendo una afirmación genérica.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.25 (mensajes comunes de la tienda); D-074 anotada en la tabla; I-30 resuelta; reglamento del clasificador (paso 1), T-035.
+- **Relacionado:** D-049, D-074, I-30.
+
+### D-079
+
+**La ficha identifica la unidad de exposición cuando sitúa en la exposición la unidad que se vende.** · aceptada · 2026-10-26
+
+- **Contexto:** [I-31](issues.md#i-31). [D-057](#d-057) cuenta como estado declarado «la unidad de exposición que la ficha identifica como tal». La ficha del Stressless no usa esa expresión: «Visita la exposición en Les Corts para aprovechar la última unidad». En T-032 una ejecución activó `gen.unidad-no-nueva` y la otra no; el caso de control lo espera activado.
+- **Decisión:** palabras del usuario: «Aplica según recomendado». Se acepta la propuesta de I-31: la ficha identifica la unidad de exposición cuando sitúa en la exposición de la tienda la unidad que se vende, aunque no use esa expresión («la última unidad, en exposición»; «visita la exposición para aprovechar la última unidad»). «Outlet», «revisado» o una garantía reducida, por sí solos, no bastan.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.25 (valores de oferta); D-057 anotada en la tabla; I-31 resuelta; reglamento del clasificador (paso 6), T-035.
+- **Relacionado:** D-037, D-057, I-22, I-31.
+
+### D-080
+
+**Quien comercializa el producto con su nombre o marca responde la pregunta del fabricante.** · aceptada · 2026-10-26
+
+- **Contexto:** [I-32](issues.md#i-32). Las fichas de burritoblanco.com dicen «Importado y comercializado por Burrito Blanco, S.L.U.» sin nombrar al fabricante, y el producto lleva la marca de la tienda. En T-032, las 18 salidas de la tienda llevan ese hecho a `gen/18` (9), `gen/13` (6), `gen/17` (3) o a ninguna pregunta (1).
+- **Decisión:** palabras del usuario: «Aplica según recomendado». Se acepta la propuesta de I-32:
+  - El Reglamento (UE) 2023/988 (art. 3, punto 8) considera fabricante a quien encarga el diseño o la fabricación de un producto y lo comercializa con su nombre o marca: quien vende el producto con su marca responde `gen/17`.
+  - La lista de información resolutiva de `gen/17` suma la aportación «nombre o marca de quien encarga el diseño o la fabricación y comercializa el producto con su marca», de origen «marco», con el art. 3.8 como fuente. (Con [D-084](#d-084), las listas de la capa general ya no requieren aprobación.)
+  - `gen/18` queda para el fabricante establecido fuera de la UE.
+- **Interpretación adoptada:** «Importado y comercializado por X», sin otra marca en el producto que la de X, se lee como que X lo comercializa con su marca. Si el producto lleva la marca de otro, X es el importador y no responde `gen/17`.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.25 (apoyo de la pregunta del fabricante); D-052 y D-069 anotadas en la tabla; I-32 resuelta; `demand-engine/catalog/gen.json` (`gen/17`, capa general 0.6) y reglamento del clasificador (paso 8), T-035.
+- **Relacionado:** D-052, D-063, D-069, I-32.
+
+### D-081
+
+**Una garantía nombrada sin contenido ni condiciones no activa `gen.garantia-comercial`.** · aceptada · 2026-10-26
+
+- **Contexto:** [I-33](issues.md#i-33). «Garantía de calidad: Burrito Blanco, S.L.U.», en una lista de responsables y sin alcance, plazo ni condiciones, activa la garantía comercial en las dos ejecuciones de las toallas de T-032 y no en las otras 16 salidas de la tienda.
+- **Decisión:** palabras del usuario: «Aplica según recomendado». Se acepta la propuesta de I-33: una garantía nombrada sin contenido ni condiciones no permite saber que es distinta de la legal y no activa `gen.garantia-comercial`; activarla sería suponer un hecho que la ficha no declara. La activa una garantía que declara algo que la legal no da: más plazo, otra cobertura u otro garante. Descartada: activarla siempre que la ficha nombre una garantía distinta de la legal.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.25 (disparadores); D-066 anotada en la tabla; I-33 resuelta; reglamento del clasificador (paso 6), T-035.
+- **Relacionado:** D-037, D-066, I-33.
+
+### D-082
+
+**Varias opciones visibles en un selector activan `gen.variantes`; una sola, no.** · aceptada · 2026-10-26
+
+- **Contexto:** [I-34](issues.md#i-34). En las toallas de T-032, el selector «Color» muestra seis muestras cuyos nombres solo están en atributos HTML: una ejecución activa `gen.variantes` y la otra no. Los selectores de una sola opción (cojín, protector, plaid) no lo activan en ninguna ejecución, pero ninguna regla lo decía.
+- **Decisión:** palabras del usuario: «Aplica según recomendado». Se acepta la propuesta de I-34: un selector con varias opciones visibles en la ficha declara que hay variantes y activa `gen.variantes`, aunque sus nombres estén solo en atributos; esos nombres no cuentan como valores declarados. Un selector de una sola opción no lo activa.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.25 (disparadores); I-34 resuelta; reglamento del clasificador (pasos 1 y 6), T-035.
+- **Relacionado:** D-037, D-047, I-34.
+
+### D-083
+
+**Política de cambios: bloque condicionado `gen.cambios` de la capa general.** · sustituida por [D-085](#d-085) · 2026-10-26
+
+- **Contexto:** [I-35](issues.md#i-35). Por [D-064](#d-064), un plazo de cambio no aporta a la pregunta de desistimiento (`gen/11`), y ningún requisito de la capa general pregunta por los cambios. En T-032, el plazo de cambio de 14 días de burritoblanco.com es 18 de los 66 hechos sin pregunta.
+- **Decisión:** palabras del usuario: «Aplica según recomendado». Se acepta la recomendación de I-35: la política de cambios es una condición de la oferta, con un bloque condicionado propio, `gen.cambios`, como los de [D-066](#d-066). Disparador: si admite cambios. Alcance: la oferta. Descartada: dejarla fuera del modelo.
+- **Segunda ronda (2026-10-26).** La revisión independiente señaló que la importancia, la división del coste y la lista de información resolutiva eran del usuario: la capa general no cambia sin su decisión ([D-045](#d-045), [D-069](#d-069)). El usuario eligió:
+  - «Principal (Recomendado)», frente a «Complementario» (lo que Claude había aplicado) y «Por fijar»;
+  - «Requisito propio (Recomendado)» para el coste del cambio, frente a dejarlo como aportación;
+  - las cuatro aportaciones propuestas para `gen.cambios/01`.
+- **Interpretaciones adoptadas:**
+  - `gen.cambios/01`: «¿En qué plazo y en qué condiciones se puede cambiar el producto?». Plazo y condiciones van juntos, como en `gen/11` (D-060, regla 3: lo que solo tiene sentido unido). La pregunta no repite el disparador («¿se puede cambiar?»), como pide [D-067](#d-067). Importancia principal: el cambio es un criterio para elegir entre ofertas ([D-035](#d-035)), como la garantía comercial.
+  - `gen.cambios/02`: «¿Qué coste del cambio asume el comprador?», paralelo al coste de devolución (`gen/26`), que [D-065](#d-065) separó de `gen/11`. Toma su importancia, principal, por ese paralelo.
+  - Entidad «condiciones»; origen «inferida», porque ninguna norma obliga a admitir cambios; sin fuentes.
+  - Información resolutiva, inferida:
+    - de `gen.cambios/01`, aprobada por el usuario: plazo para solicitar el cambio; qué se puede cambiar (otra talla, medida, color u otro producto); estado en que debe estar el producto para cambiarlo; forma de solicitar el cambio;
+    - de `gen.cambios/02`: coste del cambio para el comprador. Es la pregunta misma. Con [D-084](#d-084) no requiere aprobación.
+- **Consecuencias:** [demand-model](../10-model/demand-model.md#composición-e-identidad-del-modelo) 2.20 y glosario (lista de la aplicación); [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.25 (tabla y disparadores); D-034, D-047 y D-069 anotadas en la tabla; I-35 resuelta; `demand-engine/catalog/gen.json` (capa general 0.6) y reglamento del clasificador (pasos 6 y 8), T-035.
+- **Relacionado:** D-034, D-035, D-045, D-047, D-064, D-065, D-066, D-067, D-069, I-35.
+
+### D-084
+
+**La información resolutiva de la capa general no requiere la aprobación del usuario.** · aceptada · 2026-10-26
+
+- **Contexto:** [D-063](#d-063) y [D-069](#d-069) disponen que el usuario aprueba las listas de información resolutiva de la capa general. En D-083 quedó pendiente de esa aprobación la aportación de `gen.cambios/02`, y Claude la presentó al usuario.
+- **Decisión:** palabras del usuario: «No he de aprobarlo, es cosa orgánica de los agentes. La revisión, si hace falta, ya la solicito yo. Aplica lo que consideres y cambia el canon.» Las listas de información resolutiva de la capa general no requieren su aprobación. Sustituye en ese punto a D-063 y a D-069.
+- **Interpretaciones adoptadas:**
+  - Las redacta Claude o el agente que redacta: las que salen de la ley, con origen «marco» y la norma como respaldo; las que no, como inferidas ([D-065](#d-065)). El entrenamiento les añade las observadas en las fichas ([D-063](#d-063)), como hasta ahora.
+  - El usuario las revisa cuando lo pide. Las listas aprobadas por D-069 siguen como están.
+  - La decisión es sobre la información resolutiva. Las preguntas, los disparadores y las importancias de la capa general siguen siendo parte del marco, que no cambia sin decisión del usuario ([D-045](#d-045)).
+- **Consecuencias:** [resolving-information](../10-model/resolving-information.md) 1.7 y [model-training](../10-model/model-training.md) 1.14; D-063 y D-069 anotadas en la tabla; D-080 y D-083 anotadas; `demand-engine/catalog/gen.json` (nota de la información resolutiva).
+- **Relacionado:** D-045, D-063, D-065, D-069, D-080, D-083.
+
+### D-085
+
+**Los cambios son condiciones de devolución y cambio: van en `gen/11` y `gen/26`, no en la aplicación.** · aceptada · 2026-10-26
+
+- **Contexto:** [D-083](#d-083) creó el bloque condicionado `gen.cambios`, cuyo disparador («admite cambios») entraba en la aplicación de la oferta. Al explicárselo, el usuario lo corrigió: «eso son condiciones de devolución, cambio; no es una característica de la oferta».
+- **Decisión:** el usuario eligió «Dentro de `gen/11`», frente a «Universales, junto a devolución (Recomendado)», que creaba dos requisitos universales nuevos. Sustituye a D-083 y cambia el ejemplo de [D-064](#d-064), en el que un plazo de cambio no aportaba a la pregunta de desistimiento.
+  - Se retiran `gen.cambios` y su disparador; los ids `gen.cambios/01` y `/02` no se reutilizan ([D-038](#d-038)). La aplicación vuelve a la lista de [D-066](#d-066).
+  - `gen/11` pasa a «¿Se puede desistir, devolver o cambiar, en qué plazo y en qué condiciones?». Las aportaciones de `gen.cambios/01` pasan a su lista, con origen «inferida», junto a una que no tenía: la posibilidad de cambiar el producto.
+- **Interpretaciones adoptadas:**
+  - El coste del cambio sigue al coste de devolución: `gen/26` pasa a «¿Qué coste de devolución o de cambio asume el comprador?», con la aportación «coste del cambio para el comprador», inferida. Así se respeta la división de [D-065](#d-065) entre plazo y condiciones (`gen/11`) y coste (`gen/26`).
+  - Las importancias (principal), las fuentes (97.1.j y 97.1.k) y los orígenes de los requisitos no cambian. La parte del cambio no tiene norma, y por eso sus aportaciones son inferidas ([D-065](#d-065)).
+  - Un «no admite cambios» fundamentado responde la parte del cambio, como en las demás preguntas universales.
+- **Consecuencias:**
+  - [demand-model](../10-model/demand-model.md#composición-e-identidad-del-modelo) 2.21 y glosario: la lista de la aplicación sin «cambios admitidos».
+  - [resolving-information](../10-model/resolving-information.md#ejemplo-mínimo) 1.8: el ejemplo de `gen/11`.
+  - [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.26 y [cases](../20-methods/product-taxonomy/cases.md) 1.11.
+  - D-034, D-047, D-064 y D-083 anotadas en la tabla.
+  - `demand-engine/catalog/gen.json`, capa general 0.6, que aún no había usado ningún modelo, y el reglamento del clasificador (secciones 0, 6 y 8).
+- **Relacionado:** D-038, D-064, D-065, D-066, D-083, I-35.
+
+### D-086
+
+**La especialización «juego» aporta qué piezas incluye y cuántas de cada una; las medidas, los bloques de cada pieza.** · aceptada · 2026-10-26
+
+- **Contexto:** [I-36](issues.md#i-36). [study-class](../10-model/study-class.md#composición-de-la-clase) decía que «juego» aporta «qué piezas incluye, cuántas y en qué medidas». Las medidas de cada pieza ya las preguntan los bloques de su categoría, y la regla 3 de [D-060](#d-060) separa el contenido de la medida. En T-032, 3 de las 8 salidas con `esp.juego` añaden un requisito de medidas y 5 no, y los requisitos de la especialización cambian entre A y B.
+- **Decisión:** palabras del usuario: «Resuelve todas las incidencias con tus propias recomendaciones». Se acepta la propuesta de I-36. «Juego» aporta lo que es del conjunto: qué piezas incluye y cuántas de cada una; si cambian con la medida elegida, va en la aplicabilidad, por variante. Las medidas de cada pieza las preguntan los bloques de su categoría, y solo son requisito del juego si ningún bloque de las piezas las pregunta.
+- **Consecuencias:** [study-class](../10-model/study-class.md#composición-de-la-clase) 1.5 (enmienda del texto del intake); [subclasses](../20-methods/product-taxonomy/subclasses.md) 1.8 y [cases](../20-methods/product-taxonomy/cases.md) 1.12; I-36 resuelta; reglamento del clasificador (paso 4), T-036.
+- **Relacionado:** D-023, D-032, D-060, I-36.
+
+### D-087
+
+**La regla 3 prevalece sobre la forma de sí o no con detalle.** · aceptada · 2026-10-26
+
+- **Contexto:** [I-37](issues.md#i-37). La regla 2 de [D-060](#d-060) mantiene la pregunta de sí o no seguida de su detalle; la regla 3 divide cuando las partes tomarían otro rasgo u otra importancia. `cat.sofas-cama/02` tenía las dos formas: el «incluye colchón», votado crítico, y la medida y la retirada del colchón, que son medida y construcción.
+- **Decisión:** palabras del usuario: «Resuelve todas las incidencias con tus propias recomendaciones». Se acepta la propuesta de I-37. La forma de sí o no con detalle se mantiene solo si el detalle toma el mismo rasgo y la misma importancia que la pregunta; si no, el detalle pasa a requisitos condicionados al hecho.
+- **Interpretaciones adoptadas:** la revisión de los tres requisitos citados en I-37, con el vocabulario de rasgos:
+  - `cat.sofas-cama/02` pasa a «¿Incluye colchón?»; nuevos `/18`, «¿De qué medida es el colchón que incluye?» (medida), y `/19`, «¿Se puede retirar el colchón que incluye?» (construcción), los dos condicionados a que lo incluya.
+  - `cat.juguetes-para-perros/06` pasa a «¿Qué pilas o batería usa y es recargable?»; nuevo `/16`, «¿Se incluyen las pilas o la batería?» (contenido).
+  - `cat.mantas/05` («¿Qué peso y qué grosor tiene la manta?») no cambia: peso y grosor son magnitud ([D-051](#d-051)) y toman la misma importancia. En cambio, `cat.cojines-decorativos/01` («¿Qué medidas tiene (largo, ancho y grosor)?»), que un agente señaló en T-032, mezclaba medida y magnitud: pasa a «largo y ancho» y el grosor va a `/14` (magnitud).
+  - Las partes nuevas conservan sus fuentes y sus aportaciones; su rasgo y su importancia los resuelven las reglas 6, como en la compilación. Las partes que conservan el id son las que mantienen el rasgo del requisito original, como en T-031.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formulación-de-las-cuestiones) 1.27 (regla 2); D-060 anotada en la tabla; I-37 resuelta; `demand-engine/catalog/DRAFTING.md`, el reglamento del clasificador (paso 4), el índice de rasgos y los bloques citados, T-036.
+- **Relacionado:** D-051, D-060, D-065, I-37.
+
+### D-088
+
+**Una cuestión con fuente que el bloque ni pregunta ni excluye es una propuesta al bloque.** · aceptada · 2026-10-26
+
+- **Contexto:** [I-38](issues.md#i-38). Las cuestiones inferidas no tienen fuente (D-060, regla 4), y el clasificador no debe duplicar la base, que incluye las propiedades del PTD de Amazon ([D-030](#d-030), [D-039](#d-039)). En T-032, un agente redactó inferidas con fuente en el PTD, que el bloque no recogía, y otro dudó si podía preguntar lo que solo estaba en el PTD.
+- **Decisión:** palabras del usuario: «Resuelve todas las incidencias con tus propias recomendaciones». Se acepta la propuesta de I-38:
+  - Lo que recoge una referencia de la base y el bloque ni pregunta ni excluye es una omisión del bloque.
+  - El clasificador lo redacta como cuestión inferida con su fuente, que es una propuesta al bloque, y el entrenamiento la incorpora al catálogo al compilar.
+  - «Sin duplicar la base» se lee como no duplicar los requisitos de los bloques ni los de la capa general.
+- **Interpretaciones adoptadas:**
+  - Mientras no se compila, la propuesta va en el modelo como las inferidas: provisional y fuera de la clave, con origen «referencias».
+  - La comprobación de la salida rechaza una fuente que no existe en las referencias o que el bloque ya pregunta o excluye.
+  - Al compilar, cada propuesta entra en su bloque con un id que el bloque no ha usado, con la importancia que votó el agente como etiqueta de partida. El rasgo y la importancia los deciden las reglas, como en todo requisito.
+  - Una sola por fuente: si dos casos proponen la misma fuente, entra la primera.
+  - No hace falta verla en dos casos, porque la fuente es la prueba.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formato-del-catálogo) 1.27 y [model-training](../10-model/model-training.md) 1.15; D-036 anotada en la tabla; I-38 resuelta; reglamento del clasificador (paso 5) y código del motor (`bin/model check`, `bin/train compile` y el informe), T-036.
+- **Relacionado:** D-030, D-036, D-039, D-041, D-044, D-060, I-38.
+
+### D-089
+
+**Precio anterior y precio por unidad de medida en la capa general, con su norma.** · aceptada · 2026-10-26
+
+- **Contexto:** [I-39](issues.md#i-39). En T-032, los agentes propusieron desde las fichas el «precio más bajo aplicado en los 30 días anteriores» para `gen.descuento/01` y el «precio por unidad de medida» para `gen/04`. Los fija la norma, pero las listas de la capa general no los tenían.
+- **Decisión:** palabras del usuario: «Resuelve todas las incidencias con tus propias recomendaciones». Se acepta la propuesta de I-39. Con [D-084](#d-084), las listas no requieren aprobación.
+  - `gen.descuento/01` suma la aportación «precio más bajo aplicado en los 30 días anteriores», de origen «marco». Su fuente es la Ley 7/1996, de Ordenación del Comercio Minorista, art. 20.1 (texto consolidado del BOE a 30/03/2022; redacción del Real Decreto-ley 24/2021, que traspone la Directiva (UE) 2019/2161): «se entenderá por precio anterior el menor que hubiese sido aplicado sobre productos idénticos» en los treinta días anteriores.
+  - `gen/04` suma la aportación «precio por unidad de medida», de origen «marco». Su fuente es el Real Decreto 3423/2000, art. 3.2 (BOE a 28/12/2000), que traspone la Directiva 98/6/CE.
+- **Interpretaciones adoptadas:**
+  - Con una norma que lo exige con claridad, el origen de `gen.descuento/01` pasa de «inferida» a «normativa».
+  - El precio unitario queda como aportación de `gen/04` y no como requisito propio; la alternativa de I-39 se descarta.
+  - Identificadores de fuente: `ley:LOCM-20.1@2022-03-30` y `ley:RD-3423/2000-3.2@2000-12-28`.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.27 (apoyo de `gen/04` y de `gen.descuento/01`); I-39 resuelta; `demand-engine/catalog/gen.json` (capa general 0.6), T-036.
+- **Relacionado:** D-034, D-063, D-065, D-084, I-39.

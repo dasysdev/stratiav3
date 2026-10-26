@@ -1,0 +1,314 @@
+{
+  "id": "cat.aceite-para-motores-de-vehiculos",
+  "type": "categoría",
+  "name": "Aceite para motores de vehículos",
+  "shopify": "vp-1-5-5-8",
+  "parent": "cat.mantenimiento-cuidado-y-decoracion-de-vehiculos",
+  "refs": [
+    "shopify:vp-1-5-5-8@v2026-08",
+    "google:3044@2021-09-21",
+    "amazon-ptd:AUTO_OIL@2026-10-24",
+    "amazon-btg:2424815031@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.aceite-para-motores-de-vehiculos/01",
+      "question": "¿Qué grado de viscosidad SAE tiene (p. ej., 5W-30, 10W-40)?",
+      "dimension": "grado de viscosidad",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "crítico",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:viscosity",
+        "amazon-ptd-prop:AUTO_OIL.sae_j300_viscosity_grade",
+        "amazon-ptd-prop:AUTO_OIL.viscosity_level"
+      ],
+      "applicability": "universal",
+      "rationale": "El grado SAE J300 determina para qué motores y condiciones sirve el aceite y distingue las referencias de una misma gama; sin él no se sabe qué aceite se vende ni si puede usarse.",
+      "seed_importance": "crítico",
+      "importance": "crítico",
+      "rule": "imp:cat.aceite-para-motores-de-vehiculos/01@vp-1-5-5-8",
+      "resolving_info": [
+        {
+          "contribution": "grado de viscosidad SAE J300",
+          "component": "grado de viscosidad SAE",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:viscosity",
+            "amazon-ptd-prop:AUTO_OIL.sae_j300_viscosity_grade"
+          ]
+        },
+        {
+          "contribution": "viscosidad cinemática a las temperaturas de referencia",
+          "component": "grado de viscosidad SAE",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.aceite-para-motores-de-vehiculos/02",
+      "question": "¿Qué cantidad neta de aceite contiene el envase (litros)?",
+      "dimension": "cantidad neta",
+      "entity": "variante",
+      "trait": "medida-que-fija",
+      "vote": "crítico",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:AUTO_OIL.volume_capacity_name",
+        "amazon-ptd-prop:AUTO_OIL.size"
+      ],
+      "applicability": "universal",
+      "rationale": "El volumen del envase fija lo que se vende y el precio por litro con el que se comparan ofertas (D-043, criterio 1).",
+      "seed_importance": "crítico",
+      "importance": "crítico",
+      "rule": "marco:D-043.1/medida-que-fija",
+      "resolving_info": [
+        {
+          "contribution": "volumen neto de aceite del envase",
+          "component": "cantidad neta",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:AUTO_OIL.volume_capacity_name",
+            "amazon-ptd-prop:AUTO_OIL.size"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.aceite-para-motores-de-vehiculos/03",
+      "question": "¿Para qué motores o vehículos está indicado (combustible diésel o gasolina, marcas, modelos o motorizaciones) y es de uso universal o específico?",
+      "dimension": "compatibilidad con el motor",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:AUTO_OIL.compatibility_options",
+        "amazon-ptd-prop:AUTO_OIL.vehicle_fitment",
+        "amazon-ptd-prop:AUTO_OIL.automotive_fit_type"
+      ],
+      "applicability": "universal",
+      "rationale": "El comprador elige el aceite según el motor de su vehículo; la indicación de motores y vehículos es criterio central de comparación. El tipo de vehículo general (turismo, moto…) lo pregunta el bloque de piezas y accesorios.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@vp-1",
+      "resolving_info": [
+        {
+          "contribution": "tipo de motor o combustible al que se destina",
+          "component": "motores o vehículos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:AUTO_OIL.compatibility_options"
+          ]
+        },
+        {
+          "contribution": "marcas, modelos o motorizaciones compatibles",
+          "component": "motores o vehículos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:AUTO_OIL.compatibility_options",
+            "amazon-ptd-prop:AUTO_OIL.vehicle_fitment"
+          ]
+        },
+        {
+          "contribution": "código de vehículo en un estándar de montaje",
+          "component": "motores o vehículos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:AUTO_OIL.vehicle_fitment"
+          ]
+        },
+        {
+          "contribution": "indicación de ajuste universal o específico",
+          "component": "uso universal o específico",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:AUTO_OIL.automotive_fit_type"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.aceite-para-motores-de-vehiculos/04",
+      "question": "¿Qué especificaciones y homologaciones cumple (ACEA, API, aprobaciones de fabricantes de motores)?",
+      "dimension": "especificaciones y homologaciones",
+      "entity": "producto",
+      "trait": "certificacion-origen",
+      "vote": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Las normas ACEA/API y las aprobaciones de los fabricantes son lo que exige el manual del vehículo y el criterio con el que se comprueba la idoneidad y se comparan aceites; ninguna referencia la recoge como atributo (inferida, provisional).",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:certificacion-origen@vp-1-5-5-8",
+      "resolving_info": [
+        {
+          "contribution": "categoría ACEA que cumple",
+          "component": "especificaciones",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "categoría API que cumple",
+          "component": "especificaciones",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "homologaciones de fabricantes de vehículos o motores",
+          "component": "homologaciones",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.aceite-para-motores-de-vehiculos/05",
+      "question": "¿Qué protección ofrece al motor (contra el desgaste, a altas o bajas temperaturas, contra la corrosión)?",
+      "dimension": "protección",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:vehicle-oil-features=Protección contra el desgaste",
+        "shopify-attr:vehicle-oil-features=Protección contra altas temperaturas",
+        "shopify-attr:vehicle-oil-features=Protección contra bajas temperaturas",
+        "shopify-attr:vehicle-oil-features=Resistente a la corrosión"
+      ],
+      "applicability": "universal",
+      "rationale": "Prestaciones de protección que se reclaman y comparan entre aceites; relevantes, pero secundarias frente a viscosidad y especificaciones (D-043, criterio 2: atributo dividido por tema).",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@vp-1",
+      "resolving_info": [
+        {
+          "contribution": "declaración de protección contra el desgaste",
+          "component": "protección al motor",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:vehicle-oil-features=Protección contra el desgaste"
+          ]
+        },
+        {
+          "contribution": "declaración de protección a altas o bajas temperaturas",
+          "component": "protección al motor",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:vehicle-oil-features=Protección contra altas temperaturas",
+            "shopify-attr:vehicle-oil-features=Protección contra bajas temperaturas"
+          ]
+        },
+        {
+          "contribution": "declaración de protección contra la corrosión",
+          "component": "protección al motor",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:vehicle-oil-features=Resistente a la corrosión"
+          ]
+        },
+        {
+          "contribution": "resultado de ensayos de protección del motor",
+          "component": "protección al motor",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.aceite-para-motores-de-vehiculos/06",
+      "question": "¿Qué prestaciones de eficiencia ofrece (ahorro de combustible o energía, flujo, filtración)?",
+      "dimension": "eficiencia",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:vehicle-oil-features=Ahorro de energía",
+        "shopify-attr:vehicle-oil-features=Alta eficiencia de filtración",
+        "shopify-attr:vehicle-oil-features=Alto flujo",
+        "shopify-attr:vehicle-oil-features=Baja caída de presión",
+        "shopify-attr:vehicle-oil-features=Otros"
+      ],
+      "applicability": "universal",
+      "rationale": "El ahorro de combustible y el comportamiento en circulación son argumentos de elección de aceites de motor; relevantes sin ser centrales (D-043, criterio 2).",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@vp-1",
+      "resolving_info": [
+        {
+          "contribution": "declaración de ahorro de combustible o energía",
+          "component": "prestaciones de eficiencia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:vehicle-oil-features=Ahorro de energía"
+          ]
+        },
+        {
+          "contribution": "declaración de alto flujo o baja caída de presión",
+          "component": "prestaciones de eficiencia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:vehicle-oil-features=Alto flujo",
+            "shopify-attr:vehicle-oil-features=Baja caída de presión"
+          ]
+        },
+        {
+          "contribution": "declaración de eficiencia de filtración",
+          "component": "prestaciones de eficiencia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:vehicle-oil-features=Alta eficiencia de filtración"
+          ]
+        },
+        {
+          "contribution": "resultado de ensayo de ahorro de combustible",
+          "component": "prestaciones de eficiencia",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:AUTO_OIL.compatible_with_vehicle_type",
+      "reason": "Lo cubre shopify-attr:vehicle-type en el bloque de piezas y accesorios para vehículos (cadena)."
+    },
+    {
+      "source": "amazon-ptd-prop:AUTO_OIL.material",
+      "reason": "La base del aceite la cubre shopify-attr:item-material de la cadena y, en sintéticos, el tipo de formulación."
+    },
+    {
+      "source": "amazon-ptd-prop:AUTO_OIL.oem_equivalent_part_number",
+      "reason": "Identificador; los identificadores los pregunta la capa general (gen/03)."
+    },
+    {
+      "source": "amazon-ptd-prop:AUTO_OIL.product_grade",
+      "reason": "Clasificación de plataforma (rendimiento/repuesto), sin información propia de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:AUTO_OIL.included_components",
+      "reason": "Lo incluido lo pregunta gen/01; las piezas de un conjunto, esp.juego."
+    },
+    {
+      "source": "amazon-ptd-prop:AUTO_OIL.hand_orientation",
+      "reason": "Lado de montaje: no se aplica a un aceite."
+    },
+    {
+      "source": "amazon-ptd-prop:AUTO_OIL.container",
+      "reason": "El formato del envase no informa sobre el aceite; la cantidad la fija /02."
+    },
+    {
+      "source": "amazon-ptd-prop:AUTO_OIL.item_weight",
+      "reason": "Dato logístico; la cantidad del aceite la fija el volumen (/02)."
+    }
+  ],
+  "status": "compilado",
+  "version": "3",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

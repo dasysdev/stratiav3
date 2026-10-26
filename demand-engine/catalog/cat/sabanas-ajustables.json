@@ -10,7 +10,7 @@
     "amazon-ptd:FITTED_SHEET@2026-10-24",
     "amazon-btg:3250023031@2026-10-24"
   ],
-  "version": "1",
+  "version": "2",
   "status": "compilado",
   "requirements": [
     {
@@ -27,7 +27,23 @@
       "applicability": "universal",
       "rationale": "Junto con el ancho y el largo, decide si la bajera sirve para un colchón concreto; la altura de los colchones varía mucho (de 15 a más de 30 cm). Criterio 1: principal; la variante la fija el tamaño del colchón (cat.ropa-de-cama/01). Queda en el bloque: la altura del colchón no vale para todas las hijas de Ropa de cama (mantas, fundas de nórdico) (criterio 4).",
       "seed_importance": "principal",
-      "rule": "imp:uso@hg-15-1-2-1"
+      "rule": "imp:uso@hg-15-1-2-1",
+      "resolving_info": [
+        {
+          "contribution": "profundidad del bolsillo",
+          "component": "altura de colchón a la que se ajusta",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:FITTED_SHEET.fitted_sheet_pocket_depth"
+          ]
+        },
+        {
+          "contribution": "altura máxima o rango de alturas de colchón admitidas",
+          "component": "altura de colchón a la que se ajusta",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sabanas-ajustables/04",
@@ -44,7 +60,31 @@
       "applicability": "universal",
       "rationale": "El tejido y su ligamento determinan el tacto, la elasticidad y el comportamiento al lavado: la bajera de punto (jersey) se elige frente a la de calada (percal, satén). FITTED_SHEET lo recoge como tipo de tejido de cumplimiento (calada, punto o ganchillo) y tipo de tela (perchada, afieltrada, no tejida). No sube a Sábanas ni a Ropa de casa (criterio 4 y D-040): Fundas de nórdico y Toallas tienen el ligamento como atributo propio de Shopify.",
       "seed_importance": "principal",
-      "rule": "imp:construccion@hg-15-1-2"
+      "rule": "imp:construccion@hg-15-1-2",
+      "resolving_info": [
+        {
+          "contribution": "técnica de formación del tejido",
+          "component": "tejido o ligamento",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:FITTED_SHEET.compliance_weave_type"
+          ]
+        },
+        {
+          "contribution": "tipo de tela por su acabado o estructura",
+          "component": "tejido o ligamento",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:FITTED_SHEET.compliance_fabric_type"
+          ]
+        },
+        {
+          "contribution": "nombre del ligamento o del tejido comercial",
+          "component": "tejido o ligamento",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [
@@ -101,5 +141,5 @@
       "reason": "Adornos a efectos aduaneros (bordado, encaje, lentejuelas…); el diseño lo cubre cat.casa-y-jardin/02."
     }
   ],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

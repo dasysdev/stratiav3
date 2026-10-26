@@ -1,0 +1,450 @@
+{
+  "id": "cat.clips-y-fundas-para-chupetes",
+  "type": "categoría",
+  "name": "Clips y fundas para chupetes",
+  "shopify": "bt-3-3",
+  "parent": "cat.salud-del-bebe",
+  "refs": [
+    "shopify:bt-3-3@v2026-08",
+    "google:7016@2021-09-21",
+    "amazon-ptd:BABY_PRODUCT@2026-10-24",
+    "amazon-btg:1909623031@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.clips-y-fundas-para-chupetes/01",
+      "question": "¿De qué material es (tejido, silicona, plástico, madera…), incluidas las partes que pueden entrar en contacto con la boca del bebé?",
+      "dimension": "material",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:material",
+        "amazon-ptd-prop:BABY_PRODUCT.material_composition"
+      ],
+      "applicability": "universal",
+      "rationale": "El material decide la higiene, la durabilidad y la idoneidad para un bebé; criterio de comparación de la clase.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:material@bt-3-3",
+      "resolving_info": [
+        {
+          "contribution": "material principal",
+          "component": "material",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:material"
+          ]
+        },
+        {
+          "contribution": "composición de materiales por partes, incluidas las que pueden entrar en contacto con la boca",
+          "component": "partes que pueden entrar en contacto con la boca",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BABY_PRODUCT.material_composition"
+          ]
+        },
+        {
+          "contribution": "declaración de aptitud para el contacto con la boca o con alimentos",
+          "component": "partes que pueden entrar en contacto con la boca",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.clips-y-fundas-para-chupetes/02",
+      "question": "¿Cómo se sujeta o cierra (clip, pinza, broche, velcro, cremallera, cordón, anilla…), tanto a la ropa o al soporte como al chupete?",
+      "dimension": "sistema de sujeción o cierre",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:closure-type"
+      ],
+      "applicability": "universal",
+      "rationale": "La forma de sujeción define el uso del clip o de la funda y su seguridad; distingue unos productos de otros en la clase.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:construccion@bt-3-3",
+      "resolving_info": [
+        {
+          "contribution": "tipo de cierre o sujeción a la ropa o al soporte",
+          "component": "a la ropa o al soporte",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:closure-type"
+          ]
+        },
+        {
+          "contribution": "forma de unión al chupete",
+          "component": "al chupete",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:closure-type"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.clips-y-fundas-para-chupetes/03",
+      "question": "¿Qué medidas tiene (longitud del clip o de la cadena, tamaño interior de la funda)?",
+      "dimension": "medidas",
+      "entity": "producto",
+      "trait": "medida",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BABY_PRODUCT.size"
+      ],
+      "applicability": "universal",
+      "rationale": "La longitud de la cadena condiciona la seguridad y el tamaño de la funda, qué chupete cabe. Descriptivas: no fijan la variante.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "talla o tamaño",
+          "component": "medidas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BABY_PRODUCT.size"
+          ]
+        },
+        {
+          "contribution": "longitud total del clip o de la cadena",
+          "component": "medidas",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "medidas interiores de la funda",
+          "component": "medidas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.clips-y-fundas-para-chupetes/04",
+      "question": "¿Con qué chupetes es compatible (tipo de anilla o asa, tamaño del chupete que admite)?",
+      "dimension": "compatibilidad con el chupete",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Un clip o una funda solo sirve si admite el chupete del comprador; ninguna referencia lo recoge como atributo.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@bt-3",
+      "resolving_info": [
+        {
+          "contribution": "tipo de anilla o asa de chupete que admite",
+          "component": "chupetes compatibles",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "tamaño o modelos de chupete compatibles",
+          "component": "chupetes compatibles",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.clips-y-fundas-para-chupetes/05",
+      "question": "¿Qué normas de seguridad cumple (marcado CE, norma de soportes de chupete) y qué sustancias declara no contener?",
+      "dimension": "cumplimiento de seguridad",
+      "entity": "producto",
+      "trait": "seguridad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:product-certifications-standards=Certificado CE",
+        "shopify-attr:product-certifications-standards=Certificado Made Safe",
+        "shopify-attr:product-certifications-standards=DBP",
+        "shopify-attr:product-certifications-standards=Cumple con la restricción de sustancias peligrosas (RoHS)",
+        "shopify-attr:product-certifications-standards=ISO"
+      ],
+      "applicability": "universal",
+      "rationale": "Producto de puericultura que está al alcance del bebé: el cumplimiento de seguridad es criterio de elección.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:seguridad@bt-3-3",
+      "resolving_info": [
+        {
+          "contribution": "declaración de marcado CE",
+          "component": "normas de seguridad",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:product-certifications-standards=Certificado CE"
+          ]
+        },
+        {
+          "contribution": "normas o certificaciones de calidad que cumple",
+          "component": "normas de seguridad",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:product-certifications-standards=ISO"
+          ]
+        },
+        {
+          "contribution": "declaración de ausencia de sustancias nocivas",
+          "component": "sustancias que declara no contener",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:product-certifications-standards=DBP",
+            "shopify-attr:product-certifications-standards=Cumple con la restricción de sustancias peligrosas (RoHS)",
+            "shopify-attr:product-certifications-standards=Certificado Made Safe"
+          ]
+        },
+        {
+          "contribution": "indicación de cumplimiento de la norma de soportes de chupete",
+          "component": "normas de seguridad",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.clips-y-fundas-para-chupetes/06",
+      "question": "¿Qué otras certificaciones o sellos declara (hipoalergénico, biodegradable, ecológico, vegano…)?",
+      "dimension": "certificaciones",
+      "entity": "producto",
+      "trait": "certificacion-origen",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:product-certifications-standards=Hipoalergénico",
+        "shopify-attr:product-certifications-standards=Biodegradable",
+        "shopify-attr:product-certifications-standards=Aprobado por PETA",
+        "shopify-attr:product-certifications-standards=Ecocert"
+      ],
+      "applicability": "universal",
+      "rationale": "Sellos que algunos compradores valoran sin ser centrales para comparar ofertas.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:certificacion-origen@bt-3-3",
+      "resolving_info": [
+        {
+          "contribution": "declaración de hipoalergenicidad",
+          "component": "certificaciones o sellos",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:product-certifications-standards=Hipoalergénico"
+          ]
+        },
+        {
+          "contribution": "declaración de biodegradabilidad",
+          "component": "certificaciones o sellos",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:product-certifications-standards=Biodegradable"
+          ]
+        },
+        {
+          "contribution": "sello vegano o libre de crueldad animal",
+          "component": "certificaciones o sellos",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:product-certifications-standards=Aprobado por PETA"
+          ]
+        },
+        {
+          "contribution": "certificación ecológica",
+          "component": "certificaciones o sellos",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:product-certifications-standards=Ecocert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.clips-y-fundas-para-chupetes/07",
+      "question": "¿Cómo se limpia (lavable a máquina, a mano, esterilizable…)?",
+      "dimension": "limpieza",
+      "entity": "producto",
+      "trait": "cuidado",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:care-instructions"
+      ],
+      "applicability": "universal",
+      "rationale": "La higiene de lo que está en contacto con el chupete es criterio de elección.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:cuidado@bt-3-3",
+      "resolving_info": [
+        {
+          "contribution": "método de lavado admitido",
+          "component": "cómo se limpia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "método de secado admitido",
+          "component": "cómo se limpia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicación de si se puede esterilizar y por qué método",
+          "component": "cómo se limpia",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.clips-y-fundas-para-chupetes/08",
+      "question": "¿De qué color es?",
+      "dimension": "color",
+      "entity": "producto",
+      "trait": "estetica",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:color"
+      ],
+      "applicability": "universal",
+      "rationale": "Característica del producto; si es seleccionable la cubre además gen.variantes.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:estetica@bt-3-3",
+      "resolving_info": [
+        {
+          "contribution": "color principal",
+          "component": "color",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:color"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.clips-y-fundas-para-chupetes/09",
+      "question": "¿Qué estampado o motivo tiene?",
+      "dimension": "estampado",
+      "entity": "producto",
+      "trait": "estetica",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:pattern"
+      ],
+      "applicability": "universal",
+      "rationale": "Estética: relevante sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:estetica@bt-3-3",
+      "resolving_info": [
+        {
+          "contribution": "tipo de estampado o motivo",
+          "component": "estampado o motivo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pattern"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.manufacturer_minimum_age",
+      "reason": "La cubre la edad indicada de cat.salud-del-bebe (infant-age-group)."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.manufacturer_maximum_age",
+      "reason": "La cubre la edad indicada de cat.salud-del-bebe (infant-age-group)."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.item_weight",
+      "reason": "El peso de un clip o una funda no informa para comparar ofertas de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.display",
+      "reason": "PTD genérico de bebé: propiedad de pantallas, no aplica."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.maximum_range_indoors",
+      "reason": "Propiedad de vigilabebés, no aplica."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.maximum_range_open_space",
+      "reason": "Propiedad de vigilabebés, no aplica."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.night_vision_range",
+      "reason": "Propiedad de vigilabebés, no aplica."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.has_night_vision",
+      "reason": "Propiedad de vigilabebés, no aplica."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.zoom_ratio",
+      "reason": "Propiedad de cámaras, no aplica."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.viewing_angle",
+      "reason": "Propiedad de cámaras, no aplica."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.is_heat_sensitive",
+      "reason": "Dato logístico."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.melting_temperature",
+      "reason": "Dato logístico."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.is_expiration_dated_product",
+      "reason": "Dato logístico; no caduca."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.product_expiration_type",
+      "reason": "Dato logístico."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.fc_shelf_life",
+      "reason": "Dato logístico."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.product_lot_code_tracking_class",
+      "reason": "Dato de plataforma."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.street_date",
+      "reason": "Dato de plataforma."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.version_for_country",
+      "reason": "Dato de plataforma."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.subject_keyword",
+      "reason": "Dato de feed."
+    },
+    {
+      "source": "amazon-ptd-prop:BABY_PRODUCT.fit_type",
+      "reason": "Propiedad de prendas, no aplica."
+    }
+  ],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-26",
+  "compiled_by": "reglas 6"
+}

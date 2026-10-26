@@ -8,7 +8,7 @@
     "shopify:hg-15-1-8@v2026-08",
     "google:2927@2021-09-21"
   ],
-  "version": "1",
+  "version": "2",
   "status": "compilado",
   "requirements": [
     {
@@ -25,9 +25,27 @@
       "applicability": "universal",
       "rationale": "Shopify recoge el estilo (oculto o tradicional); el mecanismo responde a la misma cuestión. Influye en la sujeción de la almohada y en el aspecto; no suele ser un criterio central.",
       "seed_importance": "complementario",
-      "rule": "imp:construccion@hg-15-1-8"
+      "rule": "imp:construccion@hg-15-1-8",
+      "resolving_info": [
+        {
+          "contribution": "método de cierre de la funda",
+          "component": "cómo se cierra",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:closure-style"
+          ]
+        },
+        {
+          "contribution": "visibilidad del cierre",
+          "component": "oculto o a la vista",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:closure-style"
+          ]
+        }
+      ]
     }
   ],
   "excluded": [],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

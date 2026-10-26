@@ -1,0 +1,167 @@
+{
+  "id": "cat.objetos-para-llevar-comida-y-bebida",
+  "type": "categoría",
+  "name": "Objetos para llevar comida y bebida",
+  "shopify": "hg-11-3",
+  "parent": "cat.cocina-y-comedor",
+  "refs": [
+    "shopify:hg-11-3@v2026-08",
+    "google:2920@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.objetos-para-llevar-comida-y-bebida/01",
+      "question": "¿Qué tipo de cierre tiene (rosca, clip, cremallera, presión…)?",
+      "dimension": "tipo de cierre",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:closure-type"
+      ],
+      "applicability": "universal",
+      "rationale": "El cierre determina si el contenido se transporta sin derramarse y cómo se abre; se compara entre recipientes para llevar.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:construccion@hg-11-3",
+      "resolving_info": [
+        {
+          "contribution": "tipo de cierre",
+          "component": "tipo de cierre",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:closure-type"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.objetos-para-llevar-comida-y-bebida/02",
+      "question": "¿Tiene asa o mango y de qué tipo (corto, largo, sin asa)?",
+      "dimension": "asa o mango",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:handle-type"
+      ],
+      "applicability": "universal",
+      "rationale": "Informa sobre cómo se transporta; relevante sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "principal",
+      "rule": "imp:construccion@hg-11-3",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si tiene asa o mango",
+          "component": "tiene asa o mango",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:handle-type"
+          ]
+        },
+        {
+          "contribution": "longitud o tipo de asa",
+          "component": "de qué tipo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:handle-type"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.objetos-para-llevar-comida-y-bebida/03",
+      "question": "Si tiene aislamiento térmico, ¿de qué material es el aislante?",
+      "dimension": "material de aislamiento",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:insulation-material"
+      ],
+      "applicability": "si el producto tiene aislamiento térmico",
+      "rationale": "Relevante en neveras, bolsas y recipientes aislantes; el tipo de aislamiento se pregunta en las hijas que lo listan.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:material@hg-11-3",
+      "resolving_info": [
+        {
+          "contribution": "material del aislamiento",
+          "component": "material del aislante",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:insulation-material"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.objetos-para-llevar-comida-y-bebida/04",
+      "question": "¿Qué certificaciones de seguridad o de aptitud para el contacto con alimentos tiene (grado alimentario, sin BPA, sin ftalatos, sin plomo…)?",
+      "dimension": "seguridad y aptitud alimentaria",
+      "entity": "producto",
+      "trait": "seguridad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:safety-certifications"
+      ],
+      "applicability": "universal",
+      "rationale": "Son recipientes en contacto con comida y bebida: la aptitud alimentaria y la ausencia de sustancias como el BPA son criterio de elección.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:seguridad@hg-11-3",
+      "resolving_info": [
+        {
+          "contribution": "declaración de grado alimentario",
+          "component": "aptitud para el contacto con alimentos",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:safety-certifications"
+          ]
+        },
+        {
+          "contribution": "declaración de ausencia de sustancias nocivas concretas",
+          "component": "certificaciones de seguridad",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:safety-certifications"
+          ]
+        },
+        {
+          "contribution": "certificación o norma de seguridad que cumple",
+          "component": "certificaciones de seguridad",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:safety-certifications"
+          ]
+        },
+        {
+          "contribution": "declaración de conformidad para materiales en contacto con alimentos",
+          "component": "aptitud para el contacto con alimentos",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "símbolo o mención de aptitud alimentaria",
+          "component": "aptitud para el contacto con alimentos",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "shopify-attr:cleaning-instructions",
+      "reason": "Casi idéntico a shopify-attr:care-instructions de la madre; lo cubre cat.cocina-y-comedor/02."
+    }
+  ],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

@@ -1,88 +1,290 @@
 {
-  "global": {
-    "identidad": "no crítico",
-    "contenido": "no crítico"
-  },
   "tree": {
+    "certificacion-origen@fb": "complementario",
     "certificacion-origen@hg": "complementario",
+    "certificacion-origen@aa-8": "complementario",
+    "certificacion-origen@bt-3-3": "complementario",
+    "certificacion-origen@vp-1-5-5-8": "principal",
+    "construccion@lb": "complementario",
     "construccion@aa-8": "complementario",
     "construccion@fr-22": "complementario",
+    "construccion@ha-15": "principal",
+    "construccion@me-3": "complementario",
+    "construccion@aa-6-2": "principal",
+    "construccion@aa-8-3": "principal",
     "construccion@ap-2-9": "complementario",
-    "construccion@fr-22-7": "principal",
+    "construccion@bt-3-3": "principal",
+    "construccion@fb-2-7": "complementario",
+    "construccion@hg-11-3": "principal",
     "construccion@hg-15-4": "principal",
-    "construccion@hg-3-64": "complementario",
-    "construccion@ap-2-3-7": "principal",
+    "construccion@hg-3-64": "principal",
+    "construccion@aa-8-11-5": "principal",
+    "construccion@ap-2-3-7": "complementario",
     "construccion@ap-2-9-4": "principal",
+    "construccion@hg-11-3-11": "complementario",
     "construccion@hg-15-1-2": "principal",
     "construccion@hg-15-1-4": "principal",
     "construccion@hg-15-1-5": "principal",
     "construccion@hg-15-1-6": "principal",
     "construccion@hg-15-1-8": "complementario",
+    "construccion@hg-11-10-7-11": "complementario",
     "construccion@hg-15-1-6-2": "complementario",
-    "construccion@hg-15-1-8-2": "principal",
-    "contenido@fr-22-7": "principal",
+    "contenido@fr-22": "principal",
+    "contenido@me-3": "principal",
+    "contenido@bt-3-3": "principal",
+    "contenido@lb-1-12": "principal",
     "contenido@ap-2-3-3": "complementario",
-    "contenido@ap-2-3-7": "principal",
+    "contenido@hg-15-1-2": "principal",
+    "contenido@hg-15-1-5": "principal",
+    "contenido@hg-15-4-5": "principal",
     "contenido@hg-15-1-8-2": "principal",
+    "contenido@hg-15-4-1-1": "principal",
+    "cuidado@aa": "complementario",
     "cuidado@fr": "complementario",
-    "cuidado@hg": "complementario",
-    "cuidado@aa-8": "complementario",
-    "cuidado@fr-22": "principal",
+    "cuidado@lb": "complementario",
+    "cuidado@fb-2": "complementario",
+    "cuidado@hg-11": "principal",
+    "cuidado@hg-15": "complementario",
+    "cuidado@hg-3": "complementario",
+    "cuidado@aa-8-7": "principal",
     "cuidado@ap-2-3": "complementario",
     "cuidado@ap-2-9": "principal",
+    "cuidado@bt-3-3": "principal",
+    "cuidado@hg-3-64": "principal",
+    "cuidado@hg-15-1-4": "principal",
     "estetica@aa": "principal",
     "estetica@fr": "principal",
+    "estetica@ha": "complementario",
     "estetica@hg": "principal",
+    "estetica@lb": "complementario",
     "estetica@aa-8": "complementario",
     "estetica@ap-2": "complementario",
     "estetica@fr-22": "complementario",
-    "estetica@hg-3-64": "complementario",
-    "identidad@aa-8": "principal",
+    "estetica@bt-3-3": "complementario",
+    "estetica@lb-1-12": "principal",
+    "estetica@me-3-4": "complementario",
+    "estetica@vp-1-5": "complementario",
+    "estetica@hg-11-3-11": "complementario",
+    "estetica@hg-15-1-6-2": "complementario",
+    "identidad@aa-6": "principal",
     "identidad@ap-2": "principal",
+    "identidad@fb-2": "principal",
     "identidad@fr-22": "principal",
-    "identidad@hg-3-64": "complementario",
+    "identidad@ha-15": "principal",
+    "identidad@me-3": "principal",
+    "identidad@vp-1": "complementario",
+    "identidad@aa-8-3": "principal",
+    "identidad@aa-8-7": "principal",
+    "identidad@hg-15-4": "principal",
+    "identidad@hg-3-64": "principal",
+    "identidad@aa-8-11-5": "principal",
+    "identidad@hg-11-10-7": "principal",
     "identidad@hg-15-1-4": "principal",
+    "identidad@hg-11-10-7-11": "complementario",
+    "magnitud@lb": "principal",
     "magnitud@aa-8": "complementario",
+    "magnitud@ha-15": "complementario",
     "magnitud@hg-15": "principal",
-    "magnitud@hg-15-1-4": "complementario",
+    "magnitud@aa-6-2": "complementario",
+    "magnitud@ap-2-9": "complementario",
+    "magnitud@fr-22-7": "principal",
+    "magnitud@me-3-4": "complementario",
+    "magnitud@ap-2-3-7": "complementario",
+    "magnitud@ha-15-59-3": "principal",
+    "magnitud@hg-11-3-11": "complementario",
+    "magnitud@hg-15-1-5": "complementario",
+    "magnitud@hg-11-10-7-11": "complementario",
+    "magnitud@hg-15-1-2-1": "complementario",
+    "magnitud@hg-15-1-4-2": "complementario",
+    "magnitud@hg-15-1-6-2": "complementario",
+    "magnitud@hg-15-1-8-2": "complementario",
     "material@hg": "principal",
+    "material@aa-6": "principal",
     "material@aa-8": "complementario",
     "material@ap-2": "principal",
+    "material@fb-2": "principal",
     "material@fr-22": "principal",
+    "material@lb-1": "complementario",
+    "material@lb-6": "principal",
+    "material@vp-1": "complementario",
     "material@aa-8-3": "principal",
+    "material@bt-3-3": "principal",
+    "material@ha-15-59": "complementario",
+    "material@ha-15-60": "principal",
+    "material@hg-11-3": "complementario",
     "material@hg-15-1-4": "complementario",
+    "material@ap-2-3-3-1": "complementario",
+    "material@hg-15-1-4-2": "principal",
+    "material@vp-1-5-5-8": "principal",
+    "material@vp-1-5-5-8-4": "complementario",
+    "prestacion@lb": "complementario",
     "prestacion@aa-8": "complementario",
-    "prestacion@fr-22": "principal",
-    "prestacion@aa-8-3": "principal",
-    "prestacion@aa-8-7": "principal",
-    "prestacion@ap-2-9": "complementario",
+    "prestacion@fr-22": "complementario",
+    "prestacion@ha-15": "principal",
+    "prestacion@vp-1": "complementario",
+    "prestacion@ap-2-9": "principal",
     "prestacion@hg-15-4": "complementario",
     "prestacion@hg-3-64": "complementario",
-    "prestacion@ap-2-3-7": "principal",
-    "prestacion@ap-2-9-4": "principal",
+    "prestacion@ap-2-3-7": "complementario",
+    "prestacion@hg-11-3-11": "principal",
+    "prestacion@hg-15-1-2": "principal",
     "prestacion@hg-15-1-4": "complementario",
     "prestacion@hg-15-1-6": "principal",
+    "prestacion@hg-11-10-7-11": "complementario",
     "prestacion@hg-15-1-8-2": "complementario",
+    "seguridad@me": "complementario",
+    "seguridad@fb-2": "principal",
     "seguridad@fr-22": "complementario",
     "seguridad@hg-15": "complementario",
+    "seguridad@aa-6-2": "principal",
+    "seguridad@bt-3-3": "principal",
+    "seguridad@ha-15-59": "complementario",
+    "seguridad@hg-11-3": "principal",
+    "seguridad@hg-3-64": "complementario",
     "seguridad@ap-2-3-7": "principal",
     "seguridad@ap-2-9-4": "principal",
+    "seguridad@hg-11-10-7-11": "principal",
     "uso@aa": "principal",
+    "uso@lb": "principal",
+    "uso@aa-6": "complementario",
     "uso@ap-2": "principal",
+    "uso@bt-3": "principal",
+    "uso@fb-2": "principal",
     "uso@fr-22": "complementario",
+    "uso@ha-15": "principal",
+    "uso@vp-1": "principal",
     "uso@fr-22-7": "principal",
+    "uso@hg-11-10": "principal",
     "uso@hg-3-64": "complementario",
+    "uso@lb-1-12": "complementario",
+    "uso@lb-1-16": "complementario",
+    "uso@me-3-3": "complementario",
+    "uso@me-3-4": "principal",
+    "uso@aa-8-11-5": "complementario",
     "uso@ap-2-3-7": "complementario",
+    "uso@fb-2-7-6": "complementario",
+    "uso@hg-11-3-11": "complementario",
     "uso@hg-15-1-4": "complementario",
     "uso@hg-15-1-6": "principal",
+    "uso@hg-11-10-7-11": "complementario",
     "uso@hg-15-1-2-1": "principal",
     "uso@hg-15-1-6-2": "complementario"
   },
-  "violations": [],
+  "requirements": {
+    "cat.aceite-para-motores-de-vehiculos/01@vp-1-5-5-8": "crítico",
+    "cat.alimentos/06@fb-2-7-6": "crítico",
+    "cat.alimentos/07@fb-2-7-6": "complementario",
+    "cat.alimentos/09@fb-2-7-6": "complementario",
+    "cat.alimentos/10@fb-2-7-6": "complementario",
+    "cat.alimentos/13@fb-2-7-6": "complementario",
+    "cat.bloques-de-lija/08@ha-15-60": "complementario",
+    "cat.bolsas-de-viaje-y-deporte/07@lb-6": "principal",
+    "cat.bolsas-de-viaje-y-deporte/08@lb-6": "principal",
+    "cat.bolsas-de-viaje-y-deporte/14@lb-6": "complementario",
+    "cat.botas/05@aa-8-3": "complementario",
+    "cat.botas/06@aa-8-3": "complementario",
+    "cat.botellas-de-agua/02@hg-11-3-11": "principal",
+    "cat.botellas-de-agua/04@hg-11-3-11": "principal",
+    "cat.botellas-de-agua/11@hg-11-3-11": "complementario",
+    "cat.calzado/02@aa-8-7": "complementario",
+    "cat.calzado/03@aa-8-11-5": "principal",
+    "cat.calzado/04@aa-8-7": "principal",
+    "cat.calzado/04@aa-8-11-5": "principal",
+    "cat.calzado/07@aa-8-3": "complementario",
+    "cat.calzado/08@aa-8-7": "principal",
+    "cat.calzado/11@aa-8-11-5": "complementario",
+    "cat.calzado/12@aa-8-3": "complementario",
+    "cat.calzado/15@aa-8-7": "principal",
+    "cat.calzado/16@aa-8-7": "principal",
+    "cat.calzado/19@aa-8-3": "complementario",
+    "cat.calzado/24@aa-8-11-5": "principal",
+    "cat.casa-y-jardin/02@hg-15-1-4": "complementario",
+    "cat.casa-y-jardin/02@hg-15-1-4-2": "principal",
+    "cat.cd-de-musica/01@me-3-3": "crítico",
+    "cat.cd-de-musica/04@me-3-3": "complementario",
+    "cat.cd-de-musica/07@me-3-3": "principal",
+    "cat.cd-de-musica/09@me-3-3": "complementario",
+    "cat.cocina-y-comedor/01@hg-11-3-11": "principal",
+    "cat.cojines-decorativos/01@hg-3-64": "crítico",
+    "cat.cojines-decorativos/07@hg-3-64": "complementario",
+    "cat.cojines-decorativos/11@hg-3-64": "complementario",
+    "cat.comida-para-perros/03@ap-2-3-3-1": "principal",
+    "cat.comida-para-perros/08@ap-2-3-3-1": "principal",
+    "cat.comida-para-perros/15@ap-2-3-3-1": "principal",
+    "cat.decoracion/02@hg-3-64": "complementario",
+    "cat.discos-y-lp/01@me-3-4": "crítico",
+    "cat.discos-y-lp/04@me-3-4": "complementario",
+    "cat.discos-y-lp/11@me-3-4": "complementario",
+    "cat.discos-y-lp/12@me-3-4": "complementario",
+    "cat.fundas-de-almohada/03@hg-15-1-8-2": "principal",
+    "cat.fundas-de-almohada/08@hg-15-1-8-2": "principal",
+    "cat.fundas-de-nordico/05@hg-15-1-5": "complementario",
+    "cat.joyas-para-piercings/01@aa-6-2": "crítico",
+    "cat.joyas-para-piercings/07@aa-6-2": "complementario",
+    "cat.joyeria/03@aa-6-2": "complementario",
+    "cat.juguetes-para-perros/02@ap-2-3-7": "principal",
+    "cat.juguetes-para-perros/04@ap-2-3-7": "principal",
+    "cat.juguetes-para-perros/08@ap-2-3-7": "complementario",
+    "cat.lijadoras/04@ha-15-59-3": "complementario",
+    "cat.maletas-y-bolsos-de-viaje/01@lb-1-16": "principal",
+    "cat.mantas/01@hg-15-1-4": "principal",
+    "cat.mantas/05@hg-15-1-4": "complementario",
+    "cat.mantas/06@hg-15-1-4-2": "complementario",
+    "cat.mantas/08@hg-15-1-4": "principal",
+    "cat.mantas/08@hg-15-1-4-2": "complementario",
+    "cat.mantas/11@hg-15-1-4": "complementario",
+    "cat.mobiliario/01@fr-22": "principal",
+    "cat.mochilas-escolares/03@lb-1-12": "principal",
+    "cat.mochilas-para-portatil/03@lb-1-16": "principal",
+    "cat.mochilas/01@lb-1-12": "principal",
+    "cat.mochilas/03@lb-1": "principal",
+    "cat.mochilas/04@lb-1": "principal",
+    "cat.mochilas/05@lb-1-16": "principal",
+    "cat.mochilas/12@lb-1": "principal",
+    "cat.mochilas/13@lb-1-12": "principal",
+    "cat.mochilas/13@lb-1-16": "principal",
+    "cat.mochilas/15@lb-1": "complementario",
+    "cat.musica-y-grabaciones/01@me-3": "crítico",
+    "cat.pantuflas/03@aa-8-7": "principal",
+    "cat.productos-para-mascotas/01@ap-2-3-7": "principal",
+    "cat.productos-para-mascotas/01@ap-2-3-3-1": "crítico",
+    "cat.protectores-de-colchon/04@hg-15-1-6-2": "principal",
+    "cat.protectores-de-colchon/05@hg-15-1-6-2": "principal",
+    "cat.protectores-de-colchon/06@hg-15-1-6-2": "complementario",
+    "cat.ropa-de-cama/02@hg-15-1-4": "crítico",
+    "cat.ropa-de-casa/02@hg-15-1-4": "complementario",
+    "cat.ropa-de-casa/05@hg-15-1-2-1": "principal",
+    "cat.ropa-de-casa/05@hg-15-1-4-2": "principal",
+    "cat.ropa-de-casa/05@hg-15-1-8-2": "principal",
+    "cat.ropa-y-accesorios/01@aa-8-3": "principal",
+    "cat.ropa-y-accesorios/01@aa-8-7": "principal",
+    "cat.ropa-y-accesorios/01@aa-8-11-5": "principal",
+    "cat.ropa-y-accesorios/02@aa-6-2": "complementario",
+    "cat.salsas-y-cremas-para-untar/01@fb-2-7-6": "principal",
+    "cat.sofas-cama/03@fr-22-7": "principal",
+    "cat.sofas/01@fr-22": "crítico",
+    "cat.sofas/01@fr-22-7": "principal",
+    "cat.sofas/08@fr-22-7": "principal",
+    "cat.sofas/12@fr-22": "principal",
+    "cat.sofas/16@fr-22": "principal",
+    "cat.sofas/16@fr-22-7": "complementario",
+    "cat.sofas/21@fr-22-7": "complementario",
+    "cat.sofas/24@fr-22": "complementario",
+    "cat.toallas/04@hg-15-4-5": "principal",
+    "cat.toallas/04@hg-15-4-1-1": "principal",
+    "cat.toallas/08@hg-15-4-5": "complementario",
+    "cat.toallas/08@hg-15-4-1-1": "complementario"
+  },
   "relevance": {
+    "cat.bricolaje/02@ha-15-60": "excluido",
+    "cat.bricolaje/02@ha-15-59-3": "excluido",
     "cat.calzado/06@aa-8-7": "excluido",
+    "cat.calzado/06@aa-8-11-5": "excluido",
     "cat.calzado/12@aa-8-7": "excluido",
     "cat.casa-y-jardin/02@hg-15-1-6-2": "excluido",
+    "cat.mantenimiento-cuidado-y-decoracion-de-vehiculos/01@vp-1-5-5-8": "excluido",
+    "cat.mantenimiento-cuidado-y-decoracion-de-vehiculos/02@vp-1-5-5-8": "excluido",
+    "cat.piezas-y-accesorios-para-vehiculos/04@vp-1-5-5-8": "excluido",
     "cat.productos-para-mascotas/02@ap-2-3-3-1": "excluido",
     "cat.productos-para-mascotas/03@ap-2-3-3-1": "excluido",
     "cat.productos-para-perros/01@ap-2-3-3-1": "excluido"
@@ -90,9 +292,49 @@
   "relevance_conflicts": [],
   "rules": [
     {
+      "id": "imp:certificacion-origen@fb",
+      "trait": "certificacion-origen",
+      "node": "fb",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
       "id": "imp:certificacion-origen@hg",
       "trait": "certificacion-origen",
       "node": "hg",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:certificacion-origen@aa-8",
+      "trait": "certificacion-origen",
+      "node": "aa-8",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:certificacion-origen@bt-3-3",
+      "trait": "certificacion-origen",
+      "node": "bt-3-3",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:certificacion-origen@vp-1-5-5-8",
+      "trait": "certificacion-origen",
+      "node": "vp-1-5-5-8",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@lb",
+      "trait": "construccion",
+      "node": "lb",
       "importance": "complementario",
       "kind": "general",
       "climbed": false
@@ -114,6 +356,38 @@
       "climbed": false
     },
     {
+      "id": "imp:construccion@ha-15",
+      "trait": "construccion",
+      "node": "ha-15",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": true
+    },
+    {
+      "id": "imp:construccion@me-3",
+      "trait": "construccion",
+      "node": "me-3",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": true
+    },
+    {
+      "id": "imp:construccion@aa-6-2",
+      "trait": "construccion",
+      "node": "aa-6-2",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@aa-8-3",
+      "trait": "construccion",
+      "node": "aa-8-3",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
       "id": "imp:construccion@ap-2-9",
       "trait": "construccion",
       "node": "ap-2-9",
@@ -122,11 +396,27 @@
       "climbed": false
     },
     {
-      "id": "imp:construccion@fr-22-7",
+      "id": "imp:construccion@bt-3-3",
       "trait": "construccion",
-      "node": "fr-22-7",
+      "node": "bt-3-3",
       "importance": "principal",
-      "kind": "específica",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@fb-2-7",
+      "trait": "construccion",
+      "node": "fb-2-7",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@hg-11-3",
+      "trait": "construccion",
+      "node": "hg-11-3",
+      "importance": "principal",
+      "kind": "general",
       "climbed": false
     },
     {
@@ -141,15 +431,23 @@
       "id": "imp:construccion@hg-3-64",
       "trait": "construccion",
       "node": "hg-3-64",
-      "importance": "complementario",
+      "importance": "principal",
       "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@aa-8-11-5",
+      "trait": "construccion",
+      "node": "aa-8-11-5",
+      "importance": "principal",
+      "kind": "específica",
       "climbed": false
     },
     {
       "id": "imp:construccion@ap-2-3-7",
       "trait": "construccion",
       "node": "ap-2-3-7",
-      "importance": "principal",
+      "importance": "complementario",
       "kind": "general",
       "climbed": false
     },
@@ -158,6 +456,14 @@
       "trait": "construccion",
       "node": "ap-2-9-4",
       "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:construccion@hg-11-3-11",
+      "trait": "construccion",
+      "node": "hg-11-3-11",
+      "importance": "complementario",
       "kind": "específica",
       "climbed": false
     },
@@ -202,6 +508,14 @@
       "climbed": false
     },
     {
+      "id": "imp:construccion@hg-11-10-7-11",
+      "trait": "construccion",
+      "node": "hg-11-10-7-11",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
       "id": "imp:construccion@hg-15-1-6-2",
       "trait": "construccion",
       "node": "hg-15-1-6-2",
@@ -210,17 +524,33 @@
       "climbed": false
     },
     {
-      "id": "imp:construccion@hg-15-1-8-2",
-      "trait": "construccion",
-      "node": "hg-15-1-8-2",
+      "id": "imp:contenido@fr-22",
+      "trait": "contenido",
+      "node": "fr-22",
       "importance": "principal",
-      "kind": "específica",
+      "kind": "general",
       "climbed": false
     },
     {
-      "id": "imp:contenido@fr-22-7",
+      "id": "imp:contenido@me-3",
       "trait": "contenido",
-      "node": "fr-22-7",
+      "node": "me-3",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": true
+    },
+    {
+      "id": "imp:contenido@bt-3-3",
+      "trait": "contenido",
+      "node": "bt-3-3",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:contenido@lb-1-12",
+      "trait": "contenido",
+      "node": "lb-1-12",
       "importance": "principal",
       "kind": "general",
       "climbed": false
@@ -234,9 +564,25 @@
       "climbed": false
     },
     {
-      "id": "imp:contenido@ap-2-3-7",
+      "id": "imp:contenido@hg-15-1-2",
       "trait": "contenido",
-      "node": "ap-2-3-7",
+      "node": "hg-15-1-2",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": true
+    },
+    {
+      "id": "imp:contenido@hg-15-1-5",
+      "trait": "contenido",
+      "node": "hg-15-1-5",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:contenido@hg-15-4-5",
+      "trait": "contenido",
+      "node": "hg-15-4-5",
       "importance": "principal",
       "kind": "general",
       "climbed": false
@@ -250,6 +596,22 @@
       "climbed": false
     },
     {
+      "id": "imp:contenido@hg-15-4-1-1",
+      "trait": "contenido",
+      "node": "hg-15-4-1-1",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:cuidado@aa",
+      "trait": "cuidado",
+      "node": "aa",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": true
+    },
+    {
       "id": "imp:cuidado@fr",
       "trait": "cuidado",
       "node": "fr",
@@ -258,25 +620,49 @@
       "climbed": false
     },
     {
-      "id": "imp:cuidado@hg",
+      "id": "imp:cuidado@lb",
       "trait": "cuidado",
-      "node": "hg",
-      "importance": "complementario",
-      "kind": "general",
-      "climbed": true
-    },
-    {
-      "id": "imp:cuidado@aa-8",
-      "trait": "cuidado",
-      "node": "aa-8",
+      "node": "lb",
       "importance": "complementario",
       "kind": "general",
       "climbed": false
     },
     {
-      "id": "imp:cuidado@fr-22",
+      "id": "imp:cuidado@fb-2",
       "trait": "cuidado",
-      "node": "fr-22",
+      "node": "fb-2",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:cuidado@hg-11",
+      "trait": "cuidado",
+      "node": "hg-11",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:cuidado@hg-15",
+      "trait": "cuidado",
+      "node": "hg-15",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:cuidado@hg-3",
+      "trait": "cuidado",
+      "node": "hg-3",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:cuidado@aa-8-7",
+      "trait": "cuidado",
+      "node": "aa-8-7",
       "importance": "principal",
       "kind": "específica",
       "climbed": false
@@ -298,6 +684,30 @@
       "climbed": false
     },
     {
+      "id": "imp:cuidado@bt-3-3",
+      "trait": "cuidado",
+      "node": "bt-3-3",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:cuidado@hg-3-64",
+      "trait": "cuidado",
+      "node": "hg-3-64",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:cuidado@hg-15-1-4",
+      "trait": "cuidado",
+      "node": "hg-15-1-4",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
       "id": "imp:estetica@aa",
       "trait": "estetica",
       "node": "aa",
@@ -314,10 +724,26 @@
       "climbed": false
     },
     {
+      "id": "imp:estetica@ha",
+      "trait": "estetica",
+      "node": "ha",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
       "id": "imp:estetica@hg",
       "trait": "estetica",
       "node": "hg",
       "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:estetica@lb",
+      "trait": "estetica",
+      "node": "lb",
+      "importance": "complementario",
       "kind": "general",
       "climbed": false
     },
@@ -346,20 +772,60 @@
       "climbed": false
     },
     {
-      "id": "imp:estetica@hg-3-64",
+      "id": "imp:estetica@bt-3-3",
       "trait": "estetica",
-      "node": "hg-3-64",
+      "node": "bt-3-3",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:estetica@lb-1-12",
+      "trait": "estetica",
+      "node": "lb-1-12",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:estetica@me-3-4",
+      "trait": "estetica",
+      "node": "me-3-4",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:estetica@vp-1-5",
+      "trait": "estetica",
+      "node": "vp-1-5",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:estetica@hg-11-3-11",
+      "trait": "estetica",
+      "node": "hg-11-3-11",
       "importance": "complementario",
       "kind": "específica",
       "climbed": false
     },
     {
-      "id": "imp:identidad@aa-8",
+      "id": "imp:estetica@hg-15-1-6-2",
+      "trait": "estetica",
+      "node": "hg-15-1-6-2",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:identidad@aa-6",
       "trait": "identidad",
-      "node": "aa-8",
+      "node": "aa-6",
       "importance": "principal",
       "kind": "general",
-      "climbed": true
+      "climbed": false
     },
     {
       "id": "imp:identidad@ap-2",
@@ -370,6 +836,14 @@
       "climbed": true
     },
     {
+      "id": "imp:identidad@fb-2",
+      "trait": "identidad",
+      "node": "fb-2",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
       "id": "imp:identidad@fr-22",
       "trait": "identidad",
       "node": "fr-22",
@@ -378,10 +852,74 @@
       "climbed": false
     },
     {
+      "id": "imp:identidad@ha-15",
+      "trait": "identidad",
+      "node": "ha-15",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": true
+    },
+    {
+      "id": "imp:identidad@me-3",
+      "trait": "identidad",
+      "node": "me-3",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:identidad@vp-1",
+      "trait": "identidad",
+      "node": "vp-1",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:identidad@aa-8-3",
+      "trait": "identidad",
+      "node": "aa-8-3",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:identidad@aa-8-7",
+      "trait": "identidad",
+      "node": "aa-8-7",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:identidad@hg-15-4",
+      "trait": "identidad",
+      "node": "hg-15-4",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
       "id": "imp:identidad@hg-3-64",
       "trait": "identidad",
       "node": "hg-3-64",
-      "importance": "complementario",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:identidad@aa-8-11-5",
+      "trait": "identidad",
+      "node": "aa-8-11-5",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:identidad@hg-11-10-7",
+      "trait": "identidad",
+      "node": "hg-11-10-7",
+      "importance": "principal",
       "kind": "general",
       "climbed": false
     },
@@ -394,12 +932,36 @@
       "climbed": false
     },
     {
+      "id": "imp:identidad@hg-11-10-7-11",
+      "trait": "identidad",
+      "node": "hg-11-10-7-11",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@lb",
+      "trait": "magnitud",
+      "node": "lb",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": true
+    },
+    {
       "id": "imp:magnitud@aa-8",
       "trait": "magnitud",
       "node": "aa-8",
       "importance": "complementario",
       "kind": "general",
       "climbed": false
+    },
+    {
+      "id": "imp:magnitud@ha-15",
+      "trait": "magnitud",
+      "node": "ha-15",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": true
     },
     {
       "id": "imp:magnitud@hg-15",
@@ -410,9 +972,105 @@
       "climbed": false
     },
     {
-      "id": "imp:magnitud@hg-15-1-4",
+      "id": "imp:magnitud@aa-6-2",
       "trait": "magnitud",
-      "node": "hg-15-1-4",
+      "node": "aa-6-2",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@ap-2-9",
+      "trait": "magnitud",
+      "node": "ap-2-9",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@fr-22-7",
+      "trait": "magnitud",
+      "node": "fr-22-7",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@me-3-4",
+      "trait": "magnitud",
+      "node": "me-3-4",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@ap-2-3-7",
+      "trait": "magnitud",
+      "node": "ap-2-3-7",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@ha-15-59-3",
+      "trait": "magnitud",
+      "node": "ha-15-59-3",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@hg-11-3-11",
+      "trait": "magnitud",
+      "node": "hg-11-3-11",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@hg-15-1-5",
+      "trait": "magnitud",
+      "node": "hg-15-1-5",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@hg-11-10-7-11",
+      "trait": "magnitud",
+      "node": "hg-11-10-7-11",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@hg-15-1-2-1",
+      "trait": "magnitud",
+      "node": "hg-15-1-2-1",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@hg-15-1-4-2",
+      "trait": "magnitud",
+      "node": "hg-15-1-4-2",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@hg-15-1-6-2",
+      "trait": "magnitud",
+      "node": "hg-15-1-6-2",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:magnitud@hg-15-1-8-2",
+      "trait": "magnitud",
+      "node": "hg-15-1-8-2",
       "importance": "complementario",
       "kind": "específica",
       "climbed": false
@@ -424,6 +1082,14 @@
       "importance": "principal",
       "kind": "general",
       "climbed": true
+    },
+    {
+      "id": "imp:material@aa-6",
+      "trait": "material",
+      "node": "aa-6",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
     },
     {
       "id": "imp:material@aa-8",
@@ -442,10 +1108,42 @@
       "climbed": true
     },
     {
+      "id": "imp:material@fb-2",
+      "trait": "material",
+      "node": "fb-2",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
       "id": "imp:material@fr-22",
       "trait": "material",
       "node": "fr-22",
       "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:material@lb-1",
+      "trait": "material",
+      "node": "lb-1",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:material@lb-6",
+      "trait": "material",
+      "node": "lb-6",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:material@vp-1",
+      "trait": "material",
+      "node": "vp-1",
+      "importance": "complementario",
       "kind": "general",
       "climbed": false
     },
@@ -458,12 +1156,84 @@
       "climbed": false
     },
     {
+      "id": "imp:material@bt-3-3",
+      "trait": "material",
+      "node": "bt-3-3",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:material@ha-15-59",
+      "trait": "material",
+      "node": "ha-15-59",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:material@ha-15-60",
+      "trait": "material",
+      "node": "ha-15-60",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:material@hg-11-3",
+      "trait": "material",
+      "node": "hg-11-3",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
       "id": "imp:material@hg-15-1-4",
       "trait": "material",
       "node": "hg-15-1-4",
       "importance": "complementario",
       "kind": "específica",
       "climbed": false
+    },
+    {
+      "id": "imp:material@ap-2-3-3-1",
+      "trait": "material",
+      "node": "ap-2-3-3-1",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:material@hg-15-1-4-2",
+      "trait": "material",
+      "node": "hg-15-1-4-2",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:material@vp-1-5-5-8",
+      "trait": "material",
+      "node": "vp-1-5-5-8",
+      "importance": "principal",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:material@vp-1-5-5-8-4",
+      "trait": "material",
+      "node": "vp-1-5-5-8-4",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:prestacion@lb",
+      "trait": "prestacion",
+      "node": "lb",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": true
     },
     {
       "id": "imp:prestacion@aa-8",
@@ -477,31 +1247,31 @@
       "id": "imp:prestacion@fr-22",
       "trait": "prestacion",
       "node": "fr-22",
-      "importance": "principal",
+      "importance": "complementario",
       "kind": "general",
       "climbed": false
     },
     {
-      "id": "imp:prestacion@aa-8-3",
+      "id": "imp:prestacion@ha-15",
       "trait": "prestacion",
-      "node": "aa-8-3",
+      "node": "ha-15",
       "importance": "principal",
-      "kind": "específica",
-      "climbed": false
+      "kind": "general",
+      "climbed": true
     },
     {
-      "id": "imp:prestacion@aa-8-7",
+      "id": "imp:prestacion@vp-1",
       "trait": "prestacion",
-      "node": "aa-8-7",
-      "importance": "principal",
-      "kind": "específica",
+      "node": "vp-1",
+      "importance": "complementario",
+      "kind": "general",
       "climbed": false
     },
     {
       "id": "imp:prestacion@ap-2-9",
       "trait": "prestacion",
       "node": "ap-2-9",
-      "importance": "complementario",
+      "importance": "principal",
       "kind": "general",
       "climbed": false
     },
@@ -525,17 +1295,25 @@
       "id": "imp:prestacion@ap-2-3-7",
       "trait": "prestacion",
       "node": "ap-2-3-7",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:prestacion@hg-11-3-11",
+      "trait": "prestacion",
+      "node": "hg-11-3-11",
       "importance": "principal",
       "kind": "general",
       "climbed": false
     },
     {
-      "id": "imp:prestacion@ap-2-9-4",
+      "id": "imp:prestacion@hg-15-1-2",
       "trait": "prestacion",
-      "node": "ap-2-9-4",
+      "node": "hg-15-1-2",
       "importance": "principal",
-      "kind": "específica",
-      "climbed": false
+      "kind": "general",
+      "climbed": true
     },
     {
       "id": "imp:prestacion@hg-15-1-4",
@@ -554,10 +1332,34 @@
       "climbed": false
     },
     {
+      "id": "imp:prestacion@hg-11-10-7-11",
+      "trait": "prestacion",
+      "node": "hg-11-10-7-11",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
       "id": "imp:prestacion@hg-15-1-8-2",
       "trait": "prestacion",
       "node": "hg-15-1-8-2",
       "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:seguridad@me",
+      "trait": "seguridad",
+      "node": "me",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:seguridad@fb-2",
+      "trait": "seguridad",
+      "node": "fb-2",
+      "importance": "principal",
       "kind": "general",
       "climbed": false
     },
@@ -573,6 +1375,46 @@
       "id": "imp:seguridad@hg-15",
       "trait": "seguridad",
       "node": "hg-15",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:seguridad@aa-6-2",
+      "trait": "seguridad",
+      "node": "aa-6-2",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:seguridad@bt-3-3",
+      "trait": "seguridad",
+      "node": "bt-3-3",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:seguridad@ha-15-59",
+      "trait": "seguridad",
+      "node": "ha-15-59",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:seguridad@hg-11-3",
+      "trait": "seguridad",
+      "node": "hg-11-3",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:seguridad@hg-3-64",
+      "trait": "seguridad",
+      "node": "hg-3-64",
       "importance": "complementario",
       "kind": "general",
       "climbed": false
@@ -594,6 +1436,14 @@
       "climbed": false
     },
     {
+      "id": "imp:seguridad@hg-11-10-7-11",
+      "trait": "seguridad",
+      "node": "hg-11-10-7-11",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
       "id": "imp:uso@aa",
       "trait": "uso",
       "node": "aa",
@@ -602,9 +1452,41 @@
       "climbed": false
     },
     {
+      "id": "imp:uso@lb",
+      "trait": "uso",
+      "node": "lb",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@aa-6",
+      "trait": "uso",
+      "node": "aa-6",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
       "id": "imp:uso@ap-2",
       "trait": "uso",
       "node": "ap-2",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@bt-3",
+      "trait": "uso",
+      "node": "bt-3",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@fb-2",
+      "trait": "uso",
+      "node": "fb-2",
       "importance": "principal",
       "kind": "general",
       "climbed": false
@@ -618,11 +1500,35 @@
       "climbed": false
     },
     {
+      "id": "imp:uso@ha-15",
+      "trait": "uso",
+      "node": "ha-15",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": true
+    },
+    {
+      "id": "imp:uso@vp-1",
+      "trait": "uso",
+      "node": "vp-1",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
       "id": "imp:uso@fr-22-7",
       "trait": "uso",
       "node": "fr-22-7",
       "importance": "principal",
       "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@hg-11-10",
+      "trait": "uso",
+      "node": "hg-11-10",
+      "importance": "principal",
+      "kind": "general",
       "climbed": false
     },
     {
@@ -634,11 +1540,67 @@
       "climbed": false
     },
     {
+      "id": "imp:uso@lb-1-12",
+      "trait": "uso",
+      "node": "lb-1-12",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@lb-1-16",
+      "trait": "uso",
+      "node": "lb-1-16",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@me-3-3",
+      "trait": "uso",
+      "node": "me-3-3",
+      "importance": "complementario",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@me-3-4",
+      "trait": "uso",
+      "node": "me-3-4",
+      "importance": "principal",
+      "kind": "general",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@aa-8-11-5",
+      "trait": "uso",
+      "node": "aa-8-11-5",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
       "id": "imp:uso@ap-2-3-7",
       "trait": "uso",
       "node": "ap-2-3-7",
       "importance": "complementario",
       "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@fb-2-7-6",
+      "trait": "uso",
+      "node": "fb-2-7-6",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
+      "id": "imp:uso@hg-11-3-11",
+      "trait": "uso",
+      "node": "hg-11-3-11",
+      "importance": "complementario",
+      "kind": "general",
       "climbed": false
     },
     {
@@ -658,6 +1620,14 @@
       "climbed": false
     },
     {
+      "id": "imp:uso@hg-11-10-7-11",
+      "trait": "uso",
+      "node": "hg-11-10-7-11",
+      "importance": "complementario",
+      "kind": "específica",
+      "climbed": false
+    },
+    {
       "id": "imp:uso@hg-15-1-2-1",
       "trait": "uso",
       "node": "hg-15-1-2-1",
@@ -674,23 +1644,1294 @@
       "climbed": false
     },
     {
-      "id": "imp:contenido@*",
-      "trait": "contenido",
-      "node": "*",
-      "importance": "no crítico",
-      "kind": "global"
+      "id": "imp:cat.aceite-para-motores-de-vehiculos/01@vp-1-5-5-8",
+      "requirement": "cat.aceite-para-motores-de-vehiculos/01",
+      "trait": "prestacion",
+      "node": "vp-1-5-5-8",
+      "importance": "crítico",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "crítico": 3.0,
+        "principal": 2.0
+      }
     },
     {
-      "id": "imp:identidad@*",
+      "id": "imp:cat.alimentos/06@fb-2-7-6",
+      "requirement": "cat.alimentos/06",
+      "trait": "material",
+      "node": "fb-2-7-6",
+      "importance": "crítico",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "crítico": 6.0,
+        "principal": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.alimentos/07@fb-2-7-6",
+      "requirement": "cat.alimentos/07",
       "trait": "identidad",
-      "node": "*",
-      "importance": "no crítico",
-      "kind": "global"
+      "node": "fb-2-7-6",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 6.0,
+        "principal": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.alimentos/09@fb-2-7-6",
+      "requirement": "cat.alimentos/09",
+      "trait": "material",
+      "node": "fb-2-7-6",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0,
+        "complementario": 4.0
+      }
+    },
+    {
+      "id": "imp:cat.alimentos/10@fb-2-7-6",
+      "requirement": "cat.alimentos/10",
+      "trait": "material",
+      "node": "fb-2-7-6",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 6.0,
+        "principal": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.alimentos/13@fb-2-7-6",
+      "requirement": "cat.alimentos/13",
+      "trait": "seguridad",
+      "node": "fb-2-7-6",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 7.0
+      }
+    },
+    {
+      "id": "imp:cat.bloques-de-lija/08@ha-15-60",
+      "requirement": "cat.bloques-de-lija/08",
+      "trait": "uso",
+      "node": "ha-15-60",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 2.0,
+        "principal": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.bolsas-de-viaje-y-deporte/07@lb-6",
+      "requirement": "cat.bolsas-de-viaje-y-deporte/07",
+      "trait": "construccion",
+      "node": "lb-6",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 6.0,
+        "complementario": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.bolsas-de-viaje-y-deporte/08@lb-6",
+      "requirement": "cat.bolsas-de-viaje-y-deporte/08",
+      "trait": "construccion",
+      "node": "lb-6",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 7.0
+      }
+    },
+    {
+      "id": "imp:cat.bolsas-de-viaje-y-deporte/14@lb-6",
+      "requirement": "cat.bolsas-de-viaje-y-deporte/14",
+      "trait": "uso",
+      "node": "lb-6",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 7.0
+      }
+    },
+    {
+      "id": "imp:cat.botas/05@aa-8-3",
+      "requirement": "cat.botas/05",
+      "trait": "construccion",
+      "node": "aa-8-3",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.botas/06@aa-8-3",
+      "requirement": "cat.botas/06",
+      "trait": "material",
+      "node": "aa-8-3",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.botellas-de-agua/02@hg-11-3-11",
+      "requirement": "cat.botellas-de-agua/02",
+      "trait": "construccion",
+      "node": "hg-11-3-11",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 7.0
+      }
+    },
+    {
+      "id": "imp:cat.botellas-de-agua/04@hg-11-3-11",
+      "requirement": "cat.botellas-de-agua/04",
+      "trait": "construccion",
+      "node": "hg-11-3-11",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 7.0
+      }
+    },
+    {
+      "id": "imp:cat.botellas-de-agua/11@hg-11-3-11",
+      "requirement": "cat.botellas-de-agua/11",
+      "trait": "prestacion",
+      "node": "hg-11-3-11",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 7.0
+      }
+    },
+    {
+      "id": "imp:cat.calzado/02@aa-8-7",
+      "requirement": "cat.calzado/02",
+      "trait": "uso",
+      "node": "aa-8-7",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 2.0,
+        "principal": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.calzado/03@aa-8-11-5",
+      "requirement": "cat.calzado/03",
+      "trait": "uso",
+      "node": "aa-8-11-5",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 7.0
+      }
+    },
+    {
+      "id": "imp:cat.calzado/04@aa-8-7",
+      "requirement": "cat.calzado/04",
+      "trait": "material",
+      "node": "aa-8-7",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.calzado/04@aa-8-11-5",
+      "requirement": "cat.calzado/04",
+      "trait": "material",
+      "node": "aa-8-11-5",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 7.0
+      }
+    },
+    {
+      "id": "imp:cat.calzado/07@aa-8-3",
+      "requirement": "cat.calzado/07",
+      "trait": "material",
+      "node": "aa-8-3",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.calzado/08@aa-8-7",
+      "requirement": "cat.calzado/08",
+      "trait": "material",
+      "node": "aa-8-7",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 2.0,
+        "complementario": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.calzado/11@aa-8-11-5",
+      "requirement": "cat.calzado/11",
+      "trait": "construccion",
+      "node": "aa-8-11-5",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 7.0
+      }
+    },
+    {
+      "id": "imp:cat.calzado/12@aa-8-3",
+      "requirement": "cat.calzado/12",
+      "trait": "uso",
+      "node": "aa-8-3",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.calzado/15@aa-8-7",
+      "requirement": "cat.calzado/15",
+      "trait": "prestacion",
+      "node": "aa-8-7",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 2.0,
+        "complementario": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.calzado/16@aa-8-7",
+      "requirement": "cat.calzado/16",
+      "trait": "prestacion",
+      "node": "aa-8-7",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 2.0,
+        "complementario": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.calzado/19@aa-8-3",
+      "requirement": "cat.calzado/19",
+      "trait": "material",
+      "node": "aa-8-3",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.calzado/24@aa-8-11-5",
+      "requirement": "cat.calzado/24",
+      "trait": "uso",
+      "node": "aa-8-11-5",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 7.0
+      }
+    },
+    {
+      "id": "imp:cat.casa-y-jardin/02@hg-15-1-4",
+      "requirement": "cat.casa-y-jardin/02",
+      "trait": "estetica",
+      "node": "hg-15-1-4",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 2.0,
+        "principal": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.casa-y-jardin/02@hg-15-1-4-2",
+      "requirement": "cat.casa-y-jardin/02",
+      "trait": "estetica",
+      "node": "hg-15-1-4-2",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.cd-de-musica/01@me-3-3",
+      "requirement": "cat.cd-de-musica/01",
+      "trait": "identidad",
+      "node": "me-3-3",
+      "importance": "crítico",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "crítico": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.cd-de-musica/04@me-3-3",
+      "requirement": "cat.cd-de-musica/04",
+      "trait": "identidad",
+      "node": "me-3-3",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.cd-de-musica/07@me-3-3",
+      "requirement": "cat.cd-de-musica/07",
+      "trait": "uso",
+      "node": "me-3-3",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.cd-de-musica/09@me-3-3",
+      "requirement": "cat.cd-de-musica/09",
+      "trait": "contenido",
+      "node": "me-3-3",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.cocina-y-comedor/01@hg-11-3-11",
+      "requirement": "cat.cocina-y-comedor/01",
+      "trait": "material",
+      "node": "hg-11-3-11",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 7.0
+      }
+    },
+    {
+      "id": "imp:cat.cojines-decorativos/01@hg-3-64",
+      "requirement": "cat.cojines-decorativos/01",
+      "trait": "medida",
+      "node": "hg-3-64",
+      "importance": "crítico",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "crítico": 2.0,
+        "principal": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.cojines-decorativos/07@hg-3-64",
+      "requirement": "cat.cojines-decorativos/07",
+      "trait": "estetica",
+      "node": "hg-3-64",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.cojines-decorativos/11@hg-3-64",
+      "requirement": "cat.cojines-decorativos/11",
+      "trait": "material",
+      "node": "hg-3-64",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.comida-para-perros/03@ap-2-3-3-1",
+      "requirement": "cat.comida-para-perros/03",
+      "trait": "material",
+      "node": "ap-2-3-3-1",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.comida-para-perros/08@ap-2-3-3-1",
+      "requirement": "cat.comida-para-perros/08",
+      "trait": "material",
+      "node": "ap-2-3-3-1",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.comida-para-perros/15@ap-2-3-3-1",
+      "requirement": "cat.comida-para-perros/15",
+      "trait": "material",
+      "node": "ap-2-3-3-1",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.decoracion/02@hg-3-64",
+      "requirement": "cat.decoracion/02",
+      "trait": "material",
+      "node": "hg-3-64",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.discos-y-lp/01@me-3-4",
+      "requirement": "cat.discos-y-lp/01",
+      "trait": "identidad",
+      "node": "me-3-4",
+      "importance": "crítico",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "crítico": 5.0
+      }
+    },
+    {
+      "id": "imp:cat.discos-y-lp/04@me-3-4",
+      "requirement": "cat.discos-y-lp/04",
+      "trait": "identidad",
+      "node": "me-3-4",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0,
+        "principal": 2.0
+      }
+    },
+    {
+      "id": "imp:cat.discos-y-lp/11@me-3-4",
+      "requirement": "cat.discos-y-lp/11",
+      "trait": "contenido",
+      "node": "me-3-4",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 5.0
+      }
+    },
+    {
+      "id": "imp:cat.discos-y-lp/12@me-3-4",
+      "requirement": "cat.discos-y-lp/12",
+      "trait": "uso",
+      "node": "me-3-4",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 5.0
+      }
+    },
+    {
+      "id": "imp:cat.fundas-de-almohada/03@hg-15-1-8-2",
+      "requirement": "cat.fundas-de-almohada/03",
+      "trait": "construccion",
+      "node": "hg-15-1-8-2",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 5.0,
+        "complementario": 2.0
+      }
+    },
+    {
+      "id": "imp:cat.fundas-de-almohada/08@hg-15-1-8-2",
+      "requirement": "cat.fundas-de-almohada/08",
+      "trait": "construccion",
+      "node": "hg-15-1-8-2",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 7.0
+      }
+    },
+    {
+      "id": "imp:cat.fundas-de-nordico/05@hg-15-1-5",
+      "requirement": "cat.fundas-de-nordico/05",
+      "trait": "construccion",
+      "node": "hg-15-1-5",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0,
+        "principal": 2.0
+      }
+    },
+    {
+      "id": "imp:cat.joyas-para-piercings/01@aa-6-2",
+      "requirement": "cat.joyas-para-piercings/01",
+      "trait": "identidad",
+      "node": "aa-6-2",
+      "importance": "crítico",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0,
+        "crítico": 4.0
+      }
+    },
+    {
+      "id": "imp:cat.joyas-para-piercings/07@aa-6-2",
+      "requirement": "cat.joyas-para-piercings/07",
+      "trait": "construccion",
+      "node": "aa-6-2",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 7.0
+      }
+    },
+    {
+      "id": "imp:cat.joyeria/03@aa-6-2",
+      "requirement": "cat.joyeria/03",
+      "trait": "material",
+      "node": "aa-6-2",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0,
+        "complementario": 4.0
+      }
+    },
+    {
+      "id": "imp:cat.juguetes-para-perros/02@ap-2-3-7",
+      "requirement": "cat.juguetes-para-perros/02",
+      "trait": "uso",
+      "node": "ap-2-3-7",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.juguetes-para-perros/04@ap-2-3-7",
+      "requirement": "cat.juguetes-para-perros/04",
+      "trait": "prestacion",
+      "node": "ap-2-3-7",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.juguetes-para-perros/08@ap-2-3-7",
+      "requirement": "cat.juguetes-para-perros/08",
+      "trait": "material",
+      "node": "ap-2-3-7",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 2.0,
+        "principal": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.lijadoras/04@ha-15-59-3",
+      "requirement": "cat.lijadoras/04",
+      "trait": "uso",
+      "node": "ha-15-59-3",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 5.0
+      }
+    },
+    {
+      "id": "imp:cat.maletas-y-bolsos-de-viaje/01@lb-1-16",
+      "requirement": "cat.maletas-y-bolsos-de-viaje/01",
+      "trait": "uso",
+      "node": "lb-1-16",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 1.0,
+        "principal": 2.0
+      }
+    },
+    {
+      "id": "imp:cat.mantas/01@hg-15-1-4",
+      "requirement": "cat.mantas/01",
+      "trait": "prestacion",
+      "node": "hg-15-1-4",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.mantas/05@hg-15-1-4",
+      "requirement": "cat.mantas/05",
+      "trait": "magnitud",
+      "node": "hg-15-1-4",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 2.0,
+        "principal": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.mantas/06@hg-15-1-4-2",
+      "requirement": "cat.mantas/06",
+      "trait": "material",
+      "node": "hg-15-1-4-2",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.mantas/08@hg-15-1-4",
+      "requirement": "cat.mantas/08",
+      "trait": "prestacion",
+      "node": "hg-15-1-4",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 2.0,
+        "complementario": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.mantas/08@hg-15-1-4-2",
+      "requirement": "cat.mantas/08",
+      "trait": "prestacion",
+      "node": "hg-15-1-4-2",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 1.0,
+        "complementario": 2.0
+      }
+    },
+    {
+      "id": "imp:cat.mantas/11@hg-15-1-4",
+      "requirement": "cat.mantas/11",
+      "trait": "construccion",
+      "node": "hg-15-1-4",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.mobiliario/01@fr-22",
+      "requirement": "cat.mobiliario/01",
+      "trait": "estetica",
+      "node": "fr-22",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.mochilas-escolares/03@lb-1-12",
+      "requirement": "cat.mochilas-escolares/03",
+      "trait": "construccion",
+      "node": "lb-1-12",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 5.0
+      }
+    },
+    {
+      "id": "imp:cat.mochilas-para-portatil/03@lb-1-16",
+      "requirement": "cat.mochilas-para-portatil/03",
+      "trait": "construccion",
+      "node": "lb-1-16",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.mochilas/01@lb-1-12",
+      "requirement": "cat.mochilas/01",
+      "trait": "uso",
+      "node": "lb-1-12",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 5.0
+      }
+    },
+    {
+      "id": "imp:cat.mochilas/03@lb-1",
+      "requirement": "cat.mochilas/03",
+      "trait": "material",
+      "node": "lb-1",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": true,
+      "votes": {}
+    },
+    {
+      "id": "imp:cat.mochilas/04@lb-1",
+      "requirement": "cat.mochilas/04",
+      "trait": "prestacion",
+      "node": "lb-1",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": true,
+      "votes": {}
+    },
+    {
+      "id": "imp:cat.mochilas/05@lb-1-16",
+      "requirement": "cat.mochilas/05",
+      "trait": "prestacion",
+      "node": "lb-1-16",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 2.0,
+        "complementario": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.mochilas/12@lb-1",
+      "requirement": "cat.mochilas/12",
+      "trait": "construccion",
+      "node": "lb-1",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": true,
+      "votes": {}
+    },
+    {
+      "id": "imp:cat.mochilas/13@lb-1-12",
+      "requirement": "cat.mochilas/13",
+      "trait": "uso",
+      "node": "lb-1-12",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 2.0,
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.mochilas/13@lb-1-16",
+      "requirement": "cat.mochilas/13",
+      "trait": "uso",
+      "node": "lb-1-16",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 2.0,
+        "crítico": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.mochilas/15@lb-1",
+      "requirement": "cat.mochilas/15",
+      "trait": "uso",
+      "node": "lb-1",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": true,
+      "votes": {}
+    },
+    {
+      "id": "imp:cat.musica-y-grabaciones/01@me-3",
+      "requirement": "cat.musica-y-grabaciones/01",
+      "trait": "identidad",
+      "node": "me-3",
+      "importance": "crítico",
+      "kind": "excepción",
+      "climbed": true,
+      "votes": {}
+    },
+    {
+      "id": "imp:cat.pantuflas/03@aa-8-7",
+      "requirement": "cat.pantuflas/03",
+      "trait": "prestacion",
+      "node": "aa-8-7",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.productos-para-mascotas/01@ap-2-3-7",
+      "requirement": "cat.productos-para-mascotas/01",
+      "trait": "uso",
+      "node": "ap-2-3-7",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 2.0,
+        "complementario": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.productos-para-mascotas/01@ap-2-3-3-1",
+      "requirement": "cat.productos-para-mascotas/01",
+      "trait": "uso",
+      "node": "ap-2-3-3-1",
+      "importance": "crítico",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "crítico": 2.0,
+        "principal": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.protectores-de-colchon/04@hg-15-1-6-2",
+      "requirement": "cat.protectores-de-colchon/04",
+      "trait": "construccion",
+      "node": "hg-15-1-6-2",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.protectores-de-colchon/05@hg-15-1-6-2",
+      "requirement": "cat.protectores-de-colchon/05",
+      "trait": "uso",
+      "node": "hg-15-1-6-2",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.protectores-de-colchon/06@hg-15-1-6-2",
+      "requirement": "cat.protectores-de-colchon/06",
+      "trait": "prestacion",
+      "node": "hg-15-1-6-2",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.ropa-de-cama/02@hg-15-1-4",
+      "requirement": "cat.ropa-de-cama/02",
+      "trait": "medida",
+      "node": "hg-15-1-4",
+      "importance": "crítico",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "crítico": 2.0,
+        "principal": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.ropa-de-casa/02@hg-15-1-4",
+      "requirement": "cat.ropa-de-casa/02",
+      "trait": "cuidado",
+      "node": "hg-15-1-4",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 2.0,
+        "principal": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.ropa-de-casa/05@hg-15-1-2-1",
+      "requirement": "cat.ropa-de-casa/05",
+      "trait": "magnitud",
+      "node": "hg-15-1-2-1",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 1.33,
+        "principal": 1.67
+      }
+    },
+    {
+      "id": "imp:cat.ropa-de-casa/05@hg-15-1-4-2",
+      "requirement": "cat.ropa-de-casa/05",
+      "trait": "magnitud",
+      "node": "hg-15-1-4-2",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 1.0,
+        "principal": 2.0
+      }
+    },
+    {
+      "id": "imp:cat.ropa-de-casa/05@hg-15-1-8-2",
+      "requirement": "cat.ropa-de-casa/05",
+      "trait": "magnitud",
+      "node": "hg-15-1-8-2",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 1.33,
+        "principal": 1.67
+      }
+    },
+    {
+      "id": "imp:cat.ropa-y-accesorios/01@aa-8-3",
+      "requirement": "cat.ropa-y-accesorios/01",
+      "trait": "estetica",
+      "node": "aa-8-3",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.ropa-y-accesorios/01@aa-8-7",
+      "requirement": "cat.ropa-y-accesorios/01",
+      "trait": "estetica",
+      "node": "aa-8-7",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.ropa-y-accesorios/01@aa-8-11-5",
+      "requirement": "cat.ropa-y-accesorios/01",
+      "trait": "estetica",
+      "node": "aa-8-11-5",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 7.0
+      }
+    },
+    {
+      "id": "imp:cat.ropa-y-accesorios/02@aa-6-2",
+      "requirement": "cat.ropa-y-accesorios/02",
+      "trait": "estetica",
+      "node": "aa-6-2",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 4.0,
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.salsas-y-cremas-para-untar/01@fb-2-7-6",
+      "requirement": "cat.salsas-y-cremas-para-untar/01",
+      "trait": "construccion",
+      "node": "fb-2-7-6",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 6.0,
+        "complementario": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.sofas-cama/03@fr-22-7",
+      "requirement": "cat.sofas-cama/03",
+      "trait": "construccion",
+      "node": "fr-22-7",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.sofas/01@fr-22",
+      "requirement": "cat.sofas/01",
+      "trait": "identidad",
+      "node": "fr-22",
+      "importance": "crítico",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "crítico": 2.0,
+        "principal": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.sofas/01@fr-22-7",
+      "requirement": "cat.sofas/01",
+      "trait": "identidad",
+      "node": "fr-22-7",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.sofas/08@fr-22-7",
+      "requirement": "cat.sofas/08",
+      "trait": "prestacion",
+      "node": "fr-22-7",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 1.0,
+        "principal": 2.0
+      }
+    },
+    {
+      "id": "imp:cat.sofas/12@fr-22",
+      "requirement": "cat.sofas/12",
+      "trait": "prestacion",
+      "node": "fr-22",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.sofas/16@fr-22",
+      "requirement": "cat.sofas/16",
+      "trait": "construccion",
+      "node": "fr-22",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.sofas/16@fr-22-7",
+      "requirement": "cat.sofas/16",
+      "trait": "construccion",
+      "node": "fr-22-7",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 2.0,
+        "principal": 1.0
+      }
+    },
+    {
+      "id": "imp:cat.sofas/21@fr-22-7",
+      "requirement": "cat.sofas/21",
+      "trait": "uso",
+      "node": "fr-22-7",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.sofas/24@fr-22",
+      "requirement": "cat.sofas/24",
+      "trait": "material",
+      "node": "fr-22",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 3.0
+      }
+    },
+    {
+      "id": "imp:cat.toallas/04@hg-15-4-5",
+      "requirement": "cat.toallas/04",
+      "trait": "prestacion",
+      "node": "hg-15-4-5",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 2.0
+      }
+    },
+    {
+      "id": "imp:cat.toallas/04@hg-15-4-1-1",
+      "requirement": "cat.toallas/04",
+      "trait": "prestacion",
+      "node": "hg-15-4-1-1",
+      "importance": "principal",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "principal": 2.0
+      }
+    },
+    {
+      "id": "imp:cat.toallas/08@hg-15-4-5",
+      "requirement": "cat.toallas/08",
+      "trait": "construccion",
+      "node": "hg-15-4-5",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 2.0
+      }
+    },
+    {
+      "id": "imp:cat.toallas/08@hg-15-4-1-1",
+      "requirement": "cat.toallas/08",
+      "trait": "construccion",
+      "node": "hg-15-4-1-1",
+      "importance": "complementario",
+      "kind": "excepción",
+      "climbed": false,
+      "votes": {
+        "complementario": 2.0
+      }
+    },
+    {
+      "id": "rel:cat.bricolaje/02@ha-15-60",
+      "requirement": "cat.bricolaje/02",
+      "node": "ha-15-60",
+      "relevance": "excluido",
+      "kind": "relevancia"
+    },
+    {
+      "id": "rel:cat.bricolaje/02@ha-15-59-3",
+      "requirement": "cat.bricolaje/02",
+      "node": "ha-15-59-3",
+      "relevance": "excluido",
+      "kind": "relevancia"
     },
     {
       "id": "rel:cat.calzado/06@aa-8-7",
       "requirement": "cat.calzado/06",
       "node": "aa-8-7",
+      "relevance": "excluido",
+      "kind": "relevancia"
+    },
+    {
+      "id": "rel:cat.calzado/06@aa-8-11-5",
+      "requirement": "cat.calzado/06",
+      "node": "aa-8-11-5",
       "relevance": "excluido",
       "kind": "relevancia"
     },
@@ -705,6 +2946,27 @@
       "id": "rel:cat.casa-y-jardin/02@hg-15-1-6-2",
       "requirement": "cat.casa-y-jardin/02",
       "node": "hg-15-1-6-2",
+      "relevance": "excluido",
+      "kind": "relevancia"
+    },
+    {
+      "id": "rel:cat.mantenimiento-cuidado-y-decoracion-de-vehiculos/01@vp-1-5-5-8",
+      "requirement": "cat.mantenimiento-cuidado-y-decoracion-de-vehiculos/01",
+      "node": "vp-1-5-5-8",
+      "relevance": "excluido",
+      "kind": "relevancia"
+    },
+    {
+      "id": "rel:cat.mantenimiento-cuidado-y-decoracion-de-vehiculos/02@vp-1-5-5-8",
+      "requirement": "cat.mantenimiento-cuidado-y-decoracion-de-vehiculos/02",
+      "node": "vp-1-5-5-8",
+      "relevance": "excluido",
+      "kind": "relevancia"
+    },
+    {
+      "id": "rel:cat.piezas-y-accesorios-para-vehiculos/04@vp-1-5-5-8",
+      "requirement": "cat.piezas-y-accesorios-para-vehiculos/04",
+      "node": "vp-1-5-5-8",
       "relevance": "excluido",
       "kind": "relevancia"
     },
@@ -730,52 +2992,78 @@
       "kind": "relevancia"
     }
   ],
-  "version": "3",
-  "induced": "2026-10-25",
+  "version": "6",
+  "induced": "2026-10-26",
   "points": {
-    "catalog": 186,
-    "votes": 234
+    "catalog": 440,
+    "votes": 2025
   },
   "runs": [
-    "var/runs/2026-10-25-v3-a",
-    "var/runs/2026-10-25-v3-b"
+    "var/runs/2026-10-25-eci-a",
+    "var/runs/2026-10-25-eci-b",
+    "var/runs/2026-10-26-v4-a",
+    "var/runs/2026-10-26-v4-b"
   ],
-  "accepted": {
-    "date": "2026-10-25",
-    "better": [
-      "coherencia de relevancia: 6 → 0"
-    ],
-    "families": {
-      "importancia": false,
-      "relevancia": true
-    },
-    "metrics": {
-      "coherence": {
-        "catalog": 0,
-        "models": 0,
-        "catalog_requirements": 186,
-        "catalog_without_rule": 0
-      },
-      "stability": {
-        "cases": 5,
-        "composition": 5,
-        "key": 5,
-        "specializations": 5,
-        "application": 5,
-        "common": 119,
-        "same_importance": 119
-      },
-      "relevance": {
-        "incoherence": 0,
-        "coverage_gaps": 2
-      }
-    }
-  },
   "refs": {
     "amazon-btg": "2026-10-24",
     "amazon-ptd": "2026-10-24",
     "google": "2021-09-21",
     "shopify": "v2026-08",
     "shopify-google": "v2026-08"
+  },
+  "accepted": {
+    "date": "2026-10-26",
+    "better": [
+      "coherencia por requisito: 18 → 17",
+      "requisitos del catálogo sin regla: 7 → 0"
+    ],
+    "families": {
+      "importancia": true,
+      "relevancia": false
+    },
+    "metrics": {
+      "coherence": {
+        "catalog": 0,
+        "models": 2,
+        "catalog_requirements": 440,
+        "catalog_without_rule": 0
+      },
+      "stability": {
+        "cases": 44,
+        "composition": 44,
+        "key": 41,
+        "specializations": 42,
+        "application": 43,
+        "common": 908,
+        "same_importance": 908
+      },
+      "requirement": {
+        "against": 17,
+        "pairs": 578,
+        "list": [
+          "cat.botellas-de-agua/10@hg-11-3-11",
+          "cat.calzado/05@aa-8-11-5",
+          "cat.calzado/05@aa-8-7",
+          "cat.casa-y-jardin/02@hg-15-1-2-2",
+          "cat.casa-y-jardin/02@hg-15-4-1-1",
+          "cat.casa-y-jardin/02@hg-15-4-5",
+          "cat.cd-de-musica/03@me-3-3",
+          "cat.discos-y-lp/03@me-3-4",
+          "cat.joyas-para-piercings/09@aa-6-2",
+          "cat.lijadoras/12@ha-15-59-3",
+          "cat.ropa-de-cama/01@hg-15-1-4",
+          "cat.ropa-de-cama/01@hg-15-1-4-2",
+          "cat.ropa-de-casa/05@hg-15-1-2-1",
+          "cat.ropa-de-casa/05@hg-15-1-8-2",
+          "cat.sofas/05@fr-22-7",
+          "cat.sofas/17@fr-22",
+          "cat.sofas/17@fr-22-7"
+        ]
+      },
+      "relevance": {
+        "incoherence": 0,
+        "coverage_gaps": 32
+      }
+    }
   }
 }

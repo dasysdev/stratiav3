@@ -1,0 +1,4733 @@
+{
+  "spec": "training/selection/eci.spec.json",
+  "store": "eci",
+  "created": "2026-10-25",
+  "seed": 20261025,
+  "discovery": {
+    "folder": "var/training/eci/discovery-20261025T220205",
+    "at": "2026-10-25T22:07:50+01:00",
+    "flags": [
+      "robots.txt excluye a bots de IA (Bytespider, Amazonbot): no nos aplica, pero revisa si expresa una reserva",
+      "antibot presente: akamai"
+    ]
+  },
+  "counts": {
+    "urls": 501645,
+    "variant": 102715,
+    "not_product": 472,
+    "no_type": 3,
+    "excluded_type": 120,
+    "excluded_department": 525,
+    "products": 397810,
+    "disallowed": 0,
+    "types": 10208,
+    "eligible_types": 1057,
+    "departments": 26,
+    "selected_types": 100,
+    "selected_departments": 26,
+    "pages": 300,
+    "pilot_pages": 30
+  },
+  "categories": [
+    {
+      "category": "club-del-gourmet/mermelada",
+      "department": "club-del-gourmet",
+      "type": "mermelada",
+      "store_category": "https://www.elcorteingles.es/club-del-gourmet/mermeladas-mieles-y-siropes/",
+      "products_in_store": 84,
+      "pilot": true,
+      "pages": [
+        {
+          "id": "eci-mermelada-a57649748",
+          "product": "A57649748",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A57649748-mermelada-de-petalos-de-rosa-rufino/",
+          "department": "club-del-gourmet",
+          "type": "mermelada"
+        },
+        {
+          "id": "eci-mermelada-a20836161",
+          "product": "A20836161",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A20836161-mermelada-de-cereza-club-del-gourmet/",
+          "department": "club-del-gourmet",
+          "type": "mermelada"
+        },
+        {
+          "id": "eci-mermelada-a10111273",
+          "product": "A10111273",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A10111273-mermelada-de-albaricoque-tiptree/",
+          "department": "club-del-gourmet",
+          "type": "mermelada"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-mermelada-a21059876",
+          "product": "A21059876",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A21059876-mermelada-extra-ecologica-de-mirabel-alen-do-val/",
+          "department": "club-del-gourmet",
+          "type": "mermelada"
+        },
+        {
+          "id": "eci-mermelada-a20836171",
+          "product": "A20836171",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A20836171-mermelada-de-tomate-club-del-gourmet/",
+          "department": "club-del-gourmet",
+          "type": "mermelada"
+        }
+      ]
+    },
+    {
+      "category": "hogar/sopera",
+      "department": "hogar",
+      "type": "sopera",
+      "store_category": "https://www.elcorteingles.es/hogar/menaje-de-mesa/complementos-de-mesa/soperas/",
+      "products_in_store": 25,
+      "pilot": true,
+      "pages": [
+        {
+          "id": "eci-sopera-mp002770621118708",
+          "product": "MP_0027706_21118708",
+          "url": "https://www.elcorteingles.es/hogar/MP_0027706_21118708-5601266317205-pr-sopera-transatlantica-vista-alegre-blanco/",
+          "department": "hogar",
+          "type": "sopera"
+        },
+        {
+          "id": "eci-sopera-mp010162607800516",
+          "product": "MP_0101626_07800516",
+          "url": "https://www.elcorteingles.es/hogar/MP_0101626_07800516-4012438096742-pr-sopera-weiss-maria-rosenthal-blanco-24-cm/",
+          "department": "hogar",
+          "type": "sopera"
+        },
+        {
+          "id": "eci-sopera-a55578158",
+          "product": "A55578158",
+          "url": "https://www.elcorteingles.es/hogar/A55578158-2401957498786-pr-sopera-pintada-a-mano-emma/",
+          "department": "hogar",
+          "type": "sopera"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-sopera-mp052321791017511060",
+          "product": "MP_0523217_91017511060",
+          "url": "https://www.elcorteingles.es/hogar/MP_0523217_91017511060-0840457402046-pr-set-de-2-soperas-de-ceramica-de-gres-le-creuset-cereza-11-cm/",
+          "department": "hogar",
+          "type": "sopera"
+        },
+        {
+          "id": "eci-sopera-mp002770621107159",
+          "product": "MP_0027706_21107159",
+          "url": "https://www.elcorteingles.es/hogar/MP_0027706_21107159-5601266023175-pr-sopera-chintz-azul-vista-alegre-azul/",
+          "department": "hogar",
+          "type": "sopera"
+        }
+      ]
+    },
+    {
+      "category": "equipaje/bolso",
+      "department": "equipaje",
+      "type": "bolso",
+      "store_category": "https://www.elcorteingles.es/equipaje/bolsas-de-viaje/",
+      "products_in_store": 49,
+      "pilot": true,
+      "pages": [
+        {
+          "id": "eci-bolso-a56926970",
+          "product": "A56926970",
+          "url": "https://www.elcorteingles.es/equipaje/A56926970-azul-pr-bolso-viaje-poliuretano-13-kg/",
+          "department": "equipaje",
+          "type": "bolso"
+        },
+        {
+          "id": "eci-bolso-mp0103861122346",
+          "product": "MP_0103861_122346",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0103861_122346-negro-pr-bolso-de-viaje-de-ruedas-mediano-week-eco-con-capacidad-de-65-l/",
+          "department": "equipaje",
+          "type": "bolso"
+        },
+        {
+          "id": "eci-bolso-mp0198994138960",
+          "product": "MP_0198994_138960",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0198994_138960-negro-naranja-pr-bolso-de-viaje-tumi-mcclaren-quantum-blando-con-capacidad-de-33-litros/",
+          "department": "equipaje",
+          "type": "bolso"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-bolso-mp0103861125231",
+          "product": "MP_0103861_125231",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0103861_125231-azul-marino-pr-bolso-mochila-de-viaje-canada-con-capacidad-de-41-l/",
+          "department": "equipaje",
+          "type": "bolso"
+        },
+        {
+          "id": "eci-bolso-mp0905176416204",
+          "product": "MP_0905176_416204",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0905176_416204-antracita-pr-bolso-con-ruedas-expandible-joy-blanda-con-capacidad-60l/",
+          "department": "equipaje",
+          "type": "bolso"
+        }
+      ]
+    },
+    {
+      "category": "musica/musica",
+      "department": "musica",
+      "type": "musica",
+      "store_category": "https://www.elcorteingles.es/musica/",
+      "products_in_store": 36070,
+      "pilot": true,
+      "pages": [
+        {
+          "id": "eci-musica-a53284346",
+          "product": "A53284346",
+          "url": "https://www.elcorteingles.es/musica/A53284346-jazz-tropical-edicion-limitada-lp-vinilo/",
+          "department": "musica",
+          "type": "musica"
+        },
+        {
+          "id": "eci-musica-a51236157",
+          "product": "A51236157",
+          "url": "https://www.elcorteingles.es/musica/A51236157-northern-soul-2024-cd/",
+          "department": "musica",
+          "type": "musica"
+        },
+        {
+          "id": "eci-musica-a57589664",
+          "product": "A57589664",
+          "url": "https://www.elcorteingles.es/musica/A57589664-minneapolis-genius-edicion-color-2-lp-vinilo/",
+          "department": "musica",
+          "type": "musica"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-musica-a200518959",
+          "product": "A200518959",
+          "url": "https://www.elcorteingles.es/musica/A200518959-eurovision-song-contest-vienna-2026-2-cd/",
+          "department": "musica",
+          "type": "musica"
+        },
+        {
+          "id": "eci-musica-a43499774",
+          "product": "A43499774",
+          "url": "https://www.elcorteingles.es/musica/A43499774-maniac-frustration-cd/",
+          "department": "musica",
+          "type": "musica"
+        }
+      ]
+    },
+    {
+      "category": "joyeria-y-relojes/piercing",
+      "department": "joyeria-y-relojes",
+      "type": "piercing",
+      "store_category": "https://www.elcorteingles.es/joyeria-y-relojes/bisuteria/bisuteria-de-hombre/pendientes-y-piercings/",
+      "products_in_store": 410,
+      "pilot": true,
+      "pages": [
+        {
+          "id": "eci-piercing-mp00230008433236369047",
+          "product": "MP_0023000_8433236369047",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0023000_8433236369047-plata-brillante-transparente-pr-piercing-personalizable-acabado-en-plata-de-ley-925-con-circonita-brillante/",
+          "department": "joyeria-y-relojes",
+          "type": "piercing"
+        },
+        {
+          "id": "eci-piercing-a51764839",
+          "product": "A51764839",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/A51764839-blanco-pr-piercing-magic-touch-estrella-de-oro-y-diamante/",
+          "department": "joyeria-y-relojes",
+          "type": "piercing"
+        },
+        {
+          "id": "eci-piercing-mp00590638433594230508",
+          "product": "MP_0059063_8433594230508",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0059063_8433594230508-dorado-pr-piercing-basics-de-oro-9k-acabado-brillo-y-motivo-corazon/",
+          "department": "joyeria-y-relojes",
+          "type": "piercing"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-piercing-mp00590638433594196507",
+          "product": "MP_0059063_8433594196507",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0059063_8433594196507-dorado-pr-piercing-lg00159-basics-de-oro-9k-acabado-brillo/",
+          "department": "joyeria-y-relojes",
+          "type": "piercing"
+        },
+        {
+          "id": "eci-piercing-mp002284317119011",
+          "product": "MP_0022843_17119011",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0022843_17119011-blanco-pr-piercing-oreja-cos-en-plata-dorada-con-perla-redonda-blanca-de-4mm/",
+          "department": "joyeria-y-relojes",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "category": "moda-infantil/deportiva",
+      "department": "moda-infantil",
+      "type": "deportiva",
+      "store_category": "https://www.elcorteingles.es/moda-infantil/bebe/ropa-deportiva/",
+      "products_in_store": 28,
+      "pilot": true,
+      "pages": [
+        {
+          "id": "eci-deportiva-a58287585",
+          "product": "A58287585",
+          "url": "https://www.elcorteingles.es/moda-infantil/A58287585-multicolor-pr-deportiva-de-nino-de-corte-bajo-linea-spiderman/",
+          "department": "moda-infantil",
+          "type": "deportiva"
+        },
+        {
+          "id": "eci-deportiva-a55042094",
+          "product": "A55042094",
+          "url": "https://www.elcorteingles.es/moda-infantil/A55042094-multicolor-pr-deportiva-de-nina-levis/",
+          "department": "moda-infantil",
+          "type": "deportiva"
+        },
+        {
+          "id": "eci-deportiva-a56428881",
+          "product": "A56428881",
+          "url": "https://www.elcorteingles.es/moda-infantil/A56428881-multicolor-pr-deportivas-de-bebe-nina-small-esplar/",
+          "department": "moda-infantil",
+          "type": "deportiva"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-deportiva-a58286948",
+          "product": "A58286948",
+          "url": "https://www.elcorteingles.es/moda-infantil/A58286948-blanco-pr-deportiva-de-nino-de-corte-medio-con-aplicaciones-glitter/",
+          "department": "moda-infantil",
+          "type": "deportiva"
+        },
+        {
+          "id": "eci-deportiva-a200974123",
+          "product": "A200974123",
+          "url": "https://www.elcorteingles.es/moda-infantil/A200974123-azul-marino-pr-deportiva-beisbolera/",
+          "department": "moda-infantil",
+          "type": "deportiva"
+        }
+      ]
+    },
+    {
+      "category": "papeleria/mochila",
+      "department": "papeleria",
+      "type": "mochila",
+      "store_category": "https://www.elcorteingles.es/papeleria/colecciones-de-mochilas/",
+      "products_in_store": 1325,
+      "pilot": true,
+      "pages": [
+        {
+          "id": "eci-mochila-mp0655076ma04eco0032516j7yj",
+          "product": "MP_0655076_MA04ECO0032516J7YJ",
+          "url": "https://www.elcorteingles.es/papeleria/MP_0655076_MA04ECO0032516J7YJ-mochila-totto-tempera-pequena-tablet-10-con-capacidad-de-118l/",
+          "department": "papeleria",
+          "type": "mochila"
+        },
+        {
+          "id": "eci-mochila-mp0655076ma04bwo00124200",
+          "product": "MP_0655076_MA04BWO00124200",
+          "url": "https://www.elcorteingles.es/papeleria/MP_0655076_MA04BWO00124200-mochila-totto-bow-m-montana-pc-14-1988l-305-x-395-x-165/",
+          "department": "papeleria",
+          "type": "mochila"
+        },
+        {
+          "id": "eci-mochila-mp0448290610024207040",
+          "product": "MP_0448290_610024207040",
+          "url": "https://www.elcorteingles.es/papeleria/MP_0448290_610024207040-mochila-guarderia-mickey-mouse-fashion-25cm-con-porta-chupete/",
+          "department": "papeleria",
+          "type": "mochila"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-mochila-a201080689",
+          "product": "A201080689",
+          "url": "https://www.elcorteingles.es/papeleria/A201080689-mochila-preescolar-frost/",
+          "department": "papeleria",
+          "type": "mochila"
+        },
+        {
+          "id": "eci-mochila-a55661436",
+          "product": "A55661436",
+          "url": "https://www.elcorteingles.es/papeleria/A55661436-mochila-escolar-con-trolley-compacto-pokemon-geo-cyp-brands-negro-multicolor/",
+          "department": "papeleria",
+          "type": "mochila"
+        }
+      ]
+    },
+    {
+      "category": "bricor/lijadora",
+      "department": "bricor",
+      "type": "lijadora",
+      "store_category": "https://www.elcorteingles.es/bricor/herramientas/lijadoras-bateria/",
+      "products_in_store": 25,
+      "pilot": true,
+      "pages": [
+        {
+          "id": "eci-lijadora-a200945587",
+          "product": "A200945587",
+          "url": "https://www.elcorteingles.es/bricor/A200945587-lijadora-manual-de-115-x-280-con-pinzas-para-cambio-rapido/",
+          "department": "bricor",
+          "type": "lijadora"
+        },
+        {
+          "id": "eci-lijadora-a200805914",
+          "product": "A200805914",
+          "url": "https://www.elcorteingles.es/bricor/A200805914-lijadora-orbital-einhell-tc-os-18-187-li-solo/",
+          "department": "bricor",
+          "type": "lijadora"
+        },
+        {
+          "id": "eci-lijadora-a53125485",
+          "product": "A53125485",
+          "url": "https://www.elcorteingles.es/bricor/A53125485-lijadora-roto-orbital-18v-125-mm/",
+          "department": "bricor",
+          "type": "lijadora"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-lijadora-a51037293",
+          "product": "A51037293",
+          "url": "https://www.elcorteingles.es/bricor/A51037293-lijadora-orbital-electrica-con-cable-a-red-pss-300-ae/",
+          "department": "bricor",
+          "type": "lijadora"
+        },
+        {
+          "id": "eci-lijadora-a200945586",
+          "product": "A200945586",
+          "url": "https://www.elcorteingles.es/bricor/A200945586-lijadora-manual-de-93-x-230-con-pinzas-para-cambio-rapido/",
+          "department": "bricor",
+          "type": "lijadora"
+        }
+      ]
+    },
+    {
+      "category": "regalos-originales/botella",
+      "department": "regalos-originales",
+      "type": "botella",
+      "store_category": "https://www.elcorteingles.es/regalos-originales/botellas-y-termos/",
+      "products_in_store": 87,
+      "pilot": true,
+      "pages": [
+        {
+          "id": "eci-botella-a200156130",
+          "product": "A200156130",
+          "url": "https://www.elcorteingles.es/regalos-originales/A200156130-botella-termica-mr-wonderful-hello-kitty-whats-the-plan-for-today/",
+          "department": "regalos-originales",
+          "type": "botella"
+        },
+        {
+          "id": "eci-botella-a200296835",
+          "product": "A200296835",
+          "url": "https://www.elcorteingles.es/regalos-originales/A200296835-mini-botella-termica-asobu-vaca-200ml/",
+          "department": "regalos-originales",
+          "type": "botella"
+        },
+        {
+          "id": "eci-botella-a38645135",
+          "product": "A38645135",
+          "url": "https://www.elcorteingles.es/regalos-originales/A38645135-botella-de-agua-24bottles-urban-sage/",
+          "department": "regalos-originales",
+          "type": "botella"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-botella-a42225266",
+          "product": "A42225266",
+          "url": "https://www.elcorteingles.es/regalos-originales/A42225266-botella-sport-el-corte-ingles-eci-se-viste-de-rosa/",
+          "department": "regalos-originales",
+          "type": "botella"
+        },
+        {
+          "id": "eci-botella-a55301046",
+          "product": "A55301046",
+          "url": "https://www.elcorteingles.es/regalos-originales/A55301046-botella-termica-asobu-besties-vaca-475ml/",
+          "department": "regalos-originales",
+          "type": "botella"
+        }
+      ]
+    },
+    {
+      "category": "taller-mecanico/aceite",
+      "department": "taller-mecanico",
+      "type": "aceite",
+      "store_category": "https://www.elcorteingles.es/taller-mecanico/coche/mantenimiento-coche/aceites-coche/",
+      "products_in_store": 25,
+      "pilot": true,
+      "pages": [
+        {
+          "id": "eci-aceite-mp00130388414794010695",
+          "product": "MP_0013038_8414794010695",
+          "url": "https://www.elcorteingles.es/taller-mecanico/MP_0013038_8414794010695-aceite-de-coche-quartz-ineo-ecs-5w30-1l-total/",
+          "department": "taller-mecanico",
+          "type": "aceite"
+        },
+        {
+          "id": "eci-aceite-mp00130388414794048858",
+          "product": "MP_0013038_8414794048858",
+          "url": "https://www.elcorteingles.es/taller-mecanico/MP_0013038_8414794048858-aceite-de-coche-evolution-900-ft-5w40-5l-elf/",
+          "department": "taller-mecanico",
+          "type": "aceite"
+        },
+        {
+          "id": "eci-aceite-mp0013038alo63425901133157",
+          "product": "MP_0013038_alo63425901133157",
+          "url": "https://www.elcorteingles.es/taller-mecanico/MP_0013038_alo63425901133157-aceite-de-coche-evolution-fulltech-r-5w3-5l-elf/",
+          "department": "taller-mecanico",
+          "type": "aceite"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-aceite-mp00130388410921543050",
+          "product": "MP_0013038_8410921543050",
+          "url": "https://www.elcorteingles.es/taller-mecanico/MP_0013038_8410921543050-aceite-de-coche-elite-longlife-507-504-5w30-5l-repsol/",
+          "department": "taller-mecanico",
+          "type": "aceite"
+        },
+        {
+          "id": "eci-aceite-mp00130388414794108286",
+          "product": "MP_0013038_8414794108286",
+          "url": "https://www.elcorteingles.es/taller-mecanico/MP_0013038_8414794108286-aceite-de-coche-evolution-fulltech-fe-5w30-1l-elf/",
+          "department": "taller-mecanico",
+          "type": "aceite"
+        }
+      ]
+    },
+    {
+      "category": "designers/sandalia",
+      "department": "designers",
+      "type": "sandalia",
+      "store_category": "https://www.elcorteingles.es/designers/mujer/zapatos/sandalias-de-tacon/",
+      "products_in_store": 23,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-sandalia-a202502999",
+          "product": "A202502999",
+          "url": "https://www.elcorteingles.es/designers/A202502999-sandalias-con-plataforma-patty-de-piel/",
+          "department": "designers",
+          "type": "sandalia"
+        },
+        {
+          "id": "eci-sandalia-a203823024",
+          "product": "A203823024",
+          "url": "https://www.elcorteingles.es/designers/A203823024-sandalias-de-tacon-lumiere/",
+          "department": "designers",
+          "type": "sandalia"
+        },
+        {
+          "id": "eci-sandalia-a53731098",
+          "product": "A53731098",
+          "url": "https://www.elcorteingles.es/designers/A53731098-sandalias-de-tacon-lidia-de-charol/",
+          "department": "designers",
+          "type": "sandalia"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-sandalia-a54641405",
+          "product": "A54641405",
+          "url": "https://www.elcorteingles.es/designers/A54641405-sandalias-de-tacon-de-charol/",
+          "department": "designers",
+          "type": "sandalia"
+        },
+        {
+          "id": "eci-sandalia-a202501586",
+          "product": "A202501586",
+          "url": "https://www.elcorteingles.es/designers/A202501586-sandalia-gracie-jelly/",
+          "department": "designers",
+          "type": "sandalia"
+        }
+      ]
+    },
+    {
+      "category": "bebes/hamaca",
+      "department": "bebes",
+      "type": "hamaca",
+      "store_category": "https://www.elcorteingles.es/bebes/hamacas/",
+      "products_in_store": 54,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-hamaca-a48237522",
+          "product": "A48237522",
+          "url": "https://www.elcorteingles.es/bebes/A48237522-marron-pr-hamaca-nuna-leaf/",
+          "department": "bebes",
+          "type": "hamaca"
+        },
+        {
+          "id": "eci-hamaca-a32728786",
+          "product": "A32728786",
+          "url": "https://www.elcorteingles.es/bebes/A32728786-blanco-gris-pr-hamaca-de-bano-bebe-angel-para-bebe-blanco-gris/",
+          "department": "bebes",
+          "type": "hamaca"
+        },
+        {
+          "id": "eci-hamaca-a27295819",
+          "product": "A27295819",
+          "url": "https://www.elcorteingles.es/bebes/A27295819-blanco-gris-pr-hamaca-stokke-newborn-set-para-trona-tripp-trapp/",
+          "department": "bebes",
+          "type": "hamaca"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-hamaca-a49364548",
+          "product": "A49364548",
+          "url": "https://www.elcorteingles.es/bebes/A49364548-blanco-pr-hamaca-de-bano-de-tela-bbest/",
+          "department": "bebes",
+          "type": "hamaca"
+        },
+        {
+          "id": "eci-hamaca-a201014018",
+          "product": "A201014018",
+          "url": "https://www.elcorteingles.es/bebes/A201014018-gris-oscuro-pr-hamaca-bliss-babybjorn-tejido-woven-acolchado-petalo/",
+          "department": "bebes",
+          "type": "hamaca"
+        }
+      ]
+    },
+    {
+      "category": "parafarmacia/cepillo",
+      "department": "parafarmacia",
+      "type": "cepillo",
+      "store_category": "https://www.elcorteingles.es/parafarmacia/higiene-bucodental/cepillos/",
+      "products_in_store": 150,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-cepillo-a53542602",
+          "product": "A53542602",
+          "url": "https://www.elcorteingles.es/parafarmacia/A53542602-4099702016491-pr-cepillo-facial-brush-4-en-1-black-gold-geske/",
+          "department": "parafarmacia",
+          "type": "cepillo"
+        },
+        {
+          "id": "eci-cepillo-a22586410",
+          "product": "A22586410",
+          "url": "https://www.elcorteingles.es/parafarmacia/A22586410-8427426033276-pr-cepillo-espacio-interprox/",
+          "department": "parafarmacia",
+          "type": "cepillo"
+        },
+        {
+          "id": "eci-cepillo-a26434451",
+          "product": "A26434451",
+          "url": "https://www.elcorteingles.es/parafarmacia/A26434451-7630019900157-pr-cepillo-interdental-trav-ler-06-mm-gum/",
+          "department": "parafarmacia",
+          "type": "cepillo"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-cepillo-a21819345",
+          "product": "A21819345",
+          "url": "https://www.elcorteingles.es/parafarmacia/A21819345-8427426058873-pr-cepillo-electrico-vitis-sonic-s20-vitis/",
+          "department": "parafarmacia",
+          "type": "cepillo"
+        },
+        {
+          "id": "eci-cepillo-a34985858",
+          "product": "A34985858",
+          "url": "https://www.elcorteingles.es/parafarmacia/A34985858-8470001953179-pr-cepillo-dental-bambu-lacer-natur/",
+          "department": "parafarmacia",
+          "type": "cepillo"
+        }
+      ]
+    },
+    {
+      "category": "moda-mujer/leggin",
+      "department": "moda-mujer",
+      "type": "leggin",
+      "store_category": "https://www.elcorteingles.es/moda-mujer/lenceria/medias-y-panties/leggings/",
+      "products_in_store": 23,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-leggin-a200997030",
+          "product": "A200997030",
+          "url": "https://www.elcorteingles.es/moda-mujer/A200997030-negro-pr-leggins-canale/",
+          "department": "moda-mujer",
+          "type": "leggin"
+        },
+        {
+          "id": "eci-leggin-a50350888",
+          "product": "A50350888",
+          "url": "https://www.elcorteingles.es/moda-mujer/A50350888-negro-pr-leggins-de-mujer-de-compresion-con-ajuste-en-3d/",
+          "department": "moda-mujer",
+          "type": "leggin"
+        },
+        {
+          "id": "eci-leggin-a28137210",
+          "product": "A28137210",
+          "url": "https://www.elcorteingles.es/moda-mujer/A28137210-negro-pr-leggins-wolford-opaco-aterciopelado/",
+          "department": "moda-mujer",
+          "type": "leggin"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-leggin-a54264369",
+          "product": "A54264369",
+          "url": "https://www.elcorteingles.es/moda-mujer/A54264369-820-gris-medio-pr-leggins-de-punto-lisos-de-mujer/",
+          "department": "moda-mujer",
+          "type": "leggin"
+        },
+        {
+          "id": "eci-leggin-a38777827",
+          "product": "A38777827",
+          "url": "https://www.elcorteingles.es/moda-mujer/A38777827-negro-pr-leggins-de-mujer-en-modal/",
+          "department": "moda-mujer",
+          "type": "leggin"
+        }
+      ]
+    },
+    {
+      "category": "universo-friki/iman",
+      "department": "universo-friki",
+      "type": "iman",
+      "store_category": "https://www.elcorteingles.es/universo-friki/regalos/llaveros-imanes-y-pins/",
+      "products_in_store": 36,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-iman-a48474888",
+          "product": "A48474888",
+          "url": "https://www.elcorteingles.es/universo-friki/A48474888-iman-3d-angel-disney-lilo-y-stitch-monogram/",
+          "department": "universo-friki",
+          "type": "iman"
+        },
+        {
+          "id": "eci-iman-a48474873",
+          "product": "A48474873",
+          "url": "https://www.elcorteingles.es/universo-friki/A48474873-iman-3d-capitan-america-marvel-el-capitan-amercia-monogram/",
+          "department": "universo-friki",
+          "type": "iman"
+        },
+        {
+          "id": "eci-iman-a43560245",
+          "product": "A43560245",
+          "url": "https://www.elcorteingles.es/universo-friki/A43560245-iman-dragon-ball-kame-house/",
+          "department": "universo-friki",
+          "type": "iman"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-iman-a37294123",
+          "product": "A37294123",
+          "url": "https://www.elcorteingles.es/universo-friki/A37294123-imanes-star-wars-the-mandalorian-baby-yoda/",
+          "department": "universo-friki",
+          "type": "iman"
+        },
+        {
+          "id": "eci-iman-a48514790",
+          "product": "A48514790",
+          "url": "https://www.elcorteingles.es/universo-friki/A48514790-iman-wizards-welcome-harry-potter/",
+          "department": "universo-friki",
+          "type": "iman"
+        }
+      ]
+    },
+    {
+      "category": "deportes/camara",
+      "department": "deportes",
+      "type": "camara",
+      "store_category": "https://www.elcorteingles.es/deportes/electronica-deportiva/accesorios-para-camaras/",
+      "products_in_store": 24,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-camara-a44546877",
+          "product": "A44546877",
+          "url": "https://www.elcorteingles.es/deportes/A44546877-negro-pr-camara-sportube-23-30-700-presta-48mm-pirelli/",
+          "department": "deportes",
+          "type": "camara"
+        },
+        {
+          "id": "eci-camara-a50617023",
+          "product": "A50617023",
+          "url": "https://www.elcorteingles.es/deportes/A50617023-negro-pr-camara-700x23-28c-fv-60-mm-plastico-chaoyang/",
+          "department": "deportes",
+          "type": "camara"
+        },
+        {
+          "id": "eci-camara-a50617011",
+          "product": "A50617011",
+          "url": "https://www.elcorteingles.es/deportes/A50617011-negro-pr-pack-de-dos-unidades-camara-20x150-220-schrader-chaoyang/",
+          "department": "deportes",
+          "type": "camara"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-camara-a44787833",
+          "product": "A44787833",
+          "url": "https://www.elcorteingles.es/deportes/A44787833-camara-de-bicicleta-700x23-28c-fv-60-mm-eltin/",
+          "department": "deportes",
+          "type": "camara"
+        },
+        {
+          "id": "eci-camara-a53127267",
+          "product": "A53127267",
+          "url": "https://www.elcorteingles.es/deportes/A53127267-negro-pr-camara-16x150-175-av-chaoyang/",
+          "department": "deportes",
+          "type": "camara"
+        }
+      ]
+    },
+    {
+      "category": "juguetes/mascota",
+      "department": "juguetes",
+      "type": "mascota",
+      "store_category": "https://www.elcorteingles.es/juguetes/disfraces/disfraz-mascota/",
+      "products_in_store": 35,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-mascota-a50066850",
+          "product": "A50066850",
+          "url": "https://www.elcorteingles.es/juguetes/A50066850-juego-de-mascota-got-talent-lps/",
+          "department": "juguetes",
+          "type": "mascota"
+        },
+        {
+          "id": "eci-mascota-a201442995",
+          "product": "A201442995",
+          "url": "https://www.elcorteingles.es/juguetes/A201442995-mascota-interactiva-one-piece-chopper-deluxe-puppetronic-bizak/",
+          "department": "juguetes",
+          "type": "mascota"
+        },
+        {
+          "id": "eci-mascota-a50066846",
+          "product": "A50066846",
+          "url": "https://www.elcorteingles.es/juguetes/A50066846-pack-de-3-mascotas-littlest-pet-shop/",
+          "department": "juguetes",
+          "type": "mascota"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-mascota-a200285215",
+          "product": "A200285215",
+          "url": "https://www.elcorteingles.es/juguetes/A200285215-mascota-interactiva-just-born-cat-baby-paws/",
+          "department": "juguetes",
+          "type": "mascota"
+        },
+        {
+          "id": "eci-mascota-a201431144",
+          "product": "A201431144",
+          "url": "https://www.elcorteingles.es/juguetes/A201431144-mascota-interactiva-my-fuzzy-friends-koala-bandai/",
+          "department": "juguetes",
+          "type": "mascota"
+        }
+      ]
+    },
+    {
+      "category": "videojuegos/auricular",
+      "department": "videojuegos",
+      "type": "auricular",
+      "store_category": "https://www.elcorteingles.es/videojuegos/nintendo-switch-2/auriculares/",
+      "products_in_store": 63,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-auricular-a201004365",
+          "product": "A201004365",
+          "url": "https://www.elcorteingles.es/videojuegos/A201004365-auriculares-de-diadema-bluetooth-con-luz-led-kpop-demon-hunters/",
+          "department": "videojuegos",
+          "type": "auricular"
+        },
+        {
+          "id": "eci-auricular-a200847868",
+          "product": "A200847868",
+          "url": "https://www.elcorteingles.es/videojuegos/A200847868-5055371633819-pr-auriculares-infantiles-inalambricos-otl-kpop-demon-hunter/",
+          "department": "videojuegos",
+          "type": "auricular"
+        },
+        {
+          "id": "eci-auricular-a54312083",
+          "product": "A54312083",
+          "url": "https://www.elcorteingles.es/videojuegos/A54312083-auriculares-inalambricos-pulse-elite-midnight-black-playstation-5/",
+          "department": "videojuegos",
+          "type": "auricular"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-auricular-a200270228",
+          "product": "A200270228",
+          "url": "https://www.elcorteingles.es/videojuegos/A200270228-auriculares-gaming-turtle-beach-airlite-fit-con-microfono-y-cable-para-nintendo-switch-2/",
+          "department": "videojuegos",
+          "type": "auricular"
+        },
+        {
+          "id": "eci-auricular-a200276392",
+          "product": "A200276392",
+          "url": "https://www.elcorteingles.es/videojuegos/A200276392-8887910061497-pr-auriculares-gaming-de-diadema-razer-blackshark-v2-x-para-playstation-blanco/",
+          "department": "videojuegos",
+          "type": "auricular"
+        }
+      ]
+    },
+    {
+      "category": "cine/cine",
+      "department": "cine",
+      "type": "cine",
+      "store_category": "https://www.elcorteingles.es/cine/",
+      "products_in_store": 5450,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-cine-a48255932",
+          "product": "A48255932",
+          "url": "https://www.elcorteingles.es/cine/A48255932-terrifier-2-dvd/",
+          "department": "cine",
+          "type": "cine"
+        },
+        {
+          "id": "eci-cine-a28262636",
+          "product": "A28262636",
+          "url": "https://www.elcorteingles.es/cine/A28262636-los-diez-mandamientos-blu-ray/",
+          "department": "cine",
+          "type": "cine"
+        },
+        {
+          "id": "eci-cine-a57887125",
+          "product": "A57887125",
+          "url": "https://www.elcorteingles.es/cine/A57887125-boyhood-blu-ray/",
+          "department": "cine",
+          "type": "cine"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-cine-a3849346",
+          "product": "A3849346",
+          "url": "https://www.elcorteingles.es/cine/A3849346-007-licencia-para-matar-dvd/",
+          "department": "cine",
+          "type": "cine"
+        },
+        {
+          "id": "eci-cine-a3854097",
+          "product": "A3854097",
+          "url": "https://www.elcorteingles.es/cine/A3854097-gran-torino-dvd/",
+          "department": "cine",
+          "type": "cine"
+        }
+      ]
+    },
+    {
+      "category": "moda-hombre/chubasquero",
+      "department": "moda-hombre",
+      "type": "chubasquero",
+      "store_category": "https://www.elcorteingles.es/moda-hombre/ropa/abrigos/gabardinas-y-chubasqueros/",
+      "products_in_store": 21,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-chubasquero-mp0911574bf26a0097",
+          "product": "MP_0911574_BF26A0097",
+          "url": "https://www.elcorteingles.es/moda-hombre/MP_0911574_BF26A0097-azul-marino-pr-chubasquero-en-tejido-tecnico/",
+          "department": "moda-hombre",
+          "type": "chubasquero"
+        },
+        {
+          "id": "eci-chubasquero-mp063398269070anthracite",
+          "product": "MP_0633982_69070ANTHRACITE",
+          "url": "https://www.elcorteingles.es/moda-hombre/MP_0633982_69070ANTHRACITE-antracita-pr-chubasquero-de-hombre-impermeable-con-capucha-y-cremallera-termosellada/",
+          "department": "moda-hombre",
+          "type": "chubasquero"
+        },
+        {
+          "id": "eci-chubasquero-a201010352",
+          "product": "A201010352",
+          "url": "https://www.elcorteingles.es/moda-hombre/A201010352-beige-pr-chubasquero-impermeable-de-hombre-deportivo-storm-breaker/",
+          "department": "moda-hombre",
+          "type": "chubasquero"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-chubasquero-a201010397",
+          "product": "A201010397",
+          "url": "https://www.elcorteingles.es/moda-hombre/A201010397-azul-marino-pr-chubasquero-impermeable-de-hombre-acolchado-invierno-alta/",
+          "department": "moda-hombre",
+          "type": "chubasquero"
+        },
+        {
+          "id": "eci-chubasquero-mp043862211070",
+          "product": "MP_0438622_11070",
+          "url": "https://www.elcorteingles.es/moda-hombre/MP_0438622_11070-azul-marino-pr-chubasquero-de-hombre-cortavientos-lrc/",
+          "department": "moda-hombre",
+          "type": "chubasquero"
+        }
+      ]
+    },
+    {
+      "category": "ortopedia-y-dependencia/andador",
+      "department": "ortopedia-y-dependencia",
+      "type": "andador",
+      "store_category": "https://www.elcorteingles.es/ortopedia-y-dependencia/andadores/",
+      "products_in_store": 45,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-andador-mp0410191qa0038032",
+          "product": "MP_0410191_QA0038032",
+          "url": "https://www.elcorteingles.es/ortopedia-y-dependencia/MP_0410191_QA0038032-andador-para-adultos-4-ruedas-y-frenos-turia-clinifcalfy/",
+          "department": "ortopedia-y-dependencia",
+          "type": "andador"
+        },
+        {
+          "id": "eci-andador-mp0410191qa0017906",
+          "product": "MP_0410191_QA0017906",
+          "url": "https://www.elcorteingles.es/ortopedia-y-dependencia/MP_0410191_QA0017906-andador-aluminio-plegable-asiento-y-respaldo-2-ruedas-plateado-compostela-mobiclinic/",
+          "department": "ortopedia-y-dependencia",
+          "type": "andador"
+        },
+        {
+          "id": "eci-andador-mp0410191qa0038104",
+          "product": "MP_0410191_QA0038104",
+          "url": "https://www.elcorteingles.es/ortopedia-y-dependencia/MP_0410191_QA0038104-andador-para-ancianos-aluminio-plegable-sin-ruedas-portico-mobiclinic/",
+          "department": "ortopedia-y-dependencia",
+          "type": "andador"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-andador-mp0410191qa0054504rs",
+          "product": "MP_0410191_QA0054504RS",
+          "url": "https://www.elcorteingles.es/ortopedia-y-dependencia/MP_0410191_QA0054504RS-andador-plegable-asiento-y-respaldo-aluminio-cesta-para-ancianos-rosa-prado-mobiclinic/",
+          "department": "ortopedia-y-dependencia",
+          "type": "andador"
+        },
+        {
+          "id": "eci-andador-mp0410191qa0038032vd",
+          "product": "MP_0410191_QA0038032VD",
+          "url": "https://www.elcorteingles.es/ortopedia-y-dependencia/MP_0410191_QA0038032VD-andador-para-adultos-4-ruedas-con-frenos-turia-clinifcalfy/",
+          "department": "ortopedia-y-dependencia",
+          "type": "andador"
+        }
+      ]
+    },
+    {
+      "category": "perfumeria/polvo",
+      "department": "perfumeria",
+      "type": "polvo",
+      "store_category": "https://www.elcorteingles.es/perfumeria/maquillaje/rostro/polvos-bronceadores/",
+      "products_in_store": 141,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-polvo-a46502946",
+          "product": "A46502946",
+          "url": "https://www.elcorteingles.es/perfumeria/A46502946-0194251136097-pr-polvos-soft-matte-advanced-perfecting-powder-nars/",
+          "department": "perfumeria",
+          "type": "polvo"
+        },
+        {
+          "id": "eci-polvo-a49603017",
+          "product": "A49603017",
+          "url": "https://www.elcorteingles.es/perfumeria/A49603017-3614229385243-pr-polvos-compactosi-poudre-de-beaute-mat-naturel-gucci/",
+          "department": "perfumeria",
+          "type": "polvo"
+        },
+        {
+          "id": "eci-polvo-a38279867",
+          "product": "A38279867",
+          "url": "https://www.elcorteingles.es/perfumeria/A38279867-3614273427517-pr-polvo-fijador-luminous-silk-giorgio-armani/",
+          "department": "perfumeria",
+          "type": "polvo"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-polvo-a200263409",
+          "product": "A200263409",
+          "url": "https://www.elcorteingles.es/perfumeria/A200263409-8059385011202-pr-polvos-fijadores-y-matificantes-para-el-rostro-invisible-touch-face-fixing-powder-kiko-milano/",
+          "department": "perfumeria",
+          "type": "polvo"
+        },
+        {
+          "id": "eci-polvo-a53380311",
+          "product": "A53380311",
+          "url": "https://www.elcorteingles.es/perfumeria/A53380311-3760297544591-pr-polvo-liquido-para-unas-pearl-shimmer-le-mini-macarron/",
+          "department": "perfumeria",
+          "type": "polvo"
+        }
+      ]
+    },
+    {
+      "category": "electrodomesticos/bolsa",
+      "department": "electrodomesticos",
+      "type": "bolsa",
+      "store_category": "https://www.elcorteingles.es/electrodomesticos/aspiracion-y-limpieza/aspiradoras-con-bolsa/",
+      "products_in_store": 42,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-bolsa-a51575571",
+          "product": "A51575571",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A51575571-5715492193363-pr-pack-de-5-bolsas-microfibra-nilfisk-gm80/",
+          "department": "electrodomesticos",
+          "type": "bolsa"
+        },
+        {
+          "id": "eci-bolsa-a41217795",
+          "product": "A41217795",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A41217795-8711000363737-pr-bolsa-de-16-capsulas-tassimo-lor-espresso-cafe-lungo-profondo-intensidad-8-compatibles-con-maquinas-nespresso/",
+          "department": "electrodomesticos",
+          "type": "bolsa"
+        },
+        {
+          "id": "eci-bolsa-a200280955",
+          "product": "A200280955",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A200280955-4012074212407-pr-bolsa-de-aspiracion-universal-cleanbag-m000uni01/",
+          "department": "electrodomesticos",
+          "type": "bolsa"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-bolsa-a200280958",
+          "product": "A200280958",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A200280958-4012074181246-pr-bolsa-de-aspiracion-universal-cleanbag-m157mie15/",
+          "department": "electrodomesticos",
+          "type": "bolsa"
+        },
+        {
+          "id": "eci-bolsa-a22006606",
+          "product": "A22006606",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A22006606-5011773061933-pr-pack-de-bolsas-foodsaver-fvb015x-para-envasar-al-vacio-transparente/",
+          "department": "electrodomesticos",
+          "type": "bolsa"
+        }
+      ]
+    },
+    {
+      "category": "electronica/tablet",
+      "department": "electronica",
+      "type": "tablet",
+      "store_category": "https://www.elcorteingles.es/electronica/ipad-tablets-y-ereaders/",
+      "products_in_store": 46,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-tablet-a56391044",
+          "product": "A56391044",
+          "url": "https://www.elcorteingles.es/electronica/A56391044-8806097638575-pr-tablet-samsung-galaxy-tab-s10-lite-wi-fi-6gb-128gb-gris-128-gb-6-gb-ram/",
+          "department": "electronica",
+          "type": "tablet"
+        },
+        {
+          "id": "eci-tablet-a56382486",
+          "product": "A56382486",
+          "url": "https://www.elcorteingles.es/electronica/A56382486-0198157040083-pr-tablet-lenovo-idea-tab-8gb-256gb-11-wi-fi-pen-luna-grey-256-gb-8-gb-ram/",
+          "department": "electronica",
+          "type": "tablet"
+        },
+        {
+          "id": "eci-tablet-a55512531",
+          "product": "A55512531",
+          "url": "https://www.elcorteingles.es/electronica/A55512531-6932554433383-pr-tablet-xiaomi-redmi-pad-2-4gb-128gb-11-gris-grafito-128-gb-4-gb-ram/",
+          "department": "electronica",
+          "type": "tablet"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-tablet-a54956781",
+          "product": "A54956781",
+          "url": "https://www.elcorteingles.es/electronica/A54956781-8806097201953-pr-tablet-samsung-galaxy-tab-s10-fe-12-gb-256-gb-wi-fi-5g-gray-gray-256-gb-12-gb-ram/",
+          "department": "electronica",
+          "type": "tablet"
+        },
+        {
+          "id": "eci-tablet-a55512523",
+          "product": "A55512523",
+          "url": "https://www.elcorteingles.es/electronica/A55512523-6932554433116-pr-tablet-xiaomi-redmi-pad-2-8gb-256gb-11-gris-grafito-256-gb-8-gb-ram/",
+          "department": "electronica",
+          "type": "tablet"
+        }
+      ]
+    },
+    {
+      "category": "libros/libros",
+      "department": "libros",
+      "type": "libros",
+      "store_category": "https://www.elcorteingles.es/libros/",
+      "products_in_store": 49002,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-libros-a47638573",
+          "product": "A47638573",
+          "url": "https://www.elcorteingles.es/libros/A47638573-proyecto-fanfest-matematicas-4-trimestres/",
+          "department": "libros",
+          "type": "libros"
+        },
+        {
+          "id": "eci-libros-a56076102",
+          "product": "A56076102",
+          "url": "https://www.elcorteingles.es/libros/A56076102-la-verge-de-la-punyalada-tapa-blanda/",
+          "department": "libros",
+          "type": "libros"
+        },
+        {
+          "id": "eci-libros-a57222705",
+          "product": "A57222705",
+          "url": "https://www.elcorteingles.es/libros/A57222705-espero-que-seas-feliz-zorra-06/",
+          "department": "libros",
+          "type": "libros"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-libros-a4471871",
+          "product": "A4471871",
+          "url": "https://www.elcorteingles.es/libros/A4471871-bone-1-el-valle-edicion-de-lujo-tapa-dura/",
+          "department": "libros",
+          "type": "libros"
+        },
+        {
+          "id": "eci-libros-a20584281",
+          "product": "A20584281",
+          "url": "https://www.elcorteingles.es/libros/A20584281-cuerpo-auxiliar-administrativo-subgrupo-c2/",
+          "department": "libros",
+          "type": "libros"
+        }
+      ]
+    },
+    {
+      "category": "mascotas/arena",
+      "department": "mascotas",
+      "type": "arena",
+      "store_category": "https://www.elcorteingles.es/mascotas/higiene-para-gatos/arenas/",
+      "products_in_store": 20,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-arena-a35763971",
+          "product": "A35763971",
+          "url": "https://www.elcorteingles.es/mascotas/A35763971-arena-aglomerante-sanicat-para-gatos-fragance-free-10-l/",
+          "department": "mascotas",
+          "type": "arena"
+        },
+        {
+          "id": "eci-arena-a47625294",
+          "product": "A47625294",
+          "url": "https://www.elcorteingles.es/mascotas/A47625294-arena-sanicat-para-gatos-clumping-white-10-l/",
+          "department": "mascotas",
+          "type": "arena"
+        },
+        {
+          "id": "eci-arena-a9340920",
+          "product": "A9340920",
+          "url": "https://www.elcorteingles.es/mascotas/A9340920-arena-vitakraft-para-chinchillas-sandy-special-1-kg/",
+          "department": "mascotas",
+          "type": "arena"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-arena-a7604898",
+          "product": "A7604898",
+          "url": "https://www.elcorteingles.es/mascotas/A7604898-arena-aglomerante-sanicat-active-white-flor-de-loto-para-gatos-6-l/",
+          "department": "mascotas",
+          "type": "arena"
+        },
+        {
+          "id": "eci-arena-a33095500",
+          "product": "A33095500",
+          "url": "https://www.elcorteingles.es/mascotas/A33095500-arena-aglomerante-sanicat-para-gatos-active-white-6-l/",
+          "department": "mascotas",
+          "type": "arena"
+        }
+      ]
+    },
+    {
+      "category": "club-del-gourmet/infusion",
+      "department": "club-del-gourmet",
+      "type": "infusion",
+      "store_category": "https://www.elcorteingles.es/club-del-gourmet/cafes-tes-y-cacaos/infusiones/",
+      "products_in_store": 28,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-infusion-a47761351",
+          "product": "A47761351",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A47761351-infusion-sensorial-in-my-bubble-concentracion-palais-des-thes/",
+          "department": "club-del-gourmet",
+          "type": "infusion"
+        },
+        {
+          "id": "eci-infusion-a51067480",
+          "product": "A51067480",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A51067480-infusion-equilibrio-sans-and-sans/",
+          "department": "club-del-gourmet",
+          "type": "infusion"
+        },
+        {
+          "id": "eci-infusion-a28055426",
+          "product": "A28055426",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A28055426-infusion-bio-de-jengibre-y-limon-club-del-gourmet/",
+          "department": "club-del-gourmet",
+          "type": "infusion"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-infusion-a28055381",
+          "product": "A28055381",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A28055381-infusion-de-flores-de-manzanilla-club-del-gourmet-15-bolsitas/",
+          "department": "club-del-gourmet",
+          "type": "infusion"
+        },
+        {
+          "id": "eci-infusion-a52619531",
+          "product": "A52619531",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A52619531-infusion-sabor-a-frutas-del-bosque-ecologica-teo/",
+          "department": "club-del-gourmet",
+          "type": "infusion"
+        }
+      ]
+    },
+    {
+      "category": "hogar/centro",
+      "department": "hogar",
+      "type": "centro",
+      "store_category": "https://www.elcorteingles.es/hogar/decoracion/centros-de-mesa/",
+      "products_in_store": 46,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-centro-a55338246",
+          "product": "A55338246",
+          "url": "https://www.elcorteingles.es/hogar/A55338246-2401955171063-pr-centro-de-mesa-de-vidrio-benin-azul/",
+          "department": "hogar",
+          "type": "centro"
+        },
+        {
+          "id": "eci-centro-a43468023",
+          "product": "A43468023",
+          "url": "https://www.elcorteingles.es/hogar/A43468023-2401835027725-pr-centro-de-mesa-nidus-el-corte-ingles-oro/",
+          "department": "hogar",
+          "type": "centro"
+        },
+        {
+          "id": "eci-centro-a202360328",
+          "product": "A202360328",
+          "url": "https://www.elcorteingles.es/hogar/A202360328-2102691880164-pr-centro-de-mesa-con-portavelas-flor-paniculata-preservada-navidad-verde/",
+          "department": "hogar",
+          "type": "centro"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-centro-a201442833",
+          "product": "A201442833",
+          "url": "https://www.elcorteingles.es/hogar/A201442833-2102692162689-pr-centro-de-mesa-redondo-de-madera-fusta-natural/",
+          "department": "hogar",
+          "type": "centro"
+        },
+        {
+          "id": "eci-centro-a55349206",
+          "product": "A55349206",
+          "url": "https://www.elcorteingles.es/hogar/A55349206-2401955267469-pr-centro-de-mesa-de-vidrio-ondas-lasi-naranja/",
+          "department": "hogar",
+          "type": "centro"
+        }
+      ]
+    },
+    {
+      "category": "equipaje/maletin",
+      "department": "equipaje",
+      "type": "maletin",
+      "store_category": "https://www.elcorteingles.es/equipaje/maletas/",
+      "products_in_store": 58,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-maletin-mp0198994158118",
+          "product": "MP_0198994_158118",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0198994_158118-negro-pr-maletin-con-ruedas-expandible-para-portatil-de-156-spectrolite-40-blando-con-capacidad-hasta-355-litros/",
+          "department": "equipaje",
+          "type": "maletin"
+        },
+        {
+          "id": "eci-maletin-mp0198994152920",
+          "product": "MP_0198994_152920",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0198994_152920-negro-pr-maletin-para-portatil-de-hasta-15-savona-slim-brief-turin-blando-con-capacidad-de-6-litros/",
+          "department": "equipaje",
+          "type": "maletin"
+        },
+        {
+          "id": "eci-maletin-a55342409",
+          "product": "A55342409",
+          "url": "https://www.elcorteingles.es/equipaje/A55342409-negro-pr-maletin-nylon-16l/",
+          "department": "equipaje",
+          "type": "maletin"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-maletin-mp0198994117157",
+          "product": "MP_0198994_117157",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0198994_117157-negro-pr-maletin-compacto-de-4-ruedas-alpha-3-blando-con-puerto-usb-incorporado/",
+          "department": "equipaje",
+          "type": "maletin"
+        },
+        {
+          "id": "eci-maletin-mp0198994148138",
+          "product": "MP_0198994_148138",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0198994_148138-negro-pr-maletin-con-ruedas-pro-dlx-6-blando-con-capacidad-de-26-litros/",
+          "department": "equipaje",
+          "type": "maletin"
+        }
+      ]
+    },
+    {
+      "category": "joyeria-y-relojes/cadena",
+      "department": "joyeria-y-relojes",
+      "type": "cadena",
+      "store_category": "https://www.elcorteingles.es/joyeria-y-relojes/bisuteria/collares-y-cadenas/",
+      "products_in_store": 1052,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-cadena-mp0544999j0612809i29k",
+          "product": "MP_0544999_J0612809I29K",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0544999_J0612809I29K-dorado-pr-cadena-con-colgante-de-oro-blanco-y-amarillo-de-9k-con-cuatro-diamantes/",
+          "department": "joyeria-y-relojes",
+          "type": "cadena"
+        },
+        {
+          "id": "eci-cadena-mp09000894051245645088",
+          "product": "MP_0900089_4051245645088",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0900089_4051245645088-dorado-pr-cadena-atemporal/",
+          "department": "joyeria-y-relojes",
+          "type": "cadena"
+        },
+        {
+          "id": "eci-cadena-mp026473903129050",
+          "product": "MP_0264739_03129050",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0264739_03129050-plata-pr-cadena-de-hombre-de-plata-de-ley-925-banada-en-rodio/",
+          "department": "joyeria-y-relojes",
+          "type": "cadena"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-cadena-mp00646675749183",
+          "product": "MP_0064667_5749183",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0064667_5749183-multicolor-pr-cadena-con-colgante-en-y-ariana-grande-con-motivo-de-libelula-con-bano-de-rodio/",
+          "department": "joyeria-y-relojes",
+          "type": "cadena"
+        },
+        {
+          "id": "eci-cadena-mp09000894051245638493",
+          "product": "MP_0900089_4051245638493",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0900089_4051245638493-plata-pr-cadena-con-circonita-blanca-en-forma-de-gota/",
+          "department": "joyeria-y-relojes",
+          "type": "cadena"
+        }
+      ]
+    },
+    {
+      "category": "papeleria/sobre",
+      "department": "papeleria",
+      "type": "sobre",
+      "store_category": "https://www.elcorteingles.es/papeleria/papel-cartulinas-y-sobres/",
+      "products_in_store": 49,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-sobre-a48994768",
+          "product": "A48994768",
+          "url": "https://www.elcorteingles.es/papeleria/A48994768-sobre-burbujas-350x490mm-q-connect-crema/",
+          "department": "papeleria",
+          "type": "sobre"
+        },
+        {
+          "id": "eci-sobre-a11639409",
+          "product": "A11639409",
+          "url": "https://www.elcorteingles.es/papeleria/A11639409-sobre-dl-americano-con-interior-forrado-rossler-verde-lima/",
+          "department": "papeleria",
+          "type": "sobre"
+        },
+        {
+          "id": "eci-sobre-a200490471",
+          "product": "A200490471",
+          "url": "https://www.elcorteingles.es/papeleria/A200490471-sobre-con-cierre-zip-impreso-hello-kitty-mooving-paper/",
+          "department": "papeleria",
+          "type": "sobre"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-sobre-a56480616",
+          "product": "A56480616",
+          "url": "https://www.elcorteingles.es/papeleria/A56480616-sobre-13-vertical-vacavaliente-oliva/",
+          "department": "papeleria",
+          "type": "sobre"
+        },
+        {
+          "id": "eci-sobre-a11639404",
+          "product": "A11639404",
+          "url": "https://www.elcorteingles.es/papeleria/A11639404-sobre-dl-americano-con-interior-forrado-rossler-naranja/",
+          "department": "papeleria",
+          "type": "sobre"
+        }
+      ]
+    },
+    {
+      "category": "bricor/ventilador",
+      "department": "bricor",
+      "type": "ventilador",
+      "store_category": "https://www.elcorteingles.es/bricor/iluminacion/ventiladores-de-techo-con-luz/",
+      "products_in_store": 20,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-ventilador-a57686975",
+          "product": "A57686975",
+          "url": "https://www.elcorteingles.es/bricor/A57686975-8721103096029-pr-ventilador-techo-bliss-dc-blanco/",
+          "department": "bricor",
+          "type": "ventilador"
+        },
+        {
+          "id": "eci-ventilador-a200853735",
+          "product": "A200853735",
+          "url": "https://www.elcorteingles.es/bricor/A200853735-ventilador-techo-aspas-retractil-flow/",
+          "department": "bricor",
+          "type": "ventilador"
+        },
+        {
+          "id": "eci-ventilador-a200853734",
+          "product": "A200853734",
+          "url": "https://www.elcorteingles.es/bricor/A200853734-ventilador-techo-aspas-retractil-pure/",
+          "department": "bricor",
+          "type": "ventilador"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-ventilador-a200818505",
+          "product": "A200818505",
+          "url": "https://www.elcorteingles.es/bricor/A200818505-ventilador-de-techo-nordik/",
+          "department": "bricor",
+          "type": "ventilador"
+        },
+        {
+          "id": "eci-ventilador-a201381580",
+          "product": "A201381580",
+          "url": "https://www.elcorteingles.es/bricor/A201381580-5065026394163-pr-ventilador-de-techo-saona-sin-luz-led-dc/",
+          "department": "bricor",
+          "type": "ventilador"
+        }
+      ]
+    },
+    {
+      "category": "regalos-originales/gafa",
+      "department": "regalos-originales",
+      "type": "gafa",
+      "store_category": "https://www.elcorteingles.es/regalos-originales/gafas/",
+      "products_in_store": 377,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-gafa-a35437252",
+          "product": "A35437252",
+          "url": "https://www.elcorteingles.es/regalos-originales/A35437252-gafas-de-luz-azul-para-ninos-de-5-a-10-anos-izipizi-e-forma-trapecio-carey/",
+          "department": "regalos-originales",
+          "type": "gafa"
+        },
+        {
+          "id": "eci-gafa-a56933834",
+          "product": "A56933834",
+          "url": "https://www.elcorteingles.es/regalos-originales/A56933834-gafas-de-lectura-izipizi-e-forma-trapecio-marmol-light/",
+          "department": "regalos-originales",
+          "type": "gafa"
+        },
+        {
+          "id": "eci-gafa-a58570607",
+          "product": "A58570607",
+          "url": "https://www.elcorteingles.es/regalos-originales/A58570607-gafas-de-sol-para-ninos-de-5-a-7-anos-izipizi-c-forma-cuadrada-marron-macciato/",
+          "department": "regalos-originales",
+          "type": "gafa"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-gafa-a58570900",
+          "product": "A58570900",
+          "url": "https://www.elcorteingles.es/regalos-originales/A58570900-gafas-de-sol-para-ninos-de-7-a-11-anos-izipizi-road-forma-rectangular-azul-frozen/",
+          "department": "regalos-originales",
+          "type": "gafa"
+        },
+        {
+          "id": "eci-gafa-a35611527",
+          "product": "A35611527",
+          "url": "https://www.elcorteingles.es/regalos-originales/A35611527-gafas-de-sol-para-ninos-de-9-a-36-meses-izipizi-d-forma-pantos-negro/",
+          "department": "regalos-originales",
+          "type": "gafa"
+        }
+      ]
+    },
+    {
+      "category": "bebes/mordedor",
+      "department": "bebes",
+      "type": "mordedor",
+      "store_category": "https://www.elcorteingles.es/bebes/chupetes/mordedores/",
+      "products_in_store": 28,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-mordedor-a40763526",
+          "product": "A40763526",
+          "url": "https://www.elcorteingles.es/bebes/A40763526-marron-pr-mordedor-sophie-la-girafe-fan-fan-el-ciervo-con-caja-de-regalo-marron/",
+          "department": "bebes",
+          "type": "mordedor"
+        },
+        {
+          "id": "eci-mordedor-a37197804",
+          "product": "A37197804",
+          "url": "https://www.elcorteingles.es/bebes/A37197804-rojo-verde-pr-mordedor-oli-and-carol-caucho-natural-sandia/",
+          "department": "bebes",
+          "type": "mordedor"
+        },
+        {
+          "id": "eci-mordedor-a21087841",
+          "product": "A21087841",
+          "url": "https://www.elcorteingles.es/bebes/A21087841-azul-cielo-pr-mordedor-silicona-matchstick-monkey-ideal-para-denticion/",
+          "department": "bebes",
+          "type": "mordedor"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-mordedor-a45173195",
+          "product": "A45173195",
+          "url": "https://www.elcorteingles.es/bebes/A45173195-verde-pr-mordedor-antiahogo-con-3-tetinas-evolutivas-de-silicona/",
+          "department": "bebes",
+          "type": "mordedor"
+        },
+        {
+          "id": "eci-mordedor-a37197796",
+          "product": "A37197796",
+          "url": "https://www.elcorteingles.es/bebes/A37197796-verde-rosa-pr-mordedor-oli-and-carol-caucho-natural-rabajo/",
+          "department": "bebes",
+          "type": "mordedor"
+        }
+      ]
+    },
+    {
+      "category": "parafarmacia/serum",
+      "department": "parafarmacia",
+      "type": "serum",
+      "store_category": "https://www.elcorteingles.es/parafarmacia/cuidados-rostro/serums/",
+      "products_in_store": 329,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-serum-a50320879",
+          "product": "A50320879",
+          "url": "https://www.elcorteingles.es/parafarmacia/A50320879-3540550015286-pr-serum-concentrado-antiedad-15-ml-timer-filler-shot-filorga-15-ml/",
+          "department": "parafarmacia",
+          "type": "serum"
+        },
+        {
+          "id": "eci-serum-a42551507",
+          "product": "A42551507",
+          "url": "https://www.elcorteingles.es/parafarmacia/A42551507-8055510240363-pr-serum-reestructurante-y-antiarrugas-rilastil-hydrotenseur-30-ml-rilastil/",
+          "department": "parafarmacia",
+          "type": "serum"
+        },
+        {
+          "id": "eci-serum-a53166116",
+          "product": "A53166116",
+          "url": "https://www.elcorteingles.es/parafarmacia/A53166116-3574661780511-pr-serum-intenso-de-noche-retinol-boost-30-ml-neutrogena-30-ml/",
+          "department": "parafarmacia",
+          "type": "serum"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-serum-a200483137",
+          "product": "A200483137",
+          "url": "https://www.elcorteingles.es/parafarmacia/A200483137-3574661903712-pr-serum-corrector-marcas-de-acne-clarify-30-ml-neostrata/",
+          "department": "parafarmacia",
+          "type": "serum"
+        },
+        {
+          "id": "eci-serum-a200264518",
+          "product": "A200264518",
+          "url": "https://www.elcorteingles.es/parafarmacia/A200264518-0882381116439-pr-serum-regenerador-absoluto-stimulskin-plus-30-ml-darphin-30-ml/",
+          "department": "parafarmacia",
+          "type": "serum"
+        }
+      ]
+    },
+    {
+      "category": "moda-mujer/pasador",
+      "department": "moda-mujer",
+      "type": "pasador",
+      "store_category": "https://www.elcorteingles.es/moda-mujer/accesorios/accesorios-para-el-pelo/pasadores/",
+      "products_in_store": 20,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-pasador-a25782120",
+          "product": "A25782120",
+          "url": "https://www.elcorteingles.es/moda-mujer/A25782120-marron-pr-pasador-de-pelo-marron/",
+          "department": "moda-mujer",
+          "type": "pasador"
+        },
+        {
+          "id": "eci-pasador-a25782136",
+          "product": "A25782136",
+          "url": "https://www.elcorteingles.es/moda-mujer/A25782136-beige-pr-pasador-hecho-a-mano-en-beige/",
+          "department": "moda-mujer",
+          "type": "pasador"
+        },
+        {
+          "id": "eci-pasador-a52478676",
+          "product": "A52478676",
+          "url": "https://www.elcorteingles.es/moda-mujer/A52478676-oro-pr-pasador/",
+          "department": "moda-mujer",
+          "type": "pasador"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-pasador-a56160983",
+          "product": "A56160983",
+          "url": "https://www.elcorteingles.es/moda-mujer/A56160983-negro-pr-pasador-pano/",
+          "department": "moda-mujer",
+          "type": "pasador"
+        },
+        {
+          "id": "eci-pasador-a25782156",
+          "product": "A25782156",
+          "url": "https://www.elcorteingles.es/moda-mujer/A25782156-multicolor-pr-pasador-de-pelo-tipo-carey/",
+          "department": "moda-mujer",
+          "type": "pasador"
+        }
+      ]
+    },
+    {
+      "category": "universo-friki/camiseta",
+      "department": "universo-friki",
+      "type": "camiseta",
+      "store_category": "https://www.elcorteingles.es/universo-friki/moda/camisetas/",
+      "products_in_store": 38,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-camiseta-a51705916",
+          "product": "A51705916",
+          "url": "https://www.elcorteingles.es/universo-friki/A51705916-camiseta-deadpool-3-kisses-marvel/",
+          "department": "universo-friki",
+          "type": "camiseta"
+        },
+        {
+          "id": "eci-camiseta-a57482468",
+          "product": "A57482468",
+          "url": "https://www.elcorteingles.es/universo-friki/A57482468-camiseta-one-piece-one-piece/",
+          "department": "universo-friki",
+          "type": "camiseta"
+        },
+        {
+          "id": "eci-camiseta-a202110345",
+          "product": "A202110345",
+          "url": "https://www.elcorteingles.es/universo-friki/A202110345-camiseta-1977-star-wars/",
+          "department": "universo-friki",
+          "type": "camiseta"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-camiseta-a53393921",
+          "product": "A53393921",
+          "url": "https://www.elcorteingles.es/universo-friki/A53393921-camiseta-pop-and-tee-simba-disney/",
+          "department": "universo-friki",
+          "type": "camiseta"
+        },
+        {
+          "id": "eci-camiseta-a202110344",
+          "product": "A202110344",
+          "url": "https://www.elcorteingles.es/universo-friki/A202110344-camiseta-1977-star-wars/",
+          "department": "universo-friki",
+          "type": "camiseta"
+        }
+      ]
+    },
+    {
+      "category": "deportes/rueda",
+      "department": "deportes",
+      "type": "rueda",
+      "store_category": "https://www.elcorteingles.es/deportes/ciclismo/ruedas-bicicleta-y-cubiertas/",
+      "products_in_store": 67,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-rueda-mp0004991066101006r8",
+          "product": "MP_0004991_066101006R8",
+          "url": "https://www.elcorteingles.es/deportes/MP_0004991_066101006R8-blanco-pr-ruedas-para-patines-hydrogen-pro-100mm-x-firm-8-unidades-rollerblade/",
+          "department": "deportes",
+          "type": "rueda"
+        },
+        {
+          "id": "eci-rueda-mp00049914211300135",
+          "product": "MP_0004991_4211300135",
+          "url": "https://www.elcorteingles.es/deportes/MP_0004991_4211300135-rueda-delantera-capital-sl-40-mm-syncros/",
+          "department": "deportes",
+          "type": "rueda"
+        },
+        {
+          "id": "eci-rueda-mp0004991066111006r8",
+          "product": "MP_0004991_066111006R8",
+          "url": "https://www.elcorteingles.es/deportes/MP_0004991_066111006R8-blanco-pr-ruedas-para-patines-hydrogen-pro-110mm-x-firm-rollerblade/",
+          "department": "deportes",
+          "type": "rueda"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-rueda-mp0004991425658",
+          "product": "MP_0004991_425658",
+          "url": "https://www.elcorteingles.es/deportes/MP_0004991_425658-juego-de-ruedas-capital-10-60-mm-syncros/",
+          "department": "deportes",
+          "type": "rueda"
+        },
+        {
+          "id": "eci-rueda-mp0004991066127006l1",
+          "product": "MP_0004991_066127006L1",
+          "url": "https://www.elcorteingles.es/deportes/MP_0004991_066127006L1-blanco-pr-ruedas-para-patines-hydrogen-pro-125mm-firm-rollerblade/",
+          "department": "deportes",
+          "type": "rueda"
+        }
+      ]
+    },
+    {
+      "category": "juguetes/patinete",
+      "department": "juguetes",
+      "type": "patinete",
+      "store_category": "https://www.elcorteingles.es/juguetes/patinetes-y-patines/",
+      "products_in_store": 50,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-patinete-a200186880",
+          "product": "A200186880",
+          "url": "https://www.elcorteingles.es/juguetes/A200186880-patinete-3-ruedas-frozen-stamp/",
+          "department": "juguetes",
+          "type": "patinete"
+        },
+        {
+          "id": "eci-patinete-a200829062",
+          "product": "A200829062",
+          "url": "https://www.elcorteingles.es/juguetes/A200829062-patinete-3-en-1-plegable-molto/",
+          "department": "juguetes",
+          "type": "patinete"
+        },
+        {
+          "id": "eci-patinete-a200485271",
+          "product": "A200485271",
+          "url": "https://www.elcorteingles.es/juguetes/A200485271-patinete-mini-deluxe-foldable-neon-led-flamingo-yellow-micro/",
+          "department": "juguetes",
+          "type": "patinete"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-patinete-a200485269",
+          "product": "A200485269",
+          "url": "https://www.elcorteingles.es/juguetes/A200485269-patinete-mini2grow-deluxe-led-20-dusty-rose-micro/",
+          "department": "juguetes",
+          "type": "patinete"
+        },
+        {
+          "id": "eci-patinete-a200186885",
+          "product": "A200186885",
+          "url": "https://www.elcorteingles.es/juguetes/A200186885-patinete-3-ruedas-stitch-stamp/",
+          "department": "juguetes",
+          "type": "patinete"
+        }
+      ]
+    },
+    {
+      "category": "videojuegos/mando",
+      "department": "videojuegos",
+      "type": "mando",
+      "store_category": "https://www.elcorteingles.es/videojuegos/nintendo-switch-2/mandos/",
+      "products_in_store": 81,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-mando-a201429203",
+          "product": "A201429203",
+          "url": "https://www.elcorteingles.es/videojuegos/A201429203-mando-joy-con-set-izda-dcha-bateria-extraible-verde-neon-rosa-neon-nintendo-switch/",
+          "department": "videojuegos",
+          "type": "mando"
+        },
+        {
+          "id": "eci-mando-a42116270",
+          "product": "A42116270",
+          "url": "https://www.elcorteingles.es/videojuegos/A42116270-mando-inalambrico-dualsense-pink-para-playstation-5-pc-mac-dispositivos-moviles/",
+          "department": "videojuegos",
+          "type": "mando"
+        },
+        {
+          "id": "eci-mando-a42116231",
+          "product": "A42116231",
+          "url": "https://www.elcorteingles.es/videojuegos/A42116231-mando-inalambrico-dualsense-purple-para-playstation-5-pc-mac-dispositivos-moviles/",
+          "department": "videojuegos",
+          "type": "mando"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-mando-a200085984",
+          "product": "A200085984",
+          "url": "https://www.elcorteingles.es/videojuegos/A200085984-mando-inalambrico-xbox-rosa-edicion-especial/",
+          "department": "videojuegos",
+          "type": "mando"
+        },
+        {
+          "id": "eci-mando-a36697628",
+          "product": "A36697628",
+          "url": "https://www.elcorteingles.es/videojuegos/A36697628-mando-afterglow-wired-nintendo-switch/",
+          "department": "videojuegos",
+          "type": "mando"
+        }
+      ]
+    },
+    {
+      "category": "moda-hombre/pijama",
+      "department": "moda-hombre",
+      "type": "pijama",
+      "store_category": "https://www.elcorteingles.es/moda-hombre/interior-y-pijamas/",
+      "products_in_store": 640,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-pijama-a58827436",
+          "product": "A58827436",
+          "url": "https://www.elcorteingles.es/moda-hombre/A58827436-520-kaki-pr-pijama-de-hombre-jersey-manga-larga/",
+          "department": "moda-hombre",
+          "type": "pijama"
+        },
+        {
+          "id": "eci-pijama-mp0092908299090",
+          "product": "MP_0092908_299090",
+          "url": "https://www.elcorteingles.es/moda-hombre/MP_0092908_299090-blanco-pr-pijama-largo-de-hombre-de-tela-color-rojo/",
+          "department": "moda-hombre",
+          "type": "pijama"
+        },
+        {
+          "id": "eci-pijama-a56325531",
+          "product": "A56325531",
+          "url": "https://www.elcorteingles.es/moda-hombre/A56325531-azul-pr-pijama-corto-de-hombre-cuello-camisero-andrew/",
+          "department": "moda-hombre",
+          "type": "pijama"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-pijama-mp02573603473970531",
+          "product": "MP_0257360_3473970531",
+          "url": "https://www.elcorteingles.es/moda-hombre/MP_0257360_3473970531-gris-pr-pijama-largo-de-hombre-de-punto/",
+          "department": "moda-hombre",
+          "type": "pijama"
+        },
+        {
+          "id": "eci-pijama-mp0448878im1553m8600nbf86",
+          "product": "MP_0448878_IM1553M8600NBF86",
+          "url": "https://www.elcorteingles.es/moda-hombre/MP_0448878_IM1553M8600NBF86-negro-pr-pijama-largo-de-hombre-en-punto-en-azules/",
+          "department": "moda-hombre",
+          "type": "pijama"
+        }
+      ]
+    },
+    {
+      "category": "ortopedia-y-dependencia/silla",
+      "department": "ortopedia-y-dependencia",
+      "type": "silla",
+      "store_category": "https://www.elcorteingles.es/ortopedia-y-dependencia/sillas-de-ruedas/",
+      "products_in_store": 76,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-silla-mp0410191qa0035113",
+          "product": "MP_0410191_QA0035113",
+          "url": "https://www.elcorteingles.es/ortopedia-y-dependencia/MP_0410191_QA0035113-silla-con-wc-plegable-altura-regulable-reposabrazos-ajustable-con-tapa-muelle-mobiclinic/",
+          "department": "ortopedia-y-dependencia",
+          "type": "silla"
+        },
+        {
+          "id": "eci-silla-mp0410191qa0046202vd",
+          "product": "MP_0410191_QA0046202VD",
+          "url": "https://www.elcorteingles.es/ortopedia-y-dependencia/MP_0410191_QA0046202VD-silla-de-ruedas-plegable-rueda-grande-ligera-verde-alcazaba-mobiclinic/",
+          "department": "ortopedia-y-dependencia",
+          "type": "silla"
+        },
+        {
+          "id": "eci-silla-mp0410191qa0003936",
+          "product": "MP_0410191_QA0003936",
+          "url": "https://www.elcorteingles.es/ortopedia-y-dependencia/MP_0410191_QA0003936-silla-de-ruedas-de-aluminio-mobiclinic-24-reg-altura-reposapies-abatibles-y-extraibles-negro-trevi/",
+          "department": "ortopedia-y-dependencia",
+          "type": "silla"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-silla-mp0410191qa0003719",
+          "product": "MP_0410191_QA0003719",
+          "url": "https://www.elcorteingles.es/ortopedia-y-dependencia/MP_0410191_QA0003719-silla-con-inodoro-herdegen/",
+          "department": "ortopedia-y-dependencia",
+          "type": "silla"
+        },
+        {
+          "id": "eci-silla-mp0410191qa0035922",
+          "product": "MP_0410191_QA0035922",
+          "url": "https://www.elcorteingles.es/ortopedia-y-dependencia/MP_0410191_QA0035922-silla-de-ruedas-para-transito-jupiter-estrecha-asiento-30-cm-frenos-clinicalfy/",
+          "department": "ortopedia-y-dependencia",
+          "type": "silla"
+        }
+      ]
+    },
+    {
+      "category": "perfumeria/barra",
+      "department": "perfumeria",
+      "type": "barra",
+      "store_category": "https://www.elcorteingles.es/perfumeria/fragancias-hogar/barritas-aromaticas/",
+      "products_in_store": 398,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-barra-a44522943",
+          "product": "A44522943",
+          "url": "https://www.elcorteingles.es/perfumeria/A44522943-3616302467990-pr-barra-de-labios-lasting-finish-shimmers-rimmel/",
+          "department": "perfumeria",
+          "type": "barra"
+        },
+        {
+          "id": "eci-barra-a200037624",
+          "product": "A200037624",
+          "url": "https://www.elcorteingles.es/perfumeria/A200037624-3616305921079-pr-barra-de-labios-mate-beauty-rouge-a-levres-liquide-gucci/",
+          "department": "perfumeria",
+          "type": "barra"
+        },
+        {
+          "id": "eci-barra-a40056148",
+          "product": "A40056148",
+          "url": "https://www.elcorteingles.es/perfumeria/A40056148-3614273250641-pr-barra-de-labios-labsolue-rouge-drama-ink-lancome/",
+          "department": "perfumeria",
+          "type": "barra"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-barra-a51301609",
+          "product": "A51301609",
+          "url": "https://www.elcorteingles.es/perfumeria/A51301609-0194251133652-pr-barra-de-labios-afterglow-collection-nars/",
+          "department": "perfumeria",
+          "type": "barra"
+        },
+        {
+          "id": "eci-barra-a40965033",
+          "product": "A40965033",
+          "url": "https://www.elcorteingles.es/perfumeria/A40965033-0729238170605-pr-barra-de-labios-lipstick-shine-cle-de-peau-beaute/",
+          "department": "perfumeria",
+          "type": "barra"
+        }
+      ]
+    },
+    {
+      "category": "electrodomesticos/robot",
+      "department": "electrodomesticos",
+      "type": "robot",
+      "store_category": "https://www.elcorteingles.es/electrodomesticos/aspiracion-y-limpieza/robots-aspiradores/",
+      "products_in_store": 82,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-robot-a54895781",
+          "product": "A54895781",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A54895781-6936905902047-pr-robot-aspirador-y-friegasuelos-roborock-q7-tf-base-autovaciado-10000pa-negro/",
+          "department": "electrodomesticos",
+          "type": "robot"
+        },
+        {
+          "id": "eci-robot-a201417089",
+          "product": "A201417089",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A201417089-5061083613049-pr-robot-aspirador-roomba-mini-con-base-autoempty-con-90-dias-de-autovaciado-y-7000-pascales-negro/",
+          "department": "electrodomesticos",
+          "type": "robot"
+        },
+        {
+          "id": "eci-robot-mp01108415ksm185psebk",
+          "product": "MP_0110841_5KSM185PSEBK",
+          "url": "https://www.elcorteingles.es/electrodomesticos/MP_0110841_5KSM185PSEBK-5413184120931-pr-robot-de-cocina-artisan-kitchenaid-5ksm185pse-48l-rojo/",
+          "department": "electrodomesticos",
+          "type": "robot"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-robot-mp00076268447420157921",
+          "product": "MP_0007626_8447420157921",
+          "url": "https://www.elcorteingles.es/electrodomesticos/MP_0007626_8447420157921-8447420157921-pr-robot-aspirador-cecotec-conga-m10-advance-aqua-negro/",
+          "department": "electrodomesticos",
+          "type": "robot"
+        },
+        {
+          "id": "eci-robot-a200857532",
+          "product": "A200857532",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A200857532-5061083614770-pr-robot-aspirador-y-friegasuelos-roomba-115-combo-base-autoempty-con-90-dias-de-autovaciado-y-15000-pascales-blanco/",
+          "department": "electrodomesticos",
+          "type": "robot"
+        }
+      ]
+    },
+    {
+      "category": "electronica/reproductor",
+      "department": "electronica",
+      "type": "reproductor",
+      "store_category": "https://www.elcorteingles.es/electronica/perifericos-y-accesorios/reproductores-multimedia/",
+      "products_in_store": 35,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-reproductor-a44487364",
+          "product": "A44487364",
+          "url": "https://www.elcorteingles.es/electronica/A44487364-8426576030340-pr-reproductor-cd-rotel-cd14mkii-negro/",
+          "department": "electronica",
+          "type": "reproductor"
+        },
+        {
+          "id": "eci-reproductor-a36694201",
+          "product": "A36694201",
+          "url": "https://www.elcorteingles.es/electronica/A36694201-8422521003032-pr-reproductor-fonestar-cd-usb-mp3-negro/",
+          "department": "electronica",
+          "type": "reproductor"
+        },
+        {
+          "id": "eci-reproductor-a25262939",
+          "product": "A25262939",
+          "url": "https://www.elcorteingles.es/electronica/A25262939-4548736144132-pr-reproductor-blu-ray-sony-ubp-x700-4k-uhd-negro/",
+          "department": "electronica",
+          "type": "reproductor"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-reproductor-a49602203",
+          "product": "A49602203",
+          "url": "https://www.elcorteingles.es/electronica/A49602203-0602581806073-pr-reproductor-en-red-streamer-hi-res-wiim-pro-plus-negro/",
+          "department": "electronica",
+          "type": "reproductor"
+        },
+        {
+          "id": "eci-reproductor-a44741248",
+          "product": "A44741248",
+          "url": "https://www.elcorteingles.es/electronica/A44741248-0747192136758-pr-reproductor-de-cd-denon-dcd-900-negro/",
+          "department": "electronica",
+          "type": "reproductor"
+        }
+      ]
+    },
+    {
+      "category": "mascotas/abrigo",
+      "department": "mascotas",
+      "type": "abrigo",
+      "store_category": "https://www.elcorteingles.es/mascotas/accesorios-para-perros/ropa-y-complementos/chubasqueros-abrigos-y-jerseis/",
+      "products_in_store": 22,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-abrigo-a202574014",
+          "product": "A202574014",
+          "url": "https://www.elcorteingles.es/mascotas/A202574014-abrigo-con-arnes-fred-and-rita-para-perros/",
+          "department": "mascotas",
+          "type": "abrigo"
+        },
+        {
+          "id": "eci-abrigo-a202574026",
+          "product": "A202574026",
+          "url": "https://www.elcorteingles.es/mascotas/A202574026-abrigo-con-arnes-fred-and-rita-para-perros/",
+          "department": "mascotas",
+          "type": "abrigo"
+        },
+        {
+          "id": "eci-abrigo-mp03062175503999001771",
+          "product": "MP_0306217_5503999001771",
+          "url": "https://www.elcorteingles.es/mascotas/MP_0306217_5503999001771-abrigo-barbour-quilted-dog-coat/",
+          "department": "mascotas",
+          "type": "abrigo"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-abrigo-a202573954",
+          "product": "A202573954",
+          "url": "https://www.elcorteingles.es/mascotas/A202573954-abrigo-con-arnes-fred-and-rita-para-perros/",
+          "department": "mascotas",
+          "type": "abrigo"
+        },
+        {
+          "id": "eci-abrigo-a55568815",
+          "product": "A55568815",
+          "url": "https://www.elcorteingles.es/mascotas/A55568815-abrigo-fred-and-rita-para-perros-coleccion-tweed-verde/",
+          "department": "mascotas",
+          "type": "abrigo"
+        }
+      ]
+    },
+    {
+      "category": "club-del-gourmet/ginebra",
+      "department": "club-del-gourmet",
+      "type": "ginebra",
+      "store_category": "https://www.elcorteingles.es/club-del-gourmet/licores-y-destilados/ginebra/",
+      "products_in_store": 52,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-ginebra-a54759980",
+          "product": "A54759980",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A54759980-ginebra-oasium-hendricks/",
+          "department": "club-del-gourmet",
+          "type": "ginebra"
+        },
+        {
+          "id": "eci-ginebra-a53777334",
+          "product": "A53777334",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A53777334-ginebra-the-botanist-rested/",
+          "department": "club-del-gourmet",
+          "type": "ginebra"
+        },
+        {
+          "id": "eci-ginebra-a27942949",
+          "product": "A27942949",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A27942949-ginebra-japonesa-roku-suntory/",
+          "department": "club-del-gourmet",
+          "type": "ginebra"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-ginebra-a27445114",
+          "product": "A27445114",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A27445114-ginebra-matin-sesse-singular-dry-gin-madrid/",
+          "department": "club-del-gourmet",
+          "type": "ginebra"
+        },
+        {
+          "id": "eci-ginebra-a26366625",
+          "product": "A26366625",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A26366625-ginebra-malabusca/",
+          "department": "club-del-gourmet",
+          "type": "ginebra"
+        }
+      ]
+    },
+    {
+      "category": "hogar/portacepillo",
+      "department": "hogar",
+      "type": "portacepillo",
+      "store_category": "https://www.elcorteingles.es/hogar/bano/vasos-portacepillos/",
+      "products_in_store": 49,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-portacepillo-mp03635238412636203281",
+          "product": "MP_0363523_8412636203281",
+          "url": "https://www.elcorteingles.es/hogar/MP_0363523_8412636203281-8412636203281-pr-portacepillos-de-pared-con-adhesivo-rimini-beltran-cromo/",
+          "department": "hogar",
+          "type": "portacepillo"
+        },
+        {
+          "id": "eci-portacepillo-mp00107678436553464259",
+          "product": "MP_0010767_8436553464259",
+          "url": "https://www.elcorteingles.es/hogar/MP_0010767_8436553464259-8436553464259-pr-portacepillos-b-kubic-bathstage-negro-mate/",
+          "department": "hogar",
+          "type": "portacepillo"
+        },
+        {
+          "id": "eci-portacepillo-a46699793",
+          "product": "A46699793",
+          "url": "https://www.elcorteingles.es/hogar/A46699793-8433290426304-pr-portacepillos-de-pared-hotel-round-roca-negro-mate/",
+          "department": "hogar",
+          "type": "portacepillo"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-portacepillo-a24239394",
+          "product": "A24239394",
+          "url": "https://www.elcorteingles.es/hogar/A24239394-8429960514242-pr-portacepillos-para-encimera-line-cosmic-cromo/",
+          "department": "hogar",
+          "type": "portacepillo"
+        },
+        {
+          "id": "eci-portacepillo-a47558220",
+          "product": "A47558220",
+          "url": "https://www.elcorteingles.es/hogar/A47558220-8429960047122-pr-portacepillos-de-pared-de-vidrio-start-cosmic-cromo/",
+          "department": "hogar",
+          "type": "portacepillo"
+        }
+      ]
+    },
+    {
+      "category": "equipaje/neceser",
+      "department": "equipaje",
+      "type": "neceser",
+      "store_category": "https://www.elcorteingles.es/equipaje/neceseres-de-viaje/",
+      "products_in_store": 356,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-neceser-mp04482906633921",
+          "product": "MP_0448290_6633921",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0448290_6633921-azul-pr-neceser-adaptable-a-trolley-lena-rigido-con-capacidad-de-9-l/",
+          "department": "equipaje",
+          "type": "neceser"
+        },
+        {
+          "id": "eci-neceser-mp04482902633921",
+          "product": "MP_0448290_2633921",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0448290_2633921-blanco-pr-neceser-infantil-abs-winnie-and-tigger-con-capacidad-de-9l/",
+          "department": "equipaje",
+          "type": "neceser"
+        },
+        {
+          "id": "eci-neceser-mp0448290340043103001",
+          "product": "MP_0448290_340043103001",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0448290_340043103001-rosa-pr-neceser-abs-ursula-adaptable-con-capacidad-de-9l-en-fucsia/",
+          "department": "equipaje",
+          "type": "neceser"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-neceser-mp0448290130019103001",
+          "product": "MP_0448290_130019103001",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0448290_130019103001-multicolor-pr-neceser-movom-free-time-en-abs-adaptable-de-nino/",
+          "department": "equipaje",
+          "type": "neceser"
+        },
+        {
+          "id": "eci-neceser-mp04482904763921",
+          "product": "MP_0448290_4763921",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0448290_4763921-blanco-fucsia-pr-neceser-infantil-abs-aristocats-marie-in-white-con-capacidad-de-9l/",
+          "department": "equipaje",
+          "type": "neceser"
+        }
+      ]
+    },
+    {
+      "category": "joyeria-y-relojes/anillo",
+      "department": "joyeria-y-relojes",
+      "type": "anillo",
+      "store_category": "https://www.elcorteingles.es/joyeria-y-relojes/bisuteria/anillos/",
+      "products_in_store": 4271,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-anillo-mp00230008433236360044",
+          "product": "MP_0023000_8433236360044",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0023000_8433236360044-amarillo-pr-anillo-pide-un-deseo-de-plata-de-ley-925-acabado-en-oro-amarillo-de-18-quilates-con-circonita-brillante/",
+          "department": "joyeria-y-relojes",
+          "type": "anillo"
+        },
+        {
+          "id": "eci-anillo-mp00245388933126570228",
+          "product": "MP_0024538_8933126570228",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0024538_8933126570228-plata-pr-anillo-lovelia-en-oro-blanco-de-18-kt/",
+          "department": "joyeria-y-relojes",
+          "type": "anillo"
+        },
+        {
+          "id": "eci-anillo-mp0058610163325c01",
+          "product": "MP_0058610_163325C01",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0058610_163325C01-negro-pr-anillo-pandora-me-mitad-sello-esmaltado/",
+          "department": "joyeria-y-relojes",
+          "type": "anillo"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-anillo-mp00151868434381079911",
+          "product": "MP_0015186_8434381079911",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0015186_8434381079911-multicolor-pr-anillo-personalizado-signet-letter-colors-de-aleacion-de-metales-banado-en-oro-letra-c/",
+          "department": "joyeria-y-relojes",
+          "type": "anillo"
+        },
+        {
+          "id": "eci-anillo-mp0086322c1004653512",
+          "product": "MP_0086322_c1004653512",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0086322_c1004653512-dorado-pr-anillo-de-oro-9-kt-motivo-oso-infinity/",
+          "department": "joyeria-y-relojes",
+          "type": "anillo"
+        }
+      ]
+    },
+    {
+      "category": "moda-infantil/mercedita",
+      "department": "moda-infantil",
+      "type": "mercedita",
+      "store_category": "https://www.elcorteingles.es/moda-infantil/zapatos/barefoot/bailarinas-y-merceditas/",
+      "products_in_store": 430,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-mercedita-a52560419",
+          "product": "A52560419",
+          "url": "https://www.elcorteingles.es/moda-infantil/A52560419-natural-pr-merceditas-de-bebe-nina-con-tejido-lazo/",
+          "department": "moda-infantil",
+          "type": "mercedita"
+        },
+        {
+          "id": "eci-mercedita-mp00228330528",
+          "product": "MP_0022833_0528",
+          "url": "https://www.elcorteingles.es/moda-infantil/MP_0022833_0528-azul-claro-pr-merceditas-de-bebe-de-tela-con-cinta-adhesiva/",
+          "department": "moda-infantil",
+          "type": "mercedita"
+        },
+        {
+          "id": "eci-mercedita-a200945733",
+          "product": "A200945733",
+          "url": "https://www.elcorteingles.es/moda-infantil/A200945733-negro-pr-merceditas-de-nina-de-lona-suaves-flexibles-y-con-plantilla-mullida/",
+          "department": "moda-infantil",
+          "type": "mercedita"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-mercedita-a56417138",
+          "product": "A56417138",
+          "url": "https://www.elcorteingles.es/moda-infantil/A56417138-natural-pr-merceditas-nina-en-tejido-tipo-rafia-con-hebilla/",
+          "department": "moda-infantil",
+          "type": "mercedita"
+        },
+        {
+          "id": "eci-mercedita-mp00228331347",
+          "product": "MP_0022833_1347",
+          "url": "https://www.elcorteingles.es/moda-infantil/MP_0022833_1347-beige-pr-merceditas-de-nina-lino-suela-alpargata-cierre-adherente/",
+          "department": "moda-infantil",
+          "type": "mercedita"
+        }
+      ]
+    },
+    {
+      "category": "papeleria/compa",
+      "department": "papeleria",
+      "type": "compa",
+      "store_category": "https://www.elcorteingles.es/papeleria/bellas-artes/cajas-completas/",
+      "products_in_store": 27,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-compa-a2826809",
+          "product": "A2826809",
+          "url": "https://www.elcorteingles.es/papeleria/A2826809-compas-stop-system-maped-gris/",
+          "department": "papeleria",
+          "type": "compa"
+        },
+        {
+          "id": "eci-compa-a9144039",
+          "product": "A9144039",
+          "url": "https://www.elcorteingles.es/papeleria/A9144039-compas-de-precision-con-rueda-central-compases-mars-552-staedtler/",
+          "department": "papeleria",
+          "type": "compa"
+        },
+        {
+          "id": "eci-compa-a200479231",
+          "product": "A200479231",
+          "url": "https://www.elcorteingles.es/papeleria/A200479231-compas-bk-305-zamac-campus-college-azul/",
+          "department": "papeleria",
+          "type": "compa"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-compa-a25943958",
+          "product": "A25943958",
+          "url": "https://www.elcorteingles.es/papeleria/A25943958-compas-staedtler-mars-metalico-de-precision/",
+          "department": "papeleria",
+          "type": "compa"
+        },
+        {
+          "id": "eci-compa-a26754064",
+          "product": "A26754064",
+          "url": "https://www.elcorteingles.es/papeleria/A26754064-compas-start-con-mina-2-mm-maped/",
+          "department": "papeleria",
+          "type": "compa"
+        }
+      ]
+    },
+    {
+      "category": "bricor/marquesina",
+      "department": "bricor",
+      "type": "marquesina",
+      "store_category": "https://www.elcorteingles.es/bricor/acondicionamiento-del-jardin/marquesinas-para-puertas/",
+      "products_in_store": 30,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-marquesina-a46992444",
+          "product": "A46992444",
+          "url": "https://www.elcorteingles.es/bricor/A46992444-marquesina-para-puerta-canopy-amsterdam-2235x139-cm/",
+          "department": "bricor",
+          "type": "marquesina"
+        },
+        {
+          "id": "eci-marquesina-a46992462",
+          "product": "A46992462",
+          "url": "https://www.elcorteingles.es/bricor/A46992462-marquesina-para-puerta-lily-xl-217x88-cm/",
+          "department": "bricor",
+          "type": "marquesina"
+        },
+        {
+          "id": "eci-marquesina-a46992447",
+          "product": "A46992447",
+          "url": "https://www.elcorteingles.es/bricor/A46992447-marquesina-para-puerta-canopy-amsterdam-447x139-cm/",
+          "department": "bricor",
+          "type": "marquesina"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-marquesina-a46992457",
+          "product": "A46992457",
+          "url": "https://www.elcorteingles.es/bricor/A46992457-marquesina-para-puerta-canopy-altair-1505x915-cm/",
+          "department": "bricor",
+          "type": "marquesina"
+        },
+        {
+          "id": "eci-marquesina-a46992423",
+          "product": "A46992423",
+          "url": "https://www.elcorteingles.es/bricor/A46992423-marquesina-para-puerta-aquila-302x915-cm/",
+          "department": "bricor",
+          "type": "marquesina"
+        }
+      ]
+    },
+    {
+      "category": "regalos-originales/libreta",
+      "department": "regalos-originales",
+      "type": "libreta",
+      "store_category": "https://www.elcorteingles.es/regalos-originales/aire-libre/",
+      "products_in_store": 111,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-libreta-a56684878",
+          "product": "A56684878",
+          "url": "https://www.elcorteingles.es/regalos-originales/A56684878-libreta-a5-mr-wonderful-rayas-rosas-y-marrones/",
+          "department": "regalos-originales",
+          "type": "libreta"
+        },
+        {
+          "id": "eci-libreta-a55853555",
+          "product": "A55853555",
+          "url": "https://www.elcorteingles.es/regalos-originales/A55853555-libreta-a5-roja-grapada-mr-wonderful-wingy/",
+          "department": "regalos-originales",
+          "type": "libreta"
+        },
+        {
+          "id": "eci-libreta-a54999636",
+          "product": "A54999636",
+          "url": "https://www.elcorteingles.es/regalos-originales/A54999636-libreta-vocabulario-iconic-azul/",
+          "department": "regalos-originales",
+          "type": "libreta"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-libreta-a54096639",
+          "product": "A54096639",
+          "url": "https://www.elcorteingles.es/regalos-originales/A54096639-libreta-para-guardar-tickets-mr-wonderful-hay-ideas-que-pasan-factura/",
+          "department": "regalos-originales",
+          "type": "libreta"
+        },
+        {
+          "id": "eci-libreta-a50244730",
+          "product": "A50244730",
+          "url": "https://www.elcorteingles.es/regalos-originales/A50244730-libreta-a5-con-squishy-mr-wonderful-abeja-cada-dia-es-mi-dia/",
+          "department": "regalos-originales",
+          "type": "libreta"
+        }
+      ]
+    },
+    {
+      "category": "designers/pantalon",
+      "department": "designers",
+      "type": "pantalon",
+      "store_category": "https://www.elcorteingles.es/designers/mujer/pret-a-porter/pantalones-y-shorts/",
+      "products_in_store": 204,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-pantalon-a202014279",
+          "product": "A202014279",
+          "url": "https://www.elcorteingles.es/designers/A202014279-pantalon-saige-de-ante-marron/",
+          "department": "designers",
+          "type": "pantalon"
+        },
+        {
+          "id": "eci-pantalon-a55857428",
+          "product": "A55857428",
+          "url": "https://www.elcorteingles.es/designers/A55857428-pantalon-wide-leg-miramar-terry-petra/",
+          "department": "designers",
+          "type": "pantalon"
+        },
+        {
+          "id": "eci-pantalon-a56519147",
+          "product": "A56519147",
+          "url": "https://www.elcorteingles.es/designers/A56519147-pantalon-cropped-renzo/",
+          "department": "designers",
+          "type": "pantalon"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-pantalon-a55862202",
+          "product": "A55862202",
+          "url": "https://www.elcorteingles.es/designers/A55862202-pantalon-vaquero-flare/",
+          "department": "designers",
+          "type": "pantalon"
+        },
+        {
+          "id": "eci-pantalon-a55888045",
+          "product": "A55888045",
+          "url": "https://www.elcorteingles.es/designers/A55888045-pantalon-flare-federica-de-ante/",
+          "department": "designers",
+          "type": "pantalon"
+        }
+      ]
+    },
+    {
+      "category": "parafarmacia/estuche",
+      "department": "parafarmacia",
+      "type": "estuche",
+      "store_category": "https://www.elcorteingles.es/parafarmacia/estuches-de-regalo/",
+      "products_in_store": 140,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-estuche-a55550625",
+          "product": "A55550625",
+          "url": "https://www.elcorteingles.es/parafarmacia/A55550625-3540550019116-pr-estuche-de-regalo-time-filler-shot-5xp-filorga/",
+          "department": "parafarmacia",
+          "type": "estuche"
+        },
+        {
+          "id": "eci-estuche-a201009316",
+          "product": "A201009316",
+          "url": "https://www.elcorteingles.es/parafarmacia/A201009316-8437026064273-pr-estuche-limpieza-esencial-arturo-alba/",
+          "department": "parafarmacia",
+          "type": "estuche"
+        },
+        {
+          "id": "eci-estuche-a200417569",
+          "product": "A200417569",
+          "url": "https://www.elcorteingles.es/parafarmacia/A200417569-8428749017417-pr-estuche-de-regalo-eternalist-mothersday-26-sensilis/",
+          "department": "parafarmacia",
+          "type": "estuche"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-estuche-a203838123",
+          "product": "A203838123",
+          "url": "https://www.elcorteingles.es/parafarmacia/A203838123-3282779452380-pr-estuche-de-regalo-procedure-01-crema-lifting-antiarrugas-hyaluron-activ-30-ml-avene/",
+          "department": "parafarmacia",
+          "type": "estuche"
+        },
+        {
+          "id": "eci-estuche-a200263119",
+          "product": "A200263119",
+          "url": "https://www.elcorteingles.es/parafarmacia/A200263119-0882381121112-pr-estuche-regalo-le-renouvellement-darphin/",
+          "department": "parafarmacia",
+          "type": "estuche"
+        }
+      ]
+    },
+    {
+      "category": "moda-mujer/plumifero",
+      "department": "moda-mujer",
+      "type": "plumifero",
+      "store_category": "https://www.elcorteingles.es/moda-mujer/ropa/abrigos/plumiferos/",
+      "products_in_store": 214,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-plumifero-a201015023",
+          "product": "A201015023",
+          "url": "https://www.elcorteingles.es/moda-mujer/A201015023-camel-pr-plumifero-largo-de-mujer-con-capucha/",
+          "department": "moda-mujer",
+          "type": "plumifero"
+        },
+        {
+          "id": "eci-plumifero-mp001226926accvera42",
+          "product": "MP_0012269_26ACCVERA42",
+          "url": "https://www.elcorteingles.es/moda-mujer/MP_0012269_26ACCVERA42-marron-oscuro-pr-plumifero-de-mujer-de-piel-con-capucha-y-punos-elasticos/",
+          "department": "moda-mujer",
+          "type": "plumifero"
+        },
+        {
+          "id": "eci-plumifero-a59071933",
+          "product": "A59071933",
+          "url": "https://www.elcorteingles.es/moda-mujer/A59071933-negro-pr-plumifero-largo-liso-de-mujer/",
+          "department": "moda-mujer",
+          "type": "plumifero"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-plumifero-mp0623819262br043710530",
+          "product": "MP_0623819_262BR043710530",
+          "url": "https://www.elcorteingles.es/moda-mujer/MP_0623819_262BR043710530-gris-pr-plumifero-de-mujer-largo-medio-acolchado/",
+          "department": "moda-mujer",
+          "type": "plumifero"
+        },
+        {
+          "id": "eci-plumifero-a55776104",
+          "product": "A55776104",
+          "url": "https://www.elcorteingles.es/moda-mujer/A55776104-marron-claro-pr-plumifero-de-largo-90-cm-con-acolchado-en-onda-y-capucha-fija-con-pelo-natural-de-zorro-tintado/",
+          "department": "moda-mujer",
+          "type": "plumifero"
+        }
+      ]
+    },
+    {
+      "category": "universo-friki/hucha",
+      "department": "universo-friki",
+      "type": "hucha",
+      "store_category": "https://www.elcorteingles.es/universo-friki/regalos/huchas/",
+      "products_in_store": 38,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-hucha-a33557656",
+          "product": "A33557656",
+          "url": "https://www.elcorteingles.es/universo-friki/A33557656-hucha-chibi-harry-potter-hedwig/",
+          "department": "universo-friki",
+          "type": "hucha"
+        },
+        {
+          "id": "eci-hucha-a53663869",
+          "product": "A53663869",
+          "url": "https://www.elcorteingles.es/universo-friki/A53663869-hucha-3d-peluche-hello-kitty/",
+          "department": "universo-friki",
+          "type": "hucha"
+        },
+        {
+          "id": "eci-hucha-a52485782",
+          "product": "A52485782",
+          "url": "https://www.elcorteingles.es/universo-friki/A52485782-hucha-3d-chopper-one-piece-plastoy/",
+          "department": "universo-friki",
+          "type": "hucha"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-hucha-a51497882",
+          "product": "A51497882",
+          "url": "https://www.elcorteingles.es/universo-friki/A51497882-hucha-asha-wish-disney-wish-paladone/",
+          "department": "universo-friki",
+          "type": "hucha"
+        },
+        {
+          "id": "eci-hucha-a49917988",
+          "product": "A49917988",
+          "url": "https://www.elcorteingles.es/universo-friki/A49917988-hucha-3d-jason-viernes-13-monogram/",
+          "department": "universo-friki",
+          "type": "hucha"
+        }
+      ]
+    },
+    {
+      "category": "deportes/polo",
+      "department": "deportes",
+      "type": "polo",
+      "store_category": "https://www.elcorteingles.es/deportes/golf/ropa/polos/",
+      "products_in_store": 351,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-polo-a57959592",
+          "product": "A57959592",
+          "url": "https://www.elcorteingles.es/deportes/A57959592-blanco-pr-polo-manga-corta-de-hombre-para-jugar-al-tenis-boss/",
+          "department": "deportes",
+          "type": "polo"
+        },
+        {
+          "id": "eci-polo-mp00271129745956766034",
+          "product": "MP_0027112_9745956766034",
+          "url": "https://www.elcorteingles.es/deportes/MP_0027112_9745956766034-arena-pr-polo-pique-golf-hombre-pinehurst-siroko/",
+          "department": "deportes",
+          "type": "polo"
+        },
+        {
+          "id": "eci-polo-mp002682433984",
+          "product": "MP_0026824_33984",
+          "url": "https://www.elcorteingles.es/deportes/MP_0026824_33984-blanco-pr-polo-de-mujer-w-crew-tech-polo-helly-hansen/",
+          "department": "deportes",
+          "type": "polo"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-polo-a58382241",
+          "product": "A58382241",
+          "url": "https://www.elcorteingles.es/deportes/A58382241-rosa-pr-polo-de-mujer-de-punto-otomano-en-color-solido-adidas/",
+          "department": "deportes",
+          "type": "polo"
+        },
+        {
+          "id": "eci-polo-a58382205",
+          "product": "A58382205",
+          "url": "https://www.elcorteingles.es/deportes/A58382205-blanco-pr-polo-de-mujer-beyond-twistknit-adidas/",
+          "department": "deportes",
+          "type": "polo"
+        }
+      ]
+    },
+    {
+      "category": "juguetes/rompecabeza",
+      "department": "juguetes",
+      "type": "rompecabeza",
+      "store_category": "https://www.elcorteingles.es/juguetes/juguetes-de-madera/rompecabezas-de-madera/",
+      "products_in_store": 32,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-rompecabeza-a53983945",
+          "product": "A53983945",
+          "url": "https://www.elcorteingles.es/juguetes/A53983945-rompecabeza-hanayama-nivel-5-6-huzzle-cast-padlock/",
+          "department": "juguetes",
+          "type": "rompecabeza"
+        },
+        {
+          "id": "eci-rompecabeza-a53983965",
+          "product": "A53983965",
+          "url": "https://www.elcorteingles.es/juguetes/A53983965-rompecabeza-hanayama-nivel-6-6-huzzle-cast-news/",
+          "department": "juguetes",
+          "type": "rompecabeza"
+        },
+        {
+          "id": "eci-rompecabeza-a200072818",
+          "product": "A200072818",
+          "url": "https://www.elcorteingles.es/juguetes/A200072818-rompecabezas-true-genius-pagoda/",
+          "department": "juguetes",
+          "type": "rompecabeza"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-rompecabeza-a200430950",
+          "product": "A200430950",
+          "url": "https://www.elcorteingles.es/juguetes/A200430950-rompecabezas-de-madera-con-pomo-de-animales-de-granja-8-piezas-melissa-and-doug-spin-master/",
+          "department": "juguetes",
+          "type": "rompecabeza"
+        },
+        {
+          "id": "eci-rompecabeza-a201388326",
+          "product": "A201388326",
+          "url": "https://www.elcorteingles.es/juguetes/A201388326-rompecabezas-magnetic-tiles-dino-world-25-geomag/",
+          "department": "juguetes",
+          "type": "rompecabeza"
+        }
+      ]
+    },
+    {
+      "category": "videojuegos/funda",
+      "department": "videojuegos",
+      "type": "funda",
+      "store_category": "https://www.elcorteingles.es/videojuegos/nintendo-switch-2/accesorios/bolsas-y-fundas/",
+      "products_in_store": 22,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-funda-a200762893",
+          "product": "A200762893",
+          "url": "https://www.elcorteingles.es/videojuegos/A200762893-funda-super-mario-bros-para-nintendo-switch-2/",
+          "department": "videojuegos",
+          "type": "funda"
+        },
+        {
+          "id": "eci-funda-a40650151",
+          "product": "A40650151",
+          "url": "https://www.elcorteingles.es/videojuegos/A40650151-funda-para-switch-switch-oled-2-protectores-de-pantalla/",
+          "department": "videojuegos",
+          "type": "funda"
+        },
+        {
+          "id": "eci-funda-a49308876",
+          "product": "A49308876",
+          "url": "https://www.elcorteingles.es/videojuegos/A49308876-funda-de-transporte-plus-glow-super-icon-para-nintendo-switch-pdp/",
+          "department": "videojuegos",
+          "type": "funda"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-funda-a49308875",
+          "product": "A49308875",
+          "url": "https://www.elcorteingles.es/videojuegos/A49308875-funda-de-transporte-mario-escape-para-nintendo-switch-pdp/",
+          "department": "videojuegos",
+          "type": "funda"
+        },
+        {
+          "id": "eci-funda-a200070699",
+          "product": "A200070699",
+          "url": "https://www.elcorteingles.es/videojuegos/A200070699-funda-de-trasporte-rigida-squishmallows-para-nintendo-switch-2/",
+          "department": "videojuegos",
+          "type": "funda"
+        }
+      ]
+    },
+    {
+      "category": "perfumeria/after",
+      "department": "perfumeria",
+      "type": "after",
+      "store_category": "https://www.elcorteingles.es/perfumeria/afeitado/after-shave/",
+      "products_in_store": 36,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-after-a34887989",
+          "product": "A34887989",
+          "url": "https://www.elcorteingles.es/perfumeria/A34887989-3614227914292-pr-after-sun-lotion-golden-tan-maximizer-250-ml-lancaster-250-ml/",
+          "department": "perfumeria",
+          "type": "after"
+        },
+        {
+          "id": "eci-after-a200044052",
+          "product": "A200044052",
+          "url": "https://www.elcorteingles.es/perfumeria/A200044052-8056147471045-pr-after-sun-soothe-me-200-ml-darling-200-ml/",
+          "department": "perfumeria",
+          "type": "after"
+        },
+        {
+          "id": "eci-after-a38542640",
+          "product": "A38542640",
+          "url": "https://www.elcorteingles.es/perfumeria/A38542640-3616301295426-pr-after-sun-repairing-balm-lancaster-sun-sensitive-150-ml-lancaster-150-ml/",
+          "department": "perfumeria",
+          "type": "after"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-after-a200036329",
+          "product": "A200036329",
+          "url": "https://www.elcorteingles.es/perfumeria/A200036329-3600540501271-pr-after-sun-leche-calmante-rostro-y-cuerpo-con-aloe-vera-400-ml-delial-400-ml/",
+          "department": "perfumeria",
+          "type": "after"
+        },
+        {
+          "id": "eci-after-a47696142",
+          "product": "A47696142",
+          "url": "https://www.elcorteingles.es/perfumeria/A47696142-8008230880036-pr-after-shave-gel-1869-125-ml-acca-kappa/",
+          "department": "perfumeria",
+          "type": "after"
+        }
+      ]
+    },
+    {
+      "category": "electrodomesticos/plancha",
+      "department": "electrodomesticos",
+      "type": "plancha",
+      "store_category": "https://www.elcorteingles.es/electrodomesticos/planchas-de-pelo/",
+      "products_in_store": 127,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-plancha-mp00191094210101953037",
+          "product": "MP_0019109_4210101953037",
+          "url": "https://www.elcorteingles.es/electrodomesticos/MP_0019109_4210101953037-4210101953037-pr-plancha-de-vapor-rowenta-pro-master-dw821-antical-integradovapor-continuo-negro-rojo/",
+          "department": "electrodomesticos",
+          "type": "plancha"
+        },
+        {
+          "id": "eci-plancha-a45059639",
+          "product": "A45059639",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A45059639-8720389014352-pr-plancha-de-vapor-philips-dst7511-80-con-sistema-quick-calc-release-negro/",
+          "department": "electrodomesticos",
+          "type": "plancha"
+        },
+        {
+          "id": "eci-plancha-a53287137",
+          "product": "A53287137",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A53287137-8436607611462-pr-plancha-de-viaje-alfa-coquet-con-bolsa-de-viaje-y-vaso-de-llenado-blanco-rojo/",
+          "department": "electrodomesticos",
+          "type": "plancha"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-plancha-a53176233",
+          "product": "A53176233",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A53176233-3030050192995-pr-plancha-de-pelo-babyliss-black-onyx-con-tecnologia-ionica-negro/",
+          "department": "electrodomesticos",
+          "type": "plancha"
+        },
+        {
+          "id": "eci-plancha-mp064199325589046001",
+          "product": "MP_0641993_25589046001",
+          "url": "https://www.elcorteingles.es/electrodomesticos/MP_0641993_25589046001-5038061181036-pr-plancha-de-vapor-russell-hobbs-fabric-luxe-azul/",
+          "department": "electrodomesticos",
+          "type": "plancha"
+        }
+      ]
+    },
+    {
+      "category": "mascotas/cama",
+      "department": "mascotas",
+      "type": "cama",
+      "store_category": "https://www.elcorteingles.es/mascotas/accesorios-para-gatos/hogar/camas-para-gatos/",
+      "products_in_store": 30,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-cama-a202574550",
+          "product": "A202574550",
+          "url": "https://www.elcorteingles.es/mascotas/A202574550-cama-fred-and-rita-para-perros-y-gatos-coleccion-tartan-verde-y-rojo/",
+          "department": "mascotas",
+          "type": "cama"
+        },
+        {
+          "id": "eci-cama-a47772422",
+          "product": "A47772422",
+          "url": "https://www.elcorteingles.es/mascotas/A47772422-cama-fred-and-rita-para-perros-y-gatos-oslo/",
+          "department": "mascotas",
+          "type": "cama"
+        },
+        {
+          "id": "eci-cama-a202575329",
+          "product": "A202575329",
+          "url": "https://www.elcorteingles.es/mascotas/A202575329-cama-fred-and-rita-para-perros-y-gatos-calobra/",
+          "department": "mascotas",
+          "type": "cama"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-cama-a57210004",
+          "product": "A57210004",
+          "url": "https://www.elcorteingles.es/mascotas/A57210004-cama-fred-and-rita-para-perros-y-gatos/",
+          "department": "mascotas",
+          "type": "cama"
+        },
+        {
+          "id": "eci-cama-a202575696",
+          "product": "A202575696",
+          "url": "https://www.elcorteingles.es/mascotas/A202575696-cama-fred-and-rita-para-perros-y-gatos-cuadros-vichy/",
+          "department": "mascotas",
+          "type": "cama"
+        }
+      ]
+    },
+    {
+      "category": "club-del-gourmet/vinagre",
+      "department": "club-del-gourmet",
+      "type": "vinagre",
+      "store_category": "https://www.elcorteingles.es/club-del-gourmet/aceites-y-vinagres/",
+      "products_in_store": 23,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-vinagre-a25216161",
+          "product": "A25216161",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A25216161-vinagre-japones-de-umeboshi-clearspring/",
+          "department": "club-del-gourmet",
+          "type": "vinagre"
+        },
+        {
+          "id": "eci-vinagre-a51303442",
+          "product": "A51303442",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A51303442-vinagre-blanco-balsamico-chardonay-castillo-de-canena/",
+          "department": "club-del-gourmet",
+          "type": "vinagre"
+        },
+        {
+          "id": "eci-vinagre-a16776913",
+          "product": "A16776913",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A16776913-vinagre-de-vino-al-romero-club-del-gourmet/",
+          "department": "club-del-gourmet",
+          "type": "vinagre"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-vinagre-a16776908",
+          "product": "A16776908",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A16776908-vinagre-de-vino-al-ajo-club-del-gourmet/",
+          "department": "club-del-gourmet",
+          "type": "vinagre"
+        },
+        {
+          "id": "eci-vinagre-a16776911",
+          "product": "A16776911",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A16776911-vinagre-de-vino-al-estragon-club-del-gourmet/",
+          "department": "club-del-gourmet",
+          "type": "vinagre"
+        }
+      ]
+    },
+    {
+      "category": "hogar/cortador",
+      "department": "hogar",
+      "type": "cortador",
+      "store_category": "https://www.elcorteingles.es/hogar/menaje-de-cocina/utensilios-de-corte/cortadores/",
+      "products_in_store": 36,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-cortador-a12014409",
+          "product": "A12014409",
+          "url": "https://www.elcorteingles.es/hogar/A12014409-4000530551405-pr-cortador-de-trufas-wmf-profi-plus-acero/",
+          "department": "hogar",
+          "type": "cortador"
+        },
+        {
+          "id": "eci-cortador-a201384983",
+          "product": "A201384983",
+          "url": "https://www.elcorteingles.es/hogar/A201384983-2102687792655-pr-set-de-cortadores-adornos-navidad-multicolor/",
+          "department": "hogar",
+          "type": "cortador"
+        },
+        {
+          "id": "eci-cortador-a12869072",
+          "product": "A12869072",
+          "url": "https://www.elcorteingles.es/hogar/A12869072-0719812001531-pr-cortador-de-pizza-good-grips-oxo-negro/",
+          "department": "hogar",
+          "type": "cortador"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-cortador-a201384958",
+          "product": "A201384958",
+          "url": "https://www.elcorteingles.es/hogar/A201384958-2102687792181-pr-set-de-4-cortadores-en-saco-mini-xmas-navidad-multicolor/",
+          "department": "hogar",
+          "type": "cortador"
+        },
+        {
+          "id": "eci-cortador-a14878520",
+          "product": "A14878520",
+          "url": "https://www.elcorteingles.es/hogar/A14878520-2401552973008-pr-cortador-de-pizzas-el-corte-ingles-acero/",
+          "department": "hogar",
+          "type": "cortador"
+        }
+      ]
+    },
+    {
+      "category": "equipaje/maleta",
+      "department": "equipaje",
+      "type": "maleta",
+      "store_category": "https://www.elcorteingles.es/equipaje/maletas/",
+      "products_in_store": 2495,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-maleta-mp0905176423631",
+          "product": "MP_0905176_423631",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0905176_423631-antracita-pr-maleta-grande-sirio-blanda-con-capacidad-98l/",
+          "department": "equipaje",
+          "type": "maleta"
+        },
+        {
+          "id": "eci-maleta-mp0086678003861820n1",
+          "product": "MP_0086678_003861820N1",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0086678_003861820N1-amarillo-pr-maleta-mediana-belmont-expandible-con-capacidad-de-88-l/",
+          "department": "equipaje",
+          "type": "maleta"
+        },
+        {
+          "id": "eci-maleta-mp0905176418401",
+          "product": "MP_0905176_418401",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0905176_418401-ambar-pr-maleta-grande-expandible-arcade-rigida-con-capacidad-114-133l/",
+          "department": "equipaje",
+          "type": "maleta"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-maleta-mp0905176416246",
+          "product": "MP_0905176_416246",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0905176_416246-negro-pr-maleta-de-cabina-expandible-gateway-blanda-con-capacidad-40-445l-dimensiones-55x35x23-25cm/",
+          "department": "equipaje",
+          "type": "maleta"
+        },
+        {
+          "id": "eci-maleta-mp0905176415273",
+          "product": "MP_0905176_415273",
+          "url": "https://www.elcorteingles.es/equipaje/MP_0905176_415273-antracita-pr-maleta-de-cabina-expandible-sidetrack-blanda-con-capacidad-42-48l-dimensiones-55x40x20-23cm/",
+          "department": "equipaje",
+          "type": "maleta"
+        }
+      ]
+    },
+    {
+      "category": "joyeria-y-relojes/reloj",
+      "department": "joyeria-y-relojes",
+      "type": "reloj",
+      "store_category": "https://www.elcorteingles.es/joyeria-y-relojes/",
+      "products_in_store": 8085,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-reloj-mp0077321r8853100021",
+          "product": "MP_0077321_R8853100021",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0077321_R8853100021-plata-pr-reloj-de-hombre-competizione-r8853100021-de-acero-y-correa-bicolor-oro/",
+          "department": "joyeria-y-relojes",
+          "type": "reloj"
+        },
+        {
+          "id": "eci-reloj-mp00590638430622856785",
+          "product": "MP_0059063_8430622856785",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0059063_8430622856785-plata-pr-reloj-de-hombre-c4614-b-classic-gents-de-acero-plata/",
+          "department": "joyeria-y-relojes",
+          "type": "reloj"
+        },
+        {
+          "id": "eci-reloj-mp00590638430622859724",
+          "product": "MP_0059063_8430622859724",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0059063_8430622859724-multicolor-pr-reloj-analogico-de-mujer-f20747-2-mademoiselle-de-acero-multicolor/",
+          "department": "joyeria-y-relojes",
+          "type": "reloj"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-reloj-mp00231048433269125795",
+          "product": "MP_0023104_8433269125795",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0023104_8433269125795-plateado-pr-reloj-dehombre-b36094-16-con-correa-de-acero-y-esfera-negra/",
+          "department": "joyeria-y-relojes",
+          "type": "reloj"
+        },
+        {
+          "id": "eci-reloj-mp0077321hcc003j1",
+          "product": "MP_0077321_HCC003J1",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0077321_HCC003J1-marron-pr-reloj-de-hombre-presage-hcc003j1-automatico-de-piel-y-correa-marron/",
+          "department": "joyeria-y-relojes",
+          "type": "reloj"
+        }
+      ]
+    },
+    {
+      "category": "moda-infantil/paragua",
+      "department": "moda-infantil",
+      "type": "paragua",
+      "store_category": "https://www.elcorteingles.es/moda-infantil/accesorios/paraguas/",
+      "products_in_store": 81,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-paragua-a57497530",
+          "product": "A57497530",
+          "url": "https://www.elcorteingles.es/moda-infantil/A57497530-naranja-pr-paraguas-infantil-metal-automatico-estampado-grafitti/",
+          "department": "moda-infantil",
+          "type": "paragua"
+        },
+        {
+          "id": "eci-paragua-a48220456",
+          "product": "A48220456",
+          "url": "https://www.elcorteingles.es/moda-infantil/A48220456-transparente-pr-paraguas-infantil-largo-manual-transparente-con-dibujo-de-sirena/",
+          "department": "moda-infantil",
+          "type": "paragua"
+        },
+        {
+          "id": "eci-paragua-a59133307",
+          "product": "A59133307",
+          "url": "https://www.elcorteingles.es/moda-infantil/A59133307-410-azul-claro-pr-paraguas-de-nino-fantasia-toy-story/",
+          "department": "moda-infantil",
+          "type": "paragua"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-paragua-mp001366011419534",
+          "product": "MP_0013660_11419534",
+          "url": "https://www.elcorteingles.es/moda-infantil/MP_0013660_11419534-verde-pr-paraguas-de-nino-con-apertura-automatica-y-diseno-de-ranita/",
+          "department": "moda-infantil",
+          "type": "paragua"
+        },
+        {
+          "id": "eci-paragua-a48220457",
+          "product": "A48220457",
+          "url": "https://www.elcorteingles.es/moda-infantil/A48220457-rosa-pr-paraguas-infantil-plegable-manual-en-rosa-con-un-unicornio/",
+          "department": "moda-infantil",
+          "type": "paragua"
+        }
+      ]
+    },
+    {
+      "category": "papeleria/carpeta",
+      "department": "papeleria",
+      "type": "carpeta",
+      "store_category": "https://www.elcorteingles.es/papeleria/archivo-y-clasificacion/carpetas-y-tubos-portaplanos/",
+      "products_in_store": 165,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-carpeta-a55504872",
+          "product": "A55504872",
+          "url": "https://www.elcorteingles.es/papeleria/A55504872-carpeta-con-anillas-con-recambio-a4-uninature-hawai-grafoplas/",
+          "department": "papeleria",
+          "type": "carpeta"
+        },
+        {
+          "id": "eci-carpeta-a55822476",
+          "product": "A55822476",
+          "url": "https://www.elcorteingles.es/papeleria/A55822476-carpeta-20-fundas-extraibles-in-and-out-a4-grafoplas-negro/",
+          "department": "papeleria",
+          "type": "carpeta"
+        },
+        {
+          "id": "eci-carpeta-a53196002",
+          "product": "A53196002",
+          "url": "https://www.elcorteingles.es/papeleria/A53196002-carpeta-para-documentos-rubedo-325x235x5mm-cierre-con-solapa-magnetica-paperblanks-rojo/",
+          "department": "papeleria",
+          "type": "carpeta"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-carpeta-a53196001",
+          "product": "A53196001",
+          "url": "https://www.elcorteingles.es/papeleria/A53196001-carpeta-para-documentos-michelangelo-caligrafia-325x235x5mm-cierre-con-solapa-magnetica-paperblanks-multicolor/",
+          "department": "papeleria",
+          "type": "carpeta"
+        },
+        {
+          "id": "eci-carpeta-a55504856",
+          "product": "A55504856",
+          "url": "https://www.elcorteingles.es/papeleria/A55504856-carpeta-de-anillas-a4-uninature-india-grafoplas/",
+          "department": "papeleria",
+          "type": "carpeta"
+        }
+      ]
+    },
+    {
+      "category": "regalos-originales/termo",
+      "department": "regalos-originales",
+      "type": "termo",
+      "store_category": "https://www.elcorteingles.es/regalos-originales/botellas-y-termos/",
+      "products_in_store": 44,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-termo-a200484206",
+          "product": "A200484206",
+          "url": "https://www.elcorteingles.es/regalos-originales/A200484206-termo-stanley-1913-iceflow-boquilla-abatible-20-059l-20oz-peach-rose/",
+          "department": "regalos-originales",
+          "type": "termo"
+        },
+        {
+          "id": "eci-termo-a201013634",
+          "product": "A201013634",
+          "url": "https://www.elcorteingles.es/regalos-originales/A201013634-termo-stanley-1913-quencher-protour-boquilla-abatible-118l-40oz-dark-navy/",
+          "department": "regalos-originales",
+          "type": "termo"
+        },
+        {
+          "id": "eci-termo-a200484223",
+          "product": "A200484223",
+          "url": "https://www.elcorteingles.es/regalos-originales/A200484223-termo-mug-stanley-1913-cafe-to-go-035l-12oz-peach-rose-picnic-stripes/",
+          "department": "regalos-originales",
+          "type": "termo"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-termo-a56570965",
+          "product": "A56570965",
+          "url": "https://www.elcorteingles.es/regalos-originales/A56570965-termo-stanley-1913-quencher-h2o-flowstate-118l-40oz-twilight/",
+          "department": "regalos-originales",
+          "type": "termo"
+        },
+        {
+          "id": "eci-termo-a201013641",
+          "product": "A201013641",
+          "url": "https://www.elcorteingles.es/regalos-originales/A201013641-termo-mug-stanley-1913-transit-flip-top-035l-12oz-rose-quartz/",
+          "department": "regalos-originales",
+          "type": "termo"
+        }
+      ]
+    },
+    {
+      "category": "designers/chaleco",
+      "department": "designers",
+      "type": "chaleco",
+      "store_category": "https://www.elcorteingles.es/designers/mujer/accesorios/panuelos-y-chales/",
+      "products_in_store": 32,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-chaleco-a202125923",
+          "product": "A202125923",
+          "url": "https://www.elcorteingles.es/designers/A202125923-chaleco-gayo-tipo-sastre/",
+          "department": "designers",
+          "type": "chaleco"
+        },
+        {
+          "id": "eci-chaleco-a202126955",
+          "product": "A202126955",
+          "url": "https://www.elcorteingles.es/designers/A202126955-chaleco-con-estampado-de-rayas/",
+          "department": "designers",
+          "type": "chaleco"
+        },
+        {
+          "id": "eci-chaleco-a203831579",
+          "product": "A203831579",
+          "url": "https://www.elcorteingles.es/designers/A203831579-chaleco-grenelle-de-lana/",
+          "department": "designers",
+          "type": "chaleco"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-chaleco-a201953608",
+          "product": "A201953608",
+          "url": "https://www.elcorteingles.es/designers/A201953608-chaleco-acplchado-con-pelo/",
+          "department": "designers",
+          "type": "chaleco"
+        },
+        {
+          "id": "eci-chaleco-a202125959",
+          "product": "A202125959",
+          "url": "https://www.elcorteingles.es/designers/A202125959-chaleco-pimto-con-rombos/",
+          "department": "designers",
+          "type": "chaleco"
+        }
+      ]
+    },
+    {
+      "category": "bebes/cojin",
+      "department": "bebes",
+      "type": "cojin",
+      "store_category": "https://www.elcorteingles.es/bebes/colchones-y-almohadas/cojines-antivuelco/",
+      "products_in_store": 72,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-cojin-mp00273518435574922984",
+          "product": "MP_0027351_8435574922984",
+          "url": "https://www.elcorteingles.es/bebes/MP_0027351_8435574922984-gris-topo-pr-cojin-nube-de-lino-frances-lavado-nobodinoz-l1n0/",
+          "department": "bebes",
+          "type": "cojin"
+        },
+        {
+          "id": "eci-cojin-a51207839",
+          "product": "A51207839",
+          "url": "https://www.elcorteingles.es/bebes/A51207839-gris-oscuro-pr-cojin-para-trona-hauck-highchairpad-select/",
+          "department": "bebes",
+          "type": "cojin"
+        },
+        {
+          "id": "eci-cojin-mp005378554945",
+          "product": "MP_0053785_54945",
+          "url": "https://www.elcorteingles.es/bebes/MP_0053785_54945-rosa-pr-cojin-de-lactancia-pequeno-cambrass-supersoft/",
+          "department": "bebes",
+          "type": "cojin"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-cojin-a51007734",
+          "product": "A51007734",
+          "url": "https://www.elcorteingles.es/bebes/A51007734-blanco-pr-cojin-anatomico-babymoov-lovenest-original/",
+          "department": "bebes",
+          "type": "cojin"
+        },
+        {
+          "id": "eci-cojin-mp00273518435574934253",
+          "product": "MP_0027351_8435574934253",
+          "url": "https://www.elcorteingles.es/bebes/MP_0027351_8435574934253-gris-topo-pr-cojin-luna-nobodinoz-l1n0/",
+          "department": "bebes",
+          "type": "cojin"
+        }
+      ]
+    },
+    {
+      "category": "parafarmacia/biberon",
+      "department": "parafarmacia",
+      "type": "biberon",
+      "store_category": "https://www.elcorteingles.es/parafarmacia/alimentacion-bebes/biberones/",
+      "products_in_store": 31,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-biberon-a43678507",
+          "product": "A43678507",
+          "url": "https://www.elcorteingles.es/parafarmacia/A43678507-9001616818943-pr-biberon-anti-colic-matt-160-ml-rosa-mam/",
+          "department": "parafarmacia",
+          "type": "biberon"
+        },
+        {
+          "id": "eci-biberon-a43678506",
+          "product": "A43678506",
+          "url": "https://www.elcorteingles.es/parafarmacia/A43678506-9001616818936-pr-biberon-anti-colic-matt-160-ml-azul-mam/",
+          "department": "parafarmacia",
+          "type": "biberon"
+        },
+        {
+          "id": "eci-biberon-a16187901",
+          "product": "A16187901",
+          "url": "https://www.elcorteingles.es/parafarmacia/A16187901-0072239325476-pr-biberon-anticolico-options-formato-boca-ancha-rosa-270-ml-dr-browns-270-ml/",
+          "department": "parafarmacia",
+          "type": "biberon"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-biberon-a43678511",
+          "product": "A43678511",
+          "url": "https://www.elcorteingles.es/parafarmacia/A43678511-9001616818998-pr-biberon-anti-colic-matt-320-ml-azul-mam/",
+          "department": "parafarmacia",
+          "type": "biberon"
+        },
+        {
+          "id": "eci-biberon-a47828292",
+          "product": "A47828292",
+          "url": "https://www.elcorteingles.es/parafarmacia/A47828292-9001616716805-pr-biberon-de-cristal-feel-good-170-ml-mam-170-ml/",
+          "department": "parafarmacia",
+          "type": "biberon"
+        }
+      ]
+    },
+    {
+      "category": "universo-friki/llavero",
+      "department": "universo-friki",
+      "type": "llavero",
+      "store_category": "https://www.elcorteingles.es/universo-friki/regalos/llaveros-imanes-y-pins/",
+      "products_in_store": 62,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-llavero-a50163319",
+          "product": "A50163319",
+          "url": "https://www.elcorteingles.es/universo-friki/A50163319-llavero-mano-cosa/",
+          "department": "universo-friki",
+          "type": "llavero"
+        },
+        {
+          "id": "eci-llavero-a200488184",
+          "product": "A200488184",
+          "url": "https://www.elcorteingles.es/universo-friki/A200488184-llavero-goma-wildboar-harry-potter-butterbeer-cyp/",
+          "department": "universo-friki",
+          "type": "llavero"
+        },
+        {
+          "id": "eci-llavero-a47804256",
+          "product": "A47804256",
+          "url": "https://www.elcorteingles.es/universo-friki/A47804256-llavero-3d-dobby-harry-potter/",
+          "department": "universo-friki",
+          "type": "llavero"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-llavero-a51715469",
+          "product": "A51715469",
+          "url": "https://www.elcorteingles.es/universo-friki/A51715469-llavero-metal-expecto-patronum-harry-potter/",
+          "department": "universo-friki",
+          "type": "llavero"
+        },
+        {
+          "id": "eci-llavero-a52748239",
+          "product": "A52748239",
+          "url": "https://www.elcorteingles.es/universo-friki/A52748239-llavero-peluche-rana-chocolate-harry-potter-cinereplicas/",
+          "department": "universo-friki",
+          "type": "llavero"
+        }
+      ]
+    },
+    {
+      "category": "deportes/linterna",
+      "department": "deportes",
+      "type": "linterna",
+      "store_category": "https://www.elcorteingles.es/deportes/caza/linternas/",
+      "products_in_store": 82,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-linterna-mp0625525ol2046",
+          "product": "MP_0625525_OL2046",
+          "url": "https://www.elcorteingles.es/deportes/MP_0625525_OL2046-negro-pr-linterna-para-arma-valkyrie-pl-3s-1000-lumenes-olight/",
+          "department": "deportes",
+          "type": "linterna"
+        },
+        {
+          "id": "eci-linterna-mp0625525ol2030",
+          "product": "MP_0625525_OL2030",
+          "url": "https://www.elcorteingles.es/deportes/MP_0625525_OL2030-marron-pr-linterna-para-arma-baldr-s-800-lumenes-desierto-olight/",
+          "department": "deportes",
+          "type": "linterna"
+        },
+        {
+          "id": "eci-linterna-mp0625525ol4074",
+          "product": "MP_0625525_OL4074",
+          "url": "https://www.elcorteingles.es/deportes/MP_0625525_OL4074-negro-pr-linterna-tactica-odin-s-m-lok-1500-lumenes-olight/",
+          "department": "deportes",
+          "type": "linterna"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-linterna-a39658028",
+          "product": "A39658028",
+          "url": "https://www.elcorteingles.es/deportes/A39658028-negro-pr-linterna-p5r-core-led-lenser/",
+          "department": "deportes",
+          "type": "linterna"
+        },
+        {
+          "id": "eci-linterna-mp0625525bat903",
+          "product": "MP_0625525_BAT903",
+          "url": "https://www.elcorteingles.es/deportes/MP_0625525_BAT903-negro-pr-linterna-force-one-con-kit-de-caza-b-vision/",
+          "department": "deportes",
+          "type": "linterna"
+        }
+      ]
+    },
+    {
+      "category": "juguetes/peluche",
+      "department": "juguetes",
+      "type": "peluche",
+      "store_category": "https://www.elcorteingles.es/juguetes/peluches/",
+      "products_in_store": 867,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-peluche-a51096894",
+          "product": "A51096894",
+          "url": "https://www.elcorteingles.es/juguetes/A51096894-peluche-musical-burrito-nattou-coleccion-felix-and-leo/",
+          "department": "juguetes",
+          "type": "peluche"
+        },
+        {
+          "id": "eci-peluche-a29694558",
+          "product": "A29694558",
+          "url": "https://www.elcorteingles.es/juguetes/A29694558-peluche-musical-juguete-bartolito-gallo-la-granja-de-zenon-bandai/",
+          "department": "juguetes",
+          "type": "peluche"
+        },
+        {
+          "id": "eci-peluche-a45976454",
+          "product": "A45976454",
+          "url": "https://www.elcorteingles.es/juguetes/A45976454-peluche-leroy/",
+          "department": "juguetes",
+          "type": "peluche"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-peluche-a200262771",
+          "product": "A200262771",
+          "url": "https://www.elcorteingles.es/juguetes/A200262771-peluche-interactivo-angel-baby-paws/",
+          "department": "juguetes",
+          "type": "peluche"
+        },
+        {
+          "id": "eci-peluche-a51150540",
+          "product": "A51150540",
+          "url": "https://www.elcorteingles.es/juguetes/A51150540-peluche-25-cm-timon-simba/",
+          "department": "juguetes",
+          "type": "peluche"
+        }
+      ]
+    },
+    {
+      "category": "perfumeria/contorno",
+      "department": "perfumeria",
+      "type": "contorno",
+      "store_category": "https://www.elcorteingles.es/perfumeria/cosmetica-facial-hombre/contorno-de-ojos/",
+      "products_in_store": 142,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-contorno-mp03468828436534714663",
+          "product": "MP_0346882_8436534714663",
+          "url": "https://www.elcorteingles.es/perfumeria/MP_0346882_8436534714663-8436534714663-pr-contorno-de-ojos-antiedad-essential-shock-intense-eye-and-lip-15-ml-natura-bisse-15-ml/",
+          "department": "perfumeria",
+          "type": "contorno"
+        },
+        {
+          "id": "eci-contorno-a39516335",
+          "product": "A39516335",
+          "url": "https://www.elcorteingles.es/perfumeria/A39516335-0818625027650-pr-contorno-de-ojos-advanced-day-eye-protect-15-ml-medik8-15-ml/",
+          "department": "perfumeria",
+          "type": "contorno"
+        },
+        {
+          "id": "eci-contorno-mp03468828436568077475",
+          "product": "MP_0346882_8436568077475",
+          "url": "https://www.elcorteingles.es/perfumeria/MP_0346882_8436568077475-8436568077475-pr-contorno-de-ojos-con-color-diamond-cocoon-sheer-eye-25-ml-natura-bisse-25-ml/",
+          "department": "perfumeria",
+          "type": "contorno"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-contorno-a200046918",
+          "product": "A200046918",
+          "url": "https://www.elcorteingles.es/perfumeria/A200046918-8720828270349-pr-contorno-de-ojos-pro-colageno-peptidos-15ml-paulas-choice-15-ml/",
+          "department": "perfumeria",
+          "type": "contorno"
+        },
+        {
+          "id": "eci-contorno-a200219288",
+          "product": "A200219288",
+          "url": "https://www.elcorteingles.es/perfumeria/A200219288-3359998733009-pr-contorno-de-ojos-antiedad-global-b21-orlane/",
+          "department": "perfumeria",
+          "type": "contorno"
+        }
+      ]
+    },
+    {
+      "category": "electrodomesticos/grupo",
+      "department": "electrodomesticos",
+      "type": "grupo",
+      "store_category": "https://www.elcorteingles.es/electrodomesticos/campanas-extractoras-de-cocina/grupo-filtrante/",
+      "products_in_store": 119,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-grupo-a35237437",
+          "product": "A35237437",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A35237437-7612985785525-pr-grupo-filtrante-mepamsa-3-velocidades-3050606198-inox/",
+          "department": "electrodomesticos",
+          "type": "grupo"
+        },
+        {
+          "id": "eci-grupo-a46534290",
+          "product": "A46534290",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A46534290-8422248392631-pr-grupo-filtrante-cata-3-velocidades-1-turbo-corona-x-90-b-inox/",
+          "department": "electrodomesticos",
+          "type": "grupo"
+        },
+        {
+          "id": "eci-grupo-a47824385",
+          "product": "A47824385",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A47824385-8422248190398-pr-grupo-filtrante-cata-3-velocidades-gt-plus-45-wh-m-blanco/",
+          "department": "electrodomesticos",
+          "type": "grupo"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-grupo-a54877218",
+          "product": "A54877218",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A54877218-8422248392921-pr-grupo-filtrante-cata-3-velocidades-1-turbo-bk-60-negro/",
+          "department": "electrodomesticos",
+          "type": "grupo"
+        },
+        {
+          "id": "eci-grupo-a46620626",
+          "product": "A46620626",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A46620626-7612986279252-pr-grupo-filtrante-mepamsa-3-velocidades-intensiva-3050691275-inox/",
+          "department": "electrodomesticos",
+          "type": "grupo"
+        }
+      ]
+    },
+    {
+      "category": "electronica/flauta",
+      "department": "electronica",
+      "type": "flauta",
+      "store_category": "https://www.elcorteingles.es/electronica/instrumentos-musicales/flauta/",
+      "products_in_store": 20,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-flauta-mp00039370400912614751",
+          "product": "MP_0003937_0400912614751",
+          "url": "https://www.elcorteingles.es/electronica/MP_0003937_0400912614751-0400912614751-pr-flauta-dulce-soprano-hohner-b9550-barroca-natural/",
+          "department": "electronica",
+          "type": "flauta"
+        },
+        {
+          "id": "eci-flauta-mp00039370400912603199",
+          "product": "MP_0003937_0400912603199",
+          "url": "https://www.elcorteingles.es/electronica/MP_0003937_0400912603199-0400912603199-pr-flauta-alemana-hohner-b9516-natural/",
+          "department": "electronica",
+          "type": "flauta"
+        },
+        {
+          "id": "eci-flauta-mp00039378435017324627",
+          "product": "MP_0003937_8435017324627",
+          "url": "https://www.elcorteingles.es/electronica/MP_0003937_8435017324627-8435017324627-pr-flauta-travesera-oqan-ofl-650-plata/",
+          "department": "electronica",
+          "type": "flauta"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-flauta-mp00039370400912666408",
+          "product": "MP_0003937_0400912666408",
+          "url": "https://www.elcorteingles.es/electronica/MP_0003937_0400912666408-0400912666408-pr-flauta-dulce-soprano-hohner-b95841-madera-plastico-rosa-barroca-rosa/",
+          "department": "electronica",
+          "type": "flauta"
+        },
+        {
+          "id": "eci-flauta-mp00039370400912622015",
+          "product": "MP_0003937_0400912622015",
+          "url": "https://www.elcorteingles.es/electronica/MP_0003937_0400912622015-0400912622015-pr-flauta-alemana-hohner-b9556-natural/",
+          "department": "electronica",
+          "type": "flauta"
+        }
+      ]
+    },
+    {
+      "category": "mascotas/champu",
+      "department": "mascotas",
+      "type": "champu",
+      "store_category": "https://www.elcorteingles.es/mascotas/higiene-para-perros/champus-colonias-y-toallitas/",
+      "products_in_store": 53,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-champu-a24234901",
+          "product": "A24234901",
+          "url": "https://www.elcorteingles.es/mascotas/A24234901-champu-artero-para-perros-relax-250-ml/",
+          "department": "mascotas",
+          "type": "champu"
+        },
+        {
+          "id": "eci-champu-a53736678",
+          "product": "A53736678",
+          "url": "https://www.elcorteingles.es/mascotas/A53736678-lote-champu-perfume-limpiador-oidos-sofure/",
+          "department": "mascotas",
+          "type": "champu"
+        },
+        {
+          "id": "eci-champu-a56464918",
+          "product": "A56464918",
+          "url": "https://www.elcorteingles.es/mascotas/A56464918-champu-bloom-para-perros-y-gatos-artero-300-ml/",
+          "department": "mascotas",
+          "type": "champu"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-champu-a11112094",
+          "product": "A11112094",
+          "url": "https://www.elcorteingles.es/mascotas/A11112094-champu-artero-para-perros-vitalizante-250-ml/",
+          "department": "mascotas",
+          "type": "champu"
+        },
+        {
+          "id": "eci-champu-a55464050",
+          "product": "A55464050",
+          "url": "https://www.elcorteingles.es/mascotas/A55464050-champu-para-perros-y-gatos-odor-control-psh-cosmetics-300-ml/",
+          "department": "mascotas",
+          "type": "champu"
+        }
+      ]
+    },
+    {
+      "category": "club-del-gourmet/panettone",
+      "department": "club-del-gourmet",
+      "type": "panettone",
+      "store_category": "https://www.elcorteingles.es/club-del-gourmet/dulces-y-galletas/turrones-y-panettones/",
+      "products_in_store": 20,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-panettone-a202395506",
+          "product": "A202395506",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A202395506-panettone-aliento-de-dragon-dabiz-munoz-xo/",
+          "department": "club-del-gourmet",
+          "type": "panettone"
+        },
+        {
+          "id": "eci-panettone-a59231649",
+          "product": "A59231649",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A59231649-panettone-chococaramel-de-vivo/",
+          "department": "club-del-gourmet",
+          "type": "panettone"
+        },
+        {
+          "id": "eci-panettone-a37848854",
+          "product": "A37848854",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A37848854-panettone-de-turron-raul-asencio/",
+          "department": "club-del-gourmet",
+          "type": "panettone"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-panettone-a58900630",
+          "product": "A58900630",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A58900630-panettone-estilo-vienes-fraccaro/",
+          "department": "club-del-gourmet",
+          "type": "panettone"
+        },
+        {
+          "id": "eci-panettone-a59197339",
+          "product": "A59197339",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A59197339-panettone-gianduja-crema-filippi/",
+          "department": "club-del-gourmet",
+          "type": "panettone"
+        }
+      ]
+    },
+    {
+      "category": "hogar/escurreplato",
+      "department": "hogar",
+      "type": "escurreplato",
+      "store_category": "https://www.elcorteingles.es/hogar/ordenacion/limpieza-en-la-cocina/escurreplatos/",
+      "products_in_store": 21,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-escurreplato-a51315246",
+          "product": "A51315246",
+          "url": "https://www.elcorteingles.es/hogar/A51315246-5028420001891-pr-escurreplatos-extensible-extend-joseph-joseph-gris/",
+          "department": "hogar",
+          "type": "escurreplato"
+        },
+        {
+          "id": "eci-escurreplato-a26437147",
+          "product": "A26437147",
+          "url": "https://www.elcorteingles.es/hogar/A26437147-8710755117268-pr-escurreplatos-compacto-sink-side-brabantia-gris-oscuro/",
+          "department": "hogar",
+          "type": "escurreplato"
+        },
+        {
+          "id": "eci-escurreplato-a38719791",
+          "product": "A38719791",
+          "url": "https://www.elcorteingles.es/hogar/A38719791-5028420850406-pr-escurreplatos-extensible-joseph-joseph-gris/",
+          "department": "hogar",
+          "type": "escurreplato"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-escurreplato-a56303052",
+          "product": "A56303052",
+          "url": "https://www.elcorteingles.es/hogar/A56303052-5028420009811-pr-escurreplatos-extensible-joseph-joseph-acero/",
+          "department": "hogar",
+          "type": "escurreplato"
+        },
+        {
+          "id": "eci-escurreplato-a54749245",
+          "product": "A54749245",
+          "url": "https://www.elcorteingles.es/hogar/A54749245-5028420010336-pr-escurreplatos-plegable-platform-joseph-joseph-gris/",
+          "department": "hogar",
+          "type": "escurreplato"
+        }
+      ]
+    },
+    {
+      "category": "joyeria-y-relojes/pulsera",
+      "department": "joyeria-y-relojes",
+      "type": "pulsera",
+      "store_category": "https://www.elcorteingles.es/joyeria-y-relojes/bisuteria/pulseras/",
+      "products_in_store": 5689,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-pulsera-mp0086322311561560",
+          "product": "MP_0086322_311561560",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0086322_311561560-lila-pr-pulsera-bold-bear-de-cordon-con-oso-de-plata/",
+          "department": "joyeria-y-relojes",
+          "type": "pulsera"
+        },
+        {
+          "id": "eci-pulsera-mp00590638433594217738",
+          "product": "MP_0059063_8433594217738",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0059063_8433594217738-plateado-pr-pulsera-de-nina-fg00067-14-basics-de-oro-9k-acabado-brillo/",
+          "department": "joyeria-y-relojes",
+          "type": "pulsera"
+        },
+        {
+          "id": "eci-pulsera-a51066889",
+          "product": "A51066889",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/A51066889-plata-pr-pulsera-chain-nudo-amor-plateada/",
+          "department": "joyeria-y-relojes",
+          "type": "pulsera"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-pulsera-mp00590638430622780189",
+          "product": "MP_0059063_8430622780189",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0059063_8430622780189-plateado-pr-pulsera-lotus-style-ls2181-2-4-tree-of-life-de-acero-inoxidable-acabado-brillo/",
+          "department": "joyeria-y-relojes",
+          "type": "pulsera"
+        },
+        {
+          "id": "eci-pulsera-mp00228438426881582909",
+          "product": "MP_0022843_8426881582909",
+          "url": "https://www.elcorteingles.es/joyeria-y-relojes/MP_0022843_8426881582909-dorado-pr-pulsera-de-cadena-ajustable-hojas-y-perlas-4mm-dorada-romea/",
+          "department": "joyeria-y-relojes",
+          "type": "pulsera"
+        }
+      ]
+    },
+    {
+      "category": "moda-infantil/cazadora",
+      "department": "moda-infantil",
+      "type": "cazadora",
+      "store_category": "https://www.elcorteingles.es/moda-infantil/nina/cazadoras-chaquetas-y-blazers/",
+      "products_in_store": 133,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-cazadora-a59581210",
+          "product": "A59581210",
+          "url": "https://www.elcorteingles.es/moda-infantil/A59581210-azul-pr-cazadora-tecnica-de-nino-con-logo/",
+          "department": "moda-infantil",
+          "type": "cazadora"
+        },
+        {
+          "id": "eci-cazadora-a58281263",
+          "product": "A58281263",
+          "url": "https://www.elcorteingles.es/moda-infantil/A58281263-azul-marino-pr-cazadora-denim-tipo-sobrecamisa-all-over-print-fantasia-de-nina/",
+          "department": "moda-infantil",
+          "type": "cazadora"
+        },
+        {
+          "id": "eci-cazadora-mp0049957u22404b",
+          "product": "MP_0049957_U22404B",
+          "url": "https://www.elcorteingles.es/moda-infantil/MP_0049957_U22404B-azul-marino-pr-cazadora-de-bebe-nina-con-estampado-grande/",
+          "department": "moda-infantil",
+          "type": "cazadora"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-cazadora-mp0049957j53453k",
+          "product": "MP_0049957_J53453K",
+          "url": "https://www.elcorteingles.es/moda-infantil/MP_0049957_J53453K-azul-marino-pr-cazadora-de-nina-con-fantasia/",
+          "department": "moda-infantil",
+          "type": "cazadora"
+        },
+        {
+          "id": "eci-cazadora-mp0049957r30712b",
+          "product": "MP_0049957_R30712B",
+          "url": "https://www.elcorteingles.es/moda-infantil/MP_0049957_R30712B-marron-pr-cazadora-de-bebe-nina-con-fantasia/",
+          "department": "moda-infantil",
+          "type": "cazadora"
+        }
+      ]
+    },
+    {
+      "category": "papeleria/tinta",
+      "department": "papeleria",
+      "type": "tinta",
+      "store_category": "https://www.elcorteingles.es/papeleria/bellas-artes/tinta-china/",
+      "products_in_store": 45,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-tinta-a56084749",
+          "product": "A56084749",
+          "url": "https://www.elcorteingles.es/papeleria/A56084749-tinta-de-dibujo-14-ml-winsor-and-newton-ultramar/",
+          "department": "papeleria",
+          "type": "tinta"
+        },
+        {
+          "id": "eci-tinta-a26267560",
+          "product": "A26267560",
+          "url": "https://www.elcorteingles.es/papeleria/A26267560-coleccion-de-tintas-para-dibujo-de-8-frascos-de-14-ml-william-winsor-and-newton-multicolor/",
+          "department": "papeleria",
+          "type": "tinta"
+        },
+        {
+          "id": "eci-tinta-a45388904",
+          "product": "A45388904",
+          "url": "https://www.elcorteingles.es/papeleria/A45388904-tinta-acrilica-liquitex-amarillo-bismuth/",
+          "department": "papeleria",
+          "type": "tinta"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-tinta-a45388908",
+          "product": "A45388908",
+          "url": "https://www.elcorteingles.es/papeleria/A45388908-tinta-acrilica-liquitex-naranja-amarillo/",
+          "department": "papeleria",
+          "type": "tinta"
+        },
+        {
+          "id": "eci-tinta-a45388926",
+          "product": "A45388926",
+          "url": "https://www.elcorteingles.es/papeleria/A45388926-tinta-acrilica-liquitex-verde-fluorescente/",
+          "department": "papeleria",
+          "type": "tinta"
+        }
+      ]
+    },
+    {
+      "category": "bricor/hidrolimpiadora",
+      "department": "bricor",
+      "type": "hidrolimpiadora",
+      "store_category": "https://www.elcorteingles.es/bricor/cuidado-del-jardin/hidrolimpiadoras/",
+      "products_in_store": 33,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-hidrolimpiadora-a200496442",
+          "product": "A200496442",
+          "url": "https://www.elcorteingles.es/bricor/A200496442-hidrolimpiadora-k-3-de-karcher/",
+          "department": "bricor",
+          "type": "hidrolimpiadora"
+        },
+        {
+          "id": "eci-hidrolimpiadora-a52536282",
+          "product": "A52536282",
+          "url": "https://www.elcorteingles.es/bricor/A52536282-hidrolimpiadora-alta-presion-premium-180-10/",
+          "department": "bricor",
+          "type": "hidrolimpiadora"
+        },
+        {
+          "id": "eci-hidrolimpiadora-a54795717",
+          "product": "A54795717",
+          "url": "https://www.elcorteingles.es/bricor/A54795717-hidrolimpiadora-k5-power-control-flex-eu/",
+          "department": "bricor",
+          "type": "hidrolimpiadora"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-hidrolimpiadora-a52536244",
+          "product": "A52536244",
+          "url": "https://www.elcorteingles.es/bricor/A52536244-hidrolimpiadora-alta-presion-core-140-8-in-hand-power-control-home/",
+          "department": "bricor",
+          "type": "hidrolimpiadora"
+        },
+        {
+          "id": "eci-hidrolimpiadora-a44520518",
+          "product": "A44520518",
+          "url": "https://www.elcorteingles.es/bricor/A44520518-hidrolimpiadora-electrica-140-bar-2100-w/",
+          "department": "bricor",
+          "type": "hidrolimpiadora"
+        }
+      ]
+    },
+    {
+      "category": "regalos-originales/taza",
+      "department": "regalos-originales",
+      "type": "taza",
+      "store_category": "https://www.elcorteingles.es/regalos-originales/para-casa/tazas/",
+      "products_in_store": 83,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-taza-a56842813",
+          "product": "A56842813",
+          "url": "https://www.elcorteingles.es/regalos-originales/A56842813-taza-3d-cerezas-mr-wonderful-eres-la-guinda-del-pastel/",
+          "department": "regalos-originales",
+          "type": "taza"
+        },
+        {
+          "id": "eci-taza-a201390599",
+          "product": "A201390599",
+          "url": "https://www.elcorteingles.es/regalos-originales/A201390599-taza-termica-350ml-24bottles-lila-erica/",
+          "department": "regalos-originales",
+          "type": "taza"
+        },
+        {
+          "id": "eci-taza-a56842845",
+          "product": "A56842845",
+          "url": "https://www.elcorteingles.es/regalos-originales/A56842845-taza-3d-guisantes-mr-wonderful-lo-mejor-esta-en-el-interior/",
+          "department": "regalos-originales",
+          "type": "taza"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-taza-a48715878",
+          "product": "A48715878",
+          "url": "https://www.elcorteingles.es/regalos-originales/A48715878-taza-aire-libre-history-and-heraldry-antonio/",
+          "department": "regalos-originales",
+          "type": "taza"
+        },
+        {
+          "id": "eci-taza-a54387788",
+          "product": "A54387788",
+          "url": "https://www.elcorteingles.es/regalos-originales/A54387788-taza-3d-mr-wonderful-mono/",
+          "department": "regalos-originales",
+          "type": "taza"
+        }
+      ]
+    },
+    {
+      "category": "designers/blusa",
+      "department": "designers",
+      "type": "blusa",
+      "store_category": "https://www.elcorteingles.es/designers/mujer/pret-a-porter/camisas-blusas-y-tops/",
+      "products_in_store": 32,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-blusa-a202402691",
+          "product": "A202402691",
+          "url": "https://www.elcorteingles.es/designers/A202402691-blusa-darla-fruncida/",
+          "department": "designers",
+          "type": "blusa"
+        },
+        {
+          "id": "eci-blusa-a203323607",
+          "product": "A203323607",
+          "url": "https://www.elcorteingles.es/designers/A203323607-blusa-bordada-de-inspiracion-victoriana/",
+          "department": "designers",
+          "type": "blusa"
+        },
+        {
+          "id": "eci-blusa-a53613933",
+          "product": "A53613933",
+          "url": "https://www.elcorteingles.es/designers/A53613933-blusa-de-seda/",
+          "department": "designers",
+          "type": "blusa"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-blusa-a37802137",
+          "product": "A37802137",
+          "url": "https://www.elcorteingles.es/designers/A37802137-blusa-de-seda/",
+          "department": "designers",
+          "type": "blusa"
+        },
+        {
+          "id": "eci-blusa-a202014307",
+          "product": "A202014307",
+          "url": "https://www.elcorteingles.es/designers/A202014307-blusa-vinnie-de-seda/",
+          "department": "designers",
+          "type": "blusa"
+        }
+      ]
+    },
+    {
+      "category": "bebes/alfombra",
+      "department": "bebes",
+      "type": "alfombra",
+      "store_category": "https://www.elcorteingles.es/bebes/higiene-y-cuidado-del-bebe/asientos-y-alfombras-bano-bebes/",
+      "products_in_store": 25,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-alfombra-a55632891",
+          "product": "A55632891",
+          "url": "https://www.elcorteingles.es/bebes/A55632891-multicolor-pr-alfombra-lorena-canals-lavable-de-algodon-interstellarjourney/",
+          "department": "bebes",
+          "type": "alfombra"
+        },
+        {
+          "id": "eci-alfombra-a55632942",
+          "product": "A55632942",
+          "url": "https://www.elcorteingles.es/bebes/A55632942-multicolor-pr-alfombra-lorena-canals-lavable-de-algodon-rocket/",
+          "department": "bebes",
+          "type": "alfombra"
+        },
+        {
+          "id": "eci-alfombra-a55632852",
+          "product": "A55632852",
+          "url": "https://www.elcorteingles.es/bebes/A55632852-multicolor-pr-alfombra-lorena-canals-lavable-de-algodon-animal-rug-ducky/",
+          "department": "bebes",
+          "type": "alfombra"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-alfombra-a200416908",
+          "product": "A200416908",
+          "url": "https://www.elcorteingles.es/bebes/A200416908-crema-pr-alfombra-lorena-canals-lavable-de-algodon-vichy/",
+          "department": "bebes",
+          "type": "alfombra"
+        },
+        {
+          "id": "eci-alfombra-a47355832",
+          "product": "A47355832",
+          "url": "https://www.elcorteingles.es/bebes/A47355832-multicolor-pr-alfombra-banera-bbest-pack4-animales/",
+          "department": "bebes",
+          "type": "alfombra"
+        }
+      ]
+    },
+    {
+      "category": "moda-mujer/deportivo",
+      "department": "moda-mujer",
+      "type": "deportivo",
+      "store_category": "https://www.elcorteingles.es/moda-mujer/lenceria/athleisure/sujetadores-deportivos/",
+      "products_in_store": 104,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-deportivo-a200977861",
+          "product": "A200977861",
+          "url": "https://www.elcorteingles.es/moda-mujer/A200977861-marron-chocolate-pr-deportivo-de-mujer-lauryn-de-inspiracion-running/",
+          "department": "moda-mujer",
+          "type": "deportivo"
+        },
+        {
+          "id": "eci-deportivo-a201010783",
+          "product": "A201010783",
+          "url": "https://www.elcorteingles.es/moda-mujer/A201010783-beige-pr-deportivo-bobs-slip-ins/",
+          "department": "moda-mujer",
+          "type": "deportivo"
+        },
+        {
+          "id": "eci-deportivo-a200977854",
+          "product": "A200977854",
+          "url": "https://www.elcorteingles.es/moda-mujer/A200977854-marron-pr-deportivo-bonnied-mujer-en-piel-con-detalles-en-blanco-y-suela-de-goma/",
+          "department": "moda-mujer",
+          "type": "deportivo"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-deportivo-a57912883",
+          "product": "A57912883",
+          "url": "https://www.elcorteingles.es/moda-mujer/A57912883-gris-suave-pr-deportivo-casco-cordones-textil-pg-phoenix-sneaker-woman/",
+          "department": "moda-mujer",
+          "type": "deportivo"
+        },
+        {
+          "id": "eci-deportivo-a200768137",
+          "product": "A200768137",
+          "url": "https://www.elcorteingles.es/moda-mujer/A200768137-marron-pr-deportivo-de-mujer-con-cordones-en-piel/",
+          "department": "moda-mujer",
+          "type": "deportivo"
+        }
+      ]
+    },
+    {
+      "category": "universo-friki/figura",
+      "department": "universo-friki",
+      "type": "figura",
+      "store_category": "https://www.elcorteingles.es/universo-friki/figuras/",
+      "products_in_store": 289,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-figura-a53323361",
+          "product": "A53323361",
+          "url": "https://www.elcorteingles.es/universo-friki/A53323361-figura-14-cm-rin-itoshi-blue-lock/",
+          "department": "universo-friki",
+          "type": "figura"
+        },
+        {
+          "id": "eci-figura-a50165250",
+          "product": "A50165250",
+          "url": "https://www.elcorteingles.es/universo-friki/A50165250-figura-solar-13-cm-alex-minecraft/",
+          "department": "universo-friki",
+          "type": "figura"
+        },
+        {
+          "id": "eci-figura-a52706044",
+          "product": "A52706044",
+          "url": "https://www.elcorteingles.es/universo-friki/A52706044-figura-14-cm-sanemi-katana-demon-slayer-banpresto/",
+          "department": "universo-friki",
+          "type": "figura"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-figura-a47083233",
+          "product": "A47083233",
+          "url": "https://www.elcorteingles.es/universo-friki/A47083233-figura-monstruos-frankenstein/",
+          "department": "universo-friki",
+          "type": "figura"
+        },
+        {
+          "id": "eci-figura-a50017095",
+          "product": "A50017095",
+          "url": "https://www.elcorteingles.es/universo-friki/A50017095-figura-12-cm-luffy-nino-one-piece-banpresto/",
+          "department": "universo-friki",
+          "type": "figura"
+        }
+      ]
+    },
+    {
+      "category": "deportes/madera",
+      "department": "deportes",
+      "type": "madera",
+      "store_category": "https://www.elcorteingles.es/deportes/golf/maderas-de-golf/",
+      "products_in_store": 39,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-madera-a42818850",
+          "product": "A42818850",
+          "url": "https://www.elcorteingles.es/deportes/A42818850-madera-de-calle-prime-11-gr-r2-xxio/",
+          "department": "deportes",
+          "type": "madera"
+        },
+        {
+          "id": "eci-madera-a58191702",
+          "product": "A58191702",
+          "url": "https://www.elcorteingles.es/deportes/A58191702-gris-pr-madera-qi-4d-max-lite-max-3-lady-taylormade/",
+          "department": "deportes",
+          "type": "madera"
+        },
+        {
+          "id": "eci-madera-a58191655",
+          "product": "A58191655",
+          "url": "https://www.elcorteingles.es/deportes/A58191655-gris-pr-madera-qi-4d-steel-3-stiff-taylormade/",
+          "department": "deportes",
+          "type": "madera"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-madera-a50257293",
+          "product": "A50257293",
+          "url": "https://www.elcorteingles.es/deportes/A50257293-madera-de-calle-para-mujer-paradym-smoke-lady-callaway/",
+          "department": "deportes",
+          "type": "madera"
+        },
+        {
+          "id": "eci-madera-a46228278",
+          "product": "A46228278",
+          "url": "https://www.elcorteingles.es/deportes/A46228278-madera-de-calle-para-zurdo-paradym-project-hzrdus-gen-4-silver-callaway/",
+          "department": "deportes",
+          "type": "madera"
+        }
+      ]
+    },
+    {
+      "category": "juguetes/barbie",
+      "department": "juguetes",
+      "type": "barbie",
+      "store_category": "https://www.elcorteingles.es/juguetes/kidults/munecas-de-coleccion/barbie-coleccion/",
+      "products_in_store": 107,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-barbie-a200977879",
+          "product": "A200977879",
+          "url": "https://www.elcorteingles.es/juguetes/A200977879-barbie-signature-miley-cyrus-mattel/",
+          "department": "juguetes",
+          "type": "barbie"
+        },
+        {
+          "id": "eci-barbie-a200071852",
+          "product": "A200071852",
+          "url": "https://www.elcorteingles.es/juguetes/A200071852-barbie-signature-80-aniversario-con-vestido-largo-de-tul-rojo-brillante-pelo-moreno-mattel/",
+          "department": "juguetes",
+          "type": "barbie"
+        },
+        {
+          "id": "eci-barbie-a200049252",
+          "product": "A200049252",
+          "url": "https://www.elcorteingles.es/juguetes/A200049252-barbie-deluxe-latina-con-conjunto-rosa-mattel/",
+          "department": "juguetes",
+          "type": "barbie"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-barbie-a51811175",
+          "product": "A51811175",
+          "url": "https://www.elcorteingles.es/juguetes/A51811175-barbie-muneca-curvy-con-pelo-castano-65-aniversario/",
+          "department": "juguetes",
+          "type": "barbie"
+        },
+        {
+          "id": "eci-barbie-a51811167",
+          "product": "A51811167",
+          "url": "https://www.elcorteingles.es/juguetes/A51811167-barbie-color-reveal-ballet/",
+          "department": "juguetes",
+          "type": "barbie"
+        }
+      ]
+    },
+    {
+      "category": "moda-hombre/calzoncillo",
+      "department": "moda-hombre",
+      "type": "calzoncillo",
+      "store_category": "https://www.elcorteingles.es/moda-hombre/interior-y-pijamas/ropa-interior/calzoncillos-largos/",
+      "products_in_store": 37,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-calzoncillo-a58907115",
+          "product": "A58907115",
+          "url": "https://www.elcorteingles.es/moda-hombre/A58907115-teja-pr-calzoncillo-estampado-celeste/",
+          "department": "moda-hombre",
+          "type": "calzoncillo"
+        },
+        {
+          "id": "eci-calzoncillo-a59615171",
+          "product": "A59615171",
+          "url": "https://www.elcorteingles.es/moda-hombre/A59615171-negro-pr-pack-de-3-calzoncillos-trunk-para-hombre/",
+          "department": "moda-hombre",
+          "type": "calzoncillo"
+        },
+        {
+          "id": "eci-calzoncillo-a58907160",
+          "product": "A58907160",
+          "url": "https://www.elcorteingles.es/moda-hombre/A58907160-marino-pr-calzoncillo-estampado-azul/",
+          "department": "moda-hombre",
+          "type": "calzoncillo"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-calzoncillo-a59114658",
+          "product": "A59114658",
+          "url": "https://www.elcorteingles.es/moda-hombre/A59114658-negro-pr-pack-de-3-calzoncillos-lacoste-de-algodon-con-logo-en-la-cintura/",
+          "department": "moda-hombre",
+          "type": "calzoncillo"
+        },
+        {
+          "id": "eci-calzoncillo-a58907140",
+          "product": "A58907140",
+          "url": "https://www.elcorteingles.es/moda-hombre/A58907140-marino-pr-calzoncillo-estampado-azul/",
+          "department": "moda-hombre",
+          "type": "calzoncillo"
+        }
+      ]
+    },
+    {
+      "category": "electrodomesticos/depiladora",
+      "department": "electrodomesticos",
+      "type": "depiladora",
+      "store_category": "https://www.elcorteingles.es/electrodomesticos/depiladoras/",
+      "products_in_store": 29,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-depiladora-a201414946",
+          "product": "A201414946",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A201414946-8700216937771-pr-depiladora-ipl-braun-pl5311-luz-pulsada-silkexpert-pro-5-blanco-dorado/",
+          "department": "electrodomesticos",
+          "type": "depiladora"
+        },
+        {
+          "id": "eci-depiladora-a201414919",
+          "product": "A201414919",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A201414919-8700216963466-pr-depiladora-electrica-braun-9-481-3d-silkepil-9-flex-skinspa-dorado/",
+          "department": "electrodomesticos",
+          "type": "depiladora"
+        },
+        {
+          "id": "eci-depiladora-a52008469",
+          "product": "A52008469",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A52008469-7500435238298-pr-depiladora-ipl-para-mujer-braun-silk-expert-pro-3-pl3230-para-cuerpo-y-cara-3-cabezales-blanco-plata/",
+          "department": "electrodomesticos",
+          "type": "depiladora"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-depiladora-mp00191093121040063439",
+          "product": "MP_0019109_3121040063439",
+          "url": "https://www.elcorteingles.es/electrodomesticos/MP_0019109_3121040063439-3121040063439-pr-depiladora-rowenta-skin-respect-ep8060-para-usar-bajo-el-agua-rosa/",
+          "department": "electrodomesticos",
+          "type": "depiladora"
+        },
+        {
+          "id": "eci-depiladora-a200495788",
+          "product": "A200495788",
+          "url": "https://www.elcorteingles.es/electrodomesticos/A200495788-8720689030922-pr-depiladora-electrica-philips-s4000-bre247-00-con-luz-led-compacta-azul/",
+          "department": "electrodomesticos",
+          "type": "depiladora"
+        }
+      ]
+    },
+    {
+      "category": "electronica/tripode",
+      "department": "electronica",
+      "type": "tripode",
+      "store_category": "https://www.elcorteingles.es/electronica/accesorios-fotografia/tripodes-y-rotulas/",
+      "products_in_store": 33,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-tripode-mp06535844719856230269",
+          "product": "MP_0653584_4719856230269",
+          "url": "https://www.elcorteingles.es/electronica/MP_0653584_4719856230269-4719856230269-pr-tripode-vanguard-alta-pro-263ab-100-de-aluminio-y-rotula-de-bola-negro/",
+          "department": "electronica",
+          "type": "tripode"
+        },
+        {
+          "id": "eci-tripode-mp06535844719856249513",
+          "product": "MP_0653584_4719856249513",
+          "url": "https://www.elcorteingles.es/electronica/MP_0653584_4719856249513-4719856249513-pr-tripode-vanguard-veo-3t-235cbp-para-camara-con-patas-de-carbono-y-rotula-de-bola-negro/",
+          "department": "electronica",
+          "type": "tripode"
+        },
+        {
+          "id": "eci-tripode-a41246660",
+          "product": "A41246660",
+          "url": "https://www.elcorteingles.es/electronica/A41246660-4719856246291-pr-mini-tripode-vanguard-vesta-tt1-bpnegro-negro/",
+          "department": "electronica",
+          "type": "tripode"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-tripode-mp06535844719856252476",
+          "product": "MP_0653584_4719856252476",
+          "url": "https://www.elcorteingles.es/electronica/MP_0653584_4719856252476-4719856252476-pr-tripode-de-viaje-vanguard-veo-5-264ab160s-de-aluminio-rotula-de-bola-negro/",
+          "department": "electronica",
+          "type": "tripode"
+        },
+        {
+          "id": "eci-tripode-mp06535844719856252520",
+          "product": "MP_0653584_4719856252520",
+          "url": "https://www.elcorteingles.es/electronica/MP_0653584_4719856252520-4719856252520-pr-tripode-de-viaje-vanguard-veo-5-234cps36-de-carbono-rotula-de-3-vias-negro/",
+          "department": "electronica",
+          "type": "tripode"
+        }
+      ]
+    },
+    {
+      "category": "mascotas/rascador",
+      "department": "mascotas",
+      "type": "rascador",
+      "store_category": "https://www.elcorteingles.es/mascotas/accesorios-para-gatos/hogar/rascadores/",
+      "products_in_store": 38,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-rascador-mp04662434011905446738",
+          "product": "MP_0466243_4011905446738",
+          "url": "https://www.elcorteingles.es/mascotas/MP_0466243_4011905446738-rascador-trixie-para-gatos-xxl-leandro/",
+          "department": "mascotas",
+          "type": "rascador"
+        },
+        {
+          "id": "eci-rascador-mp04662434047974446614",
+          "product": "MP_0466243_4047974446614",
+          "url": "https://www.elcorteingles.es/mascotas/MP_0466243_4047974446614-rascador-trixie-para-gatos-xxl-sergio/",
+          "department": "mascotas",
+          "type": "rascador"
+        },
+        {
+          "id": "eci-rascador-a48986743",
+          "product": "A48986743",
+          "url": "https://www.elcorteingles.es/mascotas/A48986743-rascador-designed-by-lotte-para-gatos-tabla-vicky/",
+          "department": "mascotas",
+          "type": "rascador"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-rascador-mp0466243r36220",
+          "product": "MP_0466243_R36220",
+          "url": "https://www.elcorteingles.es/mascotas/MP_0466243_R36220-rascador-trixie-para-gatos-lucano/",
+          "department": "mascotas",
+          "type": "rascador"
+        },
+        {
+          "id": "eci-rascador-mp04662434053032441019",
+          "product": "MP_0466243_4053032441019",
+          "url": "https://www.elcorteingles.es/mascotas/MP_0466243_4053032441019-rascador-trixie-para-gatos-recambio-tabla-de-carton/",
+          "department": "mascotas",
+          "type": "rascador"
+        }
+      ]
+    },
+    {
+      "category": "club-del-gourmet/bombon",
+      "department": "club-del-gourmet",
+      "type": "bombon",
+      "store_category": "https://www.elcorteingles.es/club-del-gourmet/chocolates-y-bombones/",
+      "products_in_store": 72,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-bombon-a58829895",
+          "product": "A58829895",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A58829895-bombones-de-galleta-con-chocolate-blanco-pistacho-y-sal-conus/",
+          "department": "club-del-gourmet",
+          "type": "bombon"
+        },
+        {
+          "id": "eci-bombon-a16551308",
+          "product": "A16551308",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A16551308-bombon-de-avellana-y-chocolate-negro-70-de-cacao-club-del-gourmet/",
+          "department": "club-del-gourmet",
+          "type": "bombon"
+        },
+        {
+          "id": "eci-bombon-a202365170",
+          "product": "A202365170",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A202365170-bombones-belgas-discovery-edicion-navidad-neuhaus-6-piezas/",
+          "department": "club-del-gourmet",
+          "type": "bombon"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-bombon-a51091498",
+          "product": "A51091498",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A51091498-bombones-de-nueces-de-macadamia-caramelizadas-y-banadas-en-chocolate-blanco-bubo/",
+          "department": "club-del-gourmet",
+          "type": "bombon"
+        },
+        {
+          "id": "eci-bombon-a202243638",
+          "product": "A202243638",
+          "url": "https://www.elcorteingles.es/club-del-gourmet/A202243638-bombones-irresistibre-summer-neuhaus/",
+          "department": "club-del-gourmet",
+          "type": "bombon"
+        }
+      ]
+    },
+    {
+      "category": "hogar/visillo",
+      "department": "hogar",
+      "type": "visillo",
+      "store_category": "https://www.elcorteingles.es/hogar/textil-decoracion/cortinas/visillos-lisos/",
+      "products_in_store": 29,
+      "pilot": false,
+      "pages": [
+        {
+          "id": "eci-visillo-a53553337",
+          "product": "A53553337",
+          "url": "https://www.elcorteingles.es/hogar/A53553337-2401937649399-pr-visillo-infantil-con-sistema-multiusos-saurio-mini-home-el-corte-ingles-multicolor-140-x-270-cm/",
+          "department": "hogar",
+          "type": "visillo"
+        },
+        {
+          "id": "eci-visillo-a51684924",
+          "product": "A51684924",
+          "url": "https://www.elcorteingles.es/hogar/A51684924-2401918989322-pr-visillo-confeccionado-con-sistema-multiusos-labeo-el-corte-ingles-beige-180-x-270-cm/",
+          "department": "hogar",
+          "type": "visillo"
+        },
+        {
+          "id": "eci-visillo-a45264719",
+          "product": "A45264719",
+          "url": "https://www.elcorteingles.es/hogar/A45264719-2401853275214-pr-visillo-infantil-con-sistema-multiusos-hippie-mini-home-el-corte-ingles-multicolor-140-x-270-cm/",
+          "department": "hogar",
+          "type": "visillo"
+        }
+      ],
+      "reserves": [
+        {
+          "id": "eci-visillo-a40411615",
+          "product": "A40411615",
+          "url": "https://www.elcorteingles.es/hogar/A40411615-2102666621877-pr-visillo-confeccionado-con-sistema-multiusos-eyelash-el-corte-ingles-lino-140-x-270-cm/",
+          "department": "hogar",
+          "type": "visillo"
+        },
+        {
+          "id": "eci-visillo-a51681052",
+          "product": "A51681052",
+          "url": "https://www.elcorteingles.es/hogar/A51681052-8420667923382-pr-visillo-confeccionado-con-sistema-multiusos-lena-el-corte-ingles-blanco-180-x-270-cm/",
+          "department": "hogar",
+          "type": "visillo"
+        }
+      ]
+    }
+  ]
+}

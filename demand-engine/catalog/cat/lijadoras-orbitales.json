@@ -1,0 +1,106 @@
+{
+  "id": "cat.lijadoras-orbitales",
+  "type": "categoría",
+  "name": "Lijadoras orbitales",
+  "shopify": "ha-15-59-3",
+  "parent": "cat.lijadoras",
+  "refs": [
+    "shopify:ha-15-59-3@v2026-08",
+    "google:1188@2021-09-21",
+    "amazon-ptd:SANDER@2026-10-24",
+    "amazon-btg:3052248031@2026-10-24",
+    "amazon-btg:3052247031@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.lijadoras-orbitales/01",
+      "question": "¿Qué tipo de movimiento tiene (orbital o roto-orbital/excéntrico)?",
+      "dimension": "tipo de movimiento",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-btg:3052248031",
+        "amazon-btg:3052247031"
+      ],
+      "applicability": "universal",
+      "rationale": "Las lijadoras orbitales de Shopify reúnen las orbitales de base fija y las roto-orbitales o excéntricas, que Amazon separa en nodos distintos: el movimiento determina el acabado (sin marcas) y el rendimiento, y la órbita, la agresividad del lijado. Solo procede en esta subcategoría. Redacción con D-060 (T-031, regla 4): los nodos de Amazon dan el tipo de movimiento, no el diámetro de órbita: sale como inferida.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:identidad@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "tipo de lijadora según su movimiento",
+          "component": "tipo de movimiento",
+          "origin": "referencias",
+          "support": [
+            "amazon-btg:3052248031",
+            "amazon-btg:3052247031"
+          ]
+        },
+        {
+          "contribution": "indicación de si el plato gira además de oscilar",
+          "component": "tipo de movimiento",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras-orbitales/02",
+      "question": "¿Qué forma tiene la base de lijado (circular, rectangular, triangular)?",
+      "dimension": "forma de la base",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SANDER.item_shape"
+      ],
+      "applicability": "universal",
+      "rationale": "En las orbitales la base puede ser redonda, rectangular o en delta: fija el tipo de hoja que admite y el acceso a esquinas. En banda o disco la forma viene dada por el tipo, por eso se ubica en esta hija.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:identidad@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "forma de la base de lijado",
+          "component": "forma de la base de lijado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.item_shape"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras-orbitales/03",
+      "question": "¿Qué diámetro de órbita tiene (mm)?",
+      "dimension": "diámetro de órbita",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Cuestión inferida (D-036) que sale de cat.lijadoras-orbitales/01 por la regla 4 de D-060 (T-031): los nodos de Amazon dan el tipo de movimiento, no el diámetro de órbita: sale como inferida. Provisional hasta que la valide el entrenamiento.",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@ha-15",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "diámetro de la órbita",
+          "component": "diámetro de órbita",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-26",
+  "compiled_by": "reglas 6"
+}

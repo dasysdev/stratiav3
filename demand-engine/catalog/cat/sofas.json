@@ -10,27 +10,66 @@
     "amazon-ptd:SOFA@2026-10-24",
     "amazon-btg:2822922031@2026-10-24"
   ],
-  "version": "1",
+  "version": "3",
   "status": "compilado",
   "requirements": [
     {
       "id": "cat.sofas/01",
-      "question": "¿Qué tipo de sofá es y cómo está configurado (recto, con chaise longue, rinconera, modular…), y de cuántas piezas o módulos se compone?",
+      "question": "¿Qué tipo de sofá es y cómo está configurado (recto, con chaise longue, rinconera, modular…)?",
       "dimension": "tipo y configuración",
       "trait": "identidad",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "crítico",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.sofa_type",
         "amazon-ptd-prop:SOFA.is_modular",
-        "amazon-ptd-prop:SOFA.number_of_pieces",
         "amazon-ptd-prop:SOFA.special_feature=Reorganizable"
       ],
       "applicability": "universal",
-      "rationale": "La configuración decide cómo encaja el sofá en la estancia y cómo se usa: es un criterio con el que se comparan las ofertas. Qué incluye la unidad vendida, en general, lo pregunta gen/01 (crítico); aquí se pregunta la forma y la composición en módulos, propias de la clase.",
+      "rationale": "La configuración decide cómo encaja el sofá en la estancia y cómo se usa: es un criterio con el que se comparan las ofertas. Qué incluye la unidad vendida, en general, lo pregunta gen/01 (crítico); aquí se pregunta la forma y la composición en módulos, propias de la clase. Redacción con D-060 (T-031, regla 3): el tipo y la configuración (identidad) y el número de piezas o módulos (contenido) toman otro rasgo y otra importancia.",
       "seed_importance": "principal",
-      "rule": "imp:identidad@fr-22"
+      "rule": "imp:cat.sofas/01@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "tipo de sofá",
+          "component": "tipo de sofá",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.sofa_type"
+          ]
+        },
+        {
+          "contribution": "forma de la composición en planta",
+          "component": "cómo está configurado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.sofa_type"
+          ]
+        },
+        {
+          "contribution": "indicación de si es modular",
+          "component": "cómo está configurado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.is_modular"
+          ]
+        },
+        {
+          "contribution": "posibilidad de reorganizar los módulos",
+          "component": "cómo está configurado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Reorganizable"
+          ]
+        },
+        {
+          "contribution": "plano o imagen acotada de la composición en planta",
+          "component": "cómo está configurado",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/02",
@@ -47,7 +86,32 @@
       "applicability": "si tiene chaise longue o sección extendida",
       "rationale": "El lado de la chaise o de la sección decide si el sofá encaja en la estancia; es un criterio de elección. El atributo está en Sofás (no en una hija), por eso va aquí con aplicabilidad condicionada.",
       "seed_importance": "principal",
-      "rule": "imp:identidad@fr-22"
+      "rule": "imp:identidad@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "lado en que queda la chaise longue o la sección extendida mirando el sofá de frente",
+          "component": "a qué lado queda",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:chaise-or-sectional-orientation"
+          ]
+        },
+        {
+          "contribution": "indicación de si la chaise longue o la sección extendida es reversible",
+          "component": "se puede cambiar de lado",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:chaise-or-sectional-orientation",
+            "amazon-ptd-prop:SOFA.special_feature=Tumbona reversible"
+          ]
+        },
+        {
+          "contribution": "plano en planta con la posición de la chaise longue",
+          "component": "a qué lado queda",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/03",
@@ -63,7 +127,17 @@
       "applicability": "universal",
       "rationale": "Es un criterio básico para elegir y comparar sofás. Responde también a la categoría Sofás de dos plazas (fr-22-4), que no tiene requisitos propios.",
       "seed_importance": "principal",
-      "rule": "marco:D-043.1/medida-descriptiva"
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "número de plazas",
+          "component": "plazas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.seating_capacity"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.sofas/04",
@@ -84,7 +158,51 @@
       "applicability": "universal",
       "rationale": "Las medidas deciden si el sofá cabe en la estancia: es uno de los primeros criterios para elegir. «Ahorro de espacio» y «Compacto» son afirmaciones que se resuelven con las medidas. Criterio 1: principal, porque describe el producto; no fija la variante que se vende.",
       "seed_importance": "principal",
-      "rule": "marco:D-043.1/medida-descriptiva"
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "ancho total de lado a lado",
+          "component": "ancho",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.item_depth_width_height",
+            "amazon-ptd-prop:SOFA.item_width",
+            "amazon-ptd-prop:SOFA.item_length"
+          ]
+        },
+        {
+          "contribution": "fondo total de delante atrás",
+          "component": "fondo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.item_depth_width_height",
+            "amazon-ptd-prop:SOFA.item_depth"
+          ]
+        },
+        {
+          "contribution": "altura total desde el suelo hasta la parte superior",
+          "component": "alto",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.item_depth_width_height"
+          ]
+        },
+        {
+          "contribution": "indicación cualitativa de tamaño compacto o que ahorra espacio",
+          "component": "medidas exteriores",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Ahorro de espacio",
+            "amazon-ptd-prop:SOFA.special_feature=Compacto"
+          ]
+        },
+        {
+          "contribution": "plano o imagen acotada del sofá montado",
+          "component": "ancho, fondo y alto",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/05",
@@ -106,11 +224,61 @@
       "applicability": "universal",
       "rationale": "La altura y el fondo del asiento y la altura del respaldo deciden la postura y la comodidad, y se usan para comparar sofás de medidas exteriores parecidas. Toma de SOFA.seat los campos height, depth, interior_width y back_interior_height, y de SOFA.arm, height y width. «Ergonómico» es una afirmación que se resuelve con estas medidas.",
       "seed_importance": "principal",
-      "rule": "marco:D-043.1/medida-descriptiva"
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "altura del asiento desde el suelo",
+          "component": "altura del asiento",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.seat.height"
+          ]
+        },
+        {
+          "contribution": "fondo útil del asiento",
+          "component": "fondo del asiento",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.seat.depth"
+          ]
+        },
+        {
+          "contribution": "ancho interior del asiento entre los brazos",
+          "component": "ancho útil entre brazos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.seat.interior_width"
+          ]
+        },
+        {
+          "contribution": "altura interior del respaldo sobre el asiento",
+          "component": "altura del respaldo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.seat.back_interior_height"
+          ]
+        },
+        {
+          "contribution": "altura de los brazos",
+          "component": "altura de los brazos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.arm.height"
+          ]
+        },
+        {
+          "contribution": "ancho de los brazos",
+          "component": "ancho de los brazos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.arm.width"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.sofas/06",
-      "question": "¿De qué material es la estructura (armazón) y cómo está construida (tipo de madera, uniones)?",
+      "question": "¿De qué material es la estructura o armazón (tipo de madera, metal…)?",
       "dimension": "materiales y construcción",
       "trait": "material",
       "entity": "producto",
@@ -119,13 +287,32 @@
       "sources": [
         "shopify-attr:material",
         "amazon-ptd-prop:SOFA.frame.material",
-        "amazon-ptd-prop:SOFA.frame.joint_type",
         "amazon-ptd-prop:SOFA.wood_type"
       ],
       "applicability": "universal",
-      "rationale": "En Sofás, Shopify separa la tapicería (seat-/backrest-upholstery-material, en /07); por eso el «material principal» se lee aquí como el de la estructura. La estructura decide la solidez y la durabilidad, y se compara entre ofertas (madera maciza frente a aglomerado, metal). SOFA.frame aporta el material y el tipo de unión; wood_type, la especie de madera.",
+      "rationale": "En Sofás, Shopify separa la tapicería (seat-/backrest-upholstery-material, en /07); por eso el «material principal» se lee aquí como el de la estructura. La estructura decide la solidez y la durabilidad, y se compara entre ofertas (madera maciza frente a aglomerado, metal). SOFA.frame aporta el material y el tipo de unión; wood_type, la especie de madera. Redacción con D-060 (T-031, regla 3): el material (material) y las uniones (construcción) toman otro rasgo y otra importancia.",
       "seed_importance": "principal",
-      "rule": "imp:material@fr-22"
+      "rule": "imp:material@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "material del armazón",
+          "component": "material de la estructura",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.frame.material",
+            "shopify-attr:material"
+          ]
+        },
+        {
+          "contribution": "tipo de madera del armazón",
+          "component": "material de la estructura",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.wood_type",
+            "amazon-ptd-prop:SOFA.frame.material"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.sofas/07",
@@ -146,7 +333,51 @@
       "applicability": "universal",
       "rationale": "Une los dos atributos de Shopify casi idénticos (asiento y respaldo; ambos extienden upholstery-material). La tapicería es la parte visible y la que se toca, y un criterio central de elección. De SOFA.upholstery se toman aquí fabric_type y material_composition. Los demás campos se reparten así: rub_count y double_rub_count van a /08, color a cat.mobiliario/01 y cleaning_code a cat.mobiliario/03. La transpirabilidad es una propiedad del tejido.",
       "seed_importance": "principal",
-      "rule": "imp:material@fr-22"
+      "rule": "imp:material@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "material o tipo de tela de la tapicería del asiento",
+          "component": "material de la tapicería del asiento",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:seat-upholstery-material",
+            "amazon-ptd-prop:SOFA.upholstery.fabric_type"
+          ]
+        },
+        {
+          "contribution": "material o tipo de tela de la tapicería del respaldo",
+          "component": "material de la tapicería del respaldo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:backrest-upholstery-material",
+            "amazon-ptd-prop:SOFA.upholstery.fabric_type"
+          ]
+        },
+        {
+          "contribution": "fibras que componen la tela de la tapicería",
+          "component": "composición",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.upholstery.material_composition",
+            "amazon-ptd-prop:SOFA.fabric_type"
+          ]
+        },
+        {
+          "contribution": "porcentaje de cada fibra en la tela de la tapicería",
+          "component": "composición",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.upholstery.material_composition",
+            "amazon-ptd-prop:SOFA.fabric_type"
+          ]
+        },
+        {
+          "contribution": "ficha técnica del tejido de la tapicería",
+          "component": "material de la tapicería y composición",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/08",
@@ -154,7 +385,7 @@
       "dimension": "durabilidad",
       "trait": "prestacion",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.upholstery.rub_count",
@@ -168,7 +399,50 @@
       "applicability": "universal",
       "rationale": "La resistencia a la abrasión de la tapicería es una cuestión clave de la clase: es la que se perdió en el experimento del sofá cama (T-012) y la recoge el caso de cases.md. Toma de SOFA.upholstery los campos rub_count y double_rub_count, y de sofa-features el valor «Apto para mascotas». «Resistente a las perforaciones» se aplica sobre todo a los sofás hinchables. Criterio 2: se citan los valores de sofa-features (extensión de chair-sofa-features) que cubre.",
       "seed_importance": "principal",
-      "rule": "imp:prestacion@fr-22"
+      "rule": "imp:prestacion@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "número de ciclos Martindale que resiste la tela",
+          "component": "resistencia al desgaste",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.upholstery.rub_count"
+          ]
+        },
+        {
+          "contribution": "número de dobles frotes Wyzenbeek que resiste la tela",
+          "component": "resistencia al desgaste",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.upholstery.double_rub_count"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a la abrasión, al desgarro o a las perforaciones",
+          "component": "resistencia al desgaste",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Resistente a la abrasión",
+            "amazon-ptd-prop:SOFA.special_feature=Antidesgarro",
+            "amazon-ptd-prop:SOFA.special_feature=Resistente a las perforaciones"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a los arañazos o de aptitud para hogares con mascotas",
+          "component": "resistencia al desgaste",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Resistente a los arañazos",
+            "shopify-attr:sofa-features=Apto para mascotas"
+          ]
+        },
+        {
+          "contribution": "informe de ensayo de abrasión de la tela",
+          "component": "resistencia al desgaste",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/09",
@@ -176,7 +450,7 @@
       "dimension": "durabilidad",
       "trait": "prestacion",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.special_feature=Resistente a las manchas",
@@ -189,7 +463,48 @@
       "applicability": "universal",
       "rationale": "El antimanchas es una cuestión clave de la clase (perdida en T-012; cases.md) y un criterio de comparación habitual. Se agrupa con la repelencia a líquidos y la resistencia a la luz, que tratan de cómo conserva la tapicería su aspecto. De sofa-features toma «Resistente a las manchas» e «Impermeable». Criterio 2: se citan los valores de sofa-features (extensión de chair-sofa-features) que cubre.",
       "seed_importance": "principal",
-      "rule": "imp:prestacion@fr-22"
+      "rule": "imp:prestacion@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "declaración de resistencia a las manchas",
+          "component": "manchas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Resistente a las manchas",
+            "shopify-attr:sofa-features=Resistente a las manchas"
+          ]
+        },
+        {
+          "contribution": "nivel de resistencia al agua o a los líquidos",
+          "component": "líquidos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Resistente al agua",
+            "shopify-attr:sofa-features=Impermeable"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a la decoloración por la luz",
+          "component": "decoloración por la luz",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Resistente a los rayos UV",
+            "amazon-ptd-prop:SOFA.special_feature=Resistente a la decoloración"
+          ]
+        },
+        {
+          "contribution": "tratamiento antimanchas o repelente aplicado al tejido",
+          "component": "manchas y líquidos",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "grado de solidez del color a la luz según ensayo",
+          "component": "decoloración por la luz",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/10",
@@ -197,7 +512,7 @@
       "dimension": "mantenimiento",
       "trait": "cuidado",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.special_feature=Funda extraíble",
@@ -207,11 +522,36 @@
       "applicability": "universal",
       "rationale": "En España, «desenfundable» es un criterio con el que se comparan sofás, y cases.md lo recoge como requisito de la base. De SOFA.seat_cushion toma has_removable_cover, y de sofa-features, «Cubierta extraíble». Cómo se lavan las fundas lo pregunta cat.mobiliario/03. Criterio 2: se citan los valores de sofa-features (extensión de chair-sofa-features) que cubre.",
       "seed_importance": "principal",
-      "rule": "imp:cuidado@fr-22"
+      "rule": "imp:cuidado@fr",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si las fundas son extraíbles",
+          "component": "es desenfundable",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Funda extraíble",
+            "shopify-attr:sofa-features=Cubierta extraíble"
+          ]
+        },
+        {
+          "contribution": "indicación de si la funda de los cojines del asiento es extraíble",
+          "component": "qué fundas se pueden quitar",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.seat_cushion.has_removable_cover"
+          ]
+        },
+        {
+          "contribution": "relación de las partes cuya funda se puede quitar",
+          "component": "qué fundas se pueden quitar",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/11",
-      "question": "¿Con qué materiales están rellenos el asiento y el respaldo y cómo están construidos los cojines (tipo y densidad de la espuma, muelles, plumas…)?",
+      "question": "¿Con qué materiales están rellenos el asiento y el respaldo (tipo y densidad de la espuma, plumas, fibra…)?",
       "dimension": "materiales y construcción",
       "trait": "material",
       "entity": "producto",
@@ -222,15 +562,41 @@
         "amazon-ptd-prop:SOFA.seat_back_fill_material",
         "amazon-ptd-prop:SOFA.seat.fill_material",
         "amazon-ptd-prop:SOFA.seat.material_type",
-        "amazon-ptd-prop:SOFA.cushion_construction",
-        "amazon-ptd-prop:SOFA.item_density",
-        "amazon-ptd-prop:SOFA.special_feature=Cojín de muelle",
-        "amazon-ptd-prop:SOFA.special_feature=Antihundimiento"
+        "amazon-ptd-prop:SOFA.item_density"
       ],
       "applicability": "universal",
-      "rationale": "El relleno y su densidad deciden la comodidad y la durabilidad (cuánto se hunde con el tiempo), y son un criterio con el que se comparan los sofás. SOFA.fill_material lleva en el PTD el título «Material de relleno del saco de dormir», pero en SOFA es el relleno del sofá. De SOFA.seat se toman fill_material y material_type.",
+      "rationale": "El relleno y su densidad deciden la comodidad y la durabilidad (cuánto se hunde con el tiempo), y son un criterio con el que se comparan los sofás. SOFA.fill_material lleva en el PTD el título «Material de relleno del saco de dormir», pero en SOFA es el relleno del sofá. De SOFA.seat se toman fill_material y material_type. Redacción con D-060 (T-031, regla 3): el relleno (material) y la construcción de los cojines (construcción) toman otro rasgo y otra importancia.",
       "seed_importance": "principal",
-      "rule": "imp:material@fr-22"
+      "rule": "imp:material@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "material de relleno del asiento",
+          "component": "relleno del asiento",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.seat.fill_material",
+            "amazon-ptd-prop:SOFA.seat.material_type",
+            "amazon-ptd-prop:SOFA.fill_material"
+          ]
+        },
+        {
+          "contribution": "material de relleno del respaldo",
+          "component": "relleno del respaldo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.seat_back_fill_material",
+            "amazon-ptd-prop:SOFA.fill_material"
+          ]
+        },
+        {
+          "contribution": "densidad de la espuma del relleno",
+          "component": "relleno del asiento y del respaldo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.item_density"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.sofas/12",
@@ -247,7 +613,32 @@
       "applicability": "universal",
       "rationale": "La firmeza es un criterio central de comodidad para elegir un sofá. sofa_back_cushion_support amplía la cuestión al respaldo. SOFA.item_firmness_description repite la dimensión y se excluye.",
       "seed_importance": "principal",
-      "rule": "imp:prestacion@fr-22"
+      "rule": "imp:cat.sofas/12@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "nivel de firmeza del asiento",
+          "component": "firmeza del asiento",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:firmness"
+          ]
+        },
+        {
+          "contribution": "nivel de firmeza o soporte de los cojines del respaldo",
+          "component": "firmeza del respaldo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.sofa_back_cushion_support",
+            "shopify-attr:firmness"
+          ]
+        },
+        {
+          "contribution": "capacidad de carga o dureza de la espuma del asiento",
+          "component": "firmeza del asiento",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/13",
@@ -273,7 +664,61 @@
       "applicability": "universal",
       "rationale": "seat-type es un atributo genérico de asientos (tapizado, acolchado, malla…); en sofás se completa con la configuración de los cojines. Influye en el mantenimiento y en el aspecto con el uso, pero no es tan central como el relleno o la firmeza. De sofa-features toma «Cojines extraíbles» y «Tapizado»; de seat_cushion, quantity y removability; de back_cushion, removability y thickness. Criterio 2: se citan los valores de sofa-features (extensión de chair-sofa-features) que cubre.",
       "seed_importance": "complementario",
-      "rule": "imp:construccion@fr-22"
+      "rule": "imp:construccion@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "tipo de asiento",
+          "component": "tipo de asiento",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:seat-type",
+            "shopify-attr:sofa-features=Tapizado",
+            "amazon-ptd-prop:SOFA.special_feature=Asiento acolchado",
+            "amazon-ptd-prop:SOFA.special_feature=Cojín acolchado"
+          ]
+        },
+        {
+          "contribution": "configuración del asiento en uno o varios cojines",
+          "component": "cuántos cojines lleva",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.seat_cushion_configuration"
+          ]
+        },
+        {
+          "contribution": "número de cojines de asiento",
+          "component": "cuántos cojines lleva",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.seat_cushion.quantity"
+          ]
+        },
+        {
+          "contribution": "indicación de si los cojines del asiento y del respaldo son fijos o extraíbles",
+          "component": "fijos o sueltos, extraíbles",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.seat_cushion.removability",
+            "amazon-ptd-prop:SOFA.back_cushion",
+            "shopify-attr:sofa-features=Cojines extraíbles",
+            "amazon-ptd-prop:SOFA.special_feature=Cojín extraíble"
+          ]
+        },
+        {
+          "contribution": "indicación de si los cojines son reversibles",
+          "component": "reversibles",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Cojín reversible"
+          ]
+        },
+        {
+          "contribution": "número de cojines de respaldo y decorativos incluidos",
+          "component": "cuántos cojines lleva",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/14",
@@ -298,34 +743,113 @@
       "applicability": "universal",
       "rationale": "Agrupa los rasgos de estilo: de SOFA.arm, style (sin brazos, de pista, enrollado…); de SOFA.back, style; de cushion_style, el borde de caja o de cuchillo; y las características especiales decorativas. Completan el aspecto sin ser un criterio central.",
       "seed_importance": "complementario",
-      "rule": "imp:estetica@fr-22"
+      "rule": "imp:estetica@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "estilo de los brazos",
+          "component": "diseño de los brazos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.arm.style",
+            "amazon-ptd-prop:SOFA.special_feature=Brazo curvo",
+            "amazon-ptd-prop:SOFA.special_feature=Brazo enrollado",
+            "amazon-ptd-prop:SOFA.special_feature=Reposabrazos"
+          ]
+        },
+        {
+          "contribution": "estilo del respaldo",
+          "component": "diseño del respaldo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.back"
+          ]
+        },
+        {
+          "contribution": "acabado decorativo de la tapicería",
+          "component": "acabados decorativos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Tapizado con botones",
+            "amazon-ptd-prop:SOFA.special_feature=Copetudo con línea cosida",
+            "amazon-ptd-prop:SOFA.special_feature=Cabeza de clavo"
+          ]
+        },
+        {
+          "contribution": "tipo de borde de los cojines",
+          "component": "acabados decorativos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.cushion_style"
+          ]
+        },
+        {
+          "contribution": "indicación de elementos tallados en madera",
+          "component": "acabados decorativos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Tallado en madera"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.sofas/15",
-      "question": "¿Cómo son las patas o la base: material, acabado o color y altura?",
+      "question": "¿Qué estilo y qué acabado o color tienen las patas o la base?",
       "dimension": "aspecto",
       "trait": "estetica",
       "entity": "producto",
       "importance": "complementario",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:SOFA.furniture_leg",
-        "amazon-ptd-prop:SOFA.base",
         "amazon-ptd-prop:SOFA.frame.color",
-        "amazon-ptd-prop:SOFA.special_feature=Antideslizante"
+        "amazon-ptd-prop:SOFA.special_feature=Antideslizante",
+        "amazon-ptd-prop:SOFA.furniture_leg.style",
+        "amazon-ptd-prop:SOFA.furniture_leg.color"
       ],
       "applicability": "universal",
-      "rationale": "Las patas completan el aspecto, y su altura decide el hueco bajo el sofá (limpieza, robot aspirador). De SOFA.frame se toma aquí el campo color, que es el acabado de la estructura vista. Es relevante, pero no un criterio central.",
+      "rationale": "Las patas completan el aspecto, y su altura decide el hueco bajo el sofá (limpieza, robot aspirador). De SOFA.frame se toma aquí el campo color, que es el acabado de la estructura vista. Es relevante, pero no un criterio central. Redacción con D-060 (T-031, regla 3): el material (material) y la altura de las patas (medida) toman otro rasgo y otra importancia que su aspecto (estética); SOFA.furniture_leg se cita por sus partes.",
       "seed_importance": "complementario",
-      "rule": "imp:estetica@fr-22"
+      "rule": "imp:estetica@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "estilo de las patas",
+          "component": "estilo de las patas o la base",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.furniture_leg.style"
+          ]
+        },
+        {
+          "contribution": "color de las patas",
+          "component": "acabado o color de las patas o la base",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.furniture_leg.color"
+          ]
+        },
+        {
+          "contribution": "color o acabado del armazón visible o de la base",
+          "component": "acabado o color de las patas o la base",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.frame.color"
+          ]
+        },
+        {
+          "contribution": "tipo de acabado superficial de las patas o la base",
+          "component": "acabado o color de las patas o la base",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/16",
-      "question": "¿Qué partes son regulables (asientos reclinables o deslizantes, reposapiés, cabezales, respaldo, altura), con qué mecanismo se accionan (manual, eléctrico, mando) y, si reclina, cuántas plazas lo hacen y en cuántas posiciones?",
+      "question": "¿Qué partes son regulables (asientos reclinables o deslizantes, reposapiés, cabezales, respaldo, altura) y con qué mecanismo se accionan (manual, eléctrico, mando)?",
       "dimension": "funciones",
       "trait": "construccion",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "referencias",
       "sources": [
         "shopify-attr:reclining-mechanism",
@@ -338,8 +862,6 @@
         "shopify-attr:sofa-features=Altura regulable",
         "shopify-attr:sofa-features=Hidráulico",
         "amazon-ptd-prop:SOFA.seat_recline",
-        "amazon-ptd-prop:SOFA.reclining_seat_count",
-        "amazon-ptd-prop:SOFA.reclining_position_count",
         "amazon-ptd-prop:SOFA.special_feature=Reclinable",
         "amazon-ptd-prop:SOFA.special_feature=Reposapiés",
         "amazon-ptd-prop:SOFA.special_feature=Reposacabezas ajustable",
@@ -348,9 +870,55 @@
         "amazon-ptd-prop:SOFA.special_feature=Bloqueo de posición"
       ],
       "applicability": "universal",
-      "rationale": "Los asientos reclinables o deslizantes y los cabezales regulables son un criterio con el que se comparan sofás en España. «Ninguno» también resuelve la cuestión. El caso Stressless de cases.md trata el mecanismo y las posiciones como cuestiones de la base. De sofa-features toma los valores de regulación: «Reclinación eléctrica», «Respaldo reclinable», «Reposacabezas ajustable», «Reposapiés ajustable», «Ángulo de respaldo regulable», «Apoyabrazos regulables», «Altura regulable» e «Hidráulico». Criterio 2: se citan los valores de sofa-features (extensión de chair-sofa-features) que cubre.",
+      "rationale": "Los asientos reclinables o deslizantes y los cabezales regulables son un criterio con el que se comparan sofás en España. «Ninguno» también resuelve la cuestión. El caso Stressless de cases.md trata el mecanismo y las posiciones como cuestiones de la base. De sofa-features toma los valores de regulación: «Reclinación eléctrica», «Respaldo reclinable», «Reposacabezas ajustable», «Reposapiés ajustable», «Ángulo de respaldo regulable», «Apoyabrazos regulables», «Altura regulable» e «Hidráulico». Criterio 2: se citan los valores de sofa-features (extensión de chair-sofa-features) que cubre. Redacción con D-060 (T-031, reglas 2 y 3): «si reclina» es un hecho que solo afecta a una parte: requisito condicionado propio, como /17 (ejemplo de D-060).",
       "seed_importance": "principal",
-      "rule": "imp:construccion@fr-22"
+      "rule": "imp:cat.sofas/16@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si los asientos o el respaldo reclinan",
+          "component": "qué partes son regulables",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Reclinable",
+            "shopify-attr:sofa-features=Respaldo reclinable",
+            "shopify-attr:sofa-features=Ángulo de respaldo regulable",
+            "amazon-ptd-prop:SOFA.special_feature=Respaldo ajustable"
+          ]
+        },
+        {
+          "contribution": "relación de otras partes regulables",
+          "component": "qué partes son regulables",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:sofa-features=Reposacabezas ajustable",
+            "shopify-attr:sofa-features=Reposapiés ajustable",
+            "shopify-attr:sofa-features=Apoyabrazos regulables",
+            "shopify-attr:sofa-features=Altura regulable",
+            "amazon-ptd-prop:SOFA.special_feature=Reposapiés",
+            "amazon-ptd-prop:SOFA.special_feature=Reposacabezas ajustable",
+            "amazon-ptd-prop:SOFA.special_feature=Altura ajustable"
+          ]
+        },
+        {
+          "contribution": "modo de accionamiento, manual o eléctrico",
+          "component": "con qué mecanismo se accionan",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:reclining-mechanism",
+            "amazon-ptd-prop:SOFA.seat_recline",
+            "shopify-attr:sofa-features=Reclinación eléctrica",
+            "shopify-attr:sofa-features=Hidráulico"
+          ]
+        },
+        {
+          "contribution": "mando o control con que se acciona",
+          "component": "con qué mecanismo se accionan",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.seat_recline"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.sofas/17",
@@ -367,15 +935,39 @@
       "applicability": "si es reclinable",
       "rationale": "En un sofá reclinable, el espacio que ocupa reclinado decide si se puede usar en la estancia; cases.md (Stressless) lo cuenta como cuestión de la base. Se separa de /16 por tener otra aplicabilidad.",
       "seed_importance": "principal",
-      "rule": "marco:D-043.1/medida-descriptiva"
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "largo total en posición reclinada",
+          "component": "largo reclinado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.reclined_length"
+          ]
+        },
+        {
+          "contribution": "espacio libre necesario entre el respaldo y la pared",
+          "component": "separación de la pared",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.furniture_wall_clearance"
+          ]
+        },
+        {
+          "contribution": "plano o imagen acotada en posición reclinada",
+          "component": "largo reclinado y separación de la pared",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/18",
-      "question": "¿Qué funciones eléctricas incorpora (puertos USB, iluminación, altavoz, calefacción, masaje) y cómo se alimentan?",
+      "question": "¿Qué funciones eléctricas incorpora (puertos USB, iluminación, altavoz, calefacción, masaje)?",
       "dimension": "funciones",
       "trait": "prestacion",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.special_feature=Puerto de carga USB",
@@ -386,9 +978,52 @@
         "shopify-attr:sofa-features=Función de masaje"
       ],
       "applicability": "universal",
-      "rationale": "Son funciones añadidas que amplían el conocimiento de la oferta, pero no son centrales en la clase. «No tiene» también resuelve la cuestión. De sofa-features toma «Puerto USB incorporado» y «Función de masaje». La alimentación de la reclinación eléctrica entra aquí. Criterio 2: se citan los valores de sofa-features (extensión de chair-sofa-features) que cubre.",
+      "rationale": "Son funciones añadidas que amplían el conocimiento de la oferta, pero no son centrales en la clase. «No tiene» también resuelve la cuestión. De sofa-features toma «Puerto USB incorporado» y «Función de masaje». La alimentación de la reclinación eléctrica entra aquí. Criterio 2: se citan los valores de sofa-features (extensión de chair-sofa-features) que cubre. Redacción con D-060 (T-031, regla 4): cómo se alimentan no lo recoge ninguna fuente (solo valores de características): sale como inferida condicionada.",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@fr-22"
+      "rule": "imp:prestacion@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "indicación de puertos de carga",
+          "component": "funciones eléctricas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Puerto de carga USB",
+            "shopify-attr:sofa-features=Puerto USB incorporado"
+          ]
+        },
+        {
+          "contribution": "indicación de iluminación integrada",
+          "component": "funciones eléctricas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Iluminación LED"
+          ]
+        },
+        {
+          "contribution": "indicación de altavoz integrado",
+          "component": "funciones eléctricas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Altavoz integrado"
+          ]
+        },
+        {
+          "contribution": "indicación de calefacción integrada",
+          "component": "funciones eléctricas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Con calefacción"
+          ]
+        },
+        {
+          "contribution": "indicación de función de masaje",
+          "component": "funciones eléctricas",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:sofa-features=Función de masaje"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.sofas/19",
@@ -396,7 +1031,7 @@
       "dimension": "funciones",
       "trait": "prestacion",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.special_feature=Almacenamiento",
@@ -407,7 +1042,40 @@
       "applicability": "universal",
       "rationale": "Es una función añadida, relevante sin ser central. De sofa-features toma «Opciones de almacenamiento». Criterio 2: se citan los valores de sofa-features (extensión de chair-sofa-features) que cubre.",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@fr-22"
+      "rule": "imp:prestacion@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "indicación de almacenamiento integrado",
+          "component": "almacenamiento",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Almacenamiento",
+            "shopify-attr:sofa-features=Opciones de almacenamiento"
+          ]
+        },
+        {
+          "contribution": "indicación de consola integrada",
+          "component": "otros elementos integrados",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Consola"
+          ]
+        },
+        {
+          "contribution": "indicación de portavasos",
+          "component": "otros elementos integrados",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Portavasos"
+          ]
+        },
+        {
+          "contribution": "tipo y ubicación del almacenamiento integrado",
+          "component": "almacenamiento",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/20",
@@ -438,7 +1106,67 @@
       "applicability": "universal",
       "rationale": "Agrupa las transformaciones y la movilidad. «Convertible» y «N en uno» se quedan en Sofás porque la conversión no es siempre en cama (también en chaise o tumbona); si un sofá se convierte en cama, su clasificación es Sofás cama y las cuestiones de la cama están en cat.sofas-cama. De sofa-features toma «Convertible», «Giratorio», «Rotación de 360 grados», «Con ruedas» y «Remolcable». Criterio 2: se citan los valores de sofa-features (extensión de chair-sofa-features) que cubre.",
       "seed_importance": "complementario",
-      "rule": "imp:construccion@fr-22"
+      "rule": "imp:construccion@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si es convertible o multifunción y en cuántos usos",
+          "component": "convertible o multifunción",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Convertible",
+            "amazon-ptd-prop:SOFA.special_feature=Dos en uno",
+            "amazon-ptd-prop:SOFA.special_feature=Tres en uno",
+            "amazon-ptd-prop:SOFA.special_feature=Cuatro en uno",
+            "amazon-ptd-prop:SOFA.special_feature=Cinco en uno",
+            "shopify-attr:sofa-features=Convertible"
+          ]
+        },
+        {
+          "contribution": "indicación de si es plegable",
+          "component": "plegable",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Plegable"
+          ]
+        },
+        {
+          "contribution": "indicación de si es hinchable",
+          "component": "hinchable",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Hinchable"
+          ]
+        },
+        {
+          "contribution": "indicación de si es giratorio",
+          "component": "giratorio",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:sofa-features=Giratorio",
+            "shopify-attr:sofa-features=Rotación de 360 grados",
+            "amazon-ptd-prop:SOFA.special_feature=Puede pivotar"
+          ]
+        },
+        {
+          "contribution": "indicación de si lleva ruedas",
+          "component": "con ruedas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Con ruedas",
+            "shopify-attr:sofa-features=Con ruedas",
+            "shopify-attr:sofa-features=Remolcable"
+          ]
+        },
+        {
+          "contribution": "indicación de si es portátil o ligero",
+          "component": "se puede mover",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Portátil",
+            "amazon-ptd-prop:SOFA.special_feature=Construcción ligera"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.sofas/21",
@@ -465,7 +1193,63 @@
       "applicability": "universal",
       "rationale": "Es relevante para la compra (esfuerzo, acceso por puertas y escaleras), pero no es un criterio central. Si el vendedor ofrece montaje o subida a domicilio, es una modalidad de entrega (gen/09). «Compresible» se refiere al sofá que llega comprimido y se expande. SOFA.is_assembly_required repite la dimensión de assembly-required y se excluye.",
       "seed_importance": "complementario",
-      "rule": "imp:uso@fr-22"
+      "rule": "imp:uso@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si requiere montaje y de su grado o dificultad",
+          "component": "llega montado o requiere montaje",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:assembly-required",
+            "amazon-ptd-prop:SOFA.assembly_instructions",
+            "amazon-ptd-prop:SOFA.component_connector_assembly",
+            "amazon-ptd-prop:SOFA.special_feature=Fácil de montar",
+            "amazon-ptd-prop:SOFA.special_feature=Fácil de instalar"
+          ]
+        },
+        {
+          "contribution": "formato en que se entrega el sofá",
+          "component": "llega montado o requiere montaje",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Compresible"
+          ]
+        },
+        {
+          "contribution": "herramientas necesarias e indicación de si se incluyen",
+          "component": "qué exige",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.tools_recommended_for_assembly",
+            "amazon-ptd-prop:SOFA.includes_all_assembly_tools",
+            "amazon-ptd-prop:SOFA.special_feature=Montaje sin herramientas"
+          ]
+        },
+        {
+          "contribution": "número de personas recomendado para el montaje",
+          "component": "qué exige",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.recommended_number_of_people_for_assembly"
+          ]
+        },
+        {
+          "contribution": "instrucciones de montaje",
+          "component": "qué exige",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.assembly_instructions_description"
+          ]
+        },
+        {
+          "contribution": "piezas que se desmontan para el transporte",
+          "component": "qué exige",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Respaldo desmontable"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.sofas/22",
@@ -473,7 +1257,7 @@
       "dimension": "capacidad",
       "trait": "prestacion",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.weight_capacity.maximum"
@@ -481,7 +1265,23 @@
       "applicability": "universal",
       "rationale": "Es un dato de resistencia útil para algunos compradores, pero no es un criterio central de comparación.",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@fr-22"
+      "rule": "imp:prestacion@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "peso máximo admitido",
+          "component": "peso máximo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.weight_capacity.maximum"
+          ]
+        },
+        {
+          "contribution": "norma de ensayo de resistencia de asientos que supera",
+          "component": "peso máximo",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/23",
@@ -494,32 +1294,116 @@
       "sources": [
         "shopify-attr:safety-certifications",
         "amazon-ptd-prop:SOFA.special_feature=Resistente al fuego",
-        "amazon-ptd-prop:SOFA.special_feature=Retardante de fuego"
+        "amazon-ptd-prop:SOFA.special_feature=Retardante de fuego",
+        "amazon-ptd-prop:SOFA.material_feature=No tóxico"
       ],
       "applicability": "universal",
-      "rationale": "Amplía el conocimiento sobre seguridad, pero en la venta a consumidores no es un criterio central. Que no se publique una norma no prueba que no se cumpla. SOFA.specification_met y SOFA.certificate repiten la dimensión de safety-certifications y se excluyen.",
+      "rationale": "Amplía el conocimiento sobre seguridad, pero en la venta a consumidores no es un criterio central. Que no se publique una norma no prueba que no se cumpla. SOFA.specification_met y SOFA.certificate repiten la dimensión de safety-certifications y se excluyen. Redacción con D-060 (T-031, regla 3): recibe de /24 la declaración de materiales no tóxicos (seguridad: emisiones o sustancias).",
       "seed_importance": "complementario",
-      "rule": "imp:seguridad@fr-22"
+      "rule": "imp:seguridad@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "normas de seguridad o certificaciones que cumple",
+          "component": "normas de seguridad o certificaciones",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:safety-certifications"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia o retardancia al fuego",
+          "component": "comportamiento ante el fuego",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Resistente al fuego",
+            "amazon-ptd-prop:SOFA.special_feature=Retardante de fuego"
+          ]
+        },
+        {
+          "contribution": "declaración de ausencia de sustancias tóxicas",
+          "component": "emisiones o sustancias",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.material_feature=No tóxico",
+            "shopify-attr:safety-certifications"
+          ]
+        },
+        {
+          "contribution": "norma de ensayo de comportamiento ante el fuego que supera",
+          "component": "comportamiento ante el fuego",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "clase de emisión de formaldehído o de compuestos orgánicos volátiles",
+          "component": "emisiones o sustancias",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/24",
-      "question": "¿Qué características ambientales o de salud tienen sus materiales (reciclados, madera recuperada, naturales, orgánicos, no tóxicos)?",
+      "question": "¿Qué características ambientales tienen sus materiales (reciclados, madera recuperada, naturales, orgánicos)?",
       "dimension": "sostenibilidad",
       "trait": "material",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:SOFA.material_feature"
+        "amazon-ptd-prop:SOFA.material_feature=Madera recuperada",
+        "amazon-ptd-prop:SOFA.material_feature=Natural",
+        "amazon-ptd-prop:SOFA.material_feature=Orgánico",
+        "amazon-ptd-prop:SOFA.material_feature=Reciclado"
       ],
       "applicability": "universal",
-      "rationale": "En Mobiliario no hay un atributo de certificación ecológica (cat.casa-y-jardin/03 no se hereda aquí). Amplía el conocimiento sin ser un criterio central.",
+      "rationale": "En Mobiliario no hay un atributo de certificación ecológica (cat.casa-y-jardin/03 no se hereda aquí). Amplía el conocimiento sin ser un criterio central. Redacción con D-060 (T-031, regla 3): lo no tóxico (seguridad) pasa a /23; aquí quedan las características ambientales (material), citadas por sus valores.",
       "seed_importance": "complementario",
-      "rule": "imp:material@fr-22"
+      "rule": "imp:cat.sofas/24@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "declaración de material reciclado",
+          "component": "características ambientales de los materiales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.material_feature=Reciclado"
+          ]
+        },
+        {
+          "contribution": "declaración de madera recuperada",
+          "component": "características ambientales de los materiales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.material_feature=Madera recuperada"
+          ]
+        },
+        {
+          "contribution": "declaración de material natural",
+          "component": "características ambientales de los materiales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.material_feature=Natural"
+          ]
+        },
+        {
+          "contribution": "declaración de material orgánico",
+          "component": "características ambientales de los materiales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.material_feature=Orgánico"
+          ]
+        },
+        {
+          "contribution": "certificación forestal de la madera",
+          "component": "características ambientales de los materiales",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas/25",
-      "question": "¿Se puede personalizar (tapicería, color, medidas, composición de módulos) y con qué opciones?",
+      "question": "¿Se puede personalizar (tapicería, color, medidas, composición de módulos)?",
       "dimension": "personalización",
       "trait": "estetica",
       "entity": "oferta",
@@ -529,9 +1413,19 @@
         "amazon-ptd-prop:SOFA.is_customizable"
       ],
       "applicability": "universal",
-      "rationale": "En sofás es frecuente elegir tela y medidas. Las variantes ya definidas las cubre gen.variantes; aquí se pregunta por la personalización a medida. Amplía la elección sin ser central para evaluar una configuración concreta.",
+      "rationale": "En sofás es frecuente elegir tela y medidas. Las variantes ya definidas las cubre gen.variantes; aquí se pregunta por la personalización a medida. Amplía la elección sin ser central para evaluar una configuración concreta. Redacción con D-060 (T-031, reglas 2 y 4): SOFA.is_customizable solo dice si es personalizable; las opciones, detalle sin fuente, salen como inferida condicionada.",
       "seed_importance": "complementario",
-      "rule": "imp:estetica@fr-22"
+      "rule": "imp:estetica@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si es personalizable",
+          "component": "se puede personalizar",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.is_customizable"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.sofas/26",
@@ -547,7 +1441,302 @@
       "applicability": "universal",
       "rationale": "Candidato nuevo del grupo de cumplimiento del PTD SOFA: texto libre con las advertencias de seguridad del paquete. Informa sobre el uso seguro, sobre todo en sofás con mecanismos reclinables o de cama; relevante sin ser central.",
       "seed_importance": "complementario",
-      "rule": "imp:seguridad@fr-22"
+      "rule": "imp:seguridad@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "advertencias de seguridad del producto",
+          "component": "advertencias de seguridad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.safety_warning"
+          ]
+        },
+        {
+          "contribution": "manual de instrucciones del fabricante",
+          "component": "advertencias de seguridad",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.sofas/27",
+      "question": "¿De cuántas piezas o módulos se compone?",
+      "dimension": "piezas o módulos",
+      "trait": "contenido",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SOFA.number_of_pieces"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.sofas/01 separada por la regla 3 de D-060 (T-031): el tipo y la configuración (identidad) y el número de piezas o módulos (contenido) toman otro rasgo y otra importancia.",
+      "seed_importance": "principal",
+      "rule": "imp:contenido@fr-22",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "número de piezas o módulos",
+          "component": "piezas o módulos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.number_of_pieces"
+          ]
+        },
+        {
+          "contribution": "relación de las piezas o módulos que componen el sofá",
+          "component": "piezas o módulos",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.sofas/28",
+      "question": "¿Cómo están unidas las piezas de la estructura (tipo de uniones)?",
+      "dimension": "uniones de la estructura",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SOFA.frame.joint_type"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.sofas/06 separada por la regla 3 de D-060 (T-031): el material (material) y las uniones (construcción) toman otro rasgo y otra importancia.",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@fr-22",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "tipo de unión de las piezas del armazón",
+          "component": "tipo de uniones",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.frame.joint_type"
+          ]
+        },
+        {
+          "contribution": "elementos de fijación empleados en el armazón",
+          "component": "tipo de uniones",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.sofas/29",
+      "question": "¿Cómo están construidos los cojines del asiento (muelles ensacados, capas de espuma, sistema antihundimiento…)?",
+      "dimension": "construcción de los cojines",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SOFA.cushion_construction",
+        "amazon-ptd-prop:SOFA.special_feature=Cojín de muelle",
+        "amazon-ptd-prop:SOFA.special_feature=Antihundimiento"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.sofas/11 separada por la regla 3 de D-060 (T-031): el relleno (material) y la construcción de los cojines (construcción) toman otro rasgo y otra importancia.",
+      "seed_importance": "principal",
+      "rule": "imp:construccion@fr-22",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "tipo de construcción de los cojines del asiento",
+          "component": "construcción de los cojines del asiento",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.cushion_construction",
+            "amazon-ptd-prop:SOFA.special_feature=Cojín de muelle"
+          ]
+        },
+        {
+          "contribution": "indicación de sistema antihundimiento",
+          "component": "construcción de los cojines del asiento",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Antihundimiento"
+          ]
+        },
+        {
+          "contribution": "capas del cojín con el material y el grosor de cada una",
+          "component": "construcción de los cojines del asiento",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.sofas/30",
+      "question": "¿De qué material son las patas o la base?",
+      "dimension": "material de las patas",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SOFA.base",
+        "amazon-ptd-prop:SOFA.furniture_leg.material"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.sofas/15 separada por la regla 3 de D-060 (T-031): el material (material) y la altura de las patas (medida) toman otro rasgo y otra importancia que su aspecto (estética); SOFA.furniture_leg se cita por sus partes.",
+      "seed_importance": "complementario",
+      "rule": "imp:material@fr-22",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "material de las patas",
+          "component": "material de las patas o la base",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.furniture_leg.material"
+          ]
+        },
+        {
+          "contribution": "material de la base",
+          "component": "material de las patas o la base",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.base"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.sofas/31",
+      "question": "¿Qué altura tienen las patas?",
+      "dimension": "altura de las patas",
+      "trait": "medida",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SOFA.furniture_leg.length"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.sofas/15 separada por la regla 3 de D-060 (T-031): el material (material) y la altura de las patas (medida) toman otro rasgo y otra importancia que su aspecto (estética); SOFA.furniture_leg se cita por sus partes.",
+      "seed_importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "altura de las patas",
+          "component": "altura de las patas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.furniture_leg.length"
+          ]
+        },
+        {
+          "contribution": "altura libre bajo el sofá",
+          "component": "altura de las patas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.sofas/32",
+      "question": "Si es reclinable, ¿cuántas plazas reclinan y en cuántas posiciones?",
+      "dimension": "plazas y posiciones reclinables",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SOFA.reclining_seat_count",
+        "amazon-ptd-prop:SOFA.reclining_position_count"
+      ],
+      "applicability": "si es reclinable",
+      "rationale": "Parte de cat.sofas/16 separada por la reglas 2 y 3 de D-060 (T-031): «si reclina» es un hecho que solo afecta a una parte: requisito condicionado propio, como /17 (ejemplo de D-060).",
+      "seed_importance": "principal",
+      "rule": "imp:construccion@fr-22",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "número de plazas reclinables",
+          "component": "cuántas plazas reclinan",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.reclining_seat_count"
+          ]
+        },
+        {
+          "contribution": "número de posiciones de reclinación",
+          "component": "en cuántas posiciones",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.reclining_position_count"
+          ]
+        },
+        {
+          "contribution": "indicación de si la reclinación es continua o por posiciones fijas",
+          "component": "en cuántas posiciones",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.sofas/33",
+      "question": "¿Cómo se alimentan sus funciones eléctricas (enchufe, batería)?",
+      "dimension": "alimentación eléctrica",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "si incorpora funciones eléctricas",
+      "rationale": "Cuestión inferida (D-036) que sale de cat.sofas/18 por la regla 4 de D-060 (T-031): cómo se alimentan no lo recoge ninguna fuente (solo valores de características): sale como inferida condicionada. Provisional hasta que la valide el entrenamiento.",
+      "seed_importance": "complementario",
+      "rule": "imp:uso@fr-22",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "tipo de alimentación eléctrica",
+          "component": "cómo se alimentan",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "autonomía y forma de recarga de la batería",
+          "component": "cómo se alimentan",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.sofas/34",
+      "question": "¿Con qué opciones se puede personalizar?",
+      "dimension": "opciones de personalización",
+      "trait": "estetica",
+      "entity": "oferta",
+      "importance": "complementario",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "si se puede personalizar",
+      "rationale": "Cuestión inferida (D-036) que sale de cat.sofas/25 por la reglas 2 y 4 de D-060 (T-031): SOFA.is_customizable solo dice si es personalizable; las opciones, detalle sin fuente, salen como inferida condicionada. Provisional hasta que la valide el entrenamiento.",
+      "seed_importance": "complementario",
+      "rule": "imp:estetica@fr-22",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "elementos personalizables y opciones de cada uno",
+          "component": "opciones de personalización",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "muestrario de tapicerías y colores disponibles",
+          "component": "opciones de personalización",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [
@@ -684,5 +1873,5 @@
       "reason": "La capacidad mínima de peso no informa sobre la clase; la cuestión es el peso máximo (/22)."
     }
   ],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

@@ -1,0 +1,206 @@
+{
+  "id": "cat.maletas-y-bolsos-de-viaje",
+  "type": "categoría",
+  "name": "Maletas y bolsos de viaje",
+  "shopify": "lb",
+  "parent": null,
+  "refs": [
+    "shopify:lb@v2026-08",
+    "google:5181@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.maletas-y-bolsos-de-viaje/01",
+      "question": "¿Cómo se transporta (asas de mano, correa de hombro, bandolera, correas de mochila, funda para carrito…)?",
+      "dimension": "modo de transporte",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:carry-options"
+      ],
+      "applicability": "universal",
+      "rationale": "La forma de llevar la bolsa o la maleta decide su comodidad y su uso (mano, hombro, espalda); es criterio de elección en todo el sector. Redacción con D-060 (T-031, regla 3): el modo de transporte (uso) y las correas desmontables o regulables (construcción) toman otro rasgo y otra importancia.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@lb",
+      "resolving_info": [
+        {
+          "contribution": "tipo de asas o correas de transporte",
+          "component": "cómo se transporta",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:carry-options"
+          ]
+        },
+        {
+          "contribution": "sistema de acople a un carrito o cochecito",
+          "component": "cómo se transporta",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:carry-options"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.maletas-y-bolsos-de-viaje/02",
+      "question": "¿De qué color es?",
+      "dimension": "color",
+      "entity": "producto",
+      "trait": "estetica",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:color"
+      ],
+      "applicability": "universal",
+      "rationale": "Característica visible del producto (criterio 7); si es seleccionable, la cubre además gen.variantes.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:estetica@lb",
+      "resolving_info": [
+        {
+          "contribution": "color principal",
+          "component": "color",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:color"
+          ]
+        },
+        {
+          "contribution": "colores que combina un producto multicolor",
+          "component": "color",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:color"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.maletas-y-bolsos-de-viaje/03",
+      "question": "¿Qué estampado o patrón tiene (liso, a rayas, a cuadros…)?",
+      "dimension": "estampado",
+      "entity": "producto",
+      "trait": "estetica",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:pattern"
+      ],
+      "applicability": "universal",
+      "rationale": "Describe el aspecto; relevante sin ser central para comparar ofertas del sector.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:estetica@lb",
+      "resolving_info": [
+        {
+          "contribution": "tipo de estampado o patrón",
+          "component": "estampado o patrón",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pattern"
+          ]
+        },
+        {
+          "contribution": "indicación de si es liso",
+          "component": "estampado o patrón",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pattern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.maletas-y-bolsos-de-viaje/04",
+      "question": "¿Cómo se limpia y mantiene (lavable, solo limpieza superficial, no lavar, no secar en secadora…)?",
+      "dimension": "instrucciones de cuidado",
+      "entity": "producto",
+      "trait": "cuidado",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:care-instructions"
+      ],
+      "applicability": "universal",
+      "rationale": "Informa del mantenimiento de bolsas y maletas, sobre todo textiles; relevante sin ser criterio central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:cuidado@lb",
+      "resolving_info": [
+        {
+          "contribution": "método de lavado o limpieza admitido",
+          "component": "cómo se limpia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicaciones de secado",
+          "component": "cómo se limpia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "productos o tratamientos de mantenimiento del material",
+          "component": "cómo se mantiene",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.maletas-y-bolsos-de-viaje/05",
+      "question": "¿Qué correas son desmontables o regulables?",
+      "dimension": "correas",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:carry-options=Correa desmontable",
+        "shopify-attr:carry-options=Hebillas de correa"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.maletas-y-bolsos-de-viaje/01 separada por la regla 3 de D-060 (T-031): el modo de transporte (uso) y las correas desmontables o regulables (construcción) toman otro rasgo y otra importancia.",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@lb",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "indicación de qué correas son desmontables",
+          "component": "desmontables",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:carry-options=Correa desmontable"
+          ]
+        },
+        {
+          "contribution": "indicación de qué correas son regulables",
+          "component": "regulables",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:carry-options=Hebillas de correa"
+          ]
+        },
+        {
+          "contribution": "longitud mínima y máxima de las correas regulables",
+          "component": "regulables",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

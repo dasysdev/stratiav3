@@ -1,0 +1,60 @@
+{
+  "id": "cat.utensilios-de-servir",
+  "type": "categoría",
+  "name": "Utensilios de servir",
+  "shopify": "hg-11-10-7",
+  "parent": "cat.utensilios-de-mesa",
+  "refs": [
+    "shopify:hg-11-10-7@v2026-08",
+    "google:4026@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.utensilios-de-servir/01",
+      "question": "¿Qué forma tiene (redonda, ovalada, rectangular, cuadrada…)?",
+      "dimension": "forma",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:shape"
+      ],
+      "applicability": "universal",
+      "rationale": "La forma de una pieza de servir (fuente, sopera, ensaladera) condiciona su uso en la mesa y es criterio para elegirla.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:identidad@hg-11-10-7",
+      "resolving_info": [
+        {
+          "contribution": "forma de la pieza",
+          "component": "forma",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shape"
+          ]
+        },
+        {
+          "contribution": "fotografía de la pieza que muestre su forma",
+          "component": "forma",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "shopify-attr:lumber-wood-type",
+      "reason": "Extensión de «material» (cat.cocina-y-comedor/01) para piezas de madera; no se duplica (D-043, criterio 3)."
+    },
+    {
+      "source": "shopify-attr:serveware-pieces-included",
+      "reason": "Piezas incluidas en un juego: las cubre la especialización esp.juego y gen/01, no un bloque de categoría (D-043, criterio 3)."
+    }
+  ],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

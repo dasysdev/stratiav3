@@ -79,12 +79,19 @@ def fetch(case_id: str, url: str, browser=None) -> dict:
     where = f"var/pages/{case_id}/{folder.name}"
     if result["outcome"] != "captured":
         raise PageError(f"{case_id}: {OUTCOMES[result['outcome']]} — {result['detail']}; evidencia en {where}")
-    meta = result["meta"]
+    return freeze(case_id, url, folder, result["meta"])
+
+
+def freeze(case_id: str, url: str, folder: Path, meta: dict, extra: dict | None = None) -> dict:
+    """The DOM of a captured snapshot becomes the page of `case_id` (<id>.html and <id>.json)."""
     dom = gzip.decompress((folder / "dom.html.gz").read_bytes())
     (PAGES / f"{case_id}.html").write_bytes(dom)
+    first_load = any(a.get("action") == "first_load" for a in meta.get("actions") or [])
     info = {"id": case_id, "url": url, "fetched_at": meta["finished_at"], "size": len(dom),
-            "sha256": hashlib.sha256(dom).hexdigest(), "method": "chrome-cdp", "content": "DOM renderizado",
+            "sha256": hashlib.sha256(dom).hexdigest(), "method": "chrome-cdp",
+            "content": "DOM de la primera carga" if first_load else "DOM renderizado",
             "url_final": meta.get("url_final"), "http_status": (meta.get("http") or {}).get("status"),
-            "user_agent": (meta.get("browser") or {}).get("user_agent"), "snapshot": where}
+            "user_agent": (meta.get("browser") or {}).get("user_agent"),
+            "snapshot": f"var/pages/{case_id}/{folder.name}", **(extra or {})}
     (PAGES / f"{case_id}.json").write_text(json.dumps(info, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return info

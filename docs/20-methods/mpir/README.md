@@ -3,9 +3,9 @@ id: mpir
 title: MPIR — Modelo de Prácticas Informativas de Referencia
 layer: method
 status: propuesta
-version: 1.1
-updated: 2026-10-25
-sources: [MPIR Resumen, MPIR §1, MPIR §2, INTAKE 2026-10-25-requirement-blocks]
+version: 1.2
+updated: 2026-10-26
+sources: [MPIR Resumen, MPIR §1, MPIR §2, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-26-open-issues-resolution]
 ---
 
 # MPIR — Modelo de Prácticas Informativas de Referencia
@@ -33,7 +33,7 @@ La hipótesis del método es que ecommerce reconocidos o especializados **pueden
 | Función del MPIR | Recoger y normalizar evidencias de prácticas informativas utilizadas como indicios indirectos de necesidades de demanda. |
 | Relación con taxonomías | Complementaria: no duplicar mecánicamente atributos ni limitar la exploración a dimensiones taxonómicas conocidas. |
 | Material de observación | Recursos informativos de ecommerce referentes relevantes para el descubrimiento y la decisión de compra. |
-| Estrategia de extracción | Scraping orientado por recursos y bloques del DOM, con renderizado dinámico selectivo y análisis semántico posterior. |
+| Estrategia de extracción | Scraping orientado por recursos y bloques del DOM, renderizados siempre con navegador real ([D-073](../../30-governance/decisions.md#d-073)), con interacción selectiva y análisis semántico posterior. |
 | Persistencia | Conservar tanto el recurso original como las unidades estructuradas y las interpretaciones versionadas. |
 | Unidad básica de evidencia | Unidad de contenido contextualizada, que puede contener texto, datos, opciones, entidades o relaciones y remite al recurso original. |
 | Identificación de prácticas | Posterior y lógicamente independiente de la captura, con anotaciones preliminares permitidas durante el procesamiento. |

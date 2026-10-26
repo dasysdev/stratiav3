@@ -8,7 +8,7 @@
     "shopify:hg-3@v2026-08",
     "google:696@2021-09-21"
   ],
-  "version": "1",
+  "version": "3",
   "status": "compilado",
   "requirements": [
     {
@@ -25,7 +25,23 @@
       "applicability": "universal",
       "rationale": "En un objeto decorativo, el material determina el aspecto, el tacto y la durabilidad: es un criterio con el que se comparan las ofertas. Las categorías hijas con piezas diferenciadas (por ejemplo, la funda y el relleno de un cojín) lo detallan en su propio bloque.",
       "seed_importance": "principal",
-      "rule": "imp:material@hg"
+      "rule": "imp:material@hg",
+      "resolving_info": [
+        {
+          "contribution": "material principal",
+          "component": "material principal",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:material"
+          ]
+        },
+        {
+          "contribution": "proporción de cada material cuando combina varios",
+          "component": "material principal",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.decoracion/02",
@@ -41,7 +57,25 @@
       "applicability": "si lleva adornos o aplicaciones",
       "rationale": "Shopify lo define como el material de los adornos (lentejuelas, plumas), distinto del material principal. Amplía el conocimiento sobre el acabado y el cuidado del producto, pero no es un criterio central de comparación.",
       "seed_importance": "complementario",
-      "rule": "imp:material@hg"
+      "rule": "imp:material@hg",
+      "resolving_info": [
+        {
+          "contribution": "material de los adornos o aplicaciones",
+          "component": "material de los adornos o aplicaciones",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:decoration-material"
+          ]
+        },
+        {
+          "contribution": "tipo de adorno o aplicación al que corresponde el material",
+          "component": "adornos o aplicaciones",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:decoration-material"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.decoracion/03",
@@ -57,9 +91,57 @@
       "applicability": "universal",
       "rationale": "Es relevante para el uso y la conservación. En el conjunto de la decoración no es un criterio central: en muchos objetos no textiles el cuidado es trivial. Cubre también las características especiales de Amazon sobre lavado («Lavable») de las categorías hijas.",
       "seed_importance": "complementario",
-      "rule": "imp:cuidado@hg"
+      "rule": "imp:cuidado@hg-3",
+      "resolving_info": [
+        {
+          "contribution": "método de lavado admitido",
+          "component": "limpieza",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicación de limpieza en seco",
+          "component": "limpieza",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicación de si admite secadora",
+          "component": "cuidado",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicaciones de planchado",
+          "component": "cuidado",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "productos o métodos de limpieza recomendados o desaconsejados para el material",
+          "component": "otras indicaciones de limpieza y cuidado",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "símbolos de cuidado del etiquetado",
+          "component": "limpieza y cuidado",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

@@ -1,0 +1,717 @@
+{
+  "id": "cat.cd-de-musica",
+  "type": "categoría",
+  "name": "CD de música",
+  "shopify": "me-3-3",
+  "parent": "cat.musica-y-grabaciones",
+  "refs": [
+    "shopify:me-3-3@v2026-08",
+    "google:543522@2021-09-21",
+    "amazon-ptd:ABIS_MUSIC@2026-10-24",
+    "amazon-btg:599374031@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.cd-de-musica/01",
+      "question": "¿Quién es el artista o intérprete principal, o es un recopilatorio de varios artistas?",
+      "dimension": "artista, intérprete o compositor",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "crítico",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:ABIS_MUSIC.artist",
+        "amazon-ptd-prop:ABIS_MUSIC.performer"
+      ],
+      "applicability": "universal",
+      "rationale": "Junto con el título, el artista identifica la grabación que se vende; sin él no se sabe qué disco es. Redacción con D-060 (T-031, reglas 1 y 3): «si procede» corresponde a un hecho (obras de un compositor distinto del intérprete): requisito condicionado propio, que además toma otra importancia que el artista.",
+      "seed_importance": "crítico",
+      "importance": "crítico",
+      "rule": "imp:cat.cd-de-musica/01@me-3-3",
+      "resolving_info": [
+        {
+          "contribution": "nombre del artista o intérprete principal",
+          "component": "artista o intérprete principal",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.artist"
+          ]
+        },
+        {
+          "contribution": "intérpretes que participan en la grabación",
+          "component": "artista o intérprete principal",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.performer"
+          ]
+        },
+        {
+          "contribution": "indicación de recopilatorio de varios artistas",
+          "component": "recopilatorio de varios artistas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.artist"
+          ]
+        },
+        {
+          "contribution": "artista de cada pista",
+          "component": "recopilatorio de varios artistas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/02",
+      "question": "¿Qué pistas incluye, cuántas y en qué orden?",
+      "dimension": "lista de pistas",
+      "entity": "producto",
+      "trait": "contenido",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:ABIS_MUSIC.track_listing",
+        "amazon-ptd-prop:ABIS_MUSIC.number_of_tracks"
+      ],
+      "applicability": "universal",
+      "rationale": "El contenido musical es lo que se compra; las pistas distinguen ediciones y recopilatorios entre sí.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:contenido@me-3",
+      "resolving_info": [
+        {
+          "contribution": "título de cada pista",
+          "component": "qué pistas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.track_listing"
+          ]
+        },
+        {
+          "contribution": "número de pistas",
+          "component": "cuántas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.number_of_tracks",
+            "amazon-ptd-prop:ABIS_MUSIC.track_listing"
+          ]
+        },
+        {
+          "contribution": "número de orden de cada pista",
+          "component": "en qué orden",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.track_listing"
+          ]
+        },
+        {
+          "contribution": "disco al que pertenece cada pista",
+          "component": "en qué orden",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.track_listing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/03",
+      "question": "¿Cuánto dura la grabación?",
+      "dimension": "duración",
+      "entity": "producto",
+      "trait": "medida",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:ABIS_MUSIC.runtime"
+      ],
+      "applicability": "universal",
+      "rationale": "Describe la extensión del contenido sin fijar qué se vende.",
+      "seed_importance": "complementario",
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "duración total de la grabación",
+          "component": "duración",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.runtime"
+          ]
+        },
+        {
+          "contribution": "duración de cada pista",
+          "component": "duración",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/04",
+      "question": "¿Cuándo se publicó esta edición?",
+      "dimension": "fecha de publicación",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:ABIS_MUSIC.publication_date"
+      ],
+      "applicability": "universal",
+      "rationale": "Ayuda a distinguir la edición concreta frente a otras de la misma obra. Redacción con D-060 (T-031, regla 4): ABIS_MUSIC.publication_date es la fecha de la edición; la de la grabación original no tiene fuente: sale como inferida.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:cat.cd-de-musica/04@me-3-3",
+      "resolving_info": [
+        {
+          "contribution": "fecha o año de publicación de la edición",
+          "component": "fecha de publicación de esta edición",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.publication_date"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/05",
+      "question": "¿Qué edición es (original, reedición, remasterizada, limitada, especial, deluxe, de coleccionista, importación, con canciones extra) y qué la distingue?",
+      "dimension": "edición",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:ABIS_MUSIC.edition",
+        "amazon-ptd-prop:ABIS_MUSIC.format=Edición coleccionista",
+        "amazon-ptd-prop:ABIS_MUSIC.format=Edición deluxe",
+        "amazon-ptd-prop:ABIS_MUSIC.format=Edición especial",
+        "amazon-ptd-prop:ABIS_MUSIC.format=Edición especial limitada",
+        "amazon-ptd-prop:ABIS_MUSIC.format=edición limitada",
+        "amazon-ptd-prop:ABIS_MUSIC.format=Edición limitada de colección",
+        "amazon-ptd-prop:ABIS_MUSIC.format=Grabación original remasterizada",
+        "amazon-ptd-prop:ABIS_MUSIC.format=Reedición de la grabación original",
+        "amazon-ptd-prop:ABIS_MUSIC.format=Importación",
+        "amazon-ptd-prop:ABIS_MUSIC.format=Canciones extra"
+      ],
+      "applicability": "universal",
+      "rationale": "Una misma obra se publica en ediciones con contenido y precio distintos; es criterio para comparar ofertas.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:identidad@me-3",
+      "resolving_info": [
+        {
+          "contribution": "nombre o versión de la edición",
+          "component": "qué edición es",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.edition"
+          ]
+        },
+        {
+          "contribution": "indicación de reedición o remasterización",
+          "component": "qué edición es",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.format=Grabación original remasterizada",
+            "amazon-ptd-prop:ABIS_MUSIC.format=Reedición de la grabación original"
+          ]
+        },
+        {
+          "contribution": "carácter limitado, especial o de coleccionista de la edición",
+          "component": "qué edición es",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.format=Edición coleccionista",
+            "amazon-ptd-prop:ABIS_MUSIC.format=Edición deluxe",
+            "amazon-ptd-prop:ABIS_MUSIC.format=Edición especial",
+            "amazon-ptd-prop:ABIS_MUSIC.format=Edición especial limitada",
+            "amazon-ptd-prop:ABIS_MUSIC.format=edición limitada",
+            "amazon-ptd-prop:ABIS_MUSIC.format=Edición limitada de colección"
+          ]
+        },
+        {
+          "contribution": "indicación de edición de importación",
+          "component": "qué edición es",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.format=Importación"
+          ]
+        },
+        {
+          "contribution": "indicación de canciones extra",
+          "component": "qué la distingue",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.format=Canciones extra"
+          ]
+        },
+        {
+          "contribution": "descripción de lo que la diferencia de otras ediciones",
+          "component": "qué la distingue",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/06",
+      "question": "¿Cuántos discos incluye (simple, doble, caja) y si va acompañado de otro soporte (DVD, Blu-ray)?",
+      "dimension": "número de discos y soportes",
+      "entity": "producto",
+      "trait": "contenido",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:ABIS_MUSIC.number_of_discs",
+        "amazon-ptd-prop:ABIS_MUSIC.format=CD Simple",
+        "amazon-ptd-prop:ABIS_MUSIC.format=CD Doble",
+        "amazon-ptd-prop:ABIS_MUSIC.format=Disco doble",
+        "amazon-ptd-prop:ABIS_MUSIC.format=CD+DVD",
+        "amazon-ptd-prop:ABIS_MUSIC.format=CD+Blu-ray",
+        "amazon-ptd-prop:ABIS_MUSIC.format=MVI DVD9+CD",
+        "amazon-ptd-prop:ABIS_MUSIC.format=EP",
+        "amazon-ptd-prop:ABIS_MUSIC.format=Maxi"
+      ],
+      "applicability": "universal",
+      "rationale": "Fija cuánto contenido físico se entrega y distingue ediciones de un disco frente a múltiples.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:contenido@me-3",
+      "resolving_info": [
+        {
+          "contribution": "número de discos",
+          "component": "cuántos discos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.number_of_discs",
+            "amazon-ptd-prop:ABIS_MUSIC.format=CD Doble"
+          ]
+        },
+        {
+          "contribution": "soporte adicional que acompaña al CD",
+          "component": "otro soporte",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.format=CD+DVD",
+            "amazon-ptd-prop:ABIS_MUSIC.format=CD+Blu-ray",
+            "amazon-ptd-prop:ABIS_MUSIC.format=MVI DVD9+CD",
+            "amazon-ptd-prop:ABIS_MUSIC.format=Disco doble"
+          ]
+        },
+        {
+          "contribution": "contenido del soporte adicional",
+          "component": "otro soporte",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/07",
+      "question": "¿Qué tipo de disco es y con qué reproductores es compatible (CD de audio estándar, SACD híbrido o solo SACD, CD mejorado o CD-ROM, CD oro), y lleva sistema anticopia?",
+      "dimension": "tipo de disco y compatibilidad de reproducción",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:ABIS_MUSIC.format=SACD Híbrido - DSD",
+        "amazon-ptd-prop:ABIS_MUSIC.format=Super audio CD - DSD",
+        "amazon-ptd-prop:ABIS_MUSIC.format=Mejorado",
+        "amazon-ptd-prop:ABIS_MUSIC.format=CD-ROM",
+        "amazon-ptd-prop:ABIS_MUSIC.format=CD oro",
+        "amazon-ptd-prop:ABIS_MUSIC.format=CD contenido/sistema anticopia",
+        "amazon-ptd-prop:ABIS_MUSIC.format=DVD-ROM"
+      ],
+      "applicability": "universal",
+      "rationale": "Un SACD no híbrido o un disco con sistema anticopia no se reproduce en todos los equipos; la compatibilidad decide si el disco sirve al comprador. Redacción con D-060 (T-031, reglas 2 y 4): el código de región del DVD depende de un hecho (que incluya DVD) y no tiene fuente: sale como inferida condicionada.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:cat.cd-de-musica/07@me-3-3",
+      "resolving_info": [
+        {
+          "contribution": "variante de super audio CD del disco",
+          "component": "tipo de disco",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.format=SACD Híbrido - DSD",
+            "amazon-ptd-prop:ABIS_MUSIC.format=Super audio CD - DSD"
+          ]
+        },
+        {
+          "contribution": "presencia de contenido de datos para ordenador",
+          "component": "tipo de disco",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.format=Mejorado",
+            "amazon-ptd-prop:ABIS_MUSIC.format=CD-ROM",
+            "amazon-ptd-prop:ABIS_MUSIC.format=DVD-ROM"
+          ]
+        },
+        {
+          "contribution": "material de la capa reflectante",
+          "component": "tipo de disco",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.format=CD oro"
+          ]
+        },
+        {
+          "contribution": "reproductores o equipos con los que es compatible",
+          "component": "reproductores compatibles",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.format=SACD Híbrido - DSD",
+            "amazon-ptd-prop:ABIS_MUSIC.format=Super audio CD - DSD",
+            "amazon-ptd-prop:ABIS_MUSIC.format=Mejorado",
+            "amazon-ptd-prop:ABIS_MUSIC.format=CD-ROM",
+            "amazon-ptd-prop:ABIS_MUSIC.format=DVD-ROM"
+          ]
+        },
+        {
+          "contribution": "indicación de sistema anticopia",
+          "component": "sistema anticopia",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.format=CD contenido/sistema anticopia"
+          ]
+        },
+        {
+          "contribution": "norma de formato de disco que cumple",
+          "component": "tipo de disco",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/08",
+      "question": "¿Cuál es su proceso de grabación, mezcla y masterizado (AAD, ADD, DDD)?",
+      "dimension": "tipo de grabación y digitalización",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:ABIS_MUSIC.audio_encoding"
+      ],
+      "applicability": "universal",
+      "rationale": "Describe cómo se obtuvo la grabación; relevante para parte de los compradores sin ser central. Redacción con D-060 (T-031, regla 3): estudio o directo (identidad) y el procesado (construcción) toman otro rasgo y otra importancia.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@me-3",
+      "resolving_info": [
+        {
+          "contribution": "codificación del audio",
+          "component": "proceso de grabación, mezcla y masterizado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.audio_encoding"
+          ]
+        },
+        {
+          "contribution": "código SPARS de grabación, mezcla y masterizado",
+          "component": "proceso de grabación, mezcla y masterizado",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "créditos técnicos de grabación, mezcla y masterizado",
+          "component": "proceso de grabación, mezcla y masterizado",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/09",
+      "question": "¿Qué material adicional incluye (libreto, letras, código de descarga…)?",
+      "dimension": "presentación y material incluido",
+      "entity": "producto",
+      "trait": "contenido",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:ABIS_MUSIC.included_components"
+      ],
+      "applicability": "universal",
+      "rationale": "La presentación y los extras distinguen ediciones, sobre todo para coleccionistas. Redacción con D-060 (T-031, regla 3): la presentación (construcción) y el material incluido (contenido) toman otro rasgo.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:cat.cd-de-musica/09@me-3-3",
+      "resolving_info": [
+        {
+          "contribution": "componentes incluidos además del disco",
+          "component": "material adicional",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.included_components"
+          ]
+        },
+        {
+          "contribution": "contenido del libreto",
+          "component": "material adicional",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/10",
+      "question": "¿En qué idioma están las partes cantadas o habladas?",
+      "dimension": "idioma",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:ABIS_MUSIC.language"
+      ],
+      "applicability": "universal",
+      "rationale": "Informa sobre el contenido sin ser criterio central de elección.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:uso@me-3-3",
+      "resolving_info": [
+        {
+          "contribution": "idioma de la grabación",
+          "component": "idioma de las partes cantadas o habladas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.language"
+          ]
+        },
+        {
+          "contribution": "tipo de idioma declarado",
+          "component": "idioma de las partes cantadas o habladas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.language"
+          ]
+        },
+        {
+          "contribution": "letras de las canciones",
+          "component": "idioma de las partes cantadas o habladas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/11",
+      "question": "¿Quién es el compositor de las obras?",
+      "dimension": "compositor",
+      "trait": "identidad",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:ABIS_MUSIC.composer"
+      ],
+      "applicability": "si las obras no son del propio intérprete (música clásica, bandas sonoras, versiones…)",
+      "rationale": "Parte de cat.cd-de-musica/01 separada por la reglas 1 y 3 de D-060 (T-031): «si procede» corresponde a un hecho (obras de un compositor distinto del intérprete): requisito condicionado propio, que además toma otra importancia que el artista.",
+      "seed_importance": "principal",
+      "rule": "imp:identidad@me-3",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "nombre del compositor",
+          "component": "compositor",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.composer"
+          ]
+        },
+        {
+          "contribution": "créditos de autoría de cada pista",
+          "component": "compositor",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/12",
+      "question": "¿Cuándo se publicó originalmente la grabación?",
+      "dimension": "fecha de la grabación original",
+      "trait": "identidad",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Cuestión inferida (D-036) que sale de cat.cd-de-musica/04 por la regla 4 de D-060 (T-031): ABIS_MUSIC.publication_date es la fecha de la edición; la de la grabación original no tiene fuente: sale como inferida. Provisional hasta que la valide el entrenamiento.",
+      "seed_importance": "complementario",
+      "rule": "imp:identidad@me-3",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "año de publicación original de la grabación",
+          "component": "publicación original",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "año del aviso de fonograma",
+          "component": "publicación original",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/13",
+      "question": "¿Para qué región está codificado el DVD o el Blu-ray que incluye?",
+      "dimension": "código de región",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "si incluye un DVD o un Blu-ray",
+      "rationale": "Cuestión inferida (D-036) que sale de cat.cd-de-musica/07 por la reglas 2 y 4 de D-060 (T-031): el código de región del DVD depende de un hecho (que incluya DVD) y no tiene fuente: sale como inferida condicionada. Provisional hasta que la valide el entrenamiento.",
+      "seed_importance": "complementario",
+      "rule": "imp:uso@me-3-3",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "código de región del disco de vídeo",
+          "component": "región",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/14",
+      "question": "¿Es una grabación de estudio o en directo?",
+      "dimension": "estudio o directo",
+      "trait": "identidad",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:ABIS_MUSIC.format=En vivo"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.cd-de-musica/08 separada por la regla 3 de D-060 (T-031): estudio o directo (identidad) y el procesado (construcción) toman otro rasgo y otra importancia.",
+      "seed_importance": "principal",
+      "rule": "imp:identidad@me-3",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "indicación de grabación en directo",
+          "component": "estudio o en directo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.format=En vivo"
+          ]
+        },
+        {
+          "contribution": "lugar y fecha de la grabación",
+          "component": "estudio o en directo",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/15",
+      "question": "¿Qué presentación tiene (caja jewel, digipak, funda de cartón, cofre…)?",
+      "dimension": "presentación",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:ABIS_MUSIC.package_type_name",
+        "amazon-ptd-prop:ABIS_MUSIC.format=Cofre"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.cd-de-musica/09 separada por la regla 3 de D-060 (T-031): la presentación (construcción) y el material incluido (contenido) toman otro rasgo.",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@me-3",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "tipo de estuche o funda",
+          "component": "presentación",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.package_type_name"
+          ]
+        },
+        {
+          "contribution": "indicación de presentación en cofre",
+          "component": "presentación",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:ABIS_MUSIC.format=Cofre"
+          ]
+        },
+        {
+          "contribution": "material del estuche o funda",
+          "component": "presentación",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:ABIS_MUSIC.genre",
+      "reason": "Lo cubre shopify-attr:music-genre (cat.musica-y-grabaciones/02)."
+    },
+    {
+      "source": "amazon-ptd-prop:ABIS_MUSIC.binding",
+      "reason": "Lo cubre shopify-attr:media-format (cat.musica-y-grabaciones/01)."
+    },
+    {
+      "source": "amazon-ptd-prop:ABIS_MUSIC.format=Letras explícitas",
+      "reason": "Lo cubre shopify-attr:age-restrictions (cat.multimedia/01); también 'limpio'."
+    },
+    {
+      "source": "amazon-ptd-prop:ABIS_MUSIC.format=Banda sonora",
+      "reason": "Género; lo cubre cat.musica-y-grabaciones/02 (también 'clásico', 'Grabación de reparto', 'Karaoke')."
+    },
+    {
+      "source": "amazon-ptd-prop:ABIS_MUSIC.format=Audio MP3",
+      "reason": "Valores de otros soportes (MP3, blu-ray, LP Doble, Ringle) no describen un CD; el soporte lo cubre cat.musica-y-grabaciones/01."
+    },
+    {
+      "source": "amazon-ptd-prop:ABIS_MUSIC.vinyl_record_details",
+      "reason": "Detalles de discos de vinilo; no aplican a CD (están en cat.discos-y-lp)."
+    },
+    {
+      "source": "amazon-ptd-prop:ABIS_MUSIC.format=Recorte",
+      "reason": "Condición de la unidad (cut-out); la cubre gen.unidad-no-nueva."
+    },
+    {
+      "source": "amazon-ptd-prop:ABIS_MUSIC.manufacturer",
+      "reason": "El sello discográfico es la marca y el fabricante de la grabación: lo cubren gen/02 y gen/17."
+    },
+    {
+      "source": "amazon-ptd-prop:ABIS_MUSIC.subject_keyword",
+      "reason": "Dato de feed para búsqueda."
+    },
+    {
+      "source": "amazon-ptd-prop:ABIS_MUSIC.awards_won",
+      "reason": "Reclamo promocional; no es cuestión neutral para evaluar la oferta."
+    },
+    {
+      "source": "amazon-ptd-prop:ABIS_MUSIC.item_weight",
+      "reason": "Peso logístico; no informa sobre un CD."
+    },
+    {
+      "source": "amazon-ptd-prop:ABIS_MUSIC.format=Partitura",
+      "reason": "Valores de otros productos (partitura, película o producto licenciado de TV) que no describen un CD de música."
+    }
+  ],
+  "status": "compilado",
+  "version": "3",
+  "generated": "2026-10-26",
+  "compiled_by": "reglas 6"
+}

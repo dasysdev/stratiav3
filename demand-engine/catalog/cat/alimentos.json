@@ -1,0 +1,762 @@
+{
+  "id": "cat.alimentos",
+  "type": "categoría",
+  "name": "Alimentos",
+  "shopify": "fb-2",
+  "parent": "cat.alimentacion-bebida-y-tabaco",
+  "refs": [
+    "shopify:fb-2@v2026-08",
+    "google:422@2021-09-21",
+    "ley:UE-1169/2011-9.1@2011-10-25",
+    "ley:UE-1169/2011-14.1.a@2011-10-25"
+  ],
+  "requirements": [
+    {
+      "id": "cat.alimentos/01",
+      "question": "¿Cuál es la cantidad neta del envase (peso o volumen)?",
+      "dimension": "cantidad neta",
+      "entity": "variante",
+      "trait": "medida-que-fija",
+      "vote": "crítico",
+      "origin": "normativa",
+      "sources": [
+        "ley:UE-1169/2011-9.1.e@2011-10-25",
+        "ley:UE-1169/2011-14.1.a@2011-10-25",
+        "amazon-ptd-prop:FOOD.item_weight"
+      ],
+      "applicability": "universal (alimentos envasados)",
+      "rationale": "La cantidad neta fija lo que se vende y permite el precio por kilo o litro; en la venta a distancia debe estar disponible antes de la compra (D-043, criterio 1 y 3). La propiedad item_weight del PTD FOOD repite la dimensión y se cita aquí.",
+      "seed_importance": "crítico",
+      "importance": "crítico",
+      "rule": "marco:D-043.1/medida-que-fija",
+      "resolving_info": [
+        {
+          "contribution": "cantidad neta del alimento en peso o volumen",
+          "component": "cantidad neta",
+          "origin": "referencias",
+          "support": [
+            "ley:UE-1169/2011-9.1.e@2011-10-25",
+            "ley:UE-1169/2011-14.1.a@2011-10-25"
+          ]
+        },
+        {
+          "contribution": "peso del artículo sin envase, con su unidad",
+          "component": "cantidad neta",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:FOOD.item_weight"
+          ]
+        },
+        {
+          "contribution": "peso neto escurrido",
+          "component": "cantidad neta",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "número de unidades del envase y cantidad neta de cada una",
+          "component": "cantidad neta",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.alimentos/02",
+      "question": "¿Cuál es su lista de ingredientes?",
+      "dimension": "ingredientes",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "normativa",
+      "sources": [
+        "shopify-attr:ingredients",
+        "ley:UE-1169/2011-9.1.b@2011-10-25",
+        "amazon-ptd-prop:FOOD.ingredients",
+        "amazon-ptd-prop:FOOD.material"
+      ],
+      "applicability": "universal (alimentos envasados)",
+      "rationale": "La composición es el primer criterio de calidad con que se comparan alimentos y es información obligatoria antes de la compra a distancia. Los valores de Shopify del atributo son ajenos a la alimentación; vale la dimensión.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:material@fb-2",
+      "resolving_info": [
+        {
+          "contribution": "enumeración de los ingredientes",
+          "component": "lista de ingredientes",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:ingredients",
+            "ley:UE-1169/2011-9.1.b@2011-10-25",
+            "amazon-ptd-prop:FOOD.ingredients"
+          ]
+        },
+        {
+          "contribution": "materia prima principal",
+          "component": "lista de ingredientes",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:FOOD.material"
+          ]
+        },
+        {
+          "contribution": "categoría funcional y denominación de los aditivos",
+          "component": "lista de ingredientes",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:ingredients"
+          ]
+        },
+        {
+          "contribution": "ficha técnica o de especificaciones del producto",
+          "component": "lista de ingredientes",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.alimentos/03",
+      "question": "¿Qué alérgenos o sustancias que causan intolerancias contiene o puede contener?",
+      "dimension": "alérgenos",
+      "entity": "producto",
+      "trait": "seguridad",
+      "vote": "principal",
+      "origin": "normativa",
+      "sources": [
+        "shopify-attr:allergen-information",
+        "ley:UE-1169/2011-9.1.c@2011-10-25",
+        "amazon-ptd-prop:FOOD.allergen_information"
+      ],
+      "applicability": "universal",
+      "rationale": "Decide si el alimento es apto para el comprador alérgico; información obligatoria antes de la compra a distancia.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:seguridad@fb-2",
+      "resolving_info": [
+        {
+          "contribution": "sustancias o productos que causan alergias o intolerancias presentes en el alimento",
+          "component": "contiene",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:allergen-information",
+            "ley:UE-1169/2011-9.1.c@2011-10-25",
+            "amazon-ptd-prop:FOOD.allergen_information"
+          ]
+        },
+        {
+          "contribution": "advertencia de posible presencia de alérgenos por contaminación cruzada",
+          "component": "puede contener",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:allergen-information",
+            "amazon-ptd-prop:FOOD.allergen_information"
+          ]
+        },
+        {
+          "contribution": "declaración de ausencia de un alérgeno",
+          "component": "contiene",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:FOOD.allergen_information"
+          ]
+        },
+        {
+          "contribution": "alérgenos identificados dentro de la lista de ingredientes",
+          "component": "contiene",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.alimentos/04",
+      "question": "¿Cuál es su información nutricional (valor energético, grasas, hidratos de carbono, azúcares, proteínas y sal)?",
+      "dimension": "información nutricional",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "normativa",
+      "sources": [
+        "ley:UE-1169/2011-9.1.l@2011-10-25",
+        "amazon-ptd-prop:FOOD.nutritional_info"
+      ],
+      "applicability": "universal (alimentos envasados, salvo exenciones del anexo V del Reglamento 1169/2011)",
+      "rationale": "Permite comparar alimentos por su perfil nutricional; obligatoria antes de la compra a distancia. La propiedad nutritional_info del PTD FOOD repite la dimensión y se cita aquí porque vale para todos los alimentos.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:material@fb-2",
+      "resolving_info": [
+        {
+          "contribution": "valor energético",
+          "component": "valor energético",
+          "origin": "referencias",
+          "support": [
+            "ley:UE-1169/2011-9.1.l@2011-10-25",
+            "amazon-ptd-prop:FOOD.nutritional_info"
+          ]
+        },
+        {
+          "contribution": "cantidad de grasas y de ácidos grasos saturados",
+          "component": "grasas",
+          "origin": "referencias",
+          "support": [
+            "ley:UE-1169/2011-9.1.l@2011-10-25",
+            "amazon-ptd-prop:FOOD.nutritional_info"
+          ]
+        },
+        {
+          "contribution": "cantidad de hidratos de carbono",
+          "component": "hidratos de carbono",
+          "origin": "referencias",
+          "support": [
+            "ley:UE-1169/2011-9.1.l@2011-10-25",
+            "amazon-ptd-prop:FOOD.nutritional_info"
+          ]
+        },
+        {
+          "contribution": "cantidad de azúcares",
+          "component": "azúcares",
+          "origin": "referencias",
+          "support": [
+            "ley:UE-1169/2011-9.1.l@2011-10-25",
+            "amazon-ptd-prop:FOOD.nutritional_info"
+          ]
+        },
+        {
+          "contribution": "cantidad de proteínas",
+          "component": "proteínas",
+          "origin": "referencias",
+          "support": [
+            "ley:UE-1169/2011-9.1.l@2011-10-25",
+            "amazon-ptd-prop:FOOD.nutritional_info"
+          ]
+        },
+        {
+          "contribution": "cantidad de sal",
+          "component": "sal",
+          "origin": "referencias",
+          "support": [
+            "ley:UE-1169/2011-9.1.l@2011-10-25"
+          ]
+        },
+        {
+          "contribution": "tamaño de la ración y número de raciones del envase",
+          "component": "información nutricional",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:FOOD.nutritional_info"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.alimentos/05",
+      "question": "¿Cómo debe conservarse, antes y después de abrirlo, y en qué plazo debe consumirse una vez abierto?",
+      "dimension": "conservación",
+      "entity": "producto",
+      "trait": "cuidado",
+      "vote": "complementario",
+      "origin": "normativa",
+      "sources": [
+        "shopify-attr:storage-requirements",
+        "ley:UE-1169/2011-9.1.g@2011-10-25"
+      ],
+      "applicability": "universal",
+      "rationale": "Las condiciones especiales de conservación son información obligatoria cuando existen y condicionan el uso; rara vez deciden la elección.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:cuidado@fb-2",
+      "resolving_info": [
+        {
+          "contribution": "condiciones de conservación del envase cerrado",
+          "component": "conservación antes de abrirlo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:storage-requirements",
+            "ley:UE-1169/2011-9.1.g@2011-10-25"
+          ]
+        },
+        {
+          "contribution": "condiciones de conservación una vez abierto",
+          "component": "conservación después de abrirlo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:storage-requirements",
+            "ley:UE-1169/2011-9.1.g@2011-10-25"
+          ]
+        },
+        {
+          "contribution": "plazo de consumo una vez abierto",
+          "component": "plazo en que debe consumirse una vez abierto",
+          "origin": "referencias",
+          "support": [
+            "ley:UE-1169/2011-9.1.g@2011-10-25"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.alimentos/06",
+      "question": "¿De qué sabor es o cuál es su ingrediente característico?",
+      "dimension": "sabor",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:flavor"
+      ],
+      "applicability": "universal",
+      "rationale": "El sabor separa ofertas de una misma clase de alimento (mermelada de fresa frente a naranja) y es criterio de elección.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:material@fb-2",
+      "resolving_info": [
+        {
+          "contribution": "sabor del producto",
+          "component": "sabor",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:flavor"
+          ]
+        },
+        {
+          "contribution": "ingrediente que da el sabor característico",
+          "component": "ingrediente característico",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:flavor"
+          ]
+        },
+        {
+          "contribution": "denominación del alimento",
+          "component": "ingrediente característico",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.alimentos/07",
+      "question": "¿En qué forma se presenta (fresco, congelado, seco, en conserva, en polvo, molido…)?",
+      "dimension": "forma del alimento",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:food-product-form",
+        "amazon-ptd-prop:FOOD.item_form"
+      ],
+      "applicability": "universal",
+      "rationale": "La forma separa ofertas poco comparables entre sí y condiciona conservación y uso.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:identidad@fb-2",
+      "resolving_info": [
+        {
+          "contribution": "estado de conservación o tratamiento del alimento",
+          "component": "forma en que se presenta",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:food-product-form",
+            "amazon-ptd-prop:FOOD.item_form"
+          ]
+        },
+        {
+          "contribution": "forma física o grado de división del alimento",
+          "component": "forma en que se presenta",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:food-product-form",
+            "amazon-ptd-prop:FOOD.item_form"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.alimentos/08",
+      "question": "¿Es apto para dietas o restricciones concretas (sin gluten, sin lactosa, sin lácteos, sin frutos secos, sin soja, vegano, vegetariano, halal, kosher, cetogénico, paleo, sin alcohol)?",
+      "dimension": "aptitud dietética",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:dietary-preferences=Sin gluten",
+        "shopify-attr:dietary-preferences=Sin lactosa",
+        "shopify-attr:dietary-preferences=Sin lácteos",
+        "shopify-attr:dietary-preferences=Sin frutos secos",
+        "shopify-attr:dietary-preferences=Sin soja",
+        "shopify-attr:dietary-preferences=Vegano",
+        "shopify-attr:dietary-preferences=Vegetariano",
+        "shopify-attr:dietary-preferences=Halal",
+        "shopify-attr:dietary-preferences=Kosher",
+        "shopify-attr:dietary-preferences=Cetogénico",
+        "shopify-attr:dietary-preferences=Paleo",
+        "shopify-attr:dietary-preferences=Sin alcohol",
+        "amazon-ptd-prop:FOOD.diet_type"
+      ],
+      "applicability": "universal",
+      "rationale": "Decide si el alimento sirve al comprador con una dieta o restricción; criterio de filtrado frecuente. Atributo con valores de temas distintos dividido por tema (D-043, criterio 2).",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@fb-2",
+      "resolving_info": [
+        {
+          "contribution": "declaración de ausencia de un ingrediente o componente restringido",
+          "component": "dietas o restricciones",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dietary-preferences=Sin gluten",
+            "shopify-attr:dietary-preferences=Sin lactosa",
+            "shopify-attr:dietary-preferences=Sin lácteos",
+            "shopify-attr:dietary-preferences=Sin frutos secos",
+            "shopify-attr:dietary-preferences=Sin soja",
+            "shopify-attr:dietary-preferences=Sin alcohol",
+            "amazon-ptd-prop:FOOD.diet_type"
+          ]
+        },
+        {
+          "contribution": "declaración de aptitud para dieta vegana o vegetariana",
+          "component": "dietas o restricciones",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dietary-preferences=Vegano",
+            "shopify-attr:dietary-preferences=Vegetariano",
+            "amazon-ptd-prop:FOOD.diet_type"
+          ]
+        },
+        {
+          "contribution": "declaración de conformidad con preceptos religiosos",
+          "component": "dietas o restricciones",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dietary-preferences=Halal",
+            "shopify-attr:dietary-preferences=Kosher",
+            "amazon-ptd-prop:FOOD.diet_type"
+          ]
+        },
+        {
+          "contribution": "declaración de compatibilidad con un régimen dietético",
+          "component": "dietas o restricciones",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dietary-preferences=Cetogénico",
+            "shopify-attr:dietary-preferences=Paleo",
+            "amazon-ptd-prop:FOOD.diet_type"
+          ]
+        },
+        {
+          "contribution": "certificado o sello de la entidad que avala la aptitud",
+          "component": "dietas o restricciones",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.alimentos/09",
+      "question": "¿Qué declaraciones nutricionales hace (sin azúcar, bajo en grasa, bajo en sodio, alto en proteínas, grano integral, descafeinado)?",
+      "dimension": "declaraciones nutricionales",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:dietary-preferences=Sin azúcar",
+        "shopify-attr:dietary-preferences=Bajo en grasa",
+        "shopify-attr:dietary-preferences=Bajo en sodio",
+        "shopify-attr:dietary-preferences=Alto en proteínas",
+        "shopify-attr:dietary-preferences=Grano integral",
+        "shopify-attr:dietary-preferences=Descafeinado"
+      ],
+      "applicability": "universal",
+      "rationale": "Las declaraciones nutricionales distinguen ofertas, pero la información nutricional (cat.alimentos/04) ya resuelve lo central.",
+      "seed_importance": "complementario",
+      "importance": "principal",
+      "rule": "imp:material@fb-2",
+      "resolving_info": [
+        {
+          "contribution": "declaración de contenido bajo o nulo de un nutriente",
+          "component": "declaraciones nutricionales",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dietary-preferences=Sin azúcar",
+            "shopify-attr:dietary-preferences=Bajo en grasa",
+            "shopify-attr:dietary-preferences=Bajo en sodio"
+          ]
+        },
+        {
+          "contribution": "declaración de contenido alto de un nutriente",
+          "component": "declaraciones nutricionales",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dietary-preferences=Alto en proteínas"
+          ]
+        },
+        {
+          "contribution": "declaración de cereal integral",
+          "component": "declaraciones nutricionales",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dietary-preferences=Grano integral"
+          ]
+        },
+        {
+          "contribution": "declaración de descafeinado",
+          "component": "declaraciones nutricionales",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dietary-preferences=Descafeinado"
+          ]
+        },
+        {
+          "contribution": "información nutricional que respalda la declaración",
+          "component": "declaraciones nutricionales",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.alimentos/10",
+      "question": "¿Lleva aditivos o ingredientes artificiales (colorantes, conservantes, edulcorantes, sabores artificiales, glutamato) u organismos modificados genéticamente?",
+      "dimension": "aditivos y transgénicos",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:dietary-preferences=Sin colorantes artificiales",
+        "shopify-attr:dietary-preferences=Sin conservantes",
+        "shopify-attr:dietary-preferences=Sin edulcorantes artificiales",
+        "shopify-attr:dietary-preferences=Sin sabores artificiales",
+        "shopify-attr:dietary-preferences=Sin glutamato monosódico añadido",
+        "shopify-attr:dietary-preferences=No transgénico (Non-GMO)",
+        "amazon-ptd-prop:FOOD.specialty"
+      ],
+      "applicability": "universal",
+      "rationale": "La ausencia de aditivos es criterio de calidad percibida en muchas clases de alimentos; la lista de ingredientes (cat.alimentos/02) es la respuesta de fondo.",
+      "seed_importance": "complementario",
+      "importance": "principal",
+      "rule": "imp:material@fb-2",
+      "resolving_info": [
+        {
+          "contribution": "declaración de ausencia de aditivos o ingredientes artificiales",
+          "component": "aditivos o ingredientes artificiales",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dietary-preferences=Sin colorantes artificiales",
+            "shopify-attr:dietary-preferences=Sin conservantes",
+            "shopify-attr:dietary-preferences=Sin edulcorantes artificiales",
+            "shopify-attr:dietary-preferences=Sin sabores artificiales",
+            "shopify-attr:dietary-preferences=Sin glutamato monosódico añadido"
+          ]
+        },
+        {
+          "contribution": "declaración sobre la naturaleza del producto",
+          "component": "aditivos o ingredientes artificiales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:FOOD.specialty"
+          ]
+        },
+        {
+          "contribution": "declaración de ausencia de organismos modificados genéticamente",
+          "component": "organismos modificados genéticamente",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dietary-preferences=No transgénico (Non-GMO)"
+          ]
+        },
+        {
+          "contribution": "aditivos de la lista de ingredientes con su categoría y su denominación o número E",
+          "component": "aditivos o ingredientes artificiales",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "mención de ingredientes modificados genéticamente",
+          "component": "organismos modificados genéticamente",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.alimentos/11",
+      "question": "¿Qué origen o modo de producción declara (ecológico, de origen único, cultivo de montaña)?",
+      "dimension": "modo de producción",
+      "entity": "producto",
+      "trait": "certificacion-origen",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:dietary-preferences=Orgánico",
+        "shopify-attr:dietary-preferences=De origen único",
+        "shopify-attr:dietary-preferences=Cultivado a la sombra de la montaña"
+      ],
+      "applicability": "universal",
+      "rationale": "Valores del atributo de preferencias que tratan del origen o del modo de producción; la certificación en sí la pregunta cat.alimentacion-bebida-y-tabaco/01.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:certificacion-origen@fb",
+      "resolving_info": [
+        {
+          "contribution": "declaración de producción ecológica",
+          "component": "modo de producción",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dietary-preferences=Orgánico"
+          ]
+        },
+        {
+          "contribution": "declaración de origen único",
+          "component": "origen",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dietary-preferences=De origen único"
+          ]
+        },
+        {
+          "contribution": "declaración del método de cultivo",
+          "component": "modo de producción",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:dietary-preferences=Cultivado a la sombra de la montaña"
+          ]
+        },
+        {
+          "contribution": "logotipo ecológico con el código del organismo de control",
+          "component": "modo de producción",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "país o lugar de procedencia",
+          "component": "origen",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.alimentos/12",
+      "question": "¿Qué vida útil o fecha de consumo preferente o de caducidad tiene la unidad que se entrega?",
+      "dimension": "vida útil",
+      "entity": "variante",
+      "trait": "cuidado",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:FOOD.is_expiration_dated_product",
+        "amazon-ptd-prop:FOOD.product_expiration_type"
+      ],
+      "applicability": "universal",
+      "rationale": "La vida útil restante condiciona el valor de la oferta de un alimento. El Reglamento 1169/2011 (art. 14.1.a) no exige la fecha antes de la compra a distancia, por eso el origen es «referencias». Las propiedades del PTD FOOD valen para todos los alimentos y se suben a este bloque.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:cuidado@fb-2",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si el producto caduca",
+          "component": "vida útil",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:FOOD.is_expiration_dated_product"
+          ]
+        },
+        {
+          "contribution": "tipo de fecha o método de datación de la caducidad",
+          "component": "fecha de consumo preferente o de caducidad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:FOOD.product_expiration_type"
+          ]
+        },
+        {
+          "contribution": "duración de la vida útil",
+          "component": "vida útil",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:FOOD.product_expiration_type"
+          ]
+        },
+        {
+          "contribution": "fecha de consumo preferente o de caducidad del lote que se entrega",
+          "component": "fecha de consumo preferente o de caducidad",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "vida útil mínima garantizada en la entrega",
+          "component": "vida útil",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.alimentos/13",
+      "question": "¿Qué certificaciones de seguridad alimentaria o de aptitud del envase acredita (grado alimentario, sin BPA…)?",
+      "dimension": "certificaciones de seguridad",
+      "entity": "producto",
+      "trait": "seguridad",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:safety-certifications"
+      ],
+      "applicability": "universal",
+      "rationale": "En alimentos solo aplican los valores de aptitud alimentaria del producto y del envase; la mayoría de los valores del atributo (EN 71, ANSI/BIFMA) son ajenos.",
+      "seed_importance": "complementario",
+      "importance": "principal",
+      "rule": "imp:seguridad@fb-2",
+      "resolving_info": [
+        {
+          "contribution": "declaración de aptitud para el contacto con alimentos",
+          "component": "aptitud del envase",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:safety-certifications"
+          ]
+        },
+        {
+          "contribution": "declaración de ausencia de sustancias nocivas en el envase",
+          "component": "aptitud del envase",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:safety-certifications"
+          ]
+        },
+        {
+          "contribution": "certificación o aprobación de seguridad alimentaria y entidad que la otorga",
+          "component": "certificaciones de seguridad alimentaria",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:safety-certifications"
+          ]
+        },
+        {
+          "contribution": "certificado del fabricante en un esquema de seguridad alimentaria",
+          "component": "certificaciones de seguridad alimentaria",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "declaración de conformidad del envase con la normativa de materiales en contacto con alimentos",
+          "component": "aptitud del envase",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

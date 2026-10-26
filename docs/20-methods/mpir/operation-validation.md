@@ -3,9 +3,9 @@ id: mpir-operation-validation
 title: MPIR — cobertura, ciclo operativo, piloto, riesgos y entregables
 layer: method
 status: propuesta
-version: 1.0
-updated: 2026-10-24
-sources: [MPIR §11, MPIR §12, MPIR §14, MPIR §15, MPIR §16, MPIR §17, MPIR §18]
+version: 1.1
+updated: 2026-10-26
+sources: [MPIR §11, MPIR §12, MPIR §14, MPIR §15, MPIR §16, MPIR §17, MPIR §18, INTAKE 2026-10-26-open-issues-resolution]
 ---
 
 # MPIR — cobertura, ciclo operativo, piloto, riesgos y entregables
@@ -47,7 +47,7 @@ El cierre significa **suficiencia operativa de la iteración**, no demostración
 |---|---|---|
 | **0. Preparación** | Fijar clase, alcance, taxonomía de referencia, segmentos, panel y matriz de cobertura. | Plan de observación versionado. |
 | **1. Descubrimiento** | Inventariar recursos relevantes por ecommerce y perfil. | Lista de recursos candidatos, motivos y cobertura. |
-| **2. Captura** | Recuperar y preservar recursos, con renderizado selectivo si procede. | Corpus original versionado. |
+| **2. Captura** | Recuperar y preservar recursos, renderizados con navegador real ([D-073](../../30-governance/decisions.md#d-073)), con interacción si procede. | Corpus original versionado. |
 | **3. Estructuración** | Segmentar bloques y conservar entidades, tablas, filtros, relaciones y contexto. | Corpus estructurado de unidades informativas. |
 | **4. Anotación** | Detectar señales y proponer prácticas/cuestionamientos mediante reglas y análisis semántico. | Anotaciones candidatas ligadas a evidencias. |
 | **5. Revisión** | Comprobar interpretaciones y corregir omisiones, sobreinferencias o atribuciones. | Anotaciones sustentadas o descartadas. |
@@ -73,7 +73,7 @@ Cada observación conserva URL, localizador, fecha, texto o estructura exacta y 
 - **Prácticas observadas:** segmentar por terreno; explicar adecuación del agarre a superficies; comparar alternativas bajo condiciones de uso.
 - **Patrón normalizado:** utilización del **tipo y estado del terreno** para orientar la evaluación del agarre de las botas.
 - **Cuestión informativa candidata:** «¿Para qué tipos de superficie y condiciones de terreno está diseñado el agarre del calzado?».
-- **Aportación frente a taxonomía:** posible **profundización** de características de suela o agarre, al incorporar un alcance funcional y condiciones de aplicación que pueden no estar expresados en los atributos.
+- **Aportación al modelo de demanda frente a la taxonomía:** posible **profundización** de características de suela o agarre, al incorporar un alcance funcional y condiciones de aplicación que pueden no estar expresados en los atributos.
 
 La pregunta se traslada al proceso de construcción de demanda para decidir **pertinencia, objeto, alcance, aplicabilidad, posible solapamiento e importancia relativa**. Ni la repetición de tres señales ni su presencia en comparadores prueba que la cuestión sea crítica. Tampoco se concluye que un modelo determinado sea adecuado para roca húmeda: eso exigiría información sobre esa oferta concreta.
 
@@ -143,4 +143,4 @@ El MPIR constituye la **segunda base de referencia** para la construcción siste
 
 Se adopta una secuencia **captura original → corpus estructurado → interpretación semántica → consolidación de prácticas → contraste con taxonomía → inferencia justificada de requisitos**, ejecutable por lotes y con retroalimentación controlada. **No** se generan prácticas definitivas mientras se realiza el scraping ni se prescinde del original una vez interpretado.
 
-El éxito del método no se mide por el volumen de HTML acumulado ni por la cantidad de requisitos sugeridos, sino por **la capacidad de descubrir aportaciones informativas diferenciales, justificar su significado y alcance, y reconstruir cada inferencia desde fuentes comerciales concretas**.
+El éxito del método no se mide por el volumen de HTML acumulado ni por la cantidad de requisitos sugeridos, sino por **la capacidad de descubrir aportaciones informativas diferenciales al modelo de demanda, justificar su significado y alcance, y reconstruir cada inferencia desde fuentes comerciales concretas**.

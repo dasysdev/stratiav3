@@ -1,0 +1,88 @@
+{
+  "id": "cat.mantenimiento-cuidado-y-decoracion-de-vehiculos",
+  "type": "categoría",
+  "name": "Mantenimiento, cuidado y decoración de vehículos",
+  "shopify": "vp-1-5",
+  "parent": "cat.piezas-y-accesorios-para-vehiculos",
+  "refs": [
+    "shopify:vp-1-5@v2026-08",
+    "google:913@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.mantenimiento-cuidado-y-decoracion-de-vehiculos/01",
+      "question": "¿De qué color es?",
+      "dimension": "aspecto",
+      "entity": "producto",
+      "trait": "estetica",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:color"
+      ],
+      "applicability": "universal",
+      "rationale": "En decoración y fundas de vehículos el color es criterio de elección; en fluidos y productos de limpieza no suele informar. En el conjunto del sector es complementario; cada clase vota su relevancia. Si hay varios colores a elegir, lo cubre además gen.variantes.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:estetica@vp-1-5",
+      "resolving_info": [
+        {
+          "contribution": "color principal",
+          "component": "color",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:color"
+          ]
+        },
+        {
+          "contribution": "combinación de colores",
+          "component": "color",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:color"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.mantenimiento-cuidado-y-decoracion-de-vehiculos/02",
+      "question": "¿Qué estampado, patrón o motivo tiene?",
+      "dimension": "aspecto",
+      "entity": "producto",
+      "trait": "estetica",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:pattern"
+      ],
+      "applicability": "universal",
+      "rationale": "Informa en productos decorativos y fundas del sector; en fluidos y productos de mantenimiento no informa. Cada clase vota su relevancia.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:estetica@vp-1-5",
+      "resolving_info": [
+        {
+          "contribution": "tipo de estampado o patrón",
+          "component": "estampado, patrón o motivo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pattern"
+          ]
+        },
+        {
+          "contribution": "motivo representado",
+          "component": "estampado, patrón o motivo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pattern"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

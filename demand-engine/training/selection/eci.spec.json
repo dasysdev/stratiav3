@@ -1,0 +1,84 @@
+{
+  "store": "eci",
+  "base_url": "https://www.elcorteingles.es",
+  "sitemap": "https://www.elcorteingles.es/sgfm/statics-front/front-msh3-eci-es/contents/sitemap-variants/sitemap.xml.gz",
+  "follow_products": "/(?!entradas_|tarifa_plana_|tarjeta_regalo_|cajas_regalo_)[a-z_]+?_(mkp_)?products(_1)?\\.xml\\.gz$",
+  "follow_categories": "/(?!entradas_|tarifa_plana_|tarjeta_regalo_|cajas_regalo_)[a-z_]+?_categories\\.xml\\.gz$",
+  "product": "^https://www\\.elcorteingles\\.es/(?P<dept>[a-z0-9-]+)/(?P<id>A\\d+|MP_\\d+_[0-9A-Za-z]+)(?:-[^/]*?-pr)?-(?P<slug>[^/]+)/$",
+  "exclude_departments": [
+    "sneaker-room"
+  ],
+  "title_departments": [
+    "libros",
+    "cine",
+    "musica"
+  ],
+  "stopwords": [
+    "juego",
+    "set",
+    "pack",
+    "lote",
+    "kit",
+    "de",
+    "del",
+    "la",
+    "el",
+    "los",
+    "las",
+    "con",
+    "para",
+    "y",
+    "en",
+    "por",
+    "sin",
+    "unidades",
+    "uds",
+    "un",
+    "una",
+    "pares",
+    "par",
+    "dos",
+    "tres",
+    "cuatro",
+    "cinco",
+    "seis",
+    "mini",
+    "maxi",
+    "nuevo",
+    "nueva",
+    "original",
+    "super",
+    "coleccion",
+    "colecciones",
+    "all",
+    "accesorio",
+    "accesorios",
+    "mi"
+  ],
+  "exclude_types": [
+    "tarjeta"
+  ],
+  "seed": 20261025,
+  "categories": 100,
+  "per_category": 3,
+  "reserves": 2,
+  "pilot": 10,
+  "min_products": 20,
+  "require_store_category": true,
+  "pacing": {
+    "pause_s": [
+      10,
+      30
+    ],
+    "long_every": [
+      20,
+      30
+    ],
+    "long_pause_s": [
+      60,
+      180
+    ],
+    "daily_cap": 300,
+    "scroll": false
+  }
+}

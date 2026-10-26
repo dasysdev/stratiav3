@@ -1,0 +1,289 @@
+{
+  "id": "cat.confituras-y-gelatinas",
+  "type": "categoría",
+  "name": "Confituras y gelatinas",
+  "shopify": "fb-2-7-6",
+  "parent": "cat.salsas-y-cremas-para-untar",
+  "refs": [
+    "shopify:fb-2-7-6@v2026-08",
+    "google:2188@2021-09-21",
+    "amazon-ptd:FOOD@2026-10-24",
+    "amazon-btg:6372259031@2026-10-24",
+    "ley:ES-RD-863/2003@2003-07-04"
+  ],
+  "requirements": [
+    {
+      "id": "cat.confituras-y-gelatinas/01",
+      "question": "¿Qué tipo de preparación es (confitura, confitura extra, mermelada, jalea, compota, crema o mantequilla de frutas…)?",
+      "dimension": "tipo de preparación",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:spread-variety"
+      ],
+      "applicability": "universal",
+      "rationale": "Las denominaciones de estas preparaciones corresponden a recetas y contenidos de fruta distintos; separan ofertas poco comparables entre sí.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:identidad@fb-2",
+      "resolving_info": [
+        {
+          "contribution": "variedad de preparación para untar",
+          "component": "tipo de preparación",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:spread-variety"
+          ]
+        },
+        {
+          "contribution": "denominación de venta según la norma de calidad",
+          "component": "tipo de preparación",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.confituras-y-gelatinas/02",
+      "question": "¿Con cuántos gramos de fruta por cada 100 g se ha preparado y cuál es su contenido total de azúcares?",
+      "dimension": "contenido de fruta y de azúcares",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "normativa",
+      "sources": [
+        "ley:ES-RD-863/2003@2003-07-04"
+      ],
+      "applicability": "si es una confitura, jalea o mermelada de frutas en el ámbito de la norma de calidad",
+      "rationale": "La norma de calidad de confituras, jaleas y mermeladas obliga a indicar el contenido de fruta y el de azúcares totales; es el criterio con el que se comparan calidades dentro de la clase.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:material@fb-2",
+      "resolving_info": [
+        {
+          "contribution": "cantidad de fruta utilizada por cada 100 g de producto",
+          "component": "gramos de fruta por cada 100 g",
+          "origin": "referencias",
+          "support": [
+            "ley:ES-RD-863/2003@2003-07-04"
+          ]
+        },
+        {
+          "contribution": "contenido total de azúcares por cada 100 g",
+          "component": "contenido total de azúcares",
+          "origin": "referencias",
+          "support": [
+            "ley:ES-RD-863/2003@2003-07-04"
+          ]
+        },
+        {
+          "contribution": "información nutricional con la cantidad de azúcares",
+          "component": "contenido total de azúcares",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.confituras-y-gelatinas/03",
+      "question": "¿Para qué usos o combinaciones se recomienda (untar, repostería, acompañar quesos o postres…)?",
+      "dimension": "usos recomendados",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:FOOD.recommended_uses_for_product",
+        "amazon-ptd-prop:FOOD.serving_recommendation"
+      ],
+      "applicability": "universal",
+      "rationale": "Orienta sobre el uso de la preparación; relevante sin ser decisivo.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:uso@fb-2-7-6",
+      "resolving_info": [
+        {
+          "contribution": "usos recomendados por el fabricante",
+          "component": "usos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:FOOD.recommended_uses_for_product"
+          ]
+        },
+        {
+          "contribution": "productos con los que se recomienda combinarlo",
+          "component": "combinaciones",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "recetas o propuestas de uso",
+          "component": "usos",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.confituras-y-gelatinas/04",
+      "question": "¿En qué envase se presenta (tarro de vidrio, lata, tubo, monodosis…)?",
+      "dimension": "envase",
+      "entity": "variante",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:FOOD.container"
+      ],
+      "applicability": "universal",
+      "rationale": "El envase condiciona conservación, uso y presentación (regalo); complementario.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@fb-2-7",
+      "resolving_info": [
+        {
+          "contribution": "tipo de envase",
+          "component": "envase",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:FOOD.container"
+          ]
+        },
+        {
+          "contribution": "material del envase",
+          "component": "envase",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "shopify-attr:jam-and-jelly-consistency",
+      "reason": "Repite la consistencia de la madre; unido en cat.salsas-y-cremas-para-untar/01."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.material",
+      "reason": "Cubierto por los ingredientes (cat.alimentos/02)."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.color",
+      "reason": "El color de una confitura no informa sobre nada que importe al evaluar la oferta; lo resuelve el sabor."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.size",
+      "reason": "Cubierto por la cantidad neta (cat.alimentos/01)."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.number_of_pieces",
+      "reason": "Piezas o unidades incluidas: las cubre gen/01 (y esp.juego si procede)."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.each_unit_count",
+      "reason": "Unidades del paquete: las cubre gen/01."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.occasion_type",
+      "reason": "Ocasión de regalo: etiqueta de catálogo, no requisito informativo."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.denomination",
+      "reason": "Denominación del alimento: la cubre gen/01."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.rtip_manufacturer_contact_information",
+      "reason": "Cubierto por gen/17."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.design_name",
+      "reason": "Dato de feed."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.contains_food_or_beverage",
+      "reason": "Dato de plataforma."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.is_heat_sensitive",
+      "reason": "Logística."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.melting_temperature",
+      "reason": "Logística."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.temperature_rating",
+      "reason": "Logística de almacén; la conservación la pregunta cat.alimentos/05."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.nutritional_info",
+      "reason": "Sube a cat.alimentos/04."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.ingredients",
+      "reason": "Sube a cat.alimentos/02."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.allergen_information",
+      "reason": "Sube a cat.alimentos/03."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.is_expiration_dated_product",
+      "reason": "Sube a cat.alimentos/12."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.product_expiration_type",
+      "reason": "Sube a cat.alimentos/12."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.fc_shelf_life",
+      "reason": "Logística del centro de distribución."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.item_form",
+      "reason": "Sube a cat.alimentos/07."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.specialty",
+      "reason": "Sube a cat.alimentos/10."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.diet_type",
+      "reason": "Sube a cat.alimentos/08."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.item_weight",
+      "reason": "Sube a cat.alimentos/01."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.vintage",
+      "reason": "Cosecha: no aplica a la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.cuisine",
+      "reason": "Tipo de cocina: no informa sobre confituras."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.pattern",
+      "reason": "Patrón: no aplica a la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.grind_type",
+      "reason": "Molienda: no aplica a la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.package_size_name",
+      "reason": "Dato de feed."
+    },
+    {
+      "source": "amazon-ptd-prop:FOOD.safety_warning",
+      "reason": "Cubierto por gen/19."
+    }
+  ],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

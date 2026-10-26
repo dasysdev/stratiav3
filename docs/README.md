@@ -35,6 +35,7 @@ Orden de lectura recomendado:
 | 4 | [demand-model](10-model/demand-model.md) | Modelo de demanda, RI, importancia relativa, composición por bloques de requisitos, capa general, construcción, perfil de resolución y escenarios. |
 | 4b | [study-class](10-model/study-class.md) | Clase de estudio: eje de base, composición, criterio de especialización. Medio para descubrir los bloques del modelo. |
 | 4c | [model-training](10-model/model-training.md) | Entrenamiento (reglas inducidas, catálogo compilado) y ejecución automática del modelo de demanda; el marco que define la persona responsable. |
+| 4d | [resolving-information](10-model/resolving-information.md) | Información resolutiva: tipos de información que pueden resolver cada requisito, para localizar y recomendar; sus orígenes y la regla de aceptación. |
 | 5 | [evaluation-architecture](10-model/evaluation-architecture.md) | Dos naturalezas de requisitos, componentes y cadenas de análisis y justificación. |
 | 6 | [effective-availability](10-model/effective-availability.md) | Puerta binaria previa. |
 | 7 | [acceptance-criteria](10-model/acceptance-criteria.md) | Los seis AC y sus distinciones. |

@@ -10,26 +10,40 @@
     "amazon-ptd:SLIPPER@2026-10-24",
     "amazon-btg:2008202031@2026-10-24"
   ],
-  "version": "1",
+  "version": "4",
   "status": "compilado",
   "requirements": [
     {
       "id": "cat.pantuflas/01",
-      "question": "¿Qué tipo de zapatilla de casa es (cerrada, abierta o destalonada, chancla, botín, zueco, calcetín…) y qué altura tiene?",
+      "question": "¿Qué tipo de zapatilla de casa es (cerrada, abierta o destalonada, chancla, botín, zueco, calcetín…)?",
       "dimension": "tipo y altura",
       "trait": "identidad",
       "entity": "producto",
       "importance": "principal",
       "origin": "referencias",
       "sources": [
-        "shopify-attr:slipper-style",
-        "amazon-ptd-prop:SLIPPER.height_map",
-        "amazon-ptd-prop:SLIPPER.compliance_height_map"
+        "shopify-attr:slipper-style"
       ],
       "applicability": "universal",
-      "rationale": "El tipo es el primer criterio para comparar zapatillas de casa; la altura (baja, media, tipo botín) forma parte del mismo rasgo, por eso se unen. Se suma la propiedad de cumplimiento sobre la altura (cubre o no el tobillo). No sube a Calzado aunque height_map también está en BOOT: la altura no vale para todas las hijas de Calzado (sandalias, tacones, zapatos planos) (criterio 4).",
+      "rationale": "El tipo es el primer criterio para comparar zapatillas de casa; la altura (baja, media, tipo botín) forma parte del mismo rasgo, por eso se unen. Se suma la propiedad de cumplimiento sobre la altura (cubre o no el tobillo). No sube a Calzado aunque height_map también está en BOOT: la altura no vale para todas las hijas de Calzado (sandalias, tacones, zapatos planos) (criterio 4). Redacción con D-060 (T-031, regla 3): el tipo (identidad) y la altura (medida) toman otro rasgo.",
       "seed_importance": "principal",
-      "rule": "imp:identidad@aa-8"
+      "rule": "imp:identidad@aa-8-7",
+      "resolving_info": [
+        {
+          "contribution": "tipo o estilo de zapatilla de casa",
+          "component": "tipo de zapatilla de casa",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:slipper-style"
+          ]
+        },
+        {
+          "contribution": "indicación de si deja el talón o los dedos al descubierto",
+          "component": "tipo de zapatilla de casa",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.pantuflas/02",
@@ -45,7 +59,23 @@
       "applicability": "universal",
       "rationale": "Decide dónde se pueden usar y cuánto duran; es un criterio habitual para elegir zapatillas de casa. El material de la suela (cat.calzado/08) no basta para saberlo. La flexibilidad de la suela («Flexible») sube a cat.calzado/22 (criterio 4).",
       "seed_importance": "principal",
-      "rule": "imp:uso@aa"
+      "rule": "imp:uso@aa",
+      "resolving_info": [
+        {
+          "contribution": "declaración de suela exterior blanda",
+          "component": "tipo de suela",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SLIPPER.special_feature=Suave suela exterior"
+          ]
+        },
+        {
+          "contribution": "indicación de si es apta para exterior",
+          "component": "apta también para exterior",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.pantuflas/03",
@@ -63,7 +93,33 @@
       "applicability": "universal",
       "rationale": "En zapatillas de casa la calidez separa los modelos de invierno de los de verano y es criterio central de elección; el material del forro (cat.calzado/07) no basta para saberlo. No sube a Calzado aunque «Aislado» también está en BOOT (cat.botas/07): el abrigo no vale para todas las hijas de Calzado (sandalias, tacones…) (criterio 4); por eso se mantiene aquí como principal y en Botas como complementario.",
       "seed_importance": "principal",
-      "rule": "imp:prestacion@aa-8-7"
+      "rule": "imp:cat.pantuflas/03@aa-8-7",
+      "resolving_info": [
+        {
+          "contribution": "declaración de aislamiento térmico",
+          "component": "abrigo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SLIPPER.special_feature=Aislado"
+          ]
+        },
+        {
+          "contribution": "declaración de interior de peluche o borreguillo",
+          "component": "abrigo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SLIPPER.special_feature=Peluche"
+          ]
+        },
+        {
+          "contribution": "clase de peso o grosor del tejido",
+          "component": "abrigo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SLIPPER.apparel_fabric_weight_class"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.pantuflas/04",
@@ -80,24 +136,136 @@
       "applicability": "universal",
       "rationale": "Influye en el confort, que en esta clase se valora mucho; amplía cat.calzado/16. Se suma la propiedad de cumplimiento sobre la plantilla. No sube a Calzado aunque insole también está en BOOT (criterio 4 y D-040): Zapatos planos tiene insole-material como atributo propio de Shopify.",
       "seed_importance": "complementario",
-      "rule": "imp:material@aa-8"
+      "rule": "imp:material@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "material de la plantilla",
+          "component": "material de la plantilla",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SLIPPER.insole"
+          ]
+        },
+        {
+          "contribution": "categoría del material de la plantilla a efectos de etiquetado",
+          "component": "material de la plantilla",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SLIPPER.compliance_insole_material"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.pantuflas/06",
-      "question": "¿Qué tipo de cuero o piel es (ante, nobuk, piel de oveja…) y, si lleva piel con pelo, es natural o sintética y de qué animal?",
+      "question": "¿Qué tipo de cuero o piel es (ante, nobuk, piel de oveja…)?",
       "dimension": "tipo de cuero",
       "trait": "material",
       "entity": "producto",
       "importance": "complementario",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:SLIPPER.leather_type",
-        "amazon-ptd-prop:SLIPPER.fur"
+        "amazon-ptd-prop:SLIPPER.leather_type"
       ],
       "applicability": "si el exterior o el forro es de cuero o piel",
-      "rationale": "Desagrega el material cuando es cuero o piel. En zapatillas de casa es secundario frente al tipo y al abrigo (en botas se propone principal). Se suma fur (piel con pelo), candidato nuevo. No sube a Calzado aunque leather_type y fur también están en BOOT (criterio 4 y D-040): Zapatillas tiene upper-material (Cuero, Gamuza, Nobuk) como atributo propio de Shopify.",
+      "rationale": "Desagrega el material cuando es cuero o piel. En zapatillas de casa es secundario frente al tipo y al abrigo (en botas se propone principal). Se suma fur (piel con pelo), candidato nuevo. No sube a Calzado aunque leather_type y fur también están en BOOT (criterio 4 y D-040): Zapatillas tiene upper-material (Cuero, Gamuza, Nobuk) como atributo propio de Shopify. Redacción con D-060 (T-031, regla 2): la piel con pelo es un hecho que solo afecta a una parte: requisito condicionado propio.",
       "seed_importance": "complementario",
-      "rule": "imp:material@aa-8"
+      "rule": "imp:material@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "tipo de cuero o acabado de la piel",
+          "component": "tipo de cuero o piel",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SLIPPER.leather_type"
+          ]
+        },
+        {
+          "contribution": "animal del que procede el cuero o la piel",
+          "component": "tipo de cuero o piel",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SLIPPER.leather_type"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.pantuflas/17",
+      "question": "¿Qué altura tiene (por debajo del tobillo, hasta el tobillo o más alta)?",
+      "dimension": "altura",
+      "trait": "medida",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SLIPPER.height_map",
+        "amazon-ptd-prop:SLIPPER.compliance_height_map"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.pantuflas/01 separada por la regla 3 de D-060 (T-031): el tipo (identidad) y la altura (medida) toman otro rasgo.",
+      "seed_importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "categoría de altura de la caña",
+          "component": "altura",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SLIPPER.height_map"
+          ]
+        },
+        {
+          "contribution": "parte del pie o de la pierna que cubre",
+          "component": "altura",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SLIPPER.compliance_height_map"
+          ]
+        },
+        {
+          "contribution": "medida de la altura desde la suela",
+          "component": "altura",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.pantuflas/18",
+      "question": "¿La piel con pelo es natural o sintética y de qué animal procede?",
+      "dimension": "piel con pelo",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SLIPPER.fur"
+      ],
+      "applicability": "si lleva piel con pelo",
+      "rationale": "Parte de cat.pantuflas/06 separada por la regla 2 de D-060 (T-031): la piel con pelo es un hecho que solo afecta a una parte: requisito condicionado propio.",
+      "seed_importance": "complementario",
+      "rule": "imp:material@aa-8",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si la piel con pelo es natural o sintética",
+          "component": "natural o sintética",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SLIPPER.fur"
+          ]
+        },
+        {
+          "contribution": "especie animal de la que procede la piel",
+          "component": "de qué animal procede",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SLIPPER.fur"
+          ]
+        }
+      ]
     }
   ],
   "excluded": [
@@ -226,5 +394,5 @@
       "reason": "Movida a cat.calzado/08 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
     }
   ],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

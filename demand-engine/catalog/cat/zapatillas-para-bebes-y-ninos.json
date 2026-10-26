@@ -1,0 +1,713 @@
+{
+  "id": "cat.zapatillas-para-bebes-y-ninos",
+  "type": "categoría",
+  "name": "Zapatillas para bebés y niños",
+  "shopify": "aa-8-11-5",
+  "parent": "cat.calzado",
+  "refs": [
+    "shopify:aa-8-11-5@v2026-08",
+    "google:187@2021-09-21",
+    "amazon-ptd:SHOES@2026-10-24",
+    "amazon-btg:17516496031@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.zapatillas-para-bebes-y-ninos/01",
+      "question": "¿Qué tipo de zapatilla es (deportiva de uso diario, de lona, para correr, multideporte, con ruedas…)?",
+      "dimension": "tipo y uso de la zapatilla",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SHOES.shoe_type",
+        "amazon-ptd-prop:SHOES.special_feature=Con ruedas"
+      ],
+      "applicability": "universal",
+      "rationale": "Distingue la zapatilla de diario de la diseñada para un deporte; es criterio de elección en la clase. Redacción con D-060 (T-031, reglas 2 y 3): «si está pensada para un deporte» es un hecho que solo afecta a una parte, y el uso (uso) toma otro rasgo que el tipo (identidad); el nuevo requisito es universal: el uso diario también lo responde.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:identidad@aa-8-11-5",
+      "resolving_info": [
+        {
+          "contribution": "tipo de calzado o de zapatilla",
+          "component": "tipo de zapatilla",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.shoe_type"
+          ]
+        },
+        {
+          "contribution": "indicación de si lleva ruedas incorporadas",
+          "component": "tipo de zapatilla",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.special_feature=Con ruedas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.zapatillas-para-bebes-y-ninos/02",
+      "question": "¿Qué altura de caña tiene (corte bajo, media caña o caña alta)?",
+      "dimension": "altura de la caña",
+      "entity": "producto",
+      "trait": "medida",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SHOES.height_map",
+        "amazon-ptd-prop:SHOES.compliance_height_map",
+        "amazon-ptd-prop:SHOES.shaft"
+      ],
+      "applicability": "universal",
+      "rationale": "Las zapatillas se comparan y eligen por la altura del corte (sujeción del tobillo, facilidad para calzarse).",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "categoría de altura de la caña",
+          "component": "altura de caña",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.height_map",
+            "amazon-ptd-prop:SHOES.shaft"
+          ]
+        },
+        {
+          "contribution": "parte del pie o de la pierna que cubre",
+          "component": "altura de caña",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.compliance_height_map"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.zapatillas-para-bebes-y-ninos/03",
+      "question": "¿De qué material es la plantilla?",
+      "dimension": "plantilla",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SHOES.insole",
+        "amazon-ptd-prop:SHOES.compliance_inner_sole_material"
+      ],
+      "applicability": "universal",
+      "rationale": "La plantilla extraíble permite sustituirla o usar una ortopédica; dato propio del calzado cerrado, no recogido en la cadena. Redacción con D-060 (T-031, regla 3): el material (material) y que sea extraíble (construcción) toman otro rasgo.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:material@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "material de la plantilla",
+          "component": "material de la plantilla",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.insole"
+          ]
+        },
+        {
+          "contribution": "categoría del material de la plantilla a efectos de etiquetado",
+          "component": "material de la plantilla",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.compliance_inner_sole_material"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.zapatillas-para-bebes-y-ninos/04",
+      "question": "¿Qué tipo de cuero o piel lleva (ante, nobuk, serraje, charol…) o es sintético?",
+      "dimension": "tipo de cuero",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SHOES.leather_type",
+        "amazon-ptd-prop:SHOES.fur"
+      ],
+      "applicability": "si lleva cuero o piel",
+      "rationale": "Concreta el material del corte (cat.calzado/04) cuando es cuero; se repite en hermanas (botas, pantuflas) según el criterio 4.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:material@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "tipo de cuero o acabado de la piel",
+          "component": "tipo de cuero o piel",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.leather_type"
+          ]
+        },
+        {
+          "contribution": "tipo de piel con pelo",
+          "component": "tipo de cuero o piel",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.fur"
+          ]
+        },
+        {
+          "contribution": "indicación de si el cuero o la piel es natural o sintético",
+          "component": "o es sintético",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.leather_type",
+            "amazon-ptd-prop:SHOES.fur"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.zapatillas-para-bebes-y-ninos/05",
+      "question": "¿Para qué superficies o entorno está pensada la suela (calle, interior, multisuelo, tierra…)?",
+      "dimension": "superficie de uso",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SHOES.surface_recommendation",
+        "amazon-ptd-prop:SHOES.special_feature=Agarre para todo clima"
+      ],
+      "applicability": "universal",
+      "rationale": "La zapatilla infantil se usa en patio, gimnasio escolar o calle; la suela que no marca es requisito en algunos usos. Redacción con D-060 (T-031, regla 3): dejar marcas (prestación) toma otro rasgo que la superficie de uso (uso).",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:uso@aa-8-11-5",
+      "resolving_info": [
+        {
+          "contribution": "superficies o terrenos para los que está pensada la suela",
+          "component": "superficies",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.surface_recommendation"
+          ]
+        },
+        {
+          "contribution": "declaración de agarre en cualquier condición meteorológica",
+          "component": "entorno",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.special_feature=Agarre para todo clima"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.zapatillas-para-bebes-y-ninos/06",
+      "question": "¿Para qué temporada está pensada (verano, invierno, todo el año)?",
+      "dimension": "temporada",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SHOES.seasons"
+      ],
+      "applicability": "universal",
+      "rationale": "Orienta sobre abrigo y transpiración del modelo.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:uso@aa-8-11-5",
+      "resolving_info": [
+        {
+          "contribution": "temporada o estaciones para las que está pensada",
+          "component": "temporada",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.seasons"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.zapatillas-para-bebes-y-ninos/07",
+      "question": "¿Lleva luces o elementos luminosos o reflectantes?",
+      "dimension": "elementos luminosos",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SHOES.special_feature=Se ilumina",
+        "amazon-ptd-prop:SHOES.special_feature=Reflectante"
+      ],
+      "applicability": "universal",
+      "rationale": "Característica frecuente en la zapatilla infantil (luces en la suela, reflectantes de visibilidad); el «no» la resuelve.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@aa-8",
+      "resolving_info": [
+        {
+          "contribution": "declaración de luces o elementos luminosos",
+          "component": "luces o elementos luminosos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.special_feature=Se ilumina"
+          ]
+        },
+        {
+          "contribution": "declaración de elementos reflectantes",
+          "component": "reflectantes",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.special_feature=Reflectante"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.zapatillas-para-bebes-y-ninos/08",
+      "question": "¿Para qué uso, deporte o actividad está pensada (uso diario, correr, baloncesto, senderismo…)?",
+      "dimension": "uso previsto",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SHOES.specific_uses_for_product",
+        "amazon-ptd-prop:SHOES.sport_type"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.zapatillas-para-bebes-y-ninos/01 separada por la reglas 2 y 3 de D-060 (T-031): «si está pensada para un deporte» es un hecho que solo afecta a una parte, y el uso (uso) toma otro rasgo que el tipo (identidad); el nuevo requisito es universal: el uso diario también lo responde.",
+      "seed_importance": "complementario",
+      "rule": "imp:uso@aa-8-11-5",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "uso o actividad para la que está pensada",
+          "component": "uso o actividad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.specific_uses_for_product"
+          ]
+        },
+        {
+          "contribution": "deporte para el que está diseñada",
+          "component": "deporte",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.sport_type"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.zapatillas-para-bebes-y-ninos/09",
+      "question": "¿Es extraíble la plantilla?",
+      "dimension": "plantilla extraíble",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SHOES.special_feature=Plantilla extraíble"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.zapatillas-para-bebes-y-ninos/03 separada por la regla 3 de D-060 (T-031): el material (material) y que sea extraíble (construcción) toman otro rasgo.",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@aa-8-11-5",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si la plantilla es extraíble",
+          "component": "plantilla extraíble",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.special_feature=Plantilla extraíble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.zapatillas-para-bebes-y-ninos/10",
+      "question": "¿Deja marcas en suelos de interior?",
+      "dimension": "marcas en el suelo",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SHOES.special_feature=No marca"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.zapatillas-para-bebes-y-ninos/05 separada por la regla 3 de D-060 (T-031): dejar marcas (prestación) toma otro rasgo que la superficie de uso (uso).",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@aa-8",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "declaración de suela que no deja marcas",
+          "component": "deja marcas en suelos de interior",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SHOES.special_feature=No marca"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:SHOES.material",
+      "reason": "cubierto por cat.calzado/04 (material del corte)"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.outer",
+      "reason": "cubierto por cat.calzado/04"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.lining_description",
+      "reason": "cubierto por cat.calzado/07"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.sole_material",
+      "reason": "cubierto por cat.calzado/08"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.water_resistance_level",
+      "reason": "cubierto por cat.calzado/14"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_size_type",
+      "reason": "cubierto por cat.calzado/03 (grupo de edad)"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.footwear_size",
+      "reason": "cubierto por cat.calzado/01"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.shoe_width",
+      "reason": "cubierto por cat.calzado/02"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Puntera ancha",
+      "reason": "cubierto por cat.calzado/02"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.toe_style",
+      "reason": "cubierto por cat.calzado/10 y cat.calzado/06"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_toe_style",
+      "reason": "cubierto por cat.calzado/06 y /10; dato aduanero"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.item_weight",
+      "reason": "cubierto por cat.calzado/18"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Ligeros",
+      "reason": "cubierto por cat.calzado/18"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.lifestyle",
+      "reason": "cubierto por cat.calzado/12 (ocasión o estilo)"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.formality_level",
+      "reason": "cubierto por cat.calzado/12"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.occasion_type",
+      "reason": "festividad o evento: no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.holiday_type",
+      "reason": "festividad: no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.life_event",
+      "reason": "evento de la vida: no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.heel",
+      "reason": "cubierto por cat.calzado/05 (altura de tacón)"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.footwear_platform_height",
+      "reason": "cubierto por cat.calzado/05"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.heel_drop",
+      "reason": "dato técnico de calzado de carrera de adulto; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.cushioning_level",
+      "reason": "cubierto por cat.calzado/16 (amortiguación)"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.insole_cushioning",
+      "reason": "cubierto por cat.calzado/16"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.arch_type",
+      "reason": "cubierto por cat.calzado/16 (soporte del arco)"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.pronation_correction",
+      "reason": "cubierto por cat.calzado/16; propio del calzado de carrera de adulto"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Acolchonada",
+      "reason": "cubierto por cat.calzado/16"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Arch Fit",
+      "reason": "cubierto por cat.calzado/16; nombre comercial"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Ortopédico",
+      "reason": "cubierto por cat.calzado/16"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Antideslizante",
+      "reason": "cubierto por cat.calzado/15"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=antimicrobiano",
+      "reason": "cubierto por cat.calzado/17"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Transpirable",
+      "reason": "cubierto por cat.calzado/17"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Resistente a los olores",
+      "reason": "cubierto por cat.calzado/17"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Resistente al agua",
+      "reason": "cubierto por cat.calzado/14"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Secado rápido",
+      "reason": "cubierto por cat.calzado/14 y /17"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Flexible",
+      "reason": "cubierto por cat.calzado/22"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Resistente a la abrasión",
+      "reason": "cubierto por cat.calzado/23"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Resistente a las manchas",
+      "reason": "cubierto por cat.calzado/23"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Lavable",
+      "reason": "cubierto por cat.calzado/13"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Elástico",
+      "reason": "cubierto por cat.calzado/09 (cierre)"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Manos libres",
+      "reason": "cubierto por cat.calzado/09 (cierre)"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.lace_closure",
+      "reason": "cubierto por cat.calzado/09"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.lace_ends",
+      "reason": "detalle de los cordones; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.has_shoe_adjustability",
+      "reason": "cubierto por cat.calzado/09"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.strap_type",
+      "reason": "propio de sandalias; no se aplica a la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.stitching_style",
+      "reason": "estilo de costura de prendas; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.finish_type",
+      "reason": "acabado visual menor; color y estampado ya en la cadena"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=crystal",
+      "reason": "adorno; estética ya cubierta por la cadena"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=studs",
+      "reason": "adorno; estética ya cubierta por la cadena"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.ring",
+      "reason": "dato de plataforma sin relación con la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.lens",
+      "reason": "dato de plataforma sin relación con la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.cleat",
+      "reason": "propio de botas de tacos; no se aplica a la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.hand_orientation",
+      "reason": "dato de plataforma sin relación con la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.product_grade",
+      "reason": "dato de plataforma; el estado lo cubre la capa general"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_upper_height",
+      "reason": "dato aduanero; la altura la cubre /02"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_upper_manufacturing_process",
+      "reason": "dato aduanero; cubierto por cat.calzado/11"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_upper_material",
+      "reason": "dato aduanero; cubierto por cat.calzado/04"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_upper_textile_material",
+      "reason": "dato aduanero; cubierto por cat.calzado/04"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_upper_weave_design",
+      "reason": "dato aduanero; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_waterproof_footwear_type",
+      "reason": "dato aduanero; cubierto por cat.calzado/14"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_footwear_coating_material",
+      "reason": "dato aduanero; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_shoe_special_feature",
+      "reason": "dato aduanero; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_shoe_type",
+      "reason": "dato aduanero; el tipo lo cubre /01"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_is_disposable",
+      "reason": "dato aduanero; no se aplica a la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_sole_construction_type",
+      "reason": "dato aduanero; cubierto por cat.calzado/11"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_sole_material",
+      "reason": "dato aduanero; cubierto por cat.calzado/08"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_band_application",
+      "reason": "dato aduanero; cubierto por cat.calzado/11"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_upper_textile_coverage",
+      "reason": "dato aduanero; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.compliance_upper_textile_grammage",
+      "reason": "dato aduanero; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Disipativo estático",
+      "reason": "protección de calzado de trabajo; no se aplica a la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Protector metatarsiano",
+      "reason": "protección de calzado de trabajo; no se aplica a la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Puntera compuesta",
+      "reason": "protección de calzado de trabajo; cubierto por cat.calzado/06"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Resistente a golpes",
+      "reason": "protección de calzado de trabajo; no se aplica a la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Resistente a las llamas",
+      "reason": "protección de calzado de trabajo; no se aplica a la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Resistente a los productos químicos",
+      "reason": "protección de calzado de trabajo; no se aplica a la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Resistente a pinchazos",
+      "reason": "protección de calzado de trabajo; no se aplica a la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Resistente al aceite",
+      "reason": "protección de calzado de trabajo; no se aplica a la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Resistente al calor",
+      "reason": "protección de calzado de trabajo; no se aplica a la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Seguro contra riesgos eléctricos",
+      "reason": "protección de calzado de trabajo; no se aplica a la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Sin clavos",
+      "reason": "calzado de trabajo; no se aplica a la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Dedo separado",
+      "reason": "tipo de calzado minoritario de adulto; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Zero Drop",
+      "reason": "calzado de carrera de adulto; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Sensación de pies descalzos",
+      "reason": "calzado minimalista de adulto; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Suela basculante",
+      "reason": "calzado de adulto; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=hidden_height_increase",
+      "reason": "alza oculta de adulto; no se aplica a la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Rieles guía",
+      "reason": "calzado de carrera de adulto; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=Plegable",
+      "reason": "propio de bailarinas o calzado de viaje; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:SHOES.special_feature=uv_protection",
+      "reason": "propio de calzado acuático; no informa sobre la clase"
+    }
+  ],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

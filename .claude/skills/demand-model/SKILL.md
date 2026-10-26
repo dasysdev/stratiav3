@@ -1,6 +1,6 @@
 ---
 name: demand-model
-description: Construye el modelo de demanda de un producto real a partir de la URL de su ficha con el motor de demanda (primera versión, D-045). Congela la ficha, lanza el clasificador (reglamento v2), genera los bloques que falten y ensambla el modelo con el catálogo compilado y las reglas de importancia. Úsala cuando el usuario pida el modelo de demanda, los requisitos informativos o la clase de una URL de producto, o probar el motor con un producto real.
+description: Construye el modelo de demanda de un producto real a partir de la URL de su ficha con el motor de demanda (primera versión, D-045). Congela la ficha, lanza el clasificador (reglamento v3), genera los bloques que falten y ensambla el modelo con el catálogo compilado y las reglas de importancia. Úsala cuando el usuario pida el modelo de demanda, los requisitos informativos o la clase de una URL de producto, o probar el motor con un producto real.
 ---
 
 # demand-model — modelo de demanda de un producto real

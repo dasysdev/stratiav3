@@ -3,9 +3,9 @@ id: product-taxonomy-cases
 title: Taxonomía — casos de evaluación de la clase de estudio
 layer: method
 status: propuesta
-version: 1.6
-updated: 2026-10-25
-sources: [INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-offer-application]
+version: 1.12
+updated: 2026-10-26
+sources: [INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-26-general-layer-issues, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-26-model-name-full-composition]
 ---
 
 # Taxonomía — casos de evaluación de la clase de estudio
@@ -82,11 +82,11 @@ Observaciones (no son reglas): lo que distingue a Sofás cama solo lo recoge Ama
 |---|---|---|
 | Sofás (`fr-22` = Google `460`) | No encaja en ninguna hija | Clase general |
 | Reclinable | Shopify `reclining-mechanism`; PTD `SOFA` `seat_recline`, `reclining_seat_count`, `reclining_position_count`, `furniture_wall_clearance` | Valor que condiciona: mecanismo, posiciones y espacio necesario están en la base ([D-037](../../30-governance/decisions.md#d-037)) |
-| Tapicería de piel | — (⚠ Ver [I-13](../../30-governance/issues.md#i-13)) | Especialización: trae tipo y acabado de la piel ([D-026](../../30-governance/decisions.md#d-026)) |
+| Tapicería de piel | Shopify `material` de Sofás («Piel», «Cuero»); PTD `SOFA` `upholstery.fabric_type` = «Cuero» ([D-071](../../30-governance/decisions.md#d-071)) | Especialización: trae tipo y acabado de la piel ([D-026](../../30-governance/decisions.md#d-026)) |
 | Outlet: unidad de exposición | Capa general: estado de la unidad, garantía, devoluciones, descuento ([D-034](../../30-governance/decisions.md#d-034)) | Valor de la oferta que activa las cuestiones condicionadas de unidad no nueva: aplicación de la oferta, no especialización ([D-037](../../30-governance/decisions.md#d-037)) |
 | «Cinema» | Solo en el nombre comercial | No declarado |
 
-**Clase de estudio:** Sofás → tapicería de piel. Modelo de demanda: «Sofás · tapicería de piel»; aplicación de la oferta: unidad no nueva, con descuento, cantidad limitada ([D-047](../../30-governance/decisions.md#d-047)).
+**Clase de estudio:** Sofás → tapicería de piel. Modelo de demanda: «Mobiliario › Sofás · tapicería de piel» ([D-077](../../30-governance/decisions.md#d-077)); aplicación de la oferta: unidad no nueva, con descuento, cantidad limitada ([D-047](../../30-governance/decisions.md#d-047); anterior a [D-066](../../30-governance/decisions.md#d-066), que añade garantía comercial, asistencia posventa y opiniones publicadas).
 
 ## Juego de funda nórdica
 
@@ -97,7 +97,7 @@ Observaciones (no son reglas): lo que distingue a Sofás cama solo lo recoge Ama
 | Fundas de nórdico (`hg-15-1-5` = Google `2541`) | Tiene `bedding-pieces-included` y `fabric-weave` | Entra (funda nórdica) |
 | Sábanas ajustables | — | Entra (bajera) |
 | Fundas de almohada | — | Entra (fundas) |
-| Juego | Amazon `3250005031` «Juegos de fundas para edredón», PTD `BED_LINEN_SET` (`included_components`, `number_of_pieces`; también `thread` y `weave_type`) | Especialización: aporta qué piezas incluye, cuántas y en qué medidas ([D-023](../../30-governance/decisions.md#d-023), [D-032](../../30-governance/decisions.md#d-032)) |
+| Juego | Amazon `3250005031` «Juegos de fundas para edredón», PTD `BED_LINEN_SET` (`included_components`, `number_of_pieces`; también `thread` y `weave_type`) | Especialización: aporta qué piezas incluye y cuántas de cada una; las medidas, los bloques de cada pieza ([D-086](../../30-governance/decisions.md#d-086)) ([D-023](../../30-governance/decisions.md#d-023), [D-032](../../30-governance/decisions.md#d-032)) |
 | Algodón, 144 hilos | — | Valores: «número de hilos, ligamento y gramaje ya están en la base» ([D-026](../../30-governance/decisions.md#d-026)) |
 | Estampado, 32 cm, medidas | — | Valores o variantes |
 
@@ -193,7 +193,7 @@ Observaciones (no son reglas): lo que distingue a Sofás cama solo lo recoge Ama
 | Componente o candidata | Apoyo en las referencias | Resultado |
 |---|---|---|
 | Fundas de nórdico (`hg-15-1-5` = Google `2541`) + Sábanas ajustables + Fundas de almohada | Una categoría por pieza | Clase general (composición por piezas) |
-| Juego | Amazon `3250005031` «Juegos de fundas para edredón», PTD `BED_LINEN_SET` (`included_components`, `number_of_pieces`) | Especialización: aporta qué piezas incluye, cuántas y en qué medidas |
+| Juego | Amazon `3250005031` «Juegos de fundas para edredón», PTD `BED_LINEN_SET` (`included_components`, `number_of_pieces`) | Especialización: aporta qué piezas incluye y cuántas de cada una; las medidas, los bloques de cada pieza ([D-086](../../30-governance/decisions.md#d-086)) |
 | Juegos de cama (`hg-15-1-11`) | Sus atributos distintivos son `warmth-level`, «del edredón o la colcha», y `material-treatment`. Amazon separa los juegos de edredón o colcha (PTD `BEDDING_SET`, con `fill_material`) de los juegos de fundas (`BED_LINEN_SET`) | No entra: no aporta requisitos y traería uno que no aplica (el nivel de calidez, en un juego de fundas sin relleno); tampoco tiene sentido por denominación ([D-032](../../30-governance/decisions.md#d-032)) |
 | Percal, 200 hilos | Shopify `fabric-weave`; `BED_LINEN_SET` `weave_type` y `thread` | Valores |
 | Mercerizado | Dimensión de acabado en `BED_LINEN_SET` (`finish_type`) | Respuesta a un requisito de la categoría con origen «referencias» (`amazon-ptd-prop:BED_LINEN_SET.finish_type`, [D-039](../../30-governance/decisions.md#d-039)) |

@@ -3,9 +3,9 @@ id: demand-model
 title: Modelo de demanda y requisitos informativos
 layer: model
 status: vigente
-version: 2.7
-updated: 2026-10-25
-sources: [BASE §4, FUND §3, FUND §11.1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-block-catalog, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-25-relevance-origin]
+version: 2.21
+updated: 2026-10-26
+sources: [BASE §4, FUND §3, FUND §11.1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-block-catalog, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-26-question-formulation, INTAKE 2026-10-26-answer-form, INTAKE 2026-10-26-resolving-information, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-issues, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-26-model-name-full-composition]
 ---
 
 # Modelo de demanda y requisitos informativos
@@ -32,7 +32,7 @@ Cada RI se caracteriza por:
 - **Objeto, alcance y aplicabilidad:** entidad o condición sobre la que se pregunta (producto, variante, oferta, vendedor o circunstancia comercial) y situaciones en las que procede evaluarlo.
 - **Importancia relativa:** papel de su resolución en la evaluación general de la clase.
 
-Para documentarlo operativamente, el catálogo puede registrar además: identificador, clase de oferta, formulación exacta, fundamento, tipos de información potencialmente resolutiva e **interfaces pertinentes**.
+Para documentarlo operativamente, el catálogo puede registrar además: identificador, clase de oferta, formulación exacta, fundamento e **interfaces pertinentes**. Los tipos de información potencialmente resolutiva, en cambio, los registra siempre: son la **[información resolutiva](resolving-information.md)** del requisito, una lista de aportaciones resolutivas ([D-064](../30-governance/decisions.md#d-064)) que sirve para localizar información pertinente y recomendar ([D-062](../30-governance/decisions.md#d-062), [D-063](../30-governance/decisions.md#d-063); aún no se registra en el catálogo).
 
 ### Importancia relativa
 
@@ -65,7 +65,7 @@ Desarrollo de FUND §3.3:
 
 > **Confianza e importancia:** la confianza en un requisito es independiente de su importancia: un requisito dudoso no se baja de nivel por dudoso. — INTAKE 2026-10-25-requirement-blocks
 
-Pruebas operativas de importancia (propuesta): [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#pruebas-de-importancia) ([D-035](../30-governance/decisions.md#d-035)).
+Pruebas operativas de importancia (propuesta): [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#pruebas-de-importancia) ([D-035](../30-governance/decisions.md#d-035)). Reglas de formulación de las cuestiones del catálogo (propuesta): [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formulación-de-las-cuestiones) ([D-060](../30-governance/decisions.md#d-060)).
 
 ## Distinciones
 
@@ -109,18 +109,22 @@ La clase sobre la que se construye el modelo es la **clase de estudio**: clase g
 >
 > — INTAKE 2026-10-25-offer-application (propuestas de Claude aprobadas)
 
-Todo modelo incluye la capa general completa, universal y condicionada con su disparador. Lo que distingue un modelo son sus bloques de categoría y de especialización y los condicionados del producto (elementos digitales). La **aplicación** es la lista de condiciones de la oferta que se dan: variantes ofrecidas, unidad no nueva, descuento, cantidad limitada, precio personalizado o suscripción. Lo que se audita es la oferta: el modelo de su producto más su aplicación. El modelo solo incluye cuestiones relevantes para la clase: lo que no lo es sale por el [filtro de relevancia](model-training.md#relevancia) ([D-050](../30-governance/decisions.md#d-050)). Cuándo vale como «no» lo que la ficha no declara lo fija la auditoría ([OQ-50](../30-governance/open-questions.md)). Una cuestión que solo trae una condición de la oferta es un requisito condicionado de la clase, como la salud de la batería de un smartphone reacondicionado (ejemplo hipotético) ([D-047](../30-governance/decisions.md#d-047), [D-048](../30-governance/decisions.md#d-048)). Las categorías por clasificación objetiva que no aportan requisitos son [alias](study-class.md#composición-de-la-clase). Pila de bloques: capa general → sector → clase → especializaciones ([D-033](../30-governance/decisions.md#d-033)). Sector y categoría son un mismo tipo de bloque, con los atributos propios de una categoría de Shopify que no lista ninguna de sus madres ([D-040](../30-governance/decisions.md#d-040)), y se distinguen por su posición: los de las madres forman el sector; así la base heredada ([D-029](../30-governance/decisions.md#d-029)) no se cuenta dos veces ([D-038](../30-governance/decisions.md#d-038)). Un atributo repetido en varios niveles va siempre al bloque de la categoría más general que lo lista, y los bloques de categoría salen de un catálogo generado con la herramienta y compilado en el entrenamiento; si falta la categoría, en ejecución se genera con las reglas vigentes y se usa en estado «no compilado» (si su rama no tiene regla, la importancia es el voto del agente, provisional) ([D-040](../30-governance/decisions.md#d-040), [D-041](../30-governance/decisions.md#d-041), [D-044](../30-governance/decisions.md#d-044), [D-045](../30-governance/decisions.md#d-045)).
+Todo modelo incluye la capa general completa, universal y condicionada con su disparador. Lo que distingue un modelo son sus bloques de categoría y de especialización y los condicionados del producto (elementos digitales). La **aplicación** es la lista de condiciones de la oferta que se dan: variantes ofrecidas, unidad no nueva, descuento, cantidad limitada, garantía comercial, asistencia posventa, opiniones publicadas, precio personalizado o suscripción ([D-066](../30-governance/decisions.md#d-066)). Los cambios no son una condición de la oferta: son condiciones de devolución y cambio ([D-085](../30-governance/decisions.md#d-085)). Lo que se audita es la oferta: el modelo de su producto más su aplicación. El modelo solo incluye cuestiones relevantes para la clase: lo que no lo es sale por el [filtro de relevancia](model-training.md#relevancia) ([D-050](../30-governance/decisions.md#d-050)). Cuándo vale como «no» lo que la ficha no declara lo fija la auditoría ([OQ-50](../30-governance/open-questions.md)). Una cuestión que solo trae una condición de la oferta es un requisito condicionado de la clase, como la salud de la batería de un smartphone reacondicionado (ejemplo hipotético) ([D-047](../30-governance/decisions.md#d-047), [D-048](../30-governance/decisions.md#d-048)). Las categorías por clasificación objetiva que no aportan requisitos son [alias](study-class.md#composición-de-la-clase). Pila de bloques: capa general → sector → clase → especializaciones ([D-033](../30-governance/decisions.md#d-033)). Sector y categoría son un mismo tipo de bloque, con los atributos propios de una categoría de Shopify que no lista ninguna de sus madres ([D-040](../30-governance/decisions.md#d-040)), y se distinguen por su posición: los de las madres forman el sector; así la base heredada ([D-029](../30-governance/decisions.md#d-029)) no se cuenta dos veces ([D-038](../30-governance/decisions.md#d-038)). Un atributo repetido en varios niveles va siempre al bloque de la categoría más general que lo lista, y los bloques de categoría salen de un catálogo generado con la herramienta y compilado en el entrenamiento; si falta la categoría, en ejecución se genera con las reglas vigentes y se usa en estado «no compilado» (si su rama no tiene regla, la importancia es el voto del agente, provisional) ([D-040](../30-governance/decisions.md#d-040), [D-041](../30-governance/decisions.md#d-041), [D-044](../30-governance/decisions.md#d-044), [D-045](../30-governance/decisions.md#d-045)).
 
 > Hay dos niveles:
 >
 > - **Clave, para la máquina (identidad):** la lista ordenada de bloques del modelo […]. Dos ofertas comparten modelo si comparten la primera lista.
 > - **Nombre, para personas:** «Categorías (alias) · especializaciones […]».
->   - Los bloques universales y los de sector no se nombran.
+>   - Los bloques universales […] no se nombran.
 >   - Las categorías se unen con «+», en el orden de las piezas.
 >   - Las especializaciones van en orden fijo: juego, uso, material, función.
 >   - […]
 >
-> — INTAKE 2026-10-25-block-catalog; la clave lleva la versión de cada bloque (`<bloque>@<versión>`), enmendada por [D-045](../30-governance/decisions.md#d-045); la clave y el nombre ya no llevan la aplicación, que es de la oferta, enmendada por [D-047](../30-governance/decisions.md#d-047). La clave empieza por la versión de la capa general (`gen@<versión>`), común a todos los modelos, y los bloques generales del producto se nombran tras las especializaciones («Televisores · con elementos digitales», ejemplo hipotético)
+> — INTAKE 2026-10-25-block-catalog; la clave lleva la versión de cada bloque (`<bloque>@<versión>`), enmendada por [D-045](../30-governance/decisions.md#d-045); la clave y el nombre ya no llevan la aplicación, que es de la oferta, enmendada por [D-047](../30-governance/decisions.md#d-047); los bloques de sector sí se nombran, enmendada por [D-077](../30-governance/decisions.md#d-077). La clave empieza por la versión de la capa general (`gen@<versión>`), común a todos los modelos, y los bloques generales del producto se nombran tras las especializaciones («Electrónica › Video › Televisores · con elementos digitales», ejemplo hipotético)
+
+> Me interesa que figure la composición completa. — INTAKE 2026-10-26-model-name-full-composition (palabras del usuario)
+
+El nombre es «Sectores › Categorías (alias) · especializaciones». Los sectores van delante, de lo general a lo particular y en el orden de la clave, separados por «›»; los del mismo nivel de Shopify se unen con «+», y un último «›» los separa de las categorías. Se nombran los sectores que tienen bloque: un nivel de Shopify sin bloque no forma parte de la composición. Las categorías de la clase y los alias se nombran aunque no tengan bloque. Sectores y categorías llevan su nombre de Shopify en la versión fijada, no el nombre del bloque. La capa general, que está en todos los modelos, no se nombra, salvo sus bloques del producto. Ejemplo, del [juego de toallas](../20-methods/product-taxonomy/cases.md#juego-de-toallas): «Casa y jardín › Ropa de casa › Toallas › Toallas de baño + Toallas de mano · juego» ([D-077](../30-governance/decisions.md#d-077)).
 
 Los identificadores de bloque son propios y no dependen de las referencias, que se registran aparte para la trazabilidad ([D-038](../30-governance/decisions.md#d-038)); su formato está en [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formato-del-catálogo).
 
@@ -147,7 +151,7 @@ Las fuentes se organizan en **dos vías de referencia complementarias** (BASE §
 
 > **Amazon como fuente:** […] que las propiedades de los PTD de Amazon, incluidos los valores de special_feature, puedan ser fuente de requisitos de la categoría cuando son relevantes para la clase, con origen «referencias». — INTAKE 2026-10-25-amazon-source-blocks
 
-Así, una cuestión que solo recoge un PTD de Amazon y que cuenta como base para decidir una especialización ([D-030](../30-governance/decisions.md#d-030)) puede entrar en el modelo con origen «referencias», si es relevante para la clase ([D-039](../30-governance/decisions.md#d-039); ⚠ Ver [I-17](../30-governance/issues.md#i-17)).
+Así, una cuestión que solo recoge un PTD de Amazon y que cuenta como base para decidir una especialización ([D-030](../30-governance/decisions.md#d-030)) puede entrar en el modelo con origen «referencias», si es relevante para la clase ([D-039](../30-governance/decisions.md#d-039)). Si después una regla de relevancia la excluye en una clase, el efecto sobre esa base lo mide la validación automática del entrenamiento: no se acepta una relevancia que deje hechos declarados sin pregunta ([D-050](../30-governance/decisions.md#d-050), [D-072](../30-governance/decisions.md#d-072)).
 
 A ellas se suma una tercera vía ([D-036](../30-governance/decisions.md#d-036)):
 
@@ -238,4 +242,5 @@ Ver [open-questions](../30-governance/open-questions.md):
 - [scoring-systems](scoring-systems.md)
 - [study-class](study-class.md) — clase de estudio
 - [model-training](model-training.md) — entrenamiento y ejecución
+- [resolving-information](resolving-information.md) — información resolutiva de cada requisito
 - [product-taxonomy](../20-methods/product-taxonomy/README.md) (método, propuesta); [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md) (capa general e importancia, propuesta)

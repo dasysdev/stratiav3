@@ -58,8 +58,7 @@
         ]
       }
     ],
-    "application": null,
     "inferred_any_of": [],
-    "notes": "application = bloques que deben estar activos (null: no se puntúa); inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
+    "notes": "La aplicación de la oferta no se espera: la mide la estabilidad entre A y B (T-036). inferred_any_of = alguna cuestión inferida debe contener todas las palabras de uno de los grupos"
   }
 }

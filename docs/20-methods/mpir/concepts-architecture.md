@@ -3,9 +3,9 @@ id: mpir-concepts-architecture
 title: MPIR — definiciones operativas, arquitectura y modelo lógico
 layer: method
 status: propuesta
-version: 1.0
-updated: 2026-10-24
-sources: [MPIR §3, MPIR §13]
+version: 1.1
+updated: 2026-10-26
+sources: [MPIR §3, MPIR §13, INTAKE 2026-10-26-open-issues-resolution]
 ---
 
 # MPIR — definiciones operativas, arquitectura y modelo lógico
@@ -77,7 +77,7 @@ El diseño lógico mínimo separa entidades para que una fuente sustente varios 
 | `reference_practice` | ID, descripción neutral, señales, función y alcance, estado de revisión. |
 | `practice_pattern` | ID canónico, prácticas/evidencias, clases, variantes, relaciones, conflictos y versión. |
 | `demand_question_candidate` | ID, pregunta candidata, patrón(es), objeto y condiciones, justificación, estado de transferencia. |
-| `taxonomy_alignment` | Cuestión/patrón, clase/faceta/atributo taxonómico, tipo de aportación, fundamento. |
+| `taxonomy_alignment` | Cuestión/patrón, clase/faceta/atributo taxonómico, tipo de aportación al modelo de demanda, fundamento. |
 | `review_log` | Revisor o procedimiento, fecha, decisión, cambios, incertidumbres y soporte. |
 
 **Integración recomendada:** reutilizar los IDs de clases de producto y las correspondencias del [modelo taxonómico](../product-taxonomy/data-model-governance.md#modelo-de-datos-de-referencia-sin-importar-árboles-completos); no crear una segunda clasificación de productos desconectada. Los IDs de prácticas y patrones serán internos y estables, con versiones explícitas cuando cambie su significado.

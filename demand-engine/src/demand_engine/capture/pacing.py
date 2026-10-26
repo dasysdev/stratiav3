@@ -19,6 +19,7 @@ DEFAULTS = {
     "hours": [9, 21],            # local hours allowed: [start, end)
     "timezone": "Europe/Madrid",
     "challenge_wait_s": 20,      # time for a non-interactive challenge to resolve by itself
+    "scroll": True,              # read the page; False keeps the first load (no scrolling, no dwell)
 }
 
 
@@ -32,6 +33,7 @@ class Pacing:
     hours: list
     timezone: str
     challenge_wait_s: float
+    scroll: bool = True
 
     @classmethod
     def from_plan(cls, plan: dict) -> "Pacing":

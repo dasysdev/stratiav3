@@ -10,7 +10,7 @@
     "amazon-ptd:FITTED_SHEET@2026-10-24",
     "amazon-ptd:FLAT_SHEET@2026-10-24"
   ],
-  "version": "1",
+  "version": "2",
   "status": "compilado",
   "requirements": [
     {
@@ -27,7 +27,55 @@
       "applicability": "universal",
       "rationale": "Lista genérica de Shopify (muchos valores son de cosmética o alimentación); para sábanas son pertinentes los de salud y sostenibilidad. Se solapa con las certificaciones de la cadena (cat.ropa-de-casa/03 y la certificación orgánica de Casa y jardín): candidata a unirse en la revisión. Se mantiene: es otro atributo de Shopify (estándares de producto), distinto de las certificaciones de seguridad de cat.ropa-de-casa/03 y de la certificación orgánica de cat.casa-y-jardin/03, aunque el tema se solapa.",
       "seed_importance": "complementario",
-      "rule": "imp:certificacion-origen@hg"
+      "rule": "imp:certificacion-origen@hg",
+      "resolving_info": [
+        {
+          "contribution": "certificación o sello de producto concedido por un tercero",
+          "component": "certificaciones o estándares de producto",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:product-certifications-standards"
+          ]
+        },
+        {
+          "contribution": "declaración de hipoalergenicidad o de aptitud para pieles sensibles",
+          "component": "certificaciones o estándares de producto",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:product-certifications-standards"
+          ]
+        },
+        {
+          "contribution": "declaración de ausencia de sustancias concretas",
+          "component": "certificaciones o estándares de producto",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:product-certifications-standards"
+          ]
+        },
+        {
+          "contribution": "declaración de producto vegano o libre de crueldad animal",
+          "component": "certificaciones o estándares de producto",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:product-certifications-standards"
+          ]
+        },
+        {
+          "contribution": "declaración de producto orgánico o ecológico",
+          "component": "certificaciones o estándares de producto",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:product-certifications-standards"
+          ]
+        },
+        {
+          "contribution": "número de certificado y organismo emisor",
+          "component": "certificaciones o estándares de producto",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sabanas/03",
@@ -44,7 +92,24 @@
       "applicability": "si es un tejido de calada (percal, satén, sarga…); no aplica a tejidos de punto ni de pelo o perchados (franela, coralina, polar)",
       "rationale": "Recoge cat.sabanas-ajustables/03 y cat.sabanas-planas/02 (criterio 4: thread está en FITTED_SHEET y FLAT_SHEET y vale para las dos hijas). «Rosca» es la traducción de Amazon de thread count. En los tejidos de calada de algodón es un criterio habitual de comparación (144, 200, 300 hilos…); los casos lo cuentan en la base (D-026). No sube a Ropa de cama porque no vale para mantas ni protectores: queda repetido en cat.fundas-de-nordico/03 y cat.fundas-de-almohada/03. Se mantiene en Sábanas: ninguna de sus hijas tiene el número de hilos como atributo propio de Shopify (criterio 4 y D-040).",
       "seed_importance": "principal",
-      "rule": "imp:construccion@hg-15-1-2"
+      "rule": "imp:construccion@hg-15-1-2",
+      "resolving_info": [
+        {
+          "contribution": "número de hilos por unidad de superficie",
+          "component": "número de hilos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:FITTED_SHEET.thread",
+            "amazon-ptd-prop:FLAT_SHEET.thread"
+          ]
+        },
+        {
+          "contribution": "indicación de si el recuento es de hilo simple o de varios cabos",
+          "component": "número de hilos",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [
@@ -57,5 +122,5 @@
       "reason": "Piezas incluidas en un juego: las cubre esp.juego (criterio 3)."
     }
   ],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

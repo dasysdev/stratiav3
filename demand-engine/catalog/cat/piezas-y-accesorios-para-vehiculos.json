@@ -1,0 +1,202 @@
+{
+  "id": "cat.piezas-y-accesorios-para-vehiculos",
+  "type": "categoría",
+  "name": "Piezas y accesorios para vehículos",
+  "shopify": "vp-1",
+  "parent": null,
+  "refs": [
+    "shopify:vp-1@v2026-08",
+    "google:5613@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.piezas-y-accesorios-para-vehiculos/01",
+      "question": "¿Para qué tipo de vehículo es (turismo, motocicleta, furgoneta, camión, embarcación…)?",
+      "dimension": "tipo de vehículo de destino",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:vehicle-type"
+      ],
+      "applicability": "universal",
+      "rationale": "En piezas, accesorios y productos de mantenimiento, el tipo de vehículo al que se destina delimita si el producto sirve al comprador; es un criterio con el que se filtran y comparan ofertas del sector.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@vp-1",
+      "resolving_info": [
+        {
+          "contribution": "tipo de vehículo al que se destina",
+          "component": "tipo de vehículo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:vehicle-type"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.piezas-y-accesorios-para-vehiculos/02",
+      "question": "¿De qué material principal está hecho?",
+      "dimension": "material",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:item-material"
+      ],
+      "applicability": "universal",
+      "rationale": "El material de piezas y accesorios (acero, aluminio, goma, plástico…) informa sobre su durabilidad y calidad; en el conjunto del sector es relevante sin ser central. Cada clase vota su relevancia.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:material@vp-1",
+      "resolving_info": [
+        {
+          "contribution": "material principal",
+          "component": "material principal",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:item-material"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.piezas-y-accesorios-para-vehiculos/03",
+      "question": "¿Es una pieza original del fabricante del vehículo, de equipo original (OEM) o de recambio o posventa?",
+      "dimension": "origen de la pieza",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:manufacturer-type"
+      ],
+      "applicability": "universal",
+      "rationale": "Distingue recambio original, de primer equipo o de posventa, una distinción habitual al comparar piezas del sector; relevante sin ser central en el conjunto del sector.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:identidad@vp-1",
+      "resolving_info": [
+        {
+          "contribution": "procedencia de la pieza respecto del fabricante del vehículo",
+          "component": "original, de equipo original o de recambio",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:manufacturer-type"
+          ]
+        },
+        {
+          "contribution": "referencia de la pieza original a la que equivale",
+          "component": "original, de equipo original o de recambio",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.piezas-y-accesorios-para-vehiculos/04",
+      "question": "¿A qué parte o superficie del vehículo se aplica (exterior, interior, tapicería, ruedas…)?",
+      "dimension": "área de aplicación",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:vehicle-application-area"
+      ],
+      "applicability": "universal",
+      "rationale": "En productos de cuidado y accesorios indica dónde se usa; en piezas mecánicas o fluidos puede no informar, por lo que cada clase vota su relevancia.",
+      "seed_importance": "complementario",
+      "importance": "principal",
+      "rule": "imp:uso@vp-1",
+      "resolving_info": [
+        {
+          "contribution": "zona del vehículo a la que se aplica",
+          "component": "parte del vehículo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:vehicle-application-area"
+          ]
+        },
+        {
+          "contribution": "material de la superficie a la que se aplica",
+          "component": "superficie",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:vehicle-application-area"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.piezas-y-accesorios-para-vehiculos/05",
+      "question": "¿Qué prestaciones reclama para el motor o la pieza (eficiencia de combustible, bajas emisiones, alto rendimiento, resistencia al calor, ajuste directo…)?",
+      "dimension": "prestaciones",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:vehicle-engine-part-features"
+      ],
+      "applicability": "universal",
+      "rationale": "Prestaciones que se usan como argumento de elección en piezas y productos del motor; relevante sin ser central en el conjunto del sector.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@vp-1",
+      "resolving_info": [
+        {
+          "contribution": "declaración de mejora del rendimiento",
+          "component": "prestaciones",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:vehicle-engine-part-features"
+          ]
+        },
+        {
+          "contribution": "declaración de eficiencia de combustible o de bajas emisiones",
+          "component": "prestaciones",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:vehicle-engine-part-features"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia al calor",
+          "component": "prestaciones",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:vehicle-engine-part-features"
+          ]
+        },
+        {
+          "contribution": "declaración de ajuste directo",
+          "component": "prestaciones",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:vehicle-engine-part-features"
+          ]
+        },
+        {
+          "contribution": "resultado de ensayo que respalda la prestación",
+          "component": "prestaciones",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "shopify-attr:item-condition",
+      "reason": "El estado del artículo (nuevo, usado, reacondicionado) lo pregunta la capa general (gen/07 y gen.unidad-no-nueva)."
+    }
+  ],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

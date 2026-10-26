@@ -12,7 +12,7 @@
   "requirements": [
     {
       "id": "cat.camas-de-enfriamiento-para-mascotas/01",
-      "question": "¿Cómo enfría: con qué sistema o material refrigerante (gel que se activa por presión, agua, tejido refrigerante, ventilación, eléctrico) y qué necesita para funcionar (refrigeración previa, llenado de agua, corriente)?",
+      "question": "¿Con qué sistema o material enfría (gel que se activa por presión, agua, tejido refrigerante, ventilación, eléctrico)?",
       "dimension": "sistema de enfriamiento",
       "entity": "producto",
       "trait": "construccion",
@@ -23,10 +23,40 @@
         "amazon-ptd-prop:PET_BED_MAT.special_feature=Ajuste de temperatura"
       ],
       "applicability": "universal",
-      "rationale": "El sistema de enfriamiento define la categoría y es el primer criterio con que se comparan sus ofertas: de él dependen la eficacia, el mantenimiento y lo que exige al comprador. Los valores «Refrescante» y «Ajuste de temperatura» de PET_BED_MAT solo se aplican a esta hija de Camas para mascotas, por lo que se ubican aquí (DRAFTING, punto 4).",
+      "rationale": "El sistema de enfriamiento define la categoría y es el primer criterio con que se comparan sus ofertas: de él dependen la eficacia, el mantenimiento y lo que exige al comprador. Los valores «Refrescante» y «Ajuste de temperatura» de PET_BED_MAT solo se aplican a esta hija de Camas para mascotas, por lo que se ubican aquí (DRAFTING, punto 4). Redacción con D-060 (T-031, reglas 3 y 4): lo que necesita para funcionar no lo recogen los valores Refrescante y Ajuste de temperatura, y es otro rasgo (uso): sale como inferida.",
       "seed_importance": "principal",
       "importance": "principal",
-      "rule": "imp:construccion@ap-2-9-4"
+      "rule": "imp:construccion@ap-2-9-4",
+      "resolving_info": [
+        {
+          "contribution": "declaración de efecto refrescante",
+          "component": "sistema o material con que enfría",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Refrescante"
+          ]
+        },
+        {
+          "contribution": "indicación de regulación de la temperatura",
+          "component": "sistema con que enfría",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Ajuste de temperatura"
+          ]
+        },
+        {
+          "contribution": "tipo de sistema de enfriamiento",
+          "component": "sistema con que enfría",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "material o sustancia refrigerante",
+          "component": "material con que enfría",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.camas-de-enfriamiento-para-mascotas/02",
@@ -41,7 +71,27 @@
       "rationale": "Criterio 5: cuestión de toda la clase que no recoge ninguna referencia. La duración del frescor y su recuperación distinguen una cama de enfriamiento eficaz de otra que deja de enfriar al poco; criterio de comparación entre ofertas de la clase.",
       "seed_importance": "principal",
       "importance": "principal",
-      "rule": "imp:prestacion@ap-2-9-4"
+      "rule": "imp:prestacion@ap-2-9",
+      "resolving_info": [
+        {
+          "contribution": "duración del efecto refrescante",
+          "component": "cuánto dura",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "modo y tiempo de recuperación del efecto refrescante",
+          "component": "cómo y en cuánto tiempo se recupera",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "indicación de si enfría de forma continua",
+          "component": "si enfría de forma continua",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.camas-de-enfriamiento-para-mascotas/03",
@@ -56,12 +106,61 @@
       "rationale": "Criterio 5: cuestión que no recoge ninguna referencia. El animal puede morder la cama y acceder al refrigerante; su toxicidad es un riesgo propio de esta categoría y un criterio de elección.",
       "seed_importance": "principal",
       "importance": "principal",
-      "rule": "imp:seguridad@ap-2-9-4"
+      "rule": "imp:seguridad@ap-2-9-4",
+      "resolving_info": [
+        {
+          "contribution": "declaración de no toxicidad del gel o el líquido refrigerante",
+          "component": "es no tóxico",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "composición o ficha de datos de seguridad del gel o el líquido",
+          "component": "es no tóxico",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "advertencia sobre las consecuencias de morder o perforar la cama",
+          "component": "qué ocurre si el animal muerde o perfora la cama",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.camas-de-enfriamiento-para-mascotas/04",
+      "question": "¿Qué necesita para enfriar (refrigeración previa, llenado de agua, corriente eléctrica) o enfría sin preparación?",
+      "dimension": "requisitos de funcionamiento",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Cuestión inferida (D-036) que sale de cat.camas-de-enfriamiento-para-mascotas/01 por la reglas 3 y 4 de D-060 (T-031): lo que necesita para funcionar no lo recogen los valores Refrescante y Ajuste de temperatura, y es otro rasgo (uso): sale como inferida. Provisional hasta que la valide el entrenamiento.",
+      "seed_importance": "principal",
+      "rule": "imp:uso@ap-2",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "preparación necesaria antes del uso",
+          "component": "qué necesita para enfriar",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "indicación de si enfría sin preparación",
+          "component": "enfría sin preparación",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [],
   "status": "compilado",
-  "version": "1",
+  "version": "2",
   "generated": "2026-10-25",
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

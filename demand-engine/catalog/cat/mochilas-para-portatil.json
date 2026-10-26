@@ -1,0 +1,787 @@
+{
+  "id": "cat.mochilas-para-portatil",
+  "type": "categoría",
+  "name": "Mochilas para portátil",
+  "shopify": "lb-1-16",
+  "parent": "cat.mochilas",
+  "refs": [
+    "shopify:lb-1-16@v2026-08",
+    "google:100@2021-09-21",
+    "amazon-ptd:BACKPACK@2026-10-24",
+    "amazon-btg:937803031@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.mochilas-para-portatil/01",
+      "question": "¿Qué capacidad tiene, en litros?",
+      "dimension": "capacidad",
+      "entity": "producto",
+      "trait": "medida",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BACKPACK.storage_volume",
+        "amazon-ptd-prop:BACKPACK.compliance_storage_capacity",
+        "amazon-ptd-prop:BACKPACK.special_feature=Gran capacidad"
+      ],
+      "applicability": "universal",
+      "rationale": "La capacidad decide qué cabe además del portátil; criterio central de comparación. No la cubre ningún atributo de Shopify de la cadena. Vale para todas las mochilas, pero cat.mochilas no la recoge; se repite en las hermanas (D-043, criterio 4).",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "capacidad en litros",
+          "component": "capacidad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.storage_volume"
+          ]
+        },
+        {
+          "contribution": "tramo de capacidad a efectos normativos",
+          "component": "capacidad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.compliance_storage_capacity"
+          ]
+        },
+        {
+          "contribution": "declaración de gran capacidad",
+          "component": "capacidad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.special_feature=Gran capacidad"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas-para-portatil/02",
+      "question": "¿Qué dimensiones exteriores tiene (alto, ancho y fondo) y qué tamaño (pequeña, mediana, grande)?",
+      "dimension": "dimensiones",
+      "entity": "producto",
+      "trait": "medida",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BACKPACK.item_depth_width_height",
+        "amazon-ptd-prop:BACKPACK.size",
+        "amazon-ptd-prop:BACKPACK.size_info"
+      ],
+      "applicability": "universal",
+      "rationale": "Las medidas determinan el volumen de porte y si cumple límites de equipaje de mano. Descriptivas: no fijan la variante.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "alto exterior",
+          "component": "alto",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.item_depth_width_height"
+          ]
+        },
+        {
+          "contribution": "ancho exterior",
+          "component": "ancho",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.item_depth_width_height"
+          ]
+        },
+        {
+          "contribution": "fondo exterior",
+          "component": "fondo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.item_depth_width_height"
+          ]
+        },
+        {
+          "contribution": "categoría de tamaño",
+          "component": "tamaño",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.size",
+            "amazon-ptd-prop:BACKPACK.size_info"
+          ]
+        },
+        {
+          "contribution": "imagen acotada de la mochila",
+          "component": "alto, ancho y fondo",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas-para-portatil/03",
+      "question": "¿Qué tirantes y espalda tiene (acolchados, regulables, ergonómicos, con correa de pecho o de cintura, panel trasero transpirable)?",
+      "dimension": "ergonomía del porte",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BACKPACK.strap_type",
+        "amazon-ptd-prop:BACKPACK.strap_size",
+        "amazon-ptd-prop:BACKPACK.backpack_harness_type",
+        "amazon-ptd-prop:BACKPACK.backpack_harness_size",
+        "amazon-ptd-prop:BACKPACK.special_feature=Correa acolchada",
+        "amazon-ptd-prop:BACKPACK.special_feature=Correa para el esternón",
+        "amazon-ptd-prop:BACKPACK.special_feature=Ergonómica",
+        "amazon-ptd-prop:BACKPACK.special_feature=Ajustable",
+        "amazon-ptd-prop:BACKPACK.special_feature=Cinturón",
+        "amazon-ptd-prop:BACKPACK.special_feature=Panel trasero ventilado",
+        "amazon-ptd-prop:BACKPACK.special_feature=Panel trasero de flujo de aire",
+        "amazon-ptd-prop:BACKPACK.special_feature=Transpirable"
+      ],
+      "applicability": "universal",
+      "rationale": "Llevar a diario un portátil a la espalda hace de la ergonomía del porte un criterio de elección.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:cat.mochilas-para-portatil/03@lb-1-16",
+      "resolving_info": [
+        {
+          "contribution": "tipo de tirantes o arnés",
+          "component": "tirantes",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.strap_type",
+            "amazon-ptd-prop:BACKPACK.backpack_harness_type"
+          ]
+        },
+        {
+          "contribution": "acolchado de los tirantes",
+          "component": "tirantes",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.strap_type",
+            "amazon-ptd-prop:BACKPACK.special_feature=Correa acolchada"
+          ]
+        },
+        {
+          "contribution": "regulación y talla de los tirantes o del arnés",
+          "component": "tirantes",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.strap_type",
+            "amazon-ptd-prop:BACKPACK.special_feature=Ajustable",
+            "amazon-ptd-prop:BACKPACK.strap_size",
+            "amazon-ptd-prop:BACKPACK.backpack_harness_size"
+          ]
+        },
+        {
+          "contribution": "correas de pecho o de cintura",
+          "component": "tirantes",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.strap_type",
+            "amazon-ptd-prop:BACKPACK.special_feature=Correa para el esternón",
+            "amazon-ptd-prop:BACKPACK.special_feature=Cinturón"
+          ]
+        },
+        {
+          "contribution": "declaración de diseño ergonómico",
+          "component": "espalda",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.special_feature=Ergonómica"
+          ]
+        },
+        {
+          "contribution": "ventilación o transpirabilidad del panel trasero",
+          "component": "espalda",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.special_feature=Panel trasero ventilado",
+            "amazon-ptd-prop:BACKPACK.special_feature=Panel trasero de flujo de aire",
+            "amazon-ptd-prop:BACKPACK.special_feature=Transpirable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas-para-portatil/04",
+      "question": "¿Es de estructura blanda, rígida o híbrida, con base reforzada, y cómo se abre o se carga (por arriba, por delante, apertura completa)?",
+      "dimension": "estructura",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BACKPACK.shell_type",
+        "amazon-ptd-prop:BACKPACK.compliance_shell_type",
+        "amazon-ptd-prop:BACKPACK.backpack_design",
+        "amazon-ptd-prop:BACKPACK.special_feature=Fondo inferior",
+        "amazon-ptd-prop:BACKPACK.special_feature=Carga frontal",
+        "amazon-ptd-prop:BACKPACK.special_feature=Carga superior"
+      ],
+      "applicability": "universal",
+      "rationale": "La estructura condiciona la protección del equipo y el acceso; relevante sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@lb",
+      "resolving_info": [
+        {
+          "contribution": "rigidez de la estructura o carcasa",
+          "component": "estructura blanda, rígida o reforzada",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.shell_type",
+            "amazon-ptd-prop:BACKPACK.compliance_shell_type",
+            "amazon-ptd-prop:BACKPACK.backpack_design"
+          ]
+        },
+        {
+          "contribution": "indicación de base reforzada",
+          "component": "base reforzada",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.special_feature=Fondo inferior"
+          ]
+        },
+        {
+          "contribution": "forma de carga o apertura",
+          "component": "cómo se abre o se carga",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.special_feature=Carga frontal",
+            "amazon-ptd-prop:BACKPACK.special_feature=Carga superior"
+          ]
+        },
+        {
+          "contribution": "indicación de si admite apertura completa",
+          "component": "cómo se abre o se carga",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas-para-portatil/05",
+      "question": "¿Facilita el control de seguridad en aeropuertos sin sacar el portátil (diseño apto para puestos de control)?",
+      "dimension": "apertura para control de seguridad",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BACKPACK.special_feature=Apto para puestos de control"
+      ],
+      "applicability": "universal",
+      "rationale": "Propio de mochilas para portátil: el compartimento del portátil se abre aparte para pasar el control sin extraerlo. No aplica a otras mochilas.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:uso@lb-1-16",
+      "resolving_info": [
+        {
+          "contribution": "declaración de diseño apto para controles de seguridad",
+          "component": "control de seguridad en aeropuertos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.special_feature=Apto para puestos de control"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas-para-portatil/06",
+      "question": "¿Tiene puerto de carga USB integrado o paso para cables o auriculares?",
+      "dimension": "conectividad integrada",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BACKPACK.special_feature=Puerto de carga USB",
+        "amazon-ptd-prop:BACKPACK.special_feature=Orificio para auriculares"
+      ],
+      "applicability": "universal",
+      "rationale": "Prestación propia de mochilas para dispositivos electrónicos; relevante sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@lb",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si tiene puerto de carga USB integrado",
+          "component": "puerto de carga USB",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.special_feature=Puerto de carga USB"
+          ]
+        },
+        {
+          "contribution": "indicación de si tiene paso para cables o auriculares",
+          "component": "paso para cables o auriculares",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.special_feature=Orificio para auriculares"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas-para-portatil/07",
+      "question": "¿Tiene forro interior y de qué material?",
+      "dimension": "forro",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BACKPACK.lining_description",
+        "amazon-ptd-prop:BACKPACK.compliance_lining_description"
+      ],
+      "applicability": "universal",
+      "rationale": "Complementa el material exterior (cat.mochilas/03).",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:material@lb-1",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si lleva forro interior",
+          "component": "tiene forro interior",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.compliance_lining_description",
+            "amazon-ptd-prop:BACKPACK.lining_description"
+          ]
+        },
+        {
+          "contribution": "material del forro",
+          "component": "de qué material",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.lining_description"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas-para-portatil/08",
+      "question": "¿Qué resistencia al desgaste declara el material (desgarros, abrasión, manchas, decoloración, arañazos, uso intensivo)?",
+      "dimension": "resistencia al desgaste",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BACKPACK.special_feature=Resistente a desgarros",
+        "amazon-ptd-prop:BACKPACK.special_feature=Resistente a la abrasión",
+        "amazon-ptd-prop:BACKPACK.special_feature=Resistente a las manchas",
+        "amazon-ptd-prop:BACKPACK.special_feature=Resistente a la decoloración",
+        "amazon-ptd-prop:BACKPACK.special_feature=Resistente a los arañazos",
+        "amazon-ptd-prop:BACKPACK.special_feature=De servicio pesado"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa por tema la durabilidad declarada; relevante por el uso diario.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@lb",
+      "resolving_info": [
+        {
+          "contribution": "declaración de resistencia a desgarros",
+          "component": "resistencia al desgaste",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.special_feature=Resistente a desgarros"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a la abrasión o a los arañazos",
+          "component": "resistencia al desgaste",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.special_feature=Resistente a la abrasión",
+            "amazon-ptd-prop:BACKPACK.special_feature=Resistente a los arañazos"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a las manchas",
+          "component": "resistencia al desgaste",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.special_feature=Resistente a las manchas"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a la decoloración",
+          "component": "resistencia al desgaste",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.special_feature=Resistente a la decoloración"
+          ]
+        },
+        {
+          "contribution": "declaración de aptitud para uso intensivo",
+          "component": "resistencia al desgaste",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.special_feature=De servicio pesado"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de resistencia a la abrasión o al desgarro",
+          "component": "resistencia al desgaste",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas-para-portatil/09",
+      "question": "¿Qué carga máxima recomienda el fabricante?",
+      "dimension": "carga máxima",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BACKPACK.maximum_weight_recommendation"
+      ],
+      "applicability": "universal",
+      "rationale": "Relevante al cargar equipo pesado; rara vez se publica.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@lb",
+      "resolving_info": [
+        {
+          "contribution": "carga o peso máximo recomendado",
+          "component": "carga máxima",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.maximum_weight_recommendation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas-para-portatil/10",
+      "question": "¿Para qué usos está pensada (trabajo, estudios, viaje, ocio, deporte)?",
+      "dimension": "uso recomendado",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BACKPACK.recommended_uses_for_product"
+      ],
+      "applicability": "universal",
+      "rationale": "Las mochilas para portátil se diseñan para usos distintos (oficina, viaje, estudios); orienta la comparación sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:uso@lb-1-16",
+      "resolving_info": [
+        {
+          "contribution": "usos recomendados",
+          "component": "usos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.recommended_uses_for_product"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:BACKPACK.department",
+      "reason": "Mezcla sexo y edad: lo cubren cat.mochilas/01 y cat.mochilas/15, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.material",
+      "reason": "Lo cubre cat.mochilas/03 (bag-case-material), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.fabric_type",
+      "reason": "Lo cubre cat.mochilas/03 (bag-case-material), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.water_resistance_level",
+      "reason": "Lo cubre cat.mochilas/04, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.pocket_description",
+      "reason": "Lo cubre cat.mochilas/12, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.school_type",
+      "reason": "Etapa escolar: propia de mochilas escolares; el destinatario lo cubre cat.mochilas/01."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.lens",
+      "reason": "Dato de plataforma o de otra clase de producto; no informa sobre mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.sport_type",
+      "reason": "Dato de plataforma o de otra clase de producto; no informa sobre mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.length_range",
+      "reason": "Dato de plataforma o de otra clase de producto; no informa sobre mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.number_of_compartments",
+      "reason": "Lo cubre cat.mochilas/12, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.number_of_pockets",
+      "reason": "Lo cubre cat.mochilas/12, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.compatible_device_size_maximum",
+      "reason": "Lo cubre cat.mochilas/13, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.closure",
+      "reason": "Lo cubre cat.mochilas/02, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.zippered_compartment_count",
+      "reason": "Lo cubre cat.mochilas/12, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.collection_item",
+      "reason": "Dato de plataforma o de otra clase de producto; no informa sobre mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.item_weight",
+      "reason": "Lo cubre cat.mochilas/08, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.outer",
+      "reason": "Lo cubre cat.mochilas/03 (bag-case-material), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.merch_manufacturing_method",
+      "reason": "Dato de plataforma o de otra clase de producto; no informa sobre mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.compliance_construction_type",
+      "reason": "Dato de plataforma o de otra clase de producto; no informa sobre mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.compliance_outer_surface_material",
+      "reason": "Lo cubre cat.mochilas/03 (bag-case-material), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.compliance_embellishment_feature",
+      "reason": "Dato de plataforma o de otra clase de producto; no informa sobre mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.compliance_backpack_type",
+      "reason": "Dato de plataforma o de otra clase de producto; no informa sobre mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=A prueba de olores",
+      "reason": "Propio de mochilas de viaje, deporte, bebé u otras; no informa sobre la clase de mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Ampliable",
+      "reason": "Lo cubre cat.mochilas/09, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Antirrobo",
+      "reason": "Lo cubre cat.mochilas/06, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Aprobado por el estadio",
+      "reason": "Propio de mochilas de viaje, deporte, bebé u otras; no informa sobre la clase de mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Asa de transporte de mano",
+      "reason": "Lo cubre cat.maletas-y-bolsos-de-viaje/01 (opciones de transporte), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Bloqueo RFID",
+      "reason": "Lo cubre cat.mochilas/06, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Bolsa de viaje y accesorios",
+      "reason": "Propio de mochilas de viaje, deporte, bebé u otras; no informa sobre la clase de mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Bolsa para monedas",
+      "reason": "Propio de mochilas de viaje, deporte, bebé u otras; no informa sobre la clase de mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=built_in_scale",
+      "reason": "Propio de mochilas de viaje, deporte, bebé u otras; no informa sobre la clase de mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Cerradura",
+      "reason": "Lo cubre cat.mochilas/06, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Cerradura aprobada por la TSA",
+      "reason": "Lo cubre cat.mochilas/06, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Compartimento para portátil",
+      "reason": "Lo cubre cat.mochilas/13, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Compartimento para tablet",
+      "reason": "Lo cubre cat.mochilas/13, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Compartimento para zapatos",
+      "reason": "Lo cubre cat.mochilas/12, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Compartimento refrigerador",
+      "reason": "Lo cubre cat.mochilas/12, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Convertible",
+      "reason": "Lo cubre cat.mochilas/09, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Cordón",
+      "reason": "Lo cubre cat.maletas-y-bolsos-de-viaje/01 (opciones de transporte), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Cordón elástico",
+      "reason": "Lo cubre cat.maletas-y-bolsos-de-viaje/01 (opciones de transporte), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Correa",
+      "reason": "Lo cubre cat.maletas-y-bolsos-de-viaje/01 (opciones de transporte), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Correa para equipaje",
+      "reason": "Lo cubre cat.maletas-y-bolsos-de-viaje/01 (opciones de transporte), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=De mano",
+      "reason": "Lo cubre cat.maletas-y-bolsos-de-viaje/01 (opciones de transporte), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Diseño Vertical",
+      "reason": "Propio de mochilas de viaje, deporte, bebé u otras; no informa sobre la clase de mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Estación de cambio",
+      "reason": "Propio de mochilas de viaje, deporte, bebé u otras; no informa sobre la clase de mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Esterilización UVC",
+      "reason": "Propio de mochilas de viaje, deporte, bebé u otras; no informa sobre la clase de mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Funda para carrito",
+      "reason": "Lo cubre cat.maletas-y-bolsos-de-viaje/01 (opciones de transporte), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Funda para lluvia",
+      "reason": "Lo cubre cat.mochilas/04, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Ganchos para accesorios",
+      "reason": "Lo cubre cat.mochilas/14, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=glow_in_the_dark",
+      "reason": "Lo cubre cat.mochilas/07, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Impermeable",
+      "reason": "Lo cubre cat.mochilas/04, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=key_holder",
+      "reason": "Lo cubre cat.mochilas/14, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=key_hook",
+      "reason": "Lo cubre cat.mochilas/14, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Ligera",
+      "reason": "Lo cubre cat.mochilas/08, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Luz LED",
+      "reason": "Lo cubre cat.mochilas/07, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Mango acolchado",
+      "reason": "Lo cubre cat.maletas-y-bolsos-de-viaje/01 (opciones de transporte), en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Mango telescópico",
+      "reason": "Lo cubre cat.mochilas/09, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Plegable",
+      "reason": "Lo cubre cat.mochilas/09, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=pole_holder",
+      "reason": "Propio de mochilas de viaje, deporte, bebé u otras; no informa sobre la clase de mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Portabotellas",
+      "reason": "Lo cubre cat.mochilas/14, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Portalápices",
+      "reason": "Lo cubre cat.mochilas/12, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Reflectante",
+      "reason": "Lo cubre cat.mochilas/07, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Resistente al agua",
+      "reason": "Lo cubre cat.mochilas/04, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Revistero",
+      "reason": "Propio de mochilas de viaje, deporte, bebé u otras; no informa sobre la clase de mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Ruedas",
+      "reason": "Lo cubre cat.mochilas/09, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Se puede empacar",
+      "reason": "Lo cubre cat.mochilas/09, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=shock_absorption",
+      "reason": "Lo cubre cat.mochilas/05, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=shock_proof",
+      "reason": "Lo cubre cat.mochilas/05, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Soporte para casco",
+      "reason": "Propio de mochilas de viaje, deporte, bebé u otras; no informa sobre la clase de mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Soporte para gafas de sol",
+      "reason": "Lo cubre cat.mochilas/14, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Soporte para teléfono móvil",
+      "reason": "Lo cubre cat.mochilas/14, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=Soporte para vejiga de hidratación",
+      "reason": "Propio de mochilas de viaje, deporte, bebé u otras; no informa sobre la clase de mochilas para portátil."
+    },
+    {
+      "source": "amazon-ptd-prop:BACKPACK.special_feature=wet_dry_separation",
+      "reason": "Propio de mochilas de viaje, deporte, bebé u otras; no informa sobre la clase de mochilas para portátil."
+    }
+  ],
+  "status": "compilado",
+  "version": "3",
+  "generated": "2026-10-26",
+  "compiled_by": "reglas 6"
+}

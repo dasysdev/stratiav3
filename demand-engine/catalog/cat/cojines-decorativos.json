@@ -11,25 +11,88 @@
     "amazon-btg:2844244031@2026-10-24",
     "ley:UE-1007/2011-16.1@2011-10-18"
   ],
-  "version": "1",
+  "version": "4",
   "status": "compilado",
   "requirements": [
     {
       "id": "cat.cojines-decorativos/01",
-      "question": "¿Qué medidas tiene (largo, ancho y grosor)?",
+      "question": "¿Qué medidas tiene (largo y ancho)?",
       "dimension": "dimensiones físicas",
       "trait": "medida",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "crítico",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:PILLOW.item_length_width",
+        "amazon-ptd-prop:PILLOW.item_length_width"
+      ],
+      "applicability": "universal",
+      "rationale": "La medida es un criterio con el que se eligen y comparan los cojines (encaje en el sofá, proporción, compatibilidad con fundas). Ningún atributo de Shopify de la cadena la recoge. D-087 (I-37): la regla 3 prevalece sobre la forma de sí o no con detalle cuando el detalle toma otro rasgo o importancia. El grosor es magnitud (D-051) y pasa a /14.",
+      "seed_importance": "principal",
+      "rule": "imp:cat.cojines-decorativos/01@hg-3-64",
+      "resolving_info": [
+        {
+          "contribution": "largo del cojín",
+          "component": "largo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.item_length_width"
+          ]
+        },
+        {
+          "contribution": "ancho del cojín",
+          "component": "ancho",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.item_length_width"
+          ]
+        },
+        {
+          "contribution": "plano o imagen acotada del cojín",
+          "component": "largo y ancho",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "medidas del relleno interior cuando difieren de las de la funda",
+          "component": "largo y ancho",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cojines-decorativos/14",
+      "question": "¿Qué grosor tiene?",
+      "dimension": "grosor",
+      "trait": "magnitud",
+      "entity": "producto",
+      "origin": "referencias",
+      "sources": [
         "amazon-ptd-prop:PILLOW.item_thickness"
       ],
       "applicability": "universal",
-      "rationale": "La medida es un criterio con el que se eligen y comparan los cojines (encaje en el sofá, proporción, compatibilidad con fundas). Ningún atributo de Shopify de la cadena la recoge.",
-      "seed_importance": "principal",
-      "rule": "marco:D-043.1/medida-descriptiva"
+      "rationale": "Parte de cat.cojines-decorativos/01 separada por D-087 (I-37): la regla 3 prevalece sobre la forma de sí o no con detalle cuando el detalle toma otro rasgo o importancia. El grosor es magnitud (D-051).",
+      "seed_importance": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "grosor del cojín",
+          "component": "grosor",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.item_thickness"
+          ]
+        },
+        {
+          "contribution": "descripción cualitativa del grosor",
+          "component": "grosor",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.item_thickness"
+          ]
+        }
+      ],
+      "importance": "complementario",
+      "rule": "sin-regla:voto"
     },
     {
       "id": "cat.cojines-decorativos/02",
@@ -37,7 +100,7 @@
       "dimension": "dimensiones físicas",
       "trait": "identidad",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "referencias",
       "sources": [
         "shopify-attr:throw-pillow-shape"
@@ -45,7 +108,23 @@
       "applicability": "universal",
       "rationale": "throw-pillow-shape extiende pillow-shape en Shopify (cuadrado, rectangular, redondo, rollo…). Las medidas (/01) ya resuelven la elección entre cuadrado y rectangular; la forma añade los casos redondos, cilíndricos o irregulares.",
       "seed_importance": "complementario",
-      "rule": "imp:identidad@hg-3-64"
+      "rule": "imp:identidad@hg-3-64",
+      "resolving_info": [
+        {
+          "contribution": "forma del cojín",
+          "component": "forma",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:throw-pillow-shape"
+          ]
+        },
+        {
+          "contribution": "fotografía del cojín que muestre su contorno",
+          "component": "forma",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.cojines-decorativos/03",
@@ -63,7 +142,36 @@
       "applicability": "universal",
       "rationale": "Apoyo normativo (criterio 6): la funda de un cojín es un producto textil, y el Reglamento (UE) 1007/2011, art. 16.1, exige que su composición en fibras sea claramente visible antes de la adquisición, también por medios electrónicos. La importancia sigue siendo principal: la funda es la parte visible y la que se toca, y su material decide el aspecto, el tacto y el cuidado. Se mantienen como fuentes el atributo de Shopify y PILLOW.fabric_type (composición en porcentaje).",
       "seed_importance": "principal",
-      "rule": "marco:D-043.6/composicion-textil"
+      "rule": "marco:D-043.6/composicion-textil",
+      "resolving_info": [
+        {
+          "contribution": "tipo de tejido o material de la funda",
+          "component": "material de la funda",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:cover-material",
+            "amazon-ptd-prop:PILLOW.fabric_type"
+          ]
+        },
+        {
+          "contribution": "denominación de las fibras de la funda",
+          "component": "composición en fibras",
+          "origin": "referencias",
+          "support": [
+            "ley:UE-1007/2011-16.1@2011-10-18",
+            "amazon-ptd-prop:PILLOW.fabric_type"
+          ]
+        },
+        {
+          "contribution": "porcentaje en peso de cada fibra",
+          "component": "composición en fibras",
+          "origin": "referencias",
+          "support": [
+            "ley:UE-1007/2011-16.1@2011-10-18",
+            "amazon-ptd-prop:PILLOW.fabric_type"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.cojines-decorativos/04",
@@ -79,7 +187,23 @@
       "applicability": "si incluye relleno",
       "rationale": "El relleno (fibra, plumas, espuma…) decide el mullido, la recuperación de la forma y el cuidado, y es un criterio con el que se comparan cojines. Si se vende o no con relleno lo pregunta gen/01.",
       "seed_importance": "principal",
-      "rule": "imp:material@hg"
+      "rule": "imp:material@hg",
+      "resolving_info": [
+        {
+          "contribution": "material del relleno",
+          "component": "material del relleno",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:filler-material"
+          ]
+        },
+        {
+          "contribution": "proporción de cada material en un relleno mixto",
+          "component": "material del relleno",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.cojines-decorativos/05",
@@ -95,7 +219,31 @@
       "applicability": "si incluye relleno",
       "rationale": "Shopify lo llama «compatibilidad del relleno»: firmeza o tipo de soporte (blando, medio, firme…). En un cojín decorativo, la firmeza importa menos que en una almohada de cama: amplía el conocimiento sin ser un criterio central.",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@hg-3-64"
+      "rule": "imp:prestacion@hg-3-64",
+      "resolving_info": [
+        {
+          "contribution": "nivel de firmeza del relleno",
+          "component": "firmeza o mullido del relleno",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:filler-support"
+          ]
+        },
+        {
+          "contribution": "indicación de si el relleno es ajustable",
+          "component": "firmeza o mullido del relleno",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:filler-support"
+          ]
+        },
+        {
+          "contribution": "peso o cantidad de relleno",
+          "component": "firmeza o mullido del relleno",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.cojines-decorativos/06",
@@ -103,7 +251,7 @@
       "dimension": "construcción",
       "trait": "construccion",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "referencias",
       "sources": [
         "shopify-attr:cover-closure-design",
@@ -112,7 +260,25 @@
       "applicability": "universal",
       "rationale": "Que la funda se pueda quitar condiciona el lavado y la posibilidad de cambiarla. Es relevante, pero no es un criterio central para elegir un cojín decorativo.",
       "seed_importance": "complementario",
-      "rule": "imp:construccion@hg-3-64"
+      "rule": "imp:construccion@hg-3-64",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si la funda es extraíble",
+          "component": "se puede quitar la funda",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Funda extraíble"
+          ]
+        },
+        {
+          "contribution": "tipo de cierre de la funda",
+          "component": "con qué cierre",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:cover-closure-design"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.cojines-decorativos/07",
@@ -129,7 +295,31 @@
       "applicability": "universal",
       "rationale": "Completa el aspecto, que ya preguntan cat.casa-y-jardin/01 y /02: la técnica (bordado frente a impreso) y si el reverso es liso, igual o distinto. Es relevante en un producto decorativo sin ser un criterio central.",
       "seed_importance": "complementario",
-      "rule": "imp:estetica@hg-3-64"
+      "rule": "imp:cat.cojines-decorativos/07@hg-3-64",
+      "resolving_info": [
+        {
+          "contribution": "técnica de aplicación del diseño",
+          "component": "cómo está hecho el diseño de la funda",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.merch_manufacturing_method"
+          ]
+        },
+        {
+          "contribution": "indicación de si es reversible",
+          "component": "igual por las dos caras o reversible",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Reversible"
+          ]
+        },
+        {
+          "contribution": "descripción del diseño de la cara posterior",
+          "component": "igual por las dos caras o reversible",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.cojines-decorativos/08",
@@ -154,31 +344,96 @@
       "applicability": "universal",
       "rationale": "Agrupa las características especiales de Amazon sobre durabilidad, más los valores «Duradero» y «Resiliente» de material_feature. Son relevantes para valorar la oferta, pero en un cojín decorativo no son criterios centrales de comparación. Criterio 2: se citan los valores de material_feature que cubre.",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@hg-3-64"
+      "rule": "imp:prestacion@hg-3-64",
+      "resolving_info": [
+        {
+          "contribution": "resistencia de la funda a la abrasión y al desgaste",
+          "component": "funda frente al desgaste",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Resistente a la abrasión",
+            "amazon-ptd-prop:PILLOW.special_feature=Resistente al desgaste",
+            "amazon-ptd-prop:PILLOW.material_feature=Duradero"
+          ]
+        },
+        {
+          "contribution": "resistencia de la funda a las manchas",
+          "component": "funda frente a las manchas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Resistente a las manchas"
+          ]
+        },
+        {
+          "contribution": "solidez del color de la funda",
+          "component": "funda frente a la decoloración",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Resistente a la decoloración"
+          ]
+        },
+        {
+          "contribution": "resistencia de la funda a la pérdida de pelo",
+          "component": "funda frente a la pérdida de pelo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Resistente a la caída de pelo"
+          ]
+        },
+        {
+          "contribution": "resistencia de la funda a las arrugas",
+          "component": "funda frente a las arrugas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Antiarrugas"
+          ]
+        },
+        {
+          "contribution": "capacidad del relleno para recuperar la forma",
+          "component": "relleno frente a la deformación",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Mantiene la forma",
+            "amazon-ptd-prop:PILLOW.material_feature=Resiliente"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de resistencia a la abrasión del tejido",
+          "component": "funda frente al desgaste",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.cojines-decorativos/09",
-      "question": "¿Es apto para exterior y cómo resiste el agua, el sol y la intemperie?",
+      "question": "¿Está pensado para interior, para exterior o para ambos?",
       "dimension": "uso",
       "trait": "uso",
       "entity": "producto",
       "importance": "complementario",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:PILLOW.indoor_outdoor_usage",
-        "amazon-ptd-prop:PILLOW.special_feature=Impermeable",
-        "amazon-ptd-prop:PILLOW.special_feature=Resistente al agua",
-        "amazon-ptd-prop:PILLOW.special_feature=Resistente a los rayos UV",
-        "amazon-ptd-prop:PILLOW.special_feature=Resistente al clima"
+        "amazon-ptd-prop:PILLOW.indoor_outdoor_usage"
       ],
       "applicability": "universal",
-      "rationale": "Los cojines decorativos de exterior no tienen categoría propia en Shopify (fr-16-3 es para cojines de asiento de muebles de exterior), así que la cuestión es de la clase. «Solo interior» también la resuelve. Es central solo para quien busca uso exterior.",
+      "rationale": "Los cojines decorativos de exterior no tienen categoría propia en Shopify (fr-16-3 es para cojines de asiento de muebles de exterior), así que la cuestión es de la clase. «Solo interior» también la resuelve. Es central solo para quien busca uso exterior. Redacción con D-060 (T-031, regla 3): el lugar de uso (uso) y la resistencia a la intemperie (prestación) toman otro rasgo.",
       "seed_importance": "complementario",
-      "rule": "imp:uso@hg-3-64"
+      "rule": "imp:uso@hg-3-64",
+      "resolving_info": [
+        {
+          "contribution": "lugar de uso previsto, interior o exterior",
+          "component": "interior, exterior o ambos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.indoor_outdoor_usage"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.cojines-decorativos/10",
-      "question": "¿Qué propiedades higiénicas o de seguridad tiene (hipoalergénico, antiácaros, antibacteriano, resistencia al fuego)?",
+      "question": "¿Qué propiedades higiénicas tiene (hipoalergénico, antiácaros, antibacteriano…)?",
       "dimension": "salud y seguridad",
       "trait": "prestacion",
       "entity": "producto",
@@ -190,13 +445,53 @@
         "amazon-ptd-prop:PILLOW.special_feature=Antiácaros",
         "amazon-ptd-prop:PILLOW.special_feature=Antibacteriana",
         "amazon-ptd-prop:PILLOW.special_feature=Antimicrobiana",
-        "amazon-ptd-prop:PILLOW.special_feature=Resistente al fuego",
         "amazon-ptd-prop:PILLOW.material_feature=Hipoalergénico"
       ],
       "applicability": "universal",
-      "rationale": "Agrupa las características especiales de higiene y de comportamiento ante el fuego, más el valor «Hipoalergénico» de material_feature. Es relevante para personas alérgicas, pero no es un criterio central en cojines decorativos. Criterio 2: se citan los valores de material_feature que cubre.",
+      "rationale": "Agrupa las características especiales de higiene y de comportamiento ante el fuego, más el valor «Hipoalergénico» de material_feature. Es relevante para personas alérgicas, pero no es un criterio central en cojines decorativos. Criterio 2: se citan los valores de material_feature que cubre. Redacción con D-060 (T-031, regla 3): el comportamiento ante el fuego (seguridad) toma otro rasgo que la higiene (prestación).",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@hg-3-64"
+      "rule": "imp:prestacion@hg-3-64",
+      "resolving_info": [
+        {
+          "contribution": "declaración de hipoalergenicidad o carácter antialérgico",
+          "component": "propiedades higiénicas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Antialérgica",
+            "amazon-ptd-prop:PILLOW.special_feature=Hipoalergénico",
+            "amazon-ptd-prop:PILLOW.material_feature=Hipoalergénico"
+          ]
+        },
+        {
+          "contribution": "declaración de protección frente a los ácaros",
+          "component": "propiedades higiénicas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Antiácaros"
+          ]
+        },
+        {
+          "contribution": "declaración de tratamiento antibacteriano o antimicrobiano",
+          "component": "propiedades higiénicas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Antibacteriana",
+            "amazon-ptd-prop:PILLOW.special_feature=Antimicrobiana"
+          ]
+        },
+        {
+          "contribution": "certificado o informe de ensayo que respalde la propiedad higiénica",
+          "component": "propiedades higiénicas",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "sustancia o tratamiento que aporta la propiedad higiénica",
+          "component": "propiedades higiénicas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.cojines-decorativos/11",
@@ -204,7 +499,7 @@
       "dimension": "sostenibilidad",
       "trait": "material",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:PILLOW.material_feature=Biodegradable",
@@ -218,7 +513,168 @@
       "applicability": "universal",
       "rationale": "Pregunta por las características declaradas del material, no por una certificación, que ya pregunta cat.casa-y-jardin/03. Amplía el conocimiento sin ser un criterio central. Criterio 2: se citan los valores de material_feature que cubre.",
       "seed_importance": "complementario",
-      "rule": "imp:material@hg"
+      "rule": "imp:cat.cojines-decorativos/11@hg-3-64",
+      "resolving_info": [
+        {
+          "contribution": "declaración de material reciclado",
+          "component": "características ambientales de sus materiales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Reciclada"
+          ]
+        },
+        {
+          "contribution": "declaración de reciclabilidad",
+          "component": "características ambientales de sus materiales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.material_feature=Reciclable"
+          ]
+        },
+        {
+          "contribution": "declaración de material orgánico",
+          "component": "características ambientales de sus materiales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.material_feature=Orgánico"
+          ]
+        },
+        {
+          "contribution": "declaración de material natural o renovable",
+          "component": "características ambientales de sus materiales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.material_feature=Natural",
+            "amazon-ptd-prop:PILLOW.material_feature=Renovable"
+          ]
+        },
+        {
+          "contribution": "declaración de biodegradabilidad",
+          "component": "características ambientales de sus materiales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.material_feature=Biodegradable"
+          ]
+        },
+        {
+          "contribution": "declaración genérica de respeto al medio ambiente",
+          "component": "características ambientales de sus materiales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.material_feature=Respetuoso con el medio ambiente"
+          ]
+        },
+        {
+          "contribution": "parte del producto a la que corresponde cada característica ambiental",
+          "component": "en qué partes",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "porcentaje de material reciclado u orgánico",
+          "component": "características ambientales de sus materiales",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cojines-decorativos/12",
+      "question": "¿Cómo resiste el agua, el sol y la intemperie?",
+      "dimension": "resistencia a la intemperie",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOW.special_feature=Impermeable",
+        "amazon-ptd-prop:PILLOW.special_feature=Resistente al agua",
+        "amazon-ptd-prop:PILLOW.special_feature=Resistente a los rayos UV",
+        "amazon-ptd-prop:PILLOW.special_feature=Resistente al clima"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.cojines-decorativos/09 separada por la regla 3 de D-060 (T-031): el lugar de uso (uso) y la resistencia a la intemperie (prestación) toman otro rasgo.",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@hg-3-64",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "nivel de resistencia al agua",
+          "component": "agua",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Impermeable",
+            "amazon-ptd-prop:PILLOW.special_feature=Resistente al agua"
+          ]
+        },
+        {
+          "contribution": "resistencia a la radiación ultravioleta",
+          "component": "sol",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Resistente a los rayos UV"
+          ]
+        },
+        {
+          "contribution": "resistencia a la intemperie",
+          "component": "intemperie",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Resistente al clima"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de solidez del color a la luz",
+          "component": "sol",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "capacidad del relleno para drenar el agua y secarse",
+          "component": "agua",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cojines-decorativos/13",
+      "question": "¿Cómo se comporta ante el fuego (resistente o retardante del fuego)?",
+      "dimension": "comportamiento ante el fuego",
+      "trait": "seguridad",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOW.special_feature=Resistente al fuego"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.cojines-decorativos/10 separada por la regla 3 de D-060 (T-031): el comportamiento ante el fuego (seguridad) toma otro rasgo que la higiene (prestación).",
+      "seed_importance": "complementario",
+      "rule": "imp:seguridad@hg-3-64",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "declaración de resistencia o retardancia al fuego",
+          "component": "comportamiento ante el fuego",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PILLOW.special_feature=Resistente al fuego"
+          ]
+        },
+        {
+          "contribution": "norma o ensayo de comportamiento al fuego superado",
+          "component": "comportamiento ante el fuego",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "tratamiento ignífugo aplicado al tejido o al relleno",
+          "component": "comportamiento ante el fuego",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [
@@ -367,5 +823,5 @@
       "reason": "Tipo de relleno a efectos de cumplimiento: lo cubre /04 (shopify-attr:filler-material)."
     }
   ],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

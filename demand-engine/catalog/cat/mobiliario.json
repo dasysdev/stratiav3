@@ -8,7 +8,7 @@
     "shopify:fr@v2026-08",
     "google:436@2021-09-21"
   ],
-  "version": "1",
+  "version": "2",
   "status": "compilado",
   "requirements": [
     {
@@ -25,7 +25,17 @@
       "applicability": "universal",
       "rationale": "En un mueble, el color es un criterio con el que se eligen y comparan las ofertas. En un sofá es, sobre todo, el de la tapicería. Las extensiones de Shopify que aplican el color a una pieza (seat-/backrest-upholstery-color) quedan cubiertas aquí. Si hay varios colores a elegir, qué variantes existen lo pregunta gen.variantes.",
       "seed_importance": "principal",
-      "rule": "imp:estetica@fr"
+      "rule": "imp:estetica@fr",
+      "resolving_info": [
+        {
+          "contribution": "color principal",
+          "component": "color",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:color"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.mobiliario/02",
@@ -41,7 +51,17 @@
       "applicability": "universal",
       "rationale": "En mobiliario predomina el liso: la elección visual la deciden sobre todo el color y el material. El estampado amplía el conocimiento sin ser un criterio central. Las extensiones de Shopify que lo aplican a una pieza (seat-/backrest-upholstery-pattern) quedan cubiertas aquí.",
       "seed_importance": "complementario",
-      "rule": "imp:estetica@fr"
+      "rule": "imp:estetica@fr",
+      "resolving_info": [
+        {
+          "contribution": "tipo de estampado o motivo, o indicación de que es liso",
+          "component": "estampado o motivo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pattern"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.mobiliario/03",
@@ -57,9 +77,47 @@
       "applicability": "universal",
       "rationale": "Es relevante para el uso y la durabilidad del mueble. Los criterios de comparación más directos sobre el mantenimiento (desenfundable, antimanchas) se preguntan en los bloques de cada categoría. Cubre también el código de limpieza de la tapicería del PTD SOFA (upholstery.cleaning_code).",
       "seed_importance": "complementario",
-      "rule": "imp:cuidado@fr"
+      "rule": "imp:cuidado@fr",
+      "resolving_info": [
+        {
+          "contribution": "método de lavado o limpieza admitido",
+          "component": "cómo se limpia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "método de secado admitido",
+          "component": "cómo se limpia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicación sobre el planchado",
+          "component": "cómo se mantiene",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "productos de limpieza admitidos y desaconsejados",
+          "component": "cómo se limpia",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "tratamiento o mantenimiento periódico recomendado",
+          "component": "cómo se mantiene",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

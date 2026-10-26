@@ -1,6 +1,6 @@
-"""Importance rules along the Shopify tree (D-045): induction and resolution."""
+"""Importance rules by trait along the Shopify tree (D-045): induction and resolution."""
 from demand_engine.demand.catalog import resolve
-from demand_engine.demand.train import induce
+from demand_engine.demand.train import induce, pairs
 
 
 def point(trait, node, label, w=1.0):
@@ -44,12 +44,11 @@ def test_tie_goes_to_the_higher_level():
     assert rules["tree"]["material@hg-15-1"] == "principal"
 
 
-def test_critical_only_for_traits_that_say_what_is_sold():
+def test_trait_rules_never_give_critical():
     rules = induce([point("seguridad", "ap-2-3-7", "crítico"), point("contenido", "ap-2-3-3", "crítico")])
-    assert rules["tree"]["seguridad@ap-2-3-7"] == "principal"
-    assert len(rules["violations"]) == 1
-    assert rules["global"]["contenido"] == "crítico"
-    assert resolve("contenido", ["hg-15-1"], rules) == ("crítico", "imp:contenido@*")
+    assert rules["tree"]["seguridad@ap-2-3-7"] == "principal"  # a critical vote counts as principal (D-055, D-058)
+    assert rules["tree"]["contenido@ap-2-3-3"] == "principal"
+    assert "global" not in rules
 
 
 def test_framework_rules_win():
@@ -62,3 +61,8 @@ def test_framework_rules_win():
 def test_model_takes_highest_level_across_pieces():
     rules = induce([point("uso", "hg-15-1-2", "principal"), point("uso", "hg-15-1-8", "complementario")])
     assert resolve("uso", ["hg-15-1-2-1", "hg-15-1-8-2"], rules)[0] == "principal"
+
+
+def test_runs_pair_in_order_given():
+    models = {"t-a": {"x": 1, "y": 2}, "t-b": {"x": 3}, "c-a": {"z": 4}, "c-b": {"z": 5}, "odd": {"x": 6}}
+    assert pairs(models) == [("x", 1, 3), ("z", 4, 5)]

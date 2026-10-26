@@ -1,0 +1,578 @@
+{
+  "id": "cat.soperas",
+  "type": "categoría",
+  "name": "Soperas",
+  "shopify": "hg-11-10-7-11",
+  "parent": "cat.utensilios-de-servir",
+  "refs": [
+    "shopify:hg-11-10-7-11@v2026-08",
+    "google:3941@2021-09-21",
+    "amazon-ptd:DISHWARE_BOWL@2026-10-24",
+    "amazon-btg:3112087031@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.soperas/01",
+      "question": "¿Qué capacidad tiene (en litros o centilitros)?",
+      "dimension": "capacidad",
+      "entity": "producto",
+      "trait": "medida",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DISHWARE_BOWL.capacity",
+        "amazon-ptd-prop:DISHWARE_BOWL.volume_capacity_name"
+      ],
+      "applicability": "universal",
+      "rationale": "La capacidad es el criterio central para comparar soperas: indica cuánto sirve. Describe el producto; no es una variante seleccionable (D-043, criterio 1). Redacción con D-060 (T-031, reglas 3 y 4): para cuántos comensales sirve no lo recoge DISHWARE_BOWL.capacity y es otro rasgo (uso): sale como inferida.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "capacidad de la sopera",
+          "component": "capacidad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.capacity",
+            "amazon-ptd-prop:DISHWARE_BOWL.volume_capacity_name"
+          ]
+        },
+        {
+          "contribution": "capacidad útil frente a capacidad hasta el borde",
+          "component": "capacidad",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.soperas/02",
+      "question": "¿Qué medidas tiene (ancho o diámetro, largo y alto, con la tapa)?",
+      "dimension": "medidas",
+      "entity": "producto",
+      "trait": "medida",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DISHWARE_BOWL.item_width_height",
+        "amazon-ptd-prop:DISHWARE_BOWL.size",
+        "amazon-ptd-prop:DISHWARE_BOWL.length_range"
+      ],
+      "applicability": "universal",
+      "rationale": "Las medidas determinan el espacio en la mesa y el almacenaje; describen el producto (D-043, criterio 1).",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "ancho o diámetro en el punto más ancho, incluidas las asas",
+          "component": "ancho o diámetro",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.item_width_height"
+          ]
+        },
+        {
+          "contribution": "largo de la pieza",
+          "component": "largo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.length_range"
+          ]
+        },
+        {
+          "contribution": "altura desde la base hasta la parte superior",
+          "component": "alto",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.item_width_height"
+          ]
+        },
+        {
+          "contribution": "tamaño nominal de la pieza",
+          "component": "ancho o diámetro, largo y alto",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.size"
+          ]
+        },
+        {
+          "contribution": "altura con la tapa puesta",
+          "component": "con la tapa",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "plano o imagen acotada de la sopera",
+          "component": "ancho o diámetro, largo y alto",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.soperas/03",
+      "question": "¿Cuánto pesa?",
+      "dimension": "peso",
+      "entity": "producto",
+      "trait": "magnitud",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DISHWARE_BOWL.item_weight",
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Ligero"
+      ],
+      "applicability": "universal",
+      "rationale": "Una sopera llena se transporta a la mesa: el peso informa del manejo, sin ser criterio central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:magnitud@hg-11-10-7-11",
+      "resolving_info": [
+        {
+          "contribution": "peso de la sopera",
+          "component": "peso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.item_weight"
+          ]
+        },
+        {
+          "contribution": "indicación cualitativa de ligereza",
+          "component": "peso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Ligero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.soperas/04",
+      "question": "¿Se puede usar en el horno o en el congelador?",
+      "dimension": "usos térmicos",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Apto para horno",
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Apto para congelador"
+      ],
+      "applicability": "universal",
+      "rationale": "Una sopera sirve alimentos calientes; si admite horno (para gratinar o mantener caliente) o congelador es criterio para elegir entre soperas. Redacción con D-060 (T-031, regla 3): conservar el calor (prestación) toma otro rasgo que los usos térmicos (uso).",
+      "seed_importance": "principal",
+      "importance": "complementario",
+      "rule": "imp:uso@hg-11-10-7-11",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si es apta para horno",
+          "component": "horno",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Apto para horno"
+          ]
+        },
+        {
+          "contribution": "indicación de si es apta para congelador",
+          "component": "congelador",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Apto para congelador"
+          ]
+        },
+        {
+          "contribution": "temperatura máxima de uso en el horno",
+          "component": "horno",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "resistencia al choque térmico",
+          "component": "horno o congelador",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.soperas/05",
+      "question": "¿Es apta para el contacto con alimentos y está libre de plomo u otras sustancias tóxicas en el vidriado o la decoración?",
+      "dimension": "aptitud alimentaria",
+      "entity": "producto",
+      "trait": "seguridad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Sin plomo",
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=No tóxico",
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Antibacteriano"
+      ],
+      "applicability": "universal",
+      "rationale": "Pieza en contacto directo con alimentos calientes; la ausencia de plomo en vidriados cerámicos es una cuestión de seguridad que se compara.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:seguridad@hg-11-10-7-11",
+      "resolving_info": [
+        {
+          "contribution": "declaración de ausencia de plomo",
+          "component": "libre de plomo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Sin plomo"
+          ]
+        },
+        {
+          "contribution": "declaración de ausencia de sustancias tóxicas",
+          "component": "otras sustancias tóxicas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=No tóxico"
+          ]
+        },
+        {
+          "contribution": "declaración o símbolo de aptitud para el contacto con alimentos",
+          "component": "apta para el contacto con alimentos",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "resultado de un ensayo de migración de plomo y cadmio",
+          "component": "libre de plomo u otras sustancias tóxicas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.soperas/06",
+      "question": "¿Qué resistencia tiene al uso (desportilladuras, arañazos, manchas, decoloración, golpes)?",
+      "dimension": "resistencia y durabilidad",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a astilladuras",
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Inastillable",
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Duradero",
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a los arañazos",
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a las manchas",
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a la decoloración",
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a las abolladuras",
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a la grasa",
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a olores",
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente al óxido"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa las prestaciones de resistencia de special_feature; informan sobre la durabilidad sin ser criterio central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@hg-11-10-7-11",
+      "resolving_info": [
+        {
+          "contribution": "resistencia a desportilladuras y roturas",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a astilladuras",
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Inastillable"
+          ]
+        },
+        {
+          "contribution": "resistencia a los arañazos",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a los arañazos"
+          ]
+        },
+        {
+          "contribution": "resistencia a manchas, grasa y olores",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a las manchas",
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a la grasa",
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a olores"
+          ]
+        },
+        {
+          "contribution": "solidez del color o de la decoración",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a la decoloración"
+          ]
+        },
+        {
+          "contribution": "durabilidad y resistencia a golpes y abolladuras",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Duradero",
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a las abolladuras"
+          ]
+        },
+        {
+          "contribution": "resistencia a la corrosión",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente al óxido"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.soperas/07",
+      "question": "¿Cómo está fabricada y acabada (hecha a mano, martillada, vidriado, decoración aplicada…)?",
+      "dimension": "fabricación y acabado",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Hecho a mano",
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Martillado"
+      ],
+      "applicability": "universal",
+      "rationale": "La fabricación (artesanal o industrial) y el acabado distinguen soperas de distinta gama.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@hg-11-10-7-11",
+      "resolving_info": [
+        {
+          "contribution": "método de fabricación, artesanal o industrial",
+          "component": "cómo está fabricada",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Hecho a mano"
+          ]
+        },
+        {
+          "contribution": "tipo de acabado de la superficie",
+          "component": "cómo está acabada",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Martillado"
+          ]
+        },
+        {
+          "contribution": "tipo de vidriado o esmaltado",
+          "component": "cómo está acabada",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "técnica de decoración aplicada",
+          "component": "cómo está acabada",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.soperas/08",
+      "question": "¿Para qué servicio o uso está pensada (sopas y caldos, guisos, servir en mesa, centro de mesa o decoración)?",
+      "dimension": "uso previsto",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DISHWARE_BOWL.specific_uses_for_product",
+        "amazon-ptd-prop:DISHWARE_BOWL.recommended_uses_for_product"
+      ],
+      "applicability": "universal",
+      "rationale": "Distingue soperas de servicio diario de piezas decorativas o de presentación.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:uso@hg-11-10-7-11",
+      "resolving_info": [
+        {
+          "contribution": "alimentos o preparaciones para los que está pensada",
+          "component": "servicio o uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.specific_uses_for_product"
+          ]
+        },
+        {
+          "contribution": "uso recomendado de la pieza",
+          "component": "servicio o uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.recommended_uses_for_product"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.soperas/09",
+      "question": "¿Para cuántos comensales está pensada?",
+      "dimension": "comensales",
+      "trait": "uso",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Cuestión inferida (D-036) que sale de cat.soperas/01 por la reglas 3 y 4 de D-060 (T-031): para cuántos comensales sirve no lo recoge DISHWARE_BOWL.capacity y es otro rasgo (uso): sale como inferida. Provisional hasta que la valide el entrenamiento.",
+      "seed_importance": "complementario",
+      "rule": "imp:uso@hg-11-10-7-11",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "número de comensales o raciones para los que está pensada",
+          "component": "cuántos comensales",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "capacidad de la sopera, de la que se derivan las raciones",
+          "component": "cuántos comensales",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.soperas/10",
+      "question": "¿Mantiene el calor (aislada)?",
+      "dimension": "conservación del calor",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Aislado"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.soperas/04 separada por la regla 3 de D-060 (T-031): conservar el calor (prestación) toma otro rasgo que los usos térmicos (uso).",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@hg-11-10-7-11",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si está aislada térmicamente",
+          "component": "mantiene el calor",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Aislado"
+          ]
+        },
+        {
+          "contribution": "tiempo durante el que conserva la temperatura",
+          "component": "mantiene el calor",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "tipo de construcción aislante",
+          "component": "mantiene el calor",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.bowl",
+      "reason": "Material del recipiente: lo cubre «material» en la cadena (cat.cocina-y-comedor/01)."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.is_dishwasher_safe",
+      "reason": "Lo cubre cat.cocina-y-comedor/02 (cuidado)."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Apto para lavavajillas",
+      "reason": "Lo cubre cat.cocina-y-comedor/02 (cuidado)."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.is_microwaveable",
+      "reason": "Lo cubre cat.utensilios-de-mesa/01."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Apto para microondas",
+      "reason": "Lo cubre cat.utensilios-de-mesa/01."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.included_components",
+      "reason": "Piezas incluidas (tapa, cucharón, plato base): las cubren gen/01 y esp.juego (D-043, criterio 3)."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.number_of_pieces",
+      "reason": "Piezas incluidas: gen/01 y esp.juego."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.age_range_description",
+      "reason": "Rango de edad de cuencos infantiles; no informa sobre soperas."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.collection_item",
+      "reason": "Colección o línea: la cubre gen/02 (modelo)."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.band",
+      "reason": "Dato de plataforma sin significado para la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.manufacture_year",
+      "reason": "Dato de feed; no es criterio de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Apilable",
+      "reason": "Propio de cuencos apilables; no se aplica a soperas con tapa."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Antideslizante",
+      "reason": "Propio de cuencos de cocina o infantiles; no informa sobre soperas."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Apto para exteriores",
+      "reason": "Propio de vajilla de exterior; no informa sobre soperas."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Desechable",
+      "reason": "Vajilla desechable: otra categoría."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Reutilizable",
+      "reason": "Contrapunto de desechable; no informa sobre soperas."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Dividido",
+      "reason": "Cuencos con compartimentos; no se aplica a soperas."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Drenable",
+      "reason": "Escurridores; no se aplica a soperas."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Flexible",
+      "reason": "Cuencos de silicona; no informa sobre soperas."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Hermético",
+      "reason": "Recipientes de conservación; no se aplica a soperas."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Resistente a fugas",
+      "reason": "Recipientes de conservación; no se aplica a soperas."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Magnético",
+      "reason": "Cuencos de mezcla; no se aplica a soperas."
+    },
+    {
+      "source": "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Marcas graduadas",
+      "reason": "Cuencos de mezcla; no se aplica a soperas."
+    }
+  ],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

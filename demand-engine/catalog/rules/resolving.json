@@ -1,0 +1,5291 @@
+{
+  "version": "6",
+  "compiled": "2026-10-26",
+  "runs": [
+    "var/runs/2026-10-25-eci-a",
+    "var/runs/2026-10-25-eci-b",
+    "var/runs/2026-10-26-v4-a",
+    "var/runs/2026-10-26-v4-b"
+  ],
+  "min_stores": 2,
+  "requirements": {
+    "cat.aceite-de-motor-sintetico/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo o grupo del aceite base",
+        "declaración de formulación total o parcialmente sintética",
+        "ficha de datos de seguridad con la composición del aceite base"
+      ]
+    },
+    "cat.aceite-para-motores-de-vehiculos/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "grado de viscosidad SAE J300",
+        "viscosidad cinemática a las temperaturas de referencia"
+      ]
+    },
+    "cat.aceite-para-motores-de-vehiculos/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "volumen neto de aceite del envase"
+      ]
+    },
+    "cat.aceite-para-motores-de-vehiculos/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de motor o combustible al que se destina",
+        "marcas, modelos o motorizaciones compatibles",
+        "código de vehículo en un estándar de montaje",
+        "indicación de ajuste universal o específico"
+      ]
+    },
+    "cat.aceite-para-motores-de-vehiculos/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "categoría ACEA que cumple",
+        "categoría API que cumple",
+        "homologaciones de fabricantes de vehículos o motores"
+      ]
+    },
+    "cat.aceite-para-motores-de-vehiculos/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de protección contra el desgaste",
+        "declaración de protección a altas o bajas temperaturas",
+        "declaración de protección contra la corrosión",
+        "resultado de ensayos de protección del motor"
+      ]
+    },
+    "cat.aceite-para-motores-de-vehiculos/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de ahorro de combustible o energía",
+        "declaración de alto flujo o baja caída de presión",
+        "declaración de eficiencia de filtración",
+        "resultado de ensayo de ahorro de combustible"
+      ]
+    },
+    "cat.alimentacion-bebida-y-tabaco/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "certificación ecológica que acredita",
+        "certificación de comercio justo",
+        "otra certificación de sostenibilidad y su entidad certificadora",
+        "código del organismo de control o número de certificado"
+      ]
+    },
+    "cat.alimentos/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "cantidad neta del alimento en peso o volumen",
+        "peso del artículo sin envase, con su unidad",
+        "peso neto escurrido",
+        "número de unidades del envase y cantidad neta de cada una"
+      ]
+    },
+    "cat.alimentos/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "enumeración de los ingredientes",
+        "materia prima principal",
+        "categoría funcional y denominación de los aditivos",
+        "ficha técnica o de especificaciones del producto"
+      ]
+    },
+    "cat.alimentos/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "sustancias o productos que causan alergias o intolerancias presentes en el alimento",
+        "advertencia de posible presencia de alérgenos por contaminación cruzada",
+        "declaración de ausencia de un alérgeno",
+        "alérgenos identificados dentro de la lista de ingredientes"
+      ]
+    },
+    "cat.alimentos/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "valor energético",
+        "cantidad de grasas y de ácidos grasos saturados",
+        "cantidad de hidratos de carbono",
+        "cantidad de azúcares",
+        "cantidad de proteínas",
+        "cantidad de sal",
+        "tamaño de la ración y número de raciones del envase"
+      ]
+    },
+    "cat.alimentos/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "condiciones de conservación del envase cerrado",
+        "condiciones de conservación una vez abierto",
+        "plazo de consumo una vez abierto"
+      ]
+    },
+    "cat.alimentos/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "sabor del producto",
+        "ingrediente que da el sabor característico",
+        "denominación del alimento"
+      ]
+    },
+    "cat.alimentos/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "estado de conservación o tratamiento del alimento",
+        "forma física o grado de división del alimento"
+      ]
+    },
+    "cat.alimentos/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de ausencia de un ingrediente o componente restringido",
+        "declaración de aptitud para dieta vegana o vegetariana",
+        "declaración de conformidad con preceptos religiosos",
+        "declaración de compatibilidad con un régimen dietético",
+        "certificado o sello de la entidad que avala la aptitud"
+      ]
+    },
+    "cat.alimentos/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de contenido bajo o nulo de un nutriente",
+        "declaración de contenido alto de un nutriente",
+        "declaración de cereal integral",
+        "declaración de descafeinado",
+        "información nutricional que respalda la declaración"
+      ]
+    },
+    "cat.alimentos/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de ausencia de aditivos o ingredientes artificiales",
+        "declaración sobre la naturaleza del producto",
+        "declaración de ausencia de organismos modificados genéticamente",
+        "aditivos de la lista de ingredientes con su categoría y su denominación o número E",
+        "mención de ingredientes modificados genéticamente"
+      ]
+    },
+    "cat.alimentos/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de producción ecológica",
+        "declaración de origen único",
+        "declaración del método de cultivo",
+        "logotipo ecológico con el código del organismo de control",
+        "país o lugar de procedencia"
+      ]
+    },
+    "cat.alimentos/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si el producto caduca",
+        "tipo de fecha o método de datación de la caducidad",
+        "duración de la vida útil",
+        "fecha de consumo preferente o de caducidad del lote que se entrega",
+        "vida útil mínima garantizada en la entrega"
+      ]
+    },
+    "cat.alimentos/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de aptitud para el contacto con alimentos",
+        "declaración de ausencia de sustancias nocivas en el envase",
+        "certificación o aprobación de seguridad alimentaria y entidad que la otorga",
+        "certificado del fabricante en un esquema de seguridad alimentaria",
+        "declaración de conformidad del envase con la normativa de materiales en contacto con alimentos"
+      ]
+    },
+    "cat.bloques-de-lija/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "largo de la superficie de lijado",
+        "ancho de la superficie de lijado"
+      ]
+    },
+    "cat.bloques-de-lija/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "forma de la superficie de lijado",
+        "perfil plano o de contorno de la superficie de lijado"
+      ]
+    },
+    "cat.bloques-de-lija/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material del cuerpo del bloque",
+        "material de la base o almohadilla de lijado"
+      ]
+    },
+    "cat.bloques-de-lija/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "grado de firmeza o flexibilidad de la base"
+      ]
+    },
+    "cat.bloques-de-lija/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "categoría de grano",
+        "número de grano",
+        "escala o norma de graduación del grano"
+      ]
+    },
+    "cat.bloques-de-lija/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "sistema de sujeción de la hoja abrasiva",
+        "procedimiento de cambio de la hoja"
+      ]
+    },
+    "cat.bloques-de-lija/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "formato o medida de las hojas compatibles",
+        "sistema de sujeción de los abrasivos compatibles",
+        "gamas o marcas de abrasivos compatibles"
+      ]
+    },
+    "cat.bloques-de-lija/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nivel de uso al que se destina",
+        "entorno de uso previsto"
+      ]
+    },
+    "cat.bloques-de-lija/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "peso del bloque"
+      ]
+    },
+    "cat.bloques-de-lija/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de trabajo para el que está pensado",
+        "superficies o materiales sobre los que se usa"
+      ]
+    },
+    "cat.bolsas-de-viaje-y-deporte/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "talla o categoría de tamaño",
+        "indicación de si cumple las medidas de equipaje de cabina"
+      ]
+    },
+    "cat.bolsas-de-viaje-y-deporte/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "alto exterior",
+        "ancho exterior del lado horizontal más largo",
+        "fondo exterior del lado horizontal más corto",
+        "imagen acotada de la bolsa"
+      ]
+    },
+    "cat.bolsas-de-viaje-y-deporte/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "capacidad en litros"
+      ]
+    },
+    "cat.bolsas-de-viaje-y-deporte/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "peso de la bolsa vacía",
+        "declaración de ligereza"
+      ]
+    },
+    "cat.bolsas-de-viaje-y-deporte/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material principal del exterior",
+        "categoría del material de la superficie exterior a efectos normativos",
+        "declaración de producto vegano"
+      ]
+    },
+    "cat.bolsas-de-viaje-y-deporte/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de cierre del compartimento principal"
+      ]
+    },
+    "cat.bolsas-de-viaje-y-deporte/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "número de compartimentos",
+        "descripción de los compartimentos",
+        "tipos de bolsillos y elementos de almacenamiento",
+        "indicación de si tiene compartimento para portátil",
+        "portatarjetas, portamonedas o soporte para teléfono incluidos",
+        "indicación de si tiene compartimento separado para calzado"
+      ]
+    },
+    "cat.bolsas-de-viaje-y-deporte/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si tiene ruedas",
+        "número de ruedas",
+        "tipo de ruedas",
+        "indicación de si tiene asa telescópica"
+      ]
+    },
+    "cat.bolsas-de-viaje-y-deporte/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de impermeabilidad",
+        "nivel de resistencia al agua",
+        "resultado de un ensayo de impermeabilidad"
+      ]
+    },
+    "cat.bolsas-de-viaje-y-deporte/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de acolchado interior",
+        "declaración de resistencia a golpes",
+        "declaración de protección frente al polvo",
+        "declaración de resistencia al fuego",
+        "declaración de elementos reflectantes"
+      ]
+    },
+    "cat.bolsas-de-viaje-y-deporte/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de diseño antirrobo",
+        "indicación de si el cierre admite candado o bloqueo",
+        "declaración de cerradura aceptada por la TSA",
+        "declaración de protección RFID"
+      ]
+    },
+    "cat.bolsas-de-viaje-y-deporte/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si es ampliable o de tamaño regulable",
+        "indicación de si es convertible en otro formato",
+        "capacidad o medidas en la configuración ampliada"
+      ]
+    },
+    "cat.bolsas-de-viaje-y-deporte/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "uso recomendado"
+      ]
+    },
+    "cat.bolsas-de-viaje-y-deporte/14": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "grupo de edad al que se destina",
+        "sexo al que se destina el diseño"
+      ]
+    },
+    "cat.botas/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "estilo o forma de la bota",
+        "tipo de bota según el uso al que se destina"
+      ]
+    },
+    "cat.botas/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "categoría de altura de la caña",
+        "parte de la pierna que cubre la caña",
+        "medida de la altura de la caña"
+      ]
+    },
+    "cat.botas/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "categoría de anchura de la caña en la pantorrilla",
+        "contorno de la caña medido",
+        "intervalo de ajuste del contorno de la caña"
+      ]
+    },
+    "cat.botas/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "capa o calidad de la piel empleada",
+        "acabado de la superficie del cuero",
+        "animal del que procede el cuero"
+      ]
+    },
+    "cat.botas/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de tacón"
+      ]
+    },
+    "cat.botas/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material de la plantilla",
+        "categoría del material de la plantilla a efectos de etiquetado",
+        "etiquetado de materiales del calzado por partes"
+      ]
+    },
+    "cat.botas/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de aislamiento térmico",
+        "declaración de forro o interior de felpa",
+        "material y gramaje del aislante"
+      ]
+    },
+    "cat.botas/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de suela resistente a la perforación",
+        "declaración de propiedades disipativas o antiestáticas",
+        "declaración de resistencia a llamas o a productos químicos",
+        "declaración de resistencia a impactos",
+        "declaración de elementos reflectantes",
+        "norma de calzado de seguridad que cumple y categoría de protección"
+      ]
+    },
+    "cat.botas/19": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "uso o actividad para la que está pensada"
+      ]
+    },
+    "cat.botas/20": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si la piel con pelo es natural o sintética",
+        "especie animal de la que procede la piel"
+      ]
+    },
+    "cat.botas/21": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "altura de la plataforma"
+      ]
+    },
+    "cat.botas/22": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si la plantilla es extraíble"
+      ]
+    },
+    "cat.botas/23": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "temperatura mínima de uso recomendada",
+        "clasificación de aislamiento frente al frío según norma técnica"
+      ]
+    },
+    "cat.botas/24": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "grado de firmeza o rigidez de la caña"
+      ]
+    },
+    "cat.botellas-de-agua/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "capacidad de la botella",
+        "tamaño nominal de la variante"
+      ]
+    },
+    "cat.botellas-de-agua/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si tiene aislamiento térmico",
+        "tipo de aislamiento"
+      ]
+    },
+    "cat.botellas-de-agua/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tiempo de conservación del frío",
+        "tiempo de conservación del calor",
+        "resultado de un ensayo de retención térmica con sus condiciones"
+      ]
+    },
+    "cat.botellas-de-agua/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de tapa",
+        "mecanismo de apertura de la tapa",
+        "sistema de bloqueo de la tapa",
+        "tipo de boquilla o sistema para beber",
+        "ancho de la boca",
+        "dureza del material de la boquilla"
+      ]
+    },
+    "cat.botellas-de-agua/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de hermeticidad",
+        "declaración de estanqueidad frente a fugas y derrames",
+        "condiciones o límites de la estanqueidad"
+      ]
+    },
+    "cat.botellas-de-agua/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "grupo de edad al que se destina"
+      ]
+    },
+    "cat.botellas-de-agua/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "bebidas o contenidos para los que está pensada",
+        "actividades o entornos de uso recomendados",
+        "aptitud para bebidas calientes o con gas"
+      ]
+    },
+    "cat.botellas-de-agua/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si es apta para congelador"
+      ]
+    },
+    "cat.botellas-de-agua/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "peso de la botella vacía",
+        "indicación cualitativa de ligereza"
+      ]
+    },
+    "cat.botellas-de-agua/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "altura total con la tapa",
+        "diámetro exterior del cuerpo",
+        "ancho de la parte superior",
+        "plano o imagen acotada de la botella"
+      ]
+    },
+    "cat.botellas-de-agua/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "resistencia a golpes y astillado",
+        "resistencia a los arañazos",
+        "resistencia a la retención de olores",
+        "ausencia de condensación exterior",
+        "indicación de base antideslizante",
+        "resultado de un ensayo de caída"
+      ]
+    },
+    "cat.botellas-de-agua/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "elementos para filtrar, infusionar o tratar el contenido",
+        "ayudas para controlar la hidratación",
+        "elementos de transporte y agarre",
+        "indicación de si es plegable",
+        "protección del contenido frente a la luz",
+        "otras funciones integradas"
+      ]
+    },
+    "cat.botellas-de-agua/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de acabado de la superficie",
+        "fotografía que muestre el acabado de la superficie"
+      ]
+    },
+    "cat.bricolaje/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "color principal",
+        "combinación de colores"
+      ]
+    },
+    "cat.bricolaje/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de estampado o patrón",
+        "motivo representado",
+        "material que imita el acabado"
+      ]
+    },
+    "cat.calzado/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "talla de cada variante",
+        "intervalo de tallas cuando la talla se expresa como rango",
+        "sistema de tallas en que se expresa la talla",
+        "clase de talla en que se expresa"
+      ]
+    },
+    "cat.calzado/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "ancho de horma",
+        "código de ancho según un sistema de anchos de calzado",
+        "anchura o perímetro del pie al que corresponde la horma"
+      ]
+    },
+    "cat.calzado/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "grupo de edad al que se destina",
+        "categoría de tallaje infantil"
+      ]
+    },
+    "cat.calzado/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material del corte",
+        "etiquetado de materiales del calzado por partes"
+      ]
+    },
+    "cat.calzado/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "categoría de altura del tacón",
+        "altura del tacón medida"
+      ]
+    },
+    "cat.calzado/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si lleva puntera de protección",
+        "material o tipo de la puntera de protección",
+        "norma de calzado de seguridad que cumple y categoría de protección"
+      ]
+    },
+    "cat.calzado/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material del forro interior",
+        "indicación de si no lleva forro",
+        "etiquetado de materiales del calzado por partes"
+      ]
+    },
+    "cat.calzado/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material de la suela exterior",
+        "categoría del material de la suela a efectos de etiquetado"
+      ]
+    },
+    "cat.calzado/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de cierre o sujeción"
+      ]
+    },
+    "cat.calzado/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "forma de la punta",
+        "indicación de si la puntera es abierta o cerrada"
+      ]
+    },
+    "cat.calzado/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "método de unión del corte a la suela",
+        "indicación de si la suela va unida al corte con adhesivo"
+      ]
+    },
+    "cat.calzado/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "ocasión o estilo de uso"
+      ]
+    },
+    "cat.calzado/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "método de lavado o limpieza admitido",
+        "indicaciones de secado",
+        "productos de limpieza o mantenimiento recomendados"
+      ]
+    },
+    "cat.calzado/14": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nivel de protección frente al agua",
+        "membrana o tratamiento impermeabilizante empleado",
+        "resultado de un ensayo de impermeabilidad"
+      ]
+    },
+    "cat.calzado/15": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de suela antideslizante",
+        "clasificación de resistencia al deslizamiento según norma técnica",
+        "dibujo o diseño de la banda de rodadura"
+      ]
+    },
+    "cat.calzado/16": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de acolchado",
+        "declaración de soporte del arco",
+        "declaración de diseño ortopédico",
+        "sistema o material de amortiguación",
+        "tipo de plantilla y su forma anatómica"
+      ]
+    },
+    "cat.calzado/17": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de transpirabilidad",
+        "declaración de tratamiento antimicrobiano o antiolor",
+        "resultado de un ensayo de permeabilidad al vapor de agua"
+      ]
+    },
+    "cat.calzado/18": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "peso del calzado",
+        "declaración de ligereza",
+        "indicación de si el peso corresponde a una unidad o al par",
+        "talla a la que corresponde el peso declarado"
+      ]
+    },
+    "cat.calzado/19": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de materiales reciclados",
+        "declaración de producto vegano",
+        "proporción de material reciclado",
+        "certificación vegana de un tercero"
+      ]
+    },
+    "cat.calzado/22": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de suela flexible",
+        "grado de rigidez de la suela"
+      ]
+    },
+    "cat.calzado/23": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de resistencia a la abrasión",
+        "declaración de resistencia a las manchas",
+        "declaración de resistencia a la formación de bolitas",
+        "resultado de un ensayo de resistencia a la abrasión"
+      ]
+    },
+    "cat.calzado/24": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación del ajuste del modelo respecto a la talla habitual",
+        "recomendación sobre la talla que conviene pedir",
+        "longitud interior del calzado en cada talla"
+      ]
+    },
+    "cat.calzado/25": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tabla de equivalencias entre sistemas de tallas",
+        "longitud del pie que corresponde a cada talla"
+      ]
+    },
+    "cat.calzado/26": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de producto ecológico",
+        "declaración de abastecimiento sostenible",
+        "certificación o etiqueta ambiental de un tercero"
+      ]
+    },
+    "cat.camas-de-enfriamiento-para-mascotas/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de efecto refrescante",
+        "indicación de regulación de la temperatura",
+        "tipo de sistema de enfriamiento",
+        "material o sustancia refrigerante"
+      ]
+    },
+    "cat.camas-de-enfriamiento-para-mascotas/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "duración del efecto refrescante",
+        "modo y tiempo de recuperación del efecto refrescante",
+        "indicación de si enfría de forma continua"
+      ]
+    },
+    "cat.camas-de-enfriamiento-para-mascotas/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de no toxicidad del gel o el líquido refrigerante",
+        "composición o ficha de datos de seguridad del gel o el líquido",
+        "advertencia sobre las consecuencias de morder o perforar la cama"
+      ]
+    },
+    "cat.camas-de-enfriamiento-para-mascotas/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "preparación necesaria antes del uso",
+        "indicación de si enfría sin preparación"
+      ]
+    },
+    "cat.camas-para-mascotas/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo o forma de cama",
+        "indicación de si es elevada",
+        "indicación de si es convertible"
+      ]
+    },
+    "cat.camas-para-mascotas/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "forma geométrica"
+      ]
+    },
+    "cat.camas-para-mascotas/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "talla de la cama",
+        "largo de la cama",
+        "ancho de la cama",
+        "grosor o altura de la cama",
+        "medidas de la superficie interior de descanso",
+        "correspondencia entre la talla y las medidas o el peso del animal"
+      ]
+    },
+    "cat.camas-para-mascotas/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tamaño de raza al que se destina",
+        "raza recomendada",
+        "peso o longitud máxima del animal que admite"
+      ]
+    },
+    "cat.camas-para-mascotas/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material de la superficie o la funda",
+        "denominación de las fibras de la funda",
+        "porcentaje en peso de cada fibra"
+      ]
+    },
+    "cat.camas-para-mascotas/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material de relleno"
+      ]
+    },
+    "cat.camas-para-mascotas/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de uso en interior o exterior",
+        "indicación de uso en el coche o de viaje"
+      ]
+    },
+    "cat.camas-para-mascotas/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de resistencia a mordidas, arañazos y desgarros",
+        "declaración de resistencia a la decoloración",
+        "declaración de resistencia a las manchas",
+        "resultado de un ensayo de resistencia al desgarro del tejido"
+      ]
+    },
+    "cat.camas-para-mascotas/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nivel de resistencia al agua",
+        "declaración de resistencia a la intemperie",
+        "declaración de resistencia a los rayos UV",
+        "resultado de un ensayo de impermeabilidad"
+      ]
+    },
+    "cat.camas-para-mascotas/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de transpirabilidad",
+        "capacidad de absorción",
+        "tratamiento antimicrobiano o de control de olores",
+        "declaración de hipoalergenicidad"
+      ]
+    },
+    "cat.camas-para-mascotas/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "método de limpieza admitido",
+        "indicación de si es lavable",
+        "indicación de si la funda es extraíble",
+        "temperatura máxima de lavado"
+      ]
+    },
+    "cat.camas-para-mascotas/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si es plegable",
+        "indicación de si es ligera",
+        "indicación de si es portátil",
+        "medidas de la cama plegada"
+      ]
+    },
+    "cat.camas-para-mascotas/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de base antideslizante",
+        "indicación de si es reversible",
+        "indicación de si es ajustable"
+      ]
+    },
+    "cat.camas-para-mascotas/14": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de soporte ortopédico",
+        "firmeza o densidad del relleno"
+      ]
+    },
+    "cat.camas-para-mascotas/15": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "peso de la cama"
+      ]
+    },
+    "cat.casa-y-jardin/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "color principal o predominante",
+        "colores que lo componen cuando es de varios colores",
+        "fotografía del producto que muestre su color real"
+      ]
+    },
+    "cat.casa-y-jardin/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si es liso o estampado",
+        "tipo de estampado o motivo",
+        "figuras o temas representados en el motivo",
+        "fotografía del producto que muestre el estampado"
+      ]
+    },
+    "cat.casa-y-jardin/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si tiene certificación ecológica, orgánica o de comercio justo",
+        "nombre de la certificación ecológica u orgánica",
+        "nombre de la certificación de comercio justo",
+        "organismo certificador y número de licencia del certificado"
+      ]
+    },
+    "cat.cd-de-musica/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nombre del artista o intérprete principal",
+        "intérpretes que participan en la grabación",
+        "indicación de recopilatorio de varios artistas",
+        "artista de cada pista"
+      ]
+    },
+    "cat.cd-de-musica/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "título de cada pista",
+        "número de pistas",
+        "número de orden de cada pista",
+        "disco al que pertenece cada pista"
+      ]
+    },
+    "cat.cd-de-musica/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "duración total de la grabación",
+        "duración de cada pista"
+      ]
+    },
+    "cat.cd-de-musica/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "fecha o año de publicación de la edición"
+      ]
+    },
+    "cat.cd-de-musica/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nombre o versión de la edición",
+        "indicación de reedición o remasterización",
+        "carácter limitado, especial o de coleccionista de la edición",
+        "indicación de edición de importación",
+        "indicación de canciones extra",
+        "descripción de lo que la diferencia de otras ediciones"
+      ]
+    },
+    "cat.cd-de-musica/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "número de discos",
+        "soporte adicional que acompaña al CD",
+        "contenido del soporte adicional"
+      ]
+    },
+    "cat.cd-de-musica/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "variante de super audio CD del disco",
+        "presencia de contenido de datos para ordenador",
+        "material de la capa reflectante",
+        "reproductores o equipos con los que es compatible",
+        "indicación de sistema anticopia",
+        "norma de formato de disco que cumple"
+      ]
+    },
+    "cat.cd-de-musica/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "codificación del audio",
+        "código SPARS de grabación, mezcla y masterizado",
+        "créditos técnicos de grabación, mezcla y masterizado"
+      ]
+    },
+    "cat.cd-de-musica/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "componentes incluidos además del disco",
+        "contenido del libreto"
+      ]
+    },
+    "cat.cd-de-musica/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "idioma de la grabación",
+        "tipo de idioma declarado",
+        "letras de las canciones"
+      ]
+    },
+    "cat.cd-de-musica/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nombre del compositor",
+        "créditos de autoría de cada pista"
+      ]
+    },
+    "cat.cd-de-musica/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "año de publicación original de la grabación",
+        "año del aviso de fonograma"
+      ]
+    },
+    "cat.cd-de-musica/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "código de región del disco de vídeo"
+      ]
+    },
+    "cat.cd-de-musica/14": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de grabación en directo",
+        "lugar y fecha de la grabación"
+      ]
+    },
+    "cat.cd-de-musica/15": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de estuche o funda",
+        "indicación de presentación en cofre",
+        "material del estuche o funda"
+      ]
+    },
+    "cat.clips-y-fundas-para-chupetes/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material principal",
+        "composición de materiales por partes, incluidas las que pueden entrar en contacto con la boca",
+        "declaración de aptitud para el contacto con la boca o con alimentos"
+      ]
+    },
+    "cat.clips-y-fundas-para-chupetes/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de cierre o sujeción a la ropa o al soporte",
+        "forma de unión al chupete"
+      ]
+    },
+    "cat.clips-y-fundas-para-chupetes/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "talla o tamaño",
+        "longitud total del clip o de la cadena",
+        "medidas interiores de la funda"
+      ]
+    },
+    "cat.clips-y-fundas-para-chupetes/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de anilla o asa de chupete que admite",
+        "tamaño o modelos de chupete compatibles"
+      ]
+    },
+    "cat.clips-y-fundas-para-chupetes/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de marcado CE",
+        "normas o certificaciones de calidad que cumple",
+        "declaración de ausencia de sustancias nocivas",
+        "indicación de cumplimiento de la norma de soportes de chupete"
+      ]
+    },
+    "cat.clips-y-fundas-para-chupetes/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de hipoalergenicidad",
+        "declaración de biodegradabilidad",
+        "sello vegano o libre de crueldad animal",
+        "certificación ecológica"
+      ]
+    },
+    "cat.clips-y-fundas-para-chupetes/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "método de lavado admitido",
+        "método de secado admitido",
+        "indicación de si se puede esterilizar y por qué método"
+      ]
+    },
+    "cat.clips-y-fundas-para-chupetes/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "color principal"
+      ]
+    },
+    "cat.clips-y-fundas-para-chupetes/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de estampado o motivo"
+      ]
+    },
+    "cat.cocina-y-comedor/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material principal",
+        "grado o calidad del material"
+      ]
+    },
+    "cat.cocina-y-comedor/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "método de lavado admitido",
+        "indicación de limpieza en seco",
+        "indicación de si admite secadora",
+        "indicaciones de planchado",
+        "indicaciones de mantenimiento propias del material",
+        "indicación de aptitud para lavavajillas"
+      ]
+    },
+    "cat.cojines-decorativos/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "largo del cojín",
+        "ancho del cojín",
+        "grosor del cojín",
+        "descripción cualitativa del grosor",
+        "plano o imagen acotada del cojín",
+        "medidas del relleno interior cuando difieren de las de la funda"
+      ]
+    },
+    "cat.cojines-decorativos/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "forma del cojín",
+        "fotografía del cojín que muestre su contorno"
+      ]
+    },
+    "cat.cojines-decorativos/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de tejido o material de la funda",
+        "denominación de las fibras de la funda",
+        "porcentaje en peso de cada fibra"
+      ]
+    },
+    "cat.cojines-decorativos/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material del relleno",
+        "proporción de cada material en un relleno mixto"
+      ]
+    },
+    "cat.cojines-decorativos/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nivel de firmeza del relleno",
+        "indicación de si el relleno es ajustable",
+        "peso o cantidad de relleno"
+      ]
+    },
+    "cat.cojines-decorativos/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si la funda es extraíble",
+        "tipo de cierre de la funda"
+      ]
+    },
+    "cat.cojines-decorativos/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "técnica de aplicación del diseño",
+        "indicación de si es reversible",
+        "descripción del diseño de la cara posterior"
+      ]
+    },
+    "cat.cojines-decorativos/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "resistencia de la funda a la abrasión y al desgaste",
+        "resistencia de la funda a las manchas",
+        "solidez del color de la funda",
+        "resistencia de la funda a la pérdida de pelo",
+        "resistencia de la funda a las arrugas",
+        "capacidad del relleno para recuperar la forma",
+        "resultado de un ensayo de resistencia a la abrasión del tejido"
+      ]
+    },
+    "cat.cojines-decorativos/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "lugar de uso previsto, interior o exterior"
+      ]
+    },
+    "cat.cojines-decorativos/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de hipoalergenicidad o carácter antialérgico",
+        "declaración de protección frente a los ácaros",
+        "declaración de tratamiento antibacteriano o antimicrobiano",
+        "certificado o informe de ensayo que respalde la propiedad higiénica",
+        "sustancia o tratamiento que aporta la propiedad higiénica"
+      ]
+    },
+    "cat.cojines-decorativos/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de material reciclado",
+        "declaración de reciclabilidad",
+        "declaración de material orgánico",
+        "declaración de material natural o renovable",
+        "declaración de biodegradabilidad",
+        "declaración genérica de respeto al medio ambiente",
+        "parte del producto a la que corresponde cada característica ambiental",
+        "porcentaje de material reciclado u orgánico"
+      ]
+    },
+    "cat.cojines-decorativos/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nivel de resistencia al agua",
+        "resistencia a la radiación ultravioleta",
+        "resistencia a la intemperie",
+        "resultado de un ensayo de solidez del color a la luz",
+        "capacidad del relleno para drenar el agua y secarse"
+      ]
+    },
+    "cat.cojines-decorativos/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de resistencia o retardancia al fuego",
+        "norma o ensayo de comportamiento al fuego superado",
+        "tratamiento ignífugo aplicado al tejido o al relleno"
+      ]
+    },
+    "cat.comida-para-perros/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "etapa de vida del perro a la que se destina",
+        "rango de edad al que se destina"
+      ]
+    },
+    "cat.comida-para-perros/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "forma o consistencia del alimento",
+        "método de elaboración o de conservación"
+      ]
+    },
+    "cat.comida-para-perros/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "sabor declarado",
+        "ingrediente principal o fuente principal de proteína"
+      ]
+    },
+    "cat.comida-para-perros/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "necesidad de salud a la que se dirige la fórmula",
+        "objetivo de nutrición específico declarado como pienso dietético",
+        "indicación de que es de uso general o de mantenimiento"
+      ]
+    },
+    "cat.comida-para-perros/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "complementos nutricionales añadidos",
+        "aditivos nutricionales o zootécnicos declarados con su cantidad"
+      ]
+    },
+    "cat.comida-para-perros/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de envase"
+      ]
+    },
+    "cat.comida-para-perros/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "peso neto por envase",
+        "número de envases"
+      ]
+    },
+    "cat.comida-para-perros/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "lista de ingredientes",
+        "ingredientes destacados"
+      ]
+    },
+    "cat.comida-para-perros/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración sobre el contenido de nutrientes"
+      ]
+    },
+    "cat.comida-para-perros/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de dieta",
+        "declaración de ausencia de cereales o de gluten"
+      ]
+    },
+    "cat.comida-para-perros/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración sobre la cría o la captura de los animales de origen",
+        "declaración de producción ecológica",
+        "declaración de ausencia de aditivos, colorantes o aromas artificiales",
+        "declaración de ausencia de organismos modificados genéticamente",
+        "declaración de aptitud de los ingredientes para el consumo humano",
+        "certificación ecológica o de bienestar animal"
+      ]
+    },
+    "cat.comida-para-perros/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "ración diaria recomendada según el peso del perro",
+        "ajuste de la ración según la edad o la actividad",
+        "tamaño de la ración y su unidad de medida",
+        "número de tomas en que se reparte la ración diaria"
+      ]
+    },
+    "cat.comida-para-perros/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "condiciones de almacenamiento",
+        "fecha de consumo preferente o vida útil del envase cerrado",
+        "plazo de consumo y conservación una vez abierto",
+        "vida útil mínima restante en la entrega"
+      ]
+    },
+    "cat.comida-para-perros/14": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si es un pienso completo o complementario",
+        "indicación de con qué otro alimento debe combinarse"
+      ]
+    },
+    "cat.comida-para-perros/15": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "contenido de proteína bruta",
+        "contenido de grasa bruta",
+        "contenido de fibra bruta",
+        "contenido de materia mineral",
+        "contenido de humedad"
+      ]
+    },
+    "cat.comida-para-perros/16": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tamaño de raza al que se destina",
+        "raza recomendada",
+        "intervalo de peso del perro al que se destina"
+      ]
+    },
+    "cat.comida-para-perros/17": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "porcentaje de cada ingrediente principal",
+        "porcentaje total de ingredientes de origen animal"
+      ]
+    },
+    "cat.comida-para-perros/18": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "energía metabolizable por kilogramo",
+        "aporte energético por ración"
+      ]
+    },
+    "cat.confituras-y-gelatinas/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "variedad de preparación para untar",
+        "denominación de venta según la norma de calidad"
+      ]
+    },
+    "cat.confituras-y-gelatinas/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "cantidad de fruta utilizada por cada 100 g de producto",
+        "contenido total de azúcares por cada 100 g",
+        "información nutricional con la cantidad de azúcares"
+      ]
+    },
+    "cat.confituras-y-gelatinas/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "usos recomendados por el fabricante",
+        "productos con los que se recomienda combinarlo",
+        "recetas o propuestas de uso"
+      ]
+    },
+    "cat.confituras-y-gelatinas/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de envase",
+        "material del envase"
+      ]
+    },
+    "cat.cubrecolchones/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material del relleno",
+        "proporción de cada material en un relleno mixto"
+      ]
+    },
+    "cat.cubrecolchones/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nivel de firmeza del acolchado",
+        "declaración de superficie acolchada",
+        "densidad o gramaje del relleno"
+      ]
+    },
+    "cat.cubrecolchones/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de compatibilidad con somieres articulados"
+      ]
+    },
+    "cat.cubrecolchones/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si el acolchado se puede separar",
+        "indicación de si el acolchado se puede reemplazar"
+      ]
+    },
+    "cat.cubrecolchones/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "grosor del acolchado",
+        "descripción cualitativa del grosor"
+      ]
+    },
+    "cat.cubrecolchones/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si se puede usar por las dos caras"
+      ]
+    },
+    "cat.decoracion/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material principal",
+        "proporción de cada material cuando combina varios"
+      ]
+    },
+    "cat.decoracion/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material de los adornos o aplicaciones",
+        "tipo de adorno o aplicación al que corresponde el material"
+      ]
+    },
+    "cat.decoracion/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "método de lavado admitido",
+        "indicación de limpieza en seco",
+        "indicación de si admite secadora",
+        "indicaciones de planchado",
+        "productos o métodos de limpieza recomendados o desaconsejados para el material",
+        "símbolos de cuidado del etiquetado"
+      ]
+    },
+    "cat.discos-y-lp/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nombre del artista o intérprete principal",
+        "intérpretes que participan en la grabación"
+      ]
+    },
+    "cat.discos-y-lp/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "título de cada pista",
+        "número de pistas",
+        "número de orden de cada pista",
+        "disco al que pertenece cada pista",
+        "cara del disco en que está cada pista"
+      ]
+    },
+    "cat.discos-y-lp/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "duración total de la grabación",
+        "duración de cada pista"
+      ]
+    },
+    "cat.discos-y-lp/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "fecha o año de publicación de la edición"
+      ]
+    },
+    "cat.discos-y-lp/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nombre o versión de la edición",
+        "indicación de reedición o remasterización",
+        "carácter limitado, especial o de coleccionista de la edición",
+        "procedencia o vía de publicación de la edición",
+        "indicación de canciones extra",
+        "descripción de lo que la diferencia de otras ediciones"
+      ]
+    },
+    "cat.discos-y-lp/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "número de discos",
+        "formato de publicación del disco"
+      ]
+    },
+    "cat.discos-y-lp/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "diámetro del disco",
+        "velocidad de reproducción del disco"
+      ]
+    },
+    "cat.discos-y-lp/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "gramaje del vinilo"
+      ]
+    },
+    "cat.discos-y-lp/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "color del vinilo",
+        "presencia de una imagen impresa en el disco",
+        "indicación de disco troquelado",
+        "fotografía del disco fuera de la funda"
+      ]
+    },
+    "cat.discos-y-lp/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "codificación del audio",
+        "código SPARS de grabación, mezcla y masterizado",
+        "créditos técnicos de grabación, mezcla y masterizado"
+      ]
+    },
+    "cat.discos-y-lp/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "componentes incluidos además del disco",
+        "contenido del encarte o libreto"
+      ]
+    },
+    "cat.discos-y-lp/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "idioma de la grabación",
+        "tipo de idioma declarado",
+        "letras de las canciones"
+      ]
+    },
+    "cat.discos-y-lp/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nombre del compositor",
+        "créditos de autoría de cada pista"
+      ]
+    },
+    "cat.discos-y-lp/14": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "año de publicación original de la grabación",
+        "año del aviso de fonograma"
+      ]
+    },
+    "cat.discos-y-lp/15": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de grabación en directo",
+        "lugar y fecha de la grabación"
+      ]
+    },
+    "cat.discos-y-lp/16": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de funda o estuche",
+        "indicación de presentación en cofre",
+        "tipo de funda interior"
+      ]
+    },
+    "cat.fundas-de-almohada-y-cojines/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "método de cierre de la funda",
+        "visibilidad del cierre"
+      ]
+    },
+    "cat.fundas-de-almohada/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "número de piezas incluidas",
+        "número de juegos incluidos",
+        "relación de piezas que contiene la oferta"
+      ]
+    },
+    "cat.fundas-de-almohada/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "número de hilos por unidad de superficie",
+        "indicación de si el recuento es de hilo simple o de varios cabos"
+      ]
+    },
+    "cat.fundas-de-almohada/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de protección de la piel",
+        "declaración de hipoalergenicidad",
+        "declaración de protección del cabello",
+        "protección de la almohada frente a ácaros y chinches",
+        "protección de la almohada frente a manchas y desgaste",
+        "contención del relleno de plumas de la almohada"
+      ]
+    },
+    "cat.fundas-de-almohada/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de efecto frío o refrescante",
+        "transpirabilidad del tejido",
+        "gestión de la humedad y el sudor",
+        "resultado de un ensayo de frescor al tacto o de permeabilidad al vapor"
+      ]
+    },
+    "cat.fundas-de-almohada/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "solidez del color al lavado",
+        "estabilidad dimensional al lavado",
+        "resistencia a las arrugas y rapidez de secado",
+        "resistencia a la formación de bolitas",
+        "resistencia al desgarro y refuerzo de la confección",
+        "resistencia a manchas, derrames y olores",
+        "resultado de ensayos de solidez o de resistencia al lavado"
+      ]
+    },
+    "cat.fundas-de-almohada/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si es reversible",
+        "indicación de si tiene ajuste elástico"
+      ]
+    },
+    "cat.fundas-de-almohada/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nombre del ligamento o del tejido comercial",
+        "técnica de formación del tejido, de calada o de punto"
+      ]
+    },
+    "cat.fundas-de-nordico/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nombre del ligamento",
+        "tipo de tejido comercial o por su acabado",
+        "técnica de formación del tejido, de calada o de punto"
+      ]
+    },
+    "cat.fundas-de-nordico/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "número de hilos por unidad de superficie",
+        "indicación de si el recuento es de hilo simple o de varios cabos"
+      ]
+    },
+    "cat.fundas-de-nordico/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de cierre de la funda"
+      ]
+    },
+    "cat.joyas-para-piercings/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de joya corporal",
+        "zona de perforación a la que se destina",
+        "forma o diseño de la pieza",
+        "descripción del colgante o adorno"
+      ]
+    },
+    "cat.joyas-para-piercings/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "calibre o grosor del poste o la barra",
+        "talla o tamaño de la parte que atraviesa la perforación",
+        "diámetro interior del aro",
+        "diámetro exterior del aro",
+        "longitud útil de la barra o del poste",
+        "equivalencia del calibre en milímetros"
+      ]
+    },
+    "cat.joyas-para-piercings/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "largo del adorno",
+        "ancho del adorno",
+        "diámetro del adorno o del disco",
+        "imagen acotada de la pieza"
+      ]
+    },
+    "cat.joyas-para-piercings/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de metal",
+        "metal de cada parte de la pieza",
+        "ley o pureza del metal",
+        "norma de material para implantes que cumple"
+      ]
+    },
+    "cat.joyas-para-piercings/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de roscado",
+        "tipo de cierre o mecanismo de sujeción",
+        "tipo de terminal o remate"
+      ]
+    },
+    "cat.joyas-para-piercings/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si lleva piedras, cristales o perlas",
+        "tipo de piedra o cristal",
+        "tipo de perla",
+        "número de piedras o perlas"
+      ]
+    },
+    "cat.joyas-para-piercings/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de engaste"
+      ]
+    },
+    "cat.joyas-para-piercings/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "peso de la joya"
+      ]
+    },
+    "cat.joyas-para-piercings/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "longitud de la cadena"
+      ]
+    },
+    "cat.joyas-para-piercings/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración sobre la liberación de níquel",
+        "resultado de un ensayo de liberación de níquel",
+        "declaración de hipoalergenicidad",
+        "indicación de si es apta para perforaciones recientes",
+        "certificación del material para implantes según norma técnica"
+      ]
+    },
+    "cat.joyas-para-piercings/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "peso total de las gemas",
+        "peso total de los diamantes",
+        "diámetro de las perlas",
+        "medidas de cada piedra"
+      ]
+    },
+    "cat.joyeria/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material principal de la pieza",
+        "metal base de la pieza",
+        "ley o pureza del metal precioso",
+        "marca de contraste o punzón de garantía"
+      ]
+    },
+    "cat.joyeria/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "clasificación como joyería fina o de imitación",
+        "marca de contraste o punzón de garantía"
+      ]
+    },
+    "cat.joyeria/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "grado de color del diamante",
+        "grado de claridad de la piedra",
+        "grado de talla de la piedra",
+        "grado de fluorescencia del diamante",
+        "certificado de clasificación de un laboratorio gemológico"
+      ]
+    },
+    "cat.joyeria/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "método de creación de la piedra",
+        "certificado gemológico del origen de la piedra"
+      ]
+    },
+    "cat.joyeria/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "grupo de edad al que se destina"
+      ]
+    },
+    "cat.joyeria/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "instrucciones de limpieza",
+        "instrucciones de cuidado",
+        "indicaciones de conservación y almacenamiento",
+        "precauciones frente al agua, los cosméticos o los productos químicos"
+      ]
+    },
+    "cat.joyeria/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "metal del baño o recubrimiento",
+        "ley o quilataje del metal del baño"
+      ]
+    },
+    "cat.juguetes-para-perros/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de juguete",
+        "indicación de si lleva chirriador"
+      ]
+    },
+    "cat.juguetes-para-perros/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tamaño de raza al que se destina",
+        "raza recomendada",
+        "intervalo de peso del perro al que se destina"
+      ]
+    },
+    "cat.juguetes-para-perros/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "talla del juguete",
+        "largo del juguete",
+        "ancho del juguete",
+        "altura del juguete",
+        "diámetro, si es esférico"
+      ]
+    },
+    "cat.juguetes-para-perros/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "intensidad de masticación para la que está indicado",
+        "declaración de refuerzo contra la masticación",
+        "declaración de resistencia a los arañazos, la decoloración o el óxido"
+      ]
+    },
+    "cat.juguetes-para-perros/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "etapa de vida del perro a la que se destina",
+        "edad mínima recomendada"
+      ]
+    },
+    "cat.juguetes-para-perros/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo o tamaño de las pilas o la batería",
+        "indicación de si las pilas o la batería se incluyen",
+        "indicación de si es recargable",
+        "número de pilas necesarias"
+      ]
+    },
+    "cat.juguetes-para-perros/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de uso en interior o exterior",
+        "indicación de aptitud para el juego en el agua"
+      ]
+    },
+    "cat.juguetes-para-perros/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "lista de ingredientes de la comida o los premios"
+      ]
+    },
+    "cat.juguetes-para-perros/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "estímulo sonoro que produce",
+        "indicación de luces",
+        "mecanismo de movimiento propio",
+        "comportamiento elástico del material",
+        "textura de la superficie o relleno",
+        "posibilidad de usarlo congelado o templado"
+      ]
+    },
+    "cat.juguetes-para-perros/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si es lavable",
+        "método de lavado admitido"
+      ]
+    },
+    "cat.juguetes-para-perros/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "advertencia sobre piezas pequeñas o que se puedan desprender",
+        "declaración de materiales no tóxicos",
+        "informe de ensayo de sustancias de los materiales"
+      ]
+    },
+    "cat.juguetes-para-perros/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "uso o actividad recomendados",
+        "indicación de si es interactivo"
+      ]
+    },
+    "cat.juguetes-para-perros/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "peso del juguete",
+        "indicación cualitativa de ligereza"
+      ]
+    },
+    "cat.juguetes-para-perros/14": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nivel de resistencia al agua",
+        "indicación de si flota"
+      ]
+    },
+    "cat.juguetes-para-perros/15": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "condiciones de almacenamiento de la comida o los premios",
+        "fecha o plazo de consumo",
+        "plazo de consumo una vez abierto"
+      ]
+    },
+    "cat.lijadoras-orbitales/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de lijadora según su movimiento",
+        "indicación de si el plato gira además de oscilar"
+      ]
+    },
+    "cat.lijadoras-orbitales/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "forma de la base de lijado"
+      ]
+    },
+    "cat.lijadoras-orbitales/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "diámetro de la órbita"
+      ]
+    },
+    "cat.lijadoras/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de fuente de alimentación"
+      ]
+    },
+    "cat.lijadoras/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "potencia nominal"
+      ]
+    },
+    "cat.lijadoras/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tensión nominal de funcionamiento",
+        "tensión de la batería o de la plataforma",
+        "plataforma o sistema de baterías al que pertenece"
+      ]
+    },
+    "cat.lijadoras/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "frecuencia de red admitida",
+        "tipo de enchufe",
+        "placa de características del aparato"
+      ]
+    },
+    "cat.lijadoras/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "velocidad máxima de rotación",
+        "número de oscilaciones u órbitas por minuto"
+      ]
+    },
+    "cat.lijadoras/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "diámetro del plato o disco",
+        "largo y ancho de la base o de la banda",
+        "plano o imagen acotada de la base de lijado"
+      ]
+    },
+    "cat.lijadoras/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "medida de los abrasivos compatibles",
+        "sistema de fijación del abrasivo",
+        "número y disposición de los agujeros de aspiración",
+        "referencias de abrasivos compatibles"
+      ]
+    },
+    "cat.lijadoras/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de sistema de recogida de polvo incorporado",
+        "posibilidad de conexión a un aspirador y diámetro de la boquilla"
+      ]
+    },
+    "cat.lijadoras/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "materiales para los que está indicada",
+        "tipo de trabajo para el que está indicada"
+      ]
+    },
+    "cat.lijadoras/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material de la carcasa",
+        "material de la base o plato"
+      ]
+    },
+    "cat.lijadoras/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "peso del aparato",
+        "indicación de si el peso incluye la batería"
+      ]
+    },
+    "cat.lijadoras/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "largo del aparato",
+        "ancho del aparato",
+        "alto del aparato",
+        "plano o imagen acotada del aparato"
+      ]
+    },
+    "cat.lijadoras/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "valor total de vibración declarado y su incertidumbre",
+        "nivel de presión acústica ponderado A",
+        "nivel de potencia acústica ponderado A"
+      ]
+    },
+    "cat.lijadoras/14": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si la velocidad es regulable",
+        "número de posiciones o intervalo de velocidades seleccionables",
+        "mecanismo de regulación de la velocidad"
+      ]
+    },
+    "cat.maletas-y-bolsos-de-viaje/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de asas o correas de transporte",
+        "sistema de acople a un carrito o cochecito"
+      ]
+    },
+    "cat.maletas-y-bolsos-de-viaje/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "color principal",
+        "colores que combina un producto multicolor"
+      ]
+    },
+    "cat.maletas-y-bolsos-de-viaje/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de estampado o patrón",
+        "indicación de si es liso"
+      ]
+    },
+    "cat.maletas-y-bolsos-de-viaje/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "método de lavado o limpieza admitido",
+        "indicaciones de secado",
+        "productos o tratamientos de mantenimiento del material"
+      ]
+    },
+    "cat.maletas-y-bolsos-de-viaje/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de qué correas son desmontables",
+        "indicación de qué correas son regulables",
+        "longitud mínima y máxima de las correas regulables"
+      ]
+    },
+    "cat.mantas/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nivel de abrigo declarado",
+        "valor de aislamiento térmico en TOG",
+        "clase de peso de abrigo",
+        "declaración de propiedad térmica",
+        "gramaje del tejido o del relleno"
+      ]
+    },
+    "cat.mantas/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de manta por su forma y construcción",
+        "número de capas y su disposición"
+      ]
+    },
+    "cat.mantas/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "ligamento o tipo de tejido",
+        "técnica de formación del tejido",
+        "tipo de tela por su acabado o estructura",
+        "nombre comercial del tejido"
+      ]
+    },
+    "cat.mantas/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "peso de la manta",
+        "indicación cualitativa de ligereza",
+        "grosor de la manta",
+        "descripción cualitativa del grosor",
+        "gramaje y medidas de la manta, de los que se deriva el peso"
+      ]
+    },
+    "cat.mantas/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material del relleno",
+        "proporción de cada material en un relleno mixto"
+      ]
+    },
+    "cat.mantas/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "grupo de edad al que se destina",
+        "tipo de usuario recomendado",
+        "edad mínima recomendada o advertencia de uso en bebés"
+      ]
+    },
+    "cat.mantas/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de tacto suave o agradable para la piel",
+        "esponjosidad o volumen de la manta",
+        "transpirabilidad",
+        "acabado superficial del tejido que determina el tacto"
+      ]
+    },
+    "cat.mantas/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "durabilidad general y resistencia al desgarro",
+        "resistencia a soltar pelusa",
+        "comportamiento antiestático",
+        "solidez del color",
+        "resistencia a manchas, olores y pelo adherido",
+        "resistencia a las arrugas y rapidez de secado",
+        "resistencia a la formación de bolitas"
+      ]
+    },
+    "cat.mantas/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de hipoalergenicidad",
+        "declaración de tratamiento antibacteriano o antimicrobiano",
+        "certificado o informe de ensayo que respalde la propiedad higiénica",
+        "sustancia o tratamiento que aporta la propiedad higiénica"
+      ]
+    },
+    "cat.mantas/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si es reversible",
+        "indicación de si tiene bolsa para los pies",
+        "indicación de si es sin costuras",
+        "elementos que la hacen ponible o convertible"
+      ]
+    },
+    "cat.mantas/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "estaciones de uso recomendadas",
+        "nivel de abrigo del que se deriva la época de uso"
+      ]
+    },
+    "cat.mantas/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de ausencia de sustancias tóxicas",
+        "declaración de resistencia a las llamas",
+        "certificado de ausencia de sustancias nocivas",
+        "norma o ensayo de inflamabilidad superado"
+      ]
+    },
+    "cat.mantenimiento-cuidado-y-decoracion-de-vehiculos/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "color principal",
+        "combinación de colores"
+      ]
+    },
+    "cat.mantenimiento-cuidado-y-decoracion-de-vehiculos/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de estampado o patrón",
+        "motivo representado"
+      ]
+    },
+    "cat.mobiliario/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "color principal"
+      ]
+    },
+    "cat.mobiliario/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de estampado o motivo, o indicación de que es liso"
+      ]
+    },
+    "cat.mobiliario/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "método de lavado o limpieza admitido",
+        "método de secado admitido",
+        "indicación sobre el planchado",
+        "productos de limpieza admitidos y desaconsejados",
+        "tratamiento o mantenimiento periódico recomendado"
+      ]
+    },
+    "cat.mochilas-escolares/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "capacidad en litros",
+        "tramo de capacidad a efectos normativos",
+        "declaración de gran capacidad"
+      ]
+    },
+    "cat.mochilas-escolares/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "alto exterior",
+        "ancho exterior",
+        "fondo exterior",
+        "categoría de tamaño",
+        "imagen acotada de la mochila"
+      ]
+    },
+    "cat.mochilas-escolares/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de tirantes o arnés",
+        "acolchado de los tirantes",
+        "indicación de si los tirantes son regulables",
+        "correas de pecho o de cintura",
+        "declaración de diseño ergonómico",
+        "ventilación o transpirabilidad del panel trasero"
+      ]
+    },
+    "cat.mochilas-escolares/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "rigidez de la estructura o carcasa",
+        "indicación de base reforzada",
+        "forma de carga o apertura"
+      ]
+    },
+    "cat.mochilas-escolares/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si lleva forro interior",
+        "material del forro"
+      ]
+    },
+    "cat.mochilas-escolares/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de resistencia a desgarros",
+        "declaración de resistencia a la abrasión o a los arañazos",
+        "declaración de resistencia a las manchas",
+        "declaración de resistencia a la decoloración",
+        "declaración de aptitud para uso intensivo",
+        "resultado de un ensayo de resistencia a la abrasión o al desgarro"
+      ]
+    },
+    "cat.mochilas-escolares/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "carga o peso máximo recomendado"
+      ]
+    },
+    "cat.mochilas-escolares/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "talla de los tirantes o del arnés",
+        "longitud de espalda a la que se adapta",
+        "intervalo de estatura recomendado"
+      ]
+    },
+    "cat.mochilas-para-portatil/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "capacidad en litros",
+        "tramo de capacidad a efectos normativos",
+        "declaración de gran capacidad"
+      ]
+    },
+    "cat.mochilas-para-portatil/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "alto exterior",
+        "ancho exterior",
+        "fondo exterior",
+        "categoría de tamaño",
+        "imagen acotada de la mochila"
+      ]
+    },
+    "cat.mochilas-para-portatil/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de tirantes o arnés",
+        "acolchado de los tirantes",
+        "regulación y talla de los tirantes o del arnés",
+        "correas de pecho o de cintura",
+        "declaración de diseño ergonómico",
+        "ventilación o transpirabilidad del panel trasero"
+      ]
+    },
+    "cat.mochilas-para-portatil/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "rigidez de la estructura o carcasa",
+        "indicación de base reforzada",
+        "forma de carga o apertura",
+        "indicación de si admite apertura completa"
+      ]
+    },
+    "cat.mochilas-para-portatil/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de diseño apto para controles de seguridad"
+      ]
+    },
+    "cat.mochilas-para-portatil/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si tiene puerto de carga USB integrado",
+        "indicación de si tiene paso para cables o auriculares"
+      ]
+    },
+    "cat.mochilas-para-portatil/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si lleva forro interior",
+        "material del forro"
+      ]
+    },
+    "cat.mochilas-para-portatil/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de resistencia a desgarros",
+        "declaración de resistencia a la abrasión o a los arañazos",
+        "declaración de resistencia a las manchas",
+        "declaración de resistencia a la decoloración",
+        "declaración de aptitud para uso intensivo",
+        "resultado de un ensayo de resistencia a la abrasión o al desgarro"
+      ]
+    },
+    "cat.mochilas-para-portatil/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "carga o peso máximo recomendado"
+      ]
+    },
+    "cat.mochilas-para-portatil/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "usos recomendados"
+      ]
+    },
+    "cat.mochilas/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "grupo de edad al que se destina"
+      ]
+    },
+    "cat.mochilas/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de cierre"
+      ]
+    },
+    "cat.mochilas/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material principal del exterior",
+        "composición en fibras del tejido exterior"
+      ]
+    },
+    "cat.mochilas/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nivel de protección frente al agua",
+        "tratamiento o recubrimiento impermeabilizante del tejido",
+        "resultado de un ensayo de impermeabilidad"
+      ]
+    },
+    "cat.mochilas/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de acolchado interior",
+        "declaración de resistencia a golpes",
+        "declaración de protección frente al polvo",
+        "declaración de resistencia al fuego"
+      ]
+    },
+    "cat.mochilas/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de diseño antirrobo",
+        "indicación de si el cierre admite candado o bloqueo",
+        "declaración de protección RFID",
+        "declaración de cerradura aceptada por la TSA"
+      ]
+    },
+    "cat.mochilas/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de elementos reflectantes",
+        "indicación de si lleva luz o elementos luminiscentes"
+      ]
+    },
+    "cat.mochilas/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de ligereza",
+        "peso de la mochila vacía"
+      ]
+    },
+    "cat.mochilas/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si lleva ruedas y cuántas",
+        "indicación de si es convertible en otro formato",
+        "indicación de si el tamaño es ampliable o regulable",
+        "capacidad o medidas en la configuración ampliada"
+      ]
+    },
+    "cat.mochilas/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si incluye etiqueta identificativa"
+      ]
+    },
+    "cat.mochilas/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de producto vegano",
+        "materiales de origen animal que contiene",
+        "certificación vegana de un tercero"
+      ]
+    },
+    "cat.mochilas/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "número de compartimentos",
+        "divisores interiores y si son regulables",
+        "bolsillos exteriores",
+        "bolsillos ocultos",
+        "bolsillos extraíbles o con ventana transparente",
+        "número total de bolsillos y su ubicación"
+      ]
+    },
+    "cat.mochilas/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si tiene compartimento para portátil",
+        "indicación de si tiene funda protectora para dispositivos",
+        "tamaño máximo de pantalla del dispositivo que admite",
+        "medidas interiores del compartimento para dispositivos"
+      ]
+    },
+    "cat.mochilas/14": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "bolsillo o soporte para botella",
+        "indicación de si el bolsillo para botella es aislante",
+        "soporte para llaves",
+        "bucles o cintas elásticas para accesorios"
+      ]
+    },
+    "cat.mochilas/15": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "sexo al que se destina el diseño"
+      ]
+    },
+    "cat.mochilas/16": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de materiales reciclados",
+        "proporción de material reciclado",
+        "certificación de contenido reciclado"
+      ]
+    },
+    "cat.multimedia/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "edad mínima exigida o recomendada",
+        "indicación de apto para todas las edades",
+        "advertencia de contenido explícito",
+        "calificación por edades de un sistema de clasificación"
+      ]
+    },
+    "cat.musica-y-grabaciones/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de soporte físico",
+        "formato de archivo digital"
+      ]
+    },
+    "cat.musica-y-grabaciones/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "género musical principal",
+        "subgénero o estilo específico"
+      ]
+    },
+    "cat.objetos-para-llevar-comida-y-bebida/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de cierre"
+      ]
+    },
+    "cat.objetos-para-llevar-comida-y-bebida/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si tiene asa o mango",
+        "longitud o tipo de asa"
+      ]
+    },
+    "cat.objetos-para-llevar-comida-y-bebida/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material del aislamiento"
+      ]
+    },
+    "cat.objetos-para-llevar-comida-y-bebida/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de grado alimentario",
+        "declaración de ausencia de sustancias nocivas concretas",
+        "certificación o norma de seguridad que cumple",
+        "declaración de conformidad para materiales en contacto con alimentos",
+        "símbolo o mención de aptitud alimentaria"
+      ]
+    },
+    "cat.pantuflas/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo o estilo de zapatilla de casa",
+        "indicación de si deja el talón o los dedos al descubierto"
+      ]
+    },
+    "cat.pantuflas/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de suela exterior blanda",
+        "indicación de si es apta para exterior"
+      ]
+    },
+    "cat.pantuflas/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de aislamiento térmico",
+        "declaración de interior de peluche o borreguillo",
+        "clase de peso o grosor del tejido"
+      ]
+    },
+    "cat.pantuflas/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material de la plantilla",
+        "categoría del material de la plantilla a efectos de etiquetado"
+      ]
+    },
+    "cat.pantuflas/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de cuero o acabado de la piel",
+        "animal del que procede el cuero o la piel"
+      ]
+    },
+    "cat.pantuflas/17": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "categoría de altura de la caña",
+        "parte del pie o de la pierna que cubre",
+        "medida de la altura desde la suela"
+      ]
+    },
+    "cat.pantuflas/18": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si la piel con pelo es natural o sintética",
+        "especie animal de la que procede la piel"
+      ]
+    },
+    "cat.piezas-y-accesorios-para-vehiculos/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de vehículo al que se destina"
+      ]
+    },
+    "cat.piezas-y-accesorios-para-vehiculos/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material principal"
+      ]
+    },
+    "cat.piezas-y-accesorios-para-vehiculos/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "procedencia de la pieza respecto del fabricante del vehículo",
+        "referencia de la pieza original a la que equivale"
+      ]
+    },
+    "cat.piezas-y-accesorios-para-vehiculos/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "zona del vehículo a la que se aplica",
+        "material de la superficie a la que se aplica"
+      ]
+    },
+    "cat.piezas-y-accesorios-para-vehiculos/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de mejora del rendimiento",
+        "declaración de eficiencia de combustible o de bajas emisiones",
+        "declaración de resistencia al calor",
+        "declaración de ajuste directo",
+        "resultado de ensayo que respalda la prestación"
+      ]
+    },
+    "cat.productos-para-mascotas/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "especie o tipo de animal destinatario"
+      ]
+    },
+    "cat.productos-para-mascotas/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "color principal",
+        "colores de cada parte, si combina varios"
+      ]
+    },
+    "cat.productos-para-mascotas/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de estampado o motivo, o indicación de que es liso"
+      ]
+    },
+    "cat.productos-para-perros/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material principal",
+        "materiales de cada parte, si combina varios"
+      ]
+    },
+    "cat.protectores-de-colchon/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nivel de resistencia al agua o a los líquidos",
+        "capacidad de absorción de la capa superior",
+        "resultado de un ensayo de impermeabilidad",
+        "tipo de capa o membrana impermeable"
+      ]
+    },
+    "cat.protectores-de-colchon/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "protección frente a los ácaros del polvo",
+        "barrera antialérgenos o hipoalergenicidad",
+        "protección frente a chinches e insectos",
+        "protección antifúngica y frente al moho",
+        "tratamiento antimicrobiano",
+        "certificado o ensayo de eficacia de la barrera"
+      ]
+    },
+    "cat.protectores-de-colchon/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si la superficie es acolchada",
+        "transpirabilidad",
+        "regulación térmica o efecto refrescante",
+        "nivel de ruido al moverse",
+        "permeabilidad al vapor de la capa impermeable"
+      ]
+    },
+    "cat.protectores-de-colchon/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "sistema de sujeción al colchón",
+        "elementos antideslizantes",
+        "grado de cobertura del colchón",
+        "tipo de cierre de la funda integral"
+      ]
+    },
+    "cat.protectores-de-colchon/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "profundidad del bolsillo o altura del faldón",
+        "indicación de bolsillo profundo",
+        "altura máxima o rango de alturas de colchón admitidas"
+      ]
+    },
+    "cat.protectores-de-colchon/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "resistencia a las manchas",
+        "resistencia al desgarro",
+        "resistencia a los olores",
+        "resistencia a soltar pelusa",
+        "estabilidad dimensional al lavado",
+        "resistencia a las arrugas y rapidez de secado"
+      ]
+    },
+    "cat.protectores-de-colchon/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si se puede lavar a máquina",
+        "indicación de si la cubierta o la capa superior es extraíble",
+        "temperatura máxima de lavado"
+      ]
+    },
+    "cat.protectores-de-colchon/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "técnica de formación del tejido de la cara superior",
+        "nombre comercial del tejido de la cara superior"
+      ]
+    },
+    "cat.ropa-de-cama/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "denominación del tamaño de cama",
+        "ancho del colchón o de la cama de referencia",
+        "tamaño de la almohada a la que corresponde",
+        "tabla de equivalencias entre medidas de la pieza y tamaños de cama"
+      ]
+    },
+    "cat.ropa-de-cama/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "largo de la pieza",
+        "ancho de la pieza",
+        "largo y ancho del colchón al que se ajusta la bajera",
+        "plano o imagen acotada de la pieza"
+      ]
+    },
+    "cat.ropa-de-casa/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material principal",
+        "tipo de tejido",
+        "denominación de las fibras",
+        "porcentaje en peso de cada fibra",
+        "composición de cada parte cuando las partes difieren"
+      ]
+    },
+    "cat.ropa-de-casa/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "método de lavado admitido",
+        "indicación de limpieza en seco",
+        "indicación de si admite secadora",
+        "indicaciones de planchado",
+        "temperatura máxima de lavado",
+        "símbolos de cuidado del etiquetado"
+      ]
+    },
+    "cat.ropa-de-casa/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "certificación textil de ausencia de sustancias nocivas",
+        "declaración de ausencia de sustancias nocivas concretas",
+        "norma de seguridad de producto que declara cumplir",
+        "número de certificado y organismo emisor"
+      ]
+    },
+    "cat.ropa-de-casa/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "gramaje del tejido",
+        "tramo de gramaje",
+        "clase cualitativa de gramaje",
+        "peso de la pieza y sus medidas, de los que se deriva el gramaje"
+      ]
+    },
+    "cat.ropa-y-accesorios/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "color principal",
+        "colores que combina un producto multicolor"
+      ]
+    },
+    "cat.ropa-y-accesorios/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de estampado o motivo",
+        "indicación de si es liso"
+      ]
+    },
+    "cat.ropa-y-accesorios/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "sexo al que se destina el diseño"
+      ]
+    },
+    "cat.sabanas-ajustables/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "profundidad del bolsillo",
+        "altura máxima o rango de alturas de colchón admitidas"
+      ]
+    },
+    "cat.sabanas-ajustables/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "técnica de formación del tejido",
+        "tipo de tela por su acabado o estructura",
+        "nombre del ligamento o del tejido comercial"
+      ]
+    },
+    "cat.sabanas-planas/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nombre del ligamento o del tejido comercial",
+        "técnica de formación del tejido, de calada o de punto"
+      ]
+    },
+    "cat.sabanas/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "certificación o sello de producto concedido por un tercero",
+        "declaración de hipoalergenicidad o de aptitud para pieles sensibles",
+        "declaración de ausencia de sustancias concretas",
+        "declaración de producto vegano o libre de crueldad animal",
+        "declaración de producto orgánico o ecológico",
+        "número de certificado y organismo emisor"
+      ]
+    },
+    "cat.sabanas/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "número de hilos por unidad de superficie",
+        "indicación de si el recuento es de hilo simple o de varios cabos"
+      ]
+    },
+    "cat.salsas-y-cremas-para-untar/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "grado de espesor o untabilidad",
+        "textura en boca",
+        "presencia de trozos",
+        "presencia de semillas"
+      ]
+    },
+    "cat.salud-del-bebe/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "grupo o rango de edad del bebé al que se destina"
+      ]
+    },
+    "cat.sofas-cama/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "largo de la superficie de descanso",
+        "ancho de la superficie de descanso",
+        "altura de la superficie de descanso desde el suelo",
+        "plano o imagen acotada de la cama abierta"
+      ]
+    },
+    "cat.sofas-cama/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si incluye colchón",
+        "tamaño estándar del colchón incluido",
+        "indicación de si el colchón se puede retirar",
+        "largo y ancho del colchón incluido"
+      ]
+    },
+    "cat.sofas-cama/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de mecanismo de apertura",
+        "secuencia de apertura y cierre"
+      ]
+    },
+    "cat.sofas-cama/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración del uso previsto como cama, diario u ocasional",
+        "tipo de somier o base del sistema de descanso"
+      ]
+    },
+    "cat.sofas-cama/16": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material del núcleo del colchón",
+        "tejido de la funda del colchón"
+      ]
+    },
+    "cat.sofas-cama/17": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "grosor del colchón"
+      ]
+    },
+    "cat.sofas/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de sofá",
+        "forma de la composición en planta",
+        "indicación de si es modular",
+        "posibilidad de reorganizar los módulos",
+        "plano o imagen acotada de la composición en planta"
+      ]
+    },
+    "cat.sofas/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "lado en que queda la chaise longue o la sección extendida mirando el sofá de frente",
+        "indicación de si la chaise longue o la sección extendida es reversible",
+        "plano en planta con la posición de la chaise longue"
+      ]
+    },
+    "cat.sofas/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "número de plazas"
+      ]
+    },
+    "cat.sofas/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "ancho total de lado a lado",
+        "fondo total de delante atrás",
+        "altura total desde el suelo hasta la parte superior",
+        "indicación cualitativa de tamaño compacto o que ahorra espacio",
+        "plano o imagen acotada del sofá montado"
+      ]
+    },
+    "cat.sofas/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "altura del asiento desde el suelo",
+        "fondo útil del asiento",
+        "ancho interior del asiento entre los brazos",
+        "altura interior del respaldo sobre el asiento",
+        "altura de los brazos",
+        "ancho de los brazos"
+      ]
+    },
+    "cat.sofas/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material del armazón",
+        "tipo de madera del armazón"
+      ]
+    },
+    "cat.sofas/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material o tipo de tela de la tapicería del asiento",
+        "material o tipo de tela de la tapicería del respaldo",
+        "fibras que componen la tela de la tapicería",
+        "porcentaje de cada fibra en la tela de la tapicería",
+        "ficha técnica del tejido de la tapicería"
+      ]
+    },
+    "cat.sofas/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "número de ciclos Martindale que resiste la tela",
+        "número de dobles frotes Wyzenbeek que resiste la tela",
+        "declaración de resistencia a la abrasión, al desgarro o a las perforaciones",
+        "declaración de resistencia a los arañazos o de aptitud para hogares con mascotas",
+        "informe de ensayo de abrasión de la tela"
+      ]
+    },
+    "cat.sofas/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de resistencia a las manchas",
+        "nivel de resistencia al agua o a los líquidos",
+        "declaración de resistencia a la decoloración por la luz",
+        "tratamiento antimanchas o repelente aplicado al tejido",
+        "grado de solidez del color a la luz según ensayo"
+      ]
+    },
+    "cat.sofas/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si las fundas son extraíbles",
+        "indicación de si la funda de los cojines del asiento es extraíble",
+        "relación de las partes cuya funda se puede quitar"
+      ]
+    },
+    "cat.sofas/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material de relleno del asiento",
+        "material de relleno del respaldo",
+        "densidad de la espuma del relleno"
+      ]
+    },
+    "cat.sofas/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nivel de firmeza del asiento",
+        "nivel de firmeza o soporte de los cojines del respaldo",
+        "capacidad de carga o dureza de la espuma del asiento"
+      ]
+    },
+    "cat.sofas/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de asiento",
+        "configuración del asiento en uno o varios cojines",
+        "número de cojines de asiento",
+        "indicación de si los cojines del asiento y del respaldo son fijos o extraíbles",
+        "indicación de si los cojines son reversibles",
+        "número de cojines de respaldo y decorativos incluidos"
+      ]
+    },
+    "cat.sofas/14": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "estilo de los brazos",
+        "estilo del respaldo",
+        "acabado decorativo de la tapicería",
+        "tipo de borde de los cojines",
+        "indicación de elementos tallados en madera"
+      ]
+    },
+    "cat.sofas/15": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "estilo de las patas",
+        "color de las patas",
+        "color o acabado del armazón visible o de la base",
+        "tipo de acabado superficial de las patas o la base"
+      ]
+    },
+    "cat.sofas/16": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si los asientos o el respaldo reclinan",
+        "relación de otras partes regulables",
+        "modo de accionamiento, manual o eléctrico",
+        "mando o control con que se acciona"
+      ]
+    },
+    "cat.sofas/17": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "largo total en posición reclinada",
+        "espacio libre necesario entre el respaldo y la pared",
+        "plano o imagen acotada en posición reclinada"
+      ]
+    },
+    "cat.sofas/18": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de puertos de carga",
+        "indicación de iluminación integrada",
+        "indicación de altavoz integrado",
+        "indicación de calefacción integrada",
+        "indicación de función de masaje"
+      ]
+    },
+    "cat.sofas/19": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de almacenamiento integrado",
+        "indicación de consola integrada",
+        "indicación de portavasos",
+        "tipo y ubicación del almacenamiento integrado"
+      ]
+    },
+    "cat.sofas/20": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si es convertible o multifunción y en cuántos usos",
+        "indicación de si es plegable",
+        "indicación de si es hinchable",
+        "indicación de si es giratorio",
+        "indicación de si lleva ruedas",
+        "indicación de si es portátil o ligero"
+      ]
+    },
+    "cat.sofas/21": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si requiere montaje y de su grado o dificultad",
+        "formato en que se entrega el sofá",
+        "herramientas necesarias e indicación de si se incluyen",
+        "número de personas recomendado para el montaje",
+        "instrucciones de montaje",
+        "piezas que se desmontan para el transporte"
+      ]
+    },
+    "cat.sofas/22": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "peso máximo admitido",
+        "norma de ensayo de resistencia de asientos que supera"
+      ]
+    },
+    "cat.sofas/23": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "normas de seguridad o certificaciones que cumple",
+        "declaración de resistencia o retardancia al fuego",
+        "declaración de ausencia de sustancias tóxicas",
+        "norma de ensayo de comportamiento ante el fuego que supera",
+        "clase de emisión de formaldehído o de compuestos orgánicos volátiles"
+      ]
+    },
+    "cat.sofas/24": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de material reciclado",
+        "declaración de madera recuperada",
+        "declaración de material natural",
+        "declaración de material orgánico",
+        "certificación forestal de la madera"
+      ]
+    },
+    "cat.sofas/25": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si es personalizable"
+      ]
+    },
+    "cat.sofas/26": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "advertencias de seguridad del producto",
+        "manual de instrucciones del fabricante"
+      ]
+    },
+    "cat.sofas/27": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "número de piezas o módulos",
+        "relación de las piezas o módulos que componen el sofá"
+      ]
+    },
+    "cat.sofas/28": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de unión de las piezas del armazón",
+        "elementos de fijación empleados en el armazón"
+      ]
+    },
+    "cat.sofas/29": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de construcción de los cojines del asiento",
+        "indicación de sistema antihundimiento",
+        "capas del cojín con el material y el grosor de cada una"
+      ]
+    },
+    "cat.sofas/30": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material de las patas",
+        "material de la base"
+      ]
+    },
+    "cat.sofas/31": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "altura de las patas",
+        "altura libre bajo el sofá"
+      ]
+    },
+    "cat.sofas/32": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "número de plazas reclinables",
+        "número de posiciones de reclinación",
+        "indicación de si la reclinación es continua o por posiciones fijas"
+      ]
+    },
+    "cat.sofas/33": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de alimentación eléctrica",
+        "autonomía y forma de recarga de la batería"
+      ]
+    },
+    "cat.sofas/34": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "elementos personalizables y opciones de cada uno",
+        "muestrario de tapicerías y colores disponibles"
+      ]
+    },
+    "cat.soperas/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "capacidad de la sopera",
+        "capacidad útil frente a capacidad hasta el borde"
+      ]
+    },
+    "cat.soperas/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "ancho o diámetro en el punto más ancho, incluidas las asas",
+        "largo de la pieza",
+        "altura desde la base hasta la parte superior",
+        "tamaño nominal de la pieza",
+        "altura con la tapa puesta",
+        "plano o imagen acotada de la sopera"
+      ]
+    },
+    "cat.soperas/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "peso de la sopera",
+        "indicación cualitativa de ligereza"
+      ]
+    },
+    "cat.soperas/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si es apta para horno",
+        "indicación de si es apta para congelador",
+        "temperatura máxima de uso en el horno",
+        "resistencia al choque térmico"
+      ]
+    },
+    "cat.soperas/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de ausencia de plomo",
+        "declaración de ausencia de sustancias tóxicas",
+        "declaración o símbolo de aptitud para el contacto con alimentos",
+        "resultado de un ensayo de migración de plomo y cadmio"
+      ]
+    },
+    "cat.soperas/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "resistencia a desportilladuras y roturas",
+        "resistencia a los arañazos",
+        "resistencia a manchas, grasa y olores",
+        "solidez del color o de la decoración",
+        "durabilidad y resistencia a golpes y abolladuras",
+        "resistencia a la corrosión"
+      ]
+    },
+    "cat.soperas/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "método de fabricación, artesanal o industrial",
+        "tipo de acabado de la superficie",
+        "tipo de vidriado o esmaltado",
+        "técnica de decoración aplicada"
+      ]
+    },
+    "cat.soperas/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "alimentos o preparaciones para los que está pensada",
+        "uso recomendado de la pieza"
+      ]
+    },
+    "cat.soperas/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "número de comensales o raciones para los que está pensada",
+        "capacidad de la sopera, de la que se derivan las raciones"
+      ]
+    },
+    "cat.soperas/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si está aislada térmicamente",
+        "tiempo durante el que conserva la temperatura",
+        "tipo de construcción aislante"
+      ]
+    },
+    "cat.toallas/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "largo de la toalla",
+        "ancho de la toalla",
+        "tamaño nominal de la toalla",
+        "tabla de equivalencias entre tamaños nominales y medidas"
+      ]
+    },
+    "cat.toallas/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de tejido o estructura de la toalla",
+        "técnica de formación del tejido",
+        "construcción del rizo, por una o por las dos caras"
+      ]
+    },
+    "cat.toallas/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "capacidad de absorción",
+        "rapidez de secado de la toalla",
+        "transpirabilidad del tejido",
+        "resultado de un ensayo de absorción"
+      ]
+    },
+    "cat.toallas/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de suavidad",
+        "finura del tejido o del hilo",
+        "tipo de torsión del hilo",
+        "calidad o longitud de la fibra"
+      ]
+    },
+    "cat.toallas/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de hipoalergenicidad",
+        "declaración de aptitud para pieles sensibles",
+        "tratamiento antimicrobiano",
+        "resistencia a los olores",
+        "resultado de un ensayo dermatológico",
+        "certificado o informe de ensayo que respalde la propiedad higiénica"
+      ]
+    },
+    "cat.toallas/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nivel de desprendimiento de pelusa",
+        "solidez del color frente al lavado, la lejía y el peróxido",
+        "estabilidad dimensional al lavado",
+        "resistencia al desgaste, al deshilachado y a los enganchones",
+        "resistencia a las manchas",
+        "resistencia a las arrugas",
+        "resultado de ensayos de resistencia al lavado"
+      ]
+    },
+    "cat.toallas/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si tiene anilla o cinta para colgar",
+        "indicación de si tiene capucha",
+        "indicación de si es reversible",
+        "acabado de los bordes y cenefa"
+      ]
+    },
+    "cat.toallas/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de toalla según su forma y uso",
+        "ámbito de uso previsto",
+        "medidas de la toalla, de las que se deriva su tipo"
+      ]
+    },
+    "cat.utensilios-de-mesa/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si es apto para microondas",
+        "presencia de decoraciones o filos metálicos"
+      ]
+    },
+    "cat.utensilios-de-servir/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "forma de la pieza",
+        "fotografía de la pieza que muestre su forma"
+      ]
+    },
+    "cat.zapatillas-para-bebes-y-ninos/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de calzado o de zapatilla",
+        "indicación de si lleva ruedas incorporadas"
+      ]
+    },
+    "cat.zapatillas-para-bebes-y-ninos/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "categoría de altura de la caña",
+        "parte del pie o de la pierna que cubre"
+      ]
+    },
+    "cat.zapatillas-para-bebes-y-ninos/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "material de la plantilla",
+        "categoría del material de la plantilla a efectos de etiquetado"
+      ]
+    },
+    "cat.zapatillas-para-bebes-y-ninos/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo de cuero o acabado de la piel",
+        "tipo de piel con pelo",
+        "indicación de si el cuero o la piel es natural o sintético"
+      ]
+    },
+    "cat.zapatillas-para-bebes-y-ninos/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "superficies o terrenos para los que está pensada la suela",
+        "declaración de agarre en cualquier condición meteorológica"
+      ]
+    },
+    "cat.zapatillas-para-bebes-y-ninos/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "temporada o estaciones para las que está pensada"
+      ]
+    },
+    "cat.zapatillas-para-bebes-y-ninos/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de luces o elementos luminosos",
+        "declaración de elementos reflectantes"
+      ]
+    },
+    "cat.zapatillas-para-bebes-y-ninos/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "uso o actividad para la que está pensada",
+        "deporte para el que está diseñada"
+      ]
+    },
+    "cat.zapatillas-para-bebes-y-ninos/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si la plantilla es extraíble"
+      ]
+    },
+    "cat.zapatillas-para-bebes-y-ninos/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "declaración de suela que no deja marcas"
+      ]
+    },
+    "gen/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "denominación del producto",
+        "características principales del producto"
+      ]
+    },
+    "gen/21": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "relación de piezas, accesorios o unidades que incluye la oferta",
+        "indicación de los elementos que se muestran pero no se incluyen"
+      ]
+    },
+    "gen/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "marca del producto"
+      ]
+    },
+    "gen/24": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "tipo o modelo del producto",
+        "imagen que permite identificar el producto"
+      ]
+    },
+    "gen/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "código EAN o GTIN",
+        "referencia o número de modelo, lote o serie del fabricante",
+        "referencia interna del vendedor"
+      ]
+    },
+    "gen/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "precio con impuestos incluidos",
+        "otros gastos adicionales que se suman al precio",
+        "forma de determinar el precio cuando no puede calcularse de antemano"
+      ]
+    },
+    "gen/25": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "gastos de envío o entrega a España"
+      ]
+    },
+    "gen/05": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "criterios de cálculo del coste del envío",
+        "importe del pedido a partir del cual el envío no tiene coste",
+        "advertencia de gastos de envío que no pueden calcularse de antemano"
+      ]
+    },
+    "gen/06": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "estado de disponibilidad de la oferta"
+      ]
+    },
+    "gen/07": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "estado declarado de la unidad que se entrega"
+      ]
+    },
+    "gen/08": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "fecha o plazo de entrega comprometidos",
+        "plazo de entrega de cada modalidad o destino"
+      ]
+    },
+    "gen/09": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "modalidades de entrega o recogida disponibles",
+        "procedimiento de entrega de cada modalidad"
+      ]
+    },
+    "gen/10": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "medios de pago aceptados",
+        "procedimiento de pago de cada medio"
+      ]
+    },
+    "gen/11": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "existencia del derecho de desistimiento",
+        "plazo para desistir o devolver",
+        "canal o procedimiento de devolución",
+        "condiciones del reembolso",
+        "modelo de formulario de desistimiento"
+      ]
+    },
+    "gen/26": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "indicación de si el comprador asume el coste de la devolución",
+        "coste de devolver los bienes que no pueden devolverse por correo"
+      ]
+    },
+    "gen/27": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "casos en que no hay derecho de desistimiento",
+        "circunstancias en que se pierde el derecho de desistimiento"
+      ]
+    },
+    "gen/12": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "recordatorio de la garantía legal de conformidad",
+        "plazo de la garantía legal"
+      ]
+    },
+    "gen/13": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "identidad del vendedor (razón social)",
+        "nombre comercial del vendedor",
+        "indicación de si vende el propio sitio o un vendedor externo"
+      ]
+    },
+    "gen/14": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "dirección completa del establecimiento del vendedor",
+        "teléfono de contacto",
+        "correo electrónico u otro medio de contacto rápido",
+        "dirección para presentar reclamaciones"
+      ]
+    },
+    "gen/15": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "opiniones de compradores",
+        "valoración media de las opiniones",
+        "número de opiniones"
+      ]
+    },
+    "gen/16": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "descripción de la promoción o el descuento vigente",
+        "condiciones de la promoción",
+        "vigencia de la promoción"
+      ]
+    },
+    "gen/17": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nombre, nombre comercial registrado o marca del fabricante",
+        "dirección postal del fabricante",
+        "dirección electrónica del fabricante"
+      ]
+    },
+    "gen/18": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "nombre de la persona responsable en la UE",
+        "dirección postal de la persona responsable en la UE",
+        "dirección electrónica de la persona responsable en la UE"
+      ]
+    },
+    "gen/19": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "advertencias que figuran en el producto o en su envase",
+        "información de seguridad que acompaña al producto en un documento"
+      ]
+    },
+    "gen/20": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "país de fabricación"
+      ]
+    },
+    "gen.cantidad-limitada/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "número de unidades disponibles"
+      ]
+    },
+    "gen.variantes/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "relación de variantes ofrecidas"
+      ]
+    },
+    "gen.variantes/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "disponibilidad de cada variante"
+      ]
+    },
+    "gen.variantes/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "característica que distingue cada variante",
+        "diferencias de precio entre variantes"
+      ]
+    },
+    "gen.unidad-no-nueva/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "descripción de las marcas, los defectos o el desgaste de la unidad",
+        "imágenes de las marcas o los defectos"
+      ]
+    },
+    "gen.unidad-no-nueva/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "identificación de la unidad que se entrega",
+        "imágenes de la unidad concreta que se entrega"
+      ]
+    },
+    "gen.unidad-no-nueva/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "motivo por el que la unidad no es nueva"
+      ]
+    },
+    "gen.descuento/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "precio de referencia del descuento",
+        "importe o porcentaje del descuento"
+      ]
+    },
+    "gen.descuento/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "condiciones del descuento",
+        "vigencia del descuento"
+      ]
+    },
+    "gen.garantia-comercial/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "garantía comercial que ofrece",
+        "condiciones de la garantía comercial"
+      ]
+    },
+    "gen.posventa/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "asistencia o servicios posventa que ofrece",
+        "condiciones de la asistencia o los servicios posventa"
+      ]
+    },
+    "gen.opiniones/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "procedimiento para comprobar que las opiniones proceden de compradores reales"
+      ]
+    },
+    "gen.precio-personalizado/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "parámetros de la personalización del precio"
+      ]
+    },
+    "gen.elementos-digitales/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "funcionalidad de los elementos digitales"
+      ]
+    },
+    "gen.elementos-digitales/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "aparatos y programas con los que es compatible"
+      ]
+    },
+    "gen.elementos-digitales/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "medidas técnicas de protección aplicables"
+      ]
+    },
+    "gen.elementos-digitales/04": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "aparatos y programas con los que es interoperable"
+      ]
+    },
+    "gen.suscripcion/01": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "duración del contrato",
+        "indicación de si el contrato es indefinido o se prorroga automáticamente",
+        "condiciones de resolución del contrato"
+      ]
+    },
+    "gen.suscripcion/02": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "duración mínima de las obligaciones del comprador"
+      ]
+    },
+    "gen.suscripcion/03": {
+      "observed": {},
+      "accepted": [],
+      "proposed": [],
+      "rejected": [],
+      "never_observed": [
+        "depósitos u otras garantías financieras que exige",
+        "condiciones de los depósitos u otras garantías financieras"
+      ]
+    }
+  }
+}

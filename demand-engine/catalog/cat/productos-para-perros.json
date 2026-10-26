@@ -8,7 +8,7 @@
     "shopify:ap-2-3@v2026-08",
     "google:5@2021-09-21"
   ],
-  "version": "2",
+  "version": "3",
   "status": "compilado",
   "requirements": [
     {
@@ -25,7 +25,23 @@
       "applicability": "si el producto es un objeto (accesorio, juguete, cama, comedero…); no se aplica a alimentos ni a otros consumibles",
       "rationale": "En los objetos para perros (juguetes, camas, collares, comederos) el material decide resistencia a la mordida, seguridad, limpieza y durabilidad. Shopify lo hereda también en la comida para perros, donde no se aplica.",
       "seed_importance": "principal",
-      "rule": "imp:material@ap-2"
+      "rule": "imp:material@ap-2",
+      "resolving_info": [
+        {
+          "contribution": "material principal",
+          "component": "material principal",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:material"
+          ]
+        },
+        {
+          "contribution": "materiales de cada parte, si combina varios",
+          "component": "material",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [
@@ -34,5 +50,5 @@
       "reason": "Requisito retirado: el tamaño del perro no sube a Productos para perros (criterio 4 y D-040): Juguetes y Cintas de caminar tienen suitable-for-breed-size como atributo propio de Shopify. Vuelve a cat.juguetes-para-perros/02 y a cat.comida-para-perros/16 con sus fuentes."
     }
   ],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

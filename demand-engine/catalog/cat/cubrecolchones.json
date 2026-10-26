@@ -10,7 +10,7 @@
     "amazon-ptd:MATTRESS_COVER@2026-10-24",
     "amazon-btg:27003778031@2026-10-24"
   ],
-  "version": "1",
+  "version": "2",
   "status": "compilado",
   "requirements": [
     {
@@ -28,43 +28,93 @@
       "applicability": "universal",
       "rationale": "El acolchado define la categoría (Mattress Pads) frente al resto de protectores; su relleno determina el confort, el abrigo y el cuidado. Se suma compliance_padding_material del PTD MATTRESS_COVER (asignado a la madre), trasladado aquí porque solo se aplica a los protectores acolchados.",
       "seed_importance": "principal",
-      "rule": "imp:material@hg"
+      "rule": "imp:material@hg",
+      "resolving_info": [
+        {
+          "contribution": "material del relleno",
+          "component": "material del relleno del acolchado",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:filler-material",
+            "amazon-ptd-prop:MATTRESS_COVER.compliance_padding_material"
+          ]
+        },
+        {
+          "contribution": "proporción de cada material en un relleno mixto",
+          "component": "material del relleno del acolchado",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.cubrecolchones/02",
-      "question": "¿Qué grosor y qué firmeza tiene el acolchado?",
+      "question": "¿Qué firmeza tiene el acolchado?",
       "dimension": "acolchado",
       "trait": "prestacion",
       "entity": "producto",
       "importance": "principal",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:MATTRESS_COVER.item_thickness",
         "amazon-ptd-prop:MATTRESS_COVER.item_firmness_description",
         "amazon-ptd-prop:MATTRESS_COVER.special_feature=Acolchado",
         "amazon-ptd-prop:MATTRESS_COVER.special_feature=Parte superior acolchada"
       ],
       "applicability": "universal",
-      "rationale": "Candidatos de MATTRESS_COVER (PTD asignado a la madre) trasladados aquí: solo se aplican a protectores acolchados, que son esta categoría; en un protector fino no tienen sentido. Amazon usa MATTRESS_COVER también en su nodo «Almohadillas de colchón» (27003778031).",
+      "rationale": "Candidatos de MATTRESS_COVER (PTD asignado a la madre) trasladados aquí: solo se aplican a protectores acolchados, que son esta categoría; en un protector fino no tienen sentido. Amazon usa MATTRESS_COVER también en su nodo «Almohadillas de colchón» (27003778031). Redacción con D-060 (T-031, regla 3): el grosor (magnitud) y la firmeza (prestación) toman otro rasgo y otra importancia.",
       "seed_importance": "principal",
-      "rule": "imp:prestacion@hg-15-1-6"
+      "rule": "imp:prestacion@hg-15-1-6",
+      "resolving_info": [
+        {
+          "contribution": "nivel de firmeza del acolchado",
+          "component": "firmeza del acolchado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:MATTRESS_COVER.item_firmness_description"
+          ]
+        },
+        {
+          "contribution": "declaración de superficie acolchada",
+          "component": "firmeza del acolchado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:MATTRESS_COVER.special_feature=Acolchado",
+            "amazon-ptd-prop:MATTRESS_COVER.special_feature=Parte superior acolchada"
+          ]
+        },
+        {
+          "contribution": "densidad o gramaje del relleno",
+          "component": "firmeza del acolchado",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.cubrecolchones/03",
-      "question": "¿Es compatible con somieres articulados y se puede usar por las dos caras?",
+      "question": "¿Es compatible con somieres articulados?",
       "dimension": "compatibilidad y uso",
       "trait": "uso",
       "entity": "producto",
       "importance": "complementario",
       "origin": "referencias",
       "sources": [
-        "shopify-attr:mattress-features=Compatibilidad de base regulable",
-        "shopify-attr:mattress-features=Volteable"
+        "shopify-attr:mattress-features=Compatibilidad de base regulable"
       ],
       "applicability": "universal",
-      "rationale": "Criterio 2: cubre los valores propios de mattress-features (Compatibilidad de base regulable, Volteable). Los demás valores repiten cuestiones de la cadena o son de colchones, y van a excluded con su motivo.",
+      "rationale": "Criterio 2: cubre los valores propios de mattress-features (Compatibilidad de base regulable, Volteable). Los demás valores repiten cuestiones de la cadena o son de colchones, y van a excluded con su motivo. Redacción con D-060 (T-031, regla 3): la compatibilidad (uso) y el uso por las dos caras (construcción) toman otro rasgo.",
       "seed_importance": "complementario",
-      "rule": "imp:uso@hg-15-1-6-2"
+      "rule": "imp:uso@hg-15-1-6-2",
+      "resolving_info": [
+        {
+          "contribution": "indicación de compatibilidad con somieres articulados",
+          "component": "compatibilidad con somieres articulados",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:mattress-features=Compatibilidad de base regulable"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.cubrecolchones/04",
@@ -81,7 +131,87 @@
       "applicability": "universal",
       "rationale": "Criterio 2: valores Despegables y Reemplazable de pad-type; el valor Lavable a máquina lo cubre cat.ropa-de-casa/02.",
       "seed_importance": "complementario",
-      "rule": "imp:construccion@hg-15-1-6-2"
+      "rule": "imp:construccion@hg-15-1-6-2",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si el acolchado se puede separar",
+          "component": "fijo o separable",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pad-type=Despegables"
+          ]
+        },
+        {
+          "contribution": "indicación de si el acolchado se puede reemplazar",
+          "component": "reemplazable",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pad-type=Reemplazable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.cubrecolchones/05",
+      "question": "¿Qué grosor tiene el acolchado?",
+      "dimension": "grosor",
+      "trait": "magnitud",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:MATTRESS_COVER.item_thickness"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.cubrecolchones/02 separada por la regla 3 de D-060 (T-031): el grosor (magnitud) y la firmeza (prestación) toman otro rasgo y otra importancia.",
+      "seed_importance": "principal",
+      "rule": "imp:magnitud@hg-15-1-6-2",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "grosor del acolchado",
+          "component": "grosor del acolchado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:MATTRESS_COVER.item_thickness"
+          ]
+        },
+        {
+          "contribution": "descripción cualitativa del grosor",
+          "component": "grosor del acolchado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:MATTRESS_COVER.item_thickness"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.cubrecolchones/06",
+      "question": "¿Se puede usar por las dos caras?",
+      "dimension": "uso por las dos caras",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:mattress-features=Volteable"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.cubrecolchones/03 separada por la regla 3 de D-060 (T-031): la compatibilidad (uso) y el uso por las dos caras (construcción) toman otro rasgo.",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@hg-15-1-6-2",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si se puede usar por las dos caras",
+          "component": "uso por las dos caras",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:mattress-features=Volteable"
+          ]
+        }
+      ]
     }
   ],
   "excluded": [
@@ -146,5 +276,5 @@
       "reason": "Lo cubre cat.ropa-de-casa/02 (cuidado)."
     }
   ],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

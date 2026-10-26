@@ -1,0 +1,537 @@
+{
+  "id": "cat.lijadoras",
+  "type": "categoría",
+  "name": "Lijadoras",
+  "shopify": "ha-15-59",
+  "parent": "cat.herramientas",
+  "refs": [
+    "shopify:ha-15-59@v2026-08",
+    "google:1188@2021-09-21",
+    "amazon-ptd:SANDER@2026-10-24",
+    "amazon-btg:3049717031@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.lijadoras/01",
+      "question": "¿Con qué fuente de alimentación funciona (batería, cable a red, aire comprimido)?",
+      "dimension": "alimentación",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:power-source",
+        "amazon-ptd-prop:SANDER.power_source_type"
+      ],
+      "applicability": "universal",
+      "rationale": "Distingue lijadoras de batería, de cable y neumáticas: condiciona la autonomía, el uso sin toma de corriente y la compatibilidad con baterías; es un criterio central para elegir entre ofertas.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:identidad@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "tipo de fuente de alimentación",
+          "component": "fuente de alimentación",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:power-source",
+            "amazon-ptd-prop:SANDER.power_source_type"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras/02",
+      "question": "¿Qué potencia tiene (W)?",
+      "dimension": "potencia",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SANDER.wattage"
+      ],
+      "applicability": "universal",
+      "rationale": "La potencia es uno de los datos con los que se comparan lijadoras (capacidad de arranque de material, trabajo continuado).",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:prestacion@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "potencia nominal",
+          "component": "potencia",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.wattage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras/03",
+      "question": "¿A qué tensión funciona (V; en las de batería, la tensión de la batería o plataforma)?",
+      "dimension": "tensión",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SANDER.voltage"
+      ],
+      "applicability": "universal",
+      "rationale": "En las de cable fija la red con la que funciona; en las de batería determina qué baterías admite y es el dato con el que se agrupan y comparan.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "tensión nominal de funcionamiento",
+          "component": "tensión",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.voltage"
+          ]
+        },
+        {
+          "contribution": "tensión de la batería o de la plataforma",
+          "component": "tensión de la batería o plataforma",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.voltage"
+          ]
+        },
+        {
+          "contribution": "plataforma o sistema de baterías al que pertenece",
+          "component": "tensión de la batería o plataforma",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras/04",
+      "question": "¿Con qué frecuencia de red funciona y qué tipo de enchufe tiene?",
+      "dimension": "conexión a red",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SANDER.accepted_voltage_frequency",
+        "amazon-ptd-prop:SANDER.power_plug_type"
+      ],
+      "applicability": "si funciona con cable a red",
+      "rationale": "Confirma que se puede usar en la red española (230 V, 50 Hz, enchufe tipo F) sin adaptador; relevante sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "principal",
+      "rule": "imp:uso@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "frecuencia de red admitida",
+          "component": "frecuencia de red",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.accepted_voltage_frequency"
+          ]
+        },
+        {
+          "contribution": "tipo de enchufe",
+          "component": "tipo de enchufe",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.power_plug_type"
+          ]
+        },
+        {
+          "contribution": "placa de características del aparato",
+          "component": "frecuencia de red",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras/05",
+      "question": "¿A qué velocidad trabaja (rpm u oscilaciones por minuto)?",
+      "dimension": "velocidad",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SANDER.maximum_rotational_speed"
+      ],
+      "applicability": "universal",
+      "rationale": "La velocidad y su regulación determinan el rendimiento y la adaptación a distintos materiales y acabados; criterio habitual de comparación. Redacción con D-060 (T-031, regla 4): SANDER.maximum_rotational_speed da la velocidad máxima, no si se regula: sale como inferida.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:prestacion@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "velocidad máxima de rotación",
+          "component": "velocidad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.maximum_rotational_speed"
+          ]
+        },
+        {
+          "contribution": "número de oscilaciones u órbitas por minuto",
+          "component": "velocidad",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras/06",
+      "question": "¿Qué medida tiene la superficie de lijado (diámetro del plato, medidas de la base o de la banda)?",
+      "dimension": "superficie de lijado",
+      "entity": "producto",
+      "trait": "medida",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SANDER.disc_diameter",
+        "amazon-ptd-prop:SANDER.size"
+      ],
+      "applicability": "universal",
+      "rationale": "Fija la superficie que cubre y qué abrasivos admite; es el dato que nombra y diferencia los modelos (125 mm, 150 mm, 1/4 de hoja). Describe el producto: no identifica una variante dentro de la oferta.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "diámetro del plato o disco",
+          "component": "medida de la superficie de lijado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.disc_diameter"
+          ]
+        },
+        {
+          "contribution": "largo y ancho de la base o de la banda",
+          "component": "medida de la superficie de lijado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.size"
+          ]
+        },
+        {
+          "contribution": "plano o imagen acotada de la base de lijado",
+          "component": "medida de la superficie de lijado",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras/07",
+      "question": "¿Qué abrasivos admite (medida, sistema de fijación —velcro, pinzas— y patrón de agujeros de aspiración)?",
+      "dimension": "compatibilidad de abrasivos",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Toda lijadora usa abrasivos consumibles; saber cuáles admite condiciona el coste de uso y la disponibilidad de recambios. Ninguna referencia lo recoge como propiedad de la máquina.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "medida de los abrasivos compatibles",
+          "component": "medida",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "sistema de fijación del abrasivo",
+          "component": "sistema de fijación",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "número y disposición de los agujeros de aspiración",
+          "component": "patrón de agujeros de aspiración",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "referencias de abrasivos compatibles",
+          "component": "qué abrasivos admite",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras/08",
+      "question": "¿Tiene sistema de recogida o extracción de polvo (bolsa, caja, conexión a aspirador)?",
+      "dimension": "extracción de polvo",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "El lijado genera polvo en todas las lijadoras; cómo lo recoge es un criterio habitual de comparación (limpieza, salud). Ninguna referencia lo recoge.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:construccion@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "tipo de sistema de recogida de polvo incorporado",
+          "component": "recogida de polvo",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "posibilidad de conexión a un aspirador y diámetro de la boquilla",
+          "component": "extracción de polvo",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras/09",
+      "question": "¿Para qué materiales y trabajos está indicada (madera, metal, pintura, yeso; desbaste o acabado)?",
+      "dimension": "uso previsto",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Cada tipo de lijadora sirve para unos trabajos (desbaste, acabado fino); el uso previsto es lo que permite decidir si la oferta resuelve la necesidad. Ninguna referencia lo recoge como propiedad.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "materiales para los que está indicada",
+          "component": "materiales",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "tipo de trabajo para el que está indicada",
+          "component": "trabajos",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras/10",
+      "question": "¿De qué materiales está hecha (carcasa, base o plato)?",
+      "dimension": "material",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SANDER.material"
+      ],
+      "applicability": "universal",
+      "rationale": "Informa sobre robustez y durabilidad; relevante sin ser central en la comparación de lijadoras.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:material@ha-15-59",
+      "resolving_info": [
+        {
+          "contribution": "material de la carcasa",
+          "component": "carcasa",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.material"
+          ]
+        },
+        {
+          "contribution": "material de la base o plato",
+          "component": "base o plato",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.material"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras/11",
+      "question": "¿Cuánto pesa?",
+      "dimension": "peso",
+      "entity": "producto",
+      "trait": "magnitud",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SANDER.item_weight"
+      ],
+      "applicability": "universal",
+      "rationale": "En una herramienta que se maneja con la mano el peso influye en la fatiga y el control; relevante, no central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:magnitud@ha-15",
+      "resolving_info": [
+        {
+          "contribution": "peso del aparato",
+          "component": "peso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.item_weight"
+          ]
+        },
+        {
+          "contribution": "indicación de si el peso incluye la batería",
+          "component": "peso",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras/12",
+      "question": "¿Qué dimensiones tiene (largo × ancho × alto)?",
+      "dimension": "dimensiones",
+      "entity": "producto",
+      "trait": "medida",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SANDER.item_length_width_height"
+      ],
+      "applicability": "universal",
+      "rationale": "Informa del acceso a zonas estrechas y del almacenaje; descriptiva, no fija lo vendido.",
+      "seed_importance": "complementario",
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "largo del aparato",
+          "component": "largo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.item_length_width_height"
+          ]
+        },
+        {
+          "contribution": "ancho del aparato",
+          "component": "ancho",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.item_length_width_height"
+          ]
+        },
+        {
+          "contribution": "alto del aparato",
+          "component": "alto",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.item_length_width_height"
+          ]
+        },
+        {
+          "contribution": "plano o imagen acotada del aparato",
+          "component": "largo, ancho y alto",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras/13",
+      "question": "¿Qué niveles de vibración y de ruido emite (m/s², dB(A))?",
+      "dimension": "emisiones de vibración y ruido",
+      "entity": "producto",
+      "trait": "seguridad",
+      "vote": "complementario",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Las lijadoras son máquinas portátiles cuyos valores de vibración mano-brazo y de ruido figuran en sus instrucciones y afectan a la exposición del usuario. Ninguna referencia de la cadena lo recoge; posible apoyo normativo en la regulación de máquinas, sin verificar aquí.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:seguridad@ha-15-59",
+      "resolving_info": [
+        {
+          "contribution": "valor total de vibración declarado y su incertidumbre",
+          "component": "vibración",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "nivel de presión acústica ponderado A",
+          "component": "ruido",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "nivel de potencia acústica ponderado A",
+          "component": "ruido",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras/14",
+      "question": "¿Se puede regular la velocidad?",
+      "dimension": "regulación de la velocidad",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Cuestión inferida (D-036) que sale de cat.lijadoras/05 por la regla 4 de D-060 (T-031): SANDER.maximum_rotational_speed da la velocidad máxima, no si se regula: sale como inferida. Provisional hasta que la valide el entrenamiento.",
+      "seed_importance": "principal",
+      "rule": "imp:prestacion@ha-15",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si la velocidad es regulable",
+          "component": "regular la velocidad",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "número de posiciones o intervalo de velocidades seleccionables",
+          "component": "regular la velocidad",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "mecanismo de regulación de la velocidad",
+          "component": "regular la velocidad",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:SANDER.temperature_rating",
+      "reason": "Temperatura de almacenamiento en el almacén: dato logístico."
+    },
+    {
+      "source": "amazon-ptd-prop:SANDER.maximum_current",
+      "reason": "Corriente máxima: dato eléctrico que no se usa para evaluar ni comparar lijadoras; la potencia y la tensión lo cubren."
+    },
+    {
+      "source": "amazon-ptd-prop:SANDER.included_components",
+      "reason": "Piezas incluidas: las cubren gen/01 y, si procede, esp.juego."
+    },
+    {
+      "source": "amazon-ptd-prop:SANDER.grit",
+      "reason": "El grano es propiedad del abrasivo (consumible), no de la máquina; los abrasivos incluidos los cubre gen/01 y la compatibilidad, cat.lijadoras/07."
+    }
+  ],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-26",
+  "compiled_by": "reglas 6"
+}

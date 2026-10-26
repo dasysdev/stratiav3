@@ -9,7 +9,7 @@
     "google:460@2021-09-21",
     "amazon-ptd:SOFA@2026-10-24"
   ],
-  "version": "1",
+  "version": "5",
   "status": "compilado",
   "requirements": [
     {
@@ -26,24 +26,123 @@
       "applicability": "universal",
       "rationale": "Se traslada desde los candidatos de Sofás (PTD SOFA): según el PTD, son las medidas «cuando el artículo se convierte en una cama», así que solo se aplica a los sofás cama. Decide quién puede dormir en él y qué ropa de cama le sirve, y es un criterio con el que se comparan los sofás cama. Criterio 1: principal, porque describe el producto (las medidas de la cama abierta no fijan la variante).",
       "seed_importance": "principal",
-      "rule": "marco:D-043.1/medida-descriptiva"
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "largo de la superficie de descanso",
+          "component": "largo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.sleeping_area_dimensions"
+          ]
+        },
+        {
+          "contribution": "ancho de la superficie de descanso",
+          "component": "ancho",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.sleeping_area_dimensions"
+          ]
+        },
+        {
+          "contribution": "altura de la superficie de descanso desde el suelo",
+          "component": "altura al suelo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.sleeping_area_dimensions"
+          ]
+        },
+        {
+          "contribution": "plano o imagen acotada de la cama abierta",
+          "component": "largo, ancho y altura al suelo",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas-cama/02",
-      "question": "¿Incluye colchón y, si lo incluye, qué medida, material y grosor tiene y se puede retirar?",
+      "question": "¿Incluye colchón?",
       "dimension": "componentes",
       "trait": "contenido",
       "entity": "producto",
       "importance": "principal",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:SOFA.mattress",
-        "amazon-ptd-prop:SOFA.special_feature=Colchón desmontable"
+        "amazon-ptd-prop:SOFA.mattress"
       ],
       "applicability": "universal",
-      "rationale": "Se traslada desde los candidatos de Sofás (PTD SOFA): el colchón incluido (SOFA.mattress.size_name) y el colchón desmontable solo tienen sentido en un sofá cama. El colchón decide la comodidad para dormir y es un criterio de comparación. «No incluye colchón» también resuelve la cuestión.",
+      "rationale": "Se traslada desde los candidatos de Sofás (PTD SOFA): el colchón incluido (SOFA.mattress) solo tiene sentido en un sofá cama y es un criterio de comparación; «no incluye colchón» también resuelve la cuestión. El material y el grosor del colchón, sin fuente, salen como inferidas (T-031, regla 4). D-087 (I-37): la regla 3 prevalece sobre la forma de sí o no con detalle; la medida del colchón (medida) y si se puede retirar (construcción) pasan a /18 y /19, condicionados a que lo incluya.",
       "seed_importance": "principal",
-      "rule": "imp:contenido@fr-22-7"
+      "rule": "imp:contenido@fr-22",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si incluye colchón",
+          "component": "incluye colchón",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.mattress"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.sofas-cama/18",
+      "question": "¿De qué medida es el colchón que incluye?",
+      "dimension": "medidas del colchón",
+      "trait": "medida",
+      "entity": "producto",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SOFA.mattress"
+      ],
+      "applicability": "si incluye colchón",
+      "rationale": "Parte de cat.sofas-cama/02 separada por D-087 (I-37): la regla 3 prevalece sobre la forma de sí o no con detalle cuando el detalle toma otro rasgo o importancia.",
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "tamaño estándar del colchón incluido",
+          "component": "de qué medida es",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.mattress"
+          ]
+        },
+        {
+          "contribution": "largo y ancho del colchón incluido",
+          "component": "de qué medida es",
+          "origin": "inferida",
+          "support": []
+        }
+      ],
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva"
+    },
+    {
+      "id": "cat.sofas-cama/19",
+      "question": "¿Se puede retirar el colchón que incluye?",
+      "dimension": "colchón desmontable",
+      "trait": "construccion",
+      "entity": "producto",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SOFA.special_feature=Colchón desmontable"
+      ],
+      "applicability": "si incluye colchón",
+      "rationale": "Parte de cat.sofas-cama/02 separada por D-087 (I-37): la regla 3 prevalece sobre la forma de sí o no con detalle cuando el detalle toma otro rasgo o importancia.",
+      "seed_importance": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si el colchón se puede retirar",
+          "component": "se puede retirar",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SOFA.special_feature=Colchón desmontable"
+          ]
+        }
+      ],
+      "importance": "complementario",
+      "rule": "imp:construccion@fr-22"
     },
     {
       "id": "cat.sofas-cama/03",
@@ -57,7 +156,21 @@
       "applicability": "universal",
       "rationale": "Es una cuestión inferida (D-036): no la recoge ninguna referencia (ni Shopify Sofás cama ni el PTD SOFA tienen la dimensión; solo existe futon-frame-conversion-mechanism, en Futones). Está documentada en cases.md («Sofá cama») como cuestión del bloque de la clase, con importancia principal. El usuario la puso como ejemplo de principal o complementario: «no impide comprar». Se mantiene como cuestión inferida provisional (criterio 5), pendiente de aprobación.",
       "seed_importance": "principal",
-      "rule": "imp:construccion@fr-22-7"
+      "rule": "imp:cat.sofas-cama/03@fr-22-7",
+      "resolving_info": [
+        {
+          "contribution": "tipo de mecanismo de apertura",
+          "component": "mecanismo de apertura",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "secuencia de apertura y cierre",
+          "component": "cómo se acciona",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.sofas-cama/04",
@@ -71,9 +184,75 @@
       "applicability": "universal",
       "rationale": "Cuestión inferida (criterio 5; añadido provisional hasta su aprobación, D-041): ninguna referencia la recoge (ni Shopify Sofás cama ni el PTD SOFA). El caso «Sofá cama» de cases.md la declara («para uso diario o para invitados»). Decide si el mecanismo y el colchón están pensados para el uso diario y es un criterio con que se comparan los sofás cama; «uso ocasional» también resuelve la cuestión.",
       "seed_importance": "principal",
-      "rule": "imp:uso@fr-22-7"
+      "rule": "imp:uso@fr-22-7",
+      "resolving_info": [
+        {
+          "contribution": "declaración del uso previsto como cama, diario u ocasional",
+          "component": "dormir a diario o uso ocasional",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "tipo de somier o base del sistema de descanso",
+          "component": "dormir a diario o uso ocasional",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.sofas-cama/16",
+      "question": "¿De qué material es el colchón incluido?",
+      "dimension": "material del colchón",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "si incluye colchón",
+      "rationale": "Cuestión inferida (D-036) que sale de cat.sofas-cama/02 por la reglas 3 y 4 de D-060 (T-031): la pregunta de sí o no con su detalle se mantiene (regla 2); el material y el grosor del colchón no los recoge SOFA.mattress (solo size_name): salen como inferidas, una por rasgo (material y magnitud). Provisional hasta que la valide el entrenamiento.",
+      "seed_importance": "principal",
+      "rule": "imp:material@fr-22",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "material del núcleo del colchón",
+          "component": "material del colchón",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "tejido de la funda del colchón",
+          "component": "material del colchón",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.sofas-cama/17",
+      "question": "¿Qué grosor tiene el colchón incluido?",
+      "dimension": "grosor del colchón",
+      "trait": "magnitud",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "si incluye colchón",
+      "rationale": "Cuestión inferida (D-036) que sale de cat.sofas-cama/02 por la reglas 3 y 4 de D-060 (T-031): la pregunta de sí o no con su detalle se mantiene (regla 2); el material y el grosor del colchón no los recoge SOFA.mattress (solo size_name): salen como inferidas, una por rasgo (material y magnitud). Provisional hasta que la valide el entrenamiento.",
+      "seed_importance": "principal",
+      "rule": "imp:magnitud@fr-22-7",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "grosor del colchón",
+          "component": "grosor del colchón",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

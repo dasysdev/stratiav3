@@ -3,9 +3,9 @@ id: mpir-interpretation-transfer
 title: MPIR — interpretación semántica, consolidación y transferencia al modelo de demanda
 layer: method
 status: propuesta
-version: 1.0
-updated: 2026-10-24
-sources: [MPIR §8, MPIR §9, MPIR §10]
+version: 1.1
+updated: 2026-10-26
+sources: [MPIR §8, MPIR §9, MPIR §10, INTAKE 2026-10-26-open-issues-resolution]
 ---
 
 # MPIR — interpretación semántica, consolidación y transferencia al modelo de demanda
@@ -86,7 +86,9 @@ Un patrón puede estar sustentado en **una única fuente especializada** si su f
 
 El MPIR no aprueba directamente requisitos. Ofrece **patrones, observaciones y cuestiones candidatas** que se contrastan con el inventario taxonómico y con los requisitos que se estén desarrollando para la clase.
 
-### Tipos de aportación
+### Tipos de aportación al modelo de demanda
+
+Lo que un resultado del MPIR aporta al modelo de demanda al contrastarlo con la taxonomía se llama **aportación al modelo de demanda**, para no confundirla con la [aportación resolutiva](../../10-model/resolving-information.md#definición). Fuera de `resolving-information`, la aportación resolutiva lleva siempre su adjetivo, y la del MPIR, siempre «al modelo de demanda» ([D-075](../../30-governance/decisions.md#d-075)).
 
 | Resultado del contraste | Interpretación | Tratamiento |
 |---|---|---|

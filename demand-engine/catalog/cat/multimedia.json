@@ -1,0 +1,65 @@
+{
+  "id": "cat.multimedia",
+  "type": "categoría",
+  "name": "Multimedia",
+  "shopify": "me",
+  "parent": null,
+  "refs": [
+    "shopify:me@v2026-08",
+    "google:783@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.multimedia/01",
+      "question": "¿Tiene restricción o recomendación de edad para su contenido (p. ej., contenido explícito) y cuál?",
+      "dimension": "restricción de edad del contenido",
+      "entity": "producto",
+      "trait": "seguridad",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:age-restrictions"
+      ],
+      "applicability": "universal",
+      "rationale": "La edad mínima o la advertencia de contenido explícito informa sobre la idoneidad del contenido multimedia para el destinatario; relevante en todo el sector sin ser criterio central de elección.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:seguridad@me",
+      "resolving_info": [
+        {
+          "contribution": "edad mínima exigida o recomendada",
+          "component": "restricción o recomendación de edad",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:age-restrictions"
+          ]
+        },
+        {
+          "contribution": "indicación de apto para todas las edades",
+          "component": "restricción o recomendación de edad",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:age-restrictions"
+          ]
+        },
+        {
+          "contribution": "advertencia de contenido explícito",
+          "component": "restricción o recomendación de edad",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "calificación por edades de un sistema de clasificación",
+          "component": "cuál",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

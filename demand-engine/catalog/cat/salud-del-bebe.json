@@ -1,0 +1,45 @@
+{
+  "id": "cat.salud-del-bebe",
+  "type": "categoría",
+  "name": "Salud del bebé",
+  "shopify": "bt-3",
+  "parent": null,
+  "refs": [
+    "shopify:bt-3@v2026-08",
+    "google:5252@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.salud-del-bebe/01",
+      "question": "¿Para qué edad del bebé está indicado (recién nacido, rango de meses o edad mínima recomendada)?",
+      "dimension": "edad indicada",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:infant-age-group"
+      ],
+      "applicability": "universal",
+      "rationale": "En los productos de salud y puericultura la edad indicada decide si el producto sirve para el bebé concreto; criterio con el que se comparan ofertas.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@bt-3",
+      "resolving_info": [
+        {
+          "contribution": "grupo o rango de edad del bebé al que se destina",
+          "component": "edad del bebé",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:infant-age-group"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-26",
+  "compiled_by": "reglas 6"
+}

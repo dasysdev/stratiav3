@@ -1,0 +1,116 @@
+{
+  "id": "cat.cocina-y-comedor",
+  "type": "categoría",
+  "name": "Cocina y comedor",
+  "shopify": "hg-11",
+  "parent": "cat.casa-y-jardin",
+  "refs": [
+    "shopify:hg-11@v2026-08",
+    "google:638@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.cocina-y-comedor/01",
+      "question": "¿De qué material principal está hecho (porcelana, loza, gres, vidrio, acero inoxidable, madera, algodón…)?",
+      "dimension": "material",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:material"
+      ],
+      "applicability": "universal",
+      "rationale": "El material determina la resistencia, el uso (horno, microondas, contacto con alimentos) y el cuidado de los artículos de cocina y comedor; es criterio para comparar y elegir.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:material@hg",
+      "resolving_info": [
+        {
+          "contribution": "material principal",
+          "component": "material principal",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:material"
+          ]
+        },
+        {
+          "contribution": "grado o calidad del material",
+          "component": "material principal",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cocina-y-comedor/02",
+      "question": "¿Qué cuidados de limpieza y mantenimiento requiere (lavado a mano, lavavajillas, lavadora, secadora, planchado…)?",
+      "dimension": "instrucciones de cuidado",
+      "entity": "producto",
+      "trait": "cuidado",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:care-instructions"
+      ],
+      "applicability": "universal",
+      "rationale": "Shopify lo lista en la categoría madre de cocina y comedor (textiles, menaje, vajilla); cómo se limpia, en particular si admite lavavajillas, es criterio habitual de elección.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:cuidado@hg-11",
+      "resolving_info": [
+        {
+          "contribution": "método de lavado admitido",
+          "component": "limpieza",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicación de limpieza en seco",
+          "component": "limpieza",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicación de si admite secadora",
+          "component": "mantenimiento",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicaciones de planchado",
+          "component": "mantenimiento",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicaciones de mantenimiento propias del material",
+          "component": "mantenimiento",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicación de aptitud para lavavajillas",
+          "component": "limpieza",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

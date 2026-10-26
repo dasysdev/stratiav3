@@ -1,0 +1,73 @@
+{
+  "id": "cat.salsas-y-cremas-para-untar",
+  "type": "categoría",
+  "name": "Salsas y cremas para untar",
+  "shopify": "fb-2-7",
+  "parent": "cat.alimentos",
+  "refs": [
+    "shopify:fb-2-7@v2026-08",
+    "google:5740@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.salsas-y-cremas-para-untar/01",
+      "question": "¿Qué textura o consistencia tiene (suave, cremosa, con trozos, espesa, untable…)?",
+      "dimension": "consistencia",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:spread-consistency",
+        "shopify-attr:jam-and-jelly-consistency"
+      ],
+      "applicability": "universal",
+      "rationale": "La textura fija expectativas de uso y de boca en salsas y cremas para untar; diferencia ofertas sin ser el criterio central. El atributo jam-and-jelly-consistency de la hija repite la dimensión con valores propios de confituras (con trozos de fruta, sin semillas) y se une aquí (D-043, criterio 3).",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@fb-2-7",
+      "resolving_info": [
+        {
+          "contribution": "grado de espesor o untabilidad",
+          "component": "textura o consistencia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:spread-consistency",
+            "shopify-attr:jam-and-jelly-consistency"
+          ]
+        },
+        {
+          "contribution": "textura en boca",
+          "component": "textura o consistencia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:spread-consistency",
+            "shopify-attr:jam-and-jelly-consistency"
+          ]
+        },
+        {
+          "contribution": "presencia de trozos",
+          "component": "textura o consistencia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:spread-consistency",
+            "shopify-attr:jam-and-jelly-consistency"
+          ]
+        },
+        {
+          "contribution": "presencia de semillas",
+          "component": "textura o consistencia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:jam-and-jelly-consistency"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

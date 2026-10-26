@@ -28,7 +28,33 @@
       "rationale": "El tipo de cama (plana, con bordes, cerrada, elevada, colgante) decide cómo descansa el animal y es el primer criterio con que se comparan ofertas de la clase. Se unen la forma de artículo de Amazon y los valores «Elevada» y «Convertible», que describen tipos de cama.",
       "seed_importance": "principal",
       "importance": "principal",
-      "rule": "imp:identidad@ap-2"
+      "rule": "imp:identidad@ap-2",
+      "resolving_info": [
+        {
+          "contribution": "tipo o forma de cama",
+          "component": "tipo de cama",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.item_form"
+          ]
+        },
+        {
+          "contribution": "indicación de si es elevada",
+          "component": "tipo de cama",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Elevada"
+          ]
+        },
+        {
+          "contribution": "indicación de si es convertible",
+          "component": "tipo de cama",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Convertible"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.camas-para-mascotas/02",
@@ -45,7 +71,17 @@
       "rationale": "La forma condiciona dónde se coloca la cama y cómo se acomoda el animal; relevante sin ser central frente al tipo y la medida.",
       "seed_importance": "complementario",
       "importance": "principal",
-      "rule": "imp:identidad@ap-2"
+      "rule": "imp:identidad@ap-2",
+      "resolving_info": [
+        {
+          "contribution": "forma geométrica",
+          "component": "forma",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:shape"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.camas-para-mascotas/03",
@@ -64,7 +100,54 @@
       "rationale": "Criterio 1 de D-043: en una cama para mascotas la talla o la medida identifica la variante que se vende (como la medida de cama, colchón o almohada). Se unen la talla de Shopify, la de Amazon y las dimensiones, que describen la misma dimensión.",
       "seed_importance": "crítico",
       "importance": "crítico",
-      "rule": "marco:D-043.1/medida-que-fija"
+      "rule": "marco:D-043.1/medida-que-fija",
+      "resolving_info": [
+        {
+          "contribution": "talla de la cama",
+          "component": "talla",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:accessory-size",
+            "amazon-ptd-prop:PET_BED_MAT.size"
+          ]
+        },
+        {
+          "contribution": "largo de la cama",
+          "component": "largo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.item_length_width_thickness"
+          ]
+        },
+        {
+          "contribution": "ancho de la cama",
+          "component": "ancho",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.item_length_width_thickness"
+          ]
+        },
+        {
+          "contribution": "grosor o altura de la cama",
+          "component": "grosor o altura",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.item_length_width_thickness"
+          ]
+        },
+        {
+          "contribution": "medidas de la superficie interior de descanso",
+          "component": "largo y ancho",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "correspondencia entre la talla y las medidas o el peso del animal",
+          "component": "talla",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.camas-para-mascotas/04",
@@ -82,11 +165,35 @@
       "rationale": "Una cama inadecuada al tamaño del animal no cumple su función; la adecuación al tamaño o la raza es criterio de elección. Se unen las dos propiedades de Amazon, que describen la misma dimensión.",
       "seed_importance": "principal",
       "importance": "principal",
-      "rule": "imp:uso@ap-2"
+      "rule": "imp:uso@ap-2",
+      "resolving_info": [
+        {
+          "contribution": "tamaño de raza al que se destina",
+          "component": "tamaño",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.dog_breed_size"
+          ]
+        },
+        {
+          "contribution": "raza recomendada",
+          "component": "raza",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.breed_recommendation"
+          ]
+        },
+        {
+          "contribution": "peso o longitud máxima del animal que admite",
+          "component": "tamaño",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.camas-para-mascotas/05",
-      "question": "¿De qué material es la superficie o funda y, si es textil, cuál es su composición en fibras?",
+      "question": "¿De qué material es la superficie o funda y cuál es su composición?",
       "dimension": "material de la superficie",
       "entity": "producto",
       "trait": "material",
@@ -98,28 +205,64 @@
         "ley:UE-1007/2011-16.1@2011-10-18"
       ],
       "applicability": "universal",
-      "rationale": "El material de la superficie decide el tacto, la resistencia a uñas y mordidas y la limpieza, y es criterio de comparación. Se unen el material de Shopify y la cubierta de Amazon. Cuando la cama es un producto textil, la composición en fibras tiene además apoyo normativo (criterio 6: Reglamento (UE) 1007/2011, art. 16.1).",
+      "rationale": "El material de la superficie decide el tacto, la resistencia a uñas y mordidas y la limpieza, y es criterio de comparación. Se unen el material de Shopify y la cubierta de Amazon. Cuando la cama es un producto textil, la composición en fibras tiene además apoyo normativo (criterio 6: Reglamento (UE) 1007/2011, art. 16.1). Redacción con D-060 (T-031, regla 2): «si es textil» sobra: todo material tiene composición, que en los textiles se expresa en fibras (Reglamento 1007/2011).",
       "seed_importance": "principal",
       "importance": "principal",
-      "rule": "marco:D-043.6/composicion-textil"
+      "rule": "marco:D-043.6/composicion-textil",
+      "resolving_info": [
+        {
+          "contribution": "material de la superficie o la funda",
+          "component": "material de la superficie o funda",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.cover",
+            "shopify-attr:material"
+          ]
+        },
+        {
+          "contribution": "denominación de las fibras de la funda",
+          "component": "composición",
+          "origin": "referencias",
+          "support": [
+            "ley:UE-1007/2011-16.1@2011-10-18"
+          ]
+        },
+        {
+          "contribution": "porcentaje en peso de cada fibra",
+          "component": "composición",
+          "origin": "referencias",
+          "support": [
+            "ley:UE-1007/2011-16.1@2011-10-18"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.camas-para-mascotas/06",
-      "question": "Si tiene relleno o acolchado, ¿de qué material es y qué soporte ofrece (espuma viscoelástica u ortopédica, fibra, grosor)?",
+      "question": "Si tiene relleno o acolchado, ¿de qué material es (espuma viscoelástica, fibra…)?",
       "dimension": "relleno y soporte",
       "entity": "producto",
       "trait": "material",
       "vote": "principal",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:PET_BED_MAT.fill_material",
-        "amazon-ptd-prop:PET_BED_MAT.special_feature=Ortopédica"
+        "amazon-ptd-prop:PET_BED_MAT.fill_material"
       ],
       "applicability": "si tiene relleno o acolchado",
-      "rationale": "El relleno decide el mullido, el soporte de las articulaciones y la recuperación de la forma; criterio de comparación en las camas acolchadas. «Ortopédica» se une aquí porque describe el soporte del relleno; Camas ortopédicas (ap-2-9-8) no está en este plan.",
+      "rationale": "El relleno decide el mullido, el soporte de las articulaciones y la recuperación de la forma; criterio de comparación en las camas acolchadas. «Ortopédica» se une aquí porque describe el soporte del relleno; Camas ortopédicas (ap-2-9-8) no está en este plan. Redacción con D-060 (T-031, regla 3): el material del relleno (material) y el soporte que ofrece (prestación) toman otro rasgo; el grosor ya lo pregunta /03.",
       "seed_importance": "principal",
       "importance": "principal",
-      "rule": "imp:material@ap-2"
+      "rule": "imp:material@ap-2",
+      "resolving_info": [
+        {
+          "contribution": "material de relleno",
+          "component": "material del relleno",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.fill_material"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.camas-para-mascotas/07",
@@ -138,11 +281,31 @@
       "rationale": "El espacio de uso orienta la elección (cama de interior, de exterior o de viaje). Se unen el espacio adecuado de Shopify, los usos recomendados de Amazon y el valor «Viaje».",
       "seed_importance": "complementario",
       "importance": "principal",
-      "rule": "imp:uso@ap-2"
+      "rule": "imp:uso@ap-2",
+      "resolving_info": [
+        {
+          "contribution": "indicación de uso en interior o exterior",
+          "component": "dónde está pensada para usarse",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:suitable-space",
+            "amazon-ptd-prop:PET_BED_MAT.recommended_uses_for_product"
+          ]
+        },
+        {
+          "contribution": "indicación de uso en el coche o de viaje",
+          "component": "dónde está pensada para usarse",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.recommended_uses_for_product",
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Viaje"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.camas-para-mascotas/08",
-      "question": "¿Qué resistencia tiene a mordidas, arañazos y desgarros, y a la decoloración?",
+      "question": "¿Qué resistencia tiene a mordidas, arañazos y desgarros, a la decoloración y a las manchas?",
       "dimension": "resistencia y durabilidad",
       "entity": "producto",
       "trait": "prestacion",
@@ -152,13 +315,48 @@
         "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a las mordidas",
         "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a los arañazos",
         "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente al desgarro",
-        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a la decoloración"
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a la decoloración",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistenter a las manchas"
       ],
       "applicability": "universal",
-      "rationale": "Criterio 2: los valores de special_feature sobre la durabilidad mecánica se agrupan en una cuestión. La resistencia a mordidas y uñas es un criterio con que se comparan camas para mascotas.",
+      "rationale": "Criterio 2: los valores de special_feature sobre la durabilidad mecánica se agrupan en una cuestión. La resistencia a mordidas y uñas es un criterio con que se comparan camas para mascotas. Redacción con D-060 (T-031, regla 3): recibe la resistencia a las manchas de /11, del mismo rasgo.",
       "seed_importance": "principal",
-      "importance": "complementario",
-      "rule": "imp:prestacion@ap-2-9"
+      "importance": "principal",
+      "rule": "imp:prestacion@ap-2-9",
+      "resolving_info": [
+        {
+          "contribution": "declaración de resistencia a mordidas, arañazos y desgarros",
+          "component": "mordidas, arañazos y desgarros",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a las mordidas",
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a los arañazos",
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente al desgarro"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a la decoloración",
+          "component": "decoloración",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a la decoloración"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a las manchas",
+          "component": "manchas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistenter a las manchas"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de resistencia al desgarro del tejido",
+          "component": "mordidas, arañazos y desgarros",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.camas-para-mascotas/09",
@@ -176,8 +374,40 @@
       "applicability": "universal",
       "rationale": "Criterio 2: los valores sobre el agua y la intemperie forman un tema propio. Relevante para el uso exterior o con animales que se mojan, sin ser central en la clase.",
       "seed_importance": "complementario",
-      "importance": "complementario",
-      "rule": "imp:prestacion@ap-2-9"
+      "importance": "principal",
+      "rule": "imp:prestacion@ap-2-9",
+      "resolving_info": [
+        {
+          "contribution": "nivel de resistencia al agua",
+          "component": "resistente al agua",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente al agua"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a la intemperie",
+          "component": "resistente a la intemperie",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a las condiciones meteorológicas"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a los rayos UV",
+          "component": "resistente a la intemperie",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a los Rayos UV"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de impermeabilidad",
+          "component": "resistente al agua",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.camas-para-mascotas/10",
@@ -197,12 +427,47 @@
       "applicability": "universal",
       "rationale": "Criterio 2: los valores de special_feature sobre higiene y transpirabilidad se agrupan. Relevantes (animales con alergias, incontinencia u olores) sin ser centrales.",
       "seed_importance": "complementario",
-      "importance": "complementario",
-      "rule": "imp:prestacion@ap-2-9"
+      "importance": "principal",
+      "rule": "imp:prestacion@ap-2-9",
+      "resolving_info": [
+        {
+          "contribution": "declaración de transpirabilidad",
+          "component": "propiedades de confort",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Transpirable"
+          ]
+        },
+        {
+          "contribution": "capacidad de absorción",
+          "component": "propiedades higiénicas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Absorbente"
+          ]
+        },
+        {
+          "contribution": "tratamiento antimicrobiano o de control de olores",
+          "component": "propiedades higiénicas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Antimicrobiana",
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Control de Olores"
+          ]
+        },
+        {
+          "contribution": "declaración de hipoalergenicidad",
+          "component": "propiedades higiénicas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Hipoalergénica"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.camas-para-mascotas/11",
-      "question": "¿Cómo se limpia: es lavable (a máquina, a mano, solo por manchas), tiene funda extraíble y resiste las manchas?",
+      "question": "¿Cómo se limpia: es lavable (a máquina, a mano, solo por manchas) y tiene funda extraíble?",
       "dimension": "limpieza y mantenimiento",
       "entity": "producto",
       "trait": "cuidado",
@@ -211,18 +476,49 @@
       "sources": [
         "amazon-ptd-prop:PET_BED_MAT.care_instructions",
         "amazon-ptd-prop:PET_BED_MAT.special_feature=Lavable",
-        "amazon-ptd-prop:PET_BED_MAT.special_feature=Funda extraíble",
-        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistenter a las manchas"
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Funda extraíble"
       ],
       "applicability": "universal",
-      "rationale": "Una cama para mascotas acumula pelo, suciedad y olores: cómo se limpia es un criterio con que se comparan ofertas. Se unen las instrucciones de cuidado y los valores de special_feature sobre limpieza.",
+      "rationale": "Una cama para mascotas acumula pelo, suciedad y olores: cómo se limpia es un criterio con que se comparan ofertas. Se unen las instrucciones de cuidado y los valores de special_feature sobre limpieza. Redacción con D-060 (T-031, regla 3): la resistencia a las manchas (prestación) pasa a /08, que pregunta las resistencias.",
       "seed_importance": "principal",
       "importance": "principal",
-      "rule": "imp:cuidado@ap-2-9"
+      "rule": "imp:cuidado@ap-2-9",
+      "resolving_info": [
+        {
+          "contribution": "método de limpieza admitido",
+          "component": "cómo se limpia",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.care_instructions"
+          ]
+        },
+        {
+          "contribution": "indicación de si es lavable",
+          "component": "es lavable",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Lavable"
+          ]
+        },
+        {
+          "contribution": "indicación de si la funda es extraíble",
+          "component": "tiene funda extraíble",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Funda extraíble"
+          ]
+        },
+        {
+          "contribution": "temperatura máxima de lavado",
+          "component": "cómo se limpia",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.camas-para-mascotas/12",
-      "question": "¿Es plegable, ligera o portátil para transportarla o guardarla, y cuánto pesa?",
+      "question": "¿Es plegable, ligera o portátil para transportarla o guardarla?",
       "dimension": "transporte y peso",
       "entity": "producto",
       "trait": "construccion",
@@ -231,14 +527,45 @@
       "sources": [
         "amazon-ptd-prop:PET_BED_MAT.special_feature=Plegable",
         "amazon-ptd-prop:PET_BED_MAT.special_feature=Portátil",
-        "amazon-ptd-prop:PET_BED_MAT.special_feature=Ligera",
-        "amazon-ptd-prop:PET_BED_MAT.item_weight"
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Ligera"
       ],
       "applicability": "universal",
-      "rationale": "Criterio 2: los valores sobre transporte se agrupan con el peso del artículo. Relevante para viajes y almacenaje, sin ser central.",
+      "rationale": "Criterio 2: los valores sobre transporte se agrupan con el peso del artículo. Relevante para viajes y almacenaje, sin ser central. Redacción con D-060 (T-031, regla 3): el peso (magnitud) toma otro rasgo que el transporte y el plegado (construcción).",
       "seed_importance": "complementario",
       "importance": "complementario",
-      "rule": "imp:construccion@ap-2-9"
+      "rule": "imp:construccion@ap-2-9",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si es plegable",
+          "component": "plegable",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Plegable"
+          ]
+        },
+        {
+          "contribution": "indicación de si es ligera",
+          "component": "ligera",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Ligera"
+          ]
+        },
+        {
+          "contribution": "indicación de si es portátil",
+          "component": "portátil",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Portátil"
+          ]
+        },
+        {
+          "contribution": "medidas de la cama plegada",
+          "component": "plegable",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.camas-para-mascotas/13",
@@ -257,7 +584,93 @@
       "rationale": "Criterio 2: los valores de special_feature sobre la construcción se agrupan. Relevantes para el uso (que no se desplace, que se pueda dar la vuelta) sin ser centrales.",
       "seed_importance": "complementario",
       "importance": "complementario",
-      "rule": "imp:construccion@ap-2-9"
+      "rule": "imp:construccion@ap-2-9",
+      "resolving_info": [
+        {
+          "contribution": "indicación de base antideslizante",
+          "component": "detalles de construcción",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Parte inferior antideslizante"
+          ]
+        },
+        {
+          "contribution": "indicación de si es reversible",
+          "component": "detalles de construcción",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Reversible"
+          ]
+        },
+        {
+          "contribution": "indicación de si es ajustable",
+          "component": "detalles de construcción",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Ajustable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.camas-para-mascotas/14",
+      "question": "Si tiene relleno o acolchado, ¿qué soporte ofrece (ortopédico, firme, que se adapta al cuerpo…)?",
+      "dimension": "soporte",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Ortopédica"
+      ],
+      "applicability": "si tiene relleno o acolchado",
+      "rationale": "Parte de cat.camas-para-mascotas/06 separada por la regla 3 de D-060 (T-031): el material del relleno (material) y el soporte que ofrece (prestación) toman otro rasgo; el grosor ya lo pregunta /03.",
+      "seed_importance": "principal",
+      "rule": "imp:prestacion@ap-2-9",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "declaración de soporte ortopédico",
+          "component": "soporte",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Ortopédica"
+          ]
+        },
+        {
+          "contribution": "firmeza o densidad del relleno",
+          "component": "soporte",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.camas-para-mascotas/15",
+      "question": "¿Cuánto pesa?",
+      "dimension": "peso",
+      "trait": "magnitud",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_BED_MAT.item_weight"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.camas-para-mascotas/12 separada por la regla 3 de D-060 (T-031): el peso (magnitud) toma otro rasgo que el transporte y el plegado (construcción).",
+      "seed_importance": "complementario",
+      "rule": "imp:magnitud@ap-2-9",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "peso de la cama",
+          "component": "peso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.item_weight"
+          ]
+        }
+      ]
     }
   ],
   "excluded": [
@@ -311,7 +724,7 @@
     }
   ],
   "status": "compilado",
-  "version": "1",
+  "version": "2",
   "generated": "2026-10-25",
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

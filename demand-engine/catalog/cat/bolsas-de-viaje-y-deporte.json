@@ -1,0 +1,687 @@
+{
+  "id": "cat.bolsas-de-viaje-y-deporte",
+  "type": "categoría",
+  "name": "Bolsas de viaje y de deporte",
+  "shopify": "lb-6",
+  "parent": "cat.maletas-y-bolsos-de-viaje",
+  "refs": [
+    "shopify:lb-6@v2026-08",
+    "google:103@2021-09-21",
+    "amazon-ptd:DUFFEL_BAG@2026-10-24",
+    "amazon-btg:2008005031@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.bolsas-de-viaje-y-deporte/01",
+      "question": "¿Qué tamaño tiene la bolsa (pequeña, mediana, grande, de cabina…), cuando el modelo se vende en varios tamaños?",
+      "dimension": "tamaño",
+      "entity": "variante",
+      "trait": "medida-que-fija",
+      "vote": "crítico",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:accessory-size",
+        "amazon-ptd-prop:DUFFEL_BAG.size"
+      ],
+      "applicability": "si el modelo se ofrece en varios tamaños",
+      "rationale": "Cuando el mismo modelo se vende en varios tamaños, el tamaño identifica la variante que se compra (D-043, criterio 1). Shopify («Tamaño de accesorio») y Amazon («size») recogen la misma dimensión.",
+      "seed_importance": "crítico",
+      "importance": "crítico",
+      "rule": "marco:D-043.1/medida-que-fija",
+      "resolving_info": [
+        {
+          "contribution": "talla o categoría de tamaño",
+          "component": "tamaño",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:accessory-size",
+            "amazon-ptd-prop:DUFFEL_BAG.size"
+          ]
+        },
+        {
+          "contribution": "indicación de si cumple las medidas de equipaje de cabina",
+          "component": "tamaño",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.bolsas-de-viaje-y-deporte/02",
+      "question": "¿Qué medidas exteriores tiene (alto × ancho × fondo)?",
+      "dimension": "medidas exteriores",
+      "entity": "producto",
+      "trait": "medida",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DUFFEL_BAG.item_length_width_height",
+        "amazon-ptd-prop:DUFFEL_BAG.item_length"
+      ],
+      "applicability": "universal",
+      "rationale": "Las medidas deciden si la bolsa cabe en el maletero, el compartimento o los límites de equipaje de una aerolínea; es criterio central de comparación.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "alto exterior",
+          "component": "alto",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.item_length_width_height"
+          ]
+        },
+        {
+          "contribution": "ancho exterior del lado horizontal más largo",
+          "component": "ancho",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.item_length_width_height",
+            "amazon-ptd-prop:DUFFEL_BAG.item_length"
+          ]
+        },
+        {
+          "contribution": "fondo exterior del lado horizontal más corto",
+          "component": "fondo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.item_length_width_height"
+          ]
+        },
+        {
+          "contribution": "imagen acotada de la bolsa",
+          "component": "alto, ancho y fondo",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.bolsas-de-viaje-y-deporte/03",
+      "question": "¿Qué capacidad tiene, en litros?",
+      "dimension": "capacidad",
+      "entity": "producto",
+      "trait": "medida",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DUFFEL_BAG.capacity"
+      ],
+      "applicability": "universal",
+      "rationale": "La capacidad es el criterio con el que se comparan bolsas de viaje y de deporte.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "capacidad en litros",
+          "component": "capacidad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.capacity"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bolsas-de-viaje-y-deporte/04",
+      "question": "¿Cuánto pesa la bolsa vacía?",
+      "dimension": "peso en vacío",
+      "entity": "producto",
+      "trait": "magnitud",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DUFFEL_BAG.item_weight",
+        "amazon-ptd-prop:DUFFEL_BAG.special_feature=Ligera",
+        "shopify-attr:bag-case-features=Liviano"
+      ],
+      "applicability": "universal",
+      "rationale": "El peso en vacío resta del límite de equipaje y de la comodidad de transporte; se usa para comparar.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:magnitud@lb",
+      "resolving_info": [
+        {
+          "contribution": "peso de la bolsa vacía",
+          "component": "cuánto pesa vacía",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.item_weight"
+          ]
+        },
+        {
+          "contribution": "declaración de ligereza",
+          "component": "cuánto pesa vacía",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.special_feature=Ligera",
+            "shopify-attr:bag-case-features=Liviano"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bolsas-de-viaje-y-deporte/05",
+      "question": "¿De qué material es el exterior de la bolsa (poliéster, nailon, poliuretano, cuero, lona…)?",
+      "dimension": "material exterior",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-material",
+        "shopify-attr:bag-case-features=Producto vegano",
+        "amazon-ptd-prop:DUFFEL_BAG.material",
+        "amazon-ptd-prop:DUFFEL_BAG.outer",
+        "amazon-ptd-prop:DUFFEL_BAG.compliance_outer_surface_material"
+      ],
+      "applicability": "universal",
+      "rationale": "El material condiciona resistencia, peso, impermeabilidad y aspecto; es criterio de elección. Se unen las propiedades casi idénticas de Shopify y Amazon.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:material@lb-6",
+      "resolving_info": [
+        {
+          "contribution": "material principal del exterior",
+          "component": "material del exterior",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-material",
+            "amazon-ptd-prop:DUFFEL_BAG.material",
+            "amazon-ptd-prop:DUFFEL_BAG.outer"
+          ]
+        },
+        {
+          "contribution": "categoría del material de la superficie exterior a efectos normativos",
+          "component": "material del exterior",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.compliance_outer_surface_material"
+          ]
+        },
+        {
+          "contribution": "declaración de producto vegano",
+          "component": "material del exterior",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Producto vegano"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bolsas-de-viaje-y-deporte/06",
+      "question": "¿Qué tipo de cierre tiene el compartimento principal (cremallera, solapa, cordón, broche…)?",
+      "dimension": "cierre",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-closure",
+        "amazon-ptd-prop:DUFFEL_BAG.closure"
+      ],
+      "applicability": "universal",
+      "rationale": "El cierre afecta a la seguridad del contenido y al acceso; relevante sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@lb",
+      "resolving_info": [
+        {
+          "contribution": "tipo de cierre del compartimento principal",
+          "component": "cierre del compartimento principal",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-closure",
+            "amazon-ptd-prop:DUFFEL_BAG.closure"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bolsas-de-viaje-y-deporte/07",
+      "question": "¿Cuántos compartimentos y bolsillos tiene y de qué tipo (bolsillos exteriores u ocultos, compartimento para portátil, para calzado, portatarjetas, soporte para teléfono…)?",
+      "dimension": "compartimentos y organización interior",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-storage-features",
+        "amazon-ptd-prop:DUFFEL_BAG.compartment",
+        "amazon-ptd-prop:DUFFEL_BAG.number_of_compartments",
+        "amazon-ptd-prop:DUFFEL_BAG.special_feature=Compartimento para portátil",
+        "amazon-ptd-prop:DUFFEL_BAG.special_feature=Incluye portamonedas",
+        "amazon-ptd-prop:DUFFEL_BAG.special_feature=Incluye portatarjetas",
+        "amazon-ptd-prop:DUFFEL_BAG.special_feature=Portafoto y portatarjetas",
+        "amazon-ptd-prop:DUFFEL_BAG.special_feature=Soporte para teléfono"
+      ],
+      "applicability": "universal",
+      "rationale": "La organización interior distingue unas bolsas de otras y se usa para elegir entre ellas. Se agrupan por tema los valores de special_feature sobre bolsillos y compartimentos.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:cat.bolsas-de-viaje-y-deporte/07@lb-6",
+      "resolving_info": [
+        {
+          "contribution": "número de compartimentos",
+          "component": "cuántos compartimentos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.number_of_compartments",
+            "shopify-attr:bag-case-storage-features"
+          ]
+        },
+        {
+          "contribution": "descripción de los compartimentos",
+          "component": "de qué tipo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.compartment"
+          ]
+        },
+        {
+          "contribution": "tipos de bolsillos y elementos de almacenamiento",
+          "component": "bolsillos y de qué tipo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-storage-features"
+          ]
+        },
+        {
+          "contribution": "indicación de si tiene compartimento para portátil",
+          "component": "de qué tipo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.special_feature=Compartimento para portátil",
+            "shopify-attr:bag-case-storage-features"
+          ]
+        },
+        {
+          "contribution": "portatarjetas, portamonedas o soporte para teléfono incluidos",
+          "component": "de qué tipo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.special_feature=Incluye portamonedas",
+            "amazon-ptd-prop:DUFFEL_BAG.special_feature=Incluye portatarjetas",
+            "amazon-ptd-prop:DUFFEL_BAG.special_feature=Portafoto y portatarjetas",
+            "amazon-ptd-prop:DUFFEL_BAG.special_feature=Soporte para teléfono"
+          ]
+        },
+        {
+          "contribution": "indicación de si tiene compartimento separado para calzado",
+          "component": "de qué tipo",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.bolsas-de-viaje-y-deporte/08",
+      "question": "¿Tiene ruedas y asa telescópica? Si las tiene, ¿cuántas ruedas y de qué tipo (giratorias, en línea)?",
+      "dimension": "ruedas y asa telescópica",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DUFFEL_BAG.number_of_wheels",
+        "amazon-ptd-prop:DUFFEL_BAG.wheel",
+        "amazon-ptd-prop:DUFFEL_BAG.special_feature=Mangos telescópicos",
+        "shopify-attr:bag-case-features=Con ruedas",
+        "shopify-attr:bag-case-features=Cuatro ruedas"
+      ],
+      "applicability": "universal",
+      "rationale": "Separa la bolsa de mano de la bolsa con ruedas, que no se comparan igual; un «no» declarado resuelve la cuestión.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:cat.bolsas-de-viaje-y-deporte/08@lb-6",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si tiene ruedas",
+          "component": "tiene ruedas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.number_of_wheels",
+            "shopify-attr:bag-case-features=Con ruedas"
+          ]
+        },
+        {
+          "contribution": "número de ruedas",
+          "component": "cuántas ruedas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.number_of_wheels",
+            "shopify-attr:bag-case-features=Cuatro ruedas"
+          ]
+        },
+        {
+          "contribution": "tipo de ruedas",
+          "component": "de qué tipo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.wheel"
+          ]
+        },
+        {
+          "contribution": "indicación de si tiene asa telescópica",
+          "component": "asa telescópica",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.special_feature=Mangos telescópicos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bolsas-de-viaje-y-deporte/09",
+      "question": "¿Es impermeable o resistente al agua, y en qué grado?",
+      "dimension": "resistencia al agua",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DUFFEL_BAG.water_resistance_level",
+        "amazon-ptd-prop:DUFFEL_BAG.special_feature=Impermeable",
+        "shopify-attr:bag-case-features=Impermeable"
+      ],
+      "applicability": "universal",
+      "rationale": "Protege el contenido; relevante en la clase sin ser criterio central salvo usos concretos.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@lb",
+      "resolving_info": [
+        {
+          "contribution": "declaración de impermeabilidad",
+          "component": "impermeable o resistente al agua",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.special_feature=Impermeable",
+            "shopify-attr:bag-case-features=Impermeable"
+          ]
+        },
+        {
+          "contribution": "nivel de resistencia al agua",
+          "component": "en qué grado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.water_resistance_level"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de impermeabilidad",
+          "component": "en qué grado",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.bolsas-de-viaje-y-deporte/10",
+      "question": "¿Qué protección ofrece al contenido y qué resistencia tiene (acolchado interior, a prueba de golpes, antipolvo, resistente al fuego, elementos reflectantes)?",
+      "dimension": "protección y resistencia",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-features=A prueba de golpes",
+        "shopify-attr:bag-case-features=Acolchado interno",
+        "shopify-attr:bag-case-features=Antipolvo",
+        "shopify-attr:bag-case-features=Resistente al fuego",
+        "shopify-attr:bag-case-features=Reflectante"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa por tema las prestaciones de protección del atributo de características (criterio 2).",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@lb",
+      "resolving_info": [
+        {
+          "contribution": "declaración de acolchado interior",
+          "component": "protección al contenido",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Acolchado interno"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a golpes",
+          "component": "resistencia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=A prueba de golpes"
+          ]
+        },
+        {
+          "contribution": "declaración de protección frente al polvo",
+          "component": "resistencia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Antipolvo"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia al fuego",
+          "component": "resistencia",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Resistente al fuego"
+          ]
+        },
+        {
+          "contribution": "declaración de elementos reflectantes",
+          "component": "protección",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Reflectante"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bolsas-de-viaje-y-deporte/11",
+      "question": "¿Qué medidas de seguridad antirrobo tiene (candado o cierre con bloqueo, homologación TSA, protección RFID, diseño antirrobo)?",
+      "dimension": "seguridad antirrobo",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-features=Antirrobo",
+        "shopify-attr:bag-case-features=Bloqueo",
+        "shopify-attr:bag-case-features=Aprobado por la TSA",
+        "shopify-attr:bag-case-features=Protección RFID",
+        "amazon-ptd-prop:DUFFEL_BAG.special_feature=Aprobado por la TSA",
+        "amazon-ptd-prop:DUFFEL_BAG.special_feature=Bloqueo RFID"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa por tema las prestaciones de seguridad del contenido (criterio 2); relevante en viaje sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@lb",
+      "resolving_info": [
+        {
+          "contribution": "declaración de diseño antirrobo",
+          "component": "medidas de seguridad antirrobo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Antirrobo"
+          ]
+        },
+        {
+          "contribution": "indicación de si el cierre admite candado o bloqueo",
+          "component": "medidas de seguridad antirrobo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Bloqueo"
+          ]
+        },
+        {
+          "contribution": "declaración de cerradura aceptada por la TSA",
+          "component": "medidas de seguridad antirrobo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Aprobado por la TSA",
+            "amazon-ptd-prop:DUFFEL_BAG.special_feature=Aprobado por la TSA"
+          ]
+        },
+        {
+          "contribution": "declaración de protección RFID",
+          "component": "medidas de seguridad antirrobo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Protección RFID",
+            "amazon-ptd-prop:DUFFEL_BAG.special_feature=Bloqueo RFID"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bolsas-de-viaje-y-deporte/12",
+      "question": "¿Es ampliable o de tamaño regulable, o convertible en otro formato (mochila, bolsa plegable)?",
+      "dimension": "capacidad ampliable o convertible",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DUFFEL_BAG.special_feature=Ampliable",
+        "shopify-attr:bag-case-features=Tamaño regulable",
+        "shopify-attr:bag-case-features=Convertible"
+      ],
+      "applicability": "universal",
+      "rationale": "Cambia la capacidad o el modo de uso de la bolsa; relevante sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@lb",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si es ampliable o de tamaño regulable",
+          "component": "ampliable o de tamaño regulable",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.special_feature=Ampliable",
+            "shopify-attr:bag-case-features=Tamaño regulable"
+          ]
+        },
+        {
+          "contribution": "indicación de si es convertible en otro formato",
+          "component": "convertible en otro formato",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Convertible"
+          ]
+        },
+        {
+          "contribution": "capacidad o medidas en la configuración ampliada",
+          "component": "ampliable o de tamaño regulable",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.bolsas-de-viaje-y-deporte/13",
+      "question": "¿Para qué uso está pensada (viaje, gimnasio o deporte, uso táctico…)?",
+      "dimension": "uso previsto",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DUFFEL_BAG.recommended_uses_for_product"
+      ],
+      "applicability": "universal",
+      "rationale": "La categoría reúne bolsas de viaje y de deporte; el uso previsto separa ofertas que se comparan de forma distinta.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@lb",
+      "resolving_info": [
+        {
+          "contribution": "uso recomendado",
+          "component": "uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUFFEL_BAG.recommended_uses_for_product"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.bolsas-de-viaje-y-deporte/14",
+      "question": "¿A qué público está destinada (adulto o infantil; mujer, hombre o unisex)?",
+      "dimension": "público destinatario",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:age-group",
+        "shopify-attr:target-gender",
+        "amazon-ptd-prop:DUFFEL_BAG.department"
+      ],
+      "applicability": "universal",
+      "rationale": "Separa bolsas infantiles de las de adulto; el sexo destinatario rara vez cambia la funcionalidad de una bolsa.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:cat.bolsas-de-viaje-y-deporte/14@lb-6",
+      "resolving_info": [
+        {
+          "contribution": "grupo de edad al que se destina",
+          "component": "adulto o infantil",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:age-group",
+            "amazon-ptd-prop:DUFFEL_BAG.department"
+          ]
+        },
+        {
+          "contribution": "sexo al que se destina el diseño",
+          "component": "mujer, hombre o unisex",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:target-gender",
+            "amazon-ptd-prop:DUFFEL_BAG.department"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:DUFFEL_BAG.strap_type",
+      "reason": "cubierto por cat.maletas-y-bolsos-de-viaje/01 (correas desmontables o ajustables)"
+    },
+    {
+      "source": "amazon-ptd-prop:DUFFEL_BAG.collection",
+      "reason": "nombre comercial de colección; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:DUFFEL_BAG.collection_item",
+      "reason": "dato de plataforma sin título; no informa sobre la clase"
+    },
+    {
+      "source": "amazon-ptd-prop:DUFFEL_BAG.special_feature=Peligro de electricidad",
+      "reason": "dato de plataforma sin relación con la clase"
+    },
+    {
+      "source": "shopify-attr:bag-case-features=Etiqueta de equipaje",
+      "reason": "accesorio incluido: lo cubren gen/01 y, si procede, esp.juego"
+    },
+    {
+      "source": "shopify-attr:bag-case-features=Fácil de instalar",
+      "reason": "propio de fundas y accesorios; no se aplica a la clase"
+    },
+    {
+      "source": "shopify-attr:bag-case-features=Otros",
+      "reason": "valor residual sin contenido"
+    }
+  ],
+  "status": "compilado",
+  "version": "3",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

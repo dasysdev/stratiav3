@@ -8,7 +8,7 @@
     "shopify:hg@v2026-08",
     "google:536@2021-09-21"
   ],
-  "version": "1",
+  "version": "2",
   "status": "compilado",
   "requirements": [
     {
@@ -25,7 +25,31 @@
       "applicability": "universal",
       "rationale": "En los productos del hogar, sobre todo en decoración y textiles, el color es uno de los criterios con los que se eligen y comparan las ofertas. Las extensiones de Shopify que aplican este atributo a una pieza (cover-color en cojines, seat-/backrest-upholstery-color en sofás) quedan cubiertas aquí y no se repiten en los bloques hijos. Si hay varios colores a elegir, qué variantes existen lo pregunta gen.variantes.",
       "seed_importance": "principal",
-      "rule": "imp:estetica@hg"
+      "rule": "imp:estetica@hg",
+      "resolving_info": [
+        {
+          "contribution": "color principal o predominante",
+          "component": "color",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:color"
+          ]
+        },
+        {
+          "contribution": "colores que lo componen cuando es de varios colores",
+          "component": "color",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:color"
+          ]
+        },
+        {
+          "contribution": "fotografía del producto que muestre su color real",
+          "component": "color",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.casa-y-jardin/02",
@@ -41,7 +65,39 @@
       "applicability": "universal",
       "rationale": "Junto con el color, es un criterio de elección en decoración y en textiles del hogar. «Liso» también resuelve la cuestión. Las extensiones de Shopify que lo aplican a una pieza (cover-pattern) quedan cubiertas aquí.",
       "seed_importance": "principal",
-      "rule": "imp:estetica@hg"
+      "rule": "imp:estetica@hg",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si es liso o estampado",
+          "component": "estampado o motivo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pattern"
+          ]
+        },
+        {
+          "contribution": "tipo de estampado o motivo",
+          "component": "estampado o motivo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pattern"
+          ]
+        },
+        {
+          "contribution": "figuras o temas representados en el motivo",
+          "component": "estampado o motivo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pattern"
+          ]
+        },
+        {
+          "contribution": "fotografía del producto que muestre el estampado",
+          "component": "estampado o motivo",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.casa-y-jardin/03",
@@ -57,9 +113,41 @@
       "applicability": "universal",
       "rationale": "Aporta información relevante sobre origen y sostenibilidad, pero no es un criterio central de comparación en el conjunto de Casa y jardín. Que no se publique una certificación no prueba que el producto no la tenga.",
       "seed_importance": "complementario",
-      "rule": "imp:certificacion-origen@hg"
+      "rule": "imp:certificacion-origen@hg",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si tiene certificación ecológica, orgánica o de comercio justo",
+          "component": "tiene alguna certificación",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:organic-certification"
+          ]
+        },
+        {
+          "contribution": "nombre de la certificación ecológica u orgánica",
+          "component": "cuál",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:organic-certification"
+          ]
+        },
+        {
+          "contribution": "nombre de la certificación de comercio justo",
+          "component": "cuál",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:organic-certification"
+          ]
+        },
+        {
+          "contribution": "organismo certificador y número de licencia del certificado",
+          "component": "cuál",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

@@ -1,0 +1,681 @@
+{
+  "id": "cat.botellas-de-agua",
+  "type": "categoría",
+  "name": "Botellas de agua",
+  "shopify": "hg-11-3-11",
+  "parent": "cat.objetos-para-llevar-comida-y-bebida",
+  "refs": [
+    "shopify:hg-11-3-11@v2026-08",
+    "google:3809@2021-09-21",
+    "amazon-ptd:BOTTLE@2026-10-24",
+    "amazon-btg:2929157031@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.botellas-de-agua/01",
+      "question": "¿Qué capacidad tiene (en ml o l)?",
+      "dimension": "capacidad",
+      "entity": "producto",
+      "trait": "medida-que-fija",
+      "vote": "crítico",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOTTLE.capacity",
+        "amazon-ptd-prop:BOTTLE.volume_capacity_name",
+        "amazon-ptd-prop:BOTTLE.size"
+      ],
+      "applicability": "universal",
+      "rationale": "La capacidad identifica la variante que se vende (el mismo modelo se ofrece en varias capacidades); D-043, criterio 1.",
+      "seed_importance": "crítico",
+      "importance": "crítico",
+      "rule": "marco:D-043.1/medida-que-fija",
+      "resolving_info": [
+        {
+          "contribution": "capacidad de la botella",
+          "component": "capacidad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.capacity",
+            "amazon-ptd-prop:BOTTLE.volume_capacity_name"
+          ]
+        },
+        {
+          "contribution": "tamaño nominal de la variante",
+          "component": "capacidad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.size"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.botellas-de-agua/02",
+      "question": "¿Tiene aislamiento térmico y de qué tipo (al vacío, doble pared, sin aislamiento)?",
+      "dimension": "tipo de aislamiento",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:insulation-type",
+        "amazon-ptd-prop:BOTTLE.special_feature=Aislada",
+        "amazon-ptd-prop:BOTTLE.special_feature=Doble pared",
+        "amazon-ptd-prop:BOTTLE.special_feature=Isotérmica"
+      ],
+      "applicability": "universal",
+      "rationale": "Separa las botellas térmicas de las simples; es uno de los criterios con que se eligen.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:cat.botellas-de-agua/02@hg-11-3-11",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si tiene aislamiento térmico",
+          "component": "tiene aislamiento térmico",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:insulation-type",
+            "amazon-ptd-prop:BOTTLE.special_feature=Aislada",
+            "amazon-ptd-prop:BOTTLE.special_feature=Isotérmica"
+          ]
+        },
+        {
+          "contribution": "tipo de aislamiento",
+          "component": "de qué tipo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:insulation-type",
+            "amazon-ptd-prop:BOTTLE.special_feature=Doble pared"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.botellas-de-agua/03",
+      "question": "Si tiene aislamiento térmico, ¿durante cuántas horas mantiene las bebidas frías y calientes?",
+      "dimension": "conservación de la temperatura",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "si la botella tiene aislamiento térmico",
+      "rationale": "Las referencias recogen si la botella es aislada pero no su rendimiento; en las botellas aisladas las horas de frío y calor son el criterio central de comparación. Provisional.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:prestacion@hg-11-3-11",
+      "resolving_info": [
+        {
+          "contribution": "tiempo de conservación del frío",
+          "component": "horas que mantiene las bebidas frías",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "tiempo de conservación del calor",
+          "component": "horas que mantiene las bebidas calientes",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "resultado de un ensayo de retención térmica con sus condiciones",
+          "component": "horas que mantiene las bebidas frías y calientes",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.botellas-de-agua/04",
+      "question": "¿Qué tipo de tapa y boquilla tiene (rosca, abatible, deportiva, con pajita, botón, boca ancha o estrecha, con bloqueo…)?",
+      "dimension": "tapa y boquilla",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:lid-type",
+        "shopify-attr:spout-type",
+        "amazon-ptd-prop:BOTTLE.cap",
+        "amazon-ptd-prop:BOTTLE.special_feature=Tapa abatible",
+        "amazon-ptd-prop:BOTTLE.special_feature=Tapa deportiva",
+        "amazon-ptd-prop:BOTTLE.special_feature=Tapa con pajita integrada",
+        "amazon-ptd-prop:BOTTLE.special_feature=Tapa con bloqueo",
+        "amazon-ptd-prop:BOTTLE.special_feature=Pajita",
+        "amazon-ptd-prop:BOTTLE.special_feature=Boquilla ancha",
+        "amazon-ptd-prop:BOTTLE.special_feature=Boquilla estrecha",
+        "amazon-ptd-prop:BOTTLE.special_feature=Boquilla integrada",
+        "amazon-ptd-prop:BOTTLE.special_feature=Botón pulsador",
+        "amazon-ptd-prop:BOTTLE.special_feature=Válvula de mordida"
+      ],
+      "applicability": "universal",
+      "rationale": "La tapa y la boquilla deciden cómo se bebe, se rellena y se limpia; se comparan entre botellas.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:cat.botellas-de-agua/04@hg-11-3-11",
+      "resolving_info": [
+        {
+          "contribution": "tipo de tapa",
+          "component": "tipo de tapa",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:lid-type",
+            "amazon-ptd-prop:BOTTLE.cap",
+            "amazon-ptd-prop:BOTTLE.special_feature=Tapa abatible",
+            "amazon-ptd-prop:BOTTLE.special_feature=Tapa deportiva",
+            "amazon-ptd-prop:BOTTLE.special_feature=Tapa con pajita integrada"
+          ]
+        },
+        {
+          "contribution": "mecanismo de apertura de la tapa",
+          "component": "tipo de tapa",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Botón pulsador"
+          ]
+        },
+        {
+          "contribution": "sistema de bloqueo de la tapa",
+          "component": "tipo de tapa",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Tapa con bloqueo"
+          ]
+        },
+        {
+          "contribution": "tipo de boquilla o sistema para beber",
+          "component": "boquilla",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:spout-type",
+            "amazon-ptd-prop:BOTTLE.special_feature=Pajita",
+            "amazon-ptd-prop:BOTTLE.special_feature=Boquilla integrada",
+            "amazon-ptd-prop:BOTTLE.special_feature=Válvula de mordida",
+            "amazon-ptd-prop:BOTTLE.special_feature=Tapa con pajita integrada"
+          ]
+        },
+        {
+          "contribution": "ancho de la boca",
+          "component": "boquilla",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Boquilla ancha",
+            "amazon-ptd-prop:BOTTLE.special_feature=Boquilla estrecha"
+          ]
+        },
+        {
+          "contribution": "dureza del material de la boquilla",
+          "component": "boquilla",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:spout-type"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.botellas-de-agua/05",
+      "question": "¿Es hermética o a prueba de fugas y derrames?",
+      "dimension": "estanqueidad",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOTTLE.special_feature=Hermética",
+        "amazon-ptd-prop:BOTTLE.special_feature=A prueba de fugas",
+        "amazon-ptd-prop:BOTTLE.special_feature=A prueba de derrames"
+      ],
+      "applicability": "universal",
+      "rationale": "Poder llevarla en una bolsa sin que gotee es criterio de elección de una botella para llevar.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:prestacion@hg-11-3-11",
+      "resolving_info": [
+        {
+          "contribution": "declaración de hermeticidad",
+          "component": "hermética",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Hermética"
+          ]
+        },
+        {
+          "contribution": "declaración de estanqueidad frente a fugas y derrames",
+          "component": "a prueba de fugas y derrames",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=A prueba de fugas",
+            "amazon-ptd-prop:BOTTLE.special_feature=A prueba de derrames"
+          ]
+        },
+        {
+          "contribution": "condiciones o límites de la estanqueidad",
+          "component": "a prueba de fugas y derrames",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.botellas-de-agua/06",
+      "question": "¿Para qué edad o usuario está pensada (adultos, niños, todas las edades)?",
+      "dimension": "grupo de edad",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:age-group"
+      ],
+      "applicability": "universal",
+      "rationale": "Las botellas infantiles y las de adulto son segmentos distintos (tamaño, boquilla, seguridad).",
+      "seed_importance": "principal",
+      "importance": "complementario",
+      "rule": "imp:uso@hg-11-3-11",
+      "resolving_info": [
+        {
+          "contribution": "grupo de edad al que se destina",
+          "component": "edad o usuario",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:age-group"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.botellas-de-agua/07",
+      "question": "¿Para qué bebidas y actividades está pensada (agua, bebidas calientes, deporte, escuela, oficina, senderismo…)?",
+      "dimension": "uso previsto",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOTTLE.specific_uses_for_product",
+        "amazon-ptd-prop:BOTTLE.recommended_uses_for_product"
+      ],
+      "applicability": "universal",
+      "rationale": "Orienta la elección según la actividad; relevante sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:uso@hg-11-3-11",
+      "resolving_info": [
+        {
+          "contribution": "bebidas o contenidos para los que está pensada",
+          "component": "bebidas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.specific_uses_for_product"
+          ]
+        },
+        {
+          "contribution": "actividades o entornos de uso recomendados",
+          "component": "actividades",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.recommended_uses_for_product"
+          ]
+        },
+        {
+          "contribution": "aptitud para bebidas calientes o con gas",
+          "component": "bebidas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.botellas-de-agua/08",
+      "question": "¿Es apta para el congelador?",
+      "dimension": "aptitudes de uso",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOTTLE.special_feature=Congelable"
+      ],
+      "applicability": "universal",
+      "rationale": "Limita qué se puede hacer con la botella; la aptitud para lavavajillas la cubre cat.cocina-y-comedor/02. Redacción con D-060 (T-031, regla 4): solo tiene fuente el congelador (special_feature=Congelable); las bebidas calientes o con gas ya las pregunta /07 (para qué bebidas), y el microondas se retira.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:uso@hg-11-3-11",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si es apta para congelador",
+          "component": "apta para el congelador",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Congelable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.botellas-de-agua/09",
+      "question": "¿Cuánto pesa vacía?",
+      "dimension": "peso",
+      "entity": "producto",
+      "trait": "magnitud",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOTTLE.item_weight",
+        "amazon-ptd-prop:BOTTLE.special_feature=Ligera"
+      ],
+      "applicability": "universal",
+      "rationale": "El peso importa en una botella que se transporta; relevante sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:magnitud@hg-11-3-11",
+      "resolving_info": [
+        {
+          "contribution": "peso de la botella vacía",
+          "component": "peso vacía",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.item_weight"
+          ]
+        },
+        {
+          "contribution": "indicación cualitativa de ligereza",
+          "component": "peso vacía",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Ligera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.botellas-de-agua/10",
+      "question": "¿Qué medidas tiene (altura y diámetro)?",
+      "dimension": "dimensiones",
+      "entity": "producto",
+      "trait": "medida",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOTTLE.item_width_height",
+        "amazon-ptd-prop:BOTTLE.outside_diameter"
+      ],
+      "applicability": "universal",
+      "rationale": "Decide si cabe en portabotellas, bolsas o mochilas; describe el producto sin fijar la variante.",
+      "seed_importance": "complementario",
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "altura total con la tapa",
+          "component": "altura",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.item_width_height"
+          ]
+        },
+        {
+          "contribution": "diámetro exterior del cuerpo",
+          "component": "diámetro",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.outside_diameter"
+          ]
+        },
+        {
+          "contribution": "ancho de la parte superior",
+          "component": "diámetro",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.item_width_height"
+          ]
+        },
+        {
+          "contribution": "plano o imagen acotada de la botella",
+          "component": "altura y diámetro",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.botellas-de-agua/11",
+      "question": "¿Qué resistencias declara (a golpes y astillado, arañazos, olores, sudor; base antideslizante)?",
+      "dimension": "resistencia y durabilidad",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOTTLE.special_feature=Resistente a astilladuras",
+        "amazon-ptd-prop:BOTTLE.special_feature=Resistente a los arañazos",
+        "amazon-ptd-prop:BOTTLE.special_feature=odor_resistant",
+        "amazon-ptd-prop:BOTTLE.special_feature=Resistente al sudor",
+        "amazon-ptd-prop:BOTTLE.special_feature=Antideslizante"
+      ],
+      "applicability": "universal",
+      "rationale": "Prestaciones de durabilidad que diferencian botellas; relevantes sin ser centrales.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:cat.botellas-de-agua/11@hg-11-3-11",
+      "resolving_info": [
+        {
+          "contribution": "resistencia a golpes y astillado",
+          "component": "golpes y astillado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Resistente a astilladuras"
+          ]
+        },
+        {
+          "contribution": "resistencia a los arañazos",
+          "component": "arañazos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Resistente a los arañazos"
+          ]
+        },
+        {
+          "contribution": "resistencia a la retención de olores",
+          "component": "olores",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=odor_resistant"
+          ]
+        },
+        {
+          "contribution": "ausencia de condensación exterior",
+          "component": "sudor",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Resistente al sudor"
+          ]
+        },
+        {
+          "contribution": "indicación de base antideslizante",
+          "component": "base antideslizante",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Antideslizante"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de caída",
+          "component": "golpes y astillado",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.botellas-de-agua/12",
+      "question": "¿Qué funciones adicionales incorpora (filtro, infusor, marcas de volumen, recordatorio de hidratación, correa de transporte, plegable, bloqueo de luz…)?",
+      "dimension": "funciones adicionales",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOTTLE.special_feature=Filtro",
+        "amazon-ptd-prop:BOTTLE.special_feature=Infusor",
+        "amazon-ptd-prop:BOTTLE.special_feature=Marcado de volumen",
+        "amazon-ptd-prop:BOTTLE.special_feature=Recordatorio",
+        "amazon-ptd-prop:BOTTLE.special_feature=Correa de transporte",
+        "amazon-ptd-prop:BOTTLE.special_feature=Plegable",
+        "amazon-ptd-prop:BOTTLE.special_feature=Bloqueo de luz",
+        "amazon-ptd-prop:BOTTLE.special_feature=Ventilada",
+        "amazon-ptd-prop:BOTTLE.special_feature=Generador de hidrógeno",
+        "amazon-ptd-prop:BOTTLE.special_feature=Altavoz",
+        "amazon-ptd-prop:BOTTLE.grip"
+      ],
+      "applicability": "universal",
+      "rationale": "Funciones que solo tienen algunas botellas; se agrupan en una cuestión (D-043, criterio 2).",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@hg-11-3-11",
+      "resolving_info": [
+        {
+          "contribution": "elementos para filtrar, infusionar o tratar el contenido",
+          "component": "funciones adicionales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Filtro",
+            "amazon-ptd-prop:BOTTLE.special_feature=Infusor",
+            "amazon-ptd-prop:BOTTLE.special_feature=Generador de hidrógeno"
+          ]
+        },
+        {
+          "contribution": "ayudas para controlar la hidratación",
+          "component": "funciones adicionales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Marcado de volumen",
+            "amazon-ptd-prop:BOTTLE.special_feature=Recordatorio"
+          ]
+        },
+        {
+          "contribution": "elementos de transporte y agarre",
+          "component": "funciones adicionales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Correa de transporte",
+            "amazon-ptd-prop:BOTTLE.grip"
+          ]
+        },
+        {
+          "contribution": "indicación de si es plegable",
+          "component": "funciones adicionales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Plegable"
+          ]
+        },
+        {
+          "contribution": "protección del contenido frente a la luz",
+          "component": "funciones adicionales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Bloqueo de luz"
+          ]
+        },
+        {
+          "contribution": "otras funciones integradas",
+          "component": "funciones adicionales",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.special_feature=Ventilada",
+            "amazon-ptd-prop:BOTTLE.special_feature=Altavoz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.botellas-de-agua/13",
+      "question": "¿Qué acabado tiene la superficie (mate, brillante, metálico, pintado…)?",
+      "dimension": "acabado",
+      "entity": "producto",
+      "trait": "estetica",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOTTLE.finish_type"
+      ],
+      "applicability": "universal",
+      "rationale": "Aspecto visual que complementa color y estampado del sector.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:estetica@hg-11-3-11",
+      "resolving_info": [
+        {
+          "contribution": "tipo de acabado de la superficie",
+          "component": "acabado de la superficie",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOTTLE.finish_type"
+          ]
+        },
+        {
+          "contribution": "fotografía que muestre el acabado de la superficie",
+          "component": "acabado de la superficie",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:BOTTLE.material_type_free",
+      "reason": "Lo cubre cat.objetos-para-llevar-comida-y-bebida/04 (sin BPA, sin ftalatos, sin plomo)."
+    },
+    {
+      "source": "amazon-ptd-prop:BOTTLE.bottle_type",
+      "reason": "Tipos de envase cosmético (bomba, spray, roll-on); no informa sobre botellas de agua."
+    },
+    {
+      "source": "amazon-ptd-prop:BOTTLE.container",
+      "reason": "Tipos de envase (tarro, tubo, vial) ajenos a la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BOTTLE.bottle",
+      "reason": "Propiedad de feed sin valores; la identidad la cubre gen/01."
+    },
+    {
+      "source": "amazon-ptd-prop:BOTTLE.included_components",
+      "reason": "Lo cubre gen/01 (qué incluye); las piezas, esp.juego."
+    },
+    {
+      "source": "amazon-ptd-prop:BOTTLE.reusability",
+      "reason": "Las botellas de agua de la categoría son reutilizables; no discrimina ofertas."
+    },
+    {
+      "source": "amazon-ptd-prop:BOTTLE.lens",
+      "reason": "Dato de plataforma ajeno a la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BOTTLE.hard_disk",
+      "reason": "Dato de plataforma ajeno a la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BOTTLE.street_date",
+      "reason": "Dato de plataforma o de feed."
+    },
+    {
+      "source": "amazon-ptd-prop:BOTTLE.manufacture_year",
+      "reason": "Dato de plataforma o de feed."
+    },
+    {
+      "source": "amazon-ptd-prop:BOTTLE.special_feature=Seguro para descargas electrostáticas",
+      "reason": "No informa sobre botellas de agua de uso doméstico."
+    },
+    {
+      "source": "componente de cat.botellas-de-agua/08: apta para microondas",
+      "reason": "Sin fuente (regla 4 de D-060) y no pasa los controles de la cuestión inferida: el uso en microondas no es una cuestión de toda la clase de las botellas de agua."
+    }
+  ],
+  "status": "compilado",
+  "version": "3",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

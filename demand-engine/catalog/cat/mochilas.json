@@ -1,0 +1,705 @@
+{
+  "id": "cat.mochilas",
+  "type": "categoría",
+  "name": "Mochilas",
+  "shopify": "lb-1",
+  "parent": "cat.maletas-y-bolsos-de-viaje",
+  "refs": [
+    "shopify:lb-1@v2026-08",
+    "google:100@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.mochilas/01",
+      "question": "¿Para qué grupo de edad está destinada (niños pequeños, niños, adolescentes, adultos…)?",
+      "dimension": "grupo de edad",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:age-group"
+      ],
+      "applicability": "universal",
+      "rationale": "El destinatario por edad condiciona tamaño y diseño de la mochila y es criterio de elección.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@lb",
+      "resolving_info": [
+        {
+          "contribution": "grupo de edad al que se destina",
+          "component": "grupo de edad",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:age-group"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/02",
+      "question": "¿Qué sistema de cierre tiene (cremallera, hebilla, solapa, cordón, imán, velcro…)?",
+      "dimension": "cierre",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-closure",
+        "shopify-attr:luggage-bag-closure"
+      ],
+      "applicability": "universal",
+      "rationale": "Une los dos atributos de cierre de Shopify, casi idénticos.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@lb",
+      "resolving_info": [
+        {
+          "contribution": "tipo de cierre",
+          "component": "sistema de cierre",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-closure",
+            "shopify-attr:luggage-bag-closure"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/03",
+      "question": "¿De qué material es el exterior de la mochila (tejido o material principal)?",
+      "dimension": "material exterior",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-material"
+      ],
+      "applicability": "universal",
+      "rationale": "El material principal determina durabilidad, peso y resistencia, y es criterio de comparación.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:cat.mochilas/03@lb-1",
+      "resolving_info": [
+        {
+          "contribution": "material principal del exterior",
+          "component": "material del exterior",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-material"
+          ]
+        },
+        {
+          "contribution": "composición en fibras del tejido exterior",
+          "component": "material del exterior",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/04",
+      "question": "¿Qué protección frente al agua tiene (impermeable, resistente o repelente al agua, o ninguna)?",
+      "dimension": "protección frente al agua",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-features=Impermeable"
+      ],
+      "applicability": "universal",
+      "rationale": "Protege el contenido; criterio frecuente al comparar mochilas.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:cat.mochilas/04@lb-1",
+      "resolving_info": [
+        {
+          "contribution": "nivel de protección frente al agua",
+          "component": "protección frente al agua",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Impermeable"
+          ]
+        },
+        {
+          "contribution": "tratamiento o recubrimiento impermeabilizante del tejido",
+          "component": "protección frente al agua",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "resultado de un ensayo de impermeabilidad",
+          "component": "protección frente al agua",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/05",
+      "question": "¿Qué protección ofrece al contenido y qué resistencia declara frente a golpes, polvo o fuego (acolchado interno, a prueba de golpes, antipolvo, ignífuga)?",
+      "dimension": "protección del contenido",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-features=A prueba de golpes",
+        "shopify-attr:bag-case-features=Acolchado interno",
+        "shopify-attr:bag-case-features=Antipolvo",
+        "shopify-attr:bag-case-features=Resistente al fuego"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa por tema los valores de protección de bag-case-features.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@lb",
+      "resolving_info": [
+        {
+          "contribution": "declaración de acolchado interior",
+          "component": "protección al contenido",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Acolchado interno"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a golpes",
+          "component": "golpes",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=A prueba de golpes"
+          ]
+        },
+        {
+          "contribution": "declaración de protección frente al polvo",
+          "component": "polvo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Antipolvo"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia al fuego",
+          "component": "fuego",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Resistente al fuego"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/06",
+      "question": "¿Qué medidas antirrobo o de seguridad del contenido tiene (bolsillos antirrobo, candado o bloqueo, protección RFID, cerradura TSA)?",
+      "dimension": "antirrobo",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-features=Antirrobo",
+        "shopify-attr:bag-case-features=Bloqueo",
+        "shopify-attr:bag-case-features=Protección RFID",
+        "shopify-attr:bag-case-features=Aprobado por la TSA"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa por tema los valores de seguridad del contenido.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@lb",
+      "resolving_info": [
+        {
+          "contribution": "declaración de diseño antirrobo",
+          "component": "medidas antirrobo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Antirrobo"
+          ]
+        },
+        {
+          "contribution": "indicación de si el cierre admite candado o bloqueo",
+          "component": "medidas antirrobo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Bloqueo"
+          ]
+        },
+        {
+          "contribution": "declaración de protección RFID",
+          "component": "seguridad del contenido",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Protección RFID"
+          ]
+        },
+        {
+          "contribution": "declaración de cerradura aceptada por la TSA",
+          "component": "medidas antirrobo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Aprobado por la TSA"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/07",
+      "question": "¿Tiene elementos reflectantes o de visibilidad (reflectantes, luminiscentes, luz)?",
+      "dimension": "visibilidad",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-features=Reflectante"
+      ],
+      "applicability": "universal",
+      "rationale": "Relevante para la seguridad vial del usuario, sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:prestacion@lb",
+      "resolving_info": [
+        {
+          "contribution": "declaración de elementos reflectantes",
+          "component": "elementos reflectantes",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Reflectante"
+          ]
+        },
+        {
+          "contribution": "indicación de si lleva luz o elementos luminiscentes",
+          "component": "visibilidad",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/08",
+      "question": "¿Cuánto pesa vacía?",
+      "dimension": "peso",
+      "entity": "producto",
+      "trait": "magnitud",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-features=Liviano"
+      ],
+      "applicability": "universal",
+      "rationale": "El peso propio de la mochila se suma a la carga; criterio de comparación, en especial para niños.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:magnitud@lb",
+      "resolving_info": [
+        {
+          "contribution": "declaración de ligereza",
+          "component": "cuánto pesa vacía",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Liviano"
+          ]
+        },
+        {
+          "contribution": "peso de la mochila vacía",
+          "component": "cuánto pesa vacía",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/09",
+      "question": "¿Admite otras configuraciones de transporte o volumen (ruedas, convertible en otro formato, tamaño ampliable o regulable)?",
+      "dimension": "configuración",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-features=Con ruedas",
+        "shopify-attr:bag-case-features=Cuatro ruedas",
+        "shopify-attr:bag-case-features=Convertible",
+        "shopify-attr:bag-case-features=Tamaño regulable"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa por tema los valores de configuración de bag-case-features.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@lb",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si lleva ruedas y cuántas",
+          "component": "otras configuraciones de transporte",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Con ruedas",
+            "shopify-attr:bag-case-features=Cuatro ruedas"
+          ]
+        },
+        {
+          "contribution": "indicación de si es convertible en otro formato",
+          "component": "otras configuraciones de transporte",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Convertible"
+          ]
+        },
+        {
+          "contribution": "indicación de si el tamaño es ampliable o regulable",
+          "component": "volumen",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Tamaño regulable"
+          ]
+        },
+        {
+          "contribution": "capacidad o medidas en la configuración ampliada",
+          "component": "volumen",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/10",
+      "question": "¿Incluye etiqueta o identificador para el nombre o los datos del propietario?",
+      "dimension": "identificador del propietario",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-features=Etiqueta de equipaje"
+      ],
+      "applicability": "universal",
+      "rationale": "Valor de bag-case-features; útil para evitar extravíos, sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@lb",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si incluye etiqueta identificativa",
+          "component": "etiqueta o identificador",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Etiqueta de equipaje"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/11",
+      "question": "¿Lleva materiales de origen animal o es vegana?",
+      "dimension": "atributos de material",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-features=Producto vegano"
+      ],
+      "applicability": "universal",
+      "rationale": "Valor de bag-case-features sobre el origen de los materiales. Redacción con D-060 (T-031, regla 4): los materiales reciclados no los recoge bag-case-features (solo Producto vegano): salen como inferida.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:material@lb-1",
+      "resolving_info": [
+        {
+          "contribution": "declaración de producto vegano",
+          "component": "vegana",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-features=Producto vegano"
+          ]
+        },
+        {
+          "contribution": "materiales de origen animal que contiene",
+          "component": "materiales de origen animal",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "certificación vegana de un tercero",
+          "component": "vegana",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/12",
+      "question": "¿Cuántos compartimentos y bolsillos tiene y cómo se organiza el interior y el exterior (compartimento único, compartimentos interiores, separadores, bolsillos externos u ocultos, bolsillo extraíble)?",
+      "dimension": "organización interior",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-storage-features=Compartimento único",
+        "shopify-attr:bag-case-storage-features=Compartimentos incorporados",
+        "shopify-attr:bag-case-storage-features=Divisores regulables",
+        "shopify-attr:bag-case-storage-features=Bolsillos externos",
+        "shopify-attr:bag-case-storage-features=Bolsillos ocultos",
+        "shopify-attr:bag-case-storage-features=Bolsillo extraíble",
+        "shopify-attr:bag-case-storage-features=Ventana transparente"
+      ],
+      "applicability": "universal",
+      "rationale": "La organización del espacio es uno de los criterios con los que se comparan mochilas.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:cat.mochilas/12@lb-1",
+      "resolving_info": [
+        {
+          "contribution": "número de compartimentos",
+          "component": "cuántos compartimentos",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-storage-features=Compartimento único",
+            "shopify-attr:bag-case-storage-features=Compartimentos incorporados"
+          ]
+        },
+        {
+          "contribution": "divisores interiores y si son regulables",
+          "component": "cómo se organiza el interior",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-storage-features=Divisores regulables"
+          ]
+        },
+        {
+          "contribution": "bolsillos exteriores",
+          "component": "bolsillos y organización del exterior",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-storage-features=Bolsillos externos"
+          ]
+        },
+        {
+          "contribution": "bolsillos ocultos",
+          "component": "bolsillos",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-storage-features=Bolsillos ocultos"
+          ]
+        },
+        {
+          "contribution": "bolsillos extraíbles o con ventana transparente",
+          "component": "bolsillos",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-storage-features=Bolsillo extraíble",
+            "shopify-attr:bag-case-storage-features=Ventana transparente"
+          ]
+        },
+        {
+          "contribution": "número total de bolsillos y su ubicación",
+          "component": "cuántos bolsillos",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/13",
+      "question": "¿Tiene compartimento o funda protectora para dispositivos (portátil, tableta) y hasta qué tamaño de pantalla?",
+      "dimension": "compartimento para dispositivos",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-storage-features=Compartimento para portátil",
+        "shopify-attr:bag-case-storage-features=Fundas protectoras",
+        "amazon-ptd-prop:BACKPACK.compatible_device_size_maximum"
+      ],
+      "applicability": "universal",
+      "rationale": "La compatibilidad con un dispositivo concreto es criterio de elección; el tamaño máximo concreta la compatibilidad. Redacción con D-060 (T-031, regla 4): el tamaño de pantalla no tenía fuente en el requisito: lo recoge BACKPACK.compatible_device_size_maximum, que las hijas ya excluían por estar cubierto aquí.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@lb",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si tiene compartimento para portátil",
+          "component": "compartimento para dispositivos",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-storage-features=Compartimento para portátil"
+          ]
+        },
+        {
+          "contribution": "indicación de si tiene funda protectora para dispositivos",
+          "component": "funda protectora para dispositivos",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-storage-features=Fundas protectoras"
+          ]
+        },
+        {
+          "contribution": "tamaño máximo de pantalla del dispositivo que admite",
+          "component": "hasta qué tamaño de pantalla",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BACKPACK.compatible_device_size_maximum"
+          ]
+        },
+        {
+          "contribution": "medidas interiores del compartimento para dispositivos",
+          "component": "hasta qué tamaño de pantalla",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/14",
+      "question": "¿Qué soportes exteriores o interiores tiene para botella, llaves u otros accesorios?",
+      "dimension": "soportes para accesorios",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bag-case-storage-features=Bolsillo aislado para botella",
+        "shopify-attr:bag-case-storage-features=Soporte para botella de agua",
+        "shopify-attr:bag-case-storage-features=Soporte para llavero",
+        "shopify-attr:bag-case-storage-features=Bucles elásticos"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa por tema los soportes de bag-case-storage-features.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@lb",
+      "resolving_info": [
+        {
+          "contribution": "bolsillo o soporte para botella",
+          "component": "botella",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-storage-features=Bolsillo aislado para botella",
+            "shopify-attr:bag-case-storage-features=Soporte para botella de agua"
+          ]
+        },
+        {
+          "contribution": "indicación de si el bolsillo para botella es aislante",
+          "component": "botella",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-storage-features=Bolsillo aislado para botella"
+          ]
+        },
+        {
+          "contribution": "soporte para llaves",
+          "component": "llaves",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-storage-features=Soporte para llavero"
+          ]
+        },
+        {
+          "contribution": "bucles o cintas elásticas para accesorios",
+          "component": "otros accesorios",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bag-case-storage-features=Bucles elásticos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/15",
+      "question": "¿Para qué sexo está diseñada (mujer, hombre o unisex)?",
+      "dimension": "sexo objetivo",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:target-gender"
+      ],
+      "applicability": "universal",
+      "rationale": "Informa del destinatario; relevante sin ser central en mochilas.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:cat.mochilas/15@lb-1",
+      "resolving_info": [
+        {
+          "contribution": "sexo al que se destina el diseño",
+          "component": "sexo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:target-gender"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas/16",
+      "question": "¿Lleva materiales reciclados?",
+      "dimension": "material reciclado",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Cuestión inferida (D-036) que sale de cat.mochilas/11 por la regla 4 de D-060 (T-031): los materiales reciclados no los recoge bag-case-features (solo Producto vegano): salen como inferida. Provisional hasta que la valide el entrenamiento.",
+      "seed_importance": "complementario",
+      "rule": "imp:material@lb-1",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "declaración de materiales reciclados",
+          "component": "materiales reciclados",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "proporción de material reciclado",
+          "component": "materiales reciclados",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "certificación de contenido reciclado",
+          "component": "materiales reciclados",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "shopify-attr:bag-case-features=Fácil de instalar",
+      "reason": "No informa sobre mochilas: no se instalan."
+    },
+    {
+      "source": "shopify-attr:bag-case-storage-features=Bolsillo para partituras",
+      "reason": "Propio de bolsas de música; no informa sobre la clase."
+    },
+    {
+      "source": "shopify-attr:bag-case-storage-features=Malla para trajes",
+      "reason": "Propio de portatrajes y bolsas de viaje; no informa sobre mochilas."
+    },
+    {
+      "source": "shopify-attr:bag-case-storage-features=Tocador colgante",
+      "reason": "Propio de neceseres; no informa sobre mochilas."
+    },
+    {
+      "source": "shopify-attr:bag-case-storage-features=Soportes de arcos",
+      "reason": "Propio de bolsas de tiro con arco; no informa sobre mochilas."
+    },
+    {
+      "source": "shopify-attr:bag-case-storage-features=Sujetadores para mazos",
+      "reason": "Propio de bolsas de golf; no informa sobre mochilas."
+    }
+  ],
+  "status": "compilado",
+  "version": "3",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

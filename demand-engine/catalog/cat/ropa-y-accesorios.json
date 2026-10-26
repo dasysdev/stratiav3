@@ -8,7 +8,7 @@
     "shopify:aa@v2026-08",
     "google:166@2021-09-21"
   ],
-  "version": "1",
+  "version": "2",
   "status": "compilado",
   "requirements": [
     {
@@ -25,7 +25,25 @@
       "applicability": "universal",
       "rationale": "El color es uno de los criterios con que se comparan y eligen prendas, calzado y accesorios. Es una característica del producto (criterio 7); si es seleccionable, qué variantes hay lo cubre además gen.variantes.",
       "seed_importance": "principal",
-      "rule": "imp:estetica@aa"
+      "rule": "imp:estetica@aa",
+      "resolving_info": [
+        {
+          "contribution": "color principal",
+          "component": "color",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:color"
+          ]
+        },
+        {
+          "contribution": "colores que combina un producto multicolor",
+          "component": "colores",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:color"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.ropa-y-accesorios/02",
@@ -41,7 +59,25 @@
       "applicability": "universal",
       "rationale": "En ropa y accesorios el estampado forma parte de la apariencia con que se elige la prenda; «liso» resuelve la cuestión. La descripción de Shopify del color también menciona el patrón: se mantienen separados porque son atributos distintos en Shopify y Amazon. Como el color, es una característica del producto (criterio 7, aplicado también al estampado por coherencia); si es seleccionable, lo cubre además gen.variantes.",
       "seed_importance": "principal",
-      "rule": "imp:estetica@aa"
+      "rule": "imp:estetica@aa",
+      "resolving_info": [
+        {
+          "contribution": "tipo de estampado o motivo",
+          "component": "estampado o motivo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pattern"
+          ]
+        },
+        {
+          "contribution": "indicación de si es liso",
+          "component": "liso",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:pattern"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.ropa-y-accesorios/03",
@@ -57,9 +93,19 @@
       "applicability": "universal",
       "rationale": "Determina el patrón o la horma y la equivalencia de tallas; es un filtro básico para comparar ofertas de ropa, calzado y accesorios.",
       "seed_importance": "principal",
-      "rule": "imp:uso@aa"
+      "rule": "imp:uso@aa",
+      "resolving_info": [
+        {
+          "contribution": "sexo al que se destina el diseño",
+          "component": "sexo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:target-gender"
+          ]
+        }
+      ]
     }
   ],
   "excluded": [],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

@@ -10,7 +10,7 @@
     "amazon-ptd:DUVET_COVER@2026-10-24",
     "amazon-btg:3250006031@2026-10-24"
   ],
-  "version": "1",
+  "version": "3",
   "status": "compilado",
   "requirements": [
     {
@@ -27,7 +27,33 @@
       "applicability": "universal",
       "rationale": "El ligamento determina el tacto, el aspecto y el comportamiento del tejido; percal frente a satén es un criterio habitual para elegir fundas nórdicas. Queda en el bloque (criterio 4 y D-040): fabric-weave es atributo propio de esta categoría.",
       "seed_importance": "principal",
-      "rule": "imp:construccion@hg-15-1-5"
+      "rule": "imp:construccion@hg-15-1-5",
+      "resolving_info": [
+        {
+          "contribution": "nombre del ligamento",
+          "component": "ligamento o tipo de tejido",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:fabric-weave"
+          ]
+        },
+        {
+          "contribution": "tipo de tejido comercial o por su acabado",
+          "component": "ligamento o tipo de tejido",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:fabric-weave"
+          ]
+        },
+        {
+          "contribution": "técnica de formación del tejido, de calada o de punto",
+          "component": "ligamento o tipo de tejido",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:fabric-weave"
+          ]
+        }
+      ]
     },
     {
       "id": "cat.fundas-de-nordico/03",
@@ -43,7 +69,23 @@
       "applicability": "si es un tejido de calada (percal, satén, sarga…); no aplica a tejidos de punto ni de pelo o perchados (franela, coralina, polar)",
       "rationale": "«Rosca» es la traducción de Amazon de thread count (número de hilos). En los tejidos de algodón es un criterio habitual de comparación (144, 200, 300 hilos…); los casos documentados lo cuentan en la base de la clase (D-026). Queda repetido (criterio 4): el número de hilos no vale para todas las hijas de Ropa de cama (mantas, protectores).",
       "seed_importance": "principal",
-      "rule": "imp:construccion@hg-15-1-5"
+      "rule": "imp:construccion@hg-15-1-5",
+      "resolving_info": [
+        {
+          "contribution": "número de hilos por unidad de superficie",
+          "component": "número de hilos",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUVET_COVER.thread"
+          ]
+        },
+        {
+          "contribution": "indicación de si el recuento es de hilo simple o de varios cabos",
+          "component": "número de hilos",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.fundas-de-nordico/05",
@@ -51,7 +93,7 @@
       "dimension": "cierre",
       "trait": "construccion",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "shopify-attr:closure-type"
@@ -59,7 +101,17 @@
       "applicability": "universal",
       "rationale": "Influye en la comodidad de uso y en que el nórdico no se desplace dentro de la funda; no suele ser un criterio central.",
       "seed_importance": "complementario",
-      "rule": "imp:construccion@hg-15-1-5"
+      "rule": "imp:cat.fundas-de-nordico/05@hg-15-1-5",
+      "resolving_info": [
+        {
+          "contribution": "tipo de cierre de la funda",
+          "component": "cómo se cierra",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:closure-type"
+          ]
+        }
+      ]
     }
   ],
   "excluded": [
@@ -96,5 +148,5 @@
       "reason": "Requisito retirado: movido a cat.ropa-de-cama/02 (criterio 4: item_length_width se repite en los PTD de ropa de cama y las medidas valen para todas sus hijas), con su fuente amazon-ptd-prop:DUVET_COVER.item_length_width."
     }
   ],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

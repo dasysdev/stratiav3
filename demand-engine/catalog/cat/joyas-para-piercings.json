@@ -1,0 +1,586 @@
+{
+  "id": "cat.joyas-para-piercings",
+  "type": "categoría",
+  "name": "Joyas para piercings",
+  "shopify": "aa-6-2",
+  "parent": "cat.joyeria",
+  "refs": [
+    "shopify:aa-6-2@v2026-08",
+    "google:190@2021-09-21",
+    "amazon-ptd:PIERCING_JEWELRY@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.joyas-para-piercings/01",
+      "question": "¿Qué tipo de joya para piercing es y para qué perforación está pensada (nariz, ombligo, ceja, labio, lengua, cartílago, trago, industrial…), y qué forma tiene (barra recta, curva, aro, labret, dilatador…)?",
+      "dimension": "tipo y zona de perforación",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:body-jewelry-type",
+        "amazon-ptd-prop:PIERCING_JEWELRY.earring_design",
+        "amazon-ptd-prop:PIERCING_JEWELRY.pendant_description"
+      ],
+      "applicability": "universal",
+      "rationale": "La zona de perforación y la forma deciden si la joya sirve para el piercing del comprador; es el primer criterio de búsqueda y comparación en la clase.",
+      "seed_importance": "principal",
+      "importance": "crítico",
+      "rule": "imp:cat.joyas-para-piercings/01@aa-6-2",
+      "resolving_info": [
+        {
+          "contribution": "tipo de joya corporal",
+          "component": "tipo de joya para piercing",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:body-jewelry-type"
+          ]
+        },
+        {
+          "contribution": "zona de perforación a la que se destina",
+          "component": "para qué perforación",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:body-jewelry-type"
+          ]
+        },
+        {
+          "contribution": "forma o diseño de la pieza",
+          "component": "forma",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:body-jewelry-type",
+            "amazon-ptd-prop:PIERCING_JEWELRY.earring_design"
+          ]
+        },
+        {
+          "contribution": "descripción del colgante o adorno",
+          "component": "forma",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.pendant_description"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.joyas-para-piercings/02",
+      "question": "¿Qué calibre (grosor del poste o la barra) y qué longitud útil o diámetro interior tiene la parte que atraviesa la perforación?",
+      "dimension": "calibre y longitud",
+      "entity": "variante",
+      "trait": "medida-que-fija",
+      "vote": "crítico",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PIERCING_JEWELRY.gauge",
+        "amazon-ptd-prop:PIERCING_JEWELRY.size",
+        "amazon-ptd-prop:PIERCING_JEWELRY.inside",
+        "amazon-ptd-prop:PIERCING_JEWELRY.item_diameter",
+        "amazon-ptd-prop:PIERCING_JEWELRY.outside_diameter",
+        "amazon-ptd-prop:PIERCING_JEWELRY.ring"
+      ],
+      "applicability": "universal",
+      "rationale": "El calibre y la longitud o el diámetro son la talla de una joya de piercing: fijan qué se vende y si encaja en la perforación (D-043, criterio 1).",
+      "seed_importance": "crítico",
+      "importance": "crítico",
+      "rule": "marco:D-043.1/medida-que-fija",
+      "resolving_info": [
+        {
+          "contribution": "calibre o grosor del poste o la barra",
+          "component": "calibre",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.gauge"
+          ]
+        },
+        {
+          "contribution": "talla o tamaño de la parte que atraviesa la perforación",
+          "component": "longitud útil o diámetro interior",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.size",
+            "amazon-ptd-prop:PIERCING_JEWELRY.ring"
+          ]
+        },
+        {
+          "contribution": "diámetro interior del aro",
+          "component": "diámetro interior",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.inside",
+            "amazon-ptd-prop:PIERCING_JEWELRY.item_diameter"
+          ]
+        },
+        {
+          "contribution": "diámetro exterior del aro",
+          "component": "diámetro interior",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.outside_diameter"
+          ]
+        },
+        {
+          "contribution": "longitud útil de la barra o del poste",
+          "component": "longitud útil",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "equivalencia del calibre en milímetros",
+          "component": "calibre",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.joyas-para-piercings/03",
+      "question": "¿Qué medidas tiene la parte decorativa visible (largo, ancho o diámetro del adorno o del disco)?",
+      "dimension": "medidas del adorno",
+      "entity": "producto",
+      "trait": "medida",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PIERCING_JEWELRY.item_length",
+        "amazon-ptd-prop:PIERCING_JEWELRY.item_width",
+        "amazon-ptd-prop:PIERCING_JEWELRY.disc_diameter"
+      ],
+      "applicability": "universal",
+      "rationale": "Describe el tamaño del adorno sin fijar la variante; con piezas de pocos milímetros, el tamaño visible es un criterio de comparación.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "largo del adorno",
+          "component": "largo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.item_length"
+          ]
+        },
+        {
+          "contribution": "ancho del adorno",
+          "component": "ancho",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.item_width"
+          ]
+        },
+        {
+          "contribution": "diámetro del adorno o del disco",
+          "component": "diámetro",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.disc_diameter"
+          ]
+        },
+        {
+          "contribution": "imagen acotada de la pieza",
+          "component": "largo, ancho o diámetro",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.joyas-para-piercings/04",
+      "question": "¿De qué metal es la parte que entra en la perforación y con qué ley o pureza (acero quirúrgico 316L, titanio, plata 925, oro de 14 o 18 quilates…)?",
+      "dimension": "metal y ley del poste",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PIERCING_JEWELRY.metal_type",
+        "amazon-ptd-prop:PIERCING_JEWELRY.metals",
+        "amazon-ptd-prop:PIERCING_JEWELRY.metal_stamp"
+      ],
+      "applicability": "universal",
+      "rationale": "Concreta el material de la joya (cat.joyeria/01) en lo propio de la clase: la parte en contacto con la perforación y su ley. Es criterio de elección por tolerancia y por valor.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:material@aa-6",
+      "resolving_info": [
+        {
+          "contribution": "tipo de metal",
+          "component": "metal",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.metal_type",
+            "amazon-ptd-prop:PIERCING_JEWELRY.metals"
+          ]
+        },
+        {
+          "contribution": "metal de cada parte de la pieza",
+          "component": "metal de la parte que entra en la perforación",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.metals"
+          ]
+        },
+        {
+          "contribution": "ley o pureza del metal",
+          "component": "ley o pureza",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.metals",
+            "amazon-ptd-prop:PIERCING_JEWELRY.metal_stamp"
+          ]
+        },
+        {
+          "contribution": "norma de material para implantes que cumple",
+          "component": "ley o pureza",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.joyas-para-piercings/05",
+      "question": "¿Qué sistema de cierre o sujeción tiene (rosca interna o externa, sin rosca o a presión, bola, clicker, mariposa…)?",
+      "dimension": "cierre y roscado",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:threading-type",
+        "amazon-ptd-prop:PIERCING_JEWELRY.thread",
+        "amazon-ptd-prop:PIERCING_JEWELRY.closure",
+        "amazon-ptd-prop:PIERCING_JEWELRY.back_finding",
+        "amazon-ptd-prop:PIERCING_JEWELRY.terminal_type"
+      ],
+      "applicability": "universal",
+      "rationale": "El cierre condiciona la colocación, la seguridad de sujeción y la compatibilidad con extremos intercambiables; Shopify y Amazon lo recogen con varios atributos que se unen.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:construccion@aa-6-2",
+      "resolving_info": [
+        {
+          "contribution": "tipo de roscado",
+          "component": "sistema de cierre o sujeción",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:threading-type",
+            "amazon-ptd-prop:PIERCING_JEWELRY.thread"
+          ]
+        },
+        {
+          "contribution": "tipo de cierre o mecanismo de sujeción",
+          "component": "sistema de cierre o sujeción",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.closure",
+            "amazon-ptd-prop:PIERCING_JEWELRY.back_finding"
+          ]
+        },
+        {
+          "contribution": "tipo de terminal o remate",
+          "component": "sistema de cierre o sujeción",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.terminal_type"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.joyas-para-piercings/06",
+      "question": "¿Lleva piedras, cristales o perlas, de qué tipo y cuántas?",
+      "dimension": "piedras y perlas",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:gemstone-type",
+        "amazon-ptd-prop:PIERCING_JEWELRY.gem_type",
+        "amazon-ptd-prop:PIERCING_JEWELRY.stones",
+        "amazon-ptd-prop:PIERCING_JEWELRY.pearl",
+        "amazon-ptd-prop:PIERCING_JEWELRY.number_of_pearls"
+      ],
+      "applicability": "universal",
+      "rationale": "El tipo de piedra (circonita, cristal, diamante, perla) distingue ofertas de valor muy distinto. El atributo de Shopify se lista en esta categoría (D-040). Un «no lleva» la resuelve. Redacción con D-060 (T-031, regla 3): el detalle de la pregunta de sí o no reúne otra necesidad: el tamaño o el peso de las piedras (magnitud) toma otro rasgo y otra importancia.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:material@aa-6",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si lleva piedras, cristales o perlas",
+          "component": "lleva piedras, cristales o perlas",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:gemstone-type",
+            "amazon-ptd-prop:PIERCING_JEWELRY.gem_type",
+            "amazon-ptd-prop:PIERCING_JEWELRY.stones",
+            "amazon-ptd-prop:PIERCING_JEWELRY.pearl",
+            "amazon-ptd-prop:PIERCING_JEWELRY.number_of_pearls"
+          ]
+        },
+        {
+          "contribution": "tipo de piedra o cristal",
+          "component": "de qué tipo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:gemstone-type",
+            "amazon-ptd-prop:PIERCING_JEWELRY.gem_type",
+            "amazon-ptd-prop:PIERCING_JEWELRY.stones"
+          ]
+        },
+        {
+          "contribution": "tipo de perla",
+          "component": "de qué tipo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.pearl"
+          ]
+        },
+        {
+          "contribution": "número de piedras o perlas",
+          "component": "cuántas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.stones",
+            "amazon-ptd-prop:PIERCING_JEWELRY.number_of_pearls"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.joyas-para-piercings/07",
+      "question": "Si lleva piedras, ¿cómo están engastadas (garras, bisel, a presión, pegadas…)?",
+      "dimension": "engaste",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PIERCING_JEWELRY.setting_type"
+      ],
+      "applicability": "si lleva piedras",
+      "rationale": "El engaste condiciona la sujeción de la piedra y la durabilidad; relevante sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:cat.joyas-para-piercings/07@aa-6-2",
+      "resolving_info": [
+        {
+          "contribution": "tipo de engaste",
+          "component": "cómo están engastadas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.setting_type"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.joyas-para-piercings/08",
+      "question": "¿Cuánto pesa la joya?",
+      "dimension": "peso",
+      "entity": "producto",
+      "trait": "magnitud",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PIERCING_JEWELRY.item_weight"
+      ],
+      "applicability": "universal",
+      "rationale": "En joyas que cuelgan de una perforación el peso influye en la comodidad; en metal precioso, en el valor.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:magnitud@aa-6-2",
+      "resolving_info": [
+        {
+          "contribution": "peso de la joya",
+          "component": "peso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.item_weight"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.joyas-para-piercings/09",
+      "question": "Si tiene cadena, ¿qué longitud tiene?",
+      "dimension": "longitud de la cadena",
+      "entity": "producto",
+      "trait": "medida",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PIERCING_JEWELRY.chain_length"
+      ],
+      "applicability": "si tiene cadena (cadenas corporales, piercings con cadena)",
+      "rationale": "Solo procede en piezas con cadena; en ellas fija cómo cae la joya.",
+      "seed_importance": "complementario",
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva",
+      "resolving_info": [
+        {
+          "contribution": "longitud de la cadena",
+          "component": "longitud de la cadena",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.chain_length"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.joyas-para-piercings/10",
+      "question": "¿Es apta para la piel y la perforación: libera níquel, es hipoalergénica o apta para perforaciones recientes?",
+      "dimension": "tolerancia cutánea",
+      "entity": "producto",
+      "trait": "seguridad",
+      "vote": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Ninguna referencia la recoge como propiedad, pero afecta a toda joya que atraviesa la piel (la liberación de níquel en piezas que se insertan en perforaciones está además restringida en la UE). Provisional (D-043, criterio 5).",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:seguridad@aa-6-2",
+      "resolving_info": [
+        {
+          "contribution": "declaración sobre la liberación de níquel",
+          "component": "libera níquel",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "resultado de un ensayo de liberación de níquel",
+          "component": "libera níquel",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "declaración de hipoalergenicidad",
+          "component": "hipoalergénica",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "indicación de si es apta para perforaciones recientes",
+          "component": "apta para perforaciones recientes",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "certificación del material para implantes según norma técnica",
+          "component": "apta para la piel y la perforación",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.joyas-para-piercings/11",
+      "question": "¿Qué tamaño o peso tienen las piedras o perlas (quilates, diámetro)?",
+      "dimension": "tamaño y peso de las piedras",
+      "trait": "magnitud",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PIERCING_JEWELRY.total_gem_weight",
+        "amazon-ptd-prop:PIERCING_JEWELRY.total_diamond_weight",
+        "amazon-ptd-prop:PIERCING_JEWELRY.size_per_pearl"
+      ],
+      "applicability": "si lleva piedras, cristales o perlas",
+      "rationale": "Parte de cat.joyas-para-piercings/06 separada por la regla 3 de D-060 (T-031): el detalle de la pregunta de sí o no reúne otra necesidad: el tamaño o el peso de las piedras (magnitud) toma otro rasgo y otra importancia.",
+      "seed_importance": "complementario",
+      "rule": "imp:magnitud@aa-6-2",
+      "vote": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "peso total de las gemas",
+          "component": "peso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.total_gem_weight"
+          ]
+        },
+        {
+          "contribution": "peso total de los diamantes",
+          "component": "peso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.total_diamond_weight"
+          ]
+        },
+        {
+          "contribution": "diámetro de las perlas",
+          "component": "tamaño",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PIERCING_JEWELRY.size_per_pearl"
+          ]
+        },
+        {
+          "contribution": "medidas de cada piedra",
+          "component": "tamaño",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:PIERCING_JEWELRY.department",
+      "reason": "Lo cubre el sexo objetivo de cat.ropa-y-accesorios/03 y el grupo de edad de cat.joyeria/05."
+    },
+    {
+      "source": "amazon-ptd-prop:PIERCING_JEWELRY.material",
+      "reason": "Lo cubre el material de joyería de cat.joyeria/01."
+    },
+    {
+      "source": "amazon-ptd-prop:PIERCING_JEWELRY.stone",
+      "reason": "Grado de claridad: lo cubre cat.joyeria/03."
+    },
+    {
+      "source": "amazon-ptd-prop:PIERCING_JEWELRY.number_of_pieces",
+      "reason": "Piezas incluidas: capa general (gen/01) o esp.juego."
+    },
+    {
+      "source": "amazon-ptd-prop:PIERCING_JEWELRY.metal_finish",
+      "reason": "Acabado visual (pulido, mate): estética que cubre el color; el baño lo cubre cat.joyeria/01."
+    },
+    {
+      "source": "amazon-ptd-prop:PIERCING_JEWELRY.collection",
+      "reason": "Nombre comercial de la colección: no aporta requisitos."
+    },
+    {
+      "source": "amazon-ptd-prop:PIERCING_JEWELRY.collection_item",
+      "reason": "Dato de feed sin cuestión evaluable."
+    },
+    {
+      "source": "amazon-ptd-prop:PIERCING_JEWELRY.initial_character",
+      "reason": "Valor estético (inicial del adorno)."
+    },
+    {
+      "source": "amazon-ptd-prop:PIERCING_JEWELRY.letter_character",
+      "reason": "Valor estético (letra del adorno)."
+    },
+    {
+      "source": "amazon-ptd-prop:PIERCING_JEWELRY.gem_birthstone_month",
+      "reason": "Valor simbólico o estético; la piedra la cubre /06."
+    },
+    {
+      "source": "amazon-ptd-prop:PIERCING_JEWELRY.hand_orientation",
+      "reason": "Dato de diseño de feed sin cuestión evaluable en la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:PIERCING_JEWELRY.cutting_direction",
+      "reason": "Propiedad sin sentido evaluable en joyas de piercing."
+    }
+  ],
+  "status": "compilado",
+  "version": "3",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

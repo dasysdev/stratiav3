@@ -12,7 +12,7 @@
     "amazon-ptd:BLANKET@2026-10-24",
     "amazon-ptd:TOWEL@2026-10-24"
   ],
-  "version": "2",
+  "version": "4",
   "status": "compilado",
   "requirements": [
     {
@@ -31,7 +31,48 @@
       "applicability": "universal",
       "rationale": "Apoyo normativo (criterio 6): según el Reglamento (UE) 1007/2011, art. 16.1, la composición en fibras de un producto textil «será claramente visible para el consumidor antes de la adquisición, incluso en los casos en que esta se realice por medios electrónicos». La obligación legal no la hace crítica: la importancia sigue siendo principal, porque el material es uno de los primeros criterios con que se comparan piezas de ropa de casa. Se mantienen como fuentes Tejido y Material de Shopify, casi idénticos en textiles y unidos en uno. Las propiedades de composición de los PTD de las hijas (fabric_type, compliance_outer_surface_material) no suben (criterio 4 y D-040): Almohadas tiene cover-material como atributo propio de Shopify; se excluyen en cada bloque como cubiertas por esta cuestión.",
       "seed_importance": "principal",
-      "rule": "marco:D-043.6/composicion-textil"
+      "rule": "marco:D-043.6/composicion-textil",
+      "resolving_info": [
+        {
+          "contribution": "material principal",
+          "component": "materiales",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:material"
+          ]
+        },
+        {
+          "contribution": "tipo de tejido",
+          "component": "materiales",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:fabric"
+          ]
+        },
+        {
+          "contribution": "denominación de las fibras",
+          "component": "composición en fibras",
+          "origin": "referencias",
+          "support": [
+            "ley:UE-1007/2011-16.1@2011-10-18",
+            "shopify-attr:fabric"
+          ]
+        },
+        {
+          "contribution": "porcentaje en peso de cada fibra",
+          "component": "porcentajes",
+          "origin": "referencias",
+          "support": [
+            "ley:UE-1007/2011-16.1@2011-10-18"
+          ]
+        },
+        {
+          "contribution": "composición de cada parte cuando las partes difieren",
+          "component": "composición en fibras",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.ropa-de-casa/02",
@@ -47,7 +88,53 @@
       "applicability": "universal",
       "rationale": "Son piezas que se lavan con frecuencia: el cuidado afecta al uso y a la duración, pero no suele ser un criterio central de elección.",
       "seed_importance": "complementario",
-      "rule": "imp:cuidado@hg"
+      "rule": "imp:cuidado@hg-15",
+      "resolving_info": [
+        {
+          "contribution": "método de lavado admitido",
+          "component": "cómo se lava",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicación de limpieza en seco",
+          "component": "cómo se lava",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicación de si admite secadora",
+          "component": "cómo se cuida",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "indicaciones de planchado",
+          "component": "cómo se cuida",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:care-instructions"
+          ]
+        },
+        {
+          "contribution": "temperatura máxima de lavado",
+          "component": "cómo se lava",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "símbolos de cuidado del etiquetado",
+          "component": "cómo se lava y se cuida",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.ropa-de-casa/03",
@@ -63,7 +150,39 @@
       "applicability": "universal",
       "rationale": "En textiles en contacto con la piel la certificación habitual es OEKO-TEX; la lista de Shopify incluye normas de otros sectores (juguetes, electrónica, mobiliario) que no aplican. La certificación orgánica o de sostenibilidad (GOTS…) está en la madre, Casa y jardín (organic-certification).",
       "seed_importance": "complementario",
-      "rule": "imp:seguridad@hg-15"
+      "rule": "imp:seguridad@hg-15",
+      "resolving_info": [
+        {
+          "contribution": "certificación textil de ausencia de sustancias nocivas",
+          "component": "certificaciones de ausencia de sustancias nocivas",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:safety-certifications"
+          ]
+        },
+        {
+          "contribution": "declaración de ausencia de sustancias nocivas concretas",
+          "component": "certificaciones de ausencia de sustancias nocivas",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:safety-certifications"
+          ]
+        },
+        {
+          "contribution": "norma de seguridad de producto que declara cumplir",
+          "component": "certificaciones de seguridad",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:safety-certifications"
+          ]
+        },
+        {
+          "contribution": "número de certificado y organismo emisor",
+          "component": "certificaciones de seguridad o de ausencia de sustancias nocivas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.ropa-de-casa/05",
@@ -83,7 +202,41 @@
       "applicability": "universal",
       "rationale": "El gramaje indica el cuerpo y la densidad del tejido. Es el criterio más habitual para comparar toallas, y en ropa de cama es la medida de densidad de los tejidos de punto o de pelo (franela, coralina, polar), donde no se usa el número de hilos; los casos lo cuentan en la base (D-026). Recoge cat.toallas/02 (criterio 4: fabric_weight está en TOWEL y FITTED_SHEET, y BLANKET lo declara como compliance_fabric_weight; el gramaje vale para toda la ropa de casa). «Ligero» y «Peso medio» de TOWEL son clases de gramaje. El peso del artículo de TOWEL se excluye en Toallas. Se mantiene en Ropa de casa: ninguna hija de Shopify tiene el gramaje como atributo propio (criterio 4 y D-040).",
       "seed_importance": "principal",
-      "rule": "imp:magnitud@hg-15"
+      "rule": "imp:magnitud@hg-15",
+      "resolving_info": [
+        {
+          "contribution": "gramaje del tejido",
+          "component": "gramaje",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.fabric_weight",
+            "amazon-ptd-prop:FITTED_SHEET.fabric_weight"
+          ]
+        },
+        {
+          "contribution": "tramo de gramaje",
+          "component": "gramaje",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.compliance_fabric_weight"
+          ]
+        },
+        {
+          "contribution": "clase cualitativa de gramaje",
+          "component": "gramaje",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Ligero",
+            "amazon-ptd-prop:TOWEL.special_feature=Peso medio"
+          ]
+        },
+        {
+          "contribution": "peso de la pieza y sus medidas, de los que se deriva el gramaje",
+          "component": "gramaje",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [
@@ -96,5 +249,5 @@
       "reason": "Requisito retirado: la durabilidad no sube a Ropa de casa (criterio 4 y D-040): Protectores para colchones (mattress-protector-features) y Manteles (tablecloth-features) la tienen como atributo propio de Shopify. Vuelve a cat.fundas-de-almohada/06, cat.mantas/09, cat.protectores-de-colchon/06 y cat.toallas/07 con sus fuentes."
     }
   ],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

@@ -1,0 +1,60 @@
+{
+  "id": "cat.utensilios-de-mesa",
+  "type": "categoría",
+  "name": "Utensilios de mesa",
+  "shopify": "hg-11-10",
+  "parent": "cat.cocina-y-comedor",
+  "refs": [
+    "shopify:hg-11-10@v2026-08",
+    "google:672@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.utensilios-de-mesa/01",
+      "question": "¿Se puede usar en el microondas?",
+      "dimension": "compatibilidad con microondas",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:microwave-compatibility"
+      ],
+      "applicability": "universal",
+      "rationale": "Para la vajilla y los utensilios de mesa, el uso seguro en microondas es un criterio con el que se comparan piezas de distintos materiales y decoraciones (los filos metálicos lo impiden).",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@hg-11-10",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si es apto para microondas",
+          "component": "uso en el microondas",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:microwave-compatibility"
+          ]
+        },
+        {
+          "contribution": "presencia de decoraciones o filos metálicos",
+          "component": "uso en el microondas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source": "shopify-attr:tableware-material",
+      "reason": "Extensión de «material» (shopify-attr:material), ya en la cadena en cat.cocina-y-comedor/01; no se duplica (D-043, criterio 3)."
+    },
+    {
+      "source": "shopify-attr:cleaning-instructions",
+      "reason": "Extensión de «instrucciones de cuidado» (lavavajillas o lavado a mano), ya en la cadena en cat.cocina-y-comedor/02; no se duplica (D-043, criterio 3)."
+    }
+  ],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

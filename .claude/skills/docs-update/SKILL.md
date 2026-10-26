@@ -42,6 +42,7 @@ Si un artefacto está vacío o es ilegible, dilo, déjalo en el intake y contin�
   - `30-governance/decisions.md`, en especial D-006 y las decisiones relacionadas;
   - `open-questions.md`, por si el artefacto cierra alguna OQ;
   - `issues.md`.
+- No leas enteros `decisions.md`, `issues.md`, `open-questions.md` ni `changelog.md`. Localiza con `grep` la entrada, la fila de la tabla o el último ID, y lee solo ese tramo con `sed -n`.
 
 ### 3. Analizar el impacto y decidir
 
@@ -90,8 +91,8 @@ Guarda internamente el plan con esta forma; se resume en el informe final:
 
 - Ejecuta `python3 tools/check_docs.py` hasta llegar a **0 errores**.
 - Haz un `grep` de comprobación: no debe quedar la versión sobrescrita fuera de `archive/` y de las citas históricas de `30-governance/`.
-- **Si hubo cambios de canon**, lanza un revisor independiente (`Agent`, `general-purpose`):
-  - pásale el artefacto archivado, los módulos modificados y `docs/CLAUDE.md`, sin tus conclusiones;
+- **Si cambió `00-context/` o `10-model/`**, lanza un revisor independiente (`Agent`, `docs-reviewer`):
+  - pásale el artefacto archivado y la lista de ficheros y secciones modificados (no los módulos enteros), sin tus conclusiones;
   - pídele que compruebe si el canon refleja fielmente el intake: omisiones, alteraciones de sentido, añadidos no sustentados, versiones antiguas que sigan vigentes y contradicciones internas;
   - corrige lo que proceda y vuelve a validar.
 

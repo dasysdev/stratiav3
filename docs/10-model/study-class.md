@@ -3,9 +3,9 @@ id: study-class
 title: Clase de estudio
 layer: model
 status: vigente
-version: 1.3
-updated: 2026-10-25
-sources: [INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-offer-application]
+version: 1.5
+updated: 2026-10-26
+sources: [INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-26-training-v4-review]
 ---
 
 # Clase de estudio
@@ -53,13 +53,19 @@ La versión fijada es la adoptada como referencia de Shopify: hoy, v2026-08 ([so
 > - El modelo de clase es un sistema de composición de requisitos. Cada componente (categoría de Shopify o especialización) aporta sus requisitos, y el modelo de demanda de la clase de estudio los integra sin duplicados.
 > - Si el producto abarca varias categorías de Shopify (por ejemplo, un juego con piezas de categorías distintas), la clase general es la composición de esas categorías, no su ancestro común. […]
 > - Una categoría entra en la composición si aporta requisitos al producto o a alguna de sus piezas. En un juego, cada pieza es una entidad. […]
-> - La especialización «juego» aporta los requisitos del conjunto: qué piezas incluye, cuántas y en qué medidas.
+> - La especialización «juego» aporta los requisitos del conjunto: qué piezas incluye y cuántas de cada una (enmendada por [D-086](../30-governance/decisions.md#d-086): las medidas de cada pieza las preguntan los bloques de su categoría).
 >
 > — INTAKE 2026-10-25-class-composition; la última frase del tercer punto, sustituida por [D-028](../30-governance/decisions.md#d-028); precisada por [D-033](../30-governance/decisions.md#d-033): la composición de la clase es el medio para descubrir los bloques, y la identidad la da la composición de requisitos
 
 > **Clasificación objetiva:** una categoría candidata en la que el producto entra por clasificación objetiva forma parte de la composición aunque no aporte requisitos propios. **Base de una categoría de Shopify:** sus atributos propios más los de sus categorías madre (una categoría hija es un tipo de su madre). — INTAKE 2026-10-25-objective-classification
 
-Una categoría aporta requisitos a una pieza aunque sean del mismo tipo que los de otra, porque recaen sobre otra entidad ([D-023](../30-governance/decisions.md#d-023)). Por clasificación objetiva, una categoría entra solo cuando tiene sentido: no entra por denominación una categoría que traería requisitos que no aplican ([D-032](../30-governance/decisions.md#d-032)). La que entra sin aportar requisitos es un **alias**: «el objetivo de esto es puramente de etiquetado, denominación» (INTAKE 2026-10-25-requirement-blocks); no forma parte de la identidad del modelo ([D-033](../30-governance/decisions.md#d-033)). La base de Shopify se aplica a la composición, a la condición 4 y a la regla de las cuestiones propias ([D-029](../30-governance/decisions.md#d-029)). Lo que se registra son los modelos, como composiciones de bloques ([D-033](../30-governance/decisions.md#d-033)). Siguen pendientes la prueba operativa de «aportar requisitos» ([OQ-39](../30-governance/open-questions.md)) y la de la clasificación objetiva ([OQ-43](../30-governance/open-questions.md)).
+Una categoría aporta requisitos a una pieza aunque sean del mismo tipo que los de otra, porque recaen sobre otra entidad ([D-023](../30-governance/decisions.md#d-023)). Por clasificación objetiva, una categoría entra solo cuando tiene sentido: no entra por denominación una categoría que traería requisitos que no aplican ([D-032](../30-governance/decisions.md#d-032)). La que entra sin aportar requisitos es un **alias**: «el objetivo de esto es puramente de etiquetado, denominación» (INTAKE 2026-10-25-requirement-blocks); no forma parte de la identidad del modelo ([D-033](../30-governance/decisions.md#d-033)). La base de Shopify se aplica a la composición, a la condición 4 y a la regla de las cuestiones propias ([D-029](../30-governance/decisions.md#d-029)). Lo que se registra son los modelos, como composiciones de bloques ([D-033](../30-governance/decisions.md#d-033)). Siguen pendientes, en parte resueltas por [D-057](../30-governance/decisions.md#d-057), la prueba operativa de «aportar requisitos» ([OQ-39](../30-governance/open-questions.md)) y la de la clasificación objetiva ([OQ-43](../30-governance/open-questions.md)).
+
+La hoja más específica que cumple el producto entra como categoría aunque herede todos sus requisitos de las madres: es el componente por el que entran en el producto. Una hermana que nombra otra característica del producto (Sofás de dos plazas en un sofá cama) trae por herencia esos mismos requisitos, ya aportados, y entra como alias por clasificación objetiva; no es una entrada duplicada ([D-057](../30-governance/decisions.md#d-057)):
+
+> «La hoja más específica entra como categoría aunque herede todo; una hermana que nombra otra característica (dos plazas), como alias.»
+>
+> — INTAKE 2026-10-26-training-v4-review (opción elegida)
 
 ## Criterio de especialización
 
@@ -84,6 +90,8 @@ La condición 1 solo admite características del producto: lo de la oferta activ
 > Extensión simétrica de D-026: un valor que **activa** cuestiones condicionadas ya previstas en la base también es un valor que condiciona. Solo es especialización si trae cuestiones que la base no prevé. […]
 >
 > — INTAKE 2026-10-25-requirement-blocks; sustituye la cita «Oferta» de INTAKE 2026-10-25-own-questions-offer ([D-037](../30-governance/decisions.md#d-037)); precisada por [D-048](../30-governance/decisions.md#d-048): en un valor de la oferta, esas cuestiones son requisitos condicionados de la clase, nunca especialización
+
+El disparador es el estado declarado de la unidad: la unidad de exposición que la ficha identifica como tal cuenta como estado declarado; la etiqueta «outlet» sola, no ([D-057](../30-governance/decisions.md#d-057)).
 
 > **Evidencia** […]: con las cinco condiciones razonadas en la ficha, la especialización queda provisional. La valida el usuario, como responsable. El contraste con ecommerce referentes (MPIR) la confirma o la revisa después, cuando exista. No se fija ningún umbral numérico. — INTAKE 2026-10-24-specialization-criterion
 

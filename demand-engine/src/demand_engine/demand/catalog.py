@@ -1,12 +1,16 @@
-"""Catalog of requirement blocks, Shopify tree, importance and relevance rules (D-038 to D-052).
+"""Catalog of requirement blocks, Shopify tree, importance and relevance rules (D-038 to D-063).
 
 The importance of a requirement comes from its trait (what the question resolves) and
 the class of the product, through rules induced by the training along the Shopify tree:
 a rule lives in a class and climbs to the parent only if all the children with data
-share it. The critical level is global, the general layer is fixed and the measure
-criteria of D-043 always apply (the framework). Without a rule, the agent's vote is
-used as provisional. Relevance comes first (D-050): a requirement leaves the model of a
-class only if a compiled rule excludes it there; doubt does not exclude.
+share it. A requirement whose votes contradict the rule of its trait in a class has its
+own rule there, its exception, which may make it critical (D-055, D-058). The general
+layer is fixed and the framework sets floors (D-043): the measure that fixes what is sold
+is always critical; the descriptive measure and the textile composition never go below
+principal. Without a rule, the agent's vote is used as provisional. Relevance comes first
+(D-050): a requirement leaves the model of a class only if a compiled rule excludes it
+there; doubt does not exclude. The trait the votes chose prevails over the one of the
+sources (D-056).
 """
 import json
 from collections import Counter
@@ -20,14 +24,14 @@ CAT_DIR = CATALOG / "cat"
 RUNTIME_DIR = CATALOG / "runtime"
 RULES = CATALOG / "rules" / "importance.json"
 TRAITS = CATALOG / "traits.json"
+RESOLVING = CATALOG / "rules" / "resolving.json"
 EMPTY = CATALOG / "empty.json"
 GEN = CATALOG / "gen.json"
 QUEUE = ROOT / "var" / "queue.jsonl"
 
 LEVELS = ("complementario", "principal", "crítico")
 COMPILED, UNCOMPILED = "compilado", "no compilado"
-CRITICAL_TRAITS = ("identidad", "contenido")  # whether they are critical is decided by a global rule
-FIXED = {  # framework: D-043, criterion 1
+FIXED = {  # framework: D-043, criterion 1 (the descriptive measure is a floor: its votes may make it critical, D-055)
     "medida-que-fija": ("crítico", "marco:D-043.1/medida-que-fija"),
     "medida": ("principal", "marco:D-043.1/medida-descriptiva"),
 }
@@ -122,6 +126,17 @@ def load_traits() -> dict:
     return read_json(TRAITS)
 
 
+def trait_index() -> tuple:
+    """(trait of each source, trait of each requirement chosen by its votes) (D-056)."""
+    traits = load_traits()
+    return traits.get("sources", {}), {r: v["trait"] for r, v in traits.get("requirements", {}).items()}
+
+
+def load_resolving() -> dict:
+    """Observed and accepted contributions of the resolving information, by requirement (D-063)."""
+    return read_json(RESOLVING) if RESOLVING.exists() else {"requirements": {}}
+
+
 def load_rules() -> dict:
     if RULES.exists():
         return read_json(RULES)
@@ -132,37 +147,56 @@ def save_block(block: dict) -> None:
     write_json(Path(block["_path"]), {k: v for k, v in block.items() if not k.startswith("_")})
 
 
-def requirement_trait(req: dict, source_traits: dict) -> tuple:
-    """Trait of a requirement: the one of its sources when they agree, else its own tag (D-045)."""
+def requirement_trait(req: dict, source_traits: dict, voted: dict = None) -> tuple:
+    """Trait of a requirement: the one its votes chose (D-056); else the starting trait of its sources
+    when they agree; else its own tag (D-045)."""
+    if voted and req.get("id") in voted:
+        return voted[req["id"]], "votos"
     found = {source_traits[s] for s in req.get("sources", []) if s in source_traits}
     if len(found) == 1:
         return found.pop(), "fuente"
     return req.get("trait"), "requisito"
 
 
-def resolve(trait: str, nodes: list, rules: dict, sources=()) -> tuple:
-    """Importance of a requirement with this trait in a model whose classes are `nodes`.
+def up_the_tree(table: dict, key: str, node: str, prefix: str) -> tuple:
+    """The most specific entry `key@node` from the class up to its vertical: (value, rule id) or (None, None)."""
+    n = node
+    while n:
+        value = table.get(f"{key}@{n}")
+        if value:
+            return value, f"{prefix}:{key}@{n}"
+        n = parent(n)
+    return None, None
 
-    Framework first; then the global critical rule; then, from each class up the tree,
-    the most specific rule of the trait (the highest level across classes). Returns
-    (level, rule id), or (None, None) if no rule applies.
-    """
+
+def floor(trait: str, sources=()) -> tuple:
+    """What the framework fixes for a requirement, (level, rule id) or (None, None) (D-043, criteria 1 and 6)."""
     if any(s.startswith(TEXTILE_LAW) for s in sources):
         return TEXTILE_RULE
-    if trait in FIXED:
-        return FIXED[trait]
-    if trait in CRITICAL_TRAITS and rules.get("global", {}).get(trait) == "crítico":
-        return "crítico", f"imp:{trait}@*"
+    return FIXED.get(trait, (None, None))
+
+
+def resolve(trait: str, nodes: list, rules: dict, sources=(), req: str = None) -> tuple:
+    """Importance of a requirement in a model whose classes are `nodes` (D-045, D-055, D-058).
+
+    From each class up the tree: the exception of the requirement, if it has one (pass `req`);
+    otherwise the most specific rule of its trait. Across classes (pieces of a set), the highest.
+    The framework comes first: the measure that fixes what is sold is always critical; the
+    descriptive measure and the textile composition stay principal unless an exception makes
+    them critical. Returns (level, rule id), or (None, None) if no rule applies.
+    """
+    base = floor(trait, sources)
+    if trait == "medida-que-fija":
+        return base
     best = (None, None)
     for node in nodes:
-        n = node
-        while n:
-            level = rules.get("tree", {}).get(f"{trait}@{n}")
-            if level:
-                if rank(level) > rank(best[0]):
-                    best = (level, f"imp:{trait}@{n}")
-                break
-            n = parent(n)
+        found = up_the_tree(rules.get("requirements", {}), req, node, "imp") if req else (None, None)
+        if found[0] is None and base[0] is None:
+            found = up_the_tree(rules.get("tree", {}), trait, node, "imp")
+        if rank(found[0]) > rank(best[0]):
+            best = found
+    if base[0] and rank(base[0]) >= rank(best[0]):
+        return base
     return best
 
 

@@ -10,27 +10,57 @@
     "amazon-ptd:TOWEL@2026-10-24",
     "amazon-btg:3244784031@2026-10-24"
   ],
-  "version": "1",
+  "version": "2",
   "status": "compilado",
   "requirements": [
     {
       "id": "cat.toallas/01",
-      "question": "¿Qué tipo de toalla es por su uso y tamaño (lavabo, ducha, sábana de baño, bidé, pelo…) y qué medidas tiene (largo × ancho en cm)?",
+      "question": "¿Qué medidas tiene la toalla (largo × ancho en cm)?",
       "dimension": "tipo y medidas",
       "trait": "medida-que-fija",
       "entity": "producto",
       "importance": "crítico",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:TOWEL.towel_form_type",
         "amazon-ptd-prop:TOWEL.size",
-        "amazon-ptd-prop:TOWEL.item_length_width",
-        "amazon-ptd-prop:TOWEL.compliance_towel_end_use"
+        "amazon-ptd-prop:TOWEL.item_length_width"
       ],
       "applicability": "universal; por variante cuando la medida define las variantes",
-      "rationale": "En toallas el tamaño es lo que distingue qué se vende (de lavabo, de ducha, sábana de baño) y fija el precio; sin él la oferta no es evaluable. Une tres propiedades de Amazon que expresan la misma cuestión. Es el paralelo de cat.ropa-de-cama/01, que no está en la cadena de Toallas. Se suma compliance_towel_end_use (uso previsto). Criterio 1: es crítica porque las medidas de la toalla fijan la variante que se vende; por eso no sube a Ropa de casa con las medidas de ropa de cama (cat.ropa-de-cama/02, principal).",
+      "rationale": "En toallas el tamaño es lo que distingue qué se vende (de lavabo, de ducha, sábana de baño) y fija el precio; sin él la oferta no es evaluable. Une tres propiedades de Amazon que expresan la misma cuestión. Es el paralelo de cat.ropa-de-cama/01, que no está en la cadena de Toallas. Se suma compliance_towel_end_use (uso previsto). Criterio 1: es crítica porque las medidas de la toalla fijan la variante que se vende; por eso no sube a Ropa de casa con las medidas de ropa de cama (cat.ropa-de-cama/02, principal). Redacción con D-060 (T-031, regla 3): las medidas (medida que fija lo vendido) y el tipo por su uso (identidad) toman otro rasgo y otra importancia.",
       "seed_importance": "crítico",
-      "rule": "marco:D-043.1/medida-que-fija"
+      "rule": "marco:D-043.1/medida-que-fija",
+      "resolving_info": [
+        {
+          "contribution": "largo de la toalla",
+          "component": "largo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.item_length_width"
+          ]
+        },
+        {
+          "contribution": "ancho de la toalla",
+          "component": "ancho",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.item_length_width"
+          ]
+        },
+        {
+          "contribution": "tamaño nominal de la toalla",
+          "component": "largo y ancho",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.size"
+          ]
+        },
+        {
+          "contribution": "tabla de equivalencias entre tamaños nominales y medidas",
+          "component": "largo y ancho",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.toallas/03",
@@ -48,7 +78,32 @@
       "applicability": "universal",
       "rationale": "El tejido determina la textura, la absorción y el tiempo de secado. Une el atributo de Shopify con weave_type de Amazon, que solo tiene el valor Waffle. Se suma compliance_weave_type (calada, punto o ganchillo). Queda en el bloque (criterio 4 y D-040): towel-weave es atributo propio de esta categoría.",
       "seed_importance": "principal",
-      "rule": "imp:construccion@hg-15-4"
+      "rule": "imp:construccion@hg-15-4",
+      "resolving_info": [
+        {
+          "contribution": "tipo de tejido o estructura de la toalla",
+          "component": "tejido",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:towel-weave",
+            "amazon-ptd-prop:TOWEL.weave_type"
+          ]
+        },
+        {
+          "contribution": "técnica de formación del tejido",
+          "component": "tejido",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.compliance_weave_type"
+          ]
+        },
+        {
+          "contribution": "construcción del rizo, por una o por las dos caras",
+          "component": "tejido",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.toallas/04",
@@ -66,7 +121,39 @@
       "applicability": "universal",
       "rationale": "La absorción es la función de la toalla y un criterio habitual de comparación. Agrupa valores de special_feature.",
       "seed_importance": "principal",
-      "rule": "imp:prestacion@hg-15-4"
+      "rule": "imp:prestacion@hg-15-4",
+      "resolving_info": [
+        {
+          "contribution": "capacidad de absorción",
+          "component": "absorción",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Superabsorbente"
+          ]
+        },
+        {
+          "contribution": "rapidez de secado de la toalla",
+          "component": "secado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Secado rápido"
+          ]
+        },
+        {
+          "contribution": "transpirabilidad del tejido",
+          "component": "secado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Transpirable"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de absorción",
+          "component": "absorción",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.toallas/05",
@@ -84,7 +171,39 @@
       "applicability": "universal",
       "rationale": "Agrupa los valores de special_feature sobre el tacto; «zero twist» es un hilo sin torsión que cambia suavidad y absorción.",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@hg-15-4"
+      "rule": "imp:prestacion@hg-15-4",
+      "resolving_info": [
+        {
+          "contribution": "declaración de suavidad",
+          "component": "tacto",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Supersuave"
+          ]
+        },
+        {
+          "contribution": "finura del tejido o del hilo",
+          "component": "tacto",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Superfino"
+          ]
+        },
+        {
+          "contribution": "tipo de torsión del hilo",
+          "component": "tacto",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Zero twist"
+          ]
+        },
+        {
+          "contribution": "calidad o longitud de la fibra",
+          "component": "tacto",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.toallas/06",
@@ -103,7 +222,53 @@
       "applicability": "universal",
       "rationale": "Agrupa los valores de special_feature sobre higiene y piel. Queda en el bloque (criterio 4): la higiene no vale para todas las hijas de Ropa de casa (mantelería, ropa de cocina).",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@hg-15-4"
+      "rule": "imp:prestacion@hg-15-4",
+      "resolving_info": [
+        {
+          "contribution": "declaración de hipoalergenicidad",
+          "component": "pieles sensibles",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Hipoalergénico"
+          ]
+        },
+        {
+          "contribution": "declaración de aptitud para pieles sensibles",
+          "component": "pieles sensibles",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Apto para la piel"
+          ]
+        },
+        {
+          "contribution": "tratamiento antimicrobiano",
+          "component": "propiedades higiénicas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Antimicrobiano"
+          ]
+        },
+        {
+          "contribution": "resistencia a los olores",
+          "component": "propiedades higiénicas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Resistente a los olores"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo dermatológico",
+          "component": "pieles sensibles",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "certificado o informe de ensayo que respalde la propiedad higiénica",
+          "component": "propiedades higiénicas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.toallas/07",
@@ -130,7 +295,69 @@
       "applicability": "universal",
       "rationale": "Agrupa los valores de special_feature sobre durabilidad. «Resistente a ras» parece una traducción truncada (¿rasgaduras o enganchones?); se incluye aquí por su sentido probable. No sube a Ropa de casa (criterio 4 y D-040): Protectores para colchones y Manteles tienen la durabilidad como atributo propio de Shopify.",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@hg-15-4"
+      "rule": "imp:prestacion@hg-15-4",
+      "resolving_info": [
+        {
+          "contribution": "nivel de desprendimiento de pelusa",
+          "component": "resistencia al uso y al lavado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Baja pelusa",
+            "amazon-ptd-prop:TOWEL.special_feature=Sin pelusa"
+          ]
+        },
+        {
+          "contribution": "solidez del color frente al lavado, la lejía y el peróxido",
+          "component": "resistencia al lavado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Resistente a la decoloración",
+            "amazon-ptd-prop:TOWEL.special_feature=Resistente a la lejía",
+            "amazon-ptd-prop:TOWEL.special_feature=Antiperóxido de benzoilo"
+          ]
+        },
+        {
+          "contribution": "estabilidad dimensional al lavado",
+          "component": "resistencia al lavado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Resistente al encogimiento"
+          ]
+        },
+        {
+          "contribution": "resistencia al desgaste, al deshilachado y a los enganchones",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=De larga duración",
+            "amazon-ptd-prop:TOWEL.special_feature=Resistente al desgaste",
+            "amazon-ptd-prop:TOWEL.special_feature=Resistente al frisado",
+            "amazon-ptd-prop:TOWEL.special_feature=Resistente a ras"
+          ]
+        },
+        {
+          "contribution": "resistencia a las manchas",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Resistente a manchas"
+          ]
+        },
+        {
+          "contribution": "resistencia a las arrugas",
+          "component": "resistencia al lavado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Sin arrugas"
+          ]
+        },
+        {
+          "contribution": "resultado de ensayos de resistencia al lavado",
+          "component": "resistencia al lavado",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     },
     {
       "id": "cat.toallas/08",
@@ -148,7 +375,81 @@
       "applicability": "universal",
       "rationale": "Agrupa los valores de special_feature sobre confección y uso.",
       "seed_importance": "complementario",
-      "rule": "imp:construccion@hg-15-4"
+      "rule": "imp:construccion@hg-15-4",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si tiene anilla o cinta para colgar",
+          "component": "detalles de confección",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Anilla colgante"
+          ]
+        },
+        {
+          "contribution": "indicación de si tiene capucha",
+          "component": "detalles de confección",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Con capucha"
+          ]
+        },
+        {
+          "contribution": "indicación de si es reversible",
+          "component": "detalles de confección",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.special_feature=Reversible"
+          ]
+        },
+        {
+          "contribution": "acabado de los bordes y cenefa",
+          "component": "detalles de confección",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.toallas/09",
+      "question": "¿Qué tipo de toalla es por su uso (lavabo, ducha, sábana de baño, bidé, pelo, playa…)?",
+      "dimension": "tipo de toalla",
+      "trait": "identidad",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:TOWEL.towel_form_type",
+        "amazon-ptd-prop:TOWEL.compliance_towel_end_use"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.toallas/01 separada por la regla 3 de D-060 (T-031): las medidas (medida que fija lo vendido) y el tipo por su uso (identidad) toman otro rasgo y otra importancia.",
+      "seed_importance": "principal",
+      "rule": "imp:identidad@hg-15-4",
+      "vote": "principal",
+      "resolving_info": [
+        {
+          "contribution": "tipo de toalla según su forma y uso",
+          "component": "tipo de toalla por su uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.towel_form_type"
+          ]
+        },
+        {
+          "contribution": "ámbito de uso previsto",
+          "component": "tipo de toalla por su uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:TOWEL.compliance_towel_end_use"
+          ]
+        },
+        {
+          "contribution": "medidas de la toalla, de las que se deriva su tipo",
+          "component": "tipo de toalla por su uso",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
     }
   ],
   "excluded": [
@@ -241,5 +542,5 @@
       "reason": "Material de la superficie exterior a efectos de cumplimiento: lo cubre cat.ropa-de-casa/01 (composición), en la cadena."
     }
   ],
-  "compiled_by": "reglas 3"
+  "compiled_by": "reglas 6"
 }

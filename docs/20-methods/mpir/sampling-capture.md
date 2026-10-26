@@ -3,9 +3,9 @@ id: mpir-sampling-capture
 title: MPIR — diseño de la muestra y estrategia de captura
 layer: method
 status: propuesta
-version: 1.3
-updated: 2026-10-25
-sources: [MPIR §4, MPIR §5, INTAKE 2026-10-25-mpir-capture-engine]
+version: 1.4
+updated: 2026-10-26
+sources: [MPIR §4, MPIR §5, INTAKE 2026-10-25-mpir-capture-engine, INTAKE 2026-10-26-open-issues-resolution]
 ---
 
 # MPIR — diseño de la muestra y estrategia de captura
@@ -85,9 +85,9 @@ No se utilizará una única conversión a texto plano si destruye relaciones. Pa
 
 ### Contenido dinámico e interacción selectiva
 
-Si un bloque comercial de interés no figura en la respuesta inicial, podrá utilizarse un navegador automatizado (por ejemplo, Playwright) para obtener el DOM renderizado y, cuando resulte pertinente, abrir desplegables, selectores o comparadores. Se registra qué acciones se realizaron y qué estado del recurso quedó observado.
+Cada recurso se abre con un navegador real: el [motor de captura](../../../demand-engine/src/demand_engine/capture/README.md) guarda en una sola visita el HTML de la respuesta, el DOM renderizado y el MHTML. Cuando resulte pertinente, se abren desplegables, selectores o comparadores; se registra qué acciones se realizaron y qué estado del recurso quedó observado.
 
-El renderizado se empleará **selectivamente** para evitar coste y complejidad innecesarios. La presencia de JavaScript, por sí misma, no debe confundirse con una limitación metodológica ni con un incumplimiento técnico del ecommerce. ⚠ Ver [I-18](../../30-governance/issues.md#i-18)
+El renderizado se aplica **siempre**, no selectivamente: la incoherencia entre capas (peticiones con el user-agent de un navegador, navegadores sin interfaz) es lo que más bloqueos provoca, y con el volumen del piloto el coste es despreciable (`INTAKE 2026-10-25-mpir-capture-engine`, [D-042](../../30-governance/decisions.md#d-042), [D-073](../../30-governance/decisions.md#d-073)). La presencia de JavaScript, por sí misma, no debe confundirse con una limitación metodológica ni con un incumplimiento técnico del ecommerce.
 
 No se eludirán autenticaciones, controles de acceso, bloqueos ni medidas anti-bot. El rastreo respetará las políticas aplicables, las condiciones de uso y límites conservadores de solicitudes; si una fuente no puede inspeccionarse legítimamente, se documentará la limitación y se ajustará la muestra.
 

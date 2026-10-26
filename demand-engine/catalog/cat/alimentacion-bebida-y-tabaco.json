@@ -1,0 +1,67 @@
+{
+  "id": "cat.alimentacion-bebida-y-tabaco",
+  "type": "categoría",
+  "name": "Alimentación, bebida y tabaco",
+  "shopify": "fb",
+  "parent": null,
+  "refs": [
+    "shopify:fb@v2026-08",
+    "google:412@2021-09-21"
+  ],
+  "requirements": [
+    {
+      "id": "cat.alimentacion-bebida-y-tabaco/01",
+      "question": "¿Tiene certificación ecológica, de comercio justo u otra de sostenibilidad, y cuál?",
+      "dimension": "certificación ecológica o de sostenibilidad",
+      "entity": "producto",
+      "trait": "certificacion-origen",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:organic-certification"
+      ],
+      "applicability": "universal",
+      "rationale": "La certificación ecológica o de comercio justo distingue ofertas de alimentos y bebidas, aunque no es central en la mayoría de las clases. Los valores textiles (GOTS) no aplican a todo el sector, pero la dimensión sí.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:certificacion-origen@fb",
+      "resolving_info": [
+        {
+          "contribution": "certificación ecológica que acredita",
+          "component": "certificación ecológica",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:organic-certification"
+          ]
+        },
+        {
+          "contribution": "certificación de comercio justo",
+          "component": "de comercio justo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:organic-certification"
+          ]
+        },
+        {
+          "contribution": "otra certificación de sostenibilidad y su entidad certificadora",
+          "component": "otra de sostenibilidad",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:organic-certification"
+          ]
+        },
+        {
+          "contribution": "código del organismo de control o número de certificado",
+          "component": "cuál",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "status": "compilado",
+  "version": "2",
+  "generated": "2026-10-25",
+  "compiled_by": "reglas 6"
+}

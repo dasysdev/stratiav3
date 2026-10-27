@@ -116,7 +116,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-087](#d-087) | La regla 3 prevalece sobre la forma de sí o no con detalle | aceptada | 2026-10-26 |
 | [D-088](#d-088) | Una cuestión con fuente que el bloque ni pregunta ni excluye es una propuesta al bloque | aceptada | 2026-10-26 |
 | [D-089](#d-089) | Precio anterior y precio por unidad de medida en la capa general, con su norma | aceptada | 2026-10-26 |
-| [D-090](#d-090) | Derivar una prestación de un atributo no resuelve el requisito de la prestación | aceptada | 2026-10-27 |
+| [D-090](#d-090) | Derivar una prestación de un atributo no resuelve el requisito de la prestación | aceptada (enmendada por D-119) | 2026-10-27 |
 | [D-091](#d-091) | Un criterio de elección genera un requisito cuando cumple las condiciones C1–C4 | aceptada | 2026-10-27 |
 | [D-092](#d-092) | Los requisitos informativos llevan una descripción de tres partes | aceptada | 2026-10-27 |
 | [D-093](#d-093) | La descripción es prosa y no repite la información resolutiva | aceptada | 2026-10-27 |
@@ -130,7 +130,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-101](#d-101) | Confirmaciones y aportaciones de precisión que salen de PAA | aceptada | 2026-10-27 |
 | [D-102](#d-102) | Basta una pregunta para apoyar un candidato de PAA | aceptada | 2026-10-27 |
 | [D-103](#d-103) | Separación por dimensión en los atributos de lista | aceptada (precisada por D-109) | 2026-10-27 |
-| [D-104](#d-104) | Criterios de elección intermedios; PAA y la pertinencia de los AC, en propuesta | aceptada | 2026-10-27 |
+| [D-104](#d-104) | Criterios de elección intermedios; PAA y la pertinencia de los AC, en propuesta | aceptada (pertinencia de los AC adoptada por D-115) | 2026-10-27 |
 | [D-105](#d-105) | Tacto por tipo y rasgo «sensorial» | aceptada (precisada por D-110) | 2026-10-27 |
 | [D-106](#d-106) | Un requisito de certificación cubre la prestación cuya declaración recoge | aceptada (salvo dimensión: D-109) | 2026-10-27 |
 | [D-107](#d-107) | Requisitos repetidos en bloques hermanos: misma pregunta y misma descripción | aceptada | 2026-10-27 |
@@ -140,6 +140,21 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-111](#d-111) | Sujeción de la bajera, candidato PAA | sustituida por D-112 | 2026-10-27 |
 | [D-112](#d-112) | Sujeción de la bajera: cubierta | aceptada | 2026-10-27 |
 | [D-113](#d-113) | Piel en sábanas: cubierta | aceptada | 2026-10-27 |
+| [D-114](#d-114) | Entrenamiento propio de PAA: qué refina, sus límites y el piloto de medición | aceptada (clases del piloto: D-116) | 2026-10-27 |
+| [D-115](#d-115) | El entrenamiento de PAA escribe en el catálogo: cuatro papeles y un solo escritor por requisito | aceptada (papel 2 precisado por D-125) | 2026-10-27 |
+| [D-116](#d-116) | Clases del piloto de PAA: las de los 14 casos de referencia | aceptada | 2026-10-27 |
+| [D-117](#d-117) | Los criterios de aceptación se aplican siempre; NE es una incidencia | aceptada (NA de Comparabilidad: D-126) | 2026-10-27 |
+| [D-118](#d-118) | Comparabilidad: el contraste se exige cuando la respuesta es una dimensión de comparación de la clase | aceptada | 2026-10-27 |
+| [D-119](#d-119) | La prestación derivada de un atributo se decide en la pertinencia | aceptada | 2026-10-27 |
+| [D-120](#d-120) | Prueba de derivación: conclusión necesaria con reglas generales, descriptivas y citadas | aceptada | 2026-10-27 |
+| [D-121](#d-121) | Fiabilidad: nueva definición y lectura refutadora | aceptada | 2026-10-27 |
+| [D-122](#d-122) | Comprobaciones de corrección: tres familias, límites del conocimiento del dominio e identificador ausente | aceptada | 2026-10-27 |
+| [D-123](#d-123) | Se retira la propiedad P15 · Actualidad | aceptada | 2026-10-27 |
+| [D-124](#d-124) | Consistencia transversal: nueva dimensión de análisis por RI × par de ámbitos | aceptada | 2026-10-27 |
+| [D-125](#d-125) | Pistas de valoración: nombre, tres niveles y alcance | aceptada | 2026-10-27 |
+| [D-126](#d-126) | Marca de dimensión de comparación y NA de Comparabilidad | aceptada | 2026-10-27 |
+| [D-127](#d-127) | Quién escribe las pistas de valoración | aceptada | 2026-10-27 |
+| [D-128](#d-128) | Las pistas de valoración son criterios breves apoyados en las propiedades, no listas | aceptada | 2026-10-27 |
 
 ---
 
@@ -1508,7 +1523,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-090
 
-**Derivar una prestación de un atributo no resuelve el requisito de la prestación.** · aceptada · 2026-10-27
+**Derivar una prestación de un atributo no resuelve el requisito de la prestación.** · aceptada (enmendada por [D-119](#d-119): se decide en la pertinencia, no en la valoración de los AC) · 2026-10-27
 
 - **Contexto:** `INTAKE 2026-10-26-choice-criteria-and-descriptions` §1, a partir de las sondas de People Also Ask sobre el modelo de demanda de sábanas Coralina. Palabras del usuario: «derivar frescura de «percal 100 % algodón» no es aceptable. Demasiado nivel de derivación. pero eso ya es tarea de la valoración de criterios de aceptación. pero para ello sí necesitamos requisitos informativos para hacer esa evaluación».
 - **Decisión:**
@@ -1707,7 +1722,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 - **Decisión:**
   - Un criterio intermedio («material», «calidad») queda cubierto y se descompone en las prestaciones. El «material» lo cubre la composición en cuanto a qué material es (funciones Comprender y Comparar); en cuanto a si es mejor, se descompone en las prestaciones (función Evaluar): nivel térmico, arrugas, duración y resistencia, humedad, tacto y piel. Deducir esas prestaciones del material es lo que [D-090](#d-090) no admite.
   - Una pregunta genérica («¿es bueno el lino?») no nombra ninguna prestación: apoya la composición, no a una prestación concreta, y no cuenta para las pruebas de [D-103](#d-103). Solo apoya una prestación la pregunta que la nombra.
-  - **Propuesta, sin decidir:** PAA como prueba de qué criterios de aceptación son pertinentes para un requisito (Comparabilidad, Precisión, Fiabilidad para la composición; Comparabilidad para el precio). Sería un uso nuevo de PAA, no de importancia.
+  - **Propuesta, sin decidir:** PAA como prueba de qué criterios de aceptación son pertinentes para un requisito (Comparabilidad, Precisión, Fiabilidad para la composición; Comparabilidad para el precio). Sería un uso nuevo de PAA, no de importancia. (Adoptada por [D-115](#d-115): el entrenamiento de PAA escribe reglas de AC por requisito.)
 - **Interpretación adoptada:** el artefacto presenta la pertinencia de los AC como propuesta; se registra como cuestión abierta y no cambia [acceptance-criteria](../10-model/acceptance-criteria.md).
 - **Consecuencias:** [choice-criteria](../10-model/choice-criteria.md) 1.3; glosario (Criterio de elección intermedio); nueva [OQ-59](open-questions.md); reglamento del agente.
 - **Relacionado:** D-090, D-091, D-094, D-103, OQ-59.
@@ -1820,3 +1835,248 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - La partición de `cat.fundas-de-almohada/04` por tema sigue vigente.
 - **Consecuencias:** revisa D-108 (piel) y D-109 (ejemplo). El reglamento PAA v3 ya lo aplica así.
 - **Relacionado:** D-104, D-106, D-108, D-109.
+
+### D-114
+
+**Entrenamiento propio de PAA: qué refina, sus límites y el piloto de medición.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-training` (T-042). La regla de semillas y las reglas de lectura de las preguntas ([D-100](#d-100) a [D-113](#d-113)) salen de una sola clase, sábanas. El usuario quiere que PAA se refine con datos de otras clases.
+- **Decisión:**
+  - PAA tiene un entrenamiento propio, independiente del de taxo ([model-training](../10-model/model-training.md)), con pasadas solo de PAA, «para que se autorefine en reglas, criterios, definición de semillas» (palabras del usuario).
+  - Refina solo tres cosas: la estrategia de semillas, el vocabulario de criterios de elección (como el de rasgos, [D-056](#d-056)) y la calibración de reglas.
+  - Calibrar una regla es ajustar sus parámetros dentro de las reglas vigentes (p. ej., cuántas preguntas o materiales exige la prueba (a) de [D-103](#d-103)), validado contra los casos de control de PAA y con informe.
+  - Crear o retirar reglas sigue siendo decisión del usuario. Nada se acepta si empeora una métrica frente al control. El número de candidatos no es objetivo.
+  - Empieza por un piloto de medición con 3-4 clases muy distintas, de las ya ejecutadas, sin inducción: mide qué varía entre clases (semillas, clics, criterios y dudas). Cada conjunto se clasifica una vez, sin doble pasada de estabilidad, con la versión del catálogo anotada. Lo esperado de los casos de control de PAA lo decide el usuario, con sábanas entre ellos. (Enmendada por [D-116](#d-116): las clases del piloto son las de los 14 casos de referencia.)
+  - Riesgos: el volumen de búsquedas en Google (primer bloqueo probable, [D-096](#d-096)), el sobreajuste a sábanas y la dependencia de la versión del catálogo. Coste orientativo por clase: ~10 búsquedas (~5 min) y 0,7-1,3 M tokens, casi todo caché.
+- **Interpretación adoptada:**
+  - Los límites los propuso Claude «a confirmar en el intake»; el update los da por confirmados y se incorporan como vigentes.
+  - La nota de la tarea compara el número de candidatos con D-076, que trata de las opiniones publicadas. El paralelo es [D-059](#d-059) («críticos pocos» no es un objetivo); se enlaza esa.
+  - Las métricas del entrenamiento de PAA no están definidas: se abre [OQ-64](open-questions.md).
+- **Consecuencias:** nuevo módulo [paa-training](../10-model/paa-training.md) 1.0; [construction-routes](../10-model/construction-routes.md) 1.3; [model-training](../10-model/model-training.md) 1.17 (enlace); glosario (Entrenamiento de PAA); nueva OQ-64. El piloto es T-042.
+- **Relacionado:** D-056, D-059, D-094, D-096, D-100–D-113, D-115.
+
+### D-115
+
+**El entrenamiento de PAA escribe en el catálogo: cuatro papeles y un solo escritor por requisito.** · aceptada (papel 2 precisado por [D-125](#d-125): las «reglas de AC» son las pistas de valoración) · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-training` (segunda nota de T-042, que sustituye a la primera en esto). La propuesta inicial era que PAA no escribiera el catálogo, para mantener un solo escritor. El usuario lo corrigió: PAA ha de «aportar nuevos requisitos, aportar reglas para AC de un requisito constituido y confirmar requisitos inferidos. […] Si es así no habría conflicto».
+- **Decisión:** el entrenamiento de PAA modifica el catálogo con cuatro papeles, todos aditivos o sobre lo que es de PAA:
+  1. requisitos nuevos, con id propio y origen «paa» ([D-097](#d-097), [D-099](#d-099));
+  2. reglas de AC por requisito, un artefacto nuevo;
+  3. confirmar o revisar las cuestiones inferidas ([D-094](#d-094)), p. ej. `inf/01` con los dos polos ([D-108](#d-108));
+  4. aportaciones aditivas de precisión y de sustento a requisitos existentes ([D-101](#d-101)).
+
+  Las revisiones estructurales de requisitos que nacen de las referencias (separar, sacar, partir) entran a la compilación de taxo: PAA deja un registro que lee el próximo entrenamiento de taxo, que las reevalúa al compilar. Un solo escritor por requisito.
+- **Interpretación adoptada:**
+  - «Reglas para AC» se lee como reglas de pertinencia de los criterios de aceptación de un requisito, el uso que proponía D-104 ([acceptance-criteria](../10-model/acceptance-criteria.md), reglas 5 y 6). No puntúan, no ponderan ni fijan umbrales: no cambian el GSC ni las invariantes 4 y 7. Su contenido y formato quedan en [OQ-61](open-questions.md).
+  - «Requisito constituido» es uno que ya está en el catálogo, de cualquier origen.
+  - Los requisitos de origen «normativa» siguen la regla de los de «referencias»: los escribe taxo.
+  - El artefacto no dice por cuál de los dos entrenamientos entran los candidatos ya decididos de sábanas ([D-108](#d-108)). Como son requisitos «paa» (papel 1), entran por el de PAA.
+  - Cierra el fondo de [OQ-58](open-questions.md) (quién escribe lo que propone PAA: su entrenamiento) y de [OQ-59](open-questions.md) (PAA sí prueba la pertinencia de los AC). Lo que dejaban sin resolver pasa a OQ-61, [OQ-62](open-questions.md) (paso de aceptación, estado y formato de la fuente) y [OQ-63](open-questions.md) (formato del registro).
+- **Consecuencias:** cierra OQ-58 y OQ-59; nuevas OQ-61 a OQ-63. [paa-training](../10-model/paa-training.md) 1.0; [construction-routes](../10-model/construction-routes.md) 1.3; [choice-criteria](../10-model/choice-criteria.md) 1.6 (pendiente); glosario (Reglas de AC de un requisito; Registro de revisiones de PAA). [choice-criteria](../10-model/choice-criteria.md) recoge la entrada de los candidatos de sábanas.
+- **Relacionado:** D-094, D-097, D-099, D-101, D-103, D-104, D-108, D-114, OQ-58, OQ-59.
+
+### D-116
+
+**Clases del piloto de PAA: las de los 14 casos de referencia.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-pilot-classes` (T-042). [D-114](#d-114) fijaba un piloto con 3-4 clases muy distintas, de las ya ejecutadas. Claude propuso botas, comida para perros y sofás cama, con juguetes para perros como cuarta.
+- **Decisión:** «usaremos los 14 casos de referencia» (palabras del usuario). El piloto de medición del entrenamiento de PAA se hace con las clases de los 14 casos del conjunto de control del entrenamiento del modelo de demanda ([D-045](#d-045)).
+- **Interpretación adoptada:**
+  - Un conjunto de semillas por clase distinta, no por caso, porque las semillas salen de la clave del modelo. Los dos juegos de funda nórdica comparten clave, y la manta y el plaid también: son 12 clases, sábanas incluida.
+  - El artefacto no dice si los casos de control de PAA cubren las 12 clases o un subconjunto: se mantiene lo de D-114 (lo esperado lo decide el usuario, con sábanas entre ellos).
+  - El resto de D-114 no cambia. El volumen sube a unas 120 búsquedas (12 × ~10, estimación) y el riesgo de bloqueo con él.
+- **Consecuencias:** enmienda D-114. [paa-training](../10-model/paa-training.md) 1.1; glosario (Entrenamiento de PAA).
+- **Relacionado:** D-045, D-096, D-114.
+
+### D-117
+
+**Los criterios de aceptación se aplican siempre; NE es una incidencia.** · aceptada (la excepción pendiente, el NA de Comparabilidad, la decide [D-126](#d-126)) · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-ac-applicability-and-reliability` §1. El usuario dudaba de que un criterio pudiera ser NA o NE: «Los criterios siempre se evalúan y aplican. Confirmémoslo.» Tras el análisis de Claude (solo Comparabilidad podía ser NA; solo Fiabilidad tenía NE estructural): «No hay NA, NE es una incidencia. NA de comparabilidad aún no podemos decidir (depende de esta sesión).»
+- **Decisión:**
+  - Con disponibilidad efectiva 1, los seis criterios se aplican y se valoran siempre. No hay NA de criterio.
+  - Excepción pendiente: el NA de Comparabilidad, que se decide con las reglas de AC por requisito ([OQ-65](open-questions.md)).
+  - **NE es una incidencia de la auditoría** en cualquiera de los seis criterios: queda fuera de la escala (NE ≠ 0) y se registra qué comprobación falló. Deja de absorber el caso «nada confirma ni refuta el dato» en Fiabilidad ([D-121](#d-121)).
+  - El NA del requisito se mantiene.
+- **Interpretación adoptada:**
+  - Enmienda BASE §6.1 y FUND §8.1 en cuanto al criterio «no aplicable» y a la situación «no evaluable», y el ejemplo de FUND §10.1. En ese ejemplo, la Comparabilidad NA se conserva mientras OQ-65 siga abierta; la Fiabilidad NE se sustituye.
+  - «Incidencia» se lee como la imposibilidad de hacer una comprobación (un recurso que no se pudo inspeccionar, un registro externo que no respondió), paralela a la comprobación inconclusa de la disponibilidad (analogía de Claude en el análisis previo). No es falta de evidencia sobre lo publicado: esa se resuelve con el grado.
+  - El NA del requisito (un requisito condicionado que no se activa, o un RI que no corresponde a un ámbito, FUND §3.5) es otro estado. Claude lo dio por mantenido y el usuario no lo objetó.
+- **Consecuencias:** [scoring-systems](../10-model/scoring-systems.md#grado-de-satisfacción-de-criterio-gsc) 1.2; [acceptance-criteria](../10-model/acceptance-criteria.md) 1.2; gsc-decision 0.2, ac-guides 0.2, calibration, evidence, qa, execution, inputs-outputs, availability-coverage, dossier y README (auditoría); paa-training (nota sobre las reglas de AC); glosario (NA, NE, Árbol de decisión GSC); `CLAUDE.md` raíz (invariante 4); OQ-21 anotada; nueva OQ-65.
+- **Relacionado:** D-006, D-118, D-121, OQ-21, OQ-65.
+
+### D-118
+
+**Comparabilidad: el contraste se exige cuando la respuesta es una dimensión de comparación de la clase.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-ac-applicability-and-reliability` §1. Problema planteado por Claude: un RI que trata de una sola oferta, ¿requiere contraste? Usuario: «es como propones».
+- **Decisión:** el contraste se exige cuando la respuesta es una **dimensión por la que se comparan las ofertas de la clase** (gramaje, composición, precio…). Entonces Comparabilidad evalúa si se expresa sobre bases contrastables (unidad, denominación normalizada, escala oficial), aunque el RI trate de una sola oferta. Las preguntas comparativas de PAA son evidencia de que una dimensión es de comparación ([D-104](#d-104)).
+- **Interpretación adoptada:** precisa la regla 6 de los criterios de aceptación («se evalúa cuando la cuestión requiere contraste»): no hace falta que el RI pida comparar varias ofertas. Qué corresponde cuando la respuesta no es una dimensión de comparación queda en [OQ-65](open-questions.md).
+- **Consecuencias:** [acceptance-criteria](../10-model/acceptance-criteria.md#reglas-e-invariantes) 1.2 (regla 6); ac-guides (Comparabilidad); glosario (Comparabilidad).
+- **Relacionado:** D-104, D-117, OQ-65.
+
+### D-119
+
+**La prestación derivada de un atributo se decide en la pertinencia.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-ac-applicability-and-reliability` §2. Claude planteó dos sitios para lo que dictamina [D-090](#d-090): la pertinencia (A) o la valoración de los AC (B), con sus consecuencias. Usuario: «A. El recomendado.»
+- **Decisión:**
+  - Un atributo (tejido, material, composición) **por sí solo** no es información pertinente para un requisito sobre una prestación: solo aporta una tendencia, no un vínculo fundado. Sin nada más, la disponibilidad efectiva es 0, el IR es 0 y no se valoran los AC. La recomendación es declarar la prestación.
+  - Si la ficha declara la prestación («percal, fresca para verano»), el atributo puede acompañarla como contexto.
+  - Lo dictamina la **pertinencia** en la auditoría, no la valoración de los AC. Sigue en pie que no lo dictamina el modelo de demanda y que el requisito de la prestación tiene que existir en el modelo.
+- **Interpretación adoptada:**
+  - Enmienda D-090. Sus palabras originales («eso ya es tarea de la valoración de criterios de aceptación») se leen, como dice el artefacto, «es tarea de la auditoría, no del modelo de demanda».
+  - Lo pertinente pero insuficiente es el mismo hecho con menos detalle o con otro alcance; lo no pertinente es otro hecho que solo se correlaciona. Es lo que el canon ya hacía con «producto muy vendido» frente a la disponibilidad (PF-07, GSC0 §6.5) y encaja con la regla 6 de la información resolutiva, con CT-08 y con la invariante 10.
+  - Cuándo una derivación desde otro hecho es admisible lo fija [D-120](#d-120).
+- **Consecuencias:** enmienda D-090; [effective-availability](../10-model/effective-availability.md#pertinencia-de-lo-derivado) 1.1; [acceptance-criteria](../10-model/acceptance-criteria.md#interpretación) 1.2; [choice-criteria](../10-model/choice-criteria.md#prestación-derivada-de-un-atributo) 1.7; relevance (PF-03); glosario (Prestación derivada de un atributo).
+- **Relacionado:** D-090, D-120, OQ-56.
+
+### D-120
+
+**Prueba de derivación: conclusión necesaria con reglas generales, descriptivas y citadas.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-ac-applicability-and-reliability` §3. Claude propuso como frontera de [OQ-56](open-questions.md) «¿podría ser falsa la conclusión aunque todo lo publicado sea verdad?». Al repasarla con casos, propuso precisarla y descartar una condición previa («interpreta o combina, no aporta»). Usuario: «sí».
+- **Decisión:**
+  > Una derivación se admite si su conclusión **no puede ser falsa cuando lo publicado es verdad**, aplicando reglas:
+  > - **generales:** valen para cualquier oferta (definiciones, lógica, aritmética, hechos generales del mundo). Un hecho particular del producto tomado de fuera (un registro, la web del fabricante, lo que el auditor sepa del modelo) no es una regla y solo sirve para contrastar.
+  > - **descriptivas:** dicen qué son las cosas. Una norma solo cuenta para fijar el significado de un término («seda», qué exige GOTS), no para dar por hecho que la oferta cumple lo que obliga: la ley dice lo que debe ser, no lo que la oferta es.
+  > - **citadas con su fuente y sin contrafuente:** si una fuente admisible o la realidad documentada del mercado la contradice, la regla no es necesaria.
+  >
+  > Si la información trata la misma cuestión, aunque sea con menos detalle, en general o con otro alcance, no hay derivación: es pertinente y la juzgan los AC.
+- **Interpretación adoptada:**
+  - Sirve a tres usos: la pertinencia ([D-119](#d-119)), las derivaciones de los AC (regla 7, Concreción) y la refutación por conocimiento del dominio en Fiabilidad ([D-122](#d-122)), que usa solo la parte de necesidad.
+  - No cuenta pasos ni es una escala de grado de derivación: respeta la regla 7, la invariante 9 y [D-006](#d-006).
+  - «Hecho particular tomado de fuera» concreta CT-08 y GSC0 §2.3: las referencias externas contrastan, no completan.
+  - La condición descartada excluía un «no» fundado sobre otra cuestión («100 % lana» → «¿apto para veganos?» → «no»), contra la invariante 13, y obligaba a juzgar si la publicación «trata» la cuestión, que es un juicio de proximidad temática (invariante 10).
+- **Consecuencias:** cierra OQ-56; [effective-availability](../10-model/effective-availability.md#pertinencia-de-lo-derivado) 1.1; [acceptance-criteria](../10-model/acceptance-criteria.md#reglas-e-invariantes) 1.2 (regla 7); [choice-criteria](../10-model/choice-criteria.md) 1.7 (pendiente); relevance (PF-03); calibration (matriz); glosario (Prueba de derivación); `CLAUDE.md` raíz (invariante 9).
+- **Relacionado:** D-006, D-090, D-119, D-122, OQ-56.
+
+### D-121
+
+**Fiabilidad: nueva definición y lectura refutadora.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-ac-applicability-and-reliability` §4. Usuario: «Para la propiedad de corrección: hay que establecer cómo se evalúa (conocimiento del modelo, estructura del dato, hay que profundizar). Actualidad (quita esta propiedad, no hay forma de evaluarla).» Claude planteó una lectura refutadora (G1) y una corroboradora (G2). Usuario: «1. sí, G1. 2. sí. 3. elige tú. 4. sí. 5. sí.», respuesta numerada a las cinco propuestas de Claude en la sesión (1, lectura de Fiabilidad; 2, límites del conocimiento del dominio; 3, identificador ausente; 4, definición; 5, forma de la consistencia transversal). El artefacto cita la respuesta sin esa correspondencia, que se registra aquí.
+- **Decisión:**
+  - Definición de Fiabilidad, que sustituye a la de BASE §5.2: «La información supera las comprobaciones de corrección y consistencia proporcionadas a su naturaleza: no se acreditan errores ni contradicciones materiales.»
+  - Lectura refutadora: **2**, supera las comprobaciones que tocan a ese tipo de dato; **1**, hay un defecto no material, o uno que afecta solo a parte de lo examinado; **0**, hay un defecto material.
+  - El registro enumera las comprobaciones hechas y el resultado dice «sin defectos detectados en…», nunca «exacto».
+  - Un dato que nada refuta ni confirma recibe el grado que corresponda a las comprobaciones superadas, no NE ([D-117](#d-117)).
+- **Interpretación adoptada:**
+  - Compatible con [D-006](#d-006) («no inferir verdad de la ausencia de contradicciones») y con la invariante 12: el 2 afirma que se superaron las comprobaciones, no que el dato sea verdadero.
+  - Se descartó la lectura corroboradora porque trataba la ausencia de corroboración como limitación (invariante 12), funcionaba como un tope (invariante 7) y castigaba al ecommerce por que no exista registro para un tipo de dato. Consecuencia asumida: Fiabilidad discrimina cuando hay defectos; la mayoría de los datos estables sin defectos obtendrán 2.
+  - La lectura es canon; los anclajes de la guía de la auditoría la desarrollan (propuesta V1).
+- **Consecuencias:** [acceptance-criteria](../10-model/acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones) 1.2; ac-guides 0.2; gsc-decision 0.2; calibration (casos A y J); qa; glosario (Fiabilidad); OQ-25 cerrada.
+- **Relacionado:** D-006, D-117, D-122, D-123.
+
+### D-122
+
+**Comprobaciones de corrección: tres familias, límites del conocimiento del dominio e identificador ausente.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-ac-applicability-and-reliability` §4. Usuario: «conocimiento del modelo, estructura del dato, hay que profundizar». Sobre las propuestas de Claude: «2. sí» (límites del conocimiento del dominio) y «3. elige tú» (identificador ausente); la correspondencia de la numeración está en [D-121](#d-121).
+- **Decisión:**
+  - Tres familias de comprobación: **estructura del dato** (las reglas que el dato lleva consigo; refuta con certeza), **conocimiento del dominio** (reglas generales; solo refuta) y **fuente independiente** (hechos particulares en registros públicos; refuta o corrobora, solo en algunos tipos de dato).
+  - Límites del conocimiento del dominio: solo refuta; un dato es defecto solo si **no puede** ser verdad según una regla general y descriptiva, citada con su fuente y sin contrafuente (la parte de necesidad de [D-120](#d-120)); si solo es improbable, es una sospecha, que se anota y no gradúa; regla citada con su fuente (M10).
+  - Cuando existe una fuente independiente para un tipo de dato (certificaciones, clase energética, GTIN), consultarla forma parte de las comprobaciones que le tocan.
+  - **Identificador ausente:** si el ecommerce no da el identificador que permitiría la comprobación externa (p. ej., el número de certificado), cuenta en Justificación (P18), no en Fiabilidad.
+  - Frontera con la evaluación técnica: una sintaxis inválida es técnica; una sintaxis válida con un valor imposible es Fiabilidad.
+  - **Consistencia por ámbito:** dentro de las representaciones de cada ámbito, y cuenta en su GSC de Fiabilidad.
+- **Interpretación adoptada:**
+  - «Conocimiento del modelo» se lee, como dice el artefacto, como el del modelo de IA que audita.
+  - El identificador ausente lo decidió Claude por delegación del usuario: con la lectura refutadora, Fiabilidad gradúa los defectos que encuentran las comprobaciones, y la falta del identificador no es un error de corrección, sino la falta de una base para verificar. Así no se cuenta dos veces (EV-13).
+  - Las reglas generales son el conocimiento del dominio y los hechos particulares, la fuente independiente: la misma distinción que separa derivación de contraste en D-120.
+  - Qué comprobaciones tocan a cada tipo de dato y qué reglas del dominio guarda el modelo de demanda quedan en [OQ-66](open-questions.md).
+- **Consecuencias:** [acceptance-criteria](../10-model/acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones) 1.2; [quality-properties](../10-model/quality-properties.md#asociaciones-orientativas-con-los-criterios) 1.3; ac-guides 0.2; property-checks 0.2 (P14, P18 y tabla de relaciones); evidence 0.2 (EV-14, tabla por tipo, alcance de las referencias externas); nueva OQ-66.
+- **Relacionado:** D-120, D-121, D-123, OQ-66.
+
+### D-123
+
+**Se retira la propiedad P15 · Actualidad.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-ac-applicability-and-reliability` §5. Usuario: «Actualidad (quita esta propiedad, no hay forma de evaluarla)».
+- **Decisión:**
+  - P15 · Actualidad se retira del catálogo de propiedades. El ID no se reutiliza, como los retirados en [D-007](#d-007).
+  - Fiabilidad ya no juzga la actualidad ([D-121](#d-121)). Sus asociaciones orientativas son P14 y P16; P18 sale de Fiabilidad y queda en Justificación ([D-122](#d-122)).
+- **Interpretación adoptada:**
+  - Lo detectable sigue cubierto por otras vías: una fecha de validez vencida en la captura (estructura del dato), un feed desfasado frente a la web (consistencia transversal, [D-124](#d-124)) y «Agotado» visible con `InStock` en el marcado (consistencia dentro de Web). Lo que se pierde es juzgar si un dato sin fecha está al día, que ya no era evaluable (EV-10).
+  - Enmienda BASE §5.3 y FUND §7 en el catálogo de propiedades. La regla EV-10 de la auditoría se reformula en ese sentido.
+- **Consecuencias:** [quality-properties](../10-model/quality-properties.md) 1.3; [commercial-information](../10-model/commercial-information.md#dos-dimensiones-de-evaluación) 1.1 (nota sobre la vigencia de CTX §3); [acceptance-criteria](../10-model/acceptance-criteria.md#distinciones) 1.2; property-checks 0.2; evidence 0.2 (EV-10, EV-14 y tabla por tipo); ac-guides 0.2; glosario (Propiedades de calidad, P14–P18); `CLAUDE.md` raíz (invariante 5); OQ-25 cerrada.
+- **Relacionado:** D-007, D-121, D-122, D-124.
+
+### D-124
+
+**Consistencia transversal: nueva dimensión de análisis por RI × par de ámbitos.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-ac-applicability-and-reliability` §6. Usuario: la consistencia «se puede evaluar para cada ámbito y a nivel transversal adquiere una nueva dimensión de análisis». Claude planteó dos formas (T1, hallazgos sin escala; T2, estado cualitativo por RI). Usuario: «sí» a T1.
+- **Decisión:**
+  - **Unidad:** RI × par de ámbitos, distinta de la valoración RI × ámbito.
+  - **Forma: hallazgos sin escala.** Por RI y par de ámbitos: hecho, valores, momento, materialidad, y si la diferencia es legítima (p. ej., un precio propio de un canal, declarado). Una diferencia legítima y declarada no es incoherencia.
+  - **No modifica el GSC de ningún ámbito ni se agrega.**
+  - **Pares:** Catálogos distribuidos ↔ Web; Catálogos distribuidos ↔ Web Schema.org; HTML ↔ Web Schema.org; entre perfiles de Catálogos distribuidos.
+  - **Condiciones de operación:** captura de los ámbitos en un momento comparable; identidad de la entidad entre ámbitos; acceso al feed.
+  - Un estado cualitativo por RI (T2) queda para más adelante.
+- **Interpretación adoptada:**
+  - Es una dimensión de análisis, no un indicador ni una escala. No altera las invariantes 1 y 2: la valoración sigue siendo RI × ámbito y Web y Web Schema.org no se agregan.
+  - Es coherente con el caso H (FUND §10.4): el contraste entre HTML y marcado sigue siendo evidencia de la coherencia de Web y no completa Web Schema.org; además se registra como hallazgo transversal (el mismo hallazgo, reutilizado, EV-13).
+  - Su canon va con la complementariedad y coherencia entre representaciones, en el módulo de los ámbitos.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#consistencia-transversal) 1.1; [scoring-systems](../10-model/scoring-systems.md#lectura-integrada-sin-confundir-unidades) 1.2; calibration (caso H, matriz); glosario (Consistencia transversal); `CLAUDE.md` raíz (invariante 2); nueva OQ-67.
+- **Relacionado:** D-010, D-122, D-123, OQ-67.
+
+### D-125
+
+**Pistas de valoración: nombre, tres niveles y alcance.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-assessment-hints` §1–2, continuación de [D-117](#d-117) a [D-124](#d-124). El encargo era «un marco general y luego cada requisito fija algún matiz para orientar la evaluación». Claude probó la hipótesis de tres niveles con nueve requisitos del catálogo que aplican a unas sábanas. Usuario: «todo es OK» y «a esto le vamos a llamar "pistas de valoración"».
+- **Decisión:**
+  - Las **pistas de valoración** son lo que cada requisito fija para orientar la valoración de sus criterios de aceptación. Sustituyen a las «reglas de AC de un requisito» de [D-115](#d-115).
+  - **Tres niveles:** marco general para todos los AC; tipo de requisito (rasgo × entidad) para Aplicabilidad y Fiabilidad; requisito para Precisión y Comparabilidad. Concreción y Justificación no necesitan pistas nuevas.
+  - **Alcance:** las pistas dicen qué mirar, no cuánto pesa cada criterio; el peso es de la síntesis del IR (OQ-28).
+- **Interpretación adoptada:**
+  - Precisa el papel 2 de D-115: su lectura «reglas de pertinencia de los AC» queda sustituida. Con los seis criterios aplicados siempre (D-117), la pertinencia se reduce a la marca de dimensión de comparación ([D-126](#d-126)).
+  - La consistencia entre requisitos del mismo ámbito que mostró la prueba es consistencia por ámbito (P16, [D-122](#d-122)) y sale del tipo; no es un concepto nuevo.
+  - Canon en un módulo nuevo, porque el concepto sirve al modelo de demanda (lo escribe el entrenamiento) y a la auditoría (orienta los AC).
+- **Consecuencias:** nuevo módulo [assessment-hints](../10-model/assessment-hints.md) 1.0; [acceptance-criteria](../10-model/acceptance-criteria.md) 1.3; [paa-training](../10-model/paa-training.md) 1.3; [construction-routes](../10-model/construction-routes.md) y [choice-criteria](../10-model/choice-criteria.md) (pendientes); [demand-model](../10-model/demand-model.md) 3.1 y [model-training](../10-model/model-training.md) 1.18 (enlaces); glosario (Pistas de valoración, que sustituye a Reglas de AC de un requisito); índice; OQ-61 cerrada; nueva OQ-68.
+- **Relacionado:** D-104, D-115, D-117, D-122, D-126, D-127, D-128, OQ-28, OQ-61, OQ-68.
+
+### D-126
+
+**Marca de dimensión de comparación y NA de Comparabilidad.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-assessment-hints` §3; [OQ-65](open-questions.md). Usuario: «sí» a «marcamos "no se compara" en los requisitos que no se usan para comparar».
+- **Decisión:**
+  - El requisito lleva una **marca de dimensión de comparación** (sí / no) en el modelo de demanda. Si no lo es, **Comparabilidad es NA** en ese requisito. Lo decide el modelo, no el auditor.
+  - Ejemplos que no son dimensiones de comparación: tamaño de cama (un filtro), variantes disponibles, garantía legal (la misma para todos), identificadores (emparejan ofertas, no las comparan).
+- **Interpretación adoptada:**
+  - Cierra la excepción que [D-117](#d-117) dejaba pendiente: es la única excepción a la aplicación de los seis criterios. Precisa [D-118](#d-118): la marca registra si la respuesta es una dimensión de comparación de la clase.
+  - Motivo, del artefacto: valorar Comparabilidad en esos requisitos daría un 2 automático o repetiría lo que ya mira Precisión.
+  - Cómo se fija la marca (valor por defecto y qué prueba la establece) queda en [OQ-69](open-questions.md).
+- **Consecuencias:** cierra OQ-65; [assessment-hints](../10-model/assessment-hints.md) 1.0; [acceptance-criteria](../10-model/acceptance-criteria.md) 1.3; [scoring-systems](../10-model/scoring-systems.md) 1.3; gsc-decision, ac-guides, calibration, qa y execution (auditoría); glosario (NA, Comparabilidad, Marca de dimensión de comparación); `CLAUDE.md` raíz (invariante 4); nueva OQ-69.
+- **Relacionado:** D-104, D-117, D-118, D-125, OQ-65, OQ-69.
+
+### D-127
+
+**Quién escribe las pistas de valoración.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-assessment-hints` §4: «sí» a «taxo y PAA escriben las pistas». Antes, en `INTAKE 2026-10-27-ac-applicability-and-reliability` §7: «los matices de AC por requisito no solo dependen de PAA. Taxo también puede calibrarlos».
+- **Decisión:**
+  - **Pistas por tipo:** una tabla de reglas por rasgo × entidad, como la de importancia, que compila el entrenamiento.
+  - **Pistas por requisito:** las escriben taxo (desde las referencias, la normativa que es fuente del requisito y la justificación del requisito) y PAA (desde sus preguntas).
+  - Cada pista lleva su **origen**. Las pistas **se suman y nunca se quitan**.
+- **Interpretación adoptada:** no choca con «un solo escritor por requisito» ([D-115](#d-115)): esa regla protege la estructura del requisito (separar, partir, sacar). La información resolutiva ya admite aportaciones de varios orígenes y PAA ya añade aportaciones aditivas (papel 4).
+- **Consecuencias:** [assessment-hints](../10-model/assessment-hints.md) 1.0; [paa-training](../10-model/paa-training.md) 1.3; OQ-61 cerrada (escritores); OQ-66 anotada (la tabla por tipo).
+- **Relacionado:** D-055, D-101, D-115, D-125, OQ-61, OQ-66.
+
+### D-128
+
+**Las pistas de valoración son criterios breves apoyados en las propiedades, no listas.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-assessment-hints` §5–6. Usuario: «aunque sean matices por requisito debemos intentar siempre trabajar con reglas y/o criterios, no deben ser comparaciones deterministas. Esto no sería una práctica correcta: "una lista de vocabulario admitido"»; «lo único es evitar ser demasiado verboso. Las pistas deben ser breves pero suficientemente claras»; «¿Estás teniendo en cuenta que para valorar los AC lo que se estudia son las propiedades de calidad, verdad?» y «sí» a que cada pista nombre la propiedad y los AC.
+- **Decisión:**
+  - Una pista es un criterio que el auditor aplica razonando, no una lista contra la que se compara palabra por palabra. Es breve pero suficientemente clara y dice su porqué.
+  - Los ejemplos solo ilustran, nunca cierran. Las fuentes justifican la pista, no son lo que se busca; si una norma fija una lista cerrada, la pista es «usa la denominación legal» y la norma se cita como fuente.
+  - El entrenamiento rechaza las pistas que sean una lista o una frase exacta y las reformula como criterio.
+  - Las comprobaciones de estructura del dato son cálculos exactos, pero son reglas generales: encajan.
+  - Cada pista dice qué propiedad hay que observar y a qué AC afecta; una pista puede servir a varios AC; las pistas nunca puntúan propiedades.
+- **Interpretación adoptada:** coherente con [D-006](#d-006) (no se adopta una equivalencia entre pertinencia y coincidencia literal) y con la invariante 5 (las propiedades no reciben puntuación).
+- **Consecuencias:** [assessment-hints](../10-model/assessment-hints.md) 1.0; glosario (Pistas de valoración).
+- **Relacionado:** D-006, D-125, D-127.

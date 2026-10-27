@@ -3,9 +3,9 @@ id: quality-properties
 title: Propiedades de calidad (P06–P18)
 layer: model
 status: vigente
-version: 1.2
-updated: 2026-10-24
-sources: [BASE §5.3, FUND §7, FUND §4.2, GSC0 §9.3]
+version: 1.3
+updated: 2026-10-27
+sources: [BASE §5.3, FUND §7, FUND §4.2, GSC0 §9.3, INTAKE 2026-10-27-ac-applicability-and-reliability]
 ---
 
 # Propiedades de calidad (P06–P18)
@@ -17,6 +17,8 @@ sources: [BASE §5.3, FUND §7, FUND §4.2, GSC0 §9.3]
 FUND §7 precisa que se consideran **desde el propósito informativo de un RI**. FUND §4.2 y §5.2 establecen que pertenecen exclusivamente al modelo informativo.
 
 **Numeración:** empieza en P06. Los IDs anteriores correspondían a propiedades técnicas de un modelo previo; están **retirados y no se reutilizan** ([D-007](../30-governance/decisions.md#d-007)).
+
+**P15 · Actualidad está retirada** porque no hay forma de evaluarla; el ID no se reutiliza ([D-123](../30-governance/decisions.md#d-123)), que enmienda BASE §5.3 y FUND §7. Lo detectable sigue cubierto por otras vías: una fecha de validez vencida en la captura es un defecto de estructura del dato; un feed desfasado frente a la web, un hallazgo de [consistencia transversal](evaluation-scopes.md#consistencia-transversal); «Agotado» visible con `InStock` en el marcado, una incoherencia dentro de Web (P16).
 
 ### Informativas y semánticas
 
@@ -36,7 +38,6 @@ FUND §7 precisa que se consideran **desde el propósito informativo de un RI**.
 | ID | Propiedad | Definición |
 |---|---|---|
 | **P14** | **Exactitud** | Correspondencia de lo representado con los hechos comerciales comprobables. |
-| **P15** | **Actualidad** | Correspondencia de la información con el estado comercial vigente en el momento pertinente. |
 | **P16** | **Coherencia** | Consistencia entre afirmaciones referidas a una misma realidad comercial, bajo condiciones y momentos comparables. |
 | **P17** | **Trazabilidad** | Posibilidad de identificar y seguir la procedencia y trayectoria de la información. |
 | **P18** | **Verificabilidad** | Posibilidad de contrastar las afirmaciones con evidencias o referencias pertinentes. |
@@ -68,7 +69,7 @@ Una información puede ser obtenible y legible, pero semánticamente ambigua. Ta
 | **Precisión** | P08, P09, P10 y P13. |
 | **Aplicabilidad** | P10, P11 y P12; también P07 según el hallazgo ([D-014](../30-governance/decisions.md#d-014)). |
 | **Comparabilidad** | P07, P10, P12 y P13. |
-| **Fiabilidad** | P14, P15, P16 y, cuando procede, P18. |
+| **Fiabilidad** | P14 y P16. P18 queda en Justificación: la falta del identificador que permitiría verificar un dato cuenta allí ([D-122](../30-governance/decisions.md#d-122)). |
 | **Justificación** | P08, P17 y P18, además de las relaciones de soporte pertinentes. |
 
 Estas asociaciones son **ilustrativas, no cerradas ni automáticas**. La propiedad relevante se elige a partir de la evidencia, el RI y el problema observado. Por ejemplo, la granularidad (P07) puede afectar tanto a la concreción de una respuesta como a su aplicabilidad a una variante concreta.
@@ -76,7 +77,6 @@ Estas asociaciones son **ilustrativas, no cerradas ni automáticas**. La propied
 ## Distinciones
 
 - **P16 · Coherencia** frente a **P14 · Exactitud**. Que no haya contradicciones no demuestra exactitud (FUND §6.2); la coincidencia entre representaciones no demuestra exactitud (FUND §4.3).
-- *(Propuesta V1, GSC0 EV-10/EV-12.)* **P15 · Actualidad** frente al **momento de captura**. La hora de descarga no certifica que el hecho publicado sea vigente.
 - *(Propuesta V1, GSC0 EV-12.)* **P17 · Trazabilidad / P18 · Verificabilidad** frente al **registro del auditor**. Que el auditor conserve una captura no confiere esas propiedades a la información del ecommerce.
 - **P18 · Verificabilidad** frente a la función **Justificar**. Ver [ai-functions](ai-functions.md#distinciones).
 

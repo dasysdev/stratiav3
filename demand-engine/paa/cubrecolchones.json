@@ -1,0 +1,32 @@
+{
+  "class": "Cubrecolchones",
+  "model": "demand-engine/var/runs/2026-10-26-v6-b/protector-basic-010.model.md",
+  "rule": "Regla vigente (README del motor PAA, estrategia de semillas; piloto T-042, D-116): núcleo (cada categoría y especialización de la clave, con su nombre en el mercado español; sin las categorías de sector) + valores del rasgo que más condiciona las prestaciones, de las referencias. Valores: tejido (Shopify fabric: algodón, tela de toalla, bambú, lyocell), con el nombre más usado en España. Alternativa sin elegir: características del protector (impermeable, transpirable).",
+  "clicks": 8,
+  "seeds": [
+    {
+      "q": "protector de colchón",
+      "group": "núcleo"
+    },
+    {
+      "q": "cubrecolchón",
+      "group": "núcleo"
+    },
+    {
+      "q": "protector de colchón de algodón",
+      "group": "material"
+    },
+    {
+      "q": "protector de colchón de rizo",
+      "group": "material"
+    },
+    {
+      "q": "protector de colchón de bambú",
+      "group": "material"
+    },
+    {
+      "q": "protector de colchón de tencel",
+      "group": "material"
+    }
+  ]
+}

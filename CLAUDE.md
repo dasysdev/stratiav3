@@ -19,13 +19,14 @@ Sistema de auditoría que evalúa si la información comercial que publica un ec
 ## Invariantes del modelo (no se violan nunca)
 
 1. **Unidad informativa:** RI × ámbito. En este contexto «ámbito» e «interfaz» son sinónimos. Los ámbitos son **Catálogos distribuidos**, **Web** (HTML + Schema.org) y **Web Schema.org** (solo marcado).
-2. **Web y Web Schema.org no se agregan:** sus resultados se interpretan por separado.
+2. **Web y Web Schema.org no se agregan:** sus resultados se interpretan por separado. La **consistencia transversal** (RI × par de ámbitos) es una dimensión de análisis aparte: hallazgos sin escala que no modifican el GSC de ningún ámbito ([D-124](docs/30-governance/decisions.md#d-124)).
 3. **Disponibilidad efectiva binaria (0/1)** y previa a todo lo demás. **0 → IR = 0** y no se valoran los AC. Una comprobación inconclusa queda **fuera** de la escala: no existe un tercer valor.
 4. **Seis criterios de aceptación:** Concreción, Precisión, Aplicabilidad, Comparabilidad, Fiabilidad y Justificación.
-   - Se valoran con un **GSC ordinal 0/1/2**, o con **NA**/**NE**, que no son puntuaciones.
-   - NE ≠ 0.
+   - Se aplican siempre y se valoran con un **GSC ordinal 0/1/2**. No hay NA de criterio, salvo el de Comparabilidad en los requisitos marcados como no dimensión de comparación ([D-117](docs/30-governance/decisions.md#d-117), [D-126](docs/30-governance/decisions.md#d-126)). Qué mira cada AC en un requisito lo orientan sus [pistas de valoración](docs/10-model/assessment-hints.md): criterios breves, no listas.
+   - **NE es una incidencia** de la auditoría (una comprobación que no se pudo hacer), no una puntuación. NE ≠ 0.
+   - **Fiabilidad** se lee de forma refutadora: 2 = sin defectos detectados en las comprobaciones, nunca «exacto» ([D-121](docs/30-governance/decisions.md#d-121)).
    - No hay GSC global ni media de los seis AC.
-5. **Propiedades P06–P18:** solo fundamentan juicios.
+5. **Propiedades P06–P18:** solo fundamentan juicios. P15 · Actualidad está retirada ([D-123](docs/30-governance/decisions.md#d-123)).
    - **Nunca** reciben puntuación, pesos ni sumas.
    - Pertenecen al modelo informativo, no al técnico.
 6. **Importancia relativa** (Crítico / Principal / Complementario): cualitativa y ordinal, **sin pesos numéricos**. Pertenece al modelo de demanda, no al resultado observado.
@@ -33,7 +34,7 @@ Sistema de auditoría que evalúa si la información comercial que publica un ec
    - **En propuesta:** el estado binario de resolución (0/1, sin regla definida), el **IP** (fórmula `100 × C/N`) y la **calidad ajustada** (sin fórmula ni peso). Ver [informative-prominence](docs/10-model/informative-prominence.md).
    - No se inventan fórmulas, pesos, umbrales ni topes.
 8. **La evaluación técnica es independiente** y tiene su propio sistema cuantitativo. Un incumplimiento técnico no descuenta el GSC: solo cuenta su efecto sobre la disponibilidad del RI.
-9. **Derivaciones justificadas, admitidas.** No se penaliza el número de pasos. **Nunca** se completan hechos comerciales ausentes con conjeturas o conocimiento externo.
+9. **Derivaciones justificadas, admitidas.** No se penaliza el número de pasos. **Nunca** se completan hechos comerciales ausentes con conjeturas o conocimiento externo. Se admite la derivación cuya conclusión no puede ser falsa si lo publicado es verdad, con reglas generales, descriptivas y citadas ([prueba de derivación](docs/10-model/effective-availability.md#prueba-de-derivación), [D-120](docs/30-governance/decisions.md#d-120)); un atributo por sí solo no es pertinente para una prestación ([D-119](docs/30-governance/decisions.md#d-119)).
 10. **Pertinencia ≠ proximidad temática.**
 11. **Una ausencia exige prueba de cobertura.** Una búsqueda fallida no demuestra ausencia.
 12. **Ausencia de corroboración ≠ falsedad.** Ausencia de contradicción ≠ exactitud.

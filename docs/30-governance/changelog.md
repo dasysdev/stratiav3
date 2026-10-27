@@ -14,6 +14,42 @@ Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módul
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
 
+## 2026-10-27 — Pistas de valoración · aplicado
+
+- **canon** — `INTAKE 2026-10-27-assessment-hints` (diseño del sistema de reglas de valoración de los AC, continuación):
+  - las **pistas de valoración** son lo que cada requisito fija para orientar la valoración de sus AC; sustituyen a las «reglas de AC de un requisito»; tres niveles (marco; tipo para Aplicabilidad y Fiabilidad; requisito para Precisión y Comparabilidad); dicen qué mirar, no cuánto pesa cada criterio ([D-125](decisions.md#d-125); precisa el papel 2 de D-115);
+  - marca de dimensión de comparación en el requisito: si no lo es, Comparabilidad es NA, decidido por el modelo ([D-126](decisions.md#d-126); cierra la excepción pendiente de D-117);
+  - las escriben el entrenamiento (tabla por tipo), taxo y PAA (por requisito), con origen, y solo se suman ([D-127](decisions.md#d-127));
+  - son criterios breves, no listas de vocabulario; cada una nombra la propiedad que observa y los AC a los que afecta ([D-128](decisions.md#d-128)).
+- **estructura** — nuevo módulo [assessment-hints](../10-model/assessment-hints.md) 1.0; índice.
+- **canon** (propagación) — [acceptance-criteria](../10-model/acceptance-criteria.md) 1.3, [scoring-systems](../10-model/scoring-systems.md) 1.3, [paa-training](../10-model/paa-training.md) 1.3, [construction-routes](../10-model/construction-routes.md) 1.4, [choice-criteria](../10-model/choice-criteria.md) 1.8, [demand-model](../10-model/demand-model.md) 3.1, [model-training](../10-model/model-training.md) 1.18 (enlaces); glosario (Pistas de valoración, que sustituye a Reglas de AC de un requisito; Marca de dimensión de comparación; NA; Comparabilidad); `CLAUDE.md` raíz (invariante 4).
+- **método** — auditoría GSC: [gsc-decision](../20-methods/audit-gsc/gsc-decision.md), [ac-guides](../20-methods/audit-gsc/ac-guides.md), [calibration](../20-methods/audit-gsc/calibration.md), [qa](../20-methods/audit-gsc/qa.md), [execution](../20-methods/audit-gsc/execution.md) e [inputs-outputs](../20-methods/audit-gsc/inputs-outputs.md) 0.3 (NA de Comparabilidad según la marca; enlace a las pistas).
+- **gobernanza** — OQ-61 y OQ-65 cerradas; OQ-62 y OQ-66 anotadas; nuevas OQ-68 (formato de las pistas y uso en el perfil del RI) y OQ-69 (cómo se fija la marca de dimensión de comparación).
+
+## 2026-10-27 — Aplicación de los criterios, pertinencia de lo derivado y Fiabilidad · aplicado
+
+- **canon** — `INTAKE 2026-10-27-ac-applicability-and-reliability` (diseño del sistema de reglas de valoración de los AC):
+  - los seis criterios se aplican siempre; no hay NA de criterio, salvo el de Comparabilidad, pendiente; NE es una incidencia de la auditoría; el NA del requisito se mantiene ([D-117](decisions.md#d-117)). Enmienda BASE §6.1, FUND §8.1 y el ejemplo de FUND §10.1;
+  - Comparabilidad exige contraste cuando la respuesta es una dimensión de comparación de la clase ([D-118](decisions.md#d-118));
+  - la prestación derivada de un atributo se decide en la pertinencia: el atributo por sí solo no es pertinente, disponibilidad 0 ([D-119](decisions.md#d-119); enmienda D-090);
+  - prueba de derivación: conclusión necesaria con reglas generales, descriptivas y citadas, sin contrafuente ([D-120](decisions.md#d-120));
+  - Fiabilidad: nueva definición y lectura refutadora ([D-121](decisions.md#d-121)); tres familias de comprobación, límites del conocimiento del dominio, identificador ausente en Justificación, consistencia por ámbito ([D-122](decisions.md#d-122));
+  - se retira P15 · Actualidad ([D-123](decisions.md#d-123)); enmienda BASE §5.3 y FUND §7;
+  - consistencia transversal: nueva dimensión de análisis por RI × par de ámbitos, hallazgos sin escala que no modifican el GSC ([D-124](decisions.md#d-124)).
+  - Módulos: [acceptance-criteria](../10-model/acceptance-criteria.md) 1.2, [effective-availability](../10-model/effective-availability.md) 1.1, [scoring-systems](../10-model/scoring-systems.md) 1.2, [quality-properties](../10-model/quality-properties.md) 1.3, [evaluation-scopes](../10-model/evaluation-scopes.md) 1.1, [choice-criteria](../10-model/choice-criteria.md) 1.7, [commercial-information](../10-model/commercial-information.md) 1.1 (nota sobre la vigencia), [paa-training](../10-model/paa-training.md) 1.2 (nota sobre las reglas de AC); índice; glosario (NA, NE, Comparabilidad, Fiabilidad, Propiedades de calidad, P14–P18, Prestación derivada de un atributo, Árbol de decisión GSC; nuevos: Prueba de derivación, Consistencia transversal); `CLAUDE.md` raíz (invariantes 2, 4, 5 y 9).
+- **método** — auditoría GSC: [gsc-decision](../20-methods/audit-gsc/gsc-decision.md) 0.2 (GSC-02, GSC-03, árbol, estados de excepción, YAML), [ac-guides](../20-methods/audit-gsc/ac-guides.md) 0.2 (Comparabilidad y Fiabilidad reescritas), [property-checks](../20-methods/audit-gsc/property-checks.md) 0.2 (P14, P15 retirada, P18), [evidence](../20-methods/audit-gsc/evidence.md) 0.2 (EV-10, EV-14, tabla por tipo), [calibration](../20-methods/audit-gsc/calibration.md) 0.2 (casos A, H y J, matriz), [relevance](../20-methods/audit-gsc/relevance.md) 0.2 (PF-03), [availability-coverage](../20-methods/audit-gsc/availability-coverage.md) 0.2, [qa](../20-methods/audit-gsc/qa.md), [execution](../20-methods/audit-gsc/execution.md), [inputs-outputs](../20-methods/audit-gsc/inputs-outputs.md), [dossier](../20-methods/audit-gsc/dossier.md) y [README](../20-methods/audit-gsc/README.md) 0.2.
+- **gobernanza** — OQ-56 cerrada (D-120); OQ-25 cerrada (D-121 a D-123; el resto pasa a OQ-66); OQ-21 y OQ-61 anotadas; nuevas OQ-65 (NA de Comparabilidad), OQ-66 (comprobaciones de corrección por tipo de dato y reglas del dominio en el modelo de demanda) y OQ-67 (estado cualitativo de la consistencia transversal).
+
+## 2026-10-27 — Clases del piloto de PAA · aplicado
+
+- **canon** — `INTAKE 2026-10-27-paa-pilot-classes` (T-042): el piloto de medición del entrenamiento de PAA usa las clases de los 14 casos de referencia (12 clases distintas por clave del modelo), no 3-4 clases elegidas ([D-116](decisions.md#d-116); D-114 enmendada). [paa-training](../10-model/paa-training.md) 1.1; glosario.
+
+## 2026-10-27 — Entrenamiento propio de PAA · aplicado
+
+- **canon** — `INTAKE 2026-10-27-paa-training` (T-042): PAA tiene un entrenamiento propio, independiente del de taxo, que refina solo las semillas, el vocabulario de criterios de elección y los parámetros de las reglas de lectura; crear o retirar reglas lo decide el usuario; empieza por un piloto de medición de 3-4 clases ([D-114](decisions.md#d-114)). Escribe en el catálogo con cuatro papeles aditivos (requisitos «paa», reglas de AC de un requisito, inferidas, aportaciones) y deja un registro para taxo sobre los requisitos de las referencias: un solo escritor por requisito ([D-115](decisions.md#d-115); D-104 enmendada).
+- **estructura** — nuevo módulo [paa-training](../10-model/paa-training.md) 1.0; [construction-routes](../10-model/construction-routes.md) 1.3, [choice-criteria](../10-model/choice-criteria.md) 1.6 y [model-training](../10-model/model-training.md) 1.17 (enlaces y pendientes); índice; glosario (Entrenamiento de PAA, Reglas de AC de un requisito, Registro de revisiones de PAA).
+- **gobernanza** — OQ-58 y OQ-59, cerradas en el fondo por D-115; nuevas OQ-61 (reglas de AC), OQ-62 (paso de aceptación y estado), OQ-63 (registro para taxo) y OQ-64 (métricas del entrenamiento de PAA).
+
 ## 2026-10-27 — Piel en sábanas: cubierta · aplicado
 
 - **canon** — `INTAKE 2026-10-27-paa-skin-covered`: la piel en sábanas queda cubierta por `cat.sabanas/02` (D-106); D-108 retira el candidato de piel y D-109 su ejemplo, que contaba una pregunta genérica como prueba (b); la partición de `cat.fundas-de-almohada/04` por tema sigue vigente ([D-113](decisions.md#d-113)).

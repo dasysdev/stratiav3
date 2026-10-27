@@ -3,9 +3,14 @@
 One window, one Google session: searches never go in parallel (one IP). The run closes any
 other tab its Chrome still has (a run cut short leaves its tab behind), opens the home page,
 as a person does, and rejects consent. Between searches there is a pause; a long pause every so
-often, hours and a daily cap apply only if the set sets them. A challenge (/sorry/, CAPTCHA,
-403/429) stops the whole engine (Google blocks the IP, not a set): it is retried after
-`block_retry_hours`, and after a second block it waits for «paa unblock».
+often, hours and a daily cap apply only if the set sets them.
+
+An HTTP 429 is retried on the same seed (`block_backoff`): after the wait Google asks for
+(`Retry-After`) or, if it says nothing, 60 s, each wait 50 % longer, up to 5 retries. A
+challenge that persists, a Retry-After longer than `max_wait_s`, or any other challenge
+(CAPTCHA, 403) stops the whole engine (Google blocks the IP, not a set): it is retried after
+`block_retry_hours`, or after the Retry-After, and after a second block it waits for
+«paa unblock».
 
 A page that stops answering (an evaluation without reply) is `failed`, not a block: it was the
 AI answers' rendering in a Chrome without GPU (2026-10-27), now blocked (serp.Answers). The
@@ -32,7 +37,7 @@ def run(seedset: SeedSet, browser: Browser, max_searches: int | None = None, ign
     spec = seedset.definition()
     pacing, market = spec["pacing"], spec["market"]
     tz = ZoneInfo(pacing["timezone"])
-    summary = {"captured": 0, "blocked": 0, "failed": 0, "stopped": None}
+    summary = {"captured": 0, "blocked": 0, "failed": 0, "retries": 0, "stopped": None}
     reason = store.blocked_now()
     if reason:
         summary["stopped"] = reason
@@ -67,20 +72,29 @@ def run(seedset: SeedSet, browser: Browser, max_searches: int | None = None, ign
             if pacing.get("daily_cap") and searches_today(tz) >= pacing["daily_cap"]:
                 summary["stopped"] = f"tope diario alcanzado ({pacing['daily_cap']} búsquedas)"
                 break
-            try:
-                record, html = serp.search(page, market["base"], seed["q"], market["hl"], market["gl"],
-                                           spec["clicks"], rng, pacing["dwell_s"], spec["patience"], answers)
-            except CdpError as exc:
-                record, html = {"query": seed["q"], "outcome": "failed", "elapsed_s": None,
-                                "detail": f"{UNRESPONSIVE} ({exc})"}, ""
-            record["browser"] = browser.info
-            seedset.save(seed, record, html)
+            record = attempt(seedset, browser, page, spec, seed, rng, answers, say)
+            backoff, wait, hours = spec["block_backoff"], spec["block_backoff"]["first_s"], spec["block_retry_hours"]
+            for n in range(1, backoff["retries"] + 1):
+                if record["outcome"] != "blocked" or record.get("status") != 429:
+                    break
+                asked = record.get("retry_after_s")
+                pause = wait if asked is None else asked
+                if pause > backoff["max_wait_s"]:
+                    hours = pause / 3600
+                    break
+                seedset.log({"event": "retry", "query": seed["q"], "n": n, "wait_s": round(pause, 1),
+                             "retry_after_s": asked})
+                say(f"  429: reintento {n}/{backoff['retries']} en {round(pause)} s"
+                    + (" (Retry-After de Google)" if asked is not None else ""))
+                page.idle(pause)
+                summary["retries"] += 1
+                record = attempt(seedset, browser, page, spec, seed, rng, answers, say)
+                wait *= backoff["factor"]
             summary[record["outcome"]] += 1
-            say(f"  {seed['q']}: {record['outcome']}, {len(record.get('questions', []))} preguntas, "
-                f"{record.get('clicks', 0)} clics, {record.get('elapsed_s')} s")
             if record["outcome"] == "blocked":
-                store.block(seedset.id, record["detail"], spec["block_retry_hours"])
-                seedset.log({"event": "block", "detail": record["detail"]})
+                store.block(seedset.id, record["detail"], hours)
+                seedset.log({"event": "block", "detail": record["detail"], "retries": summary["retries"],
+                             "retry_after_s": record.get("retry_after_s")})
                 summary["stopped"] = f"bloqueo: {record['detail']}"
                 break
             if record["outcome"] == "failed" and str(record.get("detail", "")).startswith(UNRESPONSIVE):
@@ -96,3 +110,20 @@ def run(seedset: SeedSet, browser: Browser, max_searches: int | None = None, ign
         browser.close_window(page)
         seedset.consolidate()
     return summary
+
+
+def attempt(seedset: SeedSet, browser: Browser, page, spec: dict, seed: dict, rng: random.Random,
+            answers: serp.Answers, say) -> dict:
+    """One search of a seed, saved: every attempt of a retried 429 keeps its own record."""
+    market, pacing = spec["market"], spec["pacing"]
+    try:
+        record, html = serp.search(page, market["base"], seed["q"], market["hl"], market["gl"],
+                                   spec["clicks"], rng, pacing["dwell_s"], spec["patience"], answers)
+    except CdpError as exc:
+        record, html = {"query": seed["q"], "outcome": "failed", "elapsed_s": None,
+                        "detail": f"{UNRESPONSIVE} ({exc})"}, ""
+    record["browser"] = browser.info
+    seedset.save(seed, record, html)
+    say(f"  {seed['q']}: {record['outcome']}, {len(record.get('questions', []))} preguntas, "
+        f"{record.get('clicks', 0)} clics, {record.get('elapsed_s')} s")
+    return record

@@ -3,9 +3,9 @@ id: choice-criteria
 title: Criterios de elección
 layer: model
 status: vigente
-version: 1.5
+version: 1.8
 updated: 2026-10-27
-sources: [INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-paa-new-requirements, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-classification-criteria-2, INTAKE 2026-10-27-paa-bottom-sheet-hold]
+sources: [INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-paa-new-requirements, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-classification-criteria-2, INTAKE 2026-10-27-paa-bottom-sheet-hold, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
 ---
 
 # Criterios de elección
@@ -54,9 +54,11 @@ El requisito se formula con los [principios de formulación](demand-model.md#reg
 
 > Que una ficha declare el tejido o la composición («percal», «100 % algodón») no resuelve un requisito sobre la prestación («¿qué sensación térmica ofrece?»). La derivación tiene demasiados pasos y se apoya en conocimiento del dominio.
 >
-> Quien lo dictamina es la **valoración de los criterios de aceptación**, en la auditoría, no el modelo de demanda.
+> Quien lo dictamina es la **pertinencia**, en la auditoría, no la valoración de los criterios de aceptación ni el modelo de demanda: el atributo por sí solo no es pertinente para la prestación, de modo que la disponibilidad efectiva es 0. Si la ficha declara la prestación, el atributo puede acompañarla como contexto. — INTAKE 2026-10-27-ac-applicability-and-reliability
 >
 > Para que la auditoría pueda dictaminarlo, el requisito de la prestación **tiene que existir** en el modelo. — INTAKE 2026-10-26-choice-criteria-and-descriptions
+
+El segundo párrafo de la cita original de 2026-10-26 («lo dictamina la valoración de los criterios de aceptación») está enmendado por [D-119](../30-governance/decisions.md#d-119). La regla y la prueba que separa una derivación admitida de una tendencia están en [effective-availability](effective-availability.md#pertinencia-de-lo-derivado) ([D-120](../30-governance/decisions.md#d-120)).
 
 **Interpretación adoptada** ([D-090](../30-governance/decisions.md#d-090)): «demasiados pasos» se lee como una derivación que completa con conocimiento del dominio una prestación que la oferta no declara. El número de pasos sigue sin ser un criterio ([acceptance-criteria](acceptance-criteria.md#reglas-e-invariantes), regla 7; invariante 9).
 
@@ -102,9 +104,8 @@ Clase de sábanas: sondas de PAA del 2026-10-26 (`INTAKE 2026-10-26-choice-crite
 
 ## Pendiente
 
-- Criterio operativo con que la valoración de los AC distingue una derivación justificada de la deducción de una prestación desde un atributo ([OQ-56](../30-governance/open-questions.md)).
-- Entrada en el catálogo de los requisitos candidatos de la clase de sábanas ([D-108](../30-governance/decisions.md#d-108), [OQ-58](../30-governance/open-questions.md)). La aplicación en el clasificador de preguntas PAA está en el reglamento de su agente (`demand-engine/classifier/paa.md`).
-- PAA como prueba de qué criterios de aceptación son pertinentes para un requisito ([OQ-59](../30-governance/open-questions.md)).
+- Entrada en el catálogo de los requisitos candidatos de la clase de sábanas ([D-108](../30-governance/decisions.md#d-108)): la hace el [entrenamiento de PAA](paa-training.md) ([D-115](../30-governance/decisions.md#d-115)); paso de aceptación y estado, en [OQ-62](../30-governance/open-questions.md). La aplicación en el clasificador de preguntas PAA está en el reglamento de su agente (`demand-engine/classifier/paa.md`).
+- Formato de las [pistas de valoración](assessment-hints.md) que escriben taxo y PAA ([OQ-68](../30-governance/open-questions.md)).
 
 ## Relacionado
 
@@ -112,4 +113,5 @@ Clase de sábanas: sondas de PAA del 2026-10-26 (`INTAKE 2026-10-26-choice-crite
 - [requirement-description](requirement-description.md): descripción de un requisito.
 - [resolving-information](resolving-information.md): información resolutiva.
 - [acceptance-criteria](acceptance-criteria.md): derivaciones admitidas.
+- [effective-availability](effective-availability.md#pertinencia-de-lo-derivado): pertinencia de lo derivado y prueba de derivación.
 - [MPIR](../20-methods/mpir/README.md) (método, propuesta).

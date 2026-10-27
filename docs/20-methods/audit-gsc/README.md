@@ -3,9 +3,9 @@ id: audit-gsc
 title: Marco operativo de valoración GSC de los criterios de aceptación
 layer: method
 status: propuesta
-version: 0.1
-updated: 2026-10-24
-sources: [GSC0 §1, GSC0 §2, GSC0 §13.4, GSC0 Anexo D, FUND §9]
+version: 0.2
+updated: 2026-10-27
+sources: [GSC0 §1, GSC0 §2, GSC0 §13.4, GSC0 Anexo D, FUND §9, INTAKE 2026-10-27-ac-applicability-and-reliability]
 ---
 
 # Marco operativo de valoración GSC
@@ -32,7 +32,7 @@ No se repiten aquí. El procedimiento se subordina a:
 - [Disponibilidad efectiva](../../10-model/effective-availability.md) — puerta binaria 0/1; si 0 → IR = 0 y no se valoran AC.
 - [Criterios de aceptación](../../10-model/acceptance-criteria.md) — los seis AC.
 - [Propiedades de calidad](../../10-model/quality-properties.md) — P06–P18, sin subpuntuaciones.
-- [Sistemas de valoración](../../10-model/scoring-systems.md) — GSC 0/1/2, NA, NE; IR/ICI.
+- [Sistemas de valoración](../../10-model/scoring-systems.md) — GSC 0/1/2, NE como incidencia; IR/ICI.
 - [Ámbitos de evaluación](../../10-model/evaluation-scopes.md) — Web, Web Schema.org y Catálogos distribuidos; consumo sin navegación interactiva.
 
 ## Principios transversales de ejecución (M01–M12)
@@ -78,7 +78,7 @@ No construye automáticamente el catálogo de demanda, no determina prioridades 
 
 ## Cadena de decisión
 
-`RI y ámbito → perfil operativo del RI → recursos permitidos → exploración → candidatos → pertinencia funcional → conjunto pertinente contextualizado → disponibilidad efectiva → comprobación de propiedades → hallazgos por AC → GSC/NA/NE → validación → expediente e informe`.
+`RI y ámbito → perfil operativo del RI → recursos permitidos → exploración → candidatos → pertinencia funcional → conjunto pertinente contextualizado → disponibilidad efectiva → comprobación de propiedades → hallazgos por AC → GSC (o NE por incidencia) → validación → expediente e informe`.
 
 **La evidencia atraviesa todas las fases.** La búsqueda puede reabrirse si el análisis de AC descubre una relación, contradicción, ausencia aparente o contexto relevante aún no examinado.
 
@@ -97,7 +97,7 @@ Las referencias externas pueden servir **para contraste o verificación** cuando
 | Realizar conversiones o cálculos válidos con condiciones conocidas. | Introducir costes, descuentos o estados no publicados para completar un resultado. |
 | Examinar corroboraciones externas para Fiabilidad bajo el protocolo. | Utilizar datos externos como contenido resolutivo de la interfaz auditada. |
 | Reabrir la búsqueda cuando se detecta posible omisión. | Considerar ausencia una búsqueda literal fallida. |
-| Declarar NE o fase inconclusa cuando la evidencia no basta. | Transformar incertidumbre en GSC bajo o alto por intuición. |
+| Declarar NE o fase inconclusa cuando una comprobación no puede hacerse. | Transformar incertidumbre en GSC bajo o alto por intuición. |
 
 ## Módulos y orden de lectura
 
@@ -111,7 +111,7 @@ Las referencias externas pueden servir **para contraste o verificación** cuando
 | 6 | [evidence.md](evidence.md) | Protocolo transversal de evidencias (EV-01..15). |
 | 7 | [property-checks.md](property-checks.md) | Comprobación de propiedades P06–P18 (PR-01..09). |
 | 8 | [ac-guides.md](ac-guides.md) | Guías y anclajes provisionales de los seis AC. |
-| 9 | [gsc-decision.md](gsc-decision.md) | Decisión GSC/NA/NE (GSC-01..12), árbol y materialidad. |
+| 9 | [gsc-decision.md](gsc-decision.md) | Decisión del GSC e incidencias (GSC-01..12), árbol y materialidad. |
 | 10 | [execution.md](execution.md) | Secuencia integral OP-01..12 y hoja rápida. |
 | 11 | [dossier.md](dossier.md) | Objetos del expediente, informe, diagnóstico y recomendaciones. |
 | 12 | [calibration.md](calibration.md) | Casos A–L, matriz de calibración y prueba de aceptación V1. |

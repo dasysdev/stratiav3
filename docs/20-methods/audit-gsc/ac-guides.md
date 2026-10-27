@@ -3,9 +3,9 @@ id: audit-gsc-ac-guides
 title: Guías operativas de los seis criterios de aceptación
 layer: method
 status: propuesta
-version: 0.1
-updated: 2026-10-24
-sources: [GSC0 §11, GSC0 Anexo B, FUND §6.2]
+version: 0.3
+updated: 2026-10-27
+sources: [GSC0 §11, GSC0 Anexo B, FUND §6.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
 ---
 
 # Guías operativas de los seis criterios de aceptación
@@ -16,7 +16,7 @@ La **condición vigente** de cada AC se cita literalmente del canon ([criterios 
 
 Las expresiones «fundamental», «parcial» y «material» se interpretan **respecto del RI**, nunca como porcentajes inventados ni como un umbral válido automáticamente para toda categoría de oferta.
 
-En todos los AC, antes de asignar 0/1/2: verificar **aplicabilidad**, **evidencia suficiente** y **cobertura apropiada**. NA y NE se aplican según [gsc-decision.md](gsc-decision.md). No confundir una limitación de un AC con una insuficiencia universal de la respuesta.
+En todos los AC, antes de asignar 0/1/2: verificar **evidencia suficiente** y **cobertura apropiada**. Los seis AC se aplican siempre; NE solo registra una incidencia, según [gsc-decision.md](gsc-decision.md) ([D-117](../../30-governance/decisions.md#d-117)). Lo que mira cada AC en un requisito concreto lo orientan sus [pistas de valoración](../../10-model/assessment-hints.md): por tipo, en Aplicabilidad y Fiabilidad; por requisito, en Precisión y Comparabilidad. No confundir una limitación de un AC con una insuficiencia universal de la respuesta.
 
 ## Concreción
 
@@ -76,7 +76,7 @@ En todos los AC, antes de asignar 0/1/2: verificar **aplicabilidad**, **evidenci
 
 **Condición vigente:** la información permite efectuar o evaluar el contraste requerido sobre bases equivalentes o equivalencias justificadas.
 
-**Pruebas:** (a) comprobar si el RI **requiere contraste**; (b) identificar objetos de comparación y dimensiones/condiciones; (c) determinar equivalencia de bases o conversión justificable; (d) identificar datos faltantes o asimetrías materiales; (e) evaluar si puede efectuarse el contraste solicitado.
+**Pruebas:** (a) leer la **marca de dimensión de comparación** del requisito: si lo es, hay contraste aunque el RI trate de una sola oferta; (b) identificar objetos de comparación y dimensiones/condiciones; (c) determinar equivalencia de bases o conversión justificable; (d) identificar datos faltantes o asimetrías materiales; (e) evaluar si puede efectuarse el contraste solicitado.
 
 **Propiedades habituales:** P07, P10, P12, P13.
 
@@ -88,33 +88,35 @@ En todos los AC, antes de asignar 0/1/2: verificar **aplicabilidad**, **evidenci
 
 **Evidencias:** elementos comparados, dimensiones, valores originales, unidades, condiciones equivalentes, reglas de conversión y resultado contrastable.
 
-**Aplicabilidad del criterio:** si la cuestión **no exige contraste**, declarar **NA** justificado; no asignar 0 porque no haya alternativas para una cuestión que no las requiere. Si sí requiere contraste, la falta de datos comparables es una posible deficiencia, no una razón automática para NA.
+**Aplicación del criterio:** si la respuesta es una dimensión de comparación de la clase, Comparabilidad evalúa si se expresa sobre bases contrastables (unidad, denominación normalizada, escala oficial) ([D-118](../../30-governance/decisions.md#d-118)); la falta de datos comparables es una posible deficiencia, no una razón para NA. Si no lo es, Comparabilidad es NA según la marca de dimensión de comparación del requisito en el modelo, no por decisión del auditor ([D-126](../../30-governance/decisions.md#d-126)); es la única excepción a la aplicación de los seis AC; no asignar 0 porque no haya alternativas para una cuestión que no las requiere.
 
 ## Fiabilidad
 
-**Condición vigente:** la corrección, actualidad y consistencia de la información están suficientemente sustentadas mediante comprobaciones y evidencias pertinentes.
+**Condición vigente:** la información supera las comprobaciones de corrección y consistencia proporcionadas a su naturaleza: no se acreditan errores ni contradicciones materiales.
 
-**Pruebas:** (a) identificar las afirmaciones esenciales; (b) examinar la posibilidad de comprobar su exactitud; (c) documentar su referencia temporal y necesidad de vigencia; (d) buscar contradicciones entre afirmaciones comparables; (e) evaluar el soporte reunido para sustentar —o refutar— su corrección, actualidad y consistencia.
+**Lectura refutadora** (canon: [acceptance-criteria](../../10-model/acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones), [D-121](../../30-governance/decisions.md#d-121), [D-122](../../30-governance/decisions.md#d-122)): el grado sale de las comprobaciones superadas, no de la corroboración.
 
-**Propiedades habituales:** P14, P15, P16 y P18 según proceda.
+**Pruebas:** (a) identificar las afirmaciones esenciales y su tipo de dato; (b) aplicar las comprobaciones de **estructura del dato**; (c) contrastar con el **conocimiento del dominio**, solo para refutar, enunciando la regla y su fuente; (d) consultar la **fuente independiente** cuando exista para ese tipo de dato; (e) buscar contradicciones **dentro del ámbito**; (f) registrar las comprobaciones hechas, sus resultados y las sospechas anotadas.
+
+**Propiedades habituales:** P14 y P16.
 
 | GSC | Anclaje provisional |
 |---|---|
-| **0** | Las comprobaciones pertinentes **acreditan deficiencias materiales** de corrección, vigencia o consistencia que impiden considerar satisfecha la condición de fiabilidad. |
-| **1** | Existe sustento de fiabilidad en parte relevante de lo examinado, pero permanecen **limitaciones acreditadas** que afectan materialmente a la confianza en la información. |
-| **2** | Las afirmaciones pertinentes disponen de **sustento suficiente y proporcionado a su naturaleza, volatilidad y alcance** respecto de corrección, actualidad y consistencia. |
+| **0** | Las comprobaciones acreditan un **defecto material**: un error de corrección o una contradicción que impide considerar fiable la información para el RI. |
+| **1** | Hay un **defecto no material**, o uno que afecta solo a parte de lo examinado. |
+| **2** | La información **supera las comprobaciones** que tocan a ese tipo de dato: sin defectos detectados. |
 
-**Evidencias:** afirmaciones, métodos y fuentes de contraste, referencias temporales, pares comparables, discrepancias y límites explícitos de comprobación.
+**Evidencias:** afirmaciones, comprobaciones aplicadas (estructura, regla del dominio y su fuente, fuente independiente consultada), pares comparables, defectos y sospechas anotadas.
 
 **Fronteras decisivas:**
 
-- **Ausencia de corroboración no es falsedad.** Si falta evidencia para decidir, tras las comprobaciones razonables, corresponde estudiar **NE**, no 0 por defecto.
-- **Sin contradicciones no significa exactitud.** Coherencia no sustituye P14.
-- **Captura reciente no implica dato actual.** El instante de consulta no sustituye P15.
-- La expectativa de prueba debe ajustarse a hechos estables y volátiles; no exigir idéntica fuente externa para todo dato comercial.
-- La sola imposibilidad de verificar externamente una afirmación no autoriza a valorar que es falsa; separar limitación de verificabilidad de refutación material.
-
-El límite entre **GSC 1 y NE** exige especial calibración: GSC 1 necesita una limitación material **que sí pueda caracterizarse y fundamentarse** respecto de la condición de fiabilidad, no únicamente desconocimiento general.
+- **Ausencia de corroboración no es falsedad, ni NE.** Un dato que nada refuta ni confirma recibe el grado de las comprobaciones superadas.
+- **Sin defectos detectados no significa exacto.** El resultado dice «sin defectos detectados en…», nunca «exacto».
+- **Sospecha frente a defecto.** Una regla que solo hace improbable el dato no gradúa: se anota. «Percal 100 % poliéster» no se refuta, porque existe percal de poliéster.
+- **La hora de captura no acredita que el dato sea exacto ni que esté al día.** Una fecha de validez vencida en la captura sí es un defecto de estructura.
+- **Identificador ausente:** si falta el que permitiría la comprobación externa (número de certificado), cuenta en Justificación, no aquí.
+- **Sintaxis frente a valor:** una sintaxis inválida es técnica; un valor imposible con sintaxis válida es Fiabilidad.
+- **Discrepancia entre ámbitos:** es un hallazgo de [consistencia transversal](../../10-model/evaluation-scopes.md#consistencia-transversal) y no reduce este GSC.
 
 ## Justificación
 
@@ -132,7 +134,7 @@ El límite entre **GSC 1 y NE** exige especial calibración: GSC 1 necesita una 
 
 **Evidencias:** afirmaciones de origen, relaciones, referencias de procedencia/contraste pertinentes, conclusiones derivadas diferenciadas de los datos originales.
 
-**Fronteras:** justificar una respuesta **no equivale** a demostrar verdad o actualidad de cada afirmación (Fiabilidad). Un auditor puede conservar una captura de un dato y aun así hallar insuficiencia de trazabilidad o de relaciones ofrecidas por la información comercial. Las derivaciones fundadas no se penalizan por su número.
+**Fronteras:** justificar una respuesta **no equivale** a demostrar la corrección de cada afirmación (Fiabilidad). La falta del identificador que permitiría verificar un dato (número de certificado) cuenta aquí, no en Fiabilidad ([D-122](../../30-governance/decisions.md#d-122)). Un auditor puede conservar una captura de un dato y aun así hallar insuficiencia de trazabilidad o de relaciones ofrecidas por la información comercial. Las derivaciones fundadas no se penalizan por su número.
 
 ## Separación de juicios sobre una misma observación
 
@@ -143,8 +145,8 @@ El límite entre **GSC 1 y NE** exige especial calibración: GSC 1 necesita una 
 - Puede significar inequívocamente «disponible para compra online» → **Precisión** potencialmente suficiente.
 - Puede no identificar qué talla está disponible → consecuencia para **Aplicabilidad**.
 - Puede no sostener una conclusión sobre la talla 42 → consecuencia para **Justificación**.
-- Su corrección o vigencia pueden carecer de comprobación suficiente → posible **NE en Fiabilidad**, no falsedad automática.
-- Si el RI no requiere contraste, **Comparabilidad = NA**.
+- Su corrección puede no tener corroboración externa → **Fiabilidad** según las comprobaciones superadas (estructura del dato, consistencia con el marcado), no NE ni falsedad automática.
+- Si la respuesta no es una dimensión de comparación, **Comparabilidad = NA**, según la marca de dimensión de comparación del requisito ([D-126](../../30-governance/decisions.md#d-126)).
 
 Una observación puede afectar varios AC **solo** si se razona la consecuencia **diferenciada** para cada condición. No se computan penalizaciones mecánicas ni se deduce el resultado de un AC a partir del valor de otro.
 
@@ -156,7 +158,7 @@ Una observación puede afectar varios AC **solo** si se razona la consecuencia *
 | **Precisión** | ¿Puede interpretarse inequívocamente el significado pertinente, sin lecturas materialmente alternativas? |
 | **Aplicabilidad** | ¿Cada afirmación necesaria se atribuye a la entidad y las condiciones concretas del RI? |
 | **Comparabilidad** | ¿Puede realizarse el contraste requerido sobre bases equivalentes o equivalencias justificadas? |
-| **Fiabilidad** | ¿Qué pruebas sustentan corrección, vigencia y coherencia; qué quedó realmente acreditado? |
+| **Fiabilidad** | ¿Qué comprobaciones de corrección y consistencia se hicieron y qué defectos acreditaron? |
 | **Justificación** | ¿La respuesta se sostiene y reconstruye con afirmaciones y relaciones de soporte identificables? |
 
 ## Relacionado

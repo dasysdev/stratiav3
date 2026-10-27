@@ -3,9 +3,9 @@ id: audit-gsc-evidence
 title: Protocolo transversal de evidencias
 layer: method
 status: propuesta
-version: 0.1
-updated: 2026-10-24
-sources: [GSC0 §9, GSC0 §14.3, FUND §9.4]
+version: 0.2
+updated: 2026-10-27
+sources: [GSC0 §9, GSC0 §14.3, FUND §9.4, INTAKE 2026-10-27-ac-applicability-and-reliability]
 ---
 
 # Protocolo transversal de evidencias
@@ -16,9 +16,9 @@ sources: [GSC0 §9, GSC0 §14.3, FUND §9.4]
 
 Toda valoración ha de resultar de **comprobaciones identificables y evidencias suficientes, contextualizadas y reexaminables** para reconstruir el camino desde el recurso publicado hasta el juicio. El orden lógico es **contenido o resultado observado → evidencia → interpretación → hallazgo → propiedad afectada → efecto sobre el AC → GSC**; el resultado no puede ser una afirmación libre sin soporte. *(GSC0 §9.1:)* La evidencia no es una explicación inventada a posteriori.
 
-Las evidencias pueden acreditar **presencia y contenido; identidad y atribución; relaciones y derivaciones; condiciones y contexto; coherencia y contraste; procedencia, vigencia o verificabilidad; ausencia y cobertura; y limitaciones de obtención o evaluación**. Una pieza puede servir a varios hallazgos sin duplicarse artificialmente.
+Las evidencias pueden acreditar **presencia y contenido; identidad y atribución; relaciones y derivaciones; condiciones y contexto; coherencia y contraste; procedencia o verificabilidad; ausencia y cobertura; y limitaciones de obtención o evaluación**. Una pieza puede servir a varios hallazgos sin duplicarse artificialmente.
 
-La base sustantiva de la respuesta a un RI es la **información comercial utilizable en el ámbito evaluado**. Las referencias externas podrán servir para comprobar exactitud, vigencia o fiabilidad cuando lo permita el método; no se incorporan como contenido publicado por el ecommerce para suplir carencias. Una comprobación externa inconclusa no demuestra falsedad.
+La base sustantiva de la respuesta a un RI es la **información comercial utilizable en el ámbito evaluado**. Las referencias externas podrán servir para comprobar la corrección o la fiabilidad cuando lo permita el método (solo contrastan: [prueba de derivación](../../10-model/effective-availability.md#prueba-de-derivación)); no se incorporan como contenido publicado por el ecommerce para suplir carencias. Una comprobación externa inconclusa no demuestra falsedad.
 
 ## Tipos de registro
 
@@ -42,7 +42,7 @@ Estas entidades **se relacionan** y no deben reducirse a una sola nota narrativa
 | **Método y condiciones de obtención** | Perfil de consumo, vía de recuperación, momento de inspección y operaciones de comprobación. |
 | **Cobertura y limitaciones** | Partes y representaciones examinadas, recursos no consumibles, candidatos pendientes y límites de las búsquedas, especialmente ante ausencias. |
 | **Contribución al RI** | Necesidad o componente del RI, función informativa del elemento y fundamento de su pertinencia. |
-| **Resultado y juicio** | Hallazgos, propiedades afectadas, AC correspondientes, consecuencia y justificación del GSC o estado NA/NE. |
+| **Resultado y juicio** | Hallazgos, propiedades afectadas, AC correspondientes, consecuencia y justificación del GSC o del estado NE (incidencia). |
 | **Soporte reexaminable** | Referencia al recurso conservado, extracto, artefacto o comprobación que permita revisar la observación. |
 
 La riqueza buscada es la necesaria para justificar y revisar las decisiones, no acumular capturas indiscriminadamente.
@@ -87,7 +87,7 @@ La vinculación funcional (`ri_id`, `componente`, `funcion`) y la evaluativa (`h
 
 **EV-09.** En **contradicciones**, preservar las afirmaciones comparadas y justificar identidad, alcance, condiciones y momento comparables antes de declararlas materiales.
 
-**EV-10.** Para **actualidad**, no presentar la hora de captura como prueba de que el contenido se actualizó o es vigente; buscar indicios pertinentes del estado comercial y su referencia temporal.
+**EV-10.** No presentar la hora de captura como prueba de que el contenido se actualizó o es vigente. La actualidad ya no se juzga ([D-123](../../30-governance/decisions.md#d-123)); una fecha de validez publicada y vencida en la captura se registra como defecto de estructura del dato.
 
 **EV-11.** Para **exactitud**, no presentar como comprobación de verdad la mera ausencia de contradicción entre representaciones del mismo origen; registrar qué sustento existe y qué no puede confirmarse.
 
@@ -95,7 +95,7 @@ La vinculación funcional (`ri_id`, `componente`, `funcion`) y la evaluativa (`h
 
 **EV-13.** Reutilizar la misma evidencia para distintos hallazgos/AC cuando corresponda, explicando su consecuencia específica en cada uno; no duplicar ni multiplicar penalizaciones automáticamente.
 
-**EV-14.** La evidencia externa, si se utiliza para contrastar exactitud o vigencia, debe etiquetarse como **fuente de comprobación**, nunca como contenido comercial publicado en la interfaz auditada.
+**EV-14.** La evidencia externa, si se utiliza para contrastar la corrección, debe etiquetarse como **fuente de comprobación**, nunca como contenido comercial publicado en la interfaz auditada.
 
 **EV-15.** Mantener el vínculo entre registro estructurado e informe. El informe puede resumir, pero ha de conservar referencias que permitan acceder a las evidencias relevantes.
 
@@ -108,7 +108,7 @@ La vinculación funcional (`ri_id`, `componente`, `funcion`) y la evaluativa (`h
 | **Relación/derivación** | Nodos, vínculos, condiciones y regla inferencial legítima. | Introducir una relación o dato supuesto. |
 | **Normalización/comparación** | Valores originales, unidades, equivalencia/conversión y bases comparables. | Comparar magnitudes no equivalentes. |
 | **Coherencia/conflicto** | Ambas afirmaciones, identidad, contexto y momentos. | Falsas contradicciones. |
-| **Actualidad/exactitud** | Fuente de contraste, fecha del hecho y método de corroboración. | Confundir captura reciente o concordancia interna con verdad. |
+| **Exactitud** | Comprobaciones aplicadas (estructura del dato, regla del dominio y su fuente, fuente independiente consultada), momento y resultado. | Confundir captura reciente o concordancia interna con verdad; presentar una sospecha como defecto. |
 | **Ausencia** | Universo examinable, rutas de inspección y cobertura negativa. | Ausencias falsas por mala búsqueda. |
 | **Limitación de acceso/lectura** | Petición/perfil, respuesta y condición que impide consumir el contenido. | Confundir incidente técnico y efecto sobre RI. |
 
@@ -120,7 +120,7 @@ La vinculación funcional (`ri_id`, `componente`, `funcion`) y la evaluativa (`h
 - **Resolución de conflictos:** ¿se han tratado las contradicciones/candidatos potencialmente decisivos, o se ha documentado el límite?
 - **Reexamen:** ¿otro auditor puede recuperar o reconstruir las afirmaciones, pruebas y relaciones suficientes para revisar la valoración?
 
-Si alguna respuesta es negativa y compromete **materialmente** el juicio, ampliar las comprobaciones. Si no es posible, usar **NE** para el AC pertinente, o **comprobación de disponibilidad inconclusa** si el problema está en la puerta previa; no asignar un 0 sin fundamento.
+Si alguna respuesta es negativa y compromete **materialmente** el juicio, ampliar las comprobaciones. Si una comprobación no puede hacerse, registrar **NE** como incidencia del AC, con la comprobación fallida, o **comprobación de disponibilidad inconclusa** si el problema está en la puerta previa; no asignar un 0 sin fundamento.
 
 ## Plantilla de registro de evidencia (YAML ilustrativo)
 

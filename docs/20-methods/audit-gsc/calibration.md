@@ -3,9 +3,9 @@ id: audit-gsc-calibration
 title: Casos de aplicación, calibración y prueba de aceptación V1
 layer: method
 status: propuesta
-version: 0.1
-updated: 2026-10-24
-sources: [GSC0 §15, GSC0 §17, FUND §10]
+version: 0.3
+updated: 2026-10-27
+sources: [GSC0 §15, GSC0 §17, FUND §10, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
 ---
 
 # Casos de aplicación, calibración y prueba de aceptación V1
@@ -15,7 +15,7 @@ Los casos son **hipotéticos y metodológicos**. Ilustran pruebas y límites de 
 ## Caso A — información general para una cuestión por variante
 
 **RI:** «¿Cuál es la disponibilidad comercial de cada variante del modelo?» · **Ámbito:** Web.
-**Recurso:** ficha de un modelo de calzado; tallas 41, 42 y 43 identificadas; afirmación «Disponible para compra online» en la cabecera del modelo; inspección suficiente sin estados individualizados ni regla que atribuya el estado a cada talla; sin contraste suficiente con inventario o referencias de vigencia; el RI no demanda comparación.
+**Recurso:** ficha de un modelo de calzado; tallas 41, 42 y 43 identificadas; afirmación «Disponible para compra online» en la cabecera del modelo; inspección suficiente sin estados individualizados ni regla que atribuya el estado a cada talla; sin contraste con inventario; el RI no demanda comparación.
 
 **Localización:** listado de tallas = pertinente auxiliar/identificador; afirmación general = pertinente sustantiva parcial. **Disponibilidad efectiva: 1.**
 
@@ -26,13 +26,13 @@ Los casos son **hipotéticos y metodológicos**. Ilustran pruebas y límites de 
 | Concreción | **1** | Cobertura sustantiva general, sin el desglose o regla requeridos por variante. |
 | Precisión | **2**, si el significado comercial es inequívoco | No confundir significado con atribución. |
 | Aplicabilidad | **1**, si hay atribución válida al modelo y no a cada talla | La afirmación tiene alcance parcial respecto del RI. |
-| Comparabilidad | **NA**, si no se requiere contraste | No imponer comparación artificial. |
-| Fiabilidad | **NE**, si no es posible sustentar un juicio sobre corrección/vigencia | Ausencia de comprobación no prueba falsedad. |
+| Comparabilidad | **NA**, si la marca de dimensión de comparación del requisito dice que la disponibilidad por variante no es dimensión de comparación ([D-126](../../30-governance/decisions.md#d-126)) | No imponer comparación artificial. |
+| Fiabilidad | **2**, si supera las comprobaciones de estructura del dato y de consistencia dentro del ámbito; NE solo si una comprobación no pudo hacerse | Sin corroboración no es falsedad ni NE: lectura refutadora ([D-121](../../30-governance/decisions.md#d-121)). |
 | Justificación | **1**, si la afirmación general fundamenta solo parte del alcance | No permite reconstruir estado por talla. |
 
 Propiedades implicadas: P06, P07, P11, P12; las de fiabilidad y fundamentación para el contraste del estado.
 
-> **Estado: vigente** (FUND §10.1).
+> **Estado: vigente** (FUND §10.1; Fiabilidad enmendada por [D-121](../../30-governance/decisions.md#d-121)).
 
 **Diagnóstico:** la ficha no permite determinar y fundamentar suficientemente la disponibilidad de la talla 42. La limitación de atribución no es una insuficiencia de disponibilidad efectiva, no demuestra que el inventario sea falso ni refleja una carencia de acceso o lectura. El IR no se calcula: las reglas de síntesis no están definidas. Los valores son **hipótesis de calibración**, no una regla automática para fichas semejantes.
 
@@ -91,6 +91,7 @@ Las distintas unidades de masa **no son por sí solas** deficiencia de Comparabi
 - **Web:** comparar ambas afirmaciones; si son realmente comparables, registrar la discrepancia y analizar P16/Fiabilidad y demás consecuencias, sin elegir arbitrariamente una como verdadera.
 - **Web Schema.org:** evaluar el valor y soporte del marcado aisladamente; el contraste con HTML sirve como **evidencia diagnóstica de coherencia de Web**, no completa el contenido resolutivo del ámbito Schema.org.
 - **Prueba necesaria:** identidad, moneda, oferta, canal, fecha y condiciones. Si la divergencia se explica por momentos u ofertas distintos, no declarar incoherencia material.
+- **Transversal:** registrar además el hallazgo de [consistencia transversal](../../10-model/evaluation-scopes.md#consistencia-transversal) HTML ↔ Web Schema.org, el mismo hallazgo reutilizado. El registro transversal no modifica ningún GSC: la incoherencia ya cuenta en la Fiabilidad de Web por la consistencia dentro del ámbito, y Web Schema.org se sigue evaluando aisladamente ([D-124](../../30-governance/decisions.md#d-124)).
 
 > **Estado: vigente** (FUND §10.4).
 
@@ -100,11 +101,11 @@ Regla general: una limitación en Web Schema.org no implica necesariamente una l
 
 **RI:** disponibilidad de talla 42. Contenido: «superventas» y «producción de 10.000 unidades mensuales». Tienen asociación comercial pero **no función informativa justificada** para el estado actual de la talla, salvo relaciones concretas adicionales publicadas. No seleccionarlas ni inferir stock desde ellas.
 
-## Caso J — Fiabilidad con verificación no concluyente
+## Caso J — Fiabilidad sin corroboración
 
-**RI:** disponibilidad comercial actual. Afirmación inequívoca «En stock», sin poder corroborar su vigencia ni establecer su falsedad tras comprobaciones adecuadas.
+**RI:** disponibilidad comercial actual. Afirmación inequívoca «En stock», sin poder corroborarla ni refutarla tras comprobaciones adecuadas.
 
-**No asignar Fiabilidad 0 por falta de corroboración.** Distinguir qué aspecto puede juzgarse, si hay soporte parcial materialmente suficiente para GSC 1 o si el juicio **debe quedar NE**. Documentar la metodología y los límites del contraste. La respuesta puede seguir siendo clara, atribuible y reconstruible en otros AC.
+**No asignar Fiabilidad 0 por falta de corroboración, ni NE.** Con la lectura refutadora, el grado sale de las comprobaciones superadas: estructura del dato y consistencia dentro del ámbito (p. ej., el estado visible coincide con el marcado). Sin defectos detectados, **2**, con el registro de lo comprobado y sin afirmar que el stock sea exacto. NE solo si una comprobación no pudo hacerse ([D-117](../../30-governance/decisions.md#d-117), [D-121](../../30-governance/decisions.md#d-121)). La respuesta puede seguir siendo clara, atribuible y reconstruible en otros AC.
 
 ## Caso K — característica ausente
 
@@ -122,25 +123,27 @@ Regla general: una limitación en Web Schema.org no implica necesariamente una l
 | Pertinencia auxiliar | Identificador y relación de variante. | Excluir piezas que no son la respuesta literal. |
 | Solo relación temática | Popularidad frente a stock. | Sobreinclusión del LLM auditor. |
 | Derivación válida | SKU–estado, precio calculable. | Penalizar inferencias justificadas. |
+| Prueba de derivación | Atributo frente a prestación; regla normativa; hecho particular tomado de fuera. | Admitir tendencias o completar con la ley o con datos externos. |
 | Contexto insuficiente | Estado sin canal/variante. | Completar condiciones con conjeturas. |
 | Disponibilidad 0 | Ausencia comprobada con cobertura. | Valorar AC cuando no procede. |
 | Disponibilidad inconclusa | Lectura/inspección insuficiente. | Falsa ausencia. |
 | AC 0/1/2 | Casos negativos, parciales y suficientes por AC. | Fronteras ambiguas de los anclajes. |
-| NA/NE | Comparabilidad no pertinente y fiabilidad no evaluable. | Uso incorrecto de estados. |
+| NE y NA | Comprobación que no pudo hacerse; requisito marcado como no dimensión de comparación (NA). | Usar NE por falta de corroboración. |
 | Coherencia | Valores distintos con o sin contexto comparable. | Confundir diferencia e incoherencia. |
 | Ámbitos | Web vs Web Schema.org vs catálogo. | Completar un ámbito con contenido de otro. |
+| Consistencia transversal | Feed frente a web en un momento comparable. | Rebajar el GSC de un ámbito por una discrepancia entre ámbitos. |
 | Informe | Hallazgo reconstruible con evidencia. | Puntuación opaca o evidencia ornamental. |
 
 Los resultados esperados deben **acordarse por revisión metodológica** antes de usarse como referencia de validación de la Skill. No se define todavía un porcentaje de acuerdo que garantice fiabilidad universal.
 
 ## Prueba de aceptación de la V1
 
-**Ejecutabilidad.** La V1 es operativamente ejecutable para pilotaje si, dado un RI y una representación admisible, un agente puede completar **sin inventar decisiones estructurales**: (1) interpretación y validación del perfil de RI; (2) exploración, detección de candidatos y selección por pertinencia; (3) disponibilidad efectiva con cobertura demostrable; (4) captura de evidencias con contexto, procedencia y momento; (5) comprobación de propiedades y hallazgos diferenciados; (6) anclajes por AC → 0/1/2 o NA/NE; (7) revisión de consistencia y salida reexaminable. **No emitir un juicio cuando la evidencia no lo permite** es una capacidad necesaria, no un fallo.
+**Ejecutabilidad.** La V1 es operativamente ejecutable para pilotaje si, dado un RI y una representación admisible, un agente puede completar **sin inventar decisiones estructurales**: (1) interpretación y validación del perfil de RI; (2) exploración, detección de candidatos y selección por pertinencia; (3) disponibilidad efectiva con cobertura demostrable; (4) captura de evidencias con contexto, procedencia y momento; (5) comprobación de propiedades y hallazgos diferenciados; (6) anclajes por AC → 0/1/2, o NE si una comprobación no pudo hacerse; (7) revisión de consistencia y salida reexaminable. **No emitir un juicio cuando la evidencia no lo permite** es una capacidad necesaria, no un fallo.
 
 **Condiciones mínimas del piloto:**
 
 - RI de **naturalezas distintas** (atributo simple, atribución por variante, composición/derivación, contraste y condición comercial) y al menos un ámbito bien delimitado.
-- Casos **suficientes, parciales, negativos, NA, NE, disponibilidad 0 e inspección inconclusa**.
+- Casos **suficientes, parciales, negativos, NE por incidencia, disponibilidad 0 e inspección inconclusa**.
 - Representaciones/instantáneas comparables para que varios auditores apliquen las mismas reglas.
 - Revisión de omisiones de localización, sobreinclusión temática, atribuciones indebidas, pruebas negativas, calidad de evidencia y diferencias GSC.
 - Ajuste de anclajes y ejemplos antes de adoptar el procedimiento como estándar estable.

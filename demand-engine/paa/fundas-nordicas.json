@@ -1,0 +1,40 @@
+{
+  "class": "Fundas de nórdico + Fundas de almohada + Sábanas ajustables · juego",
+  "model": "demand-engine/var/runs/2026-10-26-v6-b/funda-nordica-bordada-401.model.md",
+  "rule": "Regla vigente (README del motor PAA, estrategia de semillas; piloto T-042, D-116): núcleo (cada categoría y especialización de la clave, con su nombre en el mercado español; sin las categorías de sector) + valores del rasgo que más condiciona las prestaciones, de las referencias. Valores: tejido (Shopify fabric; Amazon BED_LINEN_SET material). Las dos fundas nórdicas de los casos comparten clave y conjunto. «sábanas» (cat.sabanas) es la madre de la bajera y no es componente: fuera.",
+  "clicks": 8,
+  "seeds": [
+    {
+      "q": "fundas nórdicas",
+      "group": "núcleo"
+    },
+    {
+      "q": "sábana bajera ajustable",
+      "group": "núcleo"
+    },
+    {
+      "q": "fundas de almohada",
+      "group": "núcleo"
+    },
+    {
+      "q": "juego de funda nórdica",
+      "group": "núcleo"
+    },
+    {
+      "q": "fundas nórdicas de algodón",
+      "group": "material"
+    },
+    {
+      "q": "fundas nórdicas de lino",
+      "group": "material"
+    },
+    {
+      "q": "fundas nórdicas de franela",
+      "group": "material"
+    },
+    {
+      "q": "fundas nórdicas de microfibra",
+      "group": "material"
+    }
+  ]
+}

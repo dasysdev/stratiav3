@@ -3,9 +3,9 @@ id: audit-gsc-dossier
 title: Expediente, informe, diagnóstico y recomendaciones
 layer: method
 status: propuesta
-version: 0.1
-updated: 2026-10-24
-sources: [GSC0 §14.1, GSC0 §14.5, GSC0 §9.6, FUND §9.4, FUND §9.5]
+version: 0.2
+updated: 2026-10-27
+sources: [GSC0 §14.1, GSC0 §14.5, GSC0 §9.6, FUND §9.4, FUND §9.5, INTAKE 2026-10-27-ac-applicability-and-reliability]
 ---
 
 # Expediente, informe, diagnóstico y recomendaciones
@@ -29,7 +29,7 @@ El **registro estructurado** conserva observaciones, decisiones y soportes. El *
 | `evidencia` | Observación original individual o prueba identificable. | Cero o varias por recurso/comprobación. |
 | `cobertura` | Alcance de inspección y limitaciones. | Al menos un registro de inspección por decisión que lo requiera. |
 | `hallazgo` | Resultado interpretado con propiedades/RI/AC vinculados. | Cero o varios por caso. |
-| `valoracion_ac` | AC, GSC/NA/NE, justificación y evidencias. | Un juicio por AC examinado con disponibilidad 1. |
+| `valoracion_ac` | AC, GSC o NE (incidencia), justificación y evidencias. | Un juicio por AC examinado con disponibilidad 1. |
 | `revision` | Cambio justificado de evidencia, selección o juicio. | Si se produce revisión. |
 
 Una evidencia puede sustentar varios hallazgos; un hallazgo puede apoyarse en varias evidencias; y un hallazgo puede tener **consecuencias diferentes para varios AC**. Estas relaciones se registran explícitamente. Plantillas: [ri-profile.md](ri-profile.md), [evidence.md](evidence.md), [gsc-decision.md](gsc-decision.md).
@@ -38,7 +38,7 @@ Una evidencia puede sustentar varios hallazgos; un hallazgo puede apoyarse en va
 
 El informe tiene dos niveles conectados:
 
-**A. Ficha de resultado accesible:** unidad evaluada; disponibilidad; tabla de AC y GSC/NA/NE; síntesis de hallazgos que explican los resultados; limitaciones y recomendaciones condicionadas.
+**A. Ficha de resultado accesible:** unidad evaluada; disponibilidad; tabla de AC y GSC (o NE por incidencia); síntesis de hallazgos que explican los resultados; limitaciones y recomendaciones condicionadas.
 
 **B. Expediente reexaminable:** detalles de observación, recursos originales, contexto, método de obtención, cobertura, candidatos decisivos, rutas de relación, pruebas por propiedad, hallazgos, juicios y revisiones.
 

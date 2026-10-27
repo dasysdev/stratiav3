@@ -1,0 +1,28 @@
+{
+  "class": "Juguetes para perros",
+  "model": "demand-engine/var/runs/2026-10-26-v6-b/cuerda-tootoy.model.md",
+  "rule": "Regla vigente (README del motor PAA, estrategia de semillas; piloto T-042, D-116): núcleo (cada categoría y especialización de la clave, con su nombre en el mercado español; sin las categorías de sector) + valores del rasgo que más condiciona las prestaciones, de las referencias. Valores: material del juguete (Shopify toy-game-material: goma, felpa, algodón/soga, nylon), que condiciona resistencia y seguridad. Alternativa sin elegir: tipo (dog-toy-type).",
+  "clicks": 8,
+  "seeds": [
+    {
+      "q": "juguetes para perros",
+      "group": "núcleo"
+    },
+    {
+      "q": "juguetes de caucho para perros",
+      "group": "material"
+    },
+    {
+      "q": "juguetes de peluche para perros",
+      "group": "material"
+    },
+    {
+      "q": "juguetes de cuerda para perros",
+      "group": "material"
+    },
+    {
+      "q": "juguetes de nylon para perros",
+      "group": "material"
+    }
+  ]
+}

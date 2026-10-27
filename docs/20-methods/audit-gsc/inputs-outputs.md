@@ -3,9 +3,9 @@ id: audit-gsc-inputs-outputs
 title: Contratos de entrada y de salida
 layer: method
 status: propuesta
-version: 0.1
-updated: 2026-10-24
-sources: [GSC0 §3, GSC0 Anexo D]
+version: 0.3
+updated: 2026-10-27
+sources: [GSC0 §3, GSC0 Anexo D, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
 ---
 
 # Contratos de entrada y de salida
@@ -37,7 +37,7 @@ Condiciones bajo las que el recurso se obtiene y lee en un ámbito: vías de obt
 - Si falta un dato **inferible sin alterar el significado** (por ejemplo, enumerar los componentes explícitos de un RI bien formulado), crear una **propuesta de descomposición** y señalar su procedencia.
 - Si falta una decisión que determina el alcance (por ejemplo, «disponibilidad» sin especificar canal cuando el RI lo requiere), **no elegir silenciosamente** una interpretación. Registrar la ambigüedad; continuar únicamente con las partes inequívocas o solicitar definición del modelo de demanda.
 - Si no puede delimitarse la entidad, el ámbito o el perfil de consumo, **no emitir un GSC como si la evaluación estuviera completa**. Registrar **bloqueo de preparación** o evaluación inconclusa, sin convertirlo en NA ni NE automáticamente.
-- Si el RI no es aplicable a la oferta concreta, registrar **NA del RI** con fundamento. Esto es distinto de declarar NA a un AC aislado dentro de un RI aplicable.
+- Si el RI no es aplicable a la oferta concreta, registrar **NA del RI** con fundamento. No hay NA de un AC aislado dentro de un RI aplicable, salvo el de Comparabilidad en los requisitos que no son dimensión de comparación ([D-126](../../30-governance/decisions.md#d-126)).
 
 ## Contrato de salida mínimo
 
@@ -51,7 +51,7 @@ Cada caso debe producir:
 6. Disponibilidad efectiva o estado procedimental inconcluso.
 7. Evidencias originales.
 8. Hallazgos con propiedades.
-9. Valoración **por cada AC pertinente** (GSC o NA/NE).
+9. Valoración **por cada AC** (GSC, o NE por incidencia).
 10. Justificación de cada decisión.
 11. Limitaciones y controles de validación.
 

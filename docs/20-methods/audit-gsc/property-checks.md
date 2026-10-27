@@ -3,9 +3,9 @@ id: audit-gsc-property-checks
 title: Comprobación operativa de propiedades P06–P18
 layer: method
 status: propuesta
-version: 0.1
-updated: 2026-10-24
-sources: [GSC0 §10, FUND §7]
+version: 0.2
+updated: 2026-10-27
+sources: [GSC0 §10, FUND §7, INTAKE 2026-10-27-ac-applicability-and-reliability]
 ---
 
 # Comprobación operativa de propiedades P06–P18
@@ -107,18 +107,14 @@ Cada ficha: **Pregunta** · **Prueba** · **Evidencia** · **Precaución** · **
 ### P14 · Exactitud
 
 - **Pregunta:** ¿qué comprobaciones sustentan la correspondencia de la afirmación con un hecho comercial comprobable?
-- **Prueba:** identificar la afirmación y su naturaleza; contrastar con referencias pertinentes y suficientemente independientes cuando existan; documentar discrepancias y alcance de la verificación.
+- **Prueba:** identificar la afirmación y su tipo de dato; aplicar las comprobaciones de estructura del dato, de conocimiento del dominio (solo refuta, con la regla y su fuente) y de fuente independiente cuando exista ([D-122](../../30-governance/decisions.md#d-122)); documentar defectos, sospechas y alcance de la verificación.
 - **Evidencia:** dato publicado, comprobación/ref. de contraste, momento, método y resultado, sin confundir corroboración con certeza absoluta.
-- **Precaución:** falta de contraste no prueba falsedad; coincidencia de dos representaciones del mismo origen no demuestra exactitud.
+- **Precaución:** falta de contraste no prueba falsedad; coincidencia de dos representaciones del mismo origen no demuestra exactitud; un dato sin defectos detectados no es por ello exacto.
 - **Incidencia típica:** Fiabilidad.
 
-### P15 · Actualidad
+### P15 · Actualidad (retirada)
 
-- **Pregunta:** ¿qué soporte permite relacionar la información con el estado comercial vigente en el momento pertinente?
-- **Prueba:** identificar el momento exigido por el RI, fechas o señales de vigencia, posible volatilidad del dato y comprobaciones temporales disponibles.
-- **Evidencia:** estado publicado, fecha de referencia, registro temporal o comprobación adecuada al hecho y contexto.
-- **Precaución:** la hora de descarga del auditor no certifica que el hecho publicado sea actual; la ausencia de fecha visible no implica por sí sola desactualización.
-- **Incidencia típica:** Fiabilidad.
+Retirada porque no hay forma de evaluarla ([D-123](../../30-governance/decisions.md#d-123)). Una fecha de validez vencida en la captura se trata como defecto de estructura del dato (P14); un feed desfasado, como hallazgo de [consistencia transversal](../../10-model/evaluation-scopes.md#consistencia-transversal).
 
 ### P16 · Coherencia
 
@@ -142,7 +138,7 @@ Cada ficha: **Pregunta** · **Prueba** · **Evidencia** · **Precaución** · **
 - **Prueba:** determinar qué evidencia o referencia podría contrastar la afirmación, si es accesible bajo el método y qué alcance tiene el contraste; distinguir posibilidad de contrastar de comprobación ya concluida.
 - **Evidencia:** referencias verificables, procedimiento de contraste, resultados obtenidos o límites documentados.
 - **Precaución:** la posibilidad de contrastar un dato no prueba que sea verdadero; no crear verificabilidad artificial mediante afirmaciones libres del auditor.
-- **Incidencia típica:** Justificación y, cuando procede, Fiabilidad.
+- **Incidencia típica:** Justificación, incluida la falta del identificador que permitiría verificar un dato ([D-122](../../30-governance/decisions.md#d-122)).
 
 ## Relaciones orientativas, no automáticas
 
@@ -152,7 +148,7 @@ Cada ficha: **Pregunta** · **Prueba** · **Evidencia** · **Precaución** · **
 | **Precisión** | P08, P09, P10, P13. |
 | **Aplicabilidad** | P10, P11, P12; también P07 según el hallazgo. |
 | **Comparabilidad** | P07, P10, P12, P13. |
-| **Fiabilidad** | P14, P15, P16 y P18 cuando corresponda. |
+| **Fiabilidad** | P14 y P16. |
 | **Justificación** | P08, P17, P18, relaciones de soporte; otras propiedades si condicionan la reconstrucción. |
 
 La elección se explica por el RI, el AC y el hallazgo, no por una correspondencia fija muchos-a-uno. (La tabla de FUND §7.4 lista para Aplicabilidad solo P10, P11, P12, aunque su texto admite que P07 contribuya a la aplicabilidad a una variante.)

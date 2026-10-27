@@ -35,6 +35,12 @@ DEFAULTS = {
         "hours": None,              # local hours allowed, [start, end) (None: any hour)
         "timezone": "Europe/Madrid",
     },
+    "block_backoff": {              # after an HTTP 429, before giving up (decided 2026-10-27)
+        "first_s": 60,              # first wait, if Google does not say how long (Retry-After)
+        "factor": 1.5,              # each wait, 50 % longer than the previous one
+        "retries": 5,
+        "max_wait_s": 3600,         # a longer Retry-After is not waited for: it becomes the block
+    },
     "block_retry_hours": 6,
 }
 STATUS = ("pending", "captured", "blocked", "failed")

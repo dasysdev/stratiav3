@@ -3,9 +3,9 @@ id: commercial-information
 title: Información comercial, representación, exposición y calidad
 layer: model
 status: vigente
-version: 1.0
-updated: 2026-10-24
-sources: [BASE §1, CTX §1, CTX §3, FUND §1.1-1.2]
+version: 1.1
+updated: 2026-10-27
+sources: [BASE §1, CTX §1, CTX §3, FUND §1.1-1.2, INTAKE 2026-10-27-ac-applicability-and-reliability]
 ---
 
 # Información comercial, representación, exposición y calidad
@@ -34,6 +34,8 @@ sources: [BASE §1, CTX §1, CTX §3, FUND §1.1-1.2]
 
 - **Técnica:** condiciones de publicación, acceso, legibilidad, estructura, conformidad y distribución que permiten localizar, recuperar y consumir la información comercial mediante las interfaces pertinentes. — CTX §3
 - **Informativa y semántica:** suficiencia, detalle, significado, relaciones, atribución, vigencia, coherencia y fundamento de la información necesaria para resolver las cuestiones relevantes. — CTX §3
+
+La vigencia ya no se juzga como tal: la propiedad P15 · Actualidad está retirada porque no hay forma de evaluarla ([D-123](../30-governance/decisions.md#d-123)). Lo detectable (una fecha de validez vencida, un feed desfasado frente a la web) se cubre con las comprobaciones de [Fiabilidad](acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones) y con la [consistencia transversal](evaluation-scopes.md#consistencia-transversal).
 
 ## Reglas e invariantes
 

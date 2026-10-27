@@ -3,9 +3,9 @@ id: audit-gsc-qa
 title: Controles de calidad y resolución de incidencias
 layer: method
 status: propuesta
-version: 0.1
-updated: 2026-10-24
-sources: [GSC0 §16, GSC0 Anexo D, FUND §12]
+version: 0.3
+updated: 2026-10-27
+sources: [GSC0 §16, GSC0 Anexo D, FUND §12, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
 ---
 
 # Controles de calidad y resolución de incidencias
@@ -40,7 +40,7 @@ El procedimiento debe vigilar especialmente las **falsas ausencias**, la inclusi
 
 **QA-10.** Se han diferenciado afirmaciones contradictorias de otras referidas a distintas entidades, condiciones o momentos.
 
-**QA-11.** Los estados NA/NE se utilizan por sus razones vigentes y no encubren deficiencias o errores de búsqueda.
+**QA-11.** NE solo registra una incidencia (una comprobación que no se pudo hacer, con la comprobación fallida) y el NA de criterio solo se usa en Comparabilidad, cuando la marca de dimensión de comparación del requisito lo dice (el NA del requisito sigue su regla); ninguno encubre deficiencias, errores de búsqueda o falta de corroboración.
 
 **QA-12.** Cada valoración AC cita hallazgos/evidencias y explica de manera propia el resultado frente a la condición del criterio.
 
@@ -66,7 +66,7 @@ El procedimiento debe vigilar especialmente las **falsas ausencias**, la inclusi
 | Contenido no recuperable | Verificar perfil, repetir comprobación razonable y registrar fallo. | Disponibilidad 0 si se acredita imposibilidad efectiva; de lo contrario, inconclusa. |
 | Candidato decisivo sin contexto | Ampliar inspección de recursos admitidos. | No fundamentar conclusiones incompatibles con la incertidumbre. |
 | Contradicción entre afirmaciones | Comprobar entidad, condiciones, unidades y momento. | Registrar discrepancia sin inventar versión «correcta». |
-| Falta de fuente para Fiabilidad | Documentar método y qué se pudo contrastar. | NE cuando no pueda decidirse; no 0 automático. |
+| Falta de fuente para Fiabilidad | Documentar qué comprobaciones se hicieron (estructura, dominio, fuente independiente si existe). | Grado según las comprobaciones superadas; ni 0 ni NE automáticos. |
 | Evidencia descontextualizada | Recuperar soporte original y contexto. | El hallazgo no puede aceptarse hasta subsanar o declarar limitación. |
 | El informe afirma más que el expediente | Revisar texto y vínculos evidenciales. | No publicar la conclusión no sustentada. |
 

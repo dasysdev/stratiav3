@@ -3,9 +3,9 @@ id: audit-gsc-availability-coverage
 title: Disponibilidad efectiva y cobertura (procedimiento)
 layer: method
 status: propuesta
-version: 0.1
-updated: 2026-10-24
-sources: [GSC0 §8, FUND §5.3, FUND §9.4]
+version: 0.2
+updated: 2026-10-27
+sources: [GSC0 §8, FUND §5.3, FUND §9.4, INTAKE 2026-10-27-ac-applicability-and-reliability]
 ---
 
 # Disponibilidad efectiva y cobertura
@@ -18,7 +18,7 @@ Procedimiento operativo para aplicar la puerta previa definida en el modelo. La 
 
 | Resultado | Regla y consecuencia |
 |---|---|
-| **Disponibilidad efectiva = 1** | Existe algún elemento pertinente utilizable, aunque sea incompleto o general. Continuar con los AC pertinentes. |
+| **Disponibilidad efectiva = 1** | Existe algún elemento pertinente utilizable, aunque sea incompleto o general. Continuar con los seis AC. |
 | **Disponibilidad efectiva = 0** | Se ha acreditado que no existe información pertinente utilizable, por ausencia o imposibilidad efectiva de obtenerla y leerla bajo el perfil. **IR = 0; no valorar los AC.** |
 | **Comprobación inconclusa** | No se ha podido fundamentar el binario. Registrar estado del procedimiento y motivo **sin asignar un tercer valor a la escala 0/1**, sin fijar IR ni fabricar valoraciones de AC. |
 

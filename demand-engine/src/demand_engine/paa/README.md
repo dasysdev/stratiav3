@@ -16,7 +16,7 @@ Del principio del [motor de captura](../capture/README.md#principio) se mantiene
 - Una sola ventana y una sola sesión: las búsquedas nunca van en paralelo.
 - Una pausa entre búsquedas (ver [Límites de ejecución](#límites-de-ejecución)).
 - Bloquea las peticiones de las respuestas de IA, como haría un bloqueador de contenido. No modifica el navegador ni el JavaScript de la página, y pide a Google menos datos de los que pediría una persona.
-- Ante un desafío (`/sorry/`, CAPTCHA, 403/429) **para**: no lo resuelve, no rota IP y no aplica parches antidetección.
+- Ante un desafío (`/sorry/`, CAPTCHA, 403/429) **para**: no lo resuelve, no rota IP y no aplica parches antidetección. Un 429 lo reintenta en la misma semilla tras la espera que pida Google (`Retry-After`); si no pide ninguna, a los 60 s, cada espera un 50 % más larga, hasta 5 reintentos (decidido el 2026-10-27). Cada intento guarda su registro con el código, las cabeceras, la espera pedida (`retry_after_s`) y la página (`dom.html.gz`).
 
 ## Estrategia de semillas
 
@@ -52,7 +52,13 @@ Decididos por el usuario (2026-10-26 y 2026-10-27): **pausa de 5 s entre búsque
 
 Una búsqueda con 8 clics son unos 25 s de página: en marcha continua, unas 2 búsquedas por minuto.
 
-> **Atención: qué hacer cuando Google bloquee.** Un bloqueo es una redirección a `/sorry/`, un CAPTCHA o una respuesta 403/429 (`paa status` lo muestra como «bloqueos del motor»). Entonces se añade una **pausa larga cada X búsquedas** en el `pacing` del conjunto (`long_every`, `long_pause_s`; por ejemplo, `[12, 18]` y `[60, 180]`). Si no basta, se alarga `pause_s`. Los valores se fijan con lo que se observe en ese bloqueo: cuántas búsquedas seguidas lo provocaron y cuánto tardó en levantarse. Se anotan aquí.
+> **Atención: qué hacer cuando Google bloquee.** Un bloqueo es una redirección a `/sorry/`, un CAPTCHA o una respuesta 403/429 (`paa status` lo muestra como «bloqueos del motor»). Un 429 cuenta como bloqueo solo si sigue tras los reintentos (`block_backoff`) o si Google pide esperar más de `max_wait_s`; entonces el motor espera lo que pidió en lugar de `block_retry_hours`. Entonces se añade una **pausa larga cada X búsquedas** en el `pacing` del conjunto (`long_every`, `long_pause_s`; por ejemplo, `[12, 18]` y `[60, 180]`). Si no basta, se alarga `pause_s`. Los valores se fijan con lo que se observe en ese bloqueo: cuántas búsquedas seguidas lo provocaron y cuánto tardó en levantarse. Se anotan aquí.
+
+**Bloqueos observados:**
+
+| Fecha | Qué | Búsquedas seguidas | Ritmo | Cuánto tardó en levantarse |
+|---|---|---|---|---|
+| 2026-10-27 14:50 | HTTP 429 en `sofá cama italiano` (piloto T-042) | 40 capturadas, en ~20 min, y bloqueo en la 41; ese día ya se habían hecho 10 por la mañana (sábanas) | Pausa de 5 s, sin pausa larga, 8 clics | Menos de 1 h 49 min: a las 16:39 (con `paa unblock`) las 13 siguientes pasaron sin un 429, al mismo ritmo |
 
 **Riesgo asumido:** la IP es la de la conexión desde la que se ejecuta. Si Google la marca, también verá CAPTCHAs quien busque desde ella durante horas.
 
@@ -81,6 +87,7 @@ demand-engine/bin/paa unblock               # tras revisar un bloqueo (es del mo
 | `market` | `base`, `hl`, `gl` | `https://www.google.es`, `es`, `es` |
 | `clicks` · `patience` | Preguntas que se abren por búsqueda · clics seguidos sin nada nuevo que la terminan | 8 · 2 |
 | `pacing` | `pause_s` entre búsquedas, `dwell_s` antes del primer clic, pausa larga (`long_every`, `long_pause_s`), `daily_cap` (de todos los conjuntos: una IP), `hours`, `timezone` | 5 s, 1,5–4 s, sin pausa larga, sin tope, sin horario, Europe/Madrid |
+| `block_backoff` | Reintentos de un 429 en la misma semilla: `first_s` (primera espera si Google no dice cuánto), `factor` (cada espera, respecto de la anterior), `retries`, `max_wait_s` (un `Retry-After` mayor no se espera: pasa a ser el bloqueo) | 60 s, 1,5, 5, 3600 s |
 | `block_retry_hours` | Espera tras un bloqueo; tras el segundo, el motor queda parado hasta `unblock` | 6 |
 
 ## Sesión de Chrome

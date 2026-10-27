@@ -3,9 +3,9 @@ id: audit-gsc-relevance
 title: Pertinencia funcional y conjunto pertinente
 layer: method
 status: propuesta
-version: 0.1
-updated: 2026-10-24
-sources: [GSC0 §6, GSC0 §7, FUND §9.2, FUND §3.6]
+version: 0.2
+updated: 2026-10-27
+sources: [GSC0 §6, GSC0 §7, FUND §9.2, FUND §3.6, INTAKE 2026-10-27-ac-applicability-and-reliability]
 ---
 
 # Pertinencia funcional y conjunto pertinente
@@ -26,7 +26,7 @@ Para cada candidato, registrar:
 
 1. **PF-01 · Contribución.** ¿Qué componente de respuesta o necesidad constitutiva del RI puede informar, delimitar o sustentar? Señalar el componente concreto del perfil.
 2. **PF-02 · Función.** ¿Aporta el hecho; identifica entidad; establece relación; delimita o contextualiza; sirve de sustento o contraste; o cumple otra función razonada? Nombrar y explicar la función, no solo etiquetarla.
-3. **PF-03 · Fundamento.** ¿Qué significado observable, afirmación, vínculo expreso, equivalencia admisible o regla interpretativa sostiene esa contribución? Identificar su evidencia y los supuestos que **no** pueden adoptarse.
+3. **PF-03 · Fundamento.** ¿Qué significado observable, afirmación, vínculo expreso, equivalencia admisible o regla interpretativa sostiene esa contribución? Identificar su evidencia y los supuestos que **no** pueden adoptarse. Si la contribución pasa por una derivación desde otro hecho, aplicar la [prueba de derivación](../../10-model/effective-availability.md#prueba-de-derivación) ([D-120](../../30-governance/decisions.md#d-120)): un atributo por sí solo no es pertinente para una prestación ([D-119](../../30-governance/decisions.md#d-119)).
 
 La clasificación de funciones es **enunciativa, no limitativa**. Toda función adicional debe poder describirse por su contribución concreta y no puede ampliar arbitrariamente el RI.
 

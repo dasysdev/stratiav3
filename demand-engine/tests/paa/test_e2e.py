@@ -1,6 +1,7 @@
 """End to end with the real Chrome against a local imitation of the results page (runs in the
 container): consent, the echo of the query, expansion by clicks, the answer calls learned and
-blocked, early stop, a leftover tab, a block and a page that stops answering."""
+blocked, early stop, a leftover tab, a 429 that lifts on retry, a block and a page that stops
+answering."""
 import collections
 import html
 import json
@@ -69,9 +70,11 @@ class Handler(BaseHTTPRequestHandler):
     def log_message(self, *args):
         pass
 
-    def _send(self, status, body: bytes):
+    def _send(self, status, body: bytes, headers: dict | None = None):
         self.send_response(status)
         self.send_header("Content-Type", "text/html; charset=utf-8")
+        for k, v in (headers or {}).items():
+            self.send_header(k, v)
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)
@@ -93,6 +96,10 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(200, (new or "<div></div>").encode("utf-8"))
         if q == "bloqueo":
             return self._send(429, SORRY)
+        if q == "pasajero":  # a 429 that lifts: the first asks to wait 0 s, the second says nothing
+            Handler.hits[q] += 1
+            if Handler.hits[q] <= 2:
+                return self._send(429, SORRY, {"Retry-After": "0"} if Handler.hits[q] == 1 else None)
         if q == "colgada":  # main thread busy for good, as Google's results page on 2026-10-26
             return self._send(200, b"<!doctype html><html><body><script>setTimeout(() => { for (;;) {} }, 0)</script></body></html>")
         body = RESULTS.format(q=html.escape(q), jq=json.dumps(q), consent=consent)
@@ -118,7 +125,9 @@ def browser(tmp_path):
 def test_run_set(server, browser, paa_dirs):
     spec = {"class": "Ropa de cama", "clicks": 3, "market": {"base": f"http://127.0.0.1:{server}"},
             "pacing": {"pause_s": [0.1, 0.2], "dwell_s": [0.1, 0.2], "hours": [0, 24], "long_every": [99, 99]},
-            "seeds": [{"q": "sábanas", "group": "núcleo"}, {"q": "corta"}, {"q": "bloqueo"}, {"q": "después"}]}
+            "block_backoff": {"first_s": 0.2, "retries": 5},
+            "seeds": [{"q": "sábanas", "group": "núcleo"}, {"q": "corta"}, {"q": "pasajero"}, {"q": "bloqueo"},
+                      {"q": "después"}]}
     (paa_dirs / "sets" / "e2e.json").write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
     s = SeedSet("e2e")
     leftover = browser.new_window()                                   # a tab left by a run cut short
@@ -126,7 +135,8 @@ def test_run_set(server, browser, paa_dirs):
     summary = run(s, browser, rng=random.Random(1), say=lambda *a: None)
     assert leftover.target_id not in [t["id"] for t in browser._json("/json")]
 
-    assert summary["captured"] == 2 and summary["blocked"] == 1 and summary["stopped"].startswith("bloqueo")
+    assert summary["captured"] == 3 and summary["blocked"] == 1 and summary["stopped"].startswith("bloqueo")
+    assert summary["retries"] == 2 + 5                                # pasajero: 2; bloqueo: los 5
     recs = {r["query"]: r for r in s.records()}
     full = recs["sábanas"]
     qs = [q["q"] for q in full["questions"]]
@@ -138,11 +148,21 @@ def test_run_set(server, browser, paa_dirs):
     assert Handler.hits["2"] == 2 and Handler.hits["1"] >= 5          # después, ninguna respuesta más
     assert recs["corta"]["clicks"] == 2 and len(recs["corta"]["questions"]) == 4   # dos clics sin nada: para
     assert [x["q"] for x in s.pending()] == ["bloqueo", "después"]
-    assert store.blocked_now()
-    log = (s.dir / "log.jsonl").read_text(encoding="utf-8")
-    assert '"event": "consent"' in log and '"event": "block"' in log and '"event": "tabs"' in log
+    assert store.blocked_now() and len(store.engine_state()["blocks"]) == 1   # los reintentos no son bloqueos
+    log = [json.loads(x) for x in (s.dir / "log.jsonl").read_text(encoding="utf-8").splitlines()]
+    events = {e["event"] for e in log}
+    assert {"consent", "block", "tabs", "retry"} <= events
+    retries = [e for e in log if e["event"] == "retry"]
+    assert retries[0]["query"] == "pasajero" and retries[0]["retry_after_s"] == 0 and retries[0]["wait_s"] == 0
+    assert retries[1]["retry_after_s"] is None and retries[1]["wait_s"] == 0.3            # sin Retry-After: 0,2 × 1,5
+    assert [e["wait_s"] for e in retries[2:]] == [0.2, 0.3, 0.5, 0.7, 1.0]                # +50 % cada vez
+    attempts = sorted((s.dir / "searches" / "bloqueo").iterdir())
+    assert len(attempts) == 6                                         # cada intento, con su registro
+    last = json.loads((attempts[-1] / "record.json").read_text(encoding="utf-8"))
+    assert last["status"] == 429 and last["detail"]["vendor"] == "google" and last["retry_after_s"] is None
+    assert "content-type" in {k.lower() for k in last["headers"]} and last["files"]["dom"]
     data = json.loads((s.dir / "questions.json").read_text(encoding="utf-8"))
-    assert data["searches"] == 2 and len(data["questions"]) == 14
+    assert data["searches"] == 3 and len(data["questions"]) == 14 + 10
 
     assert run(s, browser, say=lambda *a: None)["stopped"].startswith("bloqueado hasta")
     (paa_dirs / "sets" / "otro.json").write_text(json.dumps({**spec, "seeds": [{"q": "x"}]}), encoding="utf-8")

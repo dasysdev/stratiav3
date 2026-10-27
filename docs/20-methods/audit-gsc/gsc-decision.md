@@ -1,24 +1,24 @@
 ---
 id: audit-gsc-gsc-decision
-title: Decisión de GSC, NA, NE y control de materialidad
+title: Decisión de GSC, incidencias y control de materialidad
 layer: method
 status: propuesta
-version: 0.1
-updated: 2026-10-24
-sources: [GSC0 §12, GSC0 §14.4, FUND §8.1]
+version: 0.3
+updated: 2026-10-27
+sources: [GSC0 §12, GSC0 §14.4, FUND §8.1, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
 ---
 
-# Decisión de GSC, NA, NE y control de materialidad
+# Decisión de GSC, incidencias y control de materialidad
 
-La escala GSC 0/1/2 y los estados NA/NE son canon ([sistemas de valoración](../../10-model/scoring-systems.md)). Este módulo fija el **procedimiento de decisión** (propuesta V1).
+La escala GSC 0/1/2 y los estados NA/NE son canon ([sistemas de valoración](../../10-model/scoring-systems.md)). Los seis criterios se aplican siempre y NE es una incidencia de la auditoría ([D-117](../../30-governance/decisions.md#d-117)). Este módulo fija el **procedimiento de decisión** (propuesta V1).
 
 ## Procedimiento universal (GSC-01 a GSC-12)
 
 **GSC-01 · Puerta de disponibilidad.** Solo valorar AC si disponibilidad efectiva = 1. Si es 0, fijar IR = 0 y dejar los AC **sin valoración**; no registrar NA o 0 por defecto en todos ellos.
 
-**GSC-02 · Aplicabilidad.** Para cada AC, determinar si su condición corresponde al RI y ámbito. Si no corresponde, **NA justificado**. No usar NA porque falta información para un criterio pertinente.
+**GSC-02 · Aplicación.** Los seis AC se aplican siempre. La única excepción es el NA de Comparabilidad cuando la marca de dimensión de comparación del requisito dice que no es dimensión de comparación ([D-126](../../30-governance/decisions.md#d-126)); lo fija el modelo, no el auditor. No usar NA porque falta información.
 
-**GSC-03 · Base probatoria.** Verificar evidencias y cobertura suficientes para juzgar la condición específica. Si faltan y no pueden completarse, **NE**, no 0 automático.
+**GSC-03 · Base probatoria.** Verificar evidencias y cobertura suficientes para juzgar la condición específica. Si faltan, ampliar la comprobación. Si una comprobación **no se puede hacer** (un recurso que no se pudo inspeccionar, un registro externo que no respondió), registrar **NE** como incidencia, con la comprobación que falló; no 0 automático. Que un dato no se pueda corroborar no es una incidencia: en Fiabilidad se resuelve con la lectura refutadora.
 
 **GSC-04 · Condición satisfecha.** Si el AC está satisfecho suficientemente para el RI, asignar **2**, indicando componentes y evidencias favorables.
 
@@ -48,17 +48,18 @@ La escala GSC 0/1/2 y los estados NA/NE son canon ([sistemas de valoración](../
           SÍ  → ¿Disponibilidad = 0?
                   SÍ → IR = 0; no emitir valoraciones de AC.
                   NO → Para cada AC:
-                         ¿El criterio corresponde al RI?
-                           NO → NA motivado.
-                           SÍ → ¿Hay cobertura/evidencia suficiente para juzgarlo?
-                                   NO → Ampliar prueba; si persiste → NE.
-                                   SÍ → ¿Condición suficientemente satisfecha?
-                                           SÍ → 2.
-                                           NO → ¿Existe satisfacción parcial
-                                                  materialmente acreditada?
-                                                   SÍ → 1.
-                                                   NO → 0, con prueba de
-                                                          insatisfacción.
+                         ¿Se pudieron hacer las comprobaciones necesarias?
+                           NO → Ampliar o repetir; si una no puede hacerse
+                                → NE (incidencia, con la comprobación fallida).
+                           SÍ → ¿Condición suficientemente satisfecha?
+                                   SÍ → 2.
+                                   NO → ¿Existe satisfacción parcial
+                                          materialmente acreditada?
+                                           SÍ → 1.
+                                           NO → 0, con prueba de
+                                                  insatisfacción.
+   (Comparabilidad: NA, si el requisito está marcado como no
+    dimensión de comparación, D-126.)
 ```
 
 La última rama **no autoriza 0 por descarte lógico sin evidencia**: solo se llega a ella si previamente se verificó base probatoria suficiente para caracterizar una insatisfacción.
@@ -84,14 +85,15 @@ Una limitación es **material** cuando tiene consecuencia justificada para la co
 | RI no procede para la clase/oferta según aplicabilidad definida. | NA del RI, justificado. | Disponibilidad 0 sin analizar aplicabilidad. |
 | RI aplicable, información pertinente ausente tras cobertura suficiente. | Disponibilidad 0, IR 0; no valorar AC. | Seis AC = 0 por defecto. |
 | RI aplicable, comprobación previa inconclusa. | Estado procedimental «inconclusa»; disponibilidad sin valor emitido; no valorar AC. | Crear «disponibilidad 2» o fingir disponibilidad 0. |
-| Disponibilidad 1, un AC no corresponde a la cuestión. | NA del AC. | Darle 0 porque no se puede comparar. |
-| Disponibilidad 1, AC pertinente, evidencias insuficientes para juzgar. | NE del AC y motivo. | Dar 0 o 1 por incertidumbre general. |
+| Disponibilidad 1, la respuesta no es una dimensión de comparación de la clase. | Comparabilidad NA, según la marca del requisito. | Darle 0 porque no se puede comparar. |
+| Disponibilidad 1, una comprobación no se pudo hacer. | NE del AC como incidencia, con la comprobación fallida. | Dar 0 o 1 por incertidumbre general. |
+| Disponibilidad 1, un dato que nada refuta ni confirma. | Fiabilidad según las comprobaciones superadas (lectura refutadora). | NE porque no hay corroboración. |
 | Disponibilidad 1, deficiencia suficientemente acreditada. | GSC 0 o 1 según su consecuencia. | NE solo porque el resultado es negativo. |
 | Disponibilidad 1, respuesta negativa correctamente sustentada. | Evaluar favorablemente los AC que cumpla. | Penalizar porque la oferta no satisface una preferencia. |
 
 ## Incertidumbre en Fiabilidad y Justificación
 
-La **falta de pruebas para verificar un hecho** y la **ausencia de base expuesta para reconstruir una respuesta** no son lo mismo. Para Fiabilidad, cuando el auditor no puede establecer la corrección/vigencia con fundamento suficiente, estudiar NE. Para Justificación, la falta **comprobada** de afirmaciones o conexiones de soporte en la información expuesta puede justificar 0/1 con una cobertura de inspección suficiente. No obligar a ambos criterios a recibir el mismo resultado.
+La **falta de pruebas para verificar un hecho** y la **ausencia de base expuesta para reconstruir una respuesta** no son lo mismo. Para Fiabilidad, el grado sale de las comprobaciones superadas: sin defectos detectados es 2, aunque nada corrobore el dato, y el registro dice qué se comprobó ([lectura refutadora](../../10-model/acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones)). Para Justificación, la falta **comprobada** de afirmaciones o conexiones de soporte en la información expuesta puede justificar 0/1 con una cobertura de inspección suficiente; también la falta del identificador que permitiría verificar un dato. No obligar a ambos criterios a recibir el mismo resultado.
 
 ## Salida separada por AC
 
@@ -106,8 +108,8 @@ ambito: "Web"
 disponibilidad_efectiva: 1
 valoraciones:
   - criterio: "Aplicabilidad"
-    estado: "valorado"  # valorado | NA | NE
-    gsc: 1               # null si NA o NE
+    estado: "valorado"  # valorado | NE (incidencia) | NA (solo Comparabilidad, según la marca)
+    gsc: 1               # null si NE o NA
     condicion_evaluada: "<condicion vigente del AC>"
     propiedades_consideradas: ["P10", "P11", "P12"]
     evidencias: ["E-001", "E-002"]
@@ -119,7 +121,7 @@ valoraciones:
     limitaciones_de_evaluacion: []
 ```
 
-**Importante:** si disponibilidad es **0**, `valoraciones` no debe contener seis ceros ni seis NA: los AC **no se valoran**. Si la disponibilidad no puede determinarse, mantener `disponibilidad_efectiva: null` junto al campo **procedimental** `estado_disponibilidad: inconclusa`; no crear un nuevo nivel de disponibilidad. Si no procede un AC, `estado: NA, gsc: null`; si no se puede juzgar, `estado: NE, gsc: null`.
+**Importante:** si disponibilidad es **0**, `valoraciones` no debe contener seis ceros ni seis NA: los AC **no se valoran**. Si la disponibilidad no puede determinarse, mantener `disponibilidad_efectiva: null` junto al campo **procedimental** `estado_disponibilidad: inconclusa`; no crear un nuevo nivel de disponibilidad. Si una comprobación no se pudo hacer, `estado: NE, gsc: null`, con la comprobación fallida en `limitaciones_de_evaluacion`; si el requisito no es dimensión de comparación, Comparabilidad lleva `estado: NA, gsc: null`.
 
 ## Relacionado
 

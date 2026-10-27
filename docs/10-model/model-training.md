@@ -3,14 +3,14 @@ id: model-training
 title: Entrenamiento y ejecución del modelo de demanda
 layer: model
 status: vigente
-version: 1.16
+version: 1.18
 updated: 2026-10-27
-sources: [INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-25-training-catalog-selection, INTAKE 2026-10-25-training-classifier, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-26-color-and-requirement-exceptions, INTAKE 2026-10-26-any-property-precision, INTAKE 2026-10-26-critical-count-not-a-goal, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-formulation, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-27-paa-classification-criteria]
+sources: [INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-25-training-catalog-selection, INTAKE 2026-10-25-training-classifier, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-26-color-and-requirement-exceptions, INTAKE 2026-10-26-any-property-precision, INTAKE 2026-10-26-critical-count-not-a-goal, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-formulation, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints]
 ---
 
 # Entrenamiento y ejecución del modelo de demanda
 
-Parte del [modelo de demanda](demand-model.md). Define cómo se produce el modelo de demanda de un producto: un **entrenamiento** periódico que induce las reglas y compila el catálogo de bloques, y una **ejecución** automática que construye cada modelo con ellos. La persona responsable solo define el **marco** ([D-041](../30-governance/decisions.md#d-041), [D-044](../30-governance/decisions.md#d-044)). La operación de la primera versión está en [D-045](../30-governance/decisions.md#d-045).
+Parte del [modelo de demanda](demand-model.md). Define cómo se produce el modelo de demanda de un producto: un **entrenamiento** periódico que induce las reglas y compila el catálogo de bloques, y una **ejecución** automática que construye cada modelo con ellos. La persona responsable solo define el **marco** ([D-041](../30-governance/decisions.md#d-041), [D-044](../30-governance/decisions.md#d-044)). La operación de la primera versión está en [D-045](../30-governance/decisions.md#d-045). PAA tiene un [entrenamiento propio](paa-training.md), independiente de este ([D-114](../30-governance/decisions.md#d-114)).
 
 ## Definición
 
@@ -56,6 +56,8 @@ Es la única intervención humana. Las decisiones ya aceptadas del canon forman 
 > — INTAKE 2026-10-25-induced-rules
 
 Lo que antes validaba la persona responsable (las especializaciones, [D-022](../30-governance/decisions.md#d-022); las cuestiones inferidas, [D-036](../30-governance/decisions.md#d-036); la relevancia de las propiedades de Amazon, [D-039](../30-governance/decisions.md#d-039); los bloques del catálogo, [D-040](../30-governance/decisions.md#d-040); las importancias, [D-041](../30-governance/decisions.md#d-041)) lo valida ahora el entrenamiento contra el marco ([D-044](../30-governance/decisions.md#d-044)). Una cuestión con fuente que su bloque ni pregunta ni excluye es una propuesta al bloque: la compilación la incorpora al catálogo ([D-088](../30-governance/decisions.md#d-088)). El vocabulario de rasgos, las reglas de importancia, las métricas y los casos se fijan en la [operación de la primera versión](#operación-de-la-primera-versión) ([D-045](../30-governance/decisions.md#d-045)).
+
+El entrenamiento compila también la tabla de [pistas de valoración](assessment-hints.md) por tipo (rasgo × entidad) y rechaza las pistas que sean una lista o una frase exacta, que reformula como criterio ([D-127](../30-governance/decisions.md#d-127), [D-128](../30-governance/decisions.md#d-128)).
 
 ## Ejecución
 
@@ -245,3 +247,4 @@ Ver [open-questions](../30-governance/open-questions.md):
 - [demand-model](demand-model.md) — modelo de demanda, bloques y capa general
 - [study-class](study-class.md) — clase de estudio y criterio de especialización
 - [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md) — catálogo de bloques (método, propuesta)
+- [paa-training](paa-training.md) — entrenamiento de PAA

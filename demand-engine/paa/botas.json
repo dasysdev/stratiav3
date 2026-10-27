@@ -1,0 +1,28 @@
+{
+  "class": "Botas",
+  "model": "demand-engine/var/runs/2026-10-26-v6-b/bota-polo-e.model.md",
+  "rule": "Regla vigente (README del motor PAA, estrategia de semillas; piloto T-042, D-116): núcleo (cada categoría y especialización de la clave, con su nombre en el mercado español; sin las categorías de sector) + valores del rasgo que más condiciona las prestaciones, de las referencias. Valores: material del calzado (Shopify footwear-material: cuero, gamuzado, goma, cuero sintético).",
+  "clicks": 8,
+  "seeds": [
+    {
+      "q": "botas",
+      "group": "núcleo"
+    },
+    {
+      "q": "botas de piel",
+      "group": "material"
+    },
+    {
+      "q": "botas de ante",
+      "group": "material"
+    },
+    {
+      "q": "botas de goma",
+      "group": "material"
+    },
+    {
+      "q": "botas de polipiel",
+      "group": "material"
+    }
+  ]
+}

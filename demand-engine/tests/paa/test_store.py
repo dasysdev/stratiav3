@@ -1,11 +1,11 @@
 """Seed sets, state, blocks and consolidation (no browser)."""
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 import pytest
 
 from demand_engine.paa import store
-from demand_engine.paa.serp import norm, search_url
+from demand_engine.paa.serp import norm, retry_after, search_url
 from demand_engine.paa.store import SeedSet, StoreError, slug
 
 
@@ -66,3 +66,12 @@ def test_block_policy(paa_dirs):
     assert [b["set"] for b in store.engine_state()["blocks"]] == ["a", "b"]
     store.unblock()
     assert store.blocked_now() is None
+
+
+def test_retry_after():
+    """Retry-After in seconds or as an HTTP date; anything else is no instruction."""
+    at = datetime(2026, 10, 27, 14, 50, tzinfo=timezone.utc)
+    assert retry_after({"Retry-After": "120"}) == 120
+    assert retry_after({"retry-after": "Tue, 27 Oct 2026 14:55:00 GMT"}, at) == 300
+    assert retry_after({"Retry-After": "Tue, 27 Oct 2026 14:00:00 GMT"}, at) == 0
+    assert retry_after({"Retry-After": "pronto"}) is None and retry_after({}) is None and retry_after(None) is None

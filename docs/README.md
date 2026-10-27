@@ -31,7 +31,7 @@ Orden de lectura recomendado:
 |---|---|---|
 | 1 | [commercial-information](10-model/commercial-information.md) | Información comercial, representación, exposición, calidad y las dos dimensiones. |
 | 2 | [ai-functions](10-model/ai-functions.md) | Las siete funciones informativas de la IA y el fundamento de independencia frente a la IA concreta. |
-| 3 | [evaluation-scopes](10-model/evaluation-scopes.md) | Interfaces, tres ámbitos, requisitos técnicos y punto de contacto técnico–informativo. |
+| 3 | [evaluation-scopes](10-model/evaluation-scopes.md) | Interfaces, tres ámbitos, requisitos técnicos, punto de contacto técnico–informativo y consistencia transversal. |
 | 4 | [demand-model](10-model/demand-model.md) | Modelo de demanda, RI, importancia relativa, composición por bloques de requisitos, capa general, perfil de resolución y escenarios. |
 | 4b | [study-class](10-model/study-class.md) | Clase de estudio: eje de base, composición, criterio de especialización. Medio para descubrir los bloques del modelo. |
 | 4c | [model-training](10-model/model-training.md) | Entrenamiento (reglas inducidas, catálogo compilado) y ejecución automática del modelo de demanda; el marco que define la persona responsable. |
@@ -39,9 +39,11 @@ Orden de lectura recomendado:
 | 4e | [requirement-description](10-model/requirement-description.md) | Descripción de cada requisito: tres partes que concretan la pregunta, sin repetir la información resolutiva. |
 | 4f | [choice-criteria](10-model/choice-criteria.md) | Criterios de elección: cuándo generan un requisito (C1–C4), lectura de las preguntas PAA y por qué una prestación no se resuelve con el atributo del que se deduciría. |
 | 4g | [construction-routes](10-model/construction-routes.md) | Vías de construcción del modelo de demanda (taxonomía, MPIR aparcado, People Also Ask), cuestiones inferidas, origen de cada requisito y recorrido. |
+| 4h | [paa-training](10-model/paa-training.md) | Entrenamiento propio de PAA: qué refina, lo que escribe en el catálogo, un solo escritor por requisito y piloto de medición. |
 | 5 | [evaluation-architecture](10-model/evaluation-architecture.md) | Dos naturalezas de requisitos, componentes y cadenas de análisis y justificación. |
-| 6 | [effective-availability](10-model/effective-availability.md) | Puerta binaria previa. |
-| 7 | [acceptance-criteria](10-model/acceptance-criteria.md) | Los seis AC y sus distinciones. |
+| 6 | [effective-availability](10-model/effective-availability.md) | Puerta binaria previa; pertinencia de lo derivado y prueba de derivación. |
+| 7 | [acceptance-criteria](10-model/acceptance-criteria.md) | Los seis AC, su aplicación y sus distinciones; lectura refutadora de Fiabilidad. |
+| 7b | [assessment-hints](10-model/assessment-hints.md) | Pistas de valoración: lo que cada requisito fija para orientar sus AC (tres niveles, criterios breves apoyados en las propiedades, marca de dimensión de comparación, quién las escribe). |
 | 8 | [quality-properties](10-model/quality-properties.md) | P06–P18 y asociaciones orientativas con los AC. |
 | 9 | [scoring-systems](10-model/scoring-systems.md) | GSC, NA/NE, IR (0–10) y estado binario, ICI, TRI, tasa técnica y lectura integrada. |
 | 10 | [informative-prominence](10-model/informative-prominence.md) | Prominencia informativa, IP y calidad ajustada (**propuesta**). |

@@ -10,17 +10,21 @@
   running that a Chrome without GPU paints in software: two or three open answers saturate the
   page until it stops responding (2026-10-26/27). `Answers` learns which calls never bring a
   question and blocks them (`Network.setBlockedURLs`), as a content blocker would.
-- Challenge (/sorry/, CAPTCHA, 429): the search is `blocked` and nothing else is done.
+- Challenge (/sorry/, CAPTCHA, 429): the search is `blocked` and nothing else is done. Its record
+  keeps the status, the headers and the wait Google asks for (`Retry-After`), and the page is
+  kept as dom.html.gz.
 
 The answers («Vista creada con IA») are not read: only the questions are evidence.
 """
 from __future__ import annotations
 
+import email.utils
 import json
 import random
 import re
 import time
 import urllib.parse
+from datetime import datetime, timezone
 
 from ..capture import detect
 from ..capture.browser import Page
@@ -174,16 +178,32 @@ def load(page: Page, url: str) -> dict:
     return {"event": event}
 
 
-def blocked(page: Page, event: dict, state: dict) -> dict | None:
+def blocked(page: Page, event: dict, state: dict) -> tuple[dict | None, str]:
+    """The challenge found, if any, and the page's HTML."""
     status = event["response"].get("status")
     try:
         html = page.eval(OUTER_HTML) or ""
     except CdpError:
         html = ""
     found = detect.challenge(status, event["response"].get("headers"), html)
-    if state.get("sorry") and not found:
+    if state.get("sorry"):  # Google's own block page, whatever the generic detection said
         found = {"vendor": "google", "evidence": f"HTTP {status}; página /sorry/ o formulario de CAPTCHA"}
-    return found
+    return found, html
+
+
+def retry_after(headers: dict | None, at: datetime | None = None) -> float | None:
+    """Seconds the response asks to wait (Retry-After: seconds or an HTTP date), or None."""
+    value = {k.lower(): str(v) for k, v in (headers or {}).items()}.get("retry-after", "").strip()
+    if not value:
+        return None
+    if value.isdigit():
+        return float(value)
+    try:
+        when = email.utils.parsedate_to_datetime(value)
+    except (TypeError, ValueError):
+        return None
+    when = when if when.tzinfo else when.replace(tzinfo=timezone.utc)
+    return max(0.0, (when - (at or datetime.now(timezone.utc))).total_seconds())
 
 
 def search(page: Page, base: str, query: str, hl: str, gl: str, clicks: int, rng: random.Random,
@@ -215,10 +235,12 @@ def search(page: Page, base: str, query: str, hl: str, gl: str, clicks: int, rng
     event = loaded["event"]
     first = read(page, query)
     record.update({"final_url": first.get("url"), "status": event["response"].get("status")})
-    found = blocked(page, event, first)
+    found, html = blocked(page, event, first)
     lap("read")
     if found:
-        return {**record, "outcome": "blocked", "detail": found, "elapsed_s": round(time.monotonic() - t0, 1)}, ""
+        headers = event["response"].get("headers") or {}
+        return {**record, "outcome": "blocked", "detail": found, "headers": headers,
+                "retry_after_s": retry_after(headers), "elapsed_s": round(time.monotonic() - t0, 1)}, html
     if record["status"] and record["status"] >= 400:
         return {**record, "outcome": "failed", "detail": f"HTTP {record['status']}", "elapsed_s": round(time.monotonic() - t0, 1)}, ""
 

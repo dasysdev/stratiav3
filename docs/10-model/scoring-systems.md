@@ -3,9 +3,9 @@ id: scoring-systems
 title: Sistemas de valoración
 layer: model
 status: vigente
-version: 1.1
-updated: 2026-10-24
-sources: [BASE §6, FUND §8, INTAKE 2026-10-24-prominencia-informativa]
+version: 1.3
+updated: 2026-10-27
+sources: [BASE §6, FUND §8, INTAKE 2026-10-24-prominencia-informativa, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
 ---
 
 # Sistemas de valoración
@@ -32,15 +32,17 @@ Estados que **no son puntuaciones**:
 
 | Estado | Cuándo procede | Tratamiento |
 |---|---|---|
-| **No aplicable (NA)** | El criterio o requisito no corresponde al ámbito o a la cuestión definida. | Se justifica y se separa de las unidades pertinentes. |
-| **No evaluable (NE)** | Es pertinente, pero las evidencias no permiten un juicio suficientemente fundado. | **No se equipara a 0.** Se documentan la limitación de cobertura y su efecto sobre la interpretación. |
+| **No aplicable (NA)** | El requisito no corresponde al ámbito o a la cuestión definida. **No hay NA de criterio**: los seis se aplican siempre; la única excepción es el NA de Comparabilidad en los requisitos que no son dimensión de comparación ([D-126](../30-governance/decisions.md#d-126)). | Se justifica y se separa de las unidades pertinentes. |
+| **No evaluable (NE)** | **Incidencia de la auditoría:** una comprobación de un criterio no se pudo hacer (un recurso que no se pudo inspeccionar, un registro externo que no respondió). No es falta de evidencia sobre lo publicado. | **No se equipara a 0.** Se registra qué comprobación falló y su efecto sobre la interpretación. |
+
+El criterio «no aplicable» y la situación «no evaluable» de BASE §6.1 y FUND §8.1 están enmendados por [D-117](../30-governance/decisions.md#d-117) — INTAKE 2026-10-27-ac-applicability-and-reliability.
 
 **Reglas del GSC:**
 
 1. Un **2** expresa la suficiencia del criterio. No implica necesariamente la resolución del requisito completo ni garantiza que cualquier IA responda correctamente.
 2. Un **0** expresa la insatisfacción acreditada de la condición del criterio. No implica la imposibilidad universal de resolver la cuestión.
 3. **Las cifras son etiquetas ordinales:** sus distancias no son porcentajes ni magnitudes de calidad.
-4. **Insatisfacción acreditada no es lo mismo que falta de evidencia.** La insatisfacción tras una comprobación apropiada justifica una valoración negativa. La imposibilidad de obtener evidencia suficiente **requiere un tratamiento diferenciado** (FUND §8.1). La propuesta operativa (NE o GSC 1 según el caso) está en [gsc-decision](../20-methods/audit-gsc/gsc-decision.md).
+4. **Insatisfacción acreditada no es lo mismo que falta de evidencia.** La insatisfacción tras una comprobación apropiada justifica una valoración negativa. La imposibilidad de hacer una comprobación **requiere un tratamiento diferenciado** (FUND §8.1): es una incidencia (NE). Que un dato no se pueda corroborar no es una incidencia: en Fiabilidad se resuelve con la [lectura refutadora](acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones) ([D-121](../30-governance/decisions.md#d-121)). El procedimiento está en [gsc-decision](../20-methods/audit-gsc/gsc-decision.md).
 5. **No se declara falsa** una afirmación solo porque no se haya podido verificar externamente.
 6. **El juicio se fundamenta en lo observado.** No se decide primero la puntuación para buscar después ejemplos que la respalden.
 
@@ -106,7 +108,8 @@ FUND §8.5 añade: **No sustituye al diagnóstico informativo ni demuestra por s
 | Nivel | Pregunta de interpretación | Salida |
 |---|---|---|
 | Disponibilidad efectiva × RI × ámbito | ¿Existe información pertinente efectivamente utilizable? | **0 o 1**. Si es 0, **IR = 0**. |
-| Criterio × RI × ámbito | ¿Se satisface este aspecto sobre la información utilizable? | **GSC 0/1/2**, NA o NE. |
+| Criterio × RI × ámbito | ¿Se satisface este aspecto sobre la información utilizable? | **GSC 0/1/2**; NE si hay una incidencia; NA de Comparabilidad si el requisito no es dimensión de comparación. |
+| RI × par de ámbitos | ¿Afirman los ámbitos lo mismo sobre la misma realidad comercial? | **[Consistencia transversal](evaluation-scopes.md#consistencia-transversal):** hallazgos sin escala; no modifican el GSC ni se agregan. |
 | RI × ámbito | ¿Puede determinarse y fundamentarse suficientemente la respuesta? | **IR (0–10)** y **estado binario 0/1** (propuesta) |
 | RI × ámbito (Web) | ¿Qué parte de lo resuelto tiene soporte en zonas prominentes? | **IP (0–100 %)** y **calidad ajustada** (propuesta; NA en Web Schema.org y Catálogos) |
 | Conjunto de RI de un ámbito | ¿Qué calidad informativa ofrece el ámbito respecto de las necesidades relevantes? | **ICI** |
@@ -130,5 +133,5 @@ Ver [open-questions](../30-governance/open-questions.md):
 
 - [acceptance-criteria](acceptance-criteria.md)
 - [effective-availability](effective-availability.md)
-- [gsc-decision](../20-methods/audit-gsc/gsc-decision.md): árbol de decisión GSC/NA/NE (propuesta V1).
+- [gsc-decision](../20-methods/audit-gsc/gsc-decision.md): árbol de decisión del GSC (propuesta V1).
 - [informative-prominence](informative-prominence.md): IP y calidad ajustada (propuesta).

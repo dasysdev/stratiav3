@@ -3,9 +3,9 @@ id: audit-gsc-execution
 title: Procedimiento integral de ejecución
 layer: method
 status: propuesta
-version: 0.1
-updated: 2026-10-24
-sources: [GSC0 §13, GSC0 Anexo A, FUND §9.3]
+version: 0.3
+updated: 2026-10-27
+sources: [GSC0 §13, GSC0 Anexo A, FUND §9.3, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
 ---
 
 # Procedimiento integral de ejecución
@@ -19,8 +19,8 @@ sources: [GSC0 §13, GSC0 Anexo A, FUND §9.3]
 3. **Explorar y localizar** candidatos, datos, afirmaciones, entidades, relaciones y contexto con una cobertura apropiada.
 4. **Fundamentar la pertinencia** de los candidatos y formar el conjunto pertinente contextualizado.
 5. **Comprobar la disponibilidad efectiva.** Si es 0 con evidencia adecuada, establecer **IR = 0** y no valorar AC; si es 1, continuar.
-6. **Examinar las propiedades y sus efectos** sobre cada AC pertinente, recurriendo a comprobaciones y evidencias específicas.
-7. **Asignar y motivar el GSC** de cada AC aplicable, o justificar NA o NE cuando proceda.
+6. **Examinar las propiedades y sus efectos** sobre cada uno de los seis AC, recurriendo a comprobaciones y evidencias específicas.
+7. **Asignar y motivar el GSC** de cada AC, o registrar NE si una comprobación no pudo hacerse (NA de Comparabilidad si el requisito no es dimensión de comparación).
 8. **Sintetizar el IR**, cuando se disponga de las reglas correspondientes, y elaborar el informe con referencias al registro de evaluación.
 
 La evaluación técnica se ejecuta conforme a sus requisitos y su sistema cuantitativo. Una misma observación puede alimentar ambos expedientes, pero en el informativo se describe el **efecto sobre la cuestión** y en el técnico se valora **la implementación conforme a su especificación**.
@@ -38,9 +38,9 @@ La evaluación técnica se ejecuta conforme a sus requisitos y su sistema cuanti
 | **OP-05** | Aplicar prueba de pertinencia a los candidatos. | Decisiones pertinentes/pendientes/excluidas relevantes, con función y soporte. |
 | **OP-06** | Construir el conjunto pertinente contextualizado. | Sujetos, afirmaciones, relaciones y condiciones vinculados a las fuentes. |
 | **OP-07** | Verificar cobertura y disponibilidad efectiva. | 0/1 sustentado o comprobación inconclusa; rama de ejecución correcta. |
-| **OP-08** | Determinar AC aplicables y planificar pruebas de propiedades. | Plan de comprobación por criterio, con evidencias requeridas. |
+| **OP-08** | Planificar las pruebas de propiedades de los seis AC. | Plan de comprobación por criterio, con evidencias requeridas. |
 | **OP-09** | Ejecutar comprobaciones y ampliar localización si hace falta. | Hallazgos con evidencia original y cobertura suficiente o limitación explícita. |
-| **OP-10** | Aplicar prueba de materialidad y reglas de GSC. | Decisión por AC: 0/1/2, NA o NE, con explicación diferenciada. |
+| **OP-10** | Aplicar prueba de materialidad y reglas de GSC. | Decisión por AC: 0/1/2, o NE por incidencia, con explicación diferenciada. |
 | **OP-11** | Ejecutar controles de integridad, contradicciones y atribución. | Expediente consistente y decisiones revisables; incidencias registradas. |
 | **OP-12** | Publicar salida estructurada y generar informe desde el expediente. | GSC, evidencias, límites, acciones verificables; no inventar IR/ICI. |
 
@@ -87,11 +87,11 @@ DISPONIBILIDAD
 [ ] O procedimiento inconcluso documentado, sin 0/1 ni AC
 
 VALORACIÓN
-[ ] AC aplicables identificados
+[ ] Pruebas de los seis AC planificadas
 [ ] Propiedades pertinentes comprobadas, sin subpuntuación
 [ ] Evidencias y cobertura adecuadas para cada hallazgo
 [ ] Materialidad razonada frente a la condición del AC
-[ ] 0/1/2 o NA/NE por AC, con justificación
+[ ] 0/1/2 (o NE por incidencia) por AC, con justificación
 
 CONTROL E INFORME
 [ ] Confrontadas identidades, condiciones y momentos

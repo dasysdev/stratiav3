@@ -3,9 +3,9 @@ id: evaluation-scopes
 title: Interfaces, ámbitos de evaluación y requisitos técnicos
 layer: model
 status: vigente
-version: 1.0
-updated: 2026-10-24
-sources: [BASE §3, BASE §3.1, CTX §5, FUND §4, FUND §7.3, FUND §10.4]
+version: 1.1
+updated: 2026-10-27
+sources: [BASE §3, BASE §3.1, CTX §5, FUND §4, FUND §7.3, FUND §10.4, INTAKE 2026-10-27-ac-applicability-and-reliability]
 ---
 
 # Interfaces, ámbitos de evaluación y requisitos técnicos
@@ -73,6 +73,20 @@ La comprobación informativa **no reproduce** los controles técnicos. Atiende a
 - **La coincidencia entre representaciones no demuestra por sí sola la exactitud** de lo afirmado.
 - Web y Web Schema.org comparten parte de la información examinada, pero tienen **finalidades evaluativas diferentes**. La evaluación de Web Schema.org identifica las capacidades y limitaciones de la representación estructurada **sin sustituir la evaluación conjunta del recurso web** (FUND §4.1, §4.3).
 - Una limitación observada en Web Schema.org **no implica necesariamente** una limitación equivalente en Web, porque el HTML puede aportar información complementaria. Los resultados se documentan por separado, conservando la procedencia de cada afirmación y las discrepancias entre representaciones.
+
+### Consistencia transversal
+
+> La consistencia se puede evaluar para cada ámbito y, a nivel transversal, «adquiere una nueva dimensión de análisis». **Unidad:** RI × par de ámbitos. **Forma:** hallazgos sin escala; por RI y par de ámbitos, hecho, valores, momento, materialidad, y si la diferencia es legítima (p. ej., un precio propio de un canal, declarado). Una diferencia legítima y declarada no es incoherencia. **No modifica el GSC de ningún ámbito ni se agrega.** — INTAKE 2026-10-27-ac-applicability-and-reliability
+
+- **Lo que aporta:** lo que el juicio por ámbito no puede expresar. Ejemplo (hipotético): un marcado coherente consigo mismo a 89 € en una página que dice 79 €; quien solo lee el marcado no puede saberlo. Lo mismo, un feed desfasado.
+- **Por qué no toca el GSC:** no se puede saber cuál de los dos lados está mal, y mezclarlos rompería la separación de Web y Web Schema.org. La consistencia **dentro** de cada ámbito sí cuenta en su Fiabilidad ([acceptance-criteria](acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones)).
+- **Pares:**
+  - Catálogos distribuidos ↔ Web;
+  - Catálogos distribuidos ↔ Web Schema.org;
+  - HTML ↔ Web Schema.org: el mismo hallazgo que ya ve Web, reutilizado;
+  - entre perfiles de Catálogos distribuidos (Google, Meta).
+- **Condiciones de operación:** captura de los ámbitos en un momento comparable; identidad de la entidad entre ámbitos (GTIN, SKU o `item_group_id` frente a URL y variante); acceso al feed.
+- Es una dimensión de análisis, no un indicador ni una escala ([D-124](../30-governance/decisions.md#d-124)). Un estado cualitativo por RI queda pendiente ([OQ-67](../30-governance/open-questions.md)).
 
 ## Distinciones
 

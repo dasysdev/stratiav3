@@ -3,9 +3,9 @@ id: study-class
 title: Clase de estudio
 layer: model
 status: vigente
-version: 1.5
-updated: 2026-10-26
-sources: [INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-26-training-v4-review]
+version: 1.6
+updated: 2026-10-27
+sources: [INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-27-paa-construction-route]
 ---
 
 # Clase de estudio
@@ -35,7 +35,7 @@ Es la «clase estudiada» a la que se refieren BASE §4.1 y §4.2 ([D-020](../30
 | **Especialización** | Por uso, material, función u otras características del producto (no de la oferta: [D-048](../30-governance/decisions.md#d-048)). Se incorpora a la clase de estudio si es **pertinente**, es decir, si cumple el [criterio de especialización](#criterio-de-especialización). |
 | **Variante** | «La medida de cama (por ejemplo, 90 cm) caracteriza una variante, pero no obliga por sí sola a crear otra clase». — INTAKE 2026-10-24-define-class |
 
-El paso 4 se realiza con el recorrido del [sistema de construcción](demand-model.md#sistema-de-construcción-vigente) y produce un [modelo de demanda compuesto por bloques de requisitos](demand-model.md#composición-e-identidad-del-modelo) ([D-033](../30-governance/decisions.md#d-033)).
+El paso 4 se realiza con el recorrido del [sistema de construcción](construction-routes.md) y produce un [modelo de demanda compuesto por bloques de requisitos](demand-model.md#composición-e-identidad-del-modelo) ([D-033](../30-governance/decisions.md#d-033)).
 
 > - La especialización es la característica que forma un bloque: trae cuestiones que no se aplican a los demás productos de la clase.
 > - Una característica declarada que revela una dimensión que tienen todos los productos de la clase no forma bloque. Ejemplos: el peinado y el mercerizado del algodón, o el bordado como decoración. Su cuestión va al bloque de la clase, para todos, y el valor declarado es la respuesta. Así, una página que informa menos no tiene menos requisitos.
@@ -94,6 +94,8 @@ La condición 1 solo admite características del producto: lo de la oferta activ
 El disparador es el estado declarado de la unidad: la unidad de exposición que la ficha identifica como tal cuenta como estado declarado; la etiqueta «outlet» sola, no ([D-057](../30-governance/decisions.md#d-057)).
 
 > **Evidencia** […]: con las cinco condiciones razonadas en la ficha, la especialización queda provisional. La valida el usuario, como responsable. El contraste con ecommerce referentes (MPIR) la confirma o la revisa después, cuando exista. No se fija ningún umbral numérico. — INTAKE 2026-10-24-specialization-criterion
+
+El MPIR está aparcado ([D-095](../30-governance/decisions.md#d-095)): ese contraste queda suspendido y no se encarga a People Also Ask ([D-094](../30-governance/decisions.md#d-094)).
 
 Validación precisada por [D-041](../30-governance/decisions.md#d-041) y [D-044](../30-governance/decisions.md#d-044): la hace el entrenamiento contra el marco que define la persona responsable, sin bloquear la ejecución; entretanto, la especialización se usa como provisional y se encola ([model-training](model-training.md)).
 

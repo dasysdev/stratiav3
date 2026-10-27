@@ -1,0 +1,18 @@
+{
+  "class": "Sábanas planas + Sábanas ajustables + Fundas de almohada · juego",
+  "model": "demand-engine/var/runs/2026-10-26-v6-b/sabanas-coralina-999.model.md",
+  "rule": "Estrategia optimizada (sondas del 2026-10-26, README): núcleo (cada categoría y especialización de la clave, con su nombre en el mercado español) + valores del rasgo que más condiciona las prestaciones, de las referencias (material: Shopify material/fabric, Amazon BED_LINEN_SET material). Sin medida, construcción ni comparativas: en la sonda de 25 semillas no aportaron ningún tipo de criterio o requisito nuevo.",
+  "clicks": 8,
+  "seeds": [
+    {"q": "sábanas", "group": "núcleo"},
+    {"q": "sábana encimera", "group": "núcleo"},
+    {"q": "sábana bajera ajustable", "group": "núcleo"},
+    {"q": "fundas de almohada", "group": "núcleo"},
+    {"q": "juego de sábanas", "group": "núcleo"},
+    {"q": "sábanas de algodón", "group": "material"},
+    {"q": "sábanas de lino", "group": "material"},
+    {"q": "sábanas de microfibra", "group": "material"},
+    {"q": "sábanas de bambú", "group": "material"},
+    {"q": "sábanas de seda", "group": "material"}
+  ]
+}

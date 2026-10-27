@@ -3,9 +3,9 @@ id: resolving-information
 title: Información resolutiva
 layer: model
 status: vigente
-version: 1.8
-updated: 2026-10-26
-sources: [FUND §3.3, INTAKE 2026-10-26-resolving-information, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-formulation, INTAKE 2026-10-26-general-layer-formulation-2, INTAKE 2026-10-26-general-layer-issues, INTAKE 2026-10-26-general-layer-resolving-approval, INTAKE 2026-10-26-open-issues-resolution]
+version: 1.9
+updated: 2026-10-27
+sources: [FUND §3.3, INTAKE 2026-10-26-resolving-information, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-formulation, INTAKE 2026-10-26-general-layer-formulation-2, INTAKE 2026-10-26-general-layer-issues, INTAKE 2026-10-26-general-layer-resolving-approval, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-26-choice-criteria-and-descriptions]
 ---
 
 # Información resolutiva
@@ -25,6 +25,7 @@ Cada entrada de la lista se llama **aportación resolutiva** ([D-064](../30-gove
 3. **Nada se retira por no observarse.** Ninguna aportación se retira por no observarse: que nadie la publique no significa que no resuelva, y justamente esas son las que más necesita una recomendación ([D-063](../30-governance/decisions.md#d-063)).
 4. **Cada aportación contribuye a un componente de la pregunta.** Una aportación que no contribuye a ninguno no entra, aunque esté próxima al tema (invariante 10: pertinencia ≠ proximidad temática).
 5. **La compila el entrenamiento** a partir de cuatro orígenes, como el catálogo ([model-training](model-training.md)). En la capa general, las aportaciones de origen «marco» salen de la ley que es fuente del requisito y las redacta Claude, sin aprobación del usuario, que las revisa cuando lo pide ([D-084](../30-governance/decisions.md#d-084)); el entrenamiento solo le añade las observadas en las fichas, sin tocar sus preguntas ni sus importancias ([D-063](../30-governance/decisions.md#d-063)). Las aportaciones de la capa general que se redactan sin apoyo en la ley se registran como inferidas y provisionales, como en los bloques de categoría ([D-065](../30-governance/decisions.md#d-065)).
+6. **Una prestación no se resuelve con el atributo del que se deduciría.** La información resolutiva de un requisito sobre una prestación es su declaración, un ensayo o una certificación; nunca el atributo del que se deduciría (p. ej., el material, el tejido o la composición) ([D-090](../30-governance/decisions.md#d-090), [D-091](../30-governance/decisions.md#d-091)).
 
 ### Orígenes
 
@@ -47,6 +48,7 @@ En los bloques de categoría, la norma que es fuente de un requisito da aportaci
 |---|---|
 | Información resolutiva frente a **rasgo** | El [rasgo](model-training.md#rasgos) dice qué resuelve la cuestión; la información resolutiva, qué información puede resolverla. |
 | Tiendas en que se observa frente a **importancia** | Lo observado es evidencia del uso real; no es un peso ni cambia la [importancia relativa](demand-model.md#importancia-relativa). |
+| Información resolutiva frente a **descripción** | La [descripción](requirement-description.md) es prosa para personas y agentes que concreta la pregunta; la información resolutiva, la lista estructurada. La descripción no repite la lista ([D-093](../30-governance/decisions.md#d-093)). |
 | Aportación resolutiva frente a **valor publicado** | La aportación es la clase de información («plazo»); el valor es lo que publica una tienda («30 días»). |
 | Aportación **propuesta desde las fichas** frente a aportación **inferida** | La propuesta desde las fichas entra cuando aparece en dos tiendas distintas y contribuye a un componente; la inferida la escribe quien redacta sin referencia ni observación y queda provisional. Toda aportación, de cualquier origen, registra las tiendas en que se ha observado. |
 
@@ -84,7 +86,7 @@ Con esta lista, la auditoría sabe qué buscar y qué aportaciones ha revisado a
 - Aportaciones observadas en las fichas: el campo, la salida del clasificador y las reglas del entrenamiento están implantados y el catálogo registra las listas, pero aún no hay ejecuciones que declaren la aportación de cada hecho.
 - Listas de la capa general: las redacta Claude sin aprobación del usuario ([D-084](../30-governance/decisions.md#d-084); las anteriores las aprobó [D-069](../30-governance/decisions.md#d-069)); las que no tienen apoyo en la ley son inferidas y provisionales ([D-065](../30-governance/decisions.md#d-065)).
 - Cómo deja de ser provisional una aportación inferida ([OQ-55](../30-governance/open-questions.md)).
-- Relación con los componentes y las expresiones de ejemplo del perfil del RI y su uso en la auditoría ([OQ-03](../30-governance/open-questions.md)).
+- Relación con los componentes y las expresiones de ejemplo del perfil del RI, y con la descripción, y su uso en la auditoría ([OQ-03](../30-governance/open-questions.md)).
 
 ## Relacionado
 

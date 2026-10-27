@@ -4,7 +4,7 @@ title: Registro de decisiones
 layer: governance
 status: vigente
 version: 1.0
-updated: 2026-10-26
+updated: 2026-10-27
 sources: [GSC0 §18.4]
 ---
 
@@ -35,7 +35,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-006](#d-006) | Decisiones metodológicas explícitamente no adoptadas (V1) | aceptada | 2026-10-24 |
 | [D-007](#d-007) | Las propiedades de calidad son exclusivamente informativas; P01–P05 retirados | aceptada | 2026-10-24 |
 | [D-008](#d-008) | Antecedentes documentales no incorporados | aceptada | 2026-10-24 |
-| [D-009](#d-009) | Dos vías de construcción del modelo de demanda: taxonomía y MPIR | aceptada (ampliada por D-036; enmendada por D-039) | 2026-10-24 |
+| [D-009](#d-009) | Dos vías de construcción del modelo de demanda: taxonomía y MPIR | aceptada (ampliada por D-036; enmendada por D-039; vía PAA y MPIR aparcado: D-094, D-095) | 2026-10-24 |
 | [D-010](#d-010) | «Interfaz» y «ámbito» son sinónimos en la unidad de evaluación | aceptada | 2026-10-24 |
 | [D-011](#d-011) | Nombre del proyecto: stratia.cic | aceptada | 2026-10-24 |
 | [D-012](#d-012) | Denominación «Taxonomía de clases de producto» | aceptada | 2026-10-24 |
@@ -62,13 +62,13 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-033](#d-033) | Identidad del modelo de demanda: composición de bloques de requisitos | aceptada (formato y denominación fijados por D-038; precisada por D-040 y D-057; la aplicación pasa a la oferta por D-047) | 2026-10-25 |
 | [D-034](#d-034) | Capa general de requisitos: universales y condicionados | aceptada (borrador revisado por D-038; importancias fijas por D-045; elementos digitales al modelo por D-047; pregunta universal de promociones por D-049; fabricante, origen y seguridad por D-052; formulación dividida por D-065; bloques condicionados de garantía comercial, posventa y opiniones por D-066; pregunta del precio personalizado retirada por D-067; los cambios en `gen/11` y `gen/26` por D-085) | 2026-10-25 |
 | [D-035](#d-035) | Pruebas operativas de importancia relativa | aceptada (la duda no baja la importancia ni excluye: D-050) | 2026-10-25 |
-| [D-036](#d-036) | Cuestiones inferidas: tercera vía de construcción, provisional | aceptada (régimen: lectura de Claude no objetada; matizada por D-041; enmendada por D-044; con fuente, propuesta al bloque por D-088) | 2026-10-25 |
+| [D-036](#d-036) | Cuestiones inferidas: tercera vía de construcción, provisional | aceptada (régimen: lectura de Claude no objetada; matizada por D-041; enmendada por D-044; con fuente, propuesta al bloque por D-088; confirmación por PAA: D-094) | 2026-10-25 |
 | [D-037](#d-037) | Valores de oferta y activación de cuestiones condicionadas | aceptada (sin especializaciones de oferta por D-048; unidad de exposición precisada por D-057) | 2026-10-25 |
 | [D-038](#d-038) | Catálogo de bloques: capa general contrastada, identificadores propios y denominación | aceptada (precisada por D-040; matizada por D-041; estados y clave enmendados por D-045; clave y nombre sin aplicación por D-047; sectores en el nombre por D-077) | 2026-10-25 |
 | [D-039](#d-039) | Los PTD de Amazon, fuente de requisitos de la categoría | aceptada (precisada por D-044; ampliada por D-052: fuente también de la capa general) | 2026-10-25 |
 | [D-040](#d-040) | Bloques de categoría deterministas y catálogo revisado | aceptada (matizada por D-041; precisada por D-044 y D-045) | 2026-10-25 |
 | [D-041](#d-041) | Entrenamiento y ejecución: la revisión humana no bloquea la ejecución | aceptada (enmendada por D-044) | 2026-10-25 |
-| [D-042](#d-042) | Capa original del MPIR: sin capturas de pantalla y políticas de acceso del motor | aceptada (motor compartido: D-046; renderizado siempre en el método: D-073) | 2026-10-25 |
+| [D-042](#d-042) | Capa original del MPIR: sin capturas de pantalla y políticas de acceso del motor | aceptada (motor compartido: D-046; renderizado siempre en el método: D-073; excepción del motor PAA: D-096) | 2026-10-25 |
 | [D-043](#d-043) | Criterios de redacción del catálogo de bloques de categoría | aceptada (criterio 5 sustituido por D-044; criterio 1 precisado por D-051 y enmendado por D-055; reglas de formulación añadidas por D-060) | 2026-10-25 |
 | [D-044](#d-044) | Marco humano y reglas inducidas: el usuario define el marco, no revisa reglas ni requisitos | aceptada (operación: D-045; «críticos pocos» retirado del marco por D-059) | 2026-10-25 |
 | [D-045](#d-045) | Operación del entrenamiento, primera versión: rasgos, reglas de importancia por el árbol de Shopify y métricas | aceptada (relevancia inducida por D-050; vocabulario ampliado por D-051 y abierto por D-056; ejecución a escala enmendada por D-054; crítico por requisito y clase por D-055; excepciones por requisito y crítico de cualquier propiedad por D-058; información resolutiva inducida por D-063) | 2026-10-25 |
@@ -116,6 +116,30 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-087](#d-087) | La regla 3 prevalece sobre la forma de sí o no con detalle | aceptada | 2026-10-26 |
 | [D-088](#d-088) | Una cuestión con fuente que el bloque ni pregunta ni excluye es una propuesta al bloque | aceptada | 2026-10-26 |
 | [D-089](#d-089) | Precio anterior y precio por unidad de medida en la capa general, con su norma | aceptada | 2026-10-26 |
+| [D-090](#d-090) | Derivar una prestación de un atributo no resuelve el requisito de la prestación | aceptada | 2026-10-27 |
+| [D-091](#d-091) | Un criterio de elección genera un requisito cuando cumple las condiciones C1–C4 | aceptada | 2026-10-27 |
+| [D-092](#d-092) | Los requisitos informativos llevan una descripción de tres partes | aceptada | 2026-10-27 |
+| [D-093](#d-093) | La descripción es prosa y no repite la información resolutiva | aceptada | 2026-10-27 |
+| [D-094](#d-094) | People Also Ask (PAA): vía de construcción del modelo de demanda | aceptada (propone requisitos nuevos: D-099) | 2026-10-27 |
+| [D-095](#d-095) | El MPIR queda aparcado | aceptada | 2026-10-27 |
+| [D-096](#d-096) | Excepción a D-042: el motor PAA no aplica el robots.txt de Google | aceptada | 2026-10-27 |
+| [D-097](#d-097) | Origen «paa» para los requisitos que entran solo por PAA | aceptada (también desde preguntas factuales: D-099) | 2026-10-27 |
+| [D-098](#d-098) | La construcción del modelo de demanda pasa a un módulo propio | aceptada | 2026-10-27 |
+| [D-099](#d-099) | PAA propone requisitos nuevos, también desde preguntas factuales | aceptada | 2026-10-27 |
+| [D-100](#d-100) | Lectura sobre la oferta de las preguntas PAA de clase | aceptada | 2026-10-27 |
+| [D-101](#d-101) | Confirmaciones y aportaciones de precisión que salen de PAA | aceptada | 2026-10-27 |
+| [D-102](#d-102) | Basta una pregunta para apoyar un candidato de PAA | aceptada | 2026-10-27 |
+| [D-103](#d-103) | Separación por dimensión en los atributos de lista | aceptada (precisada por D-109) | 2026-10-27 |
+| [D-104](#d-104) | Criterios de elección intermedios; PAA y la pertinencia de los AC, en propuesta | aceptada | 2026-10-27 |
+| [D-105](#d-105) | Tacto por tipo y rasgo «sensorial» | aceptada (precisada por D-110) | 2026-10-27 |
+| [D-106](#d-106) | Un requisito de certificación cubre la prestación cuya declaración recoge | aceptada (salvo dimensión: D-109) | 2026-10-27 |
+| [D-107](#d-107) | Requisitos repetidos en bloques hermanos: misma pregunta y misma descripción | aceptada | 2026-10-27 |
+| [D-108](#d-108) | Candidatos PAA de la clase de sábanas | aceptada (piel: D-113) | 2026-10-27 |
+| [D-109](#d-109) | Precisiones de la separación por dimensión | aceptada (ejemplo de la piel retirado: D-113) | 2026-10-27 |
+| [D-110](#d-110) | Preguntas de grado: C2 se juzga sobre el requisito | aceptada | 2026-10-27 |
+| [D-111](#d-111) | Sujeción de la bajera, candidato PAA | sustituida por D-112 | 2026-10-27 |
+| [D-112](#d-112) | Sujeción de la bajera: cubierta | aceptada | 2026-10-27 |
+| [D-113](#d-113) | Piel en sábanas: cubierta | aceptada | 2026-10-27 |
 
 ---
 
@@ -1481,3 +1505,318 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - Identificadores de fuente: `ley:LOCM-20.1@2022-03-30` y `ley:RD-3423/2000-3.2@2000-12-28`.
 - **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.27 (apoyo de `gen/04` y de `gen.descuento/01`); I-39 resuelta; `demand-engine/catalog/gen.json` (capa general 0.6), T-036.
 - **Relacionado:** D-034, D-063, D-065, D-084, I-39.
+
+### D-090
+
+**Derivar una prestación de un atributo no resuelve el requisito de la prestación.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-26-choice-criteria-and-descriptions` §1, a partir de las sondas de People Also Ask sobre el modelo de demanda de sábanas Coralina. Palabras del usuario: «derivar frescura de «percal 100 % algodón» no es aceptable. Demasiado nivel de derivación. pero eso ya es tarea de la valoración de criterios de aceptación. pero para ello sí necesitamos requisitos informativos para hacer esa evaluación».
+- **Decisión:**
+  - Que una ficha declare el tejido o la composición («percal», «100 % algodón») no resuelve un requisito sobre la prestación («¿qué sensación térmica ofrece?»).
+  - Quien lo dictamina es la valoración de los [criterios de aceptación](../10-model/acceptance-criteria.md#interpretación), en la auditoría, no el modelo de demanda.
+  - Para que la auditoría pueda dictaminarlo, el requisito de la prestación tiene que existir en el modelo.
+- **Interpretación adoptada:** el artefacto dice que la derivación «tiene demasiados pasos y se apoya en conocimiento del dominio». La regla 7 de los criterios de aceptación prohíbe penalizar una derivación válida por su número de pasos y no presentar como publicado lo que se completa con conocimiento externo no acreditado. Se lee que la derivación no es válida porque completa una prestación no declarada con conocimiento del dominio; el número de pasos sigue sin ser un criterio. Así no se contradice la regla 7 ni la invariante 9; si el usuario quería limitar el número de pasos, habría que enmendar ambas. La frontera operativa con el reconocimiento semántico legítimo (`InStock`) queda en [OQ-56](open-questions.md).
+- **Consecuencias:** [acceptance-criteria](../10-model/acceptance-criteria.md#interpretación) 1.1; [choice-criteria](../10-model/choice-criteria.md#prestación-derivada-de-un-atributo) 1.0; [resolving-information](../10-model/resolving-information.md#reglas-e-invariantes) 1.9 (regla 6); OQ-56.
+- **Relacionado:** D-062, D-091, OQ-21, OQ-56.
+
+### D-091
+
+**Un criterio de elección genera un requisito cuando cumple las condiciones C1–C4.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-26-choice-criteria-and-descriptions` §2. Las preguntas valorativas de People Also Ask no son requisitos informativos (no preguntan por una oferta, no son neutrales y dependen del comprador), pero revelan los **criterios de elección** de la clase. La expresión ya aparecía en el MPIR; se prefiere a «criterios de evaluación», que se confundiría con los criterios de aceptación. Palabras del usuario: «Entonces los criterios de elección en algunos casos sí deberían generar requisitos».
+- **Decisión:** regla propuesta por Claude, que el usuario aprobó registrar («OK»). Un criterio de elección genera un requisito cuando cumple todas estas condiciones:
+  - C1: ningún requisito existente lo responde sin derivar;
+  - C2: es un hecho que la oferta puede declarar (una prestación, un resultado de ensayo, una indicación de uso);
+  - C3: se aplica a toda la clase o a una especialización, no a un comprador;
+  - C4: se puede formular neutral y sobre la oferta.
+
+  El requisito resultante es un requisito ordinario (en el catálogo de rasgos, casi siempre `prestacion`) y no se crea un concepto nuevo en el modelo. El criterio de elección queda como su fundamento. Su información resolutiva es la declaración de la prestación, un ensayo o una certificación, nunca el atributo del que se deduciría la prestación ([D-090](#d-090)). Que los compradores usen un criterio para elegir no prueba su importancia relativa, que sigue saliendo de las reglas.
+- **Interpretaciones adoptadas:**
+  - «Aprobó registrarla» se lee como aprobación de la regla: se incorpora como vigente.
+  - «No se crea un concepto nuevo» se refiere al requisito resultante. El criterio de elección, que el canon ya usaba sin definir, recibe módulo y entrada de glosario para fijar su sentido y sus distinciones.
+  - La vía por la que se reconocen los criterios de elección (MPIR; PAA, sin adoptar) no cambia: si PAA se adopta como vía de construcción y la excepción a D-042 que exigiría quedan fuera del artefacto ([OQ-57](open-questions.md)).
+- **Consecuencias:** módulo nuevo [choice-criteria](../10-model/choice-criteria.md) 1.0; [demand-model](../10-model/demand-model.md#sistema-de-construcción-vigente) 2.22; [resolving-information](../10-model/resolving-information.md#reglas-e-invariantes) 1.9; [MPIR](../20-methods/mpir/README.md) (enlace); glosario. Los requisitos candidatos de la clase de sábanas (sensación térmica, arrugas, durabilidad) y la aplicación de la regla en el clasificador y en la redacción de bloques quedan para la implantación (T-040).
+- **Relacionado:** D-036, D-056, D-090, OQ-57.
+
+### D-092
+
+**Los requisitos informativos llevan una descripción de tres partes.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-26-choice-criteria-and-descriptions` §3. Palabras del usuario: «Los requisitos informativos necesitan una descripción. A veces el título puede ser bastante abstracto y la descripción debe ayudar a concretarlo».
+- **Decisión:** cada requisito informativo lleva una descripción que concreta el título. El usuario aceptó este patrón:
+  1. qué se pregunta en concreto, con ejemplos de lo que abarca;
+  2. qué tipo de información lo responde;
+  3. qué no lo responde y con qué requisito vecino no se confunde.
+
+  Los cuatro ejemplos del artefacto (`cat.fundas-de-almohada/06`, la sensación térmica de la sábana, `gen/21` y `cat.sabanas-ajustables/01`) quedan como ejemplos aceptados (los dos primeros, actualizados por [D-108](#d-108)).
+- **Interpretación adoptada:** el «título» es la pregunta del requisito. «Necesitan» se lee como registro obligatorio en el catálogo, como la información resolutiva, y no opcional como los demás registros operativos de BASE §4.1.
+- **Consecuencias:** módulo nuevo [requirement-description](../10-model/requirement-description.md) 1.0; [demand-model](../10-model/demand-model.md#requisito-informativo-ri) 2.22; [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formato-del-catálogo) 1.28 (campos de un requisito); glosario. Implantación en el catálogo y en la redacción de bloques: pendiente.
+- **Relacionado:** D-060, D-062, D-093, OQ-03.
+
+### D-093
+
+**La descripción es prosa y no repite la información resolutiva.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-26-choice-criteria-and-descriptions` §3, punto abierto para el procesamiento. Las partes 2 y 3 de la descripción ([D-092](#d-092)) se solapan con la información resolutiva (D-062 a D-064) y con el perfil de resolución y pertinencia ([OQ-03](open-questions.md)). Propuesta de Claude en el artefacto, sin decidir: «la descripción es prosa para personas y agentes, y la información resolutiva es la lista estructurada. La descripción no repite esa lista».
+- **Decisión:** se adopta la propuesta. La descripción es prosa para personas y agentes; la información resolutiva, la lista estructurada de aportaciones resolutivas. La descripción no repite esa lista.
+- **Interpretaciones adoptadas:**
+  - El artefacto deja el punto al procesamiento; se decide con la propuesta que trae, la única formulada.
+  - La parte 2 dice en prosa qué tipo de información responde, como en los ejemplos aceptados («una declaración del vendedor o del fabricante […] o el resultado de un ensayo»), sin enumerar las aportaciones.
+  - La relación de las partes 1 y 3 con los componentes, las expresiones de ejemplo y los casos fronterizos del perfil del RI no la resuelve el artefacto: se anota en OQ-03.
+- **Consecuencias:** [requirement-description](../10-model/requirement-description.md#reglas-e-invariantes) 1.0; [resolving-information](../10-model/resolving-information.md#distinciones) 1.9; OQ-03 anotada.
+- **Relacionado:** D-062, D-063, D-064, D-092, OQ-03.
+
+### D-094
+
+**People Also Ask (PAA): vía de construcción del modelo de demanda.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-construction-route` §1, tarea T-039. Las sondas de PAA sobre la clase de sábanas (2026-10-26) y el motor PAA (T-037) revelaron criterios de elección. [D-091](#d-091) dejó fuera si PAA se adoptaba como vía ([OQ-57](open-questions.md)). Objetivo de T-039, fijado con el usuario: «adopte PAA como vía de construcción del modelo de demanda (enmienda D-009 y D-036, MPIR aparcado)».
+- **Decisión:**
+  - Las preguntas de «Más preguntas» de google.es, recogidas para un conjunto de semillas de una clase, son una vía de construcción del modelo de demanda. Sirven para reconocer criterios de elección (a los que se aplica C1–C4), confirmar requisitos del catálogo y confirmar o revisar cuestiones inferidas.
+  - Solo se conservan las preguntas. Las respuestas, texto de la IA de Google, no son evidencia de ninguna página: ni se leen ni se cargan. PAA no aporta información resolutiva.
+  - PAA no prueba por sí sola la importancia relativa, que sigue saliendo de las reglas. Que una pregunta aparezca, o en qué posición, no se puntúa.
+  - La estrategia de semillas es operativa: vive en el README del motor y está calibrada con una sola clase.
+- **Interpretaciones adoptadas:**
+  - Enmienda [D-009](#d-009) (BASE §4.2): se añade una vía de referencia a la taxonomía y al MPIR. Enmienda [D-036](#d-036): la confirmación o revisión de las cuestiones inferidas que se encargaba al MPIR «cuando exista» la hace PAA; el régimen provisional y su validación en el entrenamiento ([D-044](#d-044)) no cambian.
+  - PAA contrasta el catálogo con preguntas de compradores filtradas por Google: avanza [OQ-01](open-questions.md) (contraste con fuentes empíricas), pero no la cierra, porque no son consultas reales sin filtrar ni investigación de usuarios.
+  - El contraste de las especializaciones con el MPIR ([study-class](../10-model/study-class.md)) no se encarga a PAA: el artefacto no lo dice.
+- **Consecuencias:** [construction-routes](../10-model/construction-routes.md) 1.0; [choice-criteria](../10-model/choice-criteria.md) 1.1; glosario (PAA); OQ-57 cerrada; OQ-01 anotada. Clasificación de las preguntas con agentes: T-040.
+- **Relacionado:** D-009, D-036, D-091, D-095, D-096, D-097, OQ-01, OQ-57.
+
+### D-095
+
+**El MPIR queda aparcado.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-construction-route` §2, tarea T-039 («MPIR aparcado»). PAA cumple el papel del MPIR en la construcción del modelo ([D-094](#d-094)).
+- **Decisión:** el método del MPIR sigue en el canon como propuesta, pero no se ejecuta ni se desarrolla por ahora. Mientras esté aparcado:
+  - su papel en la construcción (reconocer criterios de elección y confirmar cuestiones inferidas) lo cumple PAA;
+  - sus cuestiones abiertas siguen abiertas, sin trabajarse;
+  - el motor de captura sigue en uso, porque es compartido con el entrenamiento ([D-046](#d-046)).
+
+  Retomarlo es una decisión nueva.
+- **Interpretación adoptada:** el alcance de «aparcado» lo propuso Claude en el artefacto, por encargo de T-039. Las referencias del canon al MPIR como vía o como contraste posterior se mantienen, porque el método no se retira; se leen como suspendidas mientras dure el aparcamiento.
+- **Consecuencias:** [construction-routes](../10-model/construction-routes.md) 1.0; [mpir](../20-methods/mpir/README.md) (aviso de estado); glosario (MPIR).
+- **Relacionado:** D-009, D-046, D-094.
+
+### D-096
+
+**Excepción a D-042: el motor PAA no aplica el robots.txt de Google.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-construction-route` §3, tarea T-039. El robots.txt de Google excluye `/search` para cualquier agente, y sus condiciones de servicio (España, vigentes desde el 30-07-2026) prohíben el acceso automatizado que lo contravenga. El motor de captura aplica robots.txt a todas sus capturas ([D-042](#d-042), [D-046](#d-046)); el motor PAA no lo hace.
+- **Decisión:**
+  - Es una excepción que decidió el usuario para **investigación y uso interno**, no para ofrecer un servicio. Se limita a las búsquedas del motor PAA en google.es; toda otra captura sigue con las políticas de acceso de D-042.
+  - Del principio del motor de captura se mantiene lo demás: Chrome estable con ventana, sin banderas de automatización, con perfil y puerto propios; una sola ventana y una sola sesión; bloqueo de las respuestas de IA como un bloqueador de contenido, sin modificar el navegador ni el JavaScript de la página; ante un desafío (`/sorry/`, CAPTCHA, 403/429) para, sin resolverlo, sin rotar IP ni aplicar parches antidetección.
+  - Límites de ejecución, decididos por el usuario el 2026-10-26 y el 2026-10-27: una búsqueda a la vez; 5 s entre búsquedas; sin pausa larga, horario, tope diario ni tope por hora; 8 clics por búsqueda, con parada tras 2 sin nada nuevo; ante un bloqueo, para todo el motor, reintenta a las 6 h y, tras el segundo, queda parado hasta que una persona lo desbloquea.
+  - Los límites se endurecen cuando Google bloquee, no antes: primero una pausa larga cada cierto número de búsquedas y, si no basta, una pausa mayor entre búsquedas, con los valores que se observen en ese bloqueo.
+  - Riesgo asumido: la IP es la de la conexión desde la que se ejecuta; si Google la marca, también verá CAPTCHAs quien busque desde ella.
+- **Interpretación adoptada:** la excepción cubre el robots.txt y la condición de servicio que remite a él. Las reservas de minería de textos y datos de D-042 no se mencionan en el artefacto y no se tratan aquí. Los valores operativos (perfil, puerto, campos del conjunto) viven en el README del motor PAA.
+- **Consecuencias:** [construction-routes](../10-model/construction-routes.md) 1.0 (nota de legitimidad); README del motor PAA, `demand-engine/README.md` y `CLAUDE.md` sin la marca «pendiente de registrar».
+- **Relacionado:** D-042, D-046, D-094.
+
+### D-097
+
+**Origen «paa» para los requisitos que entran solo por PAA.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-construction-route` §4, tarea T-039 («Etiqueta de origen definida para los requisitos que salgan de PAA»). Los requisitos llevaban origen «referencias», «normativa» o «inferida» ([D-036](#d-036), [D-068](#d-068)).
+- **Decisión:**
+  - Un requisito que entra en el catálogo solo por PAA (un criterio de elección que cumple C1–C4 y que ninguna referencia recoge) lleva origen **«paa»**, con las preguntas que lo apoyan como fuentes.
+  - Si una referencia o una norma lo recoge, conserva su origen; las preguntas PAA se añaden como apoyo.
+  - Una cuestión inferida que PAA confirma pasa a origen «paa», con sus preguntas como fuentes.
+  - «paa» es un origen de requisitos, no de aportaciones resolutivas.
+  - Como con las inferidas, la auditoría puede informar con ellos y sin ellos.
+- **Interpretación adoptada:** propuesta de Claude en el artefacto, por encargo de T-039. Razonamiento de Claude, no del artefacto: se nombra por la fuente concreta, como «normativa», y no por una categoría genérica de consultas.
+- **Consecuencias:** [construction-routes](../10-model/construction-routes.md) 1.0; [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#cuestiones-inferidas) 1.29; glosario (Origen de un requisito… en la entrada PAA). La validación de `bin/model` aún no admite el origen: T-040.
+- **Relacionado:** D-036, D-068, D-091, D-094.
+
+### D-098
+
+**La construcción del modelo de demanda pasa a un módulo propio.** · aceptada · 2026-10-27
+
+- **Contexto:** al incorporar `INTAKE 2026-10-27-paa-construction-route` ([D-094](#d-094) a [D-097](#d-097)), [demand-model](../10-model/demand-model.md) llegaba a 274 líneas, por encima del máximo de 250 de `docs/CLAUDE.md`, que manda dividir por subtema.
+- **Decisión:** la sección «Sistema de construcción vigente» (vías, cuestiones inferidas, origen de un requisito y recorrido) pasa, sin cambiar su contenido, al módulo nuevo [construction-routes](../10-model/construction-routes.md). Demand-model conserva la sección con un resumen y el enlace, para que sigan valiendo las anclas que la citan; el entrenamiento y la ejecución siguen en demand-model.
+- **Consecuencias:** [demand-model](../10-model/demand-model.md#sistema-de-construcción-vigente) 3.0; [construction-routes](../10-model/construction-routes.md) 1.0; enlaces del glosario, [study-class](../10-model/study-class.md) 1.6 (enlace y nota del MPIR aparcado), [choice-criteria](../10-model/choice-criteria.md) 1.1 y [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#cuestiones-inferidas) 1.29 al módulo nuevo; índice de docs/README (4g). Al revisar, product-taxonomy README 1.8 y sources 1.2 dejan de presentar el MPIR como vía activa (D-095).
+- **Relacionado:** D-094, D-095, D-096, D-097.
+
+### D-099
+
+**PAA propone requisitos nuevos, también desde preguntas factuales.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-new-requirements`. Palabras del usuario: «PAA tambien ayuda a la creación de nuevos requsisitos no?». Una pregunta factual sobre la oferta, no valorativa, que ningún requisito responde no tenía vía: para las preguntas factuales, [D-094](#d-094) solo preveía confirmar requisitos existentes, y [D-097](#d-097) limitaba el origen «paa» a los criterios de elección. Claude propuso lo que sigue y el usuario respondió: «si».
+- **Decisión:**
+  - Cuarto uso de PAA: **proponer requisitos nuevos**, por un solo camino: la pregunta está dentro del perímetro y trata de la clase, no de una marca ni de una tienda; ningún requisito del catálogo la responde sin derivar; cumple C1–C4 ([D-091](#d-091)); entra como requisito candidato, con origen «paa» y la pregunta como fuente.
+  - Las preguntas valorativas siguen pasando por su criterio de elección.
+  - Un requisito que entra solo por PAA lleva origen «paa» tanto si sale de un criterio de elección como de una pregunta factual. El resto de D-097 no cambia.
+- **Interpretación adoptada:** C1–C4 se definieron para criterios de elección; aplicadas a una pregunta factual, se leen sobre la propia pregunta, como dice el artefacto (C2 a C4 «sirven igual»). La regla no crea un concepto: el requisito resultante es ordinario y la pregunta es su fuente, no su fundamento.
+- **Consecuencias:** enmienda D-094 y D-097. [construction-routes](../10-model/construction-routes.md) 1.1; nueva [OQ-58](open-questions.md) (entrada del candidato en el catálogo y formato de la pregunta como fuente, que el artefacto no fija); [choice-criteria](../10-model/choice-criteria.md) 1.2; glosario (PAA); README del motor PAA. Aplicación en la clasificación de las preguntas: T-040.
+- **Relacionado:** D-091, D-094, D-097, OQ-58.
+
+### D-100
+
+**Lectura sobre la oferta de las preguntas PAA de clase.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-classification-criteria` §1. En la primera clasificación con un agente (T-040), C2 se aplicó a la pregunta tal como está escrita, y cayeron en C2 cosas muy distintas («¿Qué es una sábana encimera?», «¿Qué significa 144 hilos?», «¿Cómo coser una bajera?», «¿Cada cuánto se cambian las sábanas?»). Claude propuso y el usuario decidió.
+- **Decisión:**
+  - Antes de aplicar C2 a una pregunta de clase, se relee sobre la oferta: «¿… esta oferta?». Si un hecho que la oferta puede declarar la responde, la pregunta confirma ese requisito o propone un candidato. C2 solo se aplica cuando ningún hecho de la oferta la responde (hábitos, saber doméstico).
+  - La confección casera (coser, hacer o arreglar la pieza) queda fuera del perímetro: no hay compra.
+  - La misma lectura vale para el perímetro dudoso: «¿Cuáles son las contraindicaciones del bambú?» va dentro, porque responde a las advertencias y a los efectos sobre la piel que declara la oferta; «¿Qué país produce la mejor seda?» también, porque es el origen de la fibra. Las curiosidades («¿Cuál es la seda más cara?») siguen fuera.
+- **Interpretación adoptada:** es una lectura de C2 ([D-091](#d-091)) para las preguntas factuales de [D-099](#d-099), que ya decía que C2 a C4 «sirven igual» sobre la pregunta; no cambia C2 para los criterios de elección.
+- **Consecuencias:** [choice-criteria](../10-model/choice-criteria.md) 1.3; [construction-routes](../10-model/construction-routes.md) 1.2; glosario (Lectura sobre la oferta); reglamento del agente (`demand-engine/classifier/paa.md`, v2).
+- **Relacionado:** D-091, D-099, D-101.
+
+### D-101
+
+**Confirmaciones y aportaciones de precisión que salen de PAA.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-classification-criteria` §2 y §11. Decisiones del usuario sobre la propuesta de Claude.
+- **Decisión:**
+  - Una pregunta por el significado de un término («¿La microfibra es plástico?», «¿Qué significa 144 hilos?», «¿Qué significa *full*?») confirma el requisito del atributo y propone aportaciones de precisión para él (la denominación de la fibra según el Reglamento (UE) 1007/2011, la unidad del recuento de hilos, la equivalencia en cm de una denominación de talla). No genera requisitos nuevos.
+  - Una pregunta de tienda o de marca que nombra un atributo («¿Dónde comprar sábanas 100 % algodón?») confirma el requisito de ese atributo (quien compra busca y filtra por él: función Descubrir). Sigue sin proponer requisitos ([D-099](#d-099)).
+  - El precio sin tienda («¿Cuánto cuesta una sábana de lino?») es una pregunta de clase y confirma `gen/04`.
+  - La verificación («¿Cómo saber si es 100 % algodón?») confirma la composición y propone la aportación «certificación del contenido o del origen de la fibra».
+- **Consecuencias:** [construction-routes](../10-model/construction-routes.md) 1.2; reglamento del agente. Las aportaciones propuestas entran en el catálogo por el entrenamiento.
+- **Relacionado:** D-094, D-099, D-100, D-104.
+
+### D-102
+
+**Basta una pregunta para apoyar un candidato de PAA.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-classification-criteria` §3. En la primera clasificación (informe de T-040, `demand-engine/var/paa/sets/sabanas/report.md`), el agente dudó de un candidato, el tacto, apoyado por una sola pregunta.
+- **Decisión:** basta una pregunta para que un candidato que cumple C1–C4 entre como tal. La presencia de una pregunta no se puntúa ([D-094](#d-094)) y D-099 admite la pregunta como fuente. Este apoyo es para que el requisito exista; para separarlo hace falta otra prueba ([D-103](#d-103)).
+- **Consecuencias:** [choice-criteria](../10-model/choice-criteria.md) 1.3; reglamento del agente.
+- **Relacionado:** D-094, D-099, D-103.
+
+### D-103
+
+**Separación por dimensión en los atributos de lista.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-classification-criteria` §4. `cat.fundas-de-almohada/06` agrupa 11 valores de `special_feature` de Amazon de tres temas. El agente separó las arrugas solo porque les votó otra importancia. Palabras del usuario: «no lo planteo como una regla universal. quiero que entendamos y construyamos un criterio de esta reflexión». De la discusión salió el criterio; el usuario lo aprobó con las dos pruebas.
+- **Decisión:**
+  - Ámbito: un atributo de lista de una referencia (como `special_feature`), cuyos valores son reclamos que la oferta marca o no. No es una regla universal de formulación.
+  - La lista se mantiene agrupada como la plantea la referencia: sus valores son extras, que importan solo si la oferta los reclama.
+  - Un valor se separa en requisito propio cuando PAA muestra que es una dimensión de comparación de la clase (algo que quien compra quiere saber de cualquier oferta, la reclame o no), con las dos pruebas: (a) transversal, se pregunta sobre dos o más valores del rasgo que más condiciona las prestaciones (el material o el tejido); (b) comparativa o de elección («¿qué se arruga más?», «¿cuáles se arrugan menos?»).
+  - Es un criterio de estructura (cuándo partir), no de existencia ([D-102](#d-102)).
+  - Lo que no pertenece al tema de la lista sale de ella aunque la referencia lo incluya (el «dobladillo con doble vuelta» es confección, no resistencia).
+- **Consecuencias:** complementa [D-043](#d-043), criterio 2, y [D-060](#d-060), regla 3. [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md); glosario (Separación por dimensión); reglamento del agente. Aplicación en sábanas: [D-108](#d-108).
+- **Relacionado:** D-043, D-060, D-102, D-108.
+
+### D-104
+
+**Criterios de elección intermedios; PAA y la pertinencia de los AC, en propuesta.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-classification-criteria` §6. El criterio valorativo «material» reunía 40 preguntas («¿Qué es mejor, lino o algodón?», «beneficios del bambú») y el agente lo dio por cubierto solo con la composición. Palabras del usuario: «Podría ser un requisito. Se me ocurre buen candidato para evaluar los AC. Si es muy comparable, verificable, etc. No sirve para evaluar si existen las funciones informativas para saberlo». Tras el estudio, eligió la síntesis.
+- **Decisión:**
+  - Un criterio intermedio («material», «calidad») queda cubierto y se descompone en las prestaciones. El «material» lo cubre la composición en cuanto a qué material es (funciones Comprender y Comparar); en cuanto a si es mejor, se descompone en las prestaciones (función Evaluar): nivel térmico, arrugas, duración y resistencia, humedad, tacto y piel. Deducir esas prestaciones del material es lo que [D-090](#d-090) no admite.
+  - Una pregunta genérica («¿es bueno el lino?») no nombra ninguna prestación: apoya la composición, no a una prestación concreta, y no cuenta para las pruebas de [D-103](#d-103). Solo apoya una prestación la pregunta que la nombra.
+  - **Propuesta, sin decidir:** PAA como prueba de qué criterios de aceptación son pertinentes para un requisito (Comparabilidad, Precisión, Fiabilidad para la composición; Comparabilidad para el precio). Sería un uso nuevo de PAA, no de importancia.
+- **Interpretación adoptada:** el artefacto presenta la pertinencia de los AC como propuesta; se registra como cuestión abierta y no cambia [acceptance-criteria](../10-model/acceptance-criteria.md).
+- **Consecuencias:** [choice-criteria](../10-model/choice-criteria.md) 1.3; glosario (Criterio de elección intermedio); nueva [OQ-59](open-questions.md); reglamento del agente.
+- **Relacionado:** D-090, D-091, D-094, D-103, OQ-59.
+
+### D-105
+
+**Tacto por tipo y rasgo «sensorial».** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-classification-criteria` §7.
+- **Decisión:**
+  - El tacto cumple C2 si se pregunta por el tipo de tacto (sedoso o liso, crujiente, afelpado, fresco al tacto); no si se pregunta por el grado de suavidad, que solo admite más o menos.
+  - Rasgo nuevo «sensorial» en el vocabulario ([D-056](#d-056)). El entrenamiento reclasifica los requisitos de tacto existentes (`cat.toallas/05` y `cat.mantas/08`, hoy `prestacion`).
+- **Interpretación adoptada:** el rasgo lo decide el usuario, no los votos de los agentes que prevé D-056; entra en el vocabulario de partida y el entrenamiento lo aplica.
+- **Consecuencias:** [choice-criteria](../10-model/choice-criteria.md) 1.3; [model-training](../10-model/model-training.md) (rasgos); vocabulario `demand-engine/catalog/traits.json` en el entrenamiento.
+- **Relacionado:** D-056, D-091, D-108.
+
+### D-106
+
+**Un requisito de certificación cubre la prestación cuya declaración recoge.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-classification-criteria` §8. Claude propuso como regla general que un requisito de certificación no cubre la prestación que certifica; el usuario no la adoptó.
+- **Decisión:** si el requisito de certificaciones recoge la declaración de una prestación (por ejemplo, «hipoalergénico»), la cubre. Para la piel en sábanas, el usuario decidió mover esa declaración al requisito de la prestación ([D-108](#d-108)); revisado por [D-113](#d-113): cubierta.
+- **Interpretación adoptada:** «la cubre» se lee como C1 ([D-091](#d-091)): ese requisito responde la prestación sin derivar.
+- **Consecuencias:** [choice-criteria](../10-model/choice-criteria.md) 1.3.
+- **Relacionado:** D-091, D-108.
+
+### D-107
+
+**Requisitos repetidos en bloques hermanos: misma pregunta y misma descripción.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-classification-criteria` §10. El agente propuso subir a `cat.ropa-de-cama` requisitos que no valen para todas sus hijas (doseles, cubrecanapés, almohadas).
+- **Decisión:**
+  - [D-043](#d-043), criterio 4, tal cual: lo que no vale para todas las hijas no sube a la madre; se repite en las hermanas.
+  - Un requisito repetido en bloques hermanos lleva la misma pregunta y la misma descripción. Palabras del usuario: «lo de la descripción que digo quizás es un tema de construcción de presentación. Así que la respuesta correcta es la primera».
+- **Interpretación adoptada:** adaptar la descripción a la pieza queda como posible tema de presentación, sin decidir: nueva [OQ-60](open-questions.md).
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md); [requirement-description](../10-model/requirement-description.md) 1.1; reglamento del agente.
+- **Relacionado:** D-043, D-092, OQ-60.
+
+### D-108
+
+**Candidatos PAA de la clase de sábanas.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-classification-criteria` §4, §5, §8, §9 y §12. Aplicación de D-100 a D-107 a la clase de sábanas, decidida por el usuario.
+- **Decisión:**
+  - **Arrugas:** requisito propio (pasan las dos pruebas de [D-103](#d-103)). La duración, el encogimiento y el secado quedan en una lista encabezada por la duración («¿Qué duración y resistencia al uso y al lavado tiene…?»); el dobladillo sale a construcción.
+  - **Dimensión térmica:** frescor y abrigo son una sola dimensión con dos polos. `inf/01` se reformula como «¿Qué nivel de abrigo o de frescor ofrece (fresca de verano, para todo el año, cálida de invierno)?» y pasa a origen «paa» ([D-097](#d-097)). La transpiración y la gestión de la humedad y el sudor, lista agrupada (`fundas/05` sin el frescor). El «efecto frío al tacto» va al tacto ([D-105](#d-105)).
+  - **Piel** *(revisado por [D-113](#d-113): cubierta por `cat.sabanas/02`; sigue vigente la partición de `fundas/04`)*: candidato en sábanas (rasgo `prestacion`, origen «paa»); la hipoalergenicidad y la aptitud para pieles sensibles pasan de `cat.sabanas/02` a él, que queda en certificaciones y estándares. `cat.fundas-de-almohada/04` se parte por tema: piel y cabello / protección de la almohada.
+  - **Tacto:** candidato por tipo de tacto, rasgo «sensorial», origen «paa»: ninguna referencia lo recoge en sábanas ni fundas ([D-105](#d-105)).
+  - **Variedad o calidad de la fibra** (algodón Pima o de fibra larga, seda de morera…): se explora como candidato, separada del tratamiento del hilo (peinado, mercerizado), que es construcción.
+  - **Origen de la fibra** (país o región de cultivo o producción: lino europeo, algodón egipcio…): candidato propio, de origen «paa», distinto del país de fabricación de `gen/20`. Palabras del usuario: «Es posible que aquí haya requisito nuevo, pero derivado de PAA (porque se pregunta)».
+  - **Bloques:** los de sábanas, en `cat.sabanas`; los cambios de fundas, en `cat.fundas-de-almohada` ([D-107](#d-107)).
+  - Son candidatos: entran en el catálogo por el entrenamiento, no a mano.
+- **Consecuencias:** [choice-criteria](../10-model/choice-criteria.md) 1.3 (ejemplo mínimo); [requirement-description](../10-model/requirement-description.md) 1.1 (ejemplos). La entrada en el catálogo sigue pendiente ([OQ-58](open-questions.md)).
+- **Relacionado:** D-090, D-097, D-103, D-105, D-106, D-107, OQ-58.
+
+### D-109
+
+**Precisiones de la separación por dimensión.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-classification-criteria-2` §1, §2 y §3. Con el reglamento PAA v2, el agente separó el secado con una sola pregunta comparativa que nombra dos materiales. En sábanas, donde no hay lista de Amazon, convirtió cada valor preguntado en un candidato suelto. Y con [D-106](#d-106) dio por cubierta la piel. El usuario decidió paso a paso.
+- **Decisión:**
+  - La prueba (a) exige **preguntas distintas** sobre dos o más materiales o tejidos. Una misma pregunta no cuenta para (a) y (b) a la vez.
+  - Si la clase no tiene la lista y un bloque hermano sí, el candidato es **la misma lista**, con la misma pregunta ([D-107](#d-107)) y sin los valores que se separaron. Las preguntas sueltas apoyan esa lista. Si no hay lista en ningún hermano, los valores se agrupan por tema ([D-043](#d-043), criterio 2).
+  - La separación por dimensión vale para **cualquier atributo de lista** de una referencia, de Amazon o de Shopify, incluidas las listas de certificaciones. D-106 rige cuando PAA no muestra la dimensión.
+  - Sacar un valor de su lista porque no pertenece a su tema no necesita preguntas de apoyo.
+- **Consecuencias:** precisa [D-103](#d-103) y acota D-106. *(El ejemplo de la piel queda retirado por [D-113](#d-113): la piel de D-108 no pasa las pruebas, porque «¿Por qué es bueno dormir con funda de seda?» es genérica, D-104.)* [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#separación-por-dimensión); [choice-criteria](../10-model/choice-criteria.md) 1.4; glosario (Separación por dimensión); reglamento PAA v3.
+- **Relacionado:** D-043, D-103, D-106, D-107, D-108.
+
+### D-110
+
+**Preguntas de grado: C2 se juzga sobre el requisito.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-classification-criteria-2` §4. El agente no generó el tacto porque la única pregunta («¿Por qué las sábanas de los hoteles son tan suaves?») pregunta por el grado ([D-105](#d-105)); el ejemplo del canon la releía sobre la oferta y generaba.
+- **Decisión:**
+  - Una pregunta de grado («tan suaves», «las más frescas», «cuál se arruga menos») indica el aspecto. C2 se juzga sobre el requisito, formulado por tipo o por declaración: si la oferta puede declarar el tipo, la pregunta de grado apoya ese requisito.
+  - No genera cuando el aspecto solo admite más o menos y ninguna categoría declarable lo resuelve (la marca, C4).
+  - D-105 es la aplicación de esta regla al tacto: el tacto genera.
+- **Consecuencias:** [choice-criteria](../10-model/choice-criteria.md) 1.4; reglamento PAA v3.
+- **Relacionado:** D-091, D-100, D-105.
+
+### D-111
+
+**Sujeción de la bajera, candidato PAA.** · sustituida por [D-112](#d-112) · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-classification-criteria-2` §5. El agente propuso «¿Qué sujeción al colchón ofrece la bajera (se mantiene en su sitio sin salirse ni desplazarse)?», apoyado por «¿Cómo hacer para que no se salga la sábana de abajo?» y «¿Qué sábanas no se salen?». El ejemplo de [choice-criteria](../10-model/choice-criteria.md#ejemplo-mínimo) lo daba por cubierto con `inf/02` y `cat.sabanas-ajustables/01`.
+- **Decisión:** genera candidato (rasgo `prestacion`, en `cat.sabanas-ajustables`; origen «paa» por [D-097](#d-097)). De cómo se ajusta la bajera y hasta qué altura llega solo se deduciría que no se sale ([D-090](#d-090)); la resuelve la declaración de sujeción o un ensayo del elástico.
+- **Consecuencias:** sustituye la fila «Ajuste de la bajera» del ejemplo mínimo de choice-criteria (1.4); añade un candidato a [D-108](#d-108).
+- **Relacionado:** D-090, D-108.
+
+### D-112
+
+**Sujeción de la bajera: cubierta.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-bottom-sheet-hold`. Con el reglamento PAA v3, el agente volvió a darla por cubierta. El usuario repasó la cuestión desde el principio. Solo dos preguntas piden la prestación: «¿Qué sábanas no se salen?» y «¿Cómo hacer para que no se salga la sábana de abajo?».
+- **Decisión:** cubierto, sin candidato.
+  - Saber cómo se ajusta la bajera (`inf/02`) y hasta qué altura de colchón llega (`cat.sabanas-ajustables/01`) basta.
+  - Que se salga depende sobre todo de que el bolsillo encaje con el colchón de quien compra. Eso lo resuelve `cat.sabanas-ajustables/01`; lo que queda depende del comprador (C3).
+- **Consecuencias:** sustituye [D-111](#d-111). Vuelve la fila «Ajuste de la bajera» del ejemplo mínimo de [choice-criteria](../10-model/choice-criteria.md#ejemplo-mínimo) (1.5).
+- **Relacionado:** D-090, D-108, D-111.
+
+### D-113
+
+**Piel en sábanas: cubierta.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-paa-skin-covered`. Con el reglamento PAA v3, el agente dio la piel en sábanas por cubierta con `cat.sabanas/02` ([D-106](#d-106)). Con las reglas vigentes, no pasa la separación por dimensión ([D-109](#d-109)): solo «¿Qué hace el bambú en la piel?» nombra la piel, y «¿Por qué es bueno dormir con funda de seda?» es genérica ([D-104](#d-104)). Claude reconoció que su argumento anterior la contaba como prueba (b) en contra de D-104.
+- **Decisión:** cubierto.
+  - La piel en sábanas la cubre `cat.sabanas/02`.
+  - [D-108](#d-108) retira el candidato de piel en sábanas y el traslado de la hipoalergenicidad.
+  - D-109 deja de presentar la piel como ejemplo.
+  - La partición de `cat.fundas-de-almohada/04` por tema sigue vigente.
+- **Consecuencias:** revisa D-108 (piel) y D-109 (ejemplo). El reglamento PAA v3 ya lo aplica así.
+- **Relacionado:** D-104, D-106, D-108, D-109.

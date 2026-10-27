@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Motor PAA (People Also Ask de google.es), dentro del contenedor (necesita Chrome); «classify», en el host.
+# demand-engine/bin/paa --help lista los comandos; manual: src/demand_engine/paa/README.md
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+if [ "$1" = classify ]; then
+  # Clasificación de las preguntas: solo biblioteca estándar
+  cd "$ROOT/demand-engine" && PYTHONPATH="$ROOT/demand-engine/src" exec python3 -m demand_engine.paa "$@"
+fi
+exec "$ROOT/bin/run" dev exec python -m demand_engine.paa "$@"

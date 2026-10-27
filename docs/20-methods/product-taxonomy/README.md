@@ -3,9 +3,9 @@ id: product-taxonomy
 title: Taxonomía de clases de producto — marco metodológico
 layer: method
 status: propuesta
-version: 1.7
-updated: 2026-10-25
-sources: [TAX Resumen, TAX §1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks]
+version: 1.8
+updated: 2026-10-27
+sources: [TAX Resumen, TAX §1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-27-paa-construction-route]
 ---
 
 # Taxonomía de clases de producto — marco metodológico
@@ -20,7 +20,7 @@ El proyecto necesita una **taxonomía propia de clases de producto u oferta** qu
 
 La conclusión de la investigación es que **Shopify, Amazon y Google son fuentes complementarias, pero sus estructuras no son directamente fusionables en un único árbol sin interpretación semántica**. Shopify constituye una buena estructura principal de referencia por sus categorías y atributos normalizados; Amazon puede aportar especializaciones de navegación y esquemas de atributos; Google sirve para contrastar categorías, vocabulario comercial y reglas de datos. La información publicada por ecommerce referentes sigue siendo una fuente principal para inferir requisitos informativos ([modelo de demanda](../../10-model/demand-model.md); vía desarrollada en [MPIR](../mpir/README.md)).
 
-> El canon reconoce dos vías de construcción del modelo de demanda: esta taxonomía y el [MPIR](../mpir/README.md) ([D-009](../../30-governance/decisions.md#d-009)); y, como tercera vía provisional, las cuestiones inferidas ([D-036](../../30-governance/decisions.md#d-036)). Amazon y Google son fuentes de apoyo de la taxonomía; los PTD de Amazon pueden además ser fuente de requisitos de la categoría cuando son relevantes para la clase ([D-039](../../30-governance/decisions.md#d-039)).
+> El canon reconoce como vías de construcción del modelo de demanda esta taxonomía, el [MPIR](../mpir/README.md) ([D-009](../../30-governance/decisions.md#d-009); aparcado por [D-095](../../30-governance/decisions.md#d-095)) y People Also Ask ([D-094](../../30-governance/decisions.md#d-094)); se suman, como provisionales, las cuestiones inferidas ([D-036](../../30-governance/decisions.md#d-036)). Ver [construction-routes](../../10-model/construction-routes.md). Amazon y Google son fuentes de apoyo de la taxonomía; los PTD de Amazon pueden además ser fuente de requisitos de la categoría cuando son relevantes para la clase ([D-039](../../30-governance/decisions.md#d-039)).
 
 La estrategia es **conservar las fuentes externas sin modificarlas, construir correspondencias auditables y derivar una capa interna de clases y facetas**. Un siguiente nivel de especialización es deseable allí donde cambien sustancialmente las necesidades informativas, pero no debe imponerse a todas las ramas ni justificarse por la mera existencia de una subcategoría en Amazon.
 

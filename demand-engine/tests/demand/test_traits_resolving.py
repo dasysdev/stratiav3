@@ -129,6 +129,23 @@ def test_catalog_check_wants_resolving_information_supported_by_the_sources():
     assert "aportación sin nombre o sin componente" in joined
 
 
+def test_paa_origin_takes_its_questions_as_sources():
+    from demand_engine.demand.model import block_problems
+    inferred = [{"contribution": "declaración de resistencia a las arrugas", "component": "arrugas", "origin": "inferida",
+                 "support": []}]
+    req = {"question": "¿Se arruga el tejido?", "trait": "prestacion", "vote": "complementario", "resolving_info": inferred}
+    block = {"id": "cat.sabanas", "requirements": [
+        {**req, "id": "cat.sabanas/05", "origin": "paa", "sources": ["paa-q:sabanas:se-arruga-mucho-el-lino"]},
+        {**req, "id": "cat.sabanas/06", "origin": "paa", "sources": []},
+        {**req, "id": "cat.sabanas/07", "origin": "paa", "sources": ["shopify-attr:fabric"]},
+        {**req, "id": "cat.sabanas/08", "origin": "mpir", "sources": ["x"]}]}
+    joined = "\n".join(block_problems(block, {"prestacion"}))
+    assert "cat.sabanas/05" not in joined
+    assert "cat.sabanas/06: origen «paa» sin fuentes" in joined
+    assert "cat.sabanas/07: origen «paa» con fuentes que no son preguntas PAA (paa-q:)" in joined
+    assert "cat.sabanas/08: origen «mpir» no válido" in joined
+
+
 def test_general_layer_admits_framework_contributions_from_its_law():
     from demand_engine.demand.model import gen_problems
     law = "ley:TRLGDCU-97.1.j@2026-02-28"

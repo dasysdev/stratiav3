@@ -3,9 +3,9 @@ id: demand-model
 title: Modelo de demanda y requisitos informativos
 layer: model
 status: vigente
-version: 2.21
-updated: 2026-10-26
-sources: [BASE §4, FUND §3, FUND §11.1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-block-catalog, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-26-question-formulation, INTAKE 2026-10-26-answer-form, INTAKE 2026-10-26-resolving-information, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-issues, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-26-model-name-full-composition]
+version: 3.0
+updated: 2026-10-27
+sources: [BASE §4, FUND §3, FUND §11.1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-block-catalog, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-26-question-formulation, INTAKE 2026-10-26-answer-form, INTAKE 2026-10-26-resolving-information, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-issues, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-26-model-name-full-composition, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route]
 ---
 
 # Modelo de demanda y requisitos informativos
@@ -32,7 +32,7 @@ Cada RI se caracteriza por:
 - **Objeto, alcance y aplicabilidad:** entidad o condición sobre la que se pregunta (producto, variante, oferta, vendedor o circunstancia comercial) y situaciones en las que procede evaluarlo.
 - **Importancia relativa:** papel de su resolución en la evaluación general de la clase.
 
-Para documentarlo operativamente, el catálogo puede registrar además: identificador, clase de oferta, formulación exacta, fundamento e **interfaces pertinentes**. Los tipos de información potencialmente resolutiva, en cambio, los registra siempre: son la **[información resolutiva](resolving-information.md)** del requisito, una lista de aportaciones resolutivas ([D-064](../30-governance/decisions.md#d-064)) que sirve para localizar información pertinente y recomendar ([D-062](../30-governance/decisions.md#d-062), [D-063](../30-governance/decisions.md#d-063); aún no se registra en el catálogo).
+Para documentarlo operativamente, el catálogo puede registrar además: identificador, clase de oferta, formulación exacta, fundamento e **interfaces pertinentes**. Los tipos de información potencialmente resolutiva, en cambio, los registra siempre: son la **[información resolutiva](resolving-information.md)** del requisito, una lista de aportaciones resolutivas ([D-064](../30-governance/decisions.md#d-064)) que sirve para localizar información pertinente y recomendar ([D-062](../30-governance/decisions.md#d-062), [D-063](../30-governance/decisions.md#d-063); aún no se registra en el catálogo). Registra siempre, además, su **[descripción](requirement-description.md)**, que concreta la pregunta ([D-092](../30-governance/decisions.md#d-092); aún no implantada en el catálogo). ⚠ Ver [I-40](../30-governance/issues.md#i-40)
 
 ### Importancia relativa
 
@@ -142,36 +142,7 @@ Catálogo inicial (propuesta, se irá afinando): [requirement-blocks](../20-meth
 
 ## Sistema de construcción vigente
 
-> El catálogo se construye mediante **inferencia a partir de fuentes de referencia** que reflejan cómo se caracterizan, diferencian y comercializan las ofertas de la clase estudiada. — BASE §4.2
-
-Las fuentes se organizan en **dos vías de referencia complementarias** (BASE §4.2, enmendada por [D-009](../30-governance/decisions.md#d-009)):
-
-1. **Taxonomía de clases de producto.** Delimita la clase y permite reconocer atributos, facetas y dimensiones del dominio. Su estructura principal es la **Shopify Product Taxonomy**. Amazon (especialización) y Google (contraste) son fuentes de apoyo de la taxonomía. Google y el árbol de navegación de Amazon son solo de apoyo, no fuentes directas de RI; los PTD de Amazon pueden además ser fuente de requisitos de la categoría (enmendada por [D-039](../30-governance/decisions.md#d-039)). Denominación canónica según [D-012](../30-governance/decisions.md#d-012).
-2. **MPIR: información comercial publicada por ecommerce referentes.** Permite reconocer criterios de elección, preguntas anticipadas, contextos, relaciones y condiciones que la taxonomía no anticipa.
-
-> **Amazon como fuente:** […] que las propiedades de los PTD de Amazon, incluidos los valores de special_feature, puedan ser fuente de requisitos de la categoría cuando son relevantes para la clase, con origen «referencias». — INTAKE 2026-10-25-amazon-source-blocks
-
-Así, una cuestión que solo recoge un PTD de Amazon y que cuenta como base para decidir una especialización ([D-030](../30-governance/decisions.md#d-030)) puede entrar en el modelo con origen «referencias», si es relevante para la clase ([D-039](../30-governance/decisions.md#d-039)). Si después una regla de relevancia la excluye en una clase, el efecto sobre esa base lo mide la validación automática del entrenamiento: no se acepta una relevancia que deje hechos declarados sin pregunta ([D-050](../30-governance/decisions.md#d-050), [D-072](../30-governance/decisions.md#d-072)).
-
-A ellas se suma una tercera vía ([D-036](../30-governance/decisions.md#d-036)):
-
-> Hay cuestiones de toda la clase que ninguna referencia recoge. […] El usuario eligió la opción b (el clasificador las propone) […]. Lectura de Claude que siguió a esa propuesta y que el usuario no objetó:
->
-> - Entran en el modelo como provisionales, en el régimen de D-022: se usan en la auditoría, el usuario valida siempre las críticas y una muestra del resto, y el MPIR las confirma o revisa cuando exista.
-> - Controles: solo cuestiones de toda la clase, neutrales, justificadas y que no dupliquen la base; origen marcado («referencias» o «inferida»); la auditoría puede informar con ellas y sin ellas; la estabilidad se mide con dos ejecuciones por caso.
->
-> — INTAKE 2026-10-25-requirement-blocks; matizada por [D-041](../30-governance/decisions.md#d-041): la validación se hace en entrenamiento y no bloquea la ejecución; enmendada por [D-044](../30-governance/decisions.md#d-044): la validación la hace el entrenamiento contra el marco, no la persona responsable
-
-**Recorrido:**
-
-1. Observar los atributos y la información comercial publicada.
-2. Inferir cuestiones relevantes para la compra.
-3. Formular y normalizar los requisitos.
-4. Justificar su inclusión e importancia relativa.
-
-Las fuentes permiten una selección razonada, pero **no prueban por sí solas la frecuencia real en la demanda** ni convierten los atributos de una taxonomía en obligaciones universales. Contrastar después con consultas reales o con investigación de usuarios puede mejorar el catálogo.
-
-Métodos operativos (propuesta): [product-taxonomy](../20-methods/product-taxonomy/README.md) y [mpir](../20-methods/mpir/README.md).
+El catálogo se construye por inferencia a partir de fuentes de referencia, organizadas en vías complementarias: la taxonomía de clases de producto, el MPIR (aparcado) y People Also Ask (PAA), a las que se suman las cuestiones inferidas. Cada requisito lleva su origen: «referencias», «normativa», «inferida» o «paa». Ver [construction-routes](construction-routes.md) ([D-098](../30-governance/decisions.md#d-098)).
 
 ### Entrenamiento y ejecución
 
@@ -228,7 +199,7 @@ Un **escenario de compra** concreta las necesidades, preferencias, restricciones
 
 Ver [open-questions](../30-governance/open-questions.md):
 
-- contraste empírico del catálogo;
+- contraste empírico del catálogo (PAA lo avanza con preguntas de compradores filtradas por Google);
 - representación de la clase de estudio en la taxonomía (en parte resuelta: se registran los modelos como composiciones de bloques);
 - calibración de la importancia relativa (pruebas operativas en propuesta);
 - pendientes del catálogo de la capa general: importancia de la condicionada de suscripción y depósitos, trasposición de la directiva Omnibus sobre opiniones, letra l del art. 97.1 y equivalentes del GPSR en alimentos y piensos ([OQ-45](../30-governance/open-questions.md));
@@ -243,4 +214,6 @@ Ver [open-questions](../30-governance/open-questions.md):
 - [study-class](study-class.md) — clase de estudio
 - [model-training](model-training.md) — entrenamiento y ejecución
 - [resolving-information](resolving-information.md) — información resolutiva de cada requisito
+- [requirement-description](requirement-description.md) — descripción de cada requisito
+- [choice-criteria](choice-criteria.md) — criterios de elección y requisitos que generan
 - [product-taxonomy](../20-methods/product-taxonomy/README.md) (método, propuesta); [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md) (capa general e importancia, propuesta)

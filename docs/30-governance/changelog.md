@@ -4,7 +4,7 @@ title: Registro de cambios de la documentación
 layer: governance
 status: vigente
 version: 1.0
-updated: 2026-10-26
+updated: 2026-10-27
 sources: []
 ---
 
@@ -13,6 +13,53 @@ sources: []
 Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módulos afectados, el tipo de cambio y la decisión que lo motiva.
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
+
+## 2026-10-27 — Piel en sábanas: cubierta · aplicado
+
+- **canon** — `INTAKE 2026-10-27-paa-skin-covered`: la piel en sábanas queda cubierta por `cat.sabanas/02` (D-106); D-108 retira el candidato de piel y D-109 su ejemplo, que contaba una pregunta genérica como prueba (b); la partición de `cat.fundas-de-almohada/04` por tema sigue vigente ([D-113](decisions.md#d-113)).
+
+## 2026-10-27 — Sujeción de la bajera: cubierta · aplicado
+
+- **canon** — `INTAKE 2026-10-27-paa-bottom-sheet-hold`: la sujeción de la bajera queda cubierta por `inf/02` y `cat.sabanas-ajustables/01`; lo que queda depende del colchón de quien compra (C3) ([D-112](decisions.md#d-112); sustituye D-111). [choice-criteria](../10-model/choice-criteria.md) 1.5 (ejemplo mínimo).
+
+## 2026-10-27 — Criterios de clasificación de las preguntas PAA (segunda ronda) · aplicado
+
+- **canon** — `INTAKE 2026-10-27-paa-classification-criteria-2` (divergencias de la reclasificación con el reglamento PAA v2, resueltas por el usuario en T-041): preguntas de grado, C2 sobre el requisito ([D-110](decisions.md#d-110)); sujeción de la bajera como candidato ([D-111](decisions.md#d-111), sustituida por [D-112](decisions.md#d-112)). [choice-criteria](../10-model/choice-criteria.md) 1.4 (lectura de las preguntas, salvedad de D-106 por D-109 y ejemplo mínimo).
+- **método** — precisiones de la separación por dimensión: preguntas distintas para la prueba (a), cualquier atributo de lista, lista ausente en la clase, sacar sin preguntas ([D-109](decisions.md#d-109); precisa D-103 y acota D-106). [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md) 1.31; glosario (Separación por dimensión).
+
+## 2026-10-27 — Criterios de clasificación de las preguntas PAA · aplicado
+
+- **canon** — `INTAKE 2026-10-27-paa-classification-criteria` (dudas de la primera clasificación con un agente, T-040, resueltas por el usuario en T-041): lectura sobre la oferta antes de C2 y confección casera fuera del perímetro ([D-100](decisions.md#d-100)); confirmaciones y aportaciones de precisión que salen de PAA ([D-101](decisions.md#d-101)); basta una pregunta para apoyar un candidato ([D-102](decisions.md#d-102)); criterios de elección intermedios ([D-104](decisions.md#d-104)); tacto por tipo y rasgo «sensorial» ([D-105](decisions.md#d-105)); un requisito de certificación cubre la prestación cuya declaración recoge ([D-106](decisions.md#d-106)); candidatos PAA de la clase de sábanas ([D-108](decisions.md#d-108)). [choice-criteria](../10-model/choice-criteria.md) 1.3 (nueva sección «Lectura de las preguntas de PAA», ejemplo mínimo actualizado); [construction-routes](../10-model/construction-routes.md) 1.2; [requirement-description](../10-model/requirement-description.md) 1.1 (ejemplos actualizados); [model-training](../10-model/model-training.md) 1.16 (rasgo «sensorial»); glosario (Criterio de elección intermedio, Lectura sobre la oferta, Separación por dimensión, Rasgo).
+- **método** — separación por dimensión en los atributos de lista ([D-103](decisions.md#d-103)) y requisitos repetidos en bloques hermanos con la misma pregunta y la misma descripción ([D-107](decisions.md#d-107)): [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md) 1.30.
+- **gobernanza** — nuevas OQ-59 (PAA como prueba de la pertinencia de los AC, en propuesta) y OQ-60 (presentación de un requisito repetido según la pieza).
+
+## 2026-10-27 — PAA propone requisitos nuevos · aplicado
+
+- **canon** — `INTAKE 2026-10-27-paa-new-requirements`: PAA propone requisitos nuevos también desde preguntas factuales sobre la oferta que ningún requisito responde, si cumplen C1–C4; origen «paa» en ambos caminos ([D-099](decisions.md#d-099); enmienda D-094 y D-097). [construction-routes](../10-model/construction-routes.md) 1.1; [choice-criteria](../10-model/choice-criteria.md) 1.2; glosario (PAA); README del motor PAA.
+- **gobernanza** — nueva OQ-58: entrada en el catálogo del requisito candidato de PAA y formato de la pregunta como fuente.
+
+## 2026-10-27 — People Also Ask como vía de construcción, MPIR aparcado y excepción de legitimidad · aplicado
+
+- **canon** — `INTAKE 2026-10-27-paa-construction-route` (T-039):
+  - People Also Ask (PAA) de google.es es una vía de construcción del modelo de demanda: reconoce criterios de elección y confirma requisitos y cuestiones inferidas; solo preguntas, sin información resolutiva ([D-094](decisions.md#d-094); enmienda D-009 y D-036);
+  - el MPIR queda aparcado: su papel en la construcción lo cumple PAA ([D-095](decisions.md#d-095));
+  - excepción a D-042: el motor PAA no aplica el robots.txt de Google, para investigación y uso interno, con sus límites de ejecución ([D-096](decisions.md#d-096));
+  - origen «paa» para los requisitos que entran solo por PAA y para las inferidas que confirma ([D-097](decisions.md#d-097)).
+- **estructura** — la construcción del modelo pasa al módulo nuevo [construction-routes](../10-model/construction-routes.md) 1.0 por tamaño ([D-098](decisions.md#d-098)); [demand-model](../10-model/demand-model.md) 3.0; índice de docs/README (4g); glosario: vía de construcción, origen de un requisito, PAA y MPIR aparcado.
+- **método** — [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#cuestiones-inferidas) 1.29 (origen «paa»; PAA confirma las inferidas); [MPIR](../20-methods/mpir/README.md) 1.4 (aviso de aparcado); [product-taxonomy](../20-methods/product-taxonomy/README.md) 1.8 y [sources](../20-methods/product-taxonomy/sources.md) 1.2: vías vigentes y MPIR aparcado; campos de un requisito con el origen «paa».
+- **editorial** — [choice-criteria](../10-model/choice-criteria.md) 1.1 y [study-class](../10-model/study-class.md) 1.6: enlaces a construction-routes; study-class anota que el contraste de especializaciones con el MPIR queda suspendido.
+- **gobernanza** — OQ-57 cerrada → D-094, D-096; OQ-01 anotada; sección C de open-questions marcada como aparcada. Fuera de docs: README del motor PAA, `demand-engine/README.md` y `CLAUDE.md` sin la marca «pendiente de registrar». Validación del origen «paa» en `bin/model`: T-040.
+
+## 2026-10-27 — Criterios de elección, prestaciones derivadas y descripción de los requisitos · aplicado
+
+- **canon** — `INTAKE 2026-10-26-choice-criteria-and-descriptions`:
+  - derivar una prestación de un atributo no resuelve el requisito de la prestación; lo dictamina la valoración de los AC y el requisito tiene que existir en el modelo ([D-090](decisions.md#d-090)): [acceptance-criteria](../10-model/acceptance-criteria.md#interpretación) 1.1;
+  - un criterio de elección genera un requisito cuando cumple C1–C4 ([D-091](decisions.md#d-091)): módulo nuevo [choice-criteria](../10-model/choice-criteria.md) 1.0;
+  - los requisitos llevan una descripción de tres partes ([D-092](decisions.md#d-092)), que es prosa y no repite la información resolutiva ([D-093](decisions.md#d-093)): módulo nuevo [requirement-description](../10-model/requirement-description.md) 1.0;
+  - [demand-model](../10-model/demand-model.md) 2.22 y [resolving-information](../10-model/resolving-information.md) 1.9 (regla 6 y distinción con la descripción).
+- **método** — [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formato-del-catálogo) 1.28: la descripción entre los campos de un requisito y el criterio de elección como fundamento. [MPIR](../20-methods/mpir/README.md) 1.3: enlace a los criterios de elección.
+- **estructura** — índice de [docs/README](../README.md) (4e, 4f) y glosario: descripción, criterio de elección y prestación derivada de un atributo.
+- **gobernanza** — OQ-03 anotada (relación de la descripción con el perfil del RI); nuevas OQ-56 (frontera operativa de la prestación derivada en los AC) y OQ-57 (PAA como vía de construcción, que el artefacto deja fuera). Implantación de C1–C4: T-040; de la descripción en el catálogo: pendiente. Nueva [I-40](issues.md#i-40): estado de implantación de la información resolutiva en el catálogo, detectada por el revisor.
 
 ## 2026-10-26 — Resolución de I-36 a I-39 · aplicado
 

@@ -113,6 +113,20 @@ class Browser:
             except CdpError:
                 pass
 
+    def close_other_tabs(self, keep: "Page") -> int:
+        """Close every tab but `keep` and return how many: a run cut short leaves its tab
+        behind, and a hung tab shares its renderer with a new one of the same site."""
+        closed = 0
+        with self._lock:
+            for target in self._cdp.send("Target.getTargets")["targetInfos"]:
+                if target["type"] == "page" and target["targetId"] != keep.target_id:
+                    try:
+                        self._cdp.send("Target.closeTarget", {"targetId": target["targetId"]})
+                        closed += 1
+                    except CdpError:
+                        pass
+        return closed
+
     def stop(self) -> None:
         """Close Chrome only if this object launched it."""
         if self._proc is not None:

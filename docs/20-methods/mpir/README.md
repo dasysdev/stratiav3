@@ -3,14 +3,16 @@ id: mpir
 title: MPIR — Modelo de Prácticas Informativas de Referencia
 layer: method
 status: propuesta
-version: 1.2
-updated: 2026-10-26
-sources: [MPIR Resumen, MPIR §1, MPIR §2, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-26-open-issues-resolution]
+version: 1.4
+updated: 2026-10-27
+sources: [MPIR Resumen, MPIR §1, MPIR §2, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route]
 ---
 
 # MPIR — Modelo de Prácticas Informativas de Referencia
 
 *Estrategia de observación, extracción, estructuración y análisis de información comercial publicada por ecommerce referentes para apoyar la construcción sistemática de modelos de demanda.*
+
+> **Estado: aparcado** ([D-095](../../30-governance/decisions.md#d-095)). El método sigue en el canon como propuesta, pero no se ejecuta ni se desarrolla por ahora. Su papel en la construcción del modelo de demanda (reconocer criterios de elección y confirmar cuestiones inferidas) lo cumple People Also Ask ([D-094](../../30-governance/decisions.md#d-094), [construction-routes](../../10-model/construction-routes.md)); sus cuestiones abiertas siguen abiertas, sin trabajarse, y el motor de captura sigue en uso para el entrenamiento ([D-046](../../30-governance/decisions.md#d-046)). Retomarlo es una decisión nueva.
 
 Versión 1.0 — metodología inicial consolidada para aplicación y calibración. Es el documento metodológico de la **segunda vía de construcción del modelo de demanda**. No es un catálogo de requisitos informativos, una auditoría de ecommerce ni una especificación cerrada de software.
 
@@ -18,7 +20,7 @@ Versión 1.0 — metodología inicial consolidada para aplicación y calibració
 
 El **Modelo de Prácticas Informativas de Referencia (MPIR)** es una base de conocimiento estructurada que documenta **cómo los ecommerce referentes presentan, explican, relacionan y utilizan información comercial para facilitar el descubrimiento, la comprensión, la comparación y la evaluación de sus ofertas**. Su utilidad es ofrecer **evidencia indirecta sobre posibles necesidades informativas de la demanda** de una clase de producto u oferta.
 
-El MPIR complementa la [Taxonomía de clases de producto](../product-taxonomy/README.md), basada en la integración semántica de Shopify, Amazon y Google. La taxonomía delimita las clases y facilita reconocer atributos, facetas y dimensiones del dominio. El MPIR permite observar **qué preguntas se anticipan, qué criterios de elección se emplean, qué contextos y relaciones se explican y cómo se ayuda a tomar decisiones**. Las dos fuentes se utilizan posteriormente para inferir, formular y justificar requisitos informativos del [modelo de demanda](../../10-model/demand-model.md).
+El MPIR complementa la [Taxonomía de clases de producto](../product-taxonomy/README.md), basada en la integración semántica de Shopify, Amazon y Google. La taxonomía delimita las clases y facilita reconocer atributos, facetas y dimensiones del dominio. El MPIR permite observar **qué preguntas se anticipan, qué [criterios de elección](../../10-model/choice-criteria.md) se emplean, qué contextos y relaciones se explican y cómo se ayuda a tomar decisiones**. Las dos fuentes se utilizan posteriormente para inferir, formular y justificar requisitos informativos del [modelo de demanda](../../10-model/demand-model.md).
 
 > El canon reconoce dos vías de construcción del modelo de demanda: la [taxonomía de clases de producto](../product-taxonomy/README.md) y este MPIR ([D-009](../../30-governance/decisions.md#d-009)); y, como tercera vía provisional, las cuestiones inferidas ([D-036](../../30-governance/decisions.md#d-036)), que el MPIR confirmará o revisará.
 

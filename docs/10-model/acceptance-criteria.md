@@ -3,9 +3,9 @@ id: acceptance-criteria
 title: Criterios de aceptación
 layer: model
 status: vigente
-version: 1.0
-updated: 2026-10-24
-sources: [BASE §5.2, FUND §6, FUND §10.1, GSC0 §6.4]
+version: 1.1
+updated: 2026-10-27
+sources: [BASE §5.2, FUND §6, FUND §10.1, GSC0 §6.4, INTAKE 2026-10-26-choice-criteria-and-descriptions]
 ---
 
 # Criterios de aceptación (AC)
@@ -55,6 +55,8 @@ Cada criterio se valora con el **GSC** (0/1/2, o los estados NA y NE). Ver [scor
 ## Interpretación
 
 La interpretación semántica legítima y el razonamiento sustentado se distinguen de la **invención de hechos faltantes**. Por ejemplo (GSC0 PF-06, propuesta V1), el significado general de `InStock` puede reconocerse por conocimiento del dominio. En cambio, la identidad de la variante a la que se refiere, la oferta y el momento requieren sustento en las fuentes admitidas.
+
+Del mismo modo, que una ficha declare el tejido o la composición («percal», «100 % algodón») no resuelve un requisito sobre la prestación («¿qué sensación térmica ofrece?»): en la lectura que adopta D-090, deducir la prestación del atributo completa con conocimiento del dominio un hecho que la oferta no declara, y no se descarta por su número de pasos. Lo dictamina esta valoración, no el modelo de demanda, que tiene que contener el requisito de la prestación para que pueda dictaminarse ([D-090](../30-governance/decisions.md#d-090), [choice-criteria](choice-criteria.md#prestación-derivada-de-un-atributo)). La frontera operativa con el reconocimiento semántico legítimo está pendiente ([OQ-56](../30-governance/open-questions.md)).
 
 La relación orientativa entre criterios y propiedades que sustentan su análisis está en [quality-properties](quality-properties.md#asociaciones-orientativas-con-los-criterios).
 

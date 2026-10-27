@@ -3,9 +3,9 @@ id: model-training
 title: Entrenamiento y ejecución del modelo de demanda
 layer: model
 status: vigente
-version: 1.15
-updated: 2026-10-26
-sources: [INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-25-training-catalog-selection, INTAKE 2026-10-25-training-classifier, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-26-color-and-requirement-exceptions, INTAKE 2026-10-26-any-property-precision, INTAKE 2026-10-26-critical-count-not-a-goal, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-formulation, INTAKE 2026-10-26-open-issues-resolution]
+version: 1.16
+updated: 2026-10-27
+sources: [INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-25-training-catalog-selection, INTAKE 2026-10-25-training-classifier, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-26-color-and-requirement-exceptions, INTAKE 2026-10-26-any-property-precision, INTAKE 2026-10-26-critical-count-not-a-goal, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-formulation, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-27-paa-classification-criteria]
 ---
 
 # Entrenamiento y ejecución del modelo de demanda
@@ -109,7 +109,7 @@ La identidad por bloques es la del [modelo de demanda](demand-model.md#composici
 >
 > — INTAKE 2026-10-25-training-operation; la lista deja de ser cerrada y es el vocabulario de partida ([D-056](../30-governance/decisions.md#d-056))
 
-El vocabulario tiene además **magnitud física**: peso, grosor y gramaje, que salen de la medida descriptiva y no tienen regla fija ([D-051](../30-governance/decisions.md#d-051)). Un requisito toma el rasgo de partida de sus fuentes; si tiene votos, manda el rasgo votado ([D-056](../30-governance/decisions.md#d-056)). Las cuestiones inferidas y las de especialización, que no tienen fuente de referencia, se etiquetan en el propio requisito ([D-045](../30-governance/decisions.md#d-045)).
+El vocabulario tiene además **magnitud física**: peso, grosor y gramaje, que salen de la medida descriptiva y no tienen regla fija ([D-051](../30-governance/decisions.md#d-051)). Y **sensorial**: el tipo de tacto (sedoso o liso, crujiente, afelpado, fresco al tacto), decidido por el usuario; el entrenamiento reclasifica los requisitos de tacto existentes, hoy `prestacion` ([D-105](../30-governance/decisions.md#d-105)). Un requisito toma el rasgo de partida de sus fuentes; si tiene votos, manda el rasgo votado ([D-056](../30-governance/decisions.md#d-056)). Las cuestiones inferidas y las de especialización, que no tienen fuente de referencia, se etiquetan en el propio requisito ([D-045](../30-governance/decisions.md#d-045)).
 
 > Se deberían proponer nuevos rasgos a medida que van siendo necesarios. Se aprueban solos si los agentes los van votando. Sabor en material no tiene sentido. Quizás un rasgo de sabor es más adecuado, pero esto lo dejamos a criterio de los agentes que los van encontrando.
 >

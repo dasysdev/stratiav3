@@ -4,7 +4,7 @@ title: Registro de incidencias e incoherencias documentales
 layer: governance
 status: vigente
 version: 1.0
-updated: 2026-10-26
+updated: 2026-10-27
 sources: []
 ---
 
@@ -53,6 +53,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 | [I-37](#i-37) | Pregunta de sí o no con detalle cuyas partes toman otro rasgo o importancia | Baja | resuelta → [D-087](decisions.md#d-087) |
 | [I-38](#i-38) | Cuestiones con fuente en las referencias que el bloque no recoge | Baja | resuelta → [D-088](decisions.md#d-088) |
 | [I-39](#i-39) | Aportaciones que fija la norma ausentes de las listas de la capa general | Baja | resuelta → [D-089](decisions.md#d-089) |
+| [I-40](#i-40) | Estado de implantación de la información resolutiva en el catálogo | Baja | abierta |
 
 ---
 
@@ -533,3 +534,13 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - **Propuesta:** añadirlas a sus listas con origen «marco» y su norma como fuente; con [D-084](decisions.md#d-084) no requieren aprobación. Antes hay que comprobar el artículo de la transposición española.
 - **Alternativa para el precio unitario:** un requisito propio de los productos que se venden por cantidad, en lugar de una aportación de `gen/04`.
 - **Resolución (2026-10-26):** el usuario acepta la propuesta («Resuelve todas las incidencias con tus propias recomendaciones»). → [D-089](decisions.md#d-089).
+
+### I-40
+
+**Estado de implantación de la información resolutiva en el catálogo.**
+
+- [demand-model](../10-model/demand-model.md#requisito-informativo-ri) dice que la información resolutiva «aún no se registra en el catálogo».
+- [resolving-information](../10-model/resolving-information.md#pendiente) dice que el campo, la salida del clasificador y las reglas del entrenamiento están implantados y que «el catálogo registra las listas».
+- La detectó el revisor al procesar `INTAKE 2026-10-26-choice-criteria-and-descriptions`; es anterior a ese artefacto.
+- **Afecta a:** [demand-model](../10-model/demand-model.md#requisito-informativo-ri).
+- **Propuesta:** comprobarlo en `demand-engine/catalog/` y, si las listas están registradas, quitar «aún no se registra en el catálogo» de demand-model.

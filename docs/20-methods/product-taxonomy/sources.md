@@ -3,9 +3,9 @@ id: product-taxonomy-sources
 title: Taxonomía — inventario de fuentes externas y referencias
 layer: method
 status: propuesta
-version: 1.1
-updated: 2026-10-25
-sources: [TAX §2, TAX §12, INTAKE 2026-10-25-amazon-source-blocks]
+version: 1.2
+updated: 2026-10-27
+sources: [TAX §2, TAX §12, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-27-paa-construction-route]
 ---
 
 # Taxonomía — inventario de fuentes externas y referencias
@@ -44,7 +44,7 @@ Las guías de **Google Search sobre `Product`, `Offer` y `ProductGroup`** docume
 
 ## Evidencia comercial y otras referencias
 
-La publicación real de **ecommerce referentes** sigue siendo fuente principal para inferir las cuestiones de demanda ([modelo de demanda](../../10-model/demand-model.md); método en [MPIR](../mpir/README.md)). En esta fase también sirve para comprobar si una especialización es reconocible de forma estable en el mercado y si sus características se diferencian de las de otras clases.
+La publicación real de **ecommerce referentes** sigue siendo fuente principal para inferir las cuestiones de demanda ([modelo de demanda](../../10-model/demand-model.md); método en [MPIR](../mpir/README.md), aparcado por [D-095](../../30-governance/decisions.md#d-095); mientras tanto, People Also Ask cumple su papel en la construcción: [D-094](../../30-governance/decisions.md#d-094)). En esta fase también sirve para comprobar si una especialización es reconocible de forma estable en el mercado y si sus características se diferencian de las de otras clases.
 
 Como vocabulario metodológico de correspondencias puede utilizarse **SKOS**, estándar del W3C que distingue `exactMatch`, `closeMatch`, `broadMatch`, `narrowMatch` y `relatedMatch` [R16]. Su aplicación es una **opción de diseño** y exige definir las reglas de uso locales. No cubre por sí solo todos los casos de solapamiento parcial y pertenencia condicional que pueden darse entre clasificaciones comerciales.
 

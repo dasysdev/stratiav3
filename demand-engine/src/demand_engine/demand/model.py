@@ -205,9 +205,12 @@ def block_problems(block: dict, vocabulary: set) -> list:
             errors.append("sin importancia ni voto válidos")
         if r.get("origin") == "inferida" and r.get("sources"):
             errors.append("cuestión inferida con fuentes")
-        elif r.get("origin") in ("referencias", "normativa") and not r.get("sources"):
+        elif r.get("origin") in ("referencias", "normativa", "paa") and not r.get("sources"):
             errors.append(f"origen «{r['origin']}» sin fuentes")
-        elif r.get("origin") not in ("referencias", "normativa", "inferida"):
+        elif r.get("origin") == "paa" and not all(s.startswith("paa-q:") for s in r["sources"]):
+            # D-097: a requirement that enters only through PAA has its questions as sources
+            errors.append("origen «paa» con fuentes que no son preguntas PAA (paa-q:)")
+        elif r.get("origin") not in ("referencias", "normativa", "inferida", "paa"):
             errors.append(f"origen «{r.get('origin')}» no válido")
         items = r.get("resolving_info") or []
         if not items:

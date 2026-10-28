@@ -1,0 +1,63 @@
+{
+ "source": "google-search-links-crawlable",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Buenas prácticas de enlaces de Google: enlaces rastreables (elementos a con href cuya URL resuelve en una dirección web) y texto de anclaje. Recomienda la forma de los enlaces.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#crawlable-links",
+   "text": "Generally, Google can only crawl your link if it's an <a> HTML element (also known as anchor element) with an href attribute. Most links in other formats won't be parsed and extracted by Google's crawlers. Google can't reliably extract URLs from <a> elements that don't have an href attribute or other tags that perform as links because of script events."
+  },
+  {
+   "id": "q02",
+   "section": "#crawlable-links",
+   "text": "Recommended (Google can parse)"
+  },
+  {
+   "id": "q03",
+   "section": "#crawlable-links",
+   "text": "Not recommended (but Google may still attempt to parse this):"
+  },
+  {
+   "id": "q04",
+   "section": "#crawlable-links",
+   "text": "<a routerLink=\"products/category\">"
+  },
+  {
+   "id": "q05",
+   "section": "#crawlable-links",
+   "text": "<span href=\"https://example.com\">"
+  },
+  {
+   "id": "q06",
+   "section": "#crawlable-links",
+   "text": "<a onclick=\"goto('https://example.com')\">"
+  },
+  {
+   "id": "q07",
+   "section": "#crawlable-links",
+   "text": "Make sure that the URL in your <a> element resolves into an actual web address (meaning, it resembles a URI) that Google crawlers can send requests to, for example:"
+  },
+  {
+   "id": "q08",
+   "section": "#crawlable-links",
+   "text": "Recommended (Google can resolve):"
+  },
+  {
+   "id": "q09",
+   "section": "#crawlable-links",
+   "text": "Not recommended (but Google may still attempt to resolve this):"
+  },
+  {
+   "id": "q10",
+   "section": "#crawlable-links",
+   "text": "<a href=\"javascript:goTo('products')\">"
+  }
+ ],
+ "note": "La cabecera «Recommended» fija lo recomendado. Las recomendaciones del texto de anclaje (anchor-text-placement, write-good-anchor-text) juzgan el texto del enlace, y la de internal-links («Every page you care about should have a link from at least one other page on your site») se comprueba en otras páginas del sitio, no en la respuesta del recurso: no dan requisito."
+}

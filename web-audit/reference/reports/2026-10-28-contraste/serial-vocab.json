@@ -1,0 +1,1430 @@
+{
+ "group": "serial-vocab",
+ "results": [
+  {
+   "id": "ws-serialization/001",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NE",
+     "evidence": "2 bloques; el método exige el HTML servido y solo hay DOM (en el DOM analizan sin error)."
+    },
+    "cojin-018": {
+     "state": "NE",
+     "evidence": "5 bloques; exige HTML servido, solo DOM (en el DOM analizan sin error)."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "NE",
+     "evidence": "2 bloques; exige HTML servido, solo DOM (en el DOM analizan sin error)."
+    },
+    "sofa-cama-luna": {
+     "state": "NE",
+     "evidence": "1 bloque; exige HTML servido, solo DOM (en el DOM analiza sin error)."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/002",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "Raíz de ambos bloques: objeto de nodo (BreadcrumbList, Product)."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "Raíz de los 5 bloques: objeto de nodo."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Raíz: objeto de nodo (ProductGroup, BreadcrumbList)."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Raíz: objeto de nodo (Product). Contexto remoto schema.org resuelto con el congelado 30.1 (ver problema)."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/003",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "Ninguna clave repetida (analizador con todas las parejas)."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "Ninguna clave repetida en los 5 bloques."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Ninguna clave repetida."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Ninguna clave repetida."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/004",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "@context \"https://schema.org\" en ambos: referencia IRI."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "@context \"https://schema.org\" en los 5."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "@context \"http://schema.org/\" y \"https://schema.org\"."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "@context raíz y anidado en reviewRating: \"https://schema.org/\"."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/005",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún @context es una definición local con @language (solo cadenas)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún @context es una definición local con @language (solo cadenas)."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún @context es una definición local con @language (solo cadenas)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún @context es una definición local con @language (solo cadenas)."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/006",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "@id de item en ListItem: IRI absolutas válidas."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "@id #organization, #webpage, #product, #breadcrumb… IRI válidas."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "@id de item del BreadcrumbList: IRI válidas."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún objeto de nodo tiene @id."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/007",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "@type cadenas (Product, Offer…) que @vocab expande a IRI."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "@type cadenas simples expandibles con @vocab."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "@type ProductGroup, AggregateOffer…: expandibles."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "@type cadenas simples expandibles."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/008",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún bloque contiene @graph."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún bloque contiene @graph."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún bloque contiene @graph."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún bloque contiene @graph."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/009",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "Ningún array contiene arrays."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "Ningún array contiene arrays."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Ningún array contiene arrays."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Ningún array contiene arrays."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/010",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "Raíces con @type y más propiedades."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "Las 5 raíces con @type y propiedades (ImageObject incluido)."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Raíces con @type y propiedades."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Raíz con @type y propiedades."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/011",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor (@value/@list/@set ausentes)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor (@value/@list/@set ausentes)."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor (@value/@list/@set ausentes)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor (@value/@list/@set ausentes)."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/012",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor (@value/@list/@set ausentes)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor (@value/@list/@set ausentes)."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor (@value/@list/@set ausentes)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor (@value/@list/@set ausentes)."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/013",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor (@value/@list/@set ausentes)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor (@value/@list/@set ausentes)."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor (@value/@list/@set ausentes)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor (@value/@list/@set ausentes)."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/014",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor con @type (@value/@list/@set ausentes)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor con @type (@value/@list/@set ausentes)."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor con @type (@value/@list/@set ausentes)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor con @type (@value/@list/@set ausentes)."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/015",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor con @language (@value/@list/@set ausentes)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor con @language (@value/@list/@set ausentes)."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor con @language (@value/@list/@set ausentes)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún objeto de valor con @language (@value/@list/@set ausentes)."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/016",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún objeto de lista (@value/@list/@set ausentes)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún objeto de lista (@value/@list/@set ausentes)."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún objeto de lista (@value/@list/@set ausentes)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún objeto de lista (@value/@list/@set ausentes)."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/017",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún objeto de conjunto (@value/@list/@set ausentes)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún objeto de conjunto (@value/@list/@set ausentes)."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún objeto de conjunto (@value/@list/@set ausentes)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún objeto de conjunto (@value/@list/@set ausentes)."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/018",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "Todos los @id son IRI absolutas; el contexto 30.1 no tiene términos @type @id."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "@id absolutas (también las referencias {\"@id\"} entre bloques)."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin script application/ld+json en el DOM (solo Microdata)."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "@id absolutas; seller.url \"www.kiwoko.com\" es literal, no cuenta."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Sin @id ni términos @type @id; offers.url relativa es literal, no cuenta."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/019",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype (20 itemprop sueltos, sin itemscope): no es «Microdata con Schema.org» según 019."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "129 itemtype con un token."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "8 itemtype con un token cada uno."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "4 itemtype con un token."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/020",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype (20 itemprop sueltos, sin itemscope): no es «Microdata con Schema.org» según 019."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "Ningún itemtype repite token."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Ningún itemtype repite token."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Ningún itemtype repite token."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/021",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype (20 itemprop sueltos, sin itemscope): no es «Microdata con Schema.org» según 019."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "Tokens http(s)://schema.org/… absolutos."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Tokens https://schema.org/… absolutos."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Tokens http://schema.org/… absolutos."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/022",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype (20 itemprop sueltos, sin itemscope): no es «Microdata con Schema.org» según 019."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con más de un token."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con más de un token."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con más de un token."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/023",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype (20 itemprop sueltos, sin itemscope): no es «Microdata con Schema.org» según 019."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "BreadcrumbList, ListItem, Product, Offer, Organization, Brand: clases."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "ListItem, Offer, OfferItemCondition, ItemAvailability: clases en 30.1."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "BreadcrumbList, ListItem: clases en 30.1."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/024",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype (20 itemprop sueltos, sin itemscope): no es «Microdata con Schema.org» según 019."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "Los 129 itemtype con itemscope."
+    },
+    "cuerda-tootoy": {
+     "state": "no satisfecho",
+     "evidence": "L3577 y L3579: <meta itemprop itemtype=…> sin itemscope (itemCondition, availability)."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Los 4 itemtype con itemscope."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/025",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype (20 itemprop sueltos, sin itemscope): no es «Microdata con Schema.org» según 019."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemid."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemid."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemid."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/026",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype (20 itemprop sueltos, sin itemscope): no es «Microdata con Schema.org» según 019."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemid."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemid."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemid."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/027",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype (20 itemprop sueltos, sin itemscope): no es «Microdata con Schema.org» según 019."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/028",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype (20 itemprop sueltos, sin itemscope): no es «Microdata con Schema.org» según 019."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/029",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype (20 itemprop sueltos, sin itemscope): no es «Microdata con Schema.org» según 019."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/030",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype schema.org; los 20 itemprop tienen token (ver problema de aplicabilidad)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "Todos los itemprop con token."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "58 itemprop, todos con token."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "12 itemprop con token."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/031",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype schema.org; ningún itemprop repite token (ver problema)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "Ningún itemprop repite token."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Ningún itemprop repite token."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Ningún itemprop repite token."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/032",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún item: los itemprop no pertenecen a ningún itemscope."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "offers, seller, brand, url, image, mpn…: definidos en 30.1."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Offer y ListItem: priceCurrency, price, gtin13, sku, item, name, position… definidos."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "itemListElement, item, name, position: definidos."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/033",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin items; brand y name no tienen rango URL."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "no satisfecho",
+     "evidence": "<meta itemprop=\"url\" content=\"https://guaw.com/…\"> (L371, Product principal): url no va en elemento URL."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Propiedad URL-only usada: image en <img> (sueltas, sin item); ver problema: o NA."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Solo item (Thing), name, position: ningún rango solo URL."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/034",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype (20 itemprop sueltos, sin itemscope): no es «Microdata con Schema.org» según 019."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/035",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype (20 itemprop sueltos, sin itemscope): no es «Microdata con Schema.org» según 019."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún atributo itemref."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/036",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin itemtype schema.org; serían 20 itemprop sin item → no satisfecho (ver problema)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún itemtype con «schema.org»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "Todos los itemprop dentro de algún item."
+    },
+    "cuerda-tootoy": {
+     "state": "no satisfecho",
+     "evidence": "37 itemprop sin item: 5 ListItem itemListElement, 31 img image y el Offer (L3525)."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Todos los itemprop bajo el BreadcrumbList."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/037",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin atributos RDFa (property/typeof); solo xmlns:xlink de SVG."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin RDFa (ningún property/typeof)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/038",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin atributos RDFa (property/typeof); solo xmlns:xlink de SVG."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin RDFa (ningún property/typeof)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/039",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin atributos RDFa (property/typeof); solo xmlns:xlink de SVG."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin RDFa (ningún property/typeof)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/040",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin atributos RDFa (property/typeof); solo xmlns:xlink de SVG."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin RDFa (ningún property/typeof)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/041",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin atributos RDFa (property/typeof); solo xmlns:xlink de SVG."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin RDFa (ningún property/typeof)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/042",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin atributos RDFa (property/typeof); solo xmlns:xlink de SVG."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin RDFa (ningún property/typeof)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/043",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin atributos RDFa (property/typeof); solo xmlns:xlink de SVG."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin RDFa (ningún property/typeof)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    }
+   }
+  },
+  {
+   "id": "ws-serialization/044",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin atributos RDFa (property/typeof); solo xmlns:xlink de SVG."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin RDFa (ningún property/typeof)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Solo meta property=\"og:…\" (Open Graph): ningún typeof/property se resuelve a Schema.org."
+    }
+   }
+  },
+  {
+   "id": "ws-vocabulary/001",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "26 pares con entidad tipada (Brand, Offer, enumeraciones…) de tipo esperado."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "17 pares con tipo esperado; seller/mainEntity por @id a otro bloque (ver problema)."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "offers→Offer, seller→Organization, brand→Brand, itemListElement→ListItem, enumeraciones por link."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "12 pares JSON-LD esperados; Microdata sin pares (items sueltos). lowprice/highprice no definidos."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "25 pares esperados (Review, Rating, Person…). productGroupId no definido en 30.1."
+    }
+   }
+  },
+  {
+   "id": "ws-vocabulary/002",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "No usa mainEntity ni mainEntityOfPage."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "WebPage#webpage→mainEntity #product y Product→mainEntityOfPage #webpage: una sola entidad por @id."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "No usa mainEntity ni mainEntityOfPage."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "No usa mainEntity ni mainEntityOfPage."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "No usa mainEntity ni mainEntityOfPage."
+    }
+   }
+  },
+  {
+   "id": "ws-vocabulary/005",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin gtin ni subpropiedades (el EAN va en sku)."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "gtin13 \"8432626421921\": 13 dígitos."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin gtin (EAN en sku)."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "gtin y gtin13 \"8435637439459\" (JSON-LD) y gtin13 en meta: 13 dígitos."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin gtin."
+    }
+   }
+  },
+  {
+   "id": "ws-vocabulary/006",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin gtin ni subpropiedades (el EAN va en sku)."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "8432626421921: dígito de control 1 correcto."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin gtin."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "8435637439459: dígito de control 9 correcto."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin gtin."
+    }
+   }
+  },
+  {
+   "id": "ws-vocabulary/007",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún gtin es URL GS1 Digital Link."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún gtin es URL GS1 Digital Link."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ningún gtin es URL GS1 Digital Link."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún gtin es URL GS1 Digital Link."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún gtin es URL GS1 Digital Link."
+    }
+   }
+  },
+  {
+   "id": "ws-vocabulary/008",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "JSON-LD: position 1–4, números enteros."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "JSON-LD: position 1–6, enteros."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "Microdata: meta position \"1\"–\"4\"."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "JSON-LD: 1–4. Los ListItem Microdata (0–4) no están en un BreadcrumbList."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Microdata: meta position \"1\"–\"3\"."
+    }
+   }
+  },
+  {
+   "id": "ws-vocabulary/009",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ninguna propiedad de solo dominio WebPage."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "breadcrumb y primaryImageOfPage en entidad @type WebPage."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ninguna propiedad de solo dominio WebPage."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ninguna propiedad de solo dominio WebPage."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ninguna propiedad de solo dominio WebPage."
+    }
+   }
+  },
+  {
+   "id": "ws-vocabulary/010",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin addressCountry (solo applicableCountry/returnPolicyCountry)."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "addressCountry \"ES\" en PostalAddress."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin addressCountry."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin addressCountry."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin addressCountry."
+    }
+   }
+  },
+  {
+   "id": "ws-vocabulary/011",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin QuantitativeValue ni MonetaryAmount."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin QuantitativeValue ni MonetaryAmount."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin QuantitativeValue ni MonetaryAmount."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin QuantitativeValue ni MonetaryAmount."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin QuantitativeValue ni MonetaryAmount (solo PropertyValue)."
+    }
+   }
+  }
+ ],
+ "problems": [
+  {
+   "id": "ws-serialization/001",
+   "kind": "no comprobable",
+   "fichas": [
+    "eci-lijadora-a200805914",
+    "cojin-018",
+    "cuerda-tootoy",
+    "sofa-cama-luna",
+    "colchoneta-refrescante-freedog"
+   ],
+   "description": "El método extrae los bloques «del HTML servido». El motor de captura solo guarda el DOM renderizado, así que el requisito es NE en todas las fichas con JSON-LD, aunque en el DOM los 10 bloques analizan sin error. El contenido de texto de un script no se altera al analizar el HTML (texto en bruto) y Google admite JSON-LD insertado con JavaScript, así que el DOM basta para esta condición. En Guaw (sin script en el DOM) la aplicabilidad queda entre NA (por el DOM) y NE (por el HTML servido).",
+   "proposal": {
+    "field": "method",
+    "text": "Extraer del HTML servido, o si no se dispone de él, del DOM renderizado, cada elemento script cuyo atributo type vale application/ld+json: cada uno es un bloque JSON-LD (el texto de script no se decodifica ni se altera al analizar el HTML, así que el DOM conserva el contenido salvo que lo modifique JavaScript). Analizar su contenido de texto con un analizador JSON estricto conforme a RFC 8259, que rechace comentarios, comas finales, comillas simples, NaN o Infinity, caracteres de control sin escapar en las cadenas y un contenido vacío. Se satisface si todos los bloques se analizan sin error. Se registra si se examinó el HTML servido o el DOM; la aplicabilidad se decide sobre el mismo documento."
+   }
+  },
+  {
+   "id": "ws-serialization/002",
+   "kind": "aplicabilidad",
+   "fichas": [
+    "eci-lijadora-a200805914",
+    "cojin-018",
+    "cuerda-tootoy",
+    "sofa-cama-luna"
+   ],
+   "description": "Afecta a 002–018 y a la causa NE común «Algún bloque JSON-LD no es JSON válido (ws-serialization/001)…». Su aplicabilidad («al menos un bloque JSON-LD con JSON válido») depende del resultado de 001. Si 001 es NE (no hay HTML servido), dos lecturas: (a) la validez no está establecida → NE en 002–018; (b) cada requisito analiza el JSON por su cuenta → se evalúan (satisfecho/NA en las cuatro fichas). La causa NE común solo cubre el caso «no es JSON válido», no el de 001 NE.",
+   "proposal": {
+    "field": "applicability",
+    "text": "La página contiene al menos un bloque JSON-LD (elemento script con type application/ld+json, en el HTML servido o en el DOM renderizado) cuyo contenido se analiza como JSON sin error, con independencia del estado de ws-serialization/001."
+   }
+  },
+  {
+   "id": "ws-serialization/002",
+   "kind": "ambiguo",
+   "fichas": [
+    "eci-lijadora-a200805914",
+    "cojin-018",
+    "cuerda-tootoy",
+    "sofa-cama-luna"
+   ],
+   "description": "Afecta a todos los requisitos JSON-LD con la causa NE «No se pudo obtener un contexto remoto…» (002, 006–018). Las cuatro fichas usan el contexto remoto https://schema.org, https://schema.org/ o http://schema.org/ (con alias id→@id y type→@type). La referencia congela schemaorgcontext.jsonld de la release 30.1, pero ningún método dice si sustituye al remoto: con él, se evalúan (estados dados); sin él (no se descarga el remoto en la auditoría), NE en las cuatro fichas.",
+   "proposal": {
+    "field": "method",
+    "text": "(Añadir al final de cada método con contexto activo) Los contextos remotos http://schema.org, https://schema.org (con o sin barra final) se resuelven con el contexto congelado de la release 30.1 de Schema.org (schemaorgcontext.jsonld de la fuente schemaorg); solo un contexto remoto distinto que no se pueda obtener da NE."
+   }
+  },
+  {
+   "id": "ws-serialization/036",
+   "kind": "aplicabilidad",
+   "fichas": [
+    "eci-lijadora-a200805914"
+   ],
+   "description": "Afecta también a 030 y 031. La aplicabilidad dice «marcado Microdata con Schema.org», que 019 define por un token de itemtype con «schema.org». ECI tiene 20 itemprop (brand, name: términos de Schema.org) sin ningún itemscope ni itemtype: por esa definición es NA, pero es exactamente el caso que el método de 036 nombra como incumplimiento («Un itemprop sin ningún itemscope antecesor… no cumple»). Lecturas: NA o no satisfecho en 036 (y NA o satisfecho en 030/031). ws-vocabulary/009 sí cuenta los itemprop fuera de todo itemscope.",
+   "proposal": {
+    "field": "applicability",
+    "text": "La página contiene algún atributo itemprop y, o bien algún token de itemtype que contiene «schema.org», o bien algún itemprop que no es propiedad de ningún item (no se puede atribuir a otro vocabulario)."
+   }
+  },
+  {
+   "id": "ws-serialization/033",
+   "kind": "ambiguo",
+   "fichas": [
+    "cuerda-tootoy"
+   ],
+   "description": "El método toma «cada elemento con itemprop y sin itemscope que añade una propiedad de Schema.org», sin decir si cuenta el itemprop que no es propiedad de ningún item. En Kiwoko la única propiedad de rango solo URL son 31 <img itemprop=\"image\"> sueltos (sin item): si cuentan, satisfecho; si no (no añaden propiedad a ningún item), NA. El caso de un <meta itemprop=\"url\"> suelto daría no satisfecho frente a NA.",
+   "proposal": {
+    "field": "method",
+    "text": "Determinar los items y sus propiedades con el algoritmo de 5.2.5 (incluidos los itemref). Para cada elemento con itemprop y sin itemscope que es propiedad de un item con tipos relevantes de Schema.org, consultar el término en la release 30.1: si entre sus schema:rangeIncludes está schema:URL y ningún otro tipo de datos (schema:Text, schema:Number, schema:Boolean, schema:Date, schema:DateTime, schema:Time ni sus subtipos distintos de schema:URL), comprobar que el elemento es un elemento de propiedad URL: a, area, audio, embed, iframe, img, link, object, source, track o video. Los itemprop que no son propiedad de ningún item quedan fuera (los examina ws-serialization/036)."
+   }
+  },
+  {
+   "id": "ws-serialization/033",
+   "kind": "aplicabilidad",
+   "fichas": [
+    "cuerda-tootoy",
+    "colchoneta-refrescante-freedog"
+   ],
+   "description": "La aplicabilidad dice «alguna propiedad de Schema.org cuyo rango esperado incluye schema:URL y ningún otro tipo de datos» sin el filtro del método (propiedad de un item). Además, «ningún otro tipo de datos (… schema:Text … ni sus subtipos)» incluye literalmente a schema:URL, subtipo de schema:Text en 30.1: leído al pie de la letra, ninguna propiedad cumple y el requisito sería siempre NA (Guaw pasaría de no satisfecho a NA).",
+   "proposal": {
+    "field": "applicability",
+    "text": "La página contiene marcado Microdata con algún item de tipos relevantes de Schema.org que tiene, en un elemento sin itemscope, una propiedad cuyo rango esperado en 30.1 incluye schema:URL y ningún otro tipo de datos distinto de schema:URL."
+   }
+  },
+  {
+   "id": "ws-vocabulary/001",
+   "kind": "método",
+   "fichas": [
+    "cojin-018",
+    "cuerda-tootoy",
+    "eci-lijadora-a200805914",
+    "colchoneta-refrescante-freedog"
+   ],
+   "description": "Faltan dos casos de las fichas, sin cambio de estado en esta muestra: (1) Burrito Blanco enlaza bloques separados por @id (seller {\"@id\": …#organization}, mainEntity → #product, mainEntityOfPage → #webpage); el valor no tiene @type en su sitio y el método no dice si el tipo declarado en otro bloque (u otra serialización) con el mismo identificador cuenta. (2) Los miembros de enumeración llegan como cadena JSON (el contexto de Schema.org no convierte availability, itemCondition… en @id), como content de <meta> (Kiwoko) o como href de <link> (Guaw); el método dice «un IRI», y en JSON-LD y en meta son literales: con la lectura estricta nunca se comprueban. Además, las propiedades no definidas en 30.1 «se registran aparte» sin decir dónde (productGroupId en Todoplano, lowprice/highprice en Kiwoko): en JSON-LD ningún requisito del perfil las recoge, a diferencia de Microdata (ws-serialization/032).",
+   "proposal": {
+    "field": "method",
+    "text": "Extraer del marcado (JSON-LD, Microdata y RDFa) los pares propiedad–valor cuya propiedad es un término definido en Schema.org 30.1 (con el espacio de nombres https://schema.org/ o http://schema.org/) y cuyo valor es una entidad: un nodo con tipo declarado (@type, itemtype o typeof, más los IRI de additionalType); una referencia sin tipo ({\"@id\": …}, itemid o resource) cuyo identificador tiene tipo declarado en cualquier bloque o serialización de la página (los nodos con el mismo identificador se unen); o un valor que, escrito como IRI, cadena JSON, content de meta o href de link, es la URL http o https de un miembro de una enumeración en 30.1, cuyo tipo es el @type del miembro en la release. Los tipos esperados son los schema:rangeIncludes de la propiedad en schemaorg-current-https.jsonld de 30.1, con sus subtipos por el cierre transitivo de rdfs:subClassOf del mismo fichero. Un par se cumple si al menos un tipo de la entidad es esperado, subtipo de uno esperado, o Role o un subtipo de Role. Quedan fuera los valores literales que no son miembros de enumeración, las entidades sin tipo declarado en la página y las propiedades no definidas en 30.1, que se registran en la evidencia con su entidad. Satisfecho si se cumplen todos los pares."
+   }
+  }
+ ]
+}

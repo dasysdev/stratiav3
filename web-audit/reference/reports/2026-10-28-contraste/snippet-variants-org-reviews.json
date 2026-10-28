@@ -1,0 +1,2301 @@
+{
+ "group": "snippet-variants-org-reviews",
+ "results": [
+  {
+   "id": "ws-consumer/150",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "1 Product JSON-LD con name; itemprop sueltos sin itemscope no forman entidad."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "1 Product JSON-LD con name."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "31 Product Microdata, todos con meta name."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "ProductGroup y su variante Product tienen name."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "1 Product con name."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/151",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "Product con offers."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "Product con offers."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "31 Product con offers."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "ProductGroup con offers (AggregateOffer) y variante con offers."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Product con review, aggregateRating y offers."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/153",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "offers es Offer."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "offers es Offer."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "31 Product con Offer."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "ProductGroup: AggregateOffer; variante: Offer."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "offers es Offer."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/154",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "Único valor de offers: Offer."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "Único valor de offers: Offer."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "31 offers de tipo Offer."
+    },
+    "cuerda-tootoy": {
+     "state": "no satisfecho",
+     "evidence": "ProductGroup (subtipo de Product) con offers AggregateOffer; si ProductGroup no cuenta, satisfecho."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "offers es Offer."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/156",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún Product con review."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún Product con review."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ningún Product con review."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún Product con review."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Review con author Person name «ROSA ESPINAL»."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/157",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "Offer price 39.95."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "Offer price \"29.98\"."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "31 Offer con price."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Offer JSON-LD price 3.49 y Offer Microdata price «3.49€»."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Offer price \"654.60\"."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/159",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "https://schema.org/InStock."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "https://schema.org/InStock."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "31 × https://schema.org/InStock (link href)."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "JSON-LD http://schema.org/InStock; Microdata https. Válido si http cuenta como URL de schema.org."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "https://schema.org/InStock."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/160",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "Un valor."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "Un valor."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "Un valor por Offer."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Un valor en cada Offer (JSON-LD y Microdata)."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Un valor."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/161",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "priceCurrency EUR."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "priceCurrency EUR."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "31 Offer con priceCurrency EUR."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Ambas Offer con EUR."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "priceCurrency EUR."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/162",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "Offer y UnitPriceSpecification: EUR."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "EUR."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "31 × EUR."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "EUR en Offer JSON-LD y Microdata."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "EUR."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/164",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ninguna Offer con priceValidUntil."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ninguna Offer con priceValidUntil."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "31 valores ISO 8601 (2026-11-02 … 2027-10-25)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ninguna Offer con priceValidUntil."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "\"2048-01-01\", fecha ISO 8601."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/165",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "UnitPriceSpecification (StrikethroughPrice) con price 49.99."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin UnitPriceSpecification."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin UnitPriceSpecification."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin UnitPriceSpecification."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin UnitPriceSpecification."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/166",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "UnitPriceSpecification con priceCurrency EUR."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin UnitPriceSpecification."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin UnitPriceSpecification."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin UnitPriceSpecification."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin UnitPriceSpecification."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/167",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    },
+    "cuerda-tootoy": {
+     "state": "no satisfecho",
+     "evidence": "AggregateOffer con «lowprice» (minúsculas), no lowPrice; SMV lo normaliza a lowPrice."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/168",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin lowPrice con la grafía exacta («lowprice»); con lectura laxa, 3.49 satisfecho."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/169",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "AggregateOffer priceCurrency EUR."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/170",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "EUR."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin AggregateOffer."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/173",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "Un solo Product."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "Un solo Product."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "no satisfecho",
+     "evidence": "31 Product distintos: el principal y 30 relacionados (carrusel) con marcado completo."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "ProductGroup y su variante; la Offer Microdata es de la misma variante."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Un solo Product."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/174",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "Todas EUR."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "EUR."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "31 × EUR."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "AggregateOffer, Offer y Offer Microdata: EUR."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "EUR."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/175",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin entidad Car."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin entidad Car."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin entidad Car."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin entidad Car."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin entidad Car."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/176",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NE",
+     "evidence": "Solo hay DOM renderizado; no hay HTML servido para comparar."
+    },
+    "cojin-018": {
+     "state": "NE",
+     "evidence": "Solo hay DOM renderizado; no hay HTML servido para comparar."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NE",
+     "evidence": "Solo hay DOM renderizado; no hay HTML servido para comparar."
+    },
+    "cuerda-tootoy": {
+     "state": "NE",
+     "evidence": "Solo hay DOM renderizado; no hay HTML servido para comparar."
+    },
+    "sofa-cama-luna": {
+     "state": "NE",
+     "evidence": "Solo hay DOM renderizado; no hay HTML servido para comparar."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/177",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "DOM: 2 bloques JSON-LD."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "DOM: 5 bloques JSON-LD."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "DOM: Microdata (31 Product)."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "DOM: 2 bloques JSON-LD y Microdata."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "DOM: JSON-LD y Microdata."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/178",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "JSON-LD; los itemprop sin itemscope no son Microdata efectiva."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "Solo JSON-LD."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "no satisfecho",
+     "evidence": "Solo Microdata."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "JSON-LD, más Offer y BreadcrumbList en Microdata (mixto)."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Product en JSON-LD; BreadcrumbList en Microdata (mixto)."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/179",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NE",
+     "evidence": "No se dispone del robots.txt del host."
+    },
+    "cojin-018": {
+     "state": "NE",
+     "evidence": "No se dispone del robots.txt del host."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NE",
+     "evidence": "No se dispone del robots.txt del host."
+    },
+    "cuerda-tootoy": {
+     "state": "NE",
+     "evidence": "No se dispone del robots.txt del host."
+    },
+    "sofa-cama-luna": {
+     "state": "NE",
+     "evidence": "No se dispone del robots.txt del host."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/180",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NE",
+     "evidence": "DOM: meta robots index,follow; faltan cabeceras HTTP (X-Robots-Tag) y HTML servido."
+    },
+    "cojin-018": {
+     "state": "NE",
+     "evidence": "DOM: meta robots index,follow; faltan cabeceras HTTP (X-Robots-Tag) y HTML servido."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NE",
+     "evidence": "DOM: meta robots index,follow; faltan cabeceras HTTP (X-Robots-Tag) y HTML servido."
+    },
+    "cuerda-tootoy": {
+     "state": "NE",
+     "evidence": "DOM: meta robots index,follow; faltan cabeceras HTTP (X-Robots-Tag) y HTML servido."
+    },
+    "sofa-cama-luna": {
+     "state": "NE",
+     "evidence": "DOM: meta robots index,follow; faltan cabeceras HTTP (X-Robots-Tag) y HTML servido."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/184",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NE",
+     "evidence": "URL auditada …tc-os-18-187…; canonical …tc-os-18187…: distinta; no se puede obtener."
+    },
+    "cojin-018": {
+     "state": "NE",
+     "evidence": "Canonical …p-5777.html ≠ URL auditada …p-5777-92767.html#/…; no se obtiene."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Canonical igual a la URL auditada."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Canonical igual a la URL auditada."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Canonical igual a la URL auditada."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/185",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NE",
+     "evidence": "Hay URL de imagen; no se pueden obtener robots.txt ni las imágenes."
+    },
+    "cojin-018": {
+     "state": "NE",
+     "evidence": "Hay URL de imagen; no se pueden obtener robots.txt ni las imágenes."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NE",
+     "evidence": "Hay URL de imagen; no se pueden obtener robots.txt ni las imágenes."
+    },
+    "cuerda-tootoy": {
+     "state": "NE",
+     "evidence": "Hay URL de imagen; no se pueden obtener robots.txt ni las imágenes."
+    },
+    "sofa-cama-luna": {
+     "state": "NE",
+     "evidence": "Hay URL de imagen; no se pueden obtener robots.txt ni las imágenes."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/186",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NE",
+     "evidence": "Hay URL de imagen; no se pueden descargar."
+    },
+    "cojin-018": {
+     "state": "NE",
+     "evidence": "Hay URL de imagen; no se pueden descargar."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NE",
+     "evidence": "Hay URL de imagen; no se pueden descargar."
+    },
+    "cuerda-tootoy": {
+     "state": "NE",
+     "evidence": "Hay URL de imagen; no se pueden descargar."
+    },
+    "sofa-cama-luna": {
+     "state": "NE",
+     "evidence": "Hay URL de imagen; no se pueden descargar."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/187",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "ProductGroup name «Tootoy! Hueso Mordedor…»."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/190",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "brand Brand con name «Tootoy!»."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/192",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Selector con una sola tarjeta («1 ud.»): no muestra variantes; si cuenta, satisfecho (hasVariant)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/193",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado. (Todoplano: productGroupId en un Product)"
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado. (Todoplano: productGroupId en un Product)"
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado. (Todoplano: productGroupId en un Product)"
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "productGroupID «TOO43945_M»."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado. (Todoplano: productGroupId en un Product)"
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/194",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "La variante no tiene inProductGroupWithID."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/195",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Variante con sku TOO43945 y gtin13."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/196",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Una sola variante."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/197",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Variante Product en hasVariant."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/198",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Variante con otra ruta (/perros_new/…/TOO43945.html): sitio de varias páginas."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/199",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "Varias páginas; ninguna referencia por @id en el grupo."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/200",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Una sola variante."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/201",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NE",
+     "evidence": "No hay HTML servido; el ProductGroup solo consta en el DOM."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/202",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sitio de varias páginas."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/203",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sitio de varias páginas."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/204",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "no satisfecho",
+     "evidence": "Sitio de varias páginas y el ProductGroup tiene url."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/205",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Selector de una sola opción («1 ud.»); si cuenta, satisfecho (variesBy presente)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/206",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "no satisfecho",
+     "evidence": "variesBy «Presentación»: no es URL de Schema.org."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin ProductGroup en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/307",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cojin-018": {
+     "state": "no satisfecho",
+     "evidence": "@type Organization, no OnlineStore ni LocalBusiness."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/314",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "addressCountry «ES»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/319",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "contactPoint telephone «+34 935 764 049»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/333",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cojin-018": {
+     "state": "NE",
+     "evidence": "logo ImageObject url /img/logo.png; no se puede obtener la imagen."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/334",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cojin-018": {
+     "state": "NE",
+     "evidence": "No se dispone del robots.txt del host del logo."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/335",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cojin-018": {
+     "state": "NE",
+     "evidence": "logo ImageObject url /img/logo.png; no se puede obtener la imagen."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/336",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cojin-018": {
+     "state": "NE",
+     "evidence": "No se obtiene la imagen y la lista de formatos no está en la referencia."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/337",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "logo ImageObject con url."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/339",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "name «Burrito Blanco»."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/340",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin nodo WebSite: solo referencia isPartOf {@id …#website}."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/341",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin WebSite ni alternateName."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/346",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "telephone solo en contactPoint."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization de nivel superior (solo seller anidado o ninguna)."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/349",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Review con author Person."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/350",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "author name «ROSA ESPINAL»."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/351",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "12 caracteres."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/352",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "La Review no tiene itemReviewed."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/353",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Product name presente."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/354",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "La Review tiene author y datePublished."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/355",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Rating con ratingValue \"5\"."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/356",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "\"5\": número."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/357",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "ratingValue sin decimales."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/358",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "0 ≤ 5 ≤ 5."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/359",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "worstRating 0 (escala 0–5): tiene bestRating 5."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/360",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Escala 0–5: tiene worstRating 0."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/361",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "bestRating 5."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/362",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "worstRating 0."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/364",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "\"2026-06-19\"."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/365",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "aggregateRating solo en la Organization, no en el Product."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "AggregateRating sin itemReviewed."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/366",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "aggregateRating solo en la Organization, no en el Product."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Product con name."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/367",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "aggregateRating solo en la Organization, no en el Product."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "ratingCount 1 y reviewCount 1."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/368",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "aggregateRating solo en la Organization, no en el Product."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "ratingValue \"5\"."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/369",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "aggregateRating solo en la Organization, no en el Product."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "\"5\": número."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/370",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "aggregateRating solo en la Organization, no en el Product."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin decimales."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/371",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "aggregateRating solo en la Organization, no en el Product."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "0 ≤ 5 ≤ 5."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/372",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "aggregateRating solo en la Organization, no en el Product."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Escala 0–5: bestRating 5."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/373",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "aggregateRating solo en la Organization, no en el Product."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Escala 0–5: worstRating 0."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/374",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "aggregateRating solo en la Organization, no en el Product."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "bestRating 5."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/375",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "aggregateRating solo en la Organization, no en el Product."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "worstRating 0."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/376",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "aggregateRating solo en la Organization, no en el Product."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin aggregateRating en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "@type AggregateRating."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/384",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin review en Product o ProductGroup."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Una sola Review."
+    }
+   }
+  }
+ ],
+ "problems": [
+  {
+   "id": "ws-consumer/154",
+   "kind": "ambiguo",
+   "fichas": [
+    "cuerda-tootoy"
+   ],
+   "description": "No dice si ProductGroup (subtipo de Product) cuenta como «entidad Product». Kiwoko: el ProductGroup lleva offers AggregateOffer → no satisfecho si cuenta, satisfecho si no. Afecta igual a 150, 151, 153 y 173 (allí sin cambiar el estado); 197 sí lo precisa.",
+   "proposal": {
+    "field": "method",
+    "text": "Extraer las entidades Product del marcado (JSON-LD, Microdata y RDFa) con offers, incluidas las de un subtipo de Product (ProductGroup cuenta como Product), y comprobar que el tipo de cada valor de offers es Offer y no AggregateOffer."
+   }
+  },
+  {
+   "id": "ws-consumer/167",
+   "kind": "método",
+   "fichas": [
+    "cuerda-tootoy"
+   ],
+   "description": "Kiwoko escribe «lowprice» (y «highprice») en minúsculas. JSON-LD distingue mayúsculas, pero el Schema Markup Validator lo normaliza a lowPrice: lectura estricta → no satisfecho (y 168 NA); lectura del validador → satisfecho. 193 ya fija la grafía exacta; 167–170 no.",
+   "proposal": {
+    "field": "method",
+    "text": "Extraer las entidades AggregateOffer del marcado (JSON-LD, Microdata y RDFa) y comprobar que cada una tiene lowPrice. Solo cuenta la grafía exacta de la propiedad: si aparece otra (lowprice, LowPrice), se registra y no cuenta; la normalización de un validador no es prueba."
+   }
+  },
+  {
+   "id": "ws-consumer/159",
+   "kind": "ambiguo",
+   "fichas": [
+    "cuerda-tootoy"
+   ],
+   "description": "«URL de schema.org» no dice si vale http://schema.org/InStock (Kiwoko, JSON-LD). Google enumera las https. 206 sí admite http; 159 no lo aclara.",
+   "proposal": {
+    "field": "method",
+    "text": "Extraer los valores de availability de las Offer del marcado (JSON-LD, Microdata y RDFa) y comprobar que cada uno es BackOrder, Discontinued, InStock, InStoreOnly, LimitedAvailability, OnlineOnly, OutOfStock, PreOrder, PreSale o SoldOut, como URL de schema.org (https:// o http://) o como nombre corto."
+   }
+  },
+  {
+   "id": "ws-consumer/173",
+   "kind": "ambiguo",
+   "fichas": [
+    "colchoneta-refrescante-freedog"
+   ],
+   "description": "Guaw marca con Product completo el producto principal y 30 relacionados (carrusel). Lectura literal del método: no satisfecho; lectura «la página se centra en un producto» (el principal es claro): satisfecho. El método no dice qué hacer con los Product de productos relacionados.",
+   "proposal": {
+    "field": "method",
+    "text": "Extraer las entidades Product del marcado (JSON-LD, Microdata y RDFa), incluidas las de productos relacionados o recomendados, y comprobar que todas describen el mismo producto o variantes de él (mismo grupo, isVariantOf o inProductGroupWithID). Un Product de otro producto, aunque esté en un bloque de relacionados, hace que no se satisfaga; se registran cuáles son."
+   }
+  },
+  {
+   "id": "ws-consumer/178",
+   "kind": "ambiguo",
+   "fichas": [
+    "cuerda-tootoy",
+    "sofa-cama-luna"
+   ],
+   "description": "La condición dice «los datos estructurados están en JSON-LD» y el método «y no solo en Microdata». Kiwoko (Offer y BreadcrumbList en Microdata) y Todoplano (BreadcrumbList en Microdata) son mixtos: satisfecho con el método, no satisfecho con la condición.",
+   "proposal": {
+    "field": "method",
+    "text": "Comprobar en qué formato está cada entidad de nivel superior del marcado Schema.org. Satisfecho si todas están en bloques script de tipo application/ld+json; si alguna está solo en Microdata o RDFa, no satisfecho y se registra cuál."
+   }
+  },
+  {
+   "id": "ws-consumer/177",
+   "kind": "ambiguo",
+   "fichas": [
+    "eci-lijadora-a200805914",
+    "cojin-018",
+    "colchoneta-refrescante-freedog",
+    "cuerda-tootoy",
+    "sofa-cama-luna"
+   ],
+   "description": "El método pide buscar «en el HTML servido y en el DOM renderizado». Con solo el DOM (todas las fichas), una lectura exige ambos (NE) y otra basta con encontrar marcado en uno (satisfecho).",
+   "proposal": {
+    "field": "method",
+    "text": "Buscar en el HTML servido o en el DOM renderizado bloques script de tipo application/ld+json, atributos itemscope/itemtype de Microdata y atributos vocab/typeof/property de RDFa con términos de Schema.org. Basta con encontrarlos en uno de los dos para satisfacerlo; para no satisfacerlo hay que haber examinado los dos."
+   }
+  },
+  {
+   "id": "ws-consumer/180",
+   "kind": "no comprobable",
+   "fichas": [
+    "eci-lijadora-a200805914",
+    "cojin-018",
+    "colchoneta-refrescante-freedog",
+    "cuerda-tootoy",
+    "sofa-cama-luna"
+   ],
+   "description": "El método exige la cabecera X-Robots-Tag y el HTML servido; la captura no guarda cabeceras ni HTML servido y not_evaluable está vacío. En las 5 fichas el DOM dice index,follow, pero no se puede decidir.",
+   "proposal": {
+    "field": "not_evaluable",
+    "text": "[\"No se dispone de las cabeceras HTTP de la respuesta de la página.\", \"No se dispone del HTML servido y la directiva podría estar solo en él.\"]"
+   }
+  },
+  {
+   "id": "ws-consumer/184",
+   "kind": "método",
+   "fichas": [
+    "eci-lijadora-a200805914",
+    "cojin-018"
+   ],
+   "description": "No define «su URL». ECI: URL pedida …tc-os-18-187-li-solo/ y canonical …tc-os-18187-li-solo/ (¿redirección?); Burrito: URL con -92767 y fragmento #/64-…. Según se tome la URL pedida, la final tras redirecciones o sin fragmento, el estado pasa de NA a NE.",
+   "proposal": {
+    "field": "method",
+    "text": "Leer el rel=canonical de la página y resolverlo a URL absoluta. Compararlo con la URL final de la página (tras redirecciones), sin fragmento. Si son distintas, obtener la canónica y comparar las entidades del marcado de ambas por tipo y propiedades. Si no se conoce la URL final, se usa la pedida y se registra."
+   }
+  },
+  {
+   "id": "ws-consumer/185",
+   "kind": "método",
+   "fichas": [
+    "eci-lijadora-a200805914",
+    "cuerda-tootoy",
+    "sofa-cama-luna",
+    "cojin-018"
+   ],
+   "description": "No dice qué es una «URL de imagen del marcado»: image, logo, ImageObject.url/contentUrl (ECI subjectOf), URL de icono en PropertyValue.value (Todoplano, .svg/.png) o <img src> dentro de description (Kiwoko). Afecta igual a 186.",
+   "proposal": {
+    "field": "method",
+    "text": "Son URL de imagen del marcado los valores de image, logo y thumbnailUrl que son URL y el contentUrl (o, si no lo tiene, el url) de cada ImageObject, en JSON-LD, Microdata y RDFa; no lo son las URL que aparecen dentro de un texto (description, value de PropertyValue). Por cada una: obtener el robots.txt de su host y comprobar que no impide el acceso a la URL a Googlebot-Image (o, si no tiene grupo propio, a Googlebot o a *), y que la URL responde con éxito sin autenticación."
+   }
+  },
+  {
+   "id": "ws-consumer/192",
+   "kind": "aplicabilidad",
+   "fichas": [
+    "cuerda-tootoy"
+   ],
+   "description": "Kiwoko muestra un selector de variantes con una sola tarjeta («1 ud.»). ¿«Muestra variantes»? Si sí, 192 y 205 satisfechos; si no, NA. La aplicabilidad no fija el mínimo de opciones. Afecta igual a 205.",
+   "proposal": {
+    "field": "applicability",
+    "text": "El marcado contiene al menos una entidad ProductGroup y la página ofrece elegir entre dos o más variantes del producto (un selector de talla, color u otro aspecto con dos o más opciones)."
+   }
+  },
+  {
+   "id": "ws-consumer/307",
+   "kind": "ambiguo",
+   "fichas": [
+    "cojin-018"
+   ],
+   "description": "«Nivel superior» solo trata el caso @graph. En Burrito la Organization es un bloque JSON-LD propio y el seller de la Offer la referencia por @id: una lectura la tiene por nivel superior (307–346 aplicables) y otra por valor de seller (todas NA). Mismo texto en 314, 319, 333–341 y 346.",
+   "proposal": {
+    "field": "method",
+    "text": "Extraer las entidades Organization (o de un subtipo) de nivel superior del marcado (JSON-LD, Microdata y RDFa): las que no son el valor anidado de otra propiedad (seller, brand, manufacturer…). Un nodo de nivel superior de un bloque JSON-LD o de un @graph cuenta aunque otro nodo lo referencie por @id. […resto igual]"
+   }
+  },
+  {
+   "id": "ws-consumer/340",
+   "kind": "aplicabilidad",
+   "fichas": [
+    "cojin-018"
+   ],
+   "description": "En Burrito el WebSite solo está referenciado (isPartOf {@id …#website}), sin nodo en la página; por lo general se define en la página de inicio, a la que no hay acceso. Con la aplicabilidad actual es NA, aunque el dato existe en otra página y la comprobación no se puede hacer (NE). Igual en 341.",
+   "proposal": {
+    "field": "not_evaluable",
+    "text": "[\"El marcado referencia por @id una entidad WebSite que no define en la página y no se puede obtener la página que la define (normalmente, la de inicio).\"]"
+   }
+  },
+  {
+   "id": "ws-consumer/368",
+   "kind": "aplicabilidad",
+   "fichas": [
+    "cojin-018"
+   ],
+   "description": "Burrito publica aggregateRating (4.71, 3234 reseñas) en su Organization: es la valoración de la tienda, no del producto. Los requisitos de review-snippet solo miran Product/ProductGroup y quedan NA sin explicación; la pauta de Google de reseñas autopromocionales (self-serving, text.md línea 558) no tiene cita ni requisito. Afecta igual a 349–384.",
+   "proposal": {
+    "field": "applicability",
+    "text": "El marcado contiene al menos un Product o ProductGroup con aggregateRating. Un aggregateRating o una review de una Organization o un LocalBusiness no lo hace aplicable: review-snippet entra en el perfil por remisión desde Product y ProductGroup; se registra como fuera del perfil."
+   }
+  }
+ ]
+}

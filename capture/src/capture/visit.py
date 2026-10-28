@@ -3,7 +3,8 @@
 Every visit leaves meta.json in the snapshot folder it is given, whatever the outcome. Content
 is kept only when the page is not a challenge, an error or under a TDM reservation:
 
-  response.html.gz   body of the main document as the server sent it
+  response.html.gz   body of the main document as the server sent it (decoded to UTF-8 by
+                     Chrome; its original bytes under a profile that keeps evidence)
   dom.html.gz        rendered DOM after reading the page (shadow roots serialised); the roots
                      of hidden subtrees (closed details, collapsed accordions, display:none)
                      carry data-capture-hidden="1"
@@ -11,7 +12,12 @@ is kept only when the page is not a challenge, an error or under a TDM reservati
 
 With a pacer (batch captures) the page is read at a reader's pace; without one (a single
 page) it is only scrolled through, so that lazy content loads. A pacing without scroll keeps
-the first load: no scrolling and no dwell (the training catalog, D-053). No screenshots (D-042).
+the first load: no scrolling and no dwell (the training catalog, D-053), and so does a profile
+without scroll (audit-es). No screenshots (D-042).
+
+The window's capture profile (capture.profiles) is recorded in meta.json. Without JavaScript a
+challenge cannot resolve by itself, so it is not waited for. A profile that keeps evidence also
+records the request context: Accept-Language as sent and the origin (IP, country, ASN).
 """
 from __future__ import annotations
 
@@ -21,7 +27,7 @@ import threading
 import time
 from pathlib import Path
 
-from . import detect, tdm
+from . import detect, profiles, tdm
 from .browser import Page
 from .cdp import CdpError
 from .files import now, write_evidence
@@ -80,7 +86,7 @@ SERIALIZE = """(() => {
   const attrs = [...root.attributes].map(a => ` ${a.name}="${a.value.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}"`).join('');
   const inner = root.getHTML ? root.getHTML({serializableShadowRoots: true, shadowRoots: roots}) : root.innerHTML;
   return {html: `${doctype}<html${attrs}>${inner}</html>`, elements: document.getElementsByTagName('*').length,
-          shadow_roots: roots.length, title: document.title};
+          shadow_roots: roots.length, title: document.title, charset: document.characterSet};
 })()"""
 
 
@@ -121,8 +127,8 @@ def visit(page: Page, url: str, folder: Path, pacer: Pacer | None = None, tdm_en
     """Visit `url`, write its snapshot in `folder` and return {'outcome', 'detail', 'elapsed_s', 'meta'}.
     `meta` holds the caller's fields, written first in meta.json."""
     started, t0 = now(), time.monotonic()
-    meta = {**(meta or {}), "url_requested": url, "method": "chrome-cdp", "browser": browser_info or {},
-            "started_at": started}
+    meta = {**(meta or {}), "url_requested": url, "method": "chrome-cdp", "profile": page.profile.name,
+            "browser": browser_info or {}, "started_at": started}
     files = {}
     try:
         outcome, detail = _visit(page, url, pacer, tdm_entries, stop, meta, folder, files, t0)
@@ -134,8 +140,17 @@ def visit(page: Page, url: str, folder: Path, pacer: Pacer | None = None, tdm_en
     return {"outcome": outcome, "detail": detail, "elapsed_s": round(time.monotonic() - t0, 1), "meta": meta}
 
 
+def _body(page: Page, request_id: str, meta: dict) -> bytes:
+    """The body of the main document: its original bytes if the profile keeps them."""
+    raw = page.raw_body(request_id) if page.profile.evidence else None
+    if page.profile.evidence:
+        meta["response_body"] = "original" if raw is not None else "decodificado por Chrome (sin los bytes originales)"
+    return raw if raw is not None else page.response_body(request_id)
+
+
 def _visit(page, url, pacer, tdm_entries, stop, meta, folder, files, t0) -> tuple[str, str]:
-    loaded = load(page, url, pacer.pacing.challenge_wait_s if pacer else DEFAULTS["challenge_wait_s"])
+    wait = pacer.pacing.challenge_wait_s if pacer else DEFAULTS["challenge_wait_s"]
+    loaded = load(page, url, wait if page.profile.javascript else 0)
     if "error" in loaded:
         outcome, detail = "failed", loaded["error"]
     else:
@@ -147,14 +162,19 @@ def _visit(page, url, pacer, tdm_entries, stop, meta, folder, files, t0) -> tupl
             "load_complete": loaded["ready"],
             "http": {"status": status, "headers": response.get("headers"),
                      "protocol": response.get("protocol"), "mime": response.get("mimeType"),
+                     "remote_ip": response.get("remoteIPAddress"),
                      "from_cache": bool(response.get("fromDiskCache") or response.get("fromServiceWorker"))},
         })
+        if page.profile.evidence:
+            sent = {k.lower(): v for k, v in page.request_headers(event["requestId"]).items()}
+            meta["request_context"] = {"accept_language": sent.get("accept-language"),
+                                       "user_agent": sent.get("user-agent"), "origin": profiles.origin()}
         signals = page.eval(META) or {}
         meta["page_meta"] = signals
         if loaded["challenge"]:
             outcome, detail = "blocked", f"{loaded['challenge']['vendor']}: {loaded['challenge']['evidence']}"
             meta["challenge"] = loaded["challenge"]
-            files["response.html"] = write_evidence(folder, "response.html", page.response_body(event["requestId"]))
+            files["response.html"] = write_evidence(folder, "response.html", _body(page, event["requestId"], meta))
         elif status in (404, 410):
             outcome, detail = "gone", f"HTTP {status}"
         elif status and status >= 400:
@@ -164,7 +184,7 @@ def _visit(page, url, pacer, tdm_entries, stop, meta, folder, files, t0) -> tupl
             outcome, detail = "reserved", "reserva TDM (cabecera, meta o tdmrep.json): no se conserva el contenido"
         else:
             page.wait_stable()
-            if pacer and not pacer.pacing.scroll:
+            if not page.profile.scroll or (pacer and not pacer.pacing.scroll):
                 actions = [{"action": "first_load", "seconds": round(time.monotonic() - t0, 1)}]
             else:
                 dwell = pacer.dwell() if pacer else 0.0
@@ -180,10 +200,10 @@ def _visit(page, url, pacer, tdm_entries, stop, meta, folder, files, t0) -> tupl
                 dom = page.eval(SERIALIZE, timeout=90)
             finally:
                 page.eval(UNMARK_HIDDEN)
-            files["response.html"] = write_evidence(folder, "response.html", page.response_body(event["requestId"]))
+            files["response.html"] = write_evidence(folder, "response.html", _body(page, event["requestId"], meta))
             files["dom.html"] = write_evidence(folder, "dom.html", dom["html"].encode("utf-8"))
             files["page.mhtml"] = write_evidence(folder, "page.mhtml", page.mhtml())
-            meta["dom"] = {"title": dom["title"], "elements": dom["elements"],
+            meta["dom"] = {"title": dom["title"], "charset": dom["charset"], "elements": dom["elements"],
                            "shadow_roots": dom["shadow_roots"], "hidden_roots": hidden}
             meta["actions"] = actions
             outcome, detail = "captured", dom["title"][:80]

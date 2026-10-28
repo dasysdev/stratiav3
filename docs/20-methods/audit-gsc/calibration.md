@@ -3,9 +3,9 @@ id: audit-gsc-calibration
 title: Casos de aplicación, calibración y prueba de aceptación V1
 layer: method
 status: propuesta
-version: 0.3
-updated: 2026-10-27
-sources: [GSC0 §15, GSC0 §17, FUND §10, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
+version: 0.4
+updated: 2026-10-28
+sources: [GSC0 §15, GSC0 §17, FUND §10, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-informative-audit-v1]
 ---
 
 # Casos de aplicación, calibración y prueba de aceptación V1
@@ -124,8 +124,9 @@ Regla general: una limitación en Web Schema.org no implica necesariamente una l
 | Solo relación temática | Popularidad frente a stock. | Sobreinclusión del LLM auditor. |
 | Derivación válida | SKU–estado, precio calculable. | Penalizar inferencias justificadas. |
 | Prueba de derivación | Atributo frente a prestación; regla normativa; hecho particular tomado de fuera. | Admitir tendencias o completar con la ley o con datos externos. |
+| Conocimiento del modelo | Dato que contradice lo que el auditor sabe del producto concreto, sin regla general. | Refutar con memoria del modelo en vez de anotar una sospecha ([D-154](../../30-governance/decisions.md#d-154)). |
 | Contexto insuficiente | Estado sin canal/variante. | Completar condiciones con conjeturas. |
-| Disponibilidad 0 | Ausencia comprobada con cobertura. | Valorar AC cuando no procede. |
+| Disponibilidad 0 | Ausencia comprobada con cobertura. | Valorar AC cuando no procede; falsos 0 de la fase 1 ([D-153](../../30-governance/decisions.md#d-153)). |
 | Disponibilidad inconclusa | Lectura/inspección insuficiente. | Falsa ausencia. |
 | AC 0/1/2 | Casos negativos, parciales y suficientes por AC. | Fronteras ambiguas de los anclajes. |
 | NE y NA | Comprobación que no pudo hacerse; requisito marcado como no dimensión de comparación (NA). | Usar NE por falta de corroboración. |

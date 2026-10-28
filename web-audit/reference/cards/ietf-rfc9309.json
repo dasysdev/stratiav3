@@ -1,0 +1,105 @@
+{
+ "source": "ietf-rfc9309",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "protocolo",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Robots Exclusion Protocol: cómo lee un rastreador las reglas de robots.txt (el grupo de su product token o el de «*», combinación de grupos, coincidencia más específica, allow en empate, caracteres especiales) y qué hace según el resultado de obtener el fichero (éxito, redirecciones, «unavailable» en 4xx y «unreachable» en 5xx o error de red). En el perfil de Web no fundamenta requisitos propios: sirve al método (punto 3 del método común de Web) con el que los requisitos del consumidor deciden si robots.txt impide rastrear la URL a un bot.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#section-1.1",
+   "text": "The key words \"MUST\", \"MUST NOT\", \"REQUIRED\", \"SHALL\", \"SHALL NOT\", \"SHOULD\", \"SHOULD NOT\", \"RECOMMENDED\", \"NOT RECOMMENDED\", \"MAY\", and \"OPTIONAL\" in this document are to be interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all capitals, as shown here."
+  },
+  {
+   "id": "q02",
+   "section": "#section-abstract",
+   "text": "This document specifies and extends the \"Robots Exclusion Protocol\" method originally defined by Martijn Koster in 1994 for service owners to control how content served by their services may be accessed, if at all, by automatic clients known as crawlers."
+  },
+  {
+   "id": "q03",
+   "section": "#section-2.1",
+   "text": "One or more user-agent lines that are followed by one or more rules. The group is terminated by a user-agent line or end of file.",
+   "note": "Definición de «Group»."
+  },
+  {
+   "id": "q04",
+   "section": "#section-2.2.1",
+   "text": "Crawlers MUST use case-insensitive matching to find the group that matches the product token and then obey the rules of the group. If there is more than one group matching the user-agent, the matching groups' rules MUST be combined into one group and parsed according to Section 2.2.2."
+  },
+  {
+   "id": "q05",
+   "section": "#section-2.2.1",
+   "text": "If no matching group exists, crawlers MUST obey the group with a user-agent line with the \"*\" value, if present."
+  },
+  {
+   "id": "q06",
+   "section": "#section-2.2.1",
+   "text": "If no group matches the product token and there is no group with a user-agent line with the \"*\" value, or no groups are present at all, no rules apply."
+  },
+  {
+   "id": "q07",
+   "section": "#section-2.2.2",
+   "text": "To evaluate if access to a URI is allowed, a crawler MUST match the paths in \"allow\" and \"disallow\" rules against the URI. The matching SHOULD be case sensitive. The matching MUST start with the first octet of the path. The most specific match found MUST be used. The most specific match is the match that has the most octets."
+  },
+  {
+   "id": "q08",
+   "section": "#section-2.2.2",
+   "text": "If an \"allow\" rule and a \"disallow\" rule are equivalent, then the \"allow\" rule SHOULD be used. If no match is found amongst the rules in a group for a matching user-agent or there are no rules in the group, the URI is allowed. The /robots.txt URI is implicitly allowed."
+  },
+  {
+   "id": "q09",
+   "section": "#section-2.2.2",
+   "text": "Octets in the URI and robots.txt paths outside the range of the ASCII coded character set, and those in the reserved range defined by [RFC3986], MUST be percent-encoded as defined by [RFC3986] prior to comparison."
+  },
+  {
+   "id": "q10",
+   "section": "#section-2.2.2",
+   "text": "The crawler SHOULD ignore \"disallow\" and \"allow\" rules that are not in any group (for example, any rule that precedes the first user-agent line)."
+  },
+  {
+   "id": "q11",
+   "section": "#section-2.2.3",
+   "text": "Crawlers MUST support the following special characters:",
+   "note": "La tabla que sigue: «#» abre un comentario de línea, «$» marca el final del patrón y «*» equivale a cero o más caracteres."
+  },
+  {
+   "id": "q12",
+   "section": "#section-2.3",
+   "text": "The rules MUST be accessible in a file named \"/robots.txt\" (all lowercase) in the top-level path of the service."
+  },
+  {
+   "id": "q13",
+   "section": "#section-2.3.1.1",
+   "text": "If the crawler successfully downloads the robots.txt file, the crawler MUST follow the parseable rules."
+  },
+  {
+   "id": "q14",
+   "section": "#section-2.3.1.2",
+   "text": "If a robots.txt file is reached within five consecutive redirects, the robots.txt file MUST be fetched, parsed, and its rules followed in the context of the initial authority."
+  },
+  {
+   "id": "q15",
+   "section": "#section-2.3.1.3",
+   "text": "\"Unavailable\" means the crawler tries to fetch the robots.txt file and the server responds with status codes indicating that the resource in question is unavailable. For example, in the context of HTTP, such status codes are in the 400-499 range."
+  },
+  {
+   "id": "q16",
+   "section": "#section-2.3.1.3",
+   "text": "If a server status code indicates that the robots.txt file is unavailable to the crawler, then the crawler MAY access any resources on the server."
+  },
+  {
+   "id": "q17",
+   "section": "#section-2.3.1.4",
+   "text": "If the robots.txt file is unreachable due to server or network errors, this means the robots.txt file is undefined and the crawler MUST assume complete disallow. For example, in the context of HTTP, server errors are identified by status codes in the 500-599 range."
+  },
+  {
+   "id": "q18",
+   "section": "#section-2.3.1.5",
+   "text": "Crawlers MUST try to parse each line of the robots.txt file. Crawlers MUST use the parseable rules."
+  }
+ ],
+ "note": "El reparto del perfil (D-159) no le asigna requisitos: sus «MUST» y «SHOULD» obligan al rastreador, no al servidor. El permiso de cada bot lo fijan los requisitos del consumidor (Search Essentials, OpenAI, Perplexity), que leen robots.txt con estas reglas."
+}

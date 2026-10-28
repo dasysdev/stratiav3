@@ -3,12 +3,14 @@
 Adapted from stratia.rpa (app/browser/infra/cdp_session.py): one connection per target and
 one request id per command. Unlike rpa, events are kept in `events`, because the capture
 reads the Network events of the main document. Runtime.enable is never sent: a page can
-detect it.
+detect it. An event with a handler in `handlers` is also handed to it as it arrives, even
+while a command waits for its reply (the audit profile answers Fetch pauses that way).
 """
 from __future__ import annotations
 
 import json
 import time
+from typing import Callable
 
 from websockets.exceptions import WebSocketException
 from websockets.sync.client import connect
@@ -26,6 +28,8 @@ class Cdp:
             raise CdpError(f"no se pudo conectar con {ws_url}: {exc}") from exc
         self._id = 0
         self.events: list[dict] = []
+        self.handlers: dict[str, Callable[[dict], None]] = {}
+        self._replies: dict[int, dict] = {}  # replies read while a handler's command waited
 
     def close(self) -> None:
         try:
@@ -54,16 +58,24 @@ class Cdp:
             raise CdpError(f"conexión CDP perdida al enviar {method}: {exc}") from exc
         deadline = time.monotonic() + timeout
         while (left := deadline - time.monotonic()) > 0:
-            msg = self._recv(left)
+            msg = self._replies.pop(msg_id, None) or self._recv(left)
             if msg is None:
                 break
             if msg.get("id") == msg_id:
                 if "error" in msg:
                     raise CdpError(f"{method}: {msg['error'].get('message')}")
                 return msg.get("result") or {}
-            if "method" in msg:
-                self.events.append(msg)
+            if "id" in msg:
+                self._replies[msg["id"]] = msg
+            elif "method" in msg:
+                self._event(msg)
         raise CdpError(f"sin respuesta a {method} en {timeout:.0f} s")
+
+    def _event(self, msg: dict) -> None:
+        self.events.append(msg)
+        handler = self.handlers.get(msg["method"])
+        if handler is not None:
+            handler(msg.get("params") or {})
 
     def pump(self, seconds: float) -> None:
         """Read events for `seconds` (also keeps Chrome's send buffer empty while idle)."""
@@ -73,7 +85,7 @@ class Cdp:
             if msg is None:
                 return
             if "method" in msg:
-                self.events.append(msg)
+                self._event(msg)
 
     def evaluate(self, expression: str, context_id: int | None = None, timeout: float = 30,
                  await_promise: bool = False):

@@ -1,0 +1,37 @@
+{
+ "source": "google-search-indexable-file-types",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Tipos de fichero cuyo contenido indexa Google y cómo determina el tipo (la cabecera Content-Type). No fija requisitos por sí misma: da el método de w-consumer/004, porque Search Essentials exige que el contenido textual esté en un tipo de fichero que Google Search admite.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#file-types-indexable-by-google",
+   "text": "Google can index the content of most text-based files and certain encoded document formats. The file type is determined by the Content-Type HTTP header returned when Google crawls the file, though in some cases Google may use the file extension or re-parse the file using a different parser if the Content-Type header is missing or incorrect."
+  },
+  {
+   "id": "q02",
+   "section": "#flat-file-types",
+   "text": "The following flat file types are supported. These are files where the content is stored in plain, unencoded text (though they may use markup tags)."
+  },
+  {
+   "id": "q03",
+   "section": "#flat-file-types",
+   "text": "HTML (.htm, .html, other file extensions)"
+  },
+  {
+   "id": "q04",
+   "section": "#encoded-file-types",
+   "text": "The following encoded file types are supported. These are binary files or complex containers that require a specific parser to extract the human-readable text."
+  },
+  {
+   "id": "q05",
+   "section": "#media-file-types",
+   "text": "Google can also index the following media formats:"
+  }
+ ]
+}

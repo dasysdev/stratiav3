@@ -515,6 +515,45 @@
    "note": "EUR-Lex por Cellar (publications.europa.eu, robots.txt lo permite; eur-lex.europa.eu responde con un desafío). Reutilización autorizada con reconocimiento de la fuente (Decisión 2011/833/UE). Versión: fecha de la versión consolidada o, en el original, de su publicación en el DO."
   },
   {
+   "id": "es-liva",
+   "kind": "law",
+   "title": "Ley 37/1992, de 28 de diciembre, del Impuesto sobre el Valor Añadido",
+   "publisher": "Agencia Estatal Boletín Oficial del Estado",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740",
+   "uses": [
+    "demand-engine"
+   ],
+   "cite": "LIVA",
+   "boe": "BOE-A-1992-28740",
+   "note": "BOE, legislación consolidada (API de datos abiertos): reutilización autorizada con cita de la fuente y de la fecha de la última actualización (licencia tipo del BOE, Resolución de 27-06-2024; Ley 37/2007). robots.txt permite /datosabiertos/. Versión: fecha de publicación de la última modificación incluida."
+  },
+  {
+   "id": "eu-dir-2006-112",
+   "kind": "law",
+   "title": "Directiva 2006/112/CE del Consejo, relativa al sistema común del impuesto sobre el valor añadido",
+   "publisher": "Oficina de Publicaciones de la Unión Europea",
+   "url": "https://eur-lex.europa.eu/legal-content/ES/ALL/?uri=CELEX:32006L0112",
+   "uses": [
+    "demand-engine"
+   ],
+   "cite": "UE-2006/112",
+   "celex": "32006L0112",
+   "note": "EUR-Lex por Cellar (publications.europa.eu, robots.txt lo permite; eur-lex.europa.eu responde con un desafío). Reutilización autorizada con reconocimiento de la fuente (Decisión 2011/833/UE). Versión: fecha de la versión consolidada o, en el original, de su publicación en el DO."
+  },
+  {
+   "id": "eu-reg-952-2013",
+   "kind": "law",
+   "title": "Reglamento (UE) n.º 952/2013, por el que se establece el código aduanero de la Unión",
+   "publisher": "Oficina de Publicaciones de la Unión Europea",
+   "url": "https://eur-lex.europa.eu/legal-content/ES/ALL/?uri=CELEX:32013R0952",
+   "uses": [
+    "demand-engine"
+   ],
+   "cite": "UE-952/2013",
+   "celex": "32013R0952",
+   "note": "EUR-Lex por Cellar (publications.europa.eu, robots.txt lo permite; eur-lex.europa.eu responde con un desafío). Reutilización autorizada con reconocimiento de la fuente (Decisión 2011/833/UE). Versión: fecha de la versión consolidada o, en el original, de su publicación en el DO."
+  },
+  {
    "id": "iso-4217",
    "kind": "document",
    "title": "ISO 4217, Current currency & funds code list (list one, XML)",
@@ -537,6 +576,270 @@
    "authority": "country",
    "file": "countries-skos.rdf",
    "note": "No es la agencia de ISO 3166 (ISO no publica una lista reutilizable): tabla de autoridad de la UE, CC BY 4.0, que mapea cada país a su código ISO 3166-1 alfa-2. Incluye algunos códigos que ISO reserva excepcionalmente (EU, IC, CP, CQ). ISO 3166-2 no tiene fuente oficial reutilizable."
+  },
+  {
+   "id": "ietf-rfc9110",
+   "kind": "document",
+   "title": "HTTP Semantics (RFC 9110)",
+   "publisher": "IETF (RFC Editor)",
+   "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): protocolo: estado, redirecciones, Content-Type y Content-Encoding."
+  },
+  {
+   "id": "ietf-rfc9309",
+   "kind": "document",
+   "title": "Robots Exclusion Protocol (RFC 9309)",
+   "publisher": "IETF (RFC Editor)",
+   "url": "https://www.rfc-editor.org/rfc/rfc9309.html",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): protocolo: cómo se leen las reglas de robots.txt."
+  },
+  {
+   "id": "whatwg-html-syntax",
+   "kind": "document",
+   "title": "HTML Living Standard — The HTML syntax (13.1 Writing HTML documents)",
+   "publisher": "WHATWG",
+   "url": "https://html.spec.whatwg.org/multipage/syntax.html",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): documento: sintaxis del documento (DOCTYPE y partes)."
+  },
+  {
+   "id": "whatwg-html-parsing",
+   "kind": "document",
+   "title": "HTML Living Standard — Parsing HTML documents (13.2)",
+   "publisher": "WHATWG",
+   "url": "https://html.spec.whatwg.org/multipage/parsing.html",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): documento: errores de análisis."
+  },
+  {
+   "id": "whatwg-html-semantics",
+   "kind": "document",
+   "title": "HTML Living Standard — Semantics: document metadata (4.2)",
+   "publisher": "WHATWG",
+   "url": "https://html.spec.whatwg.org/multipage/semantics.html",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): documento: declaración de la codificación de caracteres."
+  },
+  {
+   "id": "whatwg-html-links",
+   "kind": "document",
+   "title": "HTML Living Standard — Links (4.6)",
+   "publisher": "WHATWG",
+   "url": "https://html.spec.whatwg.org/multipage/links.html",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): documento: forma del href de los enlaces."
+  },
+  {
+   "id": "whatwg-encoding",
+   "kind": "document",
+   "title": "Encoding Standard",
+   "publisher": "WHATWG",
+   "url": "https://encoding.spec.whatwg.org/",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): documento: UTF-8."
+  },
+  {
+   "id": "google-search-technical-requirements",
+   "kind": "document",
+   "title": "Google Search technical requirements (Search Essentials)",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/essentials/technical",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: lo que Google Search exige de una página (Googlebot no bloqueado, HTTP 200, contenido indexable)."
+  },
+  {
+   "id": "google-search-links-crawlable",
+   "kind": "document",
+   "title": "Link best practices for Google",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/crawling-indexing/links-crawlable",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: enlaces rastreables."
+  },
+  {
+   "id": "google-crawling-robots-txt",
+   "kind": "document",
+   "title": "How Google interprets the robots.txt specification",
+   "publisher": "Google Crawling infrastructure",
+   "url": "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: robots.txt según Google."
+  },
+  {
+   "id": "google-search-robots-meta",
+   "kind": "document",
+   "title": "Robots meta tag, data-nosnippet, and X-Robots-Tag specifications",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: meta robots y X-Robots-Tag."
+  },
+  {
+   "id": "google-search-block-indexing",
+   "kind": "document",
+   "title": "Block Search indexing with noindex",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/crawling-indexing/block-indexing",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: bloqueo de la indexación."
+  },
+  {
+   "id": "google-crawling-http-status",
+   "kind": "document",
+   "title": "How HTTP status codes affect Google's crawlers",
+   "publisher": "Google Crawling infrastructure",
+   "url": "https://developers.google.com/crawling/docs/troubleshooting/http-status-codes",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: códigos de estado HTTP."
+  },
+  {
+   "id": "google-search-redirects",
+   "kind": "document",
+   "title": "Redirects and Google Search",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/crawling-indexing/301-redirects",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: redirecciones."
+  },
+  {
+   "id": "google-search-indexable-file-types",
+   "kind": "document",
+   "title": "File types indexable by Google",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/crawling-indexing/indexable-file-types",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: tipos de fichero indexables."
+  },
+  {
+   "id": "google-search-javascript-seo",
+   "kind": "document",
+   "title": "Understand JavaScript SEO basics",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: JavaScript."
+  },
+  {
+   "id": "openai-bots",
+   "kind": "document",
+   "title": "Overview of OpenAI Crawlers",
+   "publisher": "OpenAI",
+   "url": "https://developers.openai.com/api/docs/bots",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): consumidor (operador de IA): bots de OpenAI y robots.txt."
+  },
+  {
+   "id": "anthropic-crawlers",
+   "kind": "document",
+   "title": "Does Anthropic crawl data from the web, and how can site owners block the crawler?",
+   "publisher": "Anthropic",
+   "url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): consumidor (operador de IA): bots de Anthropic y robots.txt. robots.txt de support.claude.com no excluye /en/articles (comprobado el 2026-10-28)."
+  },
+  {
+   "id": "perplexity-crawlers",
+   "kind": "document",
+   "title": "Perplexity Crawlers",
+   "publisher": "Perplexity",
+   "url": "https://docs.perplexity.ai/docs/resources/perplexity-crawlers",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-159, T-072): consumidor (operador de IA): bots de Perplexity y robots.txt."
+  },
+  {
+   "id": "sitemaps-org-protocol",
+   "kind": "document",
+   "title": "Sitemaps XML format (protocol)",
+   "publisher": "sitemaps.org",
+   "url": "https://www.sitemaps.org/protocol.html",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Sitemaps (D-162, T-074): protocolo: forma de un sitemap y de un índice de sitemaps."
+  },
+  {
+   "id": "google-search-sitemaps-build",
+   "kind": "document",
+   "title": "Build and submit a sitemap",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Sitemaps (D-162, T-074): consumidor: lo que Google fija de un sitemap (codificación, límites, ubicación)."
+  },
+  {
+   "id": "google-search-sitemaps-overview",
+   "kind": "document",
+   "title": "What is a sitemap",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Sitemaps (D-162, T-074): consumidor: cuándo conviene un sitemap; no exige ni recomienda tenerlo."
+  },
+  {
+   "id": "ogp-protocol",
+   "kind": "document",
+   "title": "The Open Graph protocol",
+   "publisher": "Open Graph protocol (ogp.me)",
+   "url": "https://ogp.me/",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-168, T-077): documento, condicional: propiedades exigidas si la página usa Open Graph."
+  },
+  {
+   "id": "google-search-canonical",
+   "kind": "document",
+   "title": "How to specify a canonical URL with rel=\"canonical\" and other methods",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Perfil de implementación de Web (D-168, T-077): consumidor: URL canónica (mínimo de representación)."
   }
  ]
 }

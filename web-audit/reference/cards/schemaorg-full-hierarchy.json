@@ -3,6 +3,9 @@
  "version": "2026-10-27",
  "class": "especificación aplicable",
  "level": "vocabulario",
+ "scopes": [
+  "Web Schema.org"
+ ],
  "summary": "Jerarquía completa de tipos y de tipos de datos de Schema.org (V30.1), como árbol de consulta. No fija condiciones propias.",
  "quotes": [
   {"id": "q01", "section": "Full schema hierarchy",

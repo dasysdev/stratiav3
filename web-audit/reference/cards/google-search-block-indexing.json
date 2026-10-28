@@ -1,0 +1,27 @@
+{
+ "source": "google-search-block-indexing",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Cómo se bloquea la indexación con noindex, en una meta o en la cabecera X-Robots-Tag, que tienen el mismo efecto. Da el método de w-consumer/010.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#block-search-indexing-with-noindex",
+   "text": "noindex is a rule set with either a <meta> tag or HTTP response header and is used to prevent indexing content by search engines that support the noindex rule, such as Google. When Googlebot crawls that page and extracts the tag or header, Google will drop that page entirely from Google Search results, regardless of whether other sites link to it."
+  },
+  {
+   "id": "q02",
+   "section": "#implementing-noindex",
+   "text": "There are two ways to implement noindex: as a <meta> tag and as an HTTP response header. They have the same effect; choose the method that is more convenient for your site and appropriate for the content type. Specifying the noindex rule in the robots.txt file is not supported by Google."
+  },
+  {
+   "id": "q03",
+   "section": "#http-response-header",
+   "text": "Instead of a <meta> tag, you can return an X-Robots-Tag HTTP header with a value of either noindex or none in your response."
+  }
+ ]
+}

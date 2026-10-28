@@ -3,6 +3,9 @@
  "version": "2026-10-27",
  "class": "especificación aplicable",
  "level": "vocabulario",
+ "scopes": [
+  "Web Schema.org"
+ ],
  "summary": "Página del tipo Product de Schema.org (V30.1): su lugar en la jerarquía y la tabla de sus propiedades, incluidas las heredadas, con sus tipos esperados. Es una vista legible de la release; no fija condiciones propias.",
  "quotes": [
   {

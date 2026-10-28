@@ -1,0 +1,97 @@
+{
+ "source": "sitemaps-org-protocol",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "protocolo",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Protocolo de sitemaps (sitemaps.org): forma de un sitemap XML y de un índice de sitemaps (elementos exigidos, codificación, escape, límites), qué URL puede incluir según su ubicación y cómo se declara en robots.txt.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#sitemaps_protocol",
+   "text": "All data values in a Sitemap must be entity-escaped. The file itself must be UTF-8 encoded."
+  },
+  {
+   "id": "q02",
+   "section": "#sitemaps_protocol",
+   "text": "The Sitemap must: - Begin with an opening <urlset> tag and end with a closing </urlset> tag."
+  },
+  {
+   "id": "q03",
+   "section": "#sitemaps_protocol",
+   "text": "- Include a <loc> child entry for each <url> parent tag."
+  },
+  {
+   "id": "q04",
+   "section": "#sitemaps_protocol",
+   "text": "Also, all URLs in a Sitemap must be from a single host, such as www.example.com or store.example.com."
+  },
+  {
+   "id": "q05",
+   "section": "#xmlTagDefinitions",
+   "text": "<loc> | required | URL of the page. This URL must begin with the protocol (such as http) and end with a trailing slash, if your web server requires it. This value must be less than 2,048 characters."
+  },
+  {
+   "id": "q06",
+   "section": "#escaping",
+   "text": "As with all XML files, any data values (including URLs) must use entity escape codes for the characters listed in the table below."
+  },
+  {
+   "id": "q07",
+   "section": "#index",
+   "text": "You can provide multiple Sitemap files, but each Sitemap file that you provide must have no more than 50,000 URLs and must be no larger than 50MB (52,428,800 bytes)."
+  },
+  {
+   "id": "q08",
+   "section": "#index",
+   "text": "If you would like, you may compress your Sitemap files using gzip to reduce your bandwidth requirement; however the sitemap file once uncompressed must be no larger than 50MB."
+  },
+  {
+   "id": "q09",
+   "section": "#index",
+   "text": "The Sitemap index file must: - Begin with an opening <sitemapindex> tag and end with a closing </sitemapindex> tag."
+  },
+  {
+   "id": "q10",
+   "section": "#index",
+   "text": "- Include a <loc> child entry for each <sitemap> parent tag."
+  },
+  {
+   "id": "q11",
+   "section": "#index",
+   "text": "As with Sitemaps, your Sitemap index file must be UTF-8 encoded."
+  },
+  {
+   "id": "q12",
+   "section": "#sitemapIndexTagDefinitions",
+   "text": "<loc> | required | Identifies the location of the Sitemap. This location can be a Sitemap, an Atom file, RSS file or a simple text file."
+  },
+  {
+   "id": "q13",
+   "section": "#location",
+   "text": "The location of a Sitemap file determines the set of URLs that can be included in that Sitemap."
+  },
+  {
+   "id": "q14",
+   "section": "#location",
+   "text": "Note that this means that all URLs listed in the Sitemap must use the same protocol (http, in this example) and reside on the same host as the Sitemap."
+  },
+  {
+   "id": "q15",
+   "section": "#location",
+   "text": "URLs that are not considered valid are dropped from further consideration."
+  },
+  {
+   "id": "q16",
+   "section": "#sitemaps_cross_submits",
+   "text": "When a particular host's robots.txt, say http://www.host1.com/robots.txt, points to a Sitemap or a Sitemap index on another host; it is expected that for each of the target Sitemaps, such as http://www.sitemaphost.com/sitemap-host1.xml, all the URLs belong to the host pointing to it."
+  },
+  {
+   "id": "q17",
+   "section": "#informing",
+   "text": "You can specify the location of the Sitemap using a robots.txt file. To do this, simply add the following line including the full URL to the sitemap:"
+  }
+ ]
+}

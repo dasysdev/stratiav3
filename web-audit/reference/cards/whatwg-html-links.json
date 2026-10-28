@@ -1,0 +1,23 @@
+{
+ "source": "whatwg-html-links",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "documento",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Enlaces de HTML (WHATWG HTML, 4.6): los hiperenlaces que crean los elementos a y area, sus atributos y los tipos de enlace. En el perfil de Web fija la forma del href de a y area.",
+ "note": "«valid URL potentially surrounded by spaces» y «valid URL» los define HTML en 2.4.1 y remiten a la «valid URL string» del URL Standard (WHATWG). Ni esa sección ni el URL Standard están congelados: el método los nombra sin citarlos.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#links-created-by-a-and-area-elements",
+   "text": "The href attribute on a and area elements must have a value that is a valid URL potentially surrounded by spaces."
+  },
+  {
+   "id": "q02",
+   "section": "#links-created-by-a-and-area-elements",
+   "text": "The href attribute on a and area elements is not required; when those elements do not have href attributes they do not create hyperlinks."
+  }
+ ]
+}

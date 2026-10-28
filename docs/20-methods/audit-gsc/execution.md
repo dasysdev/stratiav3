@@ -3,9 +3,9 @@ id: audit-gsc-execution
 title: Procedimiento integral de ejecución
 layer: method
 status: propuesta
-version: 0.3
-updated: 2026-10-27
-sources: [GSC0 §13, GSC0 Anexo A, FUND §9.3, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
+version: 0.4
+updated: 2026-10-28
+sources: [GSC0 §13, GSC0 Anexo A, FUND §9.3, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-informative-audit-v1]
 ---
 
 # Procedimiento integral de ejecución
@@ -61,6 +61,21 @@ La evaluación técnica se ejecuta conforme a sus requisitos y su sistema cuanti
 Es admisible obtener primero una **representación comercial completa** y utilizarla para varios RI del mismo recurso, siempre que cada evaluación conserve su pertinencia, cobertura y GSC **por unidad RI × ámbito**. También es admisible reutilizar evidencias capturadas una sola vez y vinculadas a varios RI o AC si identidad, momento, contenido y condiciones siguen siendo aplicables.
 
 No se requiere repetir descargas o análisis evidenciales idénticos sin necesidad. La eficiencia de proceso **no sustituye** la comprobación de cobertura y la distinción de ámbitos.
+
+## Ejecución en dos fases
+
+> **Estado: propuesta V1** ([D-153](../../30-governance/decisions.md#d-153)). Un modelo de demanda real tiene entre 44 y 72 RI: unos 110 RI × ámbito y hasta 660 juicios de AC por ficha.
+
+| Fase | Unidad de trabajo del agente | Pasos | Salida |
+|---|---|---|---|
+| **1 · Disponibilidad** | Una ficha × un ámbito, con **todos** sus RI | OP-03…07: exploración, pertinencia y disponibilidad efectiva | Disponibilidad 0/1 (o inconclusa) de cada RI, con sus evidencias localizadas y la prueba de cobertura de cada ausencia. Los RI con disponibilidad 0 terminan aquí (IR = 0). |
+| **2 · Criterios** | Un lote de RI con disponibilidad 1 (un bloque o una entidad, unos 10–15 RI) | OP-08…10: comprobaciones y GSC de los seis AC, con sus pistas | Valoración por AC de cada RI del lote |
+
+- **Fase 1** mira la página entera una vez: es lo que permite probar una ausencia (invariante 11).
+- **Fase 2** recibe las evidencias localizadas y la representación completa del ámbito, para poder [reabrir](#reapertura-controlada) la búsqueda. En Web ve juntos el HTML y el Schema.org, que es lo que pide la consistencia dentro del ámbito.
+- **Entre las dos fases, el código** comprueba que cada fragmento citado existe literalmente en la representación del ámbito ([QA-15](qa.md#validaciones-obligatorias-qa-01-a-qa-15)).
+- **Mitigación del riesgo de la fase 1:** un 0 sin registro de cobertura no pasa el validador, y la [calibración](calibration.md) mide sobre todo los falsos 0.
+- Cada evaluación conserva su pertinencia, cobertura y GSC por unidad RI × ámbito. El reparto en lotes y su tamaño se ajustan en la calibración.
 
 ## Reapertura controlada
 

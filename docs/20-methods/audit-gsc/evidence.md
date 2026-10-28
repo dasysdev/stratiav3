@@ -3,9 +3,9 @@ id: audit-gsc-evidence
 title: Protocolo transversal de evidencias
 layer: method
 status: propuesta
-version: 0.2
-updated: 2026-10-27
-sources: [GSC0 §9, GSC0 §14.3, FUND §9.4, INTAKE 2026-10-27-ac-applicability-and-reliability]
+version: 0.3
+updated: 2026-10-28
+sources: [GSC0 §9, GSC0 §14.3, FUND §9.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1]
 ---
 
 # Protocolo transversal de evidencias
@@ -18,7 +18,7 @@ Toda valoración ha de resultar de **comprobaciones identificables y evidencias 
 
 Las evidencias pueden acreditar **presencia y contenido; identidad y atribución; relaciones y derivaciones; condiciones y contexto; coherencia y contraste; procedencia o verificabilidad; ausencia y cobertura; y limitaciones de obtención o evaluación**. Una pieza puede servir a varios hallazgos sin duplicarse artificialmente.
 
-La base sustantiva de la respuesta a un RI es la **información comercial utilizable en el ámbito evaluado**. Las referencias externas podrán servir para comprobar la corrección o la fiabilidad cuando lo permita el método (solo contrastan: [prueba de derivación](../../10-model/effective-availability.md#prueba-de-derivación)); no se incorporan como contenido publicado por el ecommerce para suplir carencias. Una comprobación externa inconclusa no demuestra falsedad.
+La base sustantiva de la respuesta a un RI es la **información comercial utilizable en el ámbito evaluado**. La auditoría no consulta referencias externas sobre el producto, ni para contrastar ([D-154](../../30-governance/decisions.md#d-154), [prueba de derivación](../../10-model/effective-availability.md#prueba-de-derivación)): ni se incorporan como contenido publicado por el ecommerce para suplir carencias ni sirven para refutar. Las reglas generales que se citan (una norma, una especificación de formato) no son referencias sobre el producto.
 
 ## Tipos de registro
 
@@ -95,7 +95,7 @@ La vinculación funcional (`ri_id`, `componente`, `funcion`) y la evaluativa (`h
 
 **EV-13.** Reutilizar la misma evidencia para distintos hallazgos/AC cuando corresponda, explicando su consecuencia específica en cada uno; no duplicar ni multiplicar penalizaciones automáticamente.
 
-**EV-14.** La evidencia externa, si se utiliza para contrastar la corrección, debe etiquetarse como **fuente de comprobación**, nunca como contenido comercial publicado en la interfaz auditada.
+**EV-14.** La regla general citada en una comprobación (definición, norma que fija el significado de un término, especificación de formato) se etiqueta como **fuente de la regla**, nunca como contenido comercial publicado en la interfaz auditada. No se registra como evidencia ningún hecho particular del producto tomado de fuera ([D-154](../../30-governance/decisions.md#d-154)).
 
 **EV-15.** Mantener el vínculo entre registro estructurado e informe. El informe puede resumir, pero ha de conservar referencias que permitan acceder a las evidencias relevantes.
 
@@ -108,7 +108,7 @@ La vinculación funcional (`ri_id`, `componente`, `funcion`) y la evaluativa (`h
 | **Relación/derivación** | Nodos, vínculos, condiciones y regla inferencial legítima. | Introducir una relación o dato supuesto. |
 | **Normalización/comparación** | Valores originales, unidades, equivalencia/conversión y bases comparables. | Comparar magnitudes no equivalentes. |
 | **Coherencia/conflicto** | Ambas afirmaciones, identidad, contexto y momentos. | Falsas contradicciones. |
-| **Exactitud** | Comprobaciones aplicadas (estructura del dato, regla del dominio y su fuente, fuente independiente consultada), momento y resultado. | Confundir captura reciente o concordancia interna con verdad; presentar una sospecha como defecto. |
+| **Exactitud** | Comprobaciones aplicadas (estructura del dato, regla del dominio y su fuente, consistencia del ámbito), momento y resultado; sospechas con su motivo. | Confundir captura reciente o concordancia interna con verdad; presentar una sospecha como defecto. |
 | **Ausencia** | Universo examinable, rutas de inspección y cobertura negativa. | Ausencias falsas por mala búsqueda. |
 | **Limitación de acceso/lectura** | Petición/perfil, respuesta y condición que impide consumir el contenido. | Confundir incidente técnico y efecto sobre RI. |
 

@@ -3,6 +3,9 @@
  "version": "2026-10-27",
  "class": "especificación aplicable",
  "level": "serialización",
+ "scopes": [
+  "Web Schema.org"
+ ],
  "summary": "Sintaxis de JSON-LD 1.1: su gramática (apéndice § 9) fija qué es un documento JSON-LD conforme, y § 7 cómo se incrusta en HTML en un elemento script con type application/ld+json. Fundamenta los requisitos de serialización del JSON-LD de una ficha de producto.",
  "quotes": [
   {"id": "q01", "section": "#conformance",

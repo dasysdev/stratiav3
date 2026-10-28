@@ -3,6 +3,9 @@
  "version": "2026-10-27",
  "class": "especificación aplicable",
  "level": "consumidor",
+ "scopes": [
+  "Web Schema.org"
+ ],
  "summary": "Cómo generar marcado con JavaScript (Google Tag Manager, JavaScript propio o renderizado en el servidor). No fija requisitos comprobables del recurso; su función es de método: Google Search procesa el marcado presente en el DOM renderizado, de modo que el marcado generado con JavaScript se extrae del DOM renderizado.",
  "quotes": [
   {

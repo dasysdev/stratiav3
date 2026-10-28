@@ -3,6 +3,9 @@
  "version": "2026-10-27",
  "class": "especificación aplicable",
  "level": "consumidor",
+ "scopes": [
+  "Web Schema.org"
+ ],
  "summary": "Política de devoluciones estándar del comerciante en Google Search: MerchantReturnPolicy anidada en Organization (hasMerchantReturnPolicy), con sus propiedades exigidas (opción A u opción B), las recomendadas según la ventana de devolución y las de las excepciones de temporada.",
  "quotes": [
   {

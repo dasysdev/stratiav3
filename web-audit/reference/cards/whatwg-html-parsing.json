@@ -1,0 +1,43 @@
+{
+ "source": "whatwg-html-parsing",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "documento",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Análisis de documentos HTML (WHATWG HTML, 13.2): el algoritmo con que se construye el DOM a partir de una respuesta text/html, la determinación de la codificación y los errores de análisis, de los que informan los validadores. Obliga a los agentes de usuario, a las herramientas de minería de datos y a los validadores, no al documento.",
+ "note": "No fundamenta requisitos propios: sus must se dirigen a los agentes de usuario y a los validadores (q01, q04). Sirve de método (un analizador conforme da siempre un DOM, q02, e informa de los errores de análisis, q04) y de apoyo a w-document/003 (q06).",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#parsing",
+   "text": "This section only applies to user agents, data mining tools, and conformance checkers."
+  },
+  {
+   "id": "q02",
+   "section": "#parsing",
+   "text": "User agents must use the parsing rules described in this section to generate the DOM trees from text/html resources. Together, these rules define what is referred to as the HTML parser."
+  },
+  {
+   "id": "q03",
+   "section": "#parse-errors",
+   "text": "This specification defines the parsing rules for HTML documents, whether they are syntactically correct or not. Certain points in the parsing algorithm are said to be parse errors."
+  },
+  {
+   "id": "q04",
+   "section": "#parse-errors",
+   "text": "Conformance checkers must report at least one parse error condition to the user if one or more parse error conditions exist in the document and must not report parse error conditions if none exist in the document."
+  },
+  {
+   "id": "q05",
+   "section": "#parse-errors",
+   "text": "Parse errors are only errors with the syntax of HTML. In addition to checking for parse errors, conformance checkers will also verify that the document obeys all the other conformance requirements described in this specification."
+  },
+  {
+   "id": "q06",
+   "section": "#determining-the-character-encoding",
+   "text": "The authoring conformance requirements for character encoding declarations limit them to only appearing in the first 1024 bytes."
+  }
+ ]
+}

@@ -14,6 +14,84 @@ Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módul
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
 
+## 2026-10-28 — Tasa de cumplimiento técnico, páginas de una auditoría y mínimo de representación de Web · aplicado
+
+- **canon** — `INTAKE 2026-10-28-technical-rate-pages-web-minimum` (T-077; el usuario eligió entre alternativas de Claude): una sola tasa de cumplimiento técnico por ámbito y vista, sin pesos ni umbrales, con desglose por naturaleza y cobertura; en la vista particular, por tipo de página (casos requisito × página), por requisito y por página. Decisión [D-166](decisions.md#d-166).
+
+- **canon** — Páginas de una auditoría: fichas del encargo, portada, políticas (envíos, devoluciones, contacto, aviso legal) desde la portada y el pie, categoría inmediata por las migas de pan, robots.txt y sitemaps; todo con el perfil `audit-es`. Decisión [D-167](decisions.md#d-167).
+
+- **canon** — Mínimo de representación de Web: url, título y URL canónica, y la imagen por `og:image`; Open Graph entra en el perfil de Web (nivel de documento) de forma condicional, y la canonicalización de Google en su consumidor (enmienda D-159). `meta description` queda fuera, como contenido. Decisión [D-168](decisions.md#d-168).
+
+- **gobernanza** — OQ-84 y OQ-85 cerradas; OQ-30 anotada (queda el perfil de Catálogos distribuidos); D-159 enmendada. Fuera de `docs/` (T-077): fuentes y requisitos del mínimo de Web en web-audit; captura de las páginas de una auditoría en capture.
+
+## 2026-10-28 — Envío y plazos por zona de España: conjunto explícito valorado por los AC · aplicado
+
+- **canon** — `INTAKE 2026-10-28-shipping-zones` (T-076; propuesta de Claude aprobada por el usuario: «todo si»): las unidades de un conjunto (destinos, modalidades de entrega, variantes, momentos del pedido) no son partes de la cuestión y no se divide por ellas; las valoran la Concreción (cobertura), la Aplicabilidad (atribución) y la Precisión (significado). Precisa la regla 3 de D-060 y D-065. Decisión [D-164](decisions.md#d-164).
+  - Módulo: [acceptance-criteria](../10-model/acceptance-criteria.md#unidades-de-un-conjunto) 1.7.
+- **método** — Capa general: `gen/25` pasa a «¿A qué zonas de España se envía y cuánto cuesta el envío a cada una?» (Península, Baleares, Canarias, y Ceuta y Melilla); `gen/08`, a «¿En qué plazo se entrega, según la zona y la modalidad de entrega?»; bloque condicionado nuevo `gen.envio-canarias-ceuta-melilla` con los impuestos y la aduana que asume el comprador (crítico; 97.1.e, con apoyo en la Ley 37/1992, la Directiva 2006/112/CE y el Reglamento (UE) 952/2013). Decisión [D-165](decisions.md#d-165).
+  - Módulos: [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.34; [demand-model](../10-model/demand-model.md) 3.8 (aplicación); glosario (aplicación).
+- **gobernanza** — OQ-86 abierta (`gen/26` y `gen/09` como candidatos del mismo criterio); OQ-22 anotada. Fuera de `docs/` (T-076): `gen.json` 0.9, reglamento del clasificador, ficha de Web Schema.org y tres normas registradas en `references/`.
+
+## 2026-10-28 — Cómo cumple la captura el perfil de consumo · aplicado
+
+- **canon** — `INTAKE 2026-10-28-capture-profile-no-js` (T-069; propuesta de Claude aprobada por el usuario): el motor de captura cumple «navegador real que no ejecuta JavaScript» desactivándolo en Chrome; un desafío que lo exige es una incidencia. El intento con JavaScript solo para resolver un desafío se añadirá si la tasa de desafíos lo pide (lote de prueba: 1 de 22 frente a 0 de 22; no se adopta). El estado limpio por ficha es un contexto de navegador nuevo por ficha (precisa D-157). La IP de origen se registra, no se comprueba. Decisión [D-163](decisions.md#d-163).
+  - Módulos: [evaluation-scopes](../10-model/evaluation-scopes.md#perfil-de-consumo-no-interactivo) 2.3; [inputs-outputs](../20-methods/audit-gsc/inputs-outputs.md#perfil-de-consumo) 0.8; glosario (perfil de consumo).
+- **gobernanza** — OQ-80 cerrada; D-157 anotada (estado limpio precisado por D-163). Fuera de `docs/` (T-069, hecho): perfiles de captura en capture (`reader`, por defecto, y `audit-es`).
+
+## 2026-10-28 — Vistas de la evaluación técnica y descubribilidad por sitemap · aplicado
+
+- **canon** — `INTAKE 2026-10-28-technical-views-and-sitemaps` (propuesta de Claude aprobada por el usuario, con su criterio sobre los sitemaps): la evaluación técnica tiene una vista general (una vez por sitio: robots.txt, sitemaps, la organización y sus políticas) y una particular (por página auditada, según su tipo: ficha de producto, categoría o listado, políticas y contenido, portada); cada requisito dice su vista. De los sitemaps entra su forma, como la fijan las fuentes, y una condición del proyecto: toda página auditada está en los sitemaps (obligatoria). D-132 se enmienda para admitir esa condición como fundamento. Los enlaces internos no se auditan. Decisiones [D-161](decisions.md#d-161) y [D-162](decisions.md#d-162).
+  - Módulos: [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.2; glosario (requisito técnico general; nuevas: vista de la evaluación técnica, tipo de página, condición del proyecto).
+- **gobernanza** — D-132 anotada; nueva [OQ-85](open-questions.md#f-evaluación-técnica) (qué páginas de cada tipo se auditan). Fuera de `docs/` (T-074): campos `view` y `page_types` en la referencia técnica, fuentes y requisitos de los sitemaps; en capture, robots.txt, sitemaps y páginas por tipo.
+
+## 2026-10-28 — Perfil de implementación de Web · aplicado
+
+- **canon** — `INTAKE 2026-10-28-web-implementation-profile` (propuesta de Claude sobre el documento base del usuario, 19 requisitos técnicos del HTML; el usuario eligió el consumidor «Google Search y operadores de IA» y aprobó): perfil de implementación de Web en tres niveles, protocolo (RFC 9110, RFC 9309), documento (HTML y Encoding de WHATWG) y consumidor (Google Search y los operadores de IA OpenAI, Anthropic y Perplexity); el marcado se examina en Web solo por su presencia; las condiciones de la petición y lo que exige JavaScript o interacción son el perfil de consumo, no requisitos técnicos. Frontera en Web: el acceso, la recuperación, la forma y la presencia de lo exigido son técnicos, también las recomendaciones de acceso y de forma; si la información comercial está en el documento es informativo. Decisiones [D-159](decisions.md#d-159) y [D-160](decisions.md#d-160).
+  - Módulos: [evaluation-scopes](../10-model/evaluation-scopes.md#perfil-de-implementación) 2.1; [commercial-information](../10-model/commercial-information.md#pendiente) 1.5 (el mínimo de Web pasa a OQ-84); glosario (perfil de implementación, especificación aplicable).
+- **gobernanza** — OQ-30 anotada; nueva [OQ-84](open-questions.md#f-evaluación-técnica) (mínimo de representación de Web). D-130, D-132 y D-147 anotadas. Fuera de `docs/` (T-072, pendiente): ámbito `Web` en la referencia técnica de web-audit, sus fuentes, fichas y requisitos; en capture (T-069), los bytes originales del cuerpo y robots.txt por bot.
+
+## 2026-10-28 — Catálogo de entrenamiento curado · aplicado
+
+- **canon** — `INTAKE 2026-10-28-curated-training-catalog` (enfoque del usuario, criterios de Claude, aprobados con un «sí»): el entrenamiento solo aprende de un catálogo curado; lo evaluado es candidato y entra si pasa los filtros F1–F4 (validez, ficha de producto, sin duplicados por tienda y clave, topes de 3 por clase y 1 por tienda y clase) y aporta un motivo A1–A6; casos manuales sin topes y retirables a mano; las fichas del catálogo se conservan ([D-158](decisions.md#d-158), que enmienda el paso 1 del entrenamiento de D-044).
+  - Módulos: [training-catalog](../10-model/training-catalog.md) 1.0 (nuevo); [model-training](../10-model/model-training.md#casos-alcance-y-ejecución) 1.22; glosario (catálogo de entrenamiento, conjunto de control); índice.
+- **gobernanza** — OQ-81, punto 1 cerrado; OQ-48 anotada; nuevas OQ-82 (fichas de clientes en el catálogo) y OQ-83 (lecturas de Claude propuestas, F3 en los manuales y retirada de los casos admitidos por el sistema). D-053 anotada en la tabla. Fuera de `docs/` (pendiente): registro del catálogo, admisión en `bin/train`, casos manuales y conservación de sus fichas.
+
+## 2026-10-28 — Entrenar con los modelos de una auditoría completa (idea) · aplicado
+
+- **gobernanza** — `INTAKE 2026-10-28-audit-training-idea` (conversación del usuario con Claude; el usuario pidió documentarla «como una idea»): nueva [OQ-81](open-questions.md#b-taxonomía-de-clases-de-producto) con la propuesta de Claude (voto por tienda y clase, la ejecución de la auditoría como una de las dos del paso 2 con estabilidad en muestra, control por vertical nueva y conexión de la cola con `bin/train`). Sin decisión ni cambio del canon.
+
+## 2026-10-28 — Contexto de la petición del perfil y datos en scripts · aplicado
+
+- **canon** — `INTAKE 2026-10-28-request-context-and-scripts` (decisión del usuario sobre las recomendaciones de Claude, con su matiz): el perfil es un navegador real, para evitar bloqueos, que no ejecuta JavaScript; contexto de la petición: estado limpio por ficha sin aceptar banners, `Accept-Language: es-ES`, IP española con país y ASN registrados, user agent real, robots.txt por bot registrado como hecho técnico, sin sondas; los datos de scripts que no son marcado no son información y solo dan un hallazgo de diagnóstico; de los scripts, solo cuenta `application/ld+json` ([D-157](decisions.md#d-157)).
+  - Módulos: [evaluation-scopes](../10-model/evaluation-scopes.md#perfil-de-consumo-no-interactivo) 2.0; [inputs-outputs](../20-methods/audit-gsc/inputs-outputs.md#perfil-de-consumo) 0.7; [dossier](../20-methods/audit-gsc/dossier.md#diagnóstico) 0.4; glosario (perfil de consumo).
+- **gobernanza** — OQ-78 y OQ-79 cerradas; nueva OQ-80 (cómo cumple el motor «no ejecuta JavaScript»). Fuera de `docs/` (código de capture, pendiente): estado limpio por ficha, registro de `Accept-Language`, IP, país y ASN, y matriz de robots.txt por bot.
+
+## 2026-10-28 — Un solo perfil de consumo: sin JavaScript y con todo el documento · aplicado
+
+- **canon** — `INTAKE 2026-10-28-single-consumption-profile` (decisión del usuario tras la investigación «Perfil de consumo de agentes IA»): Web y Web Schema.org tienen un solo perfil, la respuesta HTTP sin ejecutar JavaScript, de la que se usa todo el documento, no solo el texto visible; es una condición adoptada (es más compatible y preferible que la información no dependa de JavaScript, aunque algunos sistemas puedan leerla); desaparece el DOM cargado como segundo perfil ([D-156](decisions.md#d-156), que enmienda D-151).
+  - Módulos: [evaluation-scopes](../10-model/evaluation-scopes.md#perfil-de-consumo-no-interactivo) 1.9; [inputs-outputs](../20-methods/audit-gsc/inputs-outputs.md#perfil-de-consumo) 0.6; [audit-gsc](../20-methods/audit-gsc/README.md) 0.4; glosario (perfil de consumo).
+- **gobernanza** — OQ-77 cerrada (el marcado inyectado no es utilizable); anotación en OQ-20; nuevas OQ-78 (contexto de la petición: estado, `Accept-Language`, IP de origen, user agent, robots.txt, sondas) y OQ-79 (datos en scripts que no son marcado). D-151 anotada en la tabla. Numeración: D-155 la tomó en paralelo el update `scope-sheet`; esta decisión es D-156.
+
+## 2026-10-28 — Un modelo de demanda y una ficha por ámbito · aplicado
+
+- **canon** — `INTAKE 2026-10-28-scope-sheet` (decisión del usuario en la sesión de T-056, ante el análisis de Claude; alternativa B) ([D-155](decisions.md#d-155)):
+  - el modelo de demanda es uno; cada ámbito tiene una ficha versionada con pertinencia (todo RI pertinente salvo NA fundamentados en la función del ámbito, como reglas; la falta de una propiedad no es motivo; Web sin excepciones) y localización (vocabulario del ámbito → aportaciones, como expresiones ilustrativas del perfil del RI); la auditoría compone modelo × ficha y registra su versión;
+  - las pistas siguen sin ámbito; la no pertinencia es de RI, no de aportación;
+  - precisa D-145: la propiedad recomendada es apoyo de demanda «referencias» sin ámbito y localizador en la ficha de Web Schema.org.
+  - Módulos: [demand-model](../10-model/demand-model.md#relación-con-los-ámbitos-de-evaluación) 3.7; [evaluation-scopes](../10-model/evaluation-scopes.md) 1.8; [construction-routes](../10-model/construction-routes.md) 1.8; [assessment-hints](../10-model/assessment-hints.md) 1.8; glosario (nueva entrada Ficha de ámbito).
+- **método** — [inputs-outputs](../20-methods/audit-gsc/inputs-outputs.md) 0.5 (ámbito pertinente: modelo × ficha); [ri-profile](../20-methods/audit-gsc/ri-profile.md) 0.3 (`expresiones_ejemplo` y `ambitos_pertinentes` desde la ficha).
+- **gobernanza** — OQ-76 cerrada; D-145 anotada en la tabla. Fuera de `docs/`: T-056 (ficha de Web Schema.org y apoyo «referencias» en demand-engine).
+- **método** — Implantación (T-056): [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.33: apoyo de Google Search en la capa general (gen 0.8); disponibilidad, estado de la unidad, promociones y opiniones pasan de «inferida» a «referencias».
+
+## 2026-10-28 — Auditoría informativa V1: perfil de Web, ámbitos, dos fases y Fiabilidad sin fuentes externas · aplicado
+
+- **canon** — `INTAKE 2026-10-28-informative-audit-v1` (decisiones del usuario en sesión, al empezar el sistema de valoración de calidad):
+  - perfil de consumo base de Web: la respuesta HTTP sin ejecutar JavaScript; el DOM cargado, posible segundo perfil versionado; Web Schema.org usa el mismo perfil (interpretación de Claude) ([D-151](decisions.md#d-151));
+  - Fiabilidad sin fuentes externas: tres familias (estructura del dato, conocimiento del dominio, consistencia dentro del ámbito); desaparece la fuente independiente; el hecho particular tomado de fuera ya no contrasta; regla asimétrica del conocimiento del modelo (frena una refutación libremente, solo la produce con una regla general citada o una imposibilidad física o lógica; lo que sepa de un caso concreto es una sospecha que no gradúa y va al informe); certificaciones juzgadas por lo publicado; nuevo límite de interpretación ([D-154](decisions.md#d-154), que enmienda D-122 y D-120).
+  - Módulos: [acceptance-criteria](../10-model/acceptance-criteria.md) 1.6; [effective-availability](../10-model/effective-availability.md) 1.3; [evaluation-scopes](../10-model/evaluation-scopes.md) 1.7; [scoring-systems](../10-model/scoring-systems.md) 1.5 (ejemplo de NE); [assessment-hints](../10-model/assessment-hints.md) 1.7 (fila de Fiabilidad y pistas de certificaciones); [quality-properties](../10-model/quality-properties.md) 1.4; [scope](../00-context/scope.md) 1.2 (límite de interpretación); glosario (perfil de consumo, prueba de derivación, Fiabilidad; nueva entrada sospecha).
+- **método** — Ámbitos de la V1: Web y Web Schema.org; Catálogos distribuidos, aplazado ([D-152](decisions.md#d-152)). Ejecución en dos fases: disponibilidad de todos los RI por ficha × ámbito y AC por lotes de RI con disponibilidad 1, con comprobación por código de los fragmentos citados (propuesta, [D-153](decisions.md#d-153)). Módulos de audit-gsc: [README](../20-methods/audit-gsc/README.md) 0.3, [inputs-outputs](../20-methods/audit-gsc/inputs-outputs.md) 0.4, [execution](../20-methods/audit-gsc/execution.md) 0.4 (nueva sección «Ejecución en dos fases»), [availability-coverage](../20-methods/audit-gsc/availability-coverage.md) 0.3, [qa](../20-methods/audit-gsc/qa.md) 0.4 (nueva QA-15), [ac-guides](../20-methods/audit-gsc/ac-guides.md) 0.5, [evidence](../20-methods/audit-gsc/evidence.md) 0.3 (EV-14), [property-checks](../20-methods/audit-gsc/property-checks.md) 0.3, [gsc-decision](../20-methods/audit-gsc/gsc-decision.md) 0.5, [calibration](../20-methods/audit-gsc/calibration.md) 0.4, [dossier](../20-methods/audit-gsc/dossier.md) 0.3 (sospechas en el informe).
+- **gobernanza** — D-120 y D-122 anotadas en la tabla; OQ-66 reducida a las tres familias; anotaciones en OQ-20 y OQ-30; nueva [OQ-77](open-questions.md#f-evaluación-técnica) (marcado inyectado con JavaScript); invariante 4 de `CLAUDE.md` (Fiabilidad sin fuentes externas). Fuera de `docs/` (pendiente): retirar PV-5 y PV-39 y reescribir PV-6 y PV-40 como pistas de Aplicabilidad en `demand-engine/catalog/hints.json`.
+
 ## 2026-10-28 — Sistema capture: motor de captura y almacén común de fichas congeladas · aplicado
 
 - **canon** — `INTAKE 2026-10-28-capture-system` (decisión del usuario, estudio T-063, alternativa B; T-066):

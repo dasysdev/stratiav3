@@ -1,0 +1,1524 @@
+{
+ "group": "merchant-2",
+ "results": [
+  {
+   "id": "ws-consumer/079",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "priceType https://schema.org/StrikethroughPrice (49,99 EUR)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ninguna UnitPriceSpecification con priceType en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ninguna UnitPriceSpecification con priceType en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ninguna UnitPriceSpecification con priceType en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ninguna UnitPriceSpecification con priceType en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/080",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "Offer con price 39.95 EUR junto al precio tachado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ninguna Offer con UnitPriceSpecification con priceType."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ninguna Offer con UnitPriceSpecification con priceType."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ninguna Offer con UnitPriceSpecification con priceType."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ninguna Offer con UnitPriceSpecification con priceType."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/081",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Solo «Precio de venta por unidad 39,95 €» en span sr-only: no es unidad de medida (lectura dudosa)."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "La página no muestra precio por kilo, litro, metro u otra medida."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "La página no muestra precio por unidad de medida."
+    },
+    "cuerda-tootoy": {
+     "state": "no satisfecho",
+     "evidence": "«4.58€ / kg» de un pienso relacionado; la Offer TOO43945 no tiene UnitPriceSpecification con referenceQuantity."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "La página no muestra precio por unidad de medida."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/082",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin precio para miembros; solo enlace de menú «El Corte Inglés Plus»."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin precio para miembros visible."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin precio para miembros (solo «2% dto. extra» por la app)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin precio para miembros visible."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin precio para miembros visible."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/083",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ninguna UnitPriceSpecification con validForMemberTier."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ninguna UnitPriceSpecification con validForMemberTier."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ninguna UnitPriceSpecification con validForMemberTier."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ninguna UnitPriceSpecification con validForMemberTier."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ninguna UnitPriceSpecification con validForMemberTier."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/086",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/087",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/088",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ningún referenceQuantity en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/090",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/091",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/092",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/093",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin SizeSpecification en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/095",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin PeopleAudience con suggestedGender."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin PeopleAudience con suggestedGender."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin PeopleAudience con suggestedGender."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin PeopleAudience con suggestedGender."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin PeopleAudience con suggestedGender."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/098",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/099",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/100",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/102",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/103",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/104",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Certification."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/105",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/106",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/107",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/108",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/109",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/110",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/111",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/112",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/113",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/114",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/115",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/116",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin OfferShippingDetails en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/117",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/118",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/119",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/120",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/121",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin DefinedRegion en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/124",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/125",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/126",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/127",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/128",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/129",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin handlingTime ni transitTime en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/130",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "applicableCountry ES."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/131",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "applicableCountry «ES», en la tabla ISO 3166-1."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/132",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "returnPolicyCategory MerchantReturnFiniteReturnWindow."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/133",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "https://schema.org/MerchantReturnFiniteReturnWindow."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/134",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "merchantReturnDays 30."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/136",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "returnFees https://schema.org/FreeReturn."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/137",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "FreeReturn sin returnShippingFeesAmount."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/138",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Única MerchantReturnPolicy con returnFees FreeReturn."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/139",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Única MerchantReturnPolicy con returnFees FreeReturn."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/140",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin returnShippingFeesAmount."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/144",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "returnMethod ReturnInStore y ReturnByMail."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/147",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "satisfecho",
+     "evidence": "Offer y UnitPriceSpecification en EUR."
+    },
+    "cojin-018": {
+     "state": "satisfecho",
+     "evidence": "Única Offer en EUR."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "satisfecho",
+     "evidence": "31 Offer Microdata (principal y relacionados), todas EUR."
+    },
+    "cuerda-tootoy": {
+     "state": "satisfecho",
+     "evidence": "AggregateOffer y Offer JSON-LD, y Offer Microdata suelta: todas EUR."
+    },
+    "sofa-cama-luna": {
+     "state": "satisfecho",
+     "evidence": "Única Offer en EUR."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/148",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin entidad Car en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Sin entidad Car en el marcado."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Sin entidad Car en el marcado."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Sin entidad Car en el marcado."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin entidad Car en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/149",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NE",
+     "evidence": "Solo hay DOM renderizado; falta el HTML servido para comparar."
+    },
+    "cojin-018": {
+     "state": "NE",
+     "evidence": "Solo hay DOM renderizado; falta el HTML servido para comparar."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NE",
+     "evidence": "Solo hay DOM renderizado; falta el HTML servido para comparar."
+    },
+    "cuerda-tootoy": {
+     "state": "NE",
+     "evidence": "Solo hay DOM renderizado; falta el HTML servido para comparar."
+    },
+    "sofa-cama-luna": {
+     "state": "NE",
+     "evidence": "Solo hay DOM renderizado; falta el HTML servido para comparar."
+    }
+   }
+  }
+ ],
+ "problems": [
+  {
+   "id": "ws-consumer/081",
+   "kind": "ambiguo",
+   "fichas": [
+    "eci-lijadora-a200805914",
+    "cuerda-tootoy"
+   ],
+   "description": "«La página muestra un precio por unidad de medida» admite dos lecturas: cualquier precio por unidad de la página o el del producto auditado. Kiwoko muestra «4.58€ / kg» solo en la tarjeta de un pienso relacionado: aplica y es no satisfecho si se lee literal, y NA si se lee referido al producto. Además, ECI tiene «Precio de venta por unidad 39,95 €» (sr-only): «por unidad» (pieza) puede leerse o no como unidad de medida (NA o no satisfecho).",
+   "proposal": {
+    "field": "applicability",
+    "text": "La página muestra, para el producto de una Offer del marcado, un precio por unidad de medida de cantidad (por kilo, litro, metro u otra; no por pieza o unidad de venta)."
+   }
+  },
+  {
+   "id": "ws-consumer/081",
+   "kind": "método",
+   "fichas": [
+    "cuerda-tootoy",
+    "colchoneta-refrescante-freedog"
+   ],
+   "description": "La condición se limita a las Offer cuyo precio la página muestra por unidad de medida, pero el método comprueba todas las Offer del marcado: con varios Product (Guaw, 31) o con precios por unidad de productos relacionados (Kiwoko) da no satisfecho por Offer ajenas a la condición.",
+   "proposal": {
+    "field": "method",
+    "text": "Identificar en la página los precios por unidad de medida y el producto al que pertenece cada uno; para cada Offer del marcado de ese producto (JSON-LD, Microdata y RDFa), comprobar que su precio activo está en una UnitPriceSpecification con referenceQuantity (un QuantitativeValue). Las Offer de productos sin precio por unidad mostrado no se comprueban."
+   }
+  },
+  {
+   "id": "ws-consumer/082",
+   "kind": "no comprobable",
+   "fichas": [
+    "eci-lijadora-a200805914",
+    "cuerda-tootoy",
+    "sofa-cama-luna"
+   ],
+   "description": "«Contenido visible» no está definido para un DOM renderizado sin estilos calculados. Hay texto sr-only (ECI «Precio de venta por unidad»), aria-hidden (Kiwoko «4.58€ / kg»), JSON en atributos (sofá «Talla S/M/L» en data-*) y menús. Una lectura toma el texto del DOM y decide (NA aquí); otra exige la página renderizada visible y da NE por su not_evaluable. Afecta igual a 081, 090, 091 y 119.",
+   "proposal": {
+    "field": "not_evaluable",
+    "text": "Hace falta el contenido visible de la página renderizada (texto del DOM renderizado fuera de script, style, template, atributos y elementos ocultos con hidden, aria-hidden o display:none; el texto solo para lectores de pantalla cuenta como visible) y no se ha podido obtener."
+   }
+  },
+  {
+   "id": "ws-consumer/090",
+   "kind": "aplicabilidad",
+   "fichas": [
+    "cojin-018",
+    "sofa-cama-luna"
+   ],
+   "description": "La aplicabilidad conjuga un hecho de la página y uno del marcado, y el not_evaluable solo habla de la página. Sin SizeSpecification en el marcado es NA sin mirar la página, pero leído al pie de la letra se podría declarar NE si falta el contenido visible. Además, «Selecciona tu talla 50x50 cm» (cojín) o «Talla S/M/L» (sofá) no son grupos de tallas: conviene decirlo. Igual en 091 (sistema de tallas), 081 y 119.",
+   "proposal": {
+    "field": "not_evaluable",
+    "text": "Si el marcado contiene una SizeSpecification, hace falta el contenido visible de la página renderizada para saber si la página indica un grupo de tallas de prenda (regular, petite, plus, tall, big o maternity; no medidas ni tallas S/M/L de mueble) y no se ha podido obtener."
+   }
+  },
+  {
+   "id": "ws-consumer/149",
+   "kind": "no comprobable",
+   "fichas": [
+    "eci-lijadora-a200805914",
+    "cojin-018",
+    "colchoneta-refrescante-freedog",
+    "cuerda-tootoy",
+    "sofa-cama-luna"
+   ],
+   "description": "El not_evaluable solo prevé que falte el DOM renderizado; aquí falta el HTML servido, que es la otra mitad de la comparación, y la causa no figura (solo cabe como común). Además el método no dice cómo emparejar entidades de los dos documentos sin @id (Guaw: 31 Product en Microdata, Kiwoko: ProductGroup con hasVariant).",
+   "proposal": {
+    "field": "not_evaluable",
+    "text": "Hace falta el HTML servido (la respuesta del servidor sin ejecutar JavaScript) y no se ha podido obtener. | Hace falta el DOM renderizado de la página y no se ha podido obtener."
+   }
+  },
+  {
+   "id": "ws-consumer/149",
+   "kind": "método",
+   "fichas": [
+    "colchoneta-refrescante-freedog",
+    "cuerda-tootoy"
+   ],
+   "description": "«Comprobar que las del DOM renderizado ya están en el HTML servido» no fija el criterio de identidad cuando no hay @id, ni si cuentan los Product anidados (hasVariant) y los de productos relacionados.",
+   "proposal": {
+    "field": "method",
+    "text": "Extraer las entidades Product y ProductGroup, también las anidadas, del HTML servido (sin ejecutar JavaScript) y del DOM renderizado (JSON-LD, Microdata y RDFa) y emparejarlas por @id, o, sin él, por url, sku o name; comprobar que cada una del DOM renderizado tiene pareja en el HTML servido."
+   }
+  },
+  {
+   "id": "ws-consumer/147",
+   "kind": "método",
+   "fichas": [
+    "cuerda-tootoy",
+    "colchoneta-refrescante-freedog"
+   ],
+   "description": "No dice si entran AggregateOffer (Kiwoko, lowprice/highprice), las Offer de productos relacionados (Guaw, 30) ni una Offer Microdata sin Product padre (Kiwoko L3525). Aquí todas son EUR y no cambia el estado, pero con monedas distintas en relacionados sí.",
+   "proposal": {
+    "field": "method",
+    "text": "Extraer todas las Offer y AggregateOffer del marcado (JSON-LD, Microdata y RDFa), también las de productos relacionados y las que no cuelgan de un Product, con sus priceSpecification, y comprobar que todos los priceCurrency tienen el mismo valor."
+   }
+  },
+  {
+   "id": "ws-consumer/087",
+   "kind": "método",
+   "fichas": [],
+   "description": "La condición pide que value exista; el método exige además que sea numérico. Lo mismo en 088 (valueReference «con un QuantitativeValue»), 105 (deliveryTime «con una ShippingDeliveryTime»), 107 (shippingDestination «con una DefinedRegion»), 108 (shippingRate «con un MonetaryAmount») y 139 (returnShippingFeesAmount «con un MonetaryAmount»): un valor presente de otro tipo sería satisfecho por la condición y no satisfecho por el método. No se da en estas fichas.",
+   "proposal": {
+    "field": "method",
+    "text": "Extraer los QuantitativeValue de referenceQuantity del marcado (JSON-LD, Microdata y RDFa) y comprobar que cada uno tiene value. (Si se quiere el tipo, que sea un requisito aparte o que la condición diga «un value numérico».)"
+   }
+  },
+  {
+   "id": "ws-consumer/119",
+   "kind": "método",
+   "fichas": [
+    "cojin-018"
+   ],
+   "description": "La condición habla de zonas «menores que un país» y el método de zonas «con condiciones propias». Burrito Blanco publica tarifas distintas para Baleares y península, pero sin DefinedRegion es NA; no hay conflicto aquí, pero el método debería decir cómo se casa cada zona publicada con una DefinedRegion.",
+   "proposal": {
+    "field": "method",
+    "text": "Extraer las DefinedRegion del marcado (JSON-LD, Microdata y RDFa) y, para cada zona de envío menor que un país con condiciones propias que publica la página, comprobar que la DefinedRegion que la representa tiene addressRegion o postalCode."
+   }
+  }
+ ]
+}

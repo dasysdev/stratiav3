@@ -1,0 +1,32 @@
+{
+ "source": "google-crawling-http-status",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Cómo tratan los rastreadores de Google cada código de estado HTTP. No fija requisitos (no dice must, should ni recommend); su función es de método: qué respuesta procesa Google tras las redirecciones y cuántos saltos sigue, qué es un soft 404 y que el contenido de las respuestas 4xx y 5xx no se usa.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#http-status-codes",
+   "text": "Google considers the content for processing (for example, in the case of Google Search, for indexing). If the content suggests an error for Google Search, an empty page or an error message, Search Console will show a soft 404 error."
+  },
+  {
+   "id": "q02",
+   "section": "#http-status-codes",
+   "text": "By default, Google's crawlers follow up to 10 redirect hops. However, specific products' crawlers may have different limits. For example, Googlebot generally follows 10 redirect hops when crawling for general web content, but Google Inspection Tools doesn't follow redirects. Any content Google receives from the redirecting URL is ignored, and the final target URL's content is processed instead."
+  },
+  {
+   "id": "q03",
+   "section": "#http-status-codes",
+   "text": "In the case of Google Search, Google doesn't index URLs that return a 4xx status code, and URLs that are already indexed and return a 4xx status code are removed from the index. Any content Google receives from URLs that return a 4xx status code is ignored."
+  },
+  {
+   "id": "q04",
+   "section": "#http-status-codes",
+   "text": "Any content Google receives from URLs that return a 5xx status code is ignored."
+  }
+ ]
+}

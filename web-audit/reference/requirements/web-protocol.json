@@ -1,0 +1,170 @@
+{
+ "level": "protocolo",
+ "requirements": [
+  {
+   "id": "w-protocol/004",
+   "scope": "Web",
+   "spec": "sitemaps-org-protocol",
+   "condition": "Cada sitemap XML del sitio tiene como elemento raíz urlset o, si es un índice de sitemaps, sitemapindex.",
+   "nature": "obligatoria",
+   "quotes": [
+    "sitemaps-org-protocol#q02",
+    "sitemaps-org-protocol#q09"
+   ],
+   "method": "Analizar como XML cada sitemap XML del conjunto (punto 5). No se satisface si no es XML bien formado o si su elemento raíz no es urlset ni sitemapindex (del espacio de nombres del protocolo).",
+   "evidence": "Por cada sitemap: su URL, si se analizó como XML y su elemento raíz, o el error de análisis.",
+   "applicability": "El sitio publica al menos un sitemap XML o un índice de sitemaps (método común de Web, punto 5).",
+   "view": "general",
+   "not_evaluable": [
+    "Algún sitemap del conjunto no se pudo obtener y ninguno de los obtenidos incumple (método común de Web, punto 5)."
+   ]
+  },
+  {
+   "id": "w-protocol/005",
+   "scope": "Web",
+   "spec": "sitemaps-org-protocol",
+   "condition": "Cada sitemap XML del sitio está codificado en UTF-8.",
+   "nature": "obligatoria",
+   "quotes": [
+    "sitemaps-org-protocol#q01",
+    "sitemaps-org-protocol#q11"
+   ],
+   "method": "Decodificar los bytes de cada sitemap (descomprimido si viene en gzip) con el decodificador UTF-8 estricto: se satisface si no da ningún error. Una declaración XML con otra codificación no lo satisface.",
+   "evidence": "Por cada sitemap: su URL, la codificación que declara y, si falla, la posición del primer error.",
+   "applicability": "El sitio publica al menos un sitemap XML o un índice de sitemaps (método común de Web, punto 5).",
+   "view": "general",
+   "not_evaluable": [
+    "Algún sitemap del conjunto no se pudo obtener y ninguno de los obtenidos incumple (método común de Web, punto 5)."
+   ]
+  },
+  {
+   "id": "w-protocol/006",
+   "scope": "Web",
+   "spec": "sitemaps-org-protocol",
+   "condition": "Cada entrada url de un sitemap y cada entrada sitemap de un índice tiene un elemento loc.",
+   "nature": "obligatoria",
+   "quotes": [
+    "sitemaps-org-protocol#q02",
+    "sitemaps-org-protocol#q03",
+    "sitemaps-org-protocol#q09",
+    "sitemaps-org-protocol#q10"
+   ],
+   "method": "Recorrer las entradas url (en urlset) y sitemap (en sitemapindex) de cada sitemap XML y comprobar que cada una tiene un loc no vacío.",
+   "evidence": "Por cada sitemap: número de entradas y las que no tienen loc, con su posición.",
+   "applicability": "El sitio publica al menos un sitemap XML o un índice de sitemaps (método común de Web, punto 5).",
+   "view": "general",
+   "not_evaluable": [
+    "Algún sitemap del conjunto no se pudo obtener y ninguno de los obtenidos incumple (método común de Web, punto 5)."
+   ]
+  },
+  {
+   "id": "w-protocol/007",
+   "scope": "Web",
+   "spec": "sitemaps-org-protocol",
+   "condition": "Cada loc de un sitemap es una URL absoluta, con su protocolo.",
+   "nature": "obligatoria",
+   "quotes": [
+    "sitemaps-org-protocol#q05"
+   ],
+   "method": "Comprobar que el valor de cada loc, sin espacios en los extremos, es una URL absoluta que empieza por su esquema (http o https) y su host.",
+   "evidence": "Por cada sitemap: los loc relativos o sin esquema, con su posición.",
+   "applicability": "El sitio publica al menos un sitemap XML o un índice de sitemaps (método común de Web, punto 5).",
+   "view": "general",
+   "not_evaluable": [
+    "Algún sitemap del conjunto no se pudo obtener y ninguno de los obtenidos incumple (método común de Web, punto 5)."
+   ]
+  },
+  {
+   "id": "w-protocol/008",
+   "scope": "Web",
+   "spec": "sitemaps-org-protocol",
+   "condition": "Cada loc de un sitemap tiene menos de 2048 caracteres.",
+   "nature": "obligatoria",
+   "quotes": [
+    "sitemaps-org-protocol#q05"
+   ],
+   "method": "Medir en caracteres el valor de cada loc, una vez resueltas las referencias de entidad.",
+   "evidence": "Por cada sitemap: los loc de 2048 caracteres o más y su longitud.",
+   "applicability": "El sitio publica al menos un sitemap XML o un índice de sitemaps (método común de Web, punto 5).",
+   "view": "general",
+   "not_evaluable": [
+    "Algún sitemap del conjunto no se pudo obtener y ninguno de los obtenidos incumple (método común de Web, punto 5)."
+   ]
+  },
+  {
+   "id": "w-protocol/009",
+   "scope": "Web",
+   "spec": "sitemaps-org-protocol",
+   "condition": "Cada URL de un sitemap es válida para la ubicación del sitemap: mismo protocolo y host y bajo su directorio, o declarada por el robots.txt del host de la URL.",
+   "nature": "obligatoria",
+   "quotes": [
+    "sitemaps-org-protocol#q04",
+    "sitemaps-org-protocol#q13",
+    "sitemaps-org-protocol#q14",
+    "sitemaps-org-protocol#q15",
+    "sitemaps-org-protocol#q16"
+   ],
+   "method": "Para cada loc de un urlset, comparar su esquema, host y puerto con los del sitemap y comprobar que su ruta empieza por el directorio del sitemap. Si no, solo es válida si el robots.txt del host de la URL declara ese sitemap (cross submit). El protocolo descarta las no válidas.",
+   "evidence": "Por cada sitemap: su ubicación y las URL que no admite, con el motivo (protocolo, host o ruta).",
+   "applicability": "El sitio publica al menos un sitemap XML o un índice de sitemaps (método común de Web, punto 5).",
+   "view": "general",
+   "not_evaluable": [
+    "Algún sitemap del conjunto no se pudo obtener y ninguno de los obtenidos incumple (método común de Web, punto 5)."
+   ]
+  },
+  {
+   "id": "w-protocol/010",
+   "scope": "Web",
+   "spec": "sitemaps-org-protocol",
+   "condition": "Cada sitemap tiene como mucho 50.000 URL y cada índice como mucho 50.000 sitemaps.",
+   "nature": "obligatoria",
+   "quotes": [
+    "sitemaps-org-protocol#q07"
+   ],
+   "method": "Contar las entradas url de cada urlset y las sitemap de cada sitemapindex.",
+   "evidence": "Por cada sitemap: número de entradas.",
+   "applicability": "El sitio publica al menos un sitemap XML o un índice de sitemaps (método común de Web, punto 5).",
+   "view": "general",
+   "not_evaluable": [
+    "Algún sitemap del conjunto no se pudo obtener y ninguno de los obtenidos incumple (método común de Web, punto 5)."
+   ]
+  },
+  {
+   "id": "w-protocol/011",
+   "scope": "Web",
+   "spec": "sitemaps-org-protocol",
+   "condition": "Cada sitemap ocupa como mucho 50 MB (52.428.800 bytes) sin comprimir.",
+   "nature": "obligatoria",
+   "quotes": [
+    "sitemaps-org-protocol#q07",
+    "sitemaps-org-protocol#q08"
+   ],
+   "method": "Medir el tamaño en bytes de cada sitemap descomprimido.",
+   "evidence": "Por cada sitemap: su tamaño descomprimido en bytes.",
+   "applicability": "El sitio publica al menos un sitemap XML o un índice de sitemaps (método común de Web, punto 5).",
+   "view": "general",
+   "not_evaluable": [
+    "Algún sitemap del conjunto no se pudo obtener y ninguno de los obtenidos incumple (método común de Web, punto 5)."
+   ]
+  },
+  {
+   "id": "w-protocol/012",
+   "scope": "Web",
+   "spec": "sitemaps-org-protocol",
+   "condition": "Ningún valor de un sitemap XML contiene un carácter & o < sin escapar.",
+   "nature": "obligatoria",
+   "quotes": [
+    "sitemaps-org-protocol#q01",
+    "sitemaps-org-protocol#q06"
+   ],
+   "method": "Buscar en el texto de cada sitemap XML un & que no abra una referencia de entidad o de carácter, o un < que no abra una etiqueta, un comentario o una sección CDATA. Un analizador XML estricto los da como error de forma.",
+   "evidence": "Por cada sitemap: los caracteres sin escapar y su posición.",
+   "applicability": "El sitio publica al menos un sitemap XML o un índice de sitemaps (método común de Web, punto 5).",
+   "view": "general",
+   "not_evaluable": [
+    "Algún sitemap del conjunto no se pudo obtener y ninguno de los obtenidos incumple (método común de Web, punto 5)."
+   ],
+   "rationale": "El protocolo exige escapar &, ', \", > y <. Solo & y < sin escapar impiden analizar el XML, y con ello leer las URL. Los otros tres no impiden la lectura, y no se auditan por el criterio del triaje de Web."
+  }
+ ]
+}

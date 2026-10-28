@@ -1,0 +1,28 @@
+{
+ "source": "google-search-redirects",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Tipos de redirección (permanentes y temporales; del servidor, meta refresh, JavaScript y crypto) y cómo los interpreta Google Search. No fija requisitos comprobables de la cadena que sirve el recurso: sus recomendaciones dependen de la intención del sitio (cambiar la URL que muestra Google, o haber trasladado la página), que no se observa en la respuesta.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#permanent-server-side-redirects",
+   "text": "If you need to change the URL of a page as it is shown in search engine results, we recommend that you use a permanent server-side redirect whenever possible."
+  },
+  {
+   "id": "q02",
+   "section": "#temporary-server-side-redirects",
+   "text": "If you just want to send users to a different page temporarily, use a temporary redirect."
+  },
+  {
+   "id": "q03",
+   "section": "#cryptoredirects",
+   "text": "If you can't implement any of the other redirect methods, you should still make an effort to let your users know that the page or its content has moved."
+  }
+ ],
+ "note": "La recomendación de q01 vale solo si el sitio quiere cambiar la URL que muestra Google; si solo quiere desviar de forma temporal, la guía pide una redirección temporal (q02). El tipo de redirección correcto depende de esa intención, que no es un hecho de la respuesta: no hay requisito. El «should» de q03 se aplica a una página trasladada sin otra redirección posible. Cuántos saltos sigue Googlebot lo da google-crawling-http-status (q02), en el método de w-consumer/002."
+}

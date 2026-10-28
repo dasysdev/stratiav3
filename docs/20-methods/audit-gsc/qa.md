@@ -3,9 +3,9 @@ id: audit-gsc-qa
 title: Controles de calidad y resolución de incidencias
 layer: method
 status: propuesta
-version: 0.3
-updated: 2026-10-27
-sources: [GSC0 §16, GSC0 Anexo D, FUND §12, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
+version: 0.4
+updated: 2026-10-28
+sources: [GSC0 §16, GSC0 Anexo D, FUND §12, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-informative-audit-v1]
 ---
 
 # Controles de calidad y resolución de incidencias
@@ -16,7 +16,7 @@ sources: [GSC0 §16, GSC0 Anexo D, FUND §12, INTAKE 2026-10-27-ac-applicability
 
 El procedimiento debe vigilar especialmente las **falsas ausencias**, la inclusión por simple asociación temática, el uso de conocimiento externo como si fuera información expuesta, las atribuciones entre entidades o momentos no comparables y la confusión entre hecho observado e interpretación. La independencia frente a modelos concretos de IA es metodológica y razonablemente reproducible; no equivale a invariancia absoluta del comportamiento de todos los agentes.
 
-## Validaciones obligatorias (QA-01 a QA-14)
+## Validaciones obligatorias (QA-01 a QA-15)
 
 > **Estado: propuesta V1.**
 
@@ -48,6 +48,8 @@ El procedimiento debe vigilar especialmente las **falsas ausencias**, la inclusi
 
 **QA-14.** El informe remite a evidencias originales suficientes y distingue hallazgos de hipótesis, limitaciones y recomendaciones.
 
+**QA-15.** *(Propuesta V1, [D-153](../../30-governance/decisions.md#d-153).)* Entre las dos fases de la [ejecución](execution.md#ejecución-en-dos-fases), el código comprueba que cada fragmento citado como evidencia existe literalmente en la representación de su ámbito (en Web Schema.org, en el marcado) y que cada disponibilidad 0 lleva su registro de cobertura. Lo que no lo cumple no pasa a la fase 2.
+
 | QA | Módulo que controla |
 |---|---|
 | QA-01, QA-02 | [inputs-outputs.md](inputs-outputs.md), [ri-profile.md](ri-profile.md) |
@@ -57,6 +59,7 @@ El procedimiento debe vigilar especialmente las **falsas ausencias**, la inclusi
 | QA-10 | [property-checks.md](property-checks.md) (P16) |
 | QA-11 a QA-13 | [gsc-decision.md](gsc-decision.md) |
 | QA-14 | [dossier.md](dossier.md) |
+| QA-15 | [execution.md](execution.md#ejecución-en-dos-fases), [evidence.md](evidence.md) |
 
 ## Incidencias del procedimiento
 
@@ -66,7 +69,7 @@ El procedimiento debe vigilar especialmente las **falsas ausencias**, la inclusi
 | Contenido no recuperable | Verificar perfil, repetir comprobación razonable y registrar fallo. | Disponibilidad 0 si se acredita imposibilidad efectiva; de lo contrario, inconclusa. |
 | Candidato decisivo sin contexto | Ampliar inspección de recursos admitidos. | No fundamentar conclusiones incompatibles con la incertidumbre. |
 | Contradicción entre afirmaciones | Comprobar entidad, condiciones, unidades y momento. | Registrar discrepancia sin inventar versión «correcta». |
-| Falta de fuente para Fiabilidad | Documentar qué comprobaciones se hicieron (estructura, dominio, fuente independiente si existe). | Grado según las comprobaciones superadas; ni 0 ni NE automáticos. |
+| Falta de fuente para Fiabilidad | Documentar qué comprobaciones se hicieron (estructura, dominio, consistencia del ámbito); la auditoría no consulta fuentes externas ([D-154](../../30-governance/decisions.md#d-154)). | Grado según las comprobaciones superadas; ni 0 ni NE automáticos. |
 | Evidencia descontextualizada | Recuperar soporte original y contexto. | El hallazgo no puede aceptarse hasta subsanar o declarar limitación. |
 | El informe afirma más que el expediente | Revisar texto y vínculos evidenciales. | No publicar la conclusión no sustentada. |
 

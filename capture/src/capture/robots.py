@@ -124,3 +124,14 @@ class Robots:
         """Agents of `agents` that have their own group and may not fetch the root."""
         return [a for a in agents
                 if any(a.lower() in g.agents for g in self.groups) and not self.allowed("/", a)]
+
+    def by_bot(self, url: str, bots) -> dict:
+        """For each bot: the groups it obeys (its own, `*` or none) and whether it may fetch
+        `url` and the root of its site. A fact recorded for the audit, not a rule for us."""
+        root = urllib.parse.urlsplit(url)._replace(path="/", query="", fragment="").geturl()
+        out = {}
+        for bot in bots:
+            own = any(bot.lower() in g.agents for g in self.groups)
+            group = "own" if own else ("*" if any("*" in g.agents for g in self.groups) else None)
+            out[bot] = {"group": group, "url": self.allowed(url, bot), "root": self.allowed(root, bot)}
+        return out

@@ -62,6 +62,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 | [I-46](#i-46) | «Es un criterio, no una lista»: qué puede comprobar el código | Baja | abierta |
 | [I-47](#i-47) | GS1 Web Vocabulary no encaja en ninguna clase de fuente | Baja | abierta |
 | [I-48](#i-48) | Alcance de «la categoría madre en general» y de las preguntas sobre el material en el perímetro de PAA | Media | resuelta → D-146 |
+| [I-49](#i-49) | Cobertura de la tasa técnica: ¿los NA cuentan en los pertinentes? | Media | abierta |
 
 ---
 
@@ -638,3 +639,12 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
   2. **Material:** una pregunta sobre el material va dentro si ese material es un valor del producto de la clase. Va fuera si solo la traen semillas o contextos del vecino. Las dos de pantuflas quedarían fuera solo si se confirma que vienen del calzado en general.
 - **Resolución (2026-10-28):** decisión del usuario, ninguna de las dos de la propuesta 1 (opción B): la pregunta sobre la madre va dentro cuando pregunta por algo que la clase hereda de su bloque, y fuera si solo tiene sentido para otro producto o trata de un hermano; las semillas no cambian. Material: dentro si la clase tiene o hereda ese material; en pantuflas, las preguntas de cuero vuelven dentro con sus tres aportaciones. → [D-146](decisions.md#d-146).
 
+### I-49
+
+**Cobertura de la tasa técnica: ¿los NA cuentan en los pertinentes?**
+
+- [D-166](decisions.md#d-166) fija «evaluados = pertinentes − NA − NE» y «cobertura: evaluados / pertinentes»; la primera fórmula supone que los pertinentes **incluyen** los NA. Pero el canon dice de NA que «se justifica y se **separa** de los pertinentes» ([evaluation-scopes](../10-model/evaluation-scopes.md#estados-del-requisito-técnico), [D-131](decisions.md#d-131)), y D-166 presenta la cobertura como el lugar donde se informa de las NE, que son la incidencia.
+- Con la lectura literal, los NA bajan la cobertura aunque no sean incidencias. En el primer expediente real (T-049, `burritoblanco-t078`, 761 casos), 442 son NA (políticas, tallas, certificaciones o RDFa que la tienda no publica): la cobertura de Web Schema.org en la ficha de producto queda en torno al 30 % con solo un puñado de NE, y parece una auditoría incompleta.
+- El auditor (`web-audit/bin/audit`) aplica hoy la lectura literal y publica al lado los recuentos de NA y NE, de modo que las dos lecturas se pueden calcular.
+- **Afecta a:** [scoring-systems](../10-model/scoring-systems.md#tasa-de-cumplimiento-técnico), [evaluation-scopes](../10-model/evaluation-scopes.md#estados-del-requisito-técnico) y el cálculo de `web-audit/src/web_audit/audit.py`.
+- **Propuesta:** cobertura = evaluados / (pertinentes − NA): la proporción de los casos aplicables que se pudieron comprobar, de modo que solo la bajan las NE. La fórmula de evaluados no cambia. La alternativa es mantener la literal y añadir, aparte, el número de NA.

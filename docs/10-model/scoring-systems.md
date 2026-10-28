@@ -3,9 +3,9 @@ id: scoring-systems
 title: Sistemas de valoración
 layer: model
 status: vigente
-version: 1.4
-updated: 2026-10-27
-sources: [BASE §6, FUND §8, INTAKE 2026-10-24-prominencia-informativa, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-web-schema-technical-framework]
+version: 1.6
+updated: 2026-10-28
+sources: [BASE §6, FUND §8, INTAKE 2026-10-24-prominencia-informativa, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-web-schema-technical-framework, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-technical-rate-pages-web-minimum]
 ---
 
 # Sistemas de valoración
@@ -33,7 +33,7 @@ Estados que **no son puntuaciones**:
 | Estado | Cuándo procede | Tratamiento |
 |---|---|---|
 | **No aplicable (NA)** | El requisito no corresponde al ámbito o a la cuestión definida. **No hay NA de criterio**: los seis se aplican siempre; la única excepción es el NA de Comparabilidad en los requisitos que no son dimensión de comparación ([D-126](../30-governance/decisions.md#d-126)). | Se justifica y se separa de las unidades pertinentes. |
-| **No evaluable (NE)** | **Incidencia de la auditoría:** una comprobación de un criterio no se pudo hacer (un recurso que no se pudo inspeccionar, un registro externo que no respondió). No es falta de evidencia sobre lo publicado. | **No se equipara a 0.** Se registra qué comprobación falló y su efecto sobre la interpretación. |
+| **No evaluable (NE)** | **Incidencia de la auditoría:** una comprobación de un criterio no se pudo hacer (un recurso que no se pudo inspeccionar). No es falta de evidencia sobre lo publicado. | **No se equipara a 0.** Se registra qué comprobación falló y su efecto sobre la interpretación. |
 
 El criterio «no aplicable» y la situación «no evaluable» de BASE §6.1 y FUND §8.1 están enmendados por [D-117](../30-governance/decisions.md#d-117) — INTAKE 2026-10-27-ac-applicability-and-reliability.
 
@@ -104,7 +104,14 @@ Es un indicador del **alcance de la resolución**. Es distinto del ICI, que tamb
 FUND §8.5 añade: **No sustituye al diagnóstico informativo ni demuestra por sí misma la resolución de RI.**
 
 - El **perfil de implementación** (respecto del cual un requisito es pertinente, obligatorio o recomendado) y los **estados del requisito técnico** (satisfecho o no satisfecho; NA; NE como incidencia, que no equivale a «no satisfecho») están en [evaluation-scopes](evaluation-scopes.md#perfil-de-implementación) ([D-130](../30-governance/decisions.md#d-130), [D-131](../30-governance/decisions.md#d-131)).
-- Cómo entran las obligatorias y las recomendadas en la tasa, sus umbrales y su cobertura siguen **sin fijar**. No se presuponen pesos.
+> - **Una sola tasa por ámbito y vista:** requisitos satisfechos / requisitos evaluados, donde evaluados = pertinentes − NA − NE. Entran las obligatorias y las recomendadas **sin pesos**: cada requisito cuenta uno.
+> - **Desglose obligatorio:** la tasa se presenta siempre con su desglose por naturaleza (obligatorias, recomendadas), con el mismo cálculo en cada parte.
+> - **Cobertura al lado:** evaluados / pertinentes. NE es una incidencia: no entra en el denominador de la tasa y se informa en la cobertura.
+> - **Sin umbrales** ni estados derivados de la tasa (no hay «conforme»).
+>
+> — INTAKE 2026-10-28-technical-rate-pages-web-minimum
+
+- **Agregación de las páginas** ([vistas](evaluation-scopes.md#vistas-de-la-evaluación-técnica)): la tasa de un **tipo de página** cuenta los casos requisito × página; además, por requisito, la proporción de páginas del tipo en que se satisface (sobre las que se evaluó), y el resultado de cada página. La vista general se evalúa una vez por sitio y da su propia tasa ([D-166](../30-governance/decisions.md#d-166)).
 
 ## Lectura integrada, sin confundir unidades
 
@@ -118,7 +125,7 @@ FUND §8.5 añade: **No sustituye al diagnóstico informativo ni demuestra por s
 | Conjunto de RI de un ámbito | ¿Qué calidad informativa ofrece el ámbito respecto de las necesidades relevantes? | **ICI** |
 | Cobertura resolutiva | ¿Qué proporción de cuestiones pertinentes se resuelve suficientemente? | **TRI** |
 | Requisito técnico × ámbito | ¿Se cumple esta condición de su perfil de implementación? | **Satisfecho / no satisfecho**; NA si no corresponde; NE si hay una incidencia. |
-| Controles técnicos por ámbito | ¿Qué proporción de requisitos técnicos pertinentes se cumple? | **Tasa de cumplimiento técnico** |
+| Controles técnicos por ámbito y vista (y tipo de página) | ¿Qué proporción de requisitos técnicos evaluados se cumple? | **Tasa de cumplimiento técnico**, con su desglose por naturaleza y su cobertura |
 
 Los indicadores de **Web** y **Web Schema.org** se interpretan por separado y **no se suman ni se promedian**, porque Web incluye la información de Web Schema.org.
 
@@ -129,7 +136,7 @@ Ver [open-questions](../30-governance/open-questions.md):
 - reglas de síntesis del IR (impacto relativo, aspectos indispensables, aplicabilidad, cobertura) en su escala 0–10;
 - regla de normalización binaria del IR, y fórmula y peso de la calidad ajustada (§G);
 - universo, importancia, umbrales y estados del ICI y la TRI;
-- sistema cuantitativo técnico.
+- perfil técnico de Catálogos distribuidos (la tasa técnica está fijada, [D-166](../30-governance/decisions.md#d-166)).
 
 **No deben presuponerse** fórmulas, pesos universales ni límites numéricos por criticidad.
 

@@ -1,0 +1,33 @@
+{
+ "source": "perplexity-crawlers",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Página de Perplexity sobre sus bots: PerplexityBot (resultados de búsqueda de Perplexity, no entrenamiento) y Perplexity-User (peticiones de un usuario, que en general no sigue robots.txt). Recomienda permitir PerplexityBot en robots.txt; la configuración del WAF es opcional («may»).",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#",
+   "text": "PerplexityBot is designed to surface and link websites in search results on Perplexity. It is not used to crawl content for AI foundation models."
+  },
+  {
+   "id": "q02",
+   "section": "#",
+   "text": "To ensure your site appears in search results, we recommend allowing PerplexityBot in your site’s robots.txt file and permitting requests from our published IP ranges listed below."
+  },
+  {
+   "id": "q03",
+   "section": "#",
+   "text": "Since a user requested the fetch, this fetcher generally ignores robots.txt rules."
+  },
+  {
+   "id": "q04",
+   "section": "#waf-configuration",
+   "text": "If you’re using a Web Application Firewall (WAF) to protect your site, you may need to explicitly whitelist Perplexity’s bots to ensure they can access your content."
+  }
+ ],
+ "note": "La recomendación está en el preámbulo (#), antes del primer encabezado. La parte sobre los rangos de IP publicados no se puede comprobar desde fuera del operador."
+}

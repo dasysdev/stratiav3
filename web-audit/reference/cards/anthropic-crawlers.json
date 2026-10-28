@@ -1,0 +1,33 @@
+{
+ "source": "anthropic-crawlers",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Página de Anthropic sobre sus bots: ClaudeBot (entrenamiento), Claude-User (peticiones de un usuario) y Claude-SearchBot (búsqueda), y el efecto de restringir cada uno en robots.txt. Describe y no fija ningún requisito: no dice must, should ni recommend al sitio.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#",
+   "text": "Claude-SearchBot navigates the web to improve search result quality for users."
+  },
+  {
+   "id": "q02",
+   "section": "#",
+   "text": "Disabling Claude-SearchBot on your site prevents our system from indexing your content for search optimization, which may reduce your site's visibility and accuracy in user search results."
+  },
+  {
+   "id": "q03",
+   "section": "#",
+   "text": "Disabling Claude-User on your site prevents our system from retrieving your content in response to a user query, which may reduce your site's visibility for user-directed web search."
+  },
+  {
+   "id": "q04",
+   "section": "#",
+   "text": "Anthropic’s Bots respect “do not crawl” signals by honoring industry standard directives in robots.txt."
+  }
+ ],
+ "note": "Sirve al método: qué bot de Anthropic corresponde a cada uso y que se rigen por robots.txt."
+}

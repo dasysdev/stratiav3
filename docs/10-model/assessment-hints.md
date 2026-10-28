@@ -3,9 +3,9 @@ id: assessment-hints
 title: Pistas de valoración
 layer: model
 status: vigente
-version: 1.6
-updated: 2026-10-27
-sources: [INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-27-comparison-mark, INTAKE 2026-10-27-requirement-hints-location]
+version: 1.8
+updated: 2026-10-28
+sources: [INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-27-comparison-mark, INTAKE 2026-10-27-requirement-hints-location, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-scope-sheet]
 ---
 
 # Pistas de valoración
@@ -84,7 +84,7 @@ Sustituyen a lo que [D-115](../30-governance/decisions.md#d-115) llamaba «regla
 10. **Cómo le llegan al auditor** ([D-135](../30-governance/decisions.md#d-135)). Al montar el modelo de una ficha, el código busca las pistas de cada requisito y las guarda ya resueltas en el modelo. El perfil del RI tiene un campo, `pistas_valoracion`, que se rellena solo desde el modelo: el auditor no lo escribe, solo lo usa ([ri-profile](../20-methods/audit-gsc/ri-profile.md)).
     - El registro del GSC **cita las pistas que usó el auditor** (`PV-n`), para poder reexaminar la valoración ([D-138](../30-governance/decisions.md#d-138)).
     - El modelo de una ficha **anota qué versión del catálogo de pistas usó**, como ya hace con el catálogo de requisitos. Las pistas de un requisito van con la versión de su bloque ([D-140](../30-governance/decisions.md#d-140)).
-    - Las pistas **no dicen ámbito**: el auditor las aplica a lo que vea en cada ámbito. Si algún día una pista solo tiene sentido en uno, se añade el campo.
+    - Las pistas **no dicen ámbito**: el auditor las aplica a lo que vea en cada ámbito. Si algún día una pista solo tiene sentido en uno, se añade el campo. Lo que cambia por ámbito es dónde y cómo aparece el dato: localización, en la [ficha del ámbito](demand-model.md#ficha-de-ámbito), no valoración ([D-155](../30-governance/decisions.md#d-155)).
 11. **Cómo nace y se acepta una pista** ([D-136](../30-governance/decisions.md#d-136)).
     - Las redactan los agentes **sin aprobación del usuario**, como la información resolutiva; el usuario las revisa cuando quiere.
     - Una pista **entra** si pasa unas comprobaciones automáticas: tiene los seis campos, su destino existe y es un criterio, no una lista. ⚠ Ver [I-46](../30-governance/issues.md#i-46)
@@ -114,12 +114,13 @@ La prueba con nueve requisitos del catálogo que aplican a unas sábanas (`cat.r
 | **Concreción** | Ya está en el catálogo: componentes de la información resolutiva | Fibras y porcentajes, composición de cada parte; hilo simple o de varios cabos; estado de cada variante |
 | **Justificación** | Marco general | La base es la declaración del vendedor o una derivación reconstruible. En certificaciones, el número de certificado sale del tipo |
 | **Aplicabilidad** | Tipo (entidad) | Variante: estado y GTIN de cada talla. Juego de piezas: composición de cada pieza. Oferta: precio de cada variante |
-| **Fiabilidad** | Tipo (rasgo × entidad) | Identidad: dígito de control y GS1. Certificación: registro y clases válidas. Material: la composición suma 100 % y usa las denominaciones legales. Oferta: aritmética del precio. Tamaño de cama coherente con las medidas de la pieza |
+| **Fiabilidad** | Tipo (rasgo × entidad) | Identidad: dígito de control. Certificación: estructura, dominio y consistencia de lo publicado. Material: la composición suma 100 % y usa las denominaciones legales. Oferta: aritmética del precio. Tamaño de cama coherente con las medidas de la pieza |
 | **Precisión** | Requisito (las unidades de las magnitudes, por tipo) | Qué términos son ambiguos y qué los fija: «microfibra» no es una fibra; «144 hilos» sin superficie ni cabos; «Queen» o «full»; «OEKO-TEX» sin decir qué norma; «garantía de 3 años» sin decir si es legal o comercial |
 | **Comparabilidad** | Requisito | Si es una dimensión de comparación (hoy, la marca de la regla 5) y sobre qué base: composición (fibra y % en peso), hilos (misma superficie, hilo simple), gramaje (g/m²), precio (total) |
 
-— INTAKE 2026-10-27-assessment-hints
+— INTAKE 2026-10-27-assessment-hints; fila de Fiabilidad enmendada por [D-154](../30-governance/decisions.md#d-154) (sin consulta a registros de GS1 ni de certificados; el dígito de control sigue siendo una regla citable)
 
+- **Pistas de certificaciones** ([D-154](../30-governance/decisions.md#d-154)): las que piden que el número exista en el registro del emisor (PV-5, PV-39) se retiran; las del alcance de la certificación (PV-6, PV-40) se retiran y se reescriben como pistas de Aplicabilidad, con número nuevo (regla 13). Las del número de certificado y su organismo (PV-4, PV-38, Justificación) se mantienen. Cambio del catálogo de pistas, pendiente.
 - La prueba mostró además una comprobación de **consistencia entre requisitos del mismo ámbito** (una bajera de 90 × 190 en una ficha que dice «cama de 150»). Es consistencia por ámbito (P16) y sale del tipo.
 - Requisitos de la prueba que **no son dimensiones de comparación**: tamaño de cama (es un filtro: primero se elige el tamaño y luego se compara), variantes disponibles, garantía legal (es la misma para todos) e identificadores (sirven para emparejar ofertas, no para compararlas). Valorar Comparabilidad en ellos daría un 2 automático o repetiría lo que ya mira Precisión.
 

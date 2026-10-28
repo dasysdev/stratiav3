@@ -72,17 +72,20 @@ def reference(tmp_path, monkeypatch):
     freeze("guide", "2026-11-02", {"page.html": b"<html></html>", "text.md": b"# Merchant listing {#top}\n"})
     freeze("schemaorg", "30.1", {read.VOCABULARY: json.dumps(VOCABULARY).encode()})
     freeze("spec-pdf", "2026-10-27", {"document.pdf": b"%PDF-1.4"})
-    freeze("principles", "2026-10-27", {"text.md": b"# Principles {#p}\n\nData should be reusable.\n"})
+    freeze("principles", "2026-10-27", {"text.md": b"# Principles {#p}\n\nData should be reusable.\n\n"
+                                                    b"Pages meet the minimum technical requirements.\n"})
     store.save_pins({"guide": "2026-10-27", "schemaorg": "30.1", "spec-pdf": "2026-10-27", "principles": "2026-10-27"})
     read.vocabulary.cache_clear()
     return tmp_path / "reference"
 
 
-def card(source="guide", version="2026-10-27", cls="especificación aplicable", level="consumidor", quotes=(), **extra):
+def card(source="guide", version="2026-10-27", cls="especificación aplicable", level="consumidor", quotes=(),
+         scopes=("Web Schema.org",), **extra):
     data = {"source": source, "version": version, "class": cls, "summary": "What it fixes.",
             "quotes": [{"id": f"q{i:02d}", "section": s, "text": t} for i, (s, t) in enumerate(quotes, 1)], **extra}
     if level:
         data["level"] = level
+        data["scopes"] = list(scopes)
     return data
 
 
@@ -96,7 +99,8 @@ def requirement(n=1, **fields):
     return {"id": f"ws-consumer/{n:03d}", "scope": "Web Schema.org", "spec": "guide",
             "condition": "Cada entidad Product del marcado tiene la propiedad offers.", "nature": "obligatoria",
             "quotes": ["guide#q02", "guide#q03"], "method": "Extraer los Product y buscar offers.",
-            "evidence": "Cada Product y sus offers.", "applicability": "universal", "not_evaluable": [], **fields}
+            "evidence": "Cada Product y sus offers.", "applicability": "universal", "not_evaluable": [],
+            "view": "particular", "page_types": ["ficha de producto"], **fields}
 
 
 def write(reference, cards=(), requirements=None, level="consumidor", stem="consumer"):
@@ -124,7 +128,9 @@ def test_a_valid_reference(reference):
     found, summary = reqs.check()
     assert found == []
     assert summary == ["3 fichas (2 de especificaciones aplicables), 5 citas, 3 requisitos "
-                       "(1 obligatorias, 2 recomendadas)", "sin ficha (1): spec-pdf"]
+                       "(1 obligatorias, 2 recomendadas)",
+                       "por ámbito: Web Schema.org 3, Web 0 · por vista: general 0, particular 3",
+                       "sin ficha (1): spec-pdf"]
 
 
 def test_card_errors(reference):
@@ -169,18 +175,19 @@ def test_requirement_errors(reference):
         requirement(weight=2),
         requirement(2, condition="Tiene offers. Y también name."),
         requirement(3, condition="Tiene offers; tiene name."),
-        requirement(4, scope="Web", nature="crítica", not_evaluable="no"),
+        requirement(4, scope="Catálogos distribuidos", nature="crítica", not_evaluable="no"),
         requirement(5, spec="principles", quotes=["principles#q01"]),
         requirement(6, quotes=["guide#q09", "guide-q01", "principles#q01"]),
         requirement(7, nature="recomendada"),
         requirement(7),
         {**requirement(), "id": "ws-vocabulary/001"},
+        requirement(8, scope="Web"),
     ])
     found = errors(reference)
     assert "ws-consumer/001: campo no admitido «weight»" in found
     assert "ws-consumer/002: condition ha de ser una sola frase" in found
     assert "ws-consumer/003: condition ha de ser una sola frase" in found
-    assert "ws-consumer/004: scope «Web» sin perfil de implementación en el canon" in found
+    assert "ws-consumer/004: scope «Catálogos distribuidos» sin perfil de implementación en el canon" in found
     assert "ws-consumer/004: nature «crítica» no es del canon" in found
     assert "ws-consumer/004: not_evaluable ha de ser una lista" in found
     assert "ws-consumer/005: principles no es una especificación aplicable (D-132)" in found
@@ -191,6 +198,71 @@ def test_requirement_errors(reference):
     assert "ws-consumer/007: ninguna cita de guide contiene el término que fija la naturaleza recomendada" in found
     assert "ws-consumer/007: id repetido" in found
     assert "ws-vocabulary/001: el id ha de ser ws-consumer/001" in found
+    assert "ws-consumer/008: scope «Web» no es el del fichero (Web Schema.org)" in found
+
+
+def test_web_profile(reference):
+    """Web has its own profile (D-159): its files, levels and ids, and the scopes of each card."""
+    protocol = card("principles", level="protocolo", scopes=["Web"],
+                    quotes=[("#p", "Data should be reusable."), ("#p", "minimum technical requirements")])
+    guide_quotes = [(q["section"], q["text"]) for q in GUIDE["quotes"]]
+    write(reference, [card(quotes=guide_quotes, scopes=["Web Schema.org", "Web"]), protocol],
+          [{**requirement(), "id": "w-consumer/001", "scope": "Web"}], stem="web-consumer")
+    write(reference, requirements=[
+        {**requirement(), "id": "w-protocol/001", "scope": "Web", "spec": "principles", "quotes": ["principles#q02"]},
+        {**requirement(), "id": "w-protocol/002", "scope": "Web", "spec": "principles", "nature": "recomendada",
+         "quotes": ["principles#q01"], "condition": "Los datos se pueden reutilizar."}],
+        level="protocolo", stem="web-protocol")
+    found, summary = reqs.check()
+    assert found == []                                       # «requirements» states what is required
+    assert summary[1] == "por ámbito: Web Schema.org 0, Web 3 · por vista: general 0, particular 3"
+
+    write(reference, [card(quotes=guide_quotes),
+                      card("principles", level="protocolo", scopes=["Web Schema.org"]),
+                      card("spec-pdf", level="documento", scopes=[]),
+                      card("schemaorg", "30.1", cls="principios generales", level=None, scopes=["Web"])],
+          [{**requirement(), "id": "w-consumer/001", "scope": "Web"}, requirement(2, scope="Web")],
+          stem="web-consumer")
+    (reference / "cards" / "schemaorg.json").write_text(json.dumps(
+        {**card("schemaorg", "30.1", cls="principios generales", level=None), "scopes": ["Web"]}), encoding="utf-8")
+    found = errors(reference)
+    assert "principles.json: el perfil de Web Schema.org no tiene nivel protocolo" in found
+    assert "spec-pdf.json: una especificación aplicable lleva scopes" in found
+    assert "schemaorg.json: scopes solo corresponde a una especificación aplicable" in found
+    assert "web-consumer.json w-consumer/001: guide no es del perfil de Web (scopes de su ficha)" in found
+    assert "web-consumer.json ws-consumer/002: el id ha de ser w-consumer/001, w-consumer/002…" in found
+
+
+def test_views_and_project_conditions(reference, monkeypatch):
+    """Each requirement has its view (D-161); a project condition names its decision (D-162)."""
+    decisions = reference.parent / "decisions.md"
+    decisions.write_text("### D-162\n\n**Sitemaps.**\n", encoding="utf-8")
+    monkeypatch.setattr(reqs, "DECISIONS", decisions)
+    adopted = {k: v for k, v in requirement().items() if k not in ("spec", "quotes")}
+    write(reference, [GUIDE], [
+        requirement(1, view="general", page_types=None),
+        {**adopted, "id": "ws-consumer/002", "decision": "D-162", "quotes": []},
+        {**adopted, "id": "ws-consumer/003", "decision": "D-999", "quotes": []},
+        {**adopted, "id": "ws-consumer/004", "decision": "D-162", "spec": "guide", "quotes": ["guide#q02"]},
+        requirement(5, view="parcial"),
+        requirement(6, page_types=["ficha de producto", "blog"]),
+        requirement(7, page_types=[]),
+    ])
+    (reference / "requirements" / "consumer.json").write_text(json.dumps({"level": "consumidor", "requirements": [
+        {k: v for k, v in requirement(1).items() if k != "page_types"} | {"view": "general"},
+        *json.loads((reference / "requirements" / "consumer.json").read_text())["requirements"][1:]]}), encoding="utf-8")
+    found, summary = reqs.check()
+    text = "\n".join(found)
+    assert "ws-consumer/001" not in text and "ws-consumer/002" not in text   # general; decision without quotes
+    assert "ws-consumer/003: decision «D-999» no es una decisión del canon" in text
+    assert "ws-consumer/004: lo funda una especificación (spec) o una condición del proyecto (decision)" in text
+    assert "ws-consumer/005: view «parcial» ha de ser general o particular" in text
+    assert "ws-consumer/006: la vista particular lleva page_types" in text
+    assert "ws-consumer/007: la vista particular lleva page_types" in text
+    assert summary[1].endswith("por vista: general 1, particular 5")   # 005 has no valid view
+
+    write(reference, requirements=[requirement(1, view="general")])
+    assert "ws-consumer/001: page_types solo corresponde a la vista particular" in errors(reference)
 
 
 def test_requirements_by_level(reference):
@@ -203,9 +275,35 @@ def test_requirements_by_level(reference):
     assert "extra.json: el fichero ha de ser el de un nivel" in found
 
 
+def test_retired(reference):
+    def retired(n, **fields):
+        entry = {k: v for k, v in requirement(n).items() if k not in ("method", "evidence", "not_evaluable", "view", "page_types")}
+        return {**entry, "nature": "recomendada", "reason": "modelo de demanda", "decision": "D-145", **fields}
+    write(reference, [GUIDE], [requirement(), requirement(3)])
+    entries = [retired(2), retired(4, reason="no se audita", nature="obligatoria", decision="triaje 2026-10-28",
+                                    note="Marcado frente a página."), retired(1)]
+    (reference / "retired.json").write_text(json.dumps({"retired": entries}), encoding="utf-8")
+    found, summary = reqs.check()
+    assert found == ["retired.json ws-consumer/001: el id sigue en requirements/; un id retirado no se reutiliza"]
+    assert summary[2] == "retirados (3): 1 no se audita, 2 modelo de demanda"
+
+    entries = [retired(2), retired(2), retired(5, reason="otro", method="x"), retired(6, nature="obligatoria"),
+               retired(7, id="ws-web/007", quotes=["guide#q09"], spec="nope")]
+    (reference / "retired.json").write_text(json.dumps({"retired": entries}), encoding="utf-8")
+    found = errors(reference)
+    assert "retired.json ws-consumer/002: id repetido" in found
+    assert "retired.json ws-consumer/005: campo no admitido «method»" in found
+    assert "retired.json ws-consumer/005: reason «otro» ha de ser no se audita o modelo de demanda" in found
+    assert "retired.json ws-consumer/006: solo lo recomendado pasa al modelo de demanda (D-145)" in found
+    assert "retired.json ws-web/007: el id ha de ser el de un requisito" in found
+    assert "retired.json ws-web/007: spec «nope» no tiene ficha" in found
+    assert "retired.json ws-web/007: la cita guide#q09 no existe" in found
+
+
 def test_cli(reference, capsys):
     reqs.cmd_section(argparse.Namespace(source="guide", section=None))
     out = capsys.readouterr().out
+    assert "(texto antes del primer encabezado)" not in out                 # TEXT opens with a heading
     assert "  #definitions  Structured data type definitions\n    #product-properties  Product\n" in out
     assert "      Identifiers\n" in out
     reqs.cmd_section(argparse.Namespace(source="schemaorg", section=None))
@@ -217,4 +315,4 @@ def test_cli(reference, capsys):
     write(reference, [GUIDE], [requirement(nature="nada")])
     with pytest.raises(SystemExit):
         reqs.cmd_check(argparse.Namespace())
-    assert capsys.readouterr().out.splitlines()[-2].startswith("incorrecto: 1 problema(s) · 1 fichas")
+    assert capsys.readouterr().out.splitlines()[-3].startswith("incorrecto: 1 problema(s) · 1 fichas")

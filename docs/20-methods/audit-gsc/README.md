@@ -3,9 +3,9 @@ id: audit-gsc
 title: Marco operativo de valoración GSC de los criterios de aceptación
 layer: method
 status: propuesta
-version: 0.2
-updated: 2026-10-27
-sources: [GSC0 §1, GSC0 §2, GSC0 §13.4, GSC0 Anexo D, FUND §9, INTAKE 2026-10-27-ac-applicability-and-reliability]
+version: 0.4
+updated: 2026-10-28
+sources: [GSC0 §1, GSC0 §2, GSC0 §13.4, GSC0 Anexo D, FUND §9, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-single-consumption-profile]
 ---
 
 # Marco operativo de valoración GSC
@@ -13,6 +13,8 @@ sources: [GSC0 §1, GSC0 §2, GSC0 §13.4, GSC0 Anexo D, FUND §9, INTAKE 2026-1
 Procedimiento general y reutilizable para que un **agente auditor** examine información comercial, identifique información pertinente para un requisito informativo (RI), obtenga evidencias y emita el **grado de satisfacción de cada criterio de aceptación (GSC)**.
 
 Aplica a cualquier modelo de demanda construido conforme a los fundamentos del proyecto ([canon](../../README.md#10-model--canon-conceptual-vigente)) y a los ámbitos **Catálogos distribuidos**, **Web** y **Web Schema.org** ([ámbitos](../../10-model/evaluation-scopes.md)), con sus perfiles de consumo admitidos.
+
+**Ámbitos de la V1** ([D-152](../../30-governance/decisions.md#d-152)): Web y Web Schema.org, con el único perfil de consumo de Web y Web Schema.org (la respuesta HTTP sin ejecutar JavaScript, de la que se usa todo el documento, [D-156](../../30-governance/decisions.md#d-156)). Catálogos distribuidos queda aplazado; mientras tanto, la consistencia transversal solo examina el par Web ↔ Web Schema.org.
 
 > **Estado: propuesta V1 para pilotaje.** Consolida los principios acordados y desarrolla reglas prácticas, pero **los anclajes, umbrales de suficiencia y protocolos no están empíricamente validados**. Deben probarse y aprobarse mediante casos de calibración ([calibration.md](calibration.md)). No modifica el marco conceptual ni añade criterios, propiedades, escalas o indicadores de calidad. Las reglas se convierten en instrucciones de Skill **solo después de probarlas** con expedientes reproducibles. Este marco es un **procedimiento general**: los perfiles concretos de RI pertenecen al catálogo de demanda y los resultados de cada ecommerce, al expediente (GSC0 Anexo D.1).
 
@@ -80,13 +82,15 @@ No construye automáticamente el catálogo de demanda, no determina prioridades 
 
 `RI y ámbito → perfil operativo del RI → recursos permitidos → exploración → candidatos → pertinencia funcional → conjunto pertinente contextualizado → disponibilidad efectiva → comprobación de propiedades → hallazgos por AC → GSC (o NE por incidencia) → validación → expediente e informe`.
 
+En la V1 la cadena se ejecuta en dos fases: disponibilidad de todos los RI por ficha × ámbito y, después, los AC por lotes de RI con disponibilidad 1 ([execution](execution.md#ejecución-en-dos-fases), [D-153](../../30-governance/decisions.md#d-153)).
+
 **La evidencia atraviesa todas las fases.** La búsqueda puede reabrirse si el análisis de AC descubre una relación, contradicción, ausencia aparente o contexto relevante aún no examinado.
 
 ### Una cuestión, varias representaciones
 
 Se conserva siempre la procedencia de cada dato o afirmación. Las afirmaciones de HTML y Schema.org pueden complementar una respuesta en **Web** si identidad, condiciones y relaciones son justificables; **Web Schema.org** no puede usar afirmaciones externas al marcado como contenido resolutivo. En **Catálogos distribuidos** se respeta el perfil, alcance, variante/oferta y momento de distribución examinado.
 
-Las referencias externas pueden servir **para contraste o verificación** cuando proceda, pero no para presentar como publicado por el ecommerce un dato que falta en su representación evaluada.
+La auditoría **no consulta fuentes externas** sobre el producto, ni para contrastar: solo la representación del ámbito y reglas generales citadas ([D-154](../../30-governance/decisions.md#d-154)). Lo que el auditor sepa de un producto, una marca o un modelo concretos es una sospecha, que no gradúa.
 
 ## Razonamiento permitido
 
@@ -95,7 +99,7 @@ Las referencias externas pueden servir **para contraste o verificación** cuando
 | Reconocer sinónimos, términos de dominio y expresiones equivalentes justificadas. | Seleccionar por asociación temática ilimitada. |
 | Relacionar datos de una misma entidad mediante vínculos acreditados. | Suponer identidades porque dos nombres se parecen. |
 | Realizar conversiones o cálculos válidos con condiciones conocidas. | Introducir costes, descuentos o estados no publicados para completar un resultado. |
-| Examinar corroboraciones externas para Fiabilidad bajo el protocolo. | Utilizar datos externos como contenido resolutivo de la interfaz auditada. |
+| Refutar en Fiabilidad con reglas generales citadas o imposibilidades físicas o lógicas; anotar como sospecha lo que el auditor sepa de un caso concreto. | Utilizar datos externos como contenido resolutivo de la interfaz auditada, o refutar un dato con lo que el auditor sepa del producto, la marca o el modelo. |
 | Reabrir la búsqueda cuando se detecta posible omisión. | Considerar ausencia una búsqueda literal fallida. |
 | Declarar NE o fase inconclusa cuando una comprobación no puede hacerse. | Transformar incertidumbre en GSC bajo o alto por intuición. |
 
@@ -112,7 +116,7 @@ Las referencias externas pueden servir **para contraste o verificación** cuando
 | 7 | [property-checks.md](property-checks.md) | Comprobación de propiedades P06–P18 (PR-01..09). |
 | 8 | [ac-guides.md](ac-guides.md) | Guías y anclajes provisionales de los seis AC. |
 | 9 | [gsc-decision.md](gsc-decision.md) | Decisión del GSC e incidencias (GSC-01..12), árbol y materialidad. |
-| 10 | [execution.md](execution.md) | Secuencia integral OP-01..12 y hoja rápida. |
+| 10 | [execution.md](execution.md) | Secuencia integral OP-01..12, ejecución en dos fases y hoja rápida. |
 | 11 | [dossier.md](dossier.md) | Objetos del expediente, informe, diagnóstico y recomendaciones. |
 | 12 | [calibration.md](calibration.md) | Casos A–L, matriz de calibración y prueba de aceptación V1. |
-| 13 | [qa.md](qa.md) | Validaciones QA-01..14 e incidencias. |
+| 13 | [qa.md](qa.md) | Validaciones QA-01..15 e incidencias. |

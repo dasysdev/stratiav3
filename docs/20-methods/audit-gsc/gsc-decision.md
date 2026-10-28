@@ -3,9 +3,9 @@ id: audit-gsc-gsc-decision
 title: Decisión de GSC, incidencias y control de materialidad
 layer: method
 status: propuesta
-version: 0.4
-updated: 2026-10-27
-sources: [GSC0 §12, GSC0 §14.4, FUND §8.1, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-governance]
+version: 0.5
+updated: 2026-10-28
+sources: [GSC0 §12, GSC0 §14.4, FUND §8.1, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-informative-audit-v1]
 ---
 
 # Decisión de GSC, incidencias y control de materialidad
@@ -18,7 +18,7 @@ La escala GSC 0/1/2 y los estados NA/NE son canon ([sistemas de valoración](../
 
 **GSC-02 · Aplicación.** Los seis AC se aplican siempre. La única excepción es el NA de Comparabilidad cuando la marca de dimensión de comparación del requisito dice que no es dimensión de comparación ([D-126](../../30-governance/decisions.md#d-126)); lo fija el modelo, no el auditor. No usar NA porque falta información.
 
-**GSC-03 · Base probatoria.** Verificar evidencias y cobertura suficientes para juzgar la condición específica. Si faltan, ampliar la comprobación. Si una comprobación **no se puede hacer** (un recurso que no se pudo inspeccionar, un registro externo que no respondió), registrar **NE** como incidencia, con la comprobación que falló; no 0 automático. Que un dato no se pueda corroborar no es una incidencia: en Fiabilidad se resuelve con la lectura refutadora.
+**GSC-03 · Base probatoria.** Verificar evidencias y cobertura suficientes para juzgar la condición específica. Si faltan, ampliar la comprobación. Si una comprobación **no se puede hacer** (un recurso que no se pudo inspeccionar), registrar **NE** como incidencia, con la comprobación que falló; no 0 automático. Que un dato no se pueda corroborar no es una incidencia: en Fiabilidad se resuelve con la lectura refutadora.
 
 **GSC-04 · Condición satisfecha.** Si el AC está satisfecho suficientemente para el RI, asignar **2**, indicando componentes y evidencias favorables.
 

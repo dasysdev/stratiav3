@@ -3,9 +3,9 @@ id: audit-gsc-ri-profile
 title: Estructuración operativa universal del RI
 layer: method
 status: propuesta
-version: 0.2
-updated: 2026-10-27
-sources: [GSC0 §4, GSC0 §14.2, FUND §3.6, INTAKE 2026-10-27-hint-fields]
+version: 0.3
+updated: 2026-10-28
+sources: [GSC0 §4, GSC0 §14.2, FUND §3.6, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-28-scope-sheet]
 ---
 
 # Estructuración operativa universal del RI
@@ -33,9 +33,9 @@ Transformar un RI, ya definido en el modelo de demanda, en una **especificación
 | `aplicabilidad` | Precisar cuándo corresponde examinar este RI. | Obligatorio. |
 | `relaciones_resolutivas` | Describir relaciones lógicas necesarias y posibles composiciones/derivaciones. | Recomendado; obligatorio si la respuesta es relacional. |
 | `funciones_informativas` | Identificar cómo un elemento puede describir, identificar, relacionar, contextualizar, sustentar o contrastar. | Obligatorio como referencia de búsqueda, ampliable. |
-| `expresiones_ejemplo` | Ejemplos de sinónimos, campos y representaciones. | Opcional, nunca excluyente. |
+| `expresiones_ejemplo` | Ejemplos de sinónimos, campos y representaciones. Incluye, por ámbito, la localización de la [ficha del ámbito](../../10-model/demand-model.md#ficha-de-ámbito) (en Web Schema.org, las propiedades relacionadas con las aportaciones del RI) ([D-155](../../30-governance/decisions.md#d-155)). | Opcional, nunca excluyente: orienta, no cierra la búsqueda ni decide la pertinencia. |
 | `casos_frontera` | Ejemplos de pertinencia parcial, conexión dudosa o proximidad solo temática. | Recomendado para calibración. |
-| `ambitos_pertinentes` | Interfaces en las que el RI debe evaluarse. | Obligatorio. |
+| `ambitos_pertinentes` | Interfaces en las que el RI debe evaluarse: todas, salvo las excepciones de la ficha de cada ámbito, con su fundamento ([D-155](../../30-governance/decisions.md#d-155)). | Obligatorio. |
 | `pistas_valoracion` | Pistas de valoración del requisito, ya resueltas en el modelo ([assessment-hints](../../10-model/assessment-hints.md#reglas-e-invariantes)). Se rellena solo desde el modelo; el auditor no lo escribe. | Automático ([D-135](../../30-governance/decisions.md#d-135)). |
 | `fundamento_perfil` | Justificar inclusiones, límites y decisiones no explícitas en el RI. | Obligatorio cuando hay interpretación. |
 

@@ -3,6 +3,9 @@
  "version": "2026-10-27",
  "class": "especificación aplicable",
  "level": "consumidor",
+ "scopes": [
+  "Web Schema.org"
+ ],
  "summary": "Propiedades exigidas y recomendadas por Google Search para los fragmentos de producto (Product, Review, Offer, UnitPriceSpecification y AggregateOffer), con sus directrices técnicas.",
  "quotes": [
   {

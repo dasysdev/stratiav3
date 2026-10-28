@@ -3,9 +3,9 @@ id: commercial-information
 title: Información comercial, representación, exposición y calidad
 layer: model
 status: vigente
-version: 1.4
+version: 1.6
 updated: 2026-10-28
-sources: [BASE §1, CTX §1, CTX §3, FUND §1.1-1.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation]
+sources: [BASE §1, CTX §1, CTX §3, FUND §1.1-1.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation, INTAKE 2026-10-28-web-implementation-profile, INTAKE 2026-10-28-technical-rate-pages-web-minimum]
 ---
 
 # Información comercial, representación, exposición y calidad
@@ -71,6 +71,21 @@ La vigencia ya no se juzga como tal: la propiedad P15 · Actualidad está retira
 
   Quedan fuera, como contenido: GTIN y MPN (gen/03), la marca (gen/02), la descripción, la categoría y los datos legales, de contacto, la url y el logo del vendedor (gen/13, gen/14). En Merchant Center, que pertenece a Catálogos distribuidos, el GTIN es muy recomendado si existe, y el MPN (sin GTIN) y la marca (productos nuevos) son obligaciones condicionales.
 
+  En **Web** ([D-168](../30-governance/decisions.md#d-168)):
+
+  > | Dato | Tipo | Fuente |
+  > |---|---|---|
+  > | url de la página | Sostén | Los requisitos de acceso (200, indexable, sin bloqueo) |
+  > | Título del documento (`<title>`) | Con hecho (el nombre) | WHATWG HTML: exactamente un `title` |
+  > | URL canónica (`link rel=canonical`) | Sostén | Google Search recomienda su presencia; su forma (en `<head>`, absoluta, sin fragmento, sin canónicas contradictorias) es técnica |
+  > | Imagen | Sostén | `og:image` cuando la página usa Open Graph; si no, hueco registrado |
+  >
+  > - **Open Graph, condicional:** si la página publica alguna propiedad `og:`, lleva `og:title`, `og:type`, `og:image` y `og:url`, bien formadas, y `og:url` coincide con la URL canónica. Sin Open Graph, esos requisitos son NA.
+  > - **Fuera del mínimo:** `meta description` (contenido) y el idioma del documento.
+  > - **No técnico:** que coincidan `title`, `og:title`, el encabezado principal y el `name` del marcado es un juicio informativo (Fiabilidad dentro del ámbito o consistencia transversal).
+  >
+  > — INTAKE 2026-10-28-technical-rate-pages-web-minimum
+
 ## Reglas e invariantes
 
 1. **Información, representación y exposición no son sinónimos.** La representación es una dimensión del objeto de estudio, pero **no sustituye a la información comercial como objeto principal**.
@@ -96,7 +111,7 @@ Una misma realidad comercial (un producto, sus variantes, una oferta) puede apar
 
 ## Pendiente
 
-- Datos del mínimo de representación en Web y en Catálogos distribuidos, al definir sus perfiles: [OQ-30](../30-governance/open-questions.md#f-evaluación-técnica).
+- Datos del mínimo de representación en Catálogos distribuidos, al definir su perfil: [OQ-30](../30-governance/open-questions.md#f-evaluación-técnica).
 
 ## Relacionado
 

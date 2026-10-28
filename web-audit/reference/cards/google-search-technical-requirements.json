@@ -1,0 +1,48 @@
+{
+ "source": "google-search-technical-requirements",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Requisitos técnicos mínimos de Search Essentials para que Google Search pueda indexar una página: Googlebot no está bloqueado, la página responde con 200 y tiene contenido indexable.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#google-search-technical-requirements",
+   "text": "As long as your page meets the minimum technical requirements, it's eligible to be indexed by Google Search: - Googlebot isn't blocked. - The page works, meaning that Google receives an HTTP 200 (success) status code. - The page has indexable content."
+  },
+  {
+   "id": "q02",
+   "section": "#googlebot",
+   "text": "Google only indexes pages on the web that are accessible to the public and which don't block our crawler, Googlebot, from crawling them. If a page is made private, such as requiring a log-in to view it, Googlebot will not crawl it."
+  },
+  {
+   "id": "q03",
+   "section": "#googlebot",
+   "text": "Similarly, if one of the several mechanisms are used to block Google from indexing, the page will not be indexed."
+  },
+  {
+   "id": "q04",
+   "section": "#check-if-googlebot-can-find-and-access-your-page",
+   "text": "Pages that are blocked by robots.txt are unlikely to show in Google Search results."
+  },
+  {
+   "id": "q05",
+   "section": "#page-works",
+   "text": "The page works (it's not an error page)"
+  },
+  {
+   "id": "q06",
+   "section": "#page-works",
+   "text": "Google only indexes pages that are served with an HTTP 200 (success) status code. Client and server error pages aren't indexed."
+  },
+  {
+   "id": "q07",
+   "section": "#indexable-content",
+   "text": "Once Googlebot can find and access a working page, Google checks the page for indexable content. Indexable content means: - The textual content is in a file type that Google Search supports. - The content doesn't violate our spam policies."
+  }
+ ],
+ "note": "«minimum technical requirements» fija lo obligatorio (D-159). Que el contenido no infrinja las políticas de spam no da requisito técnico: se juzga el contenido (D-129). De «Googlebot isn't blocked», el bloqueo por el servidor o el cortafuegos a Googlebot no se puede comprobar, porque el navegador de capture no es Googlebot (D-157); sí se comprueban el inicio de sesión (w-consumer/001), robots.txt (009) y noindex (010)."
+}

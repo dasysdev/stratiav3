@@ -3,6 +3,9 @@
  "version": "2026-10-27",
  "class": "especificación aplicable",
  "level": "serialización",
+ "scopes": [
+  "Web Schema.org"
+ ],
  "summary": "Algoritmos de procesado de JSON-LD 1.1 (contexto, expansión, extracción desde HTML) y sus errores. Fija la conformidad de procesadores y serializadores, no la del documento: sirve al método, porque dice qué incumplimiento hace abortar la expansión con qué error y cuál solo produce un aviso o se descarta en silencio.",
  "note": "No fija con MUST ni SHOULD condiciones sobre el documento distintas de las de la gramática de w3c-json-ld11, así que no tiene requisitos propios. Sus citas se usan como citas adicionales en los requisitos de w3c-json-ld11.",
  "quotes": [

@@ -3,9 +3,9 @@ id: quality-properties
 title: Propiedades de calidad (P06–P18)
 layer: model
 status: vigente
-version: 1.3
-updated: 2026-10-27
-sources: [BASE §5.3, FUND §7, FUND §4.2, GSC0 §9.3, INTAKE 2026-10-27-ac-applicability-and-reliability]
+version: 1.4
+updated: 2026-10-28
+sources: [BASE §5.3, FUND §7, FUND §4.2, GSC0 §9.3, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1]
 ---
 
 # Propiedades de calidad (P06–P18)
@@ -69,7 +69,7 @@ Una información puede ser obtenible y legible, pero semánticamente ambigua. Ta
 | **Precisión** | P08, P09, P10 y P13. |
 | **Aplicabilidad** | P10, P11 y P12; también P07 según el hallazgo ([D-014](../30-governance/decisions.md#d-014)). |
 | **Comparabilidad** | P07, P10, P12 y P13. |
-| **Fiabilidad** | P14 y P16. P18 queda en Justificación: la falta del identificador que permitiría verificar un dato cuenta allí ([D-122](../30-governance/decisions.md#d-122)). |
+| **Fiabilidad** | P14 y P16. P18 queda en Justificación: la falta del identificador que permitiría verificar un dato cuenta allí ([D-122](../30-governance/decisions.md#d-122)). Sin fuentes externas, ambas se observan con lo publicado en el ámbito y con reglas generales citadas ([D-154](../30-governance/decisions.md#d-154)). |
 | **Justificación** | P08, P17 y P18, además de las relaciones de soporte pertinentes. |
 
 Estas asociaciones son **ilustrativas, no cerradas ni automáticas**. La propiedad relevante se elige a partir de la evidencia, el RI y el problema observado. Por ejemplo, la granularidad (P07) puede afectar tanto a la concreción de una respuesta como a su aplicabilidad a una variante concreta.

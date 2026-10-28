@@ -1,0 +1,524 @@
+{
+  "catalog": "propiedades recomendadas de Google Search",
+  "version": "0.1",
+  "decisions": [
+    "D-145",
+    "D-147",
+    "D-148",
+    "D-155"
+  ],
+  "note": "Apoyo de demanda (origen «referencias», sin ámbito) de las propiedades que los consumidores de Google Search del perfil de Web Schema.org recomiendan sin exigir (D-145, D-155), como los PTD de Amazon (D-052). Las de la capa general están en las fuentes y el respaldo de su requisito en gen.json; las de los atributos de categoría, aquí, por equivalencia con los atributos de Shopify (apoyan todo requisito que cite uno de esos atributos); las que no cubre ningún requisito ni aportación, como candidatos. Su papel de localizador es de la ficha de Web Schema.org (catalog/scopes/web-schema-org.json).",
+  "retired": {
+    "note": "Contrato con web-audit (T-055): los requisitos que la referencia técnica retiró con motivo «modelo de demanda» (web-audit/reference/retired.json), con la propiedad que nombran. Cada propiedad ha de estar en el respaldo de la capa general, en «attributes» o en «candidates» (bin/model check --catalog).",
+    "requirements": [
+      {
+        "id": "ws-consumer/012",
+        "source": "google-search-merchant-listing:Product.aggregateRating@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/013",
+        "source": "google-search-merchant-listing:Product.audience@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/015",
+        "source": "google-search-merchant-listing:Product.brand.name@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/017",
+        "source": "google-search-merchant-listing:Product.category@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/022",
+        "source": "google-search-merchant-listing:Product.color@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/023",
+        "source": "google-search-merchant-listing:Product.description@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/024",
+        "source": "google-search-merchant-listing:Product.gtin@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/031",
+        "source": "google-search-merchant-listing:Product.hasCertification@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/035",
+        "source": "google-search-merchant-listing:Product.material@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/036",
+        "source": "google-search-merchant-listing:Product.mpn@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/037",
+        "source": "google-search-merchant-listing:Product.pattern@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/038",
+        "source": "google-search-merchant-listing:Product.review@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/040",
+        "source": "google-search-merchant-listing:Product.size@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/047",
+        "source": "google-search-merchant-listing:Product.subjectOf@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/056",
+        "source": "google-search-merchant-listing:Offer.availability@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/059",
+        "source": "google-search-merchant-listing:Offer.hasMerchantReturnPolicy@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/060",
+        "source": "google-search-merchant-listing:Offer.itemCondition@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/063",
+        "source": "google-search-merchant-listing:Offer.priceValidUntil@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/065",
+        "source": "google-search-merchant-listing:Offer.shippingDetails@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/068",
+        "source": "google-search-merchant-listing:Offer.validFrom@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/069",
+        "source": "google-search-merchant-listing:Offer.validThrough@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/076",
+        "source": "google-search-merchant-listing:UnitPriceSpecification.membershipPointsEarned@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/084",
+        "source": "google-search-merchant-listing:UnitPriceSpecification.validFrom@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/085",
+        "source": "google-search-merchant-listing:UnitPriceSpecification.validThrough@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/089",
+        "source": "google-search-merchant-listing:SizeSpecification.name@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/094",
+        "source": "google-search-merchant-listing:PeopleAudience.suggestedGender@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/096",
+        "source": "google-search-merchant-listing:PeopleAudience.suggestedMaxAge@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/097",
+        "source": "google-search-merchant-listing:PeopleAudience.suggestedMinAge@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/101",
+        "source": "google-search-merchant-listing:Certification.certificationRating@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/122",
+        "source": "google-search-merchant-listing:ShippingDeliveryTime.handlingTime@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/123",
+        "source": "google-search-merchant-listing:ShippingDeliveryTime.transitTime@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/135",
+        "source": "google-search-merchant-listing:MerchantReturnPolicy.returnFees@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/143",
+        "source": "google-search-merchant-listing:MerchantReturnPolicy.returnMethod@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/152",
+        "source": "google-search-product-snippet:Product.aggregateRating@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/155",
+        "source": "google-search-product-snippet:Product.review@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/158",
+        "source": "google-search-product-snippet:Offer.availability@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/163",
+        "source": "google-search-product-snippet:Offer.priceValidUntil@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/171",
+        "source": "google-search-product-snippet:AggregateOffer.highPrice@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/172",
+        "source": "google-search-product-snippet:AggregateOffer.offerCount@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/188",
+        "source": "google-search-product-variants:ProductGroup.aggregateRating@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/189",
+        "source": "google-search-product-variants:ProductGroup.brand@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/191",
+        "source": "google-search-product-variants:ProductGroup.description@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/207",
+        "source": "google-search-product-variants:ProductGroup.review@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/214",
+        "source": "google-search-return-policy:MerchantReturnPolicy.returnFees@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/219",
+        "source": "google-search-return-policy:MerchantReturnPolicy.returnMethod@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/221",
+        "source": "google-search-return-policy:MerchantReturnPolicy.customerRemorseReturnFees@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/223",
+        "source": "google-search-return-policy:MerchantReturnPolicy.customerRemorseReturnLabelSource@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/227",
+        "source": "google-search-return-policy:MerchantReturnPolicy.itemCondition@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/229",
+        "source": "google-search-return-policy:MerchantReturnPolicy.itemDefectReturnFees@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/231",
+        "source": "google-search-return-policy:MerchantReturnPolicy.itemDefectReturnLabelSource@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/233",
+        "source": "google-search-return-policy:MerchantReturnPolicy.refundType@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/235",
+        "source": "google-search-return-policy:MerchantReturnPolicy.restockingFee@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/236",
+        "source": "google-search-return-policy:MerchantReturnPolicy.returnLabelSource@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/238",
+        "source": "google-search-return-policy:MerchantReturnPolicy.returnPolicyCountry@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/247",
+        "source": "google-search-shipping-policy:ShippingService.name@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/249",
+        "source": "google-search-shipping-policy:ShippingService.description@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/250",
+        "source": "google-search-shipping-policy:ShippingService.fulfillmentType@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/252",
+        "source": "google-search-shipping-policy:ShippingService.handlingTime@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/255",
+        "source": "google-search-shipping-policy:ServicePeriod.businessDays@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/256",
+        "source": "google-search-shipping-policy:ServicePeriod.cutoffTime@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/266",
+        "source": "google-search-shipping-policy:ShippingConditions.doesNotShip@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/267",
+        "source": "google-search-shipping-policy:ShippingConditions.numItems@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/268",
+        "source": "google-search-shipping-policy:ShippingConditions.orderValue@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/269",
+        "source": "google-search-shipping-policy:ShippingConditions.weight@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/270",
+        "source": "google-search-shipping-policy:ShippingConditions.seasonalOverride@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/271",
+        "source": "google-search-shipping-policy:ShippingConditions.shippingDestination@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/272",
+        "source": "google-search-shipping-policy:ShippingConditions.shippingOrigin@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/273",
+        "source": "google-search-shipping-policy:ShippingConditions.shippingRate@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/275",
+        "source": "google-search-shipping-policy:ShippingConditions.transitTime@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/281",
+        "source": "google-search-shipping-policy:ServicePeriod.businessDays@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/308",
+        "source": "google-search-organization:Organization.address@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/309",
+        "source": "google-search-organization:Organization.address.addressCountry@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/310",
+        "source": "google-search-organization:Organization.address.addressLocality@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/311",
+        "source": "google-search-organization:Organization.address.addressRegion@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/312",
+        "source": "google-search-organization:Organization.address.postalCode@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/313",
+        "source": "google-search-organization:Organization.address.streetAddress@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/315",
+        "source": "google-search-organization:Organization.alternateName@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/316",
+        "source": "google-search-organization:Organization.contactPoint@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/317",
+        "source": "google-search-organization:Organization.contactPoint.email@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/318",
+        "source": "google-search-organization:Organization.contactPoint.telephone@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/320",
+        "source": "google-search-organization:Organization.description@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/323",
+        "source": "google-search-organization:Organization.email@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/327",
+        "source": "google-search-organization:Organization.hasMerchantReturnPolicy@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/328",
+        "source": "google-search-organization:Organization.hasMemberProgram@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/329",
+        "source": "google-search-organization:Organization.hasShippingService@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/331",
+        "source": "google-search-organization:Organization.legalName@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/332",
+        "source": "google-search-organization:Organization.logo@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/344",
+        "source": "google-search-organization:Organization.taxID@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/345",
+        "source": "google-search-organization:Organization.telephone@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/347",
+        "source": "google-search-organization:Organization.url@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/348",
+        "source": "google-search-organization:Organization.vatID@2026-10-27"
+      },
+      {
+        "id": "ws-consumer/363",
+        "source": "google-search-review-snippet:Review.datePublished@2026-10-27"
+      }
+    ]
+  },
+  "attributes": [
+    {
+      "source": "google-search-merchant-listing:Product.color@2026-10-27",
+      "shopify": [
+        "color"
+      ]
+    },
+    {
+      "source": "google-search-merchant-listing:Product.pattern@2026-10-27",
+      "shopify": [
+        "pattern"
+      ]
+    },
+    {
+      "source": "google-search-merchant-listing:Product.material@2026-10-27",
+      "shopify": [
+        "material",
+        "fabric",
+        "*-material"
+      ],
+      "note": "«The material or materials the product is made of»: también los materiales de una parte (forro, suela, relleno)."
+    },
+    {
+      "source": "google-search-merchant-listing:Product.size@2026-10-27",
+      "shopify": [
+        "size",
+        "shoe-size",
+        "ring-size",
+        "accessory-size",
+        "bedding-size"
+      ]
+    },
+    {
+      "source": "google-search-merchant-listing:SizeSpecification.name@2026-10-27",
+      "shopify": [
+        "size",
+        "shoe-size",
+        "ring-size",
+        "accessory-size",
+        "bedding-size"
+      ]
+    },
+    {
+      "source": "google-search-merchant-listing:Product.audience@2026-10-27",
+      "shopify": [
+        "target-gender",
+        "age-group",
+        "infant-age-group"
+      ]
+    },
+    {
+      "source": "google-search-merchant-listing:PeopleAudience.suggestedGender@2026-10-27",
+      "shopify": [
+        "target-gender"
+      ]
+    },
+    {
+      "source": "google-search-merchant-listing:PeopleAudience.suggestedMaxAge@2026-10-27",
+      "shopify": [
+        "age-group",
+        "infant-age-group"
+      ]
+    },
+    {
+      "source": "google-search-merchant-listing:PeopleAudience.suggestedMinAge@2026-10-27",
+      "shopify": [
+        "age-group",
+        "infant-age-group"
+      ]
+    },
+    {
+      "source": "google-search-merchant-listing:Product.hasCertification@2026-10-27",
+      "shopify": [
+        "product-certifications-standards",
+        "safety-certifications",
+        "organic-certification",
+        "energy-efficiency-class"
+      ]
+    },
+    {
+      "source": "google-search-merchant-listing:Certification.certificationRating@2026-10-27",
+      "shopify": [
+        "energy-efficiency-class"
+      ],
+      "note": "La clase de una certificación sin identificador: Google cita la clase de eficiencia energética y la de emisiones de CO2."
+    }
+  ],
+  "candidates": [
+    {
+      "question": "¿Tiene la oferta condiciones para los socios de un programa de fidelización (precio de socio, puntos que se obtienen con la compra) y cuáles?",
+      "entity": "oferta",
+      "block": "gen",
+      "status": "propuesto",
+      "sources": [
+        "google-search-merchant-listing:UnitPriceSpecification.membershipPointsEarned@2026-10-27",
+        "google-search-organization:Organization.hasMemberProgram@2026-10-27"
+      ],
+      "rationale": "Ninguna cuestión de la capa general pregunta por un programa de fidelización; gen/16 pregunta por promociones vigentes, y el precio de socio y los puntos son condiciones de pertenencia, no promociones."
+    },
+    {
+      "question": "¿Desde qué país o lugar se envía el pedido?",
+      "entity": "entrega",
+      "block": "gen",
+      "status": "propuesto",
+      "sources": [
+        "google-search-shipping-policy:ShippingConditions.shippingOrigin@2026-10-27"
+      ],
+      "rationale": "El origen del envío no lo pregunta ninguna cuestión de la entrega (coste, plazo, modalidades); puede cambiar el plazo y, fuera de la UE, los costes de importación."
+    },
+    {
+      "question": null,
+      "entity": null,
+      "block": null,
+      "status": "descartado",
+      "sources": [
+        "google-search-product-snippet:AggregateOffer.offerCount@2026-10-27"
+      ],
+      "rationale": "Cuenta las ofertas que agrupa el marcado; no es un hecho sobre la oferta que se evalúa."
+    },
+    {
+      "question": null,
+      "entity": null,
+      "block": null,
+      "status": "descartado",
+      "sources": [
+        "google-search-merchant-listing:Product.subjectOf@2026-10-27"
+      ],
+      "rationale": "Modelo 3D del producto: medio de presentación que, como la imagen, no responde por sí mismo una cuestión (D-144)."
+    },
+    {
+      "question": null,
+      "entity": null,
+      "block": null,
+      "status": "descartado",
+      "sources": [
+        "google-search-organization:Organization.logo@2026-10-27"
+      ],
+      "rationale": "Logotipo del vendedor: imagen que lo identifica visualmente; no responde por sí misma una cuestión (D-144)."
+    }
+  ]
+}

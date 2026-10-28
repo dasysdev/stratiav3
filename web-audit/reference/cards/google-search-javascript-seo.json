@@ -1,0 +1,58 @@
+{
+ "source": "google-search-javascript-seo",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Cómo procesa Google Search el JavaScript (rastreo, renderizado e indexación) y buenas prácticas para aplicaciones web con JavaScript. No fija requisitos comprobables bajo el perfil de consumo sin JavaScript (D-156): sus recomendaciones tratan de cómo usar JavaScript, que el perfil no ejecuta, y sus indicaciones sobre los códigos de estado y los fragmentos no dicen must, should ni recommend. Su función es de método: Google mira robots.txt antes de pedir la URL, extrae los enlaces de los href, no renderiza una página con noindex y pide un 401 para las páginas tras un inicio de sesión.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#how-googlebot-processes-javascript",
+   "text": "When Googlebot fetches a URL from the crawling queue by making an HTTP request, it first checks if you allow crawling. Googlebot reads the robots.txt file. If it marks the URL as disallowed, then Googlebot skips making an HTTP request to this URL and skips the URL."
+  },
+  {
+   "id": "q02",
+   "section": "#how-googlebot-processes-javascript",
+   "text": "Googlebot then parses the response for other URLs in the href attribute of HTML links and adds the URLs to the crawl queue."
+  },
+  {
+   "id": "q03",
+   "section": "#how-googlebot-processes-javascript",
+   "text": "Googlebot queues all pages with a 200 HTTP status code for rendering, unless a robots meta tag or header tells Google not to index the page."
+  },
+  {
+   "id": "q04",
+   "section": "#how-googlebot-processes-javascript",
+   "text": "Keep in mind that server-side or pre-rendering is still a great idea because it makes your website faster for users and crawlers, and not all bots can run JavaScript."
+  },
+  {
+   "id": "q05",
+   "section": "#use-meaningful-http-status-codes",
+   "text": "To tell Googlebot if a page can't be crawled or indexed, use a meaningful status code, like a 404 for a page that could not be found or a 401 code for pages behind a login."
+  },
+  {
+   "id": "q06",
+   "section": "#use-history-api",
+   "text": "Google can only discover your links if they are <a> HTML elements with an href attribute."
+  },
+  {
+   "id": "q07",
+   "section": "#use-history-api",
+   "text": "To ensure that Googlebot can parse and extract your URLs, don't use fragments to load different page content."
+  },
+  {
+   "id": "q08",
+   "section": "#canonical-links",
+   "text": "You can use JavaScript to set the canonical URL, but keep in mind that you shouldn't use JavaScript to change the canonical URL to something else than the URL you specified as the canonical URL in the original HTML."
+  },
+  {
+   "id": "q09",
+   "section": "#write-compatible-code",
+   "text": "We recommend using differential serving and polyfills if you feature-detect a missing browser API that you need."
+  }
+ ],
+ "note": "Del documento base, el RT-01 (fragmentos: q07 no dice must ni should) y los RT-12, 13 y 14 no dan requisito: los tres últimos se siguen del perfil sin JavaScript (D-156). Los «should» y «recommend» de q08 y q09 tratan de lo que hace JavaScript al ejecutarse; comprobarlos exige el DOM renderizado, que el perfil no usa (D-159)."
+}

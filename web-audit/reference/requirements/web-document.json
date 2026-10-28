@@ -1,0 +1,223 @@
+{
+ "level": "documento",
+ "requirements": [
+  {
+   "id": "w-document/001",
+   "scope": "Web",
+   "spec": "whatwg-html-semantics",
+   "condition": "El documento indica su codificación de caracteres con un BOM, con el parámetro charset de Content-Type o con un elemento meta de declaración de codificación.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-semantics#q05",
+    "whatwg-html-semantics#q06",
+    "whatwg-html-semantics#q07",
+    "whatwg-html-semantics#q08",
+    "whatwg-encoding#q02"
+   ],
+   "method": "Basta una de estas tres vías. (1) La cabecera Content-Type de meta.json (http.headers) tiene un parámetro charset cuyo valor, sin comillas ni espacio en blanco en los extremos, es una de las etiquetas de la tabla de nombres y etiquetas de la Encoding Standard, sin distinguir mayúsculas ASCII. (2) El cuerpo de response.html, analizado con un analizador HTML conforme, tiene un elemento meta con atributo charset o con http-equiv igual a content-type, sin distinguir mayúsculas ASCII (el Encoding declaration state). Su texto se lee en el cuerpo guardado, que lo conserva aunque esté decodificado. (3) El documento empieza por un BOM: EF BB BF, FE FF o FF FE al principio de los bytes originales del cuerpo (response.html.gz, método común de Web, punto 2). No se satisface si no se da ninguna de las tres. Si la ficha no tiene los bytes originales y no se da (1) ni (2), es NE. La etiqueta y la posición del elemento meta no se auditan (triaje Web 2026-10-28).",
+   "evidence": "El valor literal de Content-Type (o su ausencia), cada elemento meta de declaración con su atributo y su posición en el cuerpo y los tres primeros bytes del cuerpo; sin ellos, que falta comprobar el BOM.",
+   "applicability": "El cuerpo de la respuesta es un documento HTML: el tipo de su Content-Type es text/html o, si la respuesta no lo declara, capture registra text/html en http.mime.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [
+    "Sin charset en Content-Type ni elemento meta de declaración, decide el BOM, y la ficha no conserva los bytes originales del cuerpo (una captura sin audit-es)."
+   ],
+   "rationale": "q05 exige el elemento meta cuando no hay BOM ni charset en Content-Type, y q06 dice que la declaración se exige siempre, en Content-Type o en el propio fichero. q07 y q08 dicen qué elementos meta son declaraciones. Un documento recuperado como respuesta nunca es un documento iframe srcdoc, la excepción de q05."
+  },
+  {
+   "id": "w-document/004",
+   "scope": "Web",
+   "spec": "whatwg-html-semantics",
+   "condition": "El documento está codificado en UTF-8.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-semantics#q03",
+    "whatwg-encoding#q01",
+    "whatwg-encoding#q03"
+   ],
+   "method": "Con los bytes originales del cuerpo (response.html.gz, método común de Web, punto 2): quitar un BOM de UTF-8 inicial (EF BB BF), si lo hay, y decodificar el resto con el decodificador UTF-8 de la Encoding Standard en modo estricto (UTF-8 decode without BOM or fail). Se satisface si no da ningún error. Sin los bytes originales (una captura sin audit-es) es NE: el cuerpo guardado ya está en UTF-8, sea cual sea la codificación original, y la etiqueta declarada no prueba la codificación real.",
+   "evidence": "Si hay BOM y, si falla, la posición del primer error y los bytes que lo causan, en hexadecimal.",
+   "applicability": "El cuerpo de la respuesta es un documento HTML: el tipo de su Content-Type es text/html o, si la respuesta no lo declara, capture registra text/html en http.mime.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [
+    "La ficha no conserva los bytes originales del cuerpo (una captura sin audit-es)."
+   ],
+   "rationale": "q03 lo exige haya o no declaración, por remisión a la Encoding Standard (whatwg-encoding#q03). Es distinto de la etiqueta declarada: un documento puede declarar utf-8 y enviarse en otra codificación."
+  },
+  {
+   "id": "w-document/008",
+   "scope": "Web",
+   "spec": "whatwg-html-semantics",
+   "condition": "El documento tiene un elemento title con texto.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-semantics#q10",
+    "whatwg-html-semantics#q11",
+    "whatwg-html-semantics#q13"
+   ],
+   "method": "Analizar el cuerpo de response.html con un analizador HTML conforme y buscar los elementos title del documento (fuera de svg). Se satisface si hay al menos uno cuyo texto, quitado el espacio en blanco ASCII, no está vacío. Un title vacío o solo con espacio en blanco no lo satisface.",
+   "evidence": "Cada elemento title: su texto literal y su posición (dentro o fuera de head), o su ausencia.",
+   "applicability": "El cuerpo de la respuesta es un documento HTML: el tipo de su Content-Type es text/html o, si la respuesta no lo declara, capture registra text/html en http.mime.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [],
+   "rationale": "q10 es el modelo de contenido de head cuando el título no viene de un protocolo superior (en una respuesta HTTP no viene) ni es un documento iframe srcdoc: exactamente un title. q11 remite a él para saber cuándo se exige. q13: su contenido es texto que no es espacio en blanco. Es el título del documento, dato del mínimo de representación de Web (D-168); que el título transmita el nombre del producto lo juzga la evaluación informativa."
+  },
+  {
+   "id": "w-document/009",
+   "scope": "Web",
+   "spec": "whatwg-html-semantics",
+   "condition": "El documento no tiene más de un elemento title.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-semantics#q12",
+    "whatwg-html-semantics#q10"
+   ],
+   "method": "Analizar el cuerpo de response.html con un analizador HTML conforme y contar los elementos title del documento (fuera de svg). Se satisface si hay uno o ninguno; la ausencia la comprueba w-document/008.",
+   "evidence": "El número de elementos title y el texto de cada uno.",
+   "applicability": "El cuerpo de la respuesta es un documento HTML: el tipo de su Content-Type es text/html o, si la respuesta no lo declara, capture registra text/html en http.mime.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [],
+   "rationale": "Con dos títulos, el título del documento (dato del mínimo, D-168) es ambiguo."
+  },
+  {
+   "id": "w-document/010",
+   "scope": "Web",
+   "spec": "ogp-protocol",
+   "condition": "El documento tiene una propiedad Open Graph og:title.",
+   "nature": "obligatoria",
+   "quotes": [
+    "ogp-protocol#q01",
+    "ogp-protocol#q02"
+   ],
+   "method": "Con las propiedades Open Graph del documento (método común de Web, punto 7), buscar og:title. Se satisface si hay al menos una con content no vacío. No se satisface si falta o si ninguna lo cumple.",
+   "evidence": "Cada elemento meta con property og:title: su content y su posición (dentro o fuera de head); los que usan name en lugar de property, aparte.",
+   "applicability": "El cuerpo de la respuesta es un documento HTML y tiene al menos un elemento meta cuyo atributo property empieza por «og:» (método común de Web, punto 7).",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [],
+   "rationale": "q01 exige og:title en toda página que use el protocolo. Es la versión de Open Graph del título (D-168)."
+  },
+  {
+   "id": "w-document/011",
+   "scope": "Web",
+   "spec": "ogp-protocol",
+   "condition": "El documento tiene una propiedad Open Graph og:type.",
+   "nature": "obligatoria",
+   "quotes": [
+    "ogp-protocol#q01",
+    "ogp-protocol#q03"
+   ],
+   "method": "Con las propiedades Open Graph del documento (método común de Web, punto 7), buscar og:type. Se satisface si hay al menos una con content no vacío. No se satisface si falta o si ninguna lo cumple.",
+   "evidence": "Cada elemento meta con property og:type: su content y su posición (dentro o fuera de head); los que usan name en lugar de property, aparte.",
+   "applicability": "El cuerpo de la respuesta es un documento HTML y tiene al menos un elemento meta cuyo atributo property empieza por «og:» (método común de Web, punto 7).",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [],
+   "rationale": "q01 exige og:type. El protocolo no tiene tipo de producto: no se exige un valor concreto."
+  },
+  {
+   "id": "w-document/012",
+   "scope": "Web",
+   "spec": "ogp-protocol",
+   "condition": "El documento tiene una propiedad Open Graph og:image cuyo valor es una URL http o https.",
+   "nature": "obligatoria",
+   "quotes": [
+    "ogp-protocol#q01",
+    "ogp-protocol#q04",
+    "ogp-protocol#q06"
+   ],
+   "method": "Con las propiedades Open Graph del documento (método común de Web, punto 7), buscar og:image. Se satisface si hay al menos una con content que sea una URL absoluta válida con el esquema http o https (q06). No se satisface si falta o si ninguna lo cumple.",
+   "evidence": "Cada elemento meta con property og:image: su content y su posición (dentro o fuera de head); los que usan name en lugar de property, aparte.",
+   "applicability": "El cuerpo de la respuesta es un documento HTML y tiene al menos un elemento meta cuyo atributo property empieza por «og:» (método común de Web, punto 7).",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [],
+   "rationale": "q01 exige og:image, y q04 y q06 dicen que su valor es una URL http o https. Con Open Graph, es la imagen del mínimo de representación de Web (D-168)."
+  },
+  {
+   "id": "w-document/013",
+   "scope": "Web",
+   "spec": "ogp-protocol",
+   "condition": "El documento tiene una propiedad Open Graph og:url cuyo valor es una URL http o https.",
+   "nature": "obligatoria",
+   "quotes": [
+    "ogp-protocol#q01",
+    "ogp-protocol#q05",
+    "ogp-protocol#q06"
+   ],
+   "method": "Con las propiedades Open Graph del documento (método común de Web, punto 7), buscar og:url. Se satisface si hay al menos una con content que sea una URL absoluta válida con el esquema http o https (q06). No se satisface si falta o si ninguna lo cumple.",
+   "evidence": "Cada elemento meta con property og:url: su content y su posición (dentro o fuera de head); los que usan name en lugar de property, aparte.",
+   "applicability": "El cuerpo de la respuesta es un documento HTML y tiene al menos un elemento meta cuyo atributo property empieza por «og:» (método común de Web, punto 7).",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [],
+   "rationale": "q01 exige og:url, y q05 y q06 dicen que es la URL canónica del objeto, una URL http o https."
+  },
+  {
+   "id": "w-document/014",
+   "scope": "Web",
+   "spec": "ogp-protocol",
+   "condition": "La URL de og:url es la misma que la URL canónica que declara la página con rel=canonical.",
+   "nature": "obligatoria",
+   "quotes": [
+    "ogp-protocol#q01",
+    "ogp-protocol#q05"
+   ],
+   "method": "Tomar el content de og:url y el href del elemento link rel=canonical de head (o, si no lo hay, la URL de la cabecera Link con rel=canonical de meta.json), y resolver cada uno contra la URL final de la respuesta. Se comparan tras normalizarlas con el analizador de URL de WHATWG (esquema y host en minúsculas, puerto por defecto quitado); la barra final y la query cuentan. Se satisface si son la misma URL. Si hay varios og:url o varias canónicas distintas, no se satisface.",
+   "evidence": "El valor literal de og:url, el de la canónica y su origen (elemento o cabecera) y las dos URL resueltas y normalizadas.",
+   "applicability": "El documento tiene og:url y la página declara una URL canónica con rel=canonical (elemento link en head o cabecera Link).",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [],
+   "rationale": "q05 define og:url como la URL canónica del objeto. Si no coincide con la que declara rel=canonical, la página declara dos URL canónicas distintas para la misma oferta, y la URL canónica es dato de sostén del mínimo de representación (D-168)."
+  }
+ ]
+}

@@ -1,0 +1,422 @@
+{
+ "level": "consumidor",
+ "requirements": [
+  {
+   "id": "w-consumer/001",
+   "scope": "Web",
+   "spec": "google-search-technical-requirements",
+   "condition": "La página no exige iniciar sesión para ver su contenido.",
+   "nature": "obligatoria",
+   "quotes": [
+    "google-search-technical-requirements#q01",
+    "google-search-technical-requirements#q02",
+    "google-search-javascript-seo#q05"
+   ],
+   "method": "Se examinan el estado de la respuesta final, la URL final y las redirecciones (meta.json) y, con 200, el documento de la respuesta (response.html). No satisfecho si la respuesta final es 401, el código que Google pide para las páginas tras un inicio de sesión, o si con 200 el documento es una página de inicio de sesión servida en lugar de la página pedida: su contenido principal es un formulario con un campo input type=\"password\" y, fuera de él y de las partes comunes del sitio (cabecera, menú, pie), no tiene contenido propio de la página pedida. Suele llegarse a ella por una redirección a una URL de acceso (login, signin, account, cuenta…), que se registra como indicio. Un formulario de acceso en el menú o en una ventana de la cabecera, junto al contenido de la página, no es exigir el inicio de sesión. Satisfecho con 200 en los demás casos. Un desafío o un bloqueo a nuestro navegador (outcome blocked: desafío, 403 o 429) no es exigir iniciar sesión: es NE (método común de Web, punto 1).",
+   "evidence": "Estado de la respuesta final, URL pedida y final con la cadena de redirecciones, título del documento y, si es una página de inicio de sesión, la localización del formulario y de su campo de contraseña.",
+   "applicability": "universal",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [
+    "La respuesta final no es 200 ni 401: capture no guarda su documento, y el estado no dice si la página exige iniciar sesión."
+   ],
+   "rationale": "Search Essentials exige que Googlebot no esté bloqueado y dice que no rastrea una página privada, la que exige iniciar sesión. De los demás bloqueos, robots.txt y noindex tienen su requisito (w-consumer/009 y 010). El bloqueo del servidor o del cortafuegos a Googlebot no se puede comprobar: el navegador de capture no es Googlebot (D-157)."
+  },
+  {
+   "id": "w-consumer/002",
+   "scope": "Web",
+   "spec": "google-search-technical-requirements",
+   "condition": "La respuesta final del recurso tiene el estado HTTP 200.",
+   "nature": "obligatoria",
+   "quotes": [
+    "google-search-technical-requirements#q01",
+    "google-search-technical-requirements#q06",
+    "google-crawling-http-status#q02"
+   ],
+   "method": "Leer http.status de meta.json: es el estado de la respuesta final, la de url_final, tras las redirecciones HTTP (redirects). Satisfecho si es 200. No satisfecho si es otro, también otro 2xx (Search Essentials pide 200) o un 4xx o 5xx (outcome gone o failed con http.status), o si la cadena tiene más de 10 redirecciones, las que sigue Googlebot: no llegaría a la respuesta final. capture marca como blocked un desafío y todo 403 o 429: es NE, porque puede ser un bloqueo a nuestro navegador y no la respuesta que recibiría Googlebot (D-157).",
+   "evidence": "http.status, outcome, url_requested, url_final y la cadena redirects (URL, estado y destino de cada salto).",
+   "applicability": "universal",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [
+    "La respuesta final es 403 o 429 sin marcas de desafío (outcome blocked): puede ser un bloqueo a nuestro navegador, que no es Googlebot."
+   ]
+  },
+  {
+   "id": "w-consumer/003",
+   "scope": "Web",
+   "spec": "google-search-technical-requirements",
+   "condition": "El documento servido con el estado 200 no es una página de error.",
+   "nature": "obligatoria",
+   "quotes": [
+    "google-search-technical-requirements#q01",
+    "google-search-technical-requirements#q05",
+    "google-search-technical-requirements#q06",
+    "google-crawling-http-status#q01"
+   ],
+   "method": "Examinar el documento de la respuesta (response.html): su título, su encabezado principal y su contenido textual (método común de Web, punto 4). No satisfecho si es un mensaje de error en lugar de la página pedida, lo que Google llama soft 404: dice que la página o el producto no existe, no se encuentra o se ha retirado, o que se ha producido un error («404», «página no encontrada», «error»), y no tiene contenido propio de la página pedida. Si ni el título ni el encabezado principal dan un indicio de error (404, error, «no encontrada», «no existe», «no disponible», «lo sentimos» u otro equivalente), satisfecho sin más examen: una página de error lo dice en ellos. Con algún indicio, se examina el contenido textual. Una ficha que dice que el producto está agotado o descatalogado y conserva su contenido no es una página de error: es información comercial. Una página vacía la recoge w-consumer/005 y una de inicio de sesión, w-consumer/001.",
+   "evidence": "url_final, título y encabezado principal del documento y el fragmento que indica el error, o su ausencia.",
+   "applicability": "La respuesta final tiene el estado 200, el único con el que Google indexa la página: con otro, no se indexa, y lo recoge w-consumer/002.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": []
+  },
+  {
+   "id": "w-consumer/004",
+   "scope": "Web",
+   "spec": "google-search-technical-requirements",
+   "condition": "El tipo de la respuesta según su Content-Type es un tipo de fichero de texto que Google Search admite.",
+   "nature": "obligatoria",
+   "quotes": [
+    "google-search-technical-requirements#q01",
+    "google-search-technical-requirements#q07",
+    "google-search-indexable-file-types#q01",
+    "google-search-indexable-file-types#q02",
+    "google-search-indexable-file-types#q03",
+    "google-search-indexable-file-types#q04",
+    "google-search-indexable-file-types#q05"
+   ],
+   "method": "Leer la cabecera Content-Type de la respuesta final (http.headers; el nombre, sin distinguir mayúsculas) y quedarse con el tipo de medio, sin parámetros. Satisfecho si corresponde a uno de los tipos de las listas «Supported flat file types» o «Supported encoded file types» de google-search-indexable-file-types: en una página, text/html o application/xhtml+xml (HTML); también, entre otros, text/plain, text/xml o application/xml, image/svg+xml y application/pdf. No satisfecho si es otro tipo y el contenido es de ese tipo (application/json, una imagen, un vídeo): los formatos multimedia se indexan como tales, no como contenido textual. Que exista Content-Type es del nivel protocolo.",
+   "evidence": "El valor de Content-Type de la respuesta final y el tipo de fichero de la lista al que corresponde, o que no corresponde a ninguno.",
+   "applicability": "La respuesta final tiene el estado 200, el único con el que Google indexa la página: con otro, no se indexa, y lo recoge w-consumer/002.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [
+    "La respuesta no tiene Content-Type, o el tipo declarado no es el del contenido (un documento HTML declarado como application/octet-stream): Google puede tomar el tipo de la extensión o volver a analizar el fichero, y la fuente no dice cuándo."
+   ],
+   "rationale": "Search Essentials exige que el contenido textual esté en un tipo de fichero que Google Search admite, y Google determina el tipo por Content-Type."
+  },
+  {
+   "id": "w-consumer/005",
+   "scope": "Web",
+   "spec": "google-search-technical-requirements",
+   "condition": "El documento de la respuesta tiene contenido textual.",
+   "nature": "obligatoria",
+   "quotes": [
+    "google-search-technical-requirements#q01",
+    "google-search-technical-requirements#q07"
+   ],
+   "method": "Extraer el contenido textual del documento de la respuesta (response.html; método común de Web, punto 4), contando solo el del body: el título de head no es contenido de la página. Satisfecho si queda algún texto. No satisfecho si no queda ninguno, como en una página que construye su contenido con JavaScript (D-156), o si el único texto es un aviso de que hace falta activar JavaScript o un indicador de carga («Cargando…»), que no son contenido de la página. Que ese contenido sea la información comercial es de la evaluación informativa (D-160).",
+   "evidence": "Número de caracteres del contenido textual del body y un fragmento, o su ausencia.",
+   "applicability": "La respuesta final tiene el estado 200, el único con el que Google indexa la página: con otro, no se indexa, y lo recoge w-consumer/002.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [],
+   "rationale": "Search Essentials exige contenido indexable: contenido textual en un tipo de fichero admitido (el tipo, w-consumer/004). Que no infrinja las políticas de spam juzga el contenido y no es técnico (D-129)."
+  },
+  {
+   "id": "w-consumer/006",
+   "scope": "Web",
+   "spec": "google-search-sd-policies",
+   "condition": "El documento de la respuesta contiene datos estructurados en JSON-LD, Microdata o RDFa.",
+   "nature": "obligatoria",
+   "quotes": [
+    "google-search-sd-policies#q01",
+    "google-search-sd-policies#q02"
+   ],
+   "method": "Buscar en el documento de la respuesta (response.html), no en el DOM renderizado (método común de Web, punto 1): elementos script de tipo application/ld+json con contenido, elementos con itemscope e itemtype (Microdata) y elementos con los atributos RDFa vocab, typeof o property con términos de Schema.org (las meta property de Open Graph no lo son). Satisfecho si se encuentra alguno. Solo se mira la presencia: si el marcado se analiza bien y si es correcto lo comprueba Web Schema.org. El marcado que solo aparece al ejecutar JavaScript no es utilizable bajo el perfil (D-156) y no cuenta.",
+   "evidence": "Los formatos encontrados con su localización en el documento, o su ausencia.",
+   "applicability": "La respuesta final tiene el estado 200, el único con el que Google indexa la página: con otro, no se indexa, y lo recoge w-consumer/002.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto"
+   ],
+   "not_evaluable": [],
+   "rationale": "Es la condición de ws-consumer/177, con sus citas de las directrices generales, sobre el documento de la respuesta: en Web el marcado se examina solo por su presencia (D-159)."
+  },
+  {
+   "id": "w-consumer/009",
+   "scope": "Web",
+   "spec": "google-search-technical-requirements",
+   "condition": "Las reglas de robots.txt no impiden a Googlebot rastrear la URL de la página.",
+   "nature": "obligatoria",
+   "quotes": [
+    "google-search-technical-requirements#q01",
+    "google-search-technical-requirements#q02",
+    "google-search-technical-requirements#q04",
+    "google-search-javascript-seo#q01",
+    "google-crawling-robots-txt#q01",
+    "google-crawling-robots-txt#q02",
+    "google-crawling-robots-txt#q03",
+    "google-crawling-robots-txt#q04",
+    "google-crawling-robots-txt#q05",
+    "google-crawling-robots-txt#q06",
+    "google-crawling-robots-txt#q07",
+    "google-crawling-robots-txt#q08",
+    "google-crawling-robots-txt#q09",
+    "google-crawling-robots-txt#q10",
+    "google-crawling-robots-txt#q11",
+    "google-crawling-robots-txt#q12",
+    "google-crawling-robots-txt#q13",
+    "google-crawling-robots-txt#q14",
+    "google-crawling-robots-txt#q15",
+    "google-crawling-robots-txt#q16",
+    "google-crawling-robots-txt#q17",
+    "google-crawling-robots-txt#q18"
+   ],
+   "method": "Leer el robots.txt del origen de la URL pedida como fija el método común de Web (punto 3), con la lectura de Google donde difiere de RFC 9309 (google-crawling-robots-txt). Se comprueba la URL pedida y, si la ficha tiene la respuesta, cada URL de la cadena de redirecciones (redirects) y la final que estén en ese mismo origen, porque Googlebot pide cada una; las de otro origen no se examinan, como fija el punto 3, y se registran. Estado del fichero (legitimacy.robots.status de meta.json): con 2xx se leen sus reglas; con 4xx salvo 429 no hay restricciones; con 5xx, 429 o sin respuesta, Google deja de rastrear el sitio 12 horas y después usa la última versión buena, que no se conoce: NE, no «todo prohibido». Grupo: el del user agent más específico que case con el token googlebot, sin distinguir mayúsculas e ignorando el texto que no casa (googlebot/1.2 y googlebot* equivalen a googlebot), con todos sus grupos unidos; si no hay ninguno, el de *, sin combinarlos. Solo cuentan las líneas user-agent, allow y disallow válidas, las reglas con ruta y los primeros 500 KiB. Regla: la de ruta más larga que case con la ruta de la URL y su query, con los comodines * y $; si empatan allow y disallow, allow. No satisfecho si alguna URL examinada queda excluida por un disallow, aunque otra sea NE. Satisfecho si ninguna lo queda. El outcome disallowed de capture se refiere a su propio user agent, no a Googlebot.",
+   "evidence": "Estado del robots.txt y, por cada URL examinada, las líneas user-agent del grupo aplicado (o que no hay grupo) y la regla que decide, o que no casa ninguna, con las URL de otro origen que no se examinan.",
+   "applicability": "universal",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [
+    "La auditoría no conserva el robots.txt del origen o su estado (sites/HOST/robots.txt y legitimacy.robots.status de meta.json; método común de Web, punto 3).",
+    "El robots.txt responde 5xx o 429, o no responde: Google aplica entonces la última versión buena del fichero, que no se conoce."
+   ],
+   "rationale": "Search Essentials exige que Googlebot no esté bloqueado, y Googlebot no pide una URL que robots.txt excluye."
+  },
+  {
+   "id": "w-consumer/010",
+   "scope": "Web",
+   "spec": "google-search-technical-requirements",
+   "condition": "La respuesta no tiene ninguna regla noindex aplicable a Googlebot, ni en una meta robots ni en la cabecera X-Robots-Tag.",
+   "nature": "obligatoria",
+   "quotes": [
+    "google-search-technical-requirements#q01",
+    "google-search-technical-requirements#q03",
+    "google-search-block-indexing#q01",
+    "google-search-block-indexing#q02",
+    "google-search-block-indexing#q03",
+    "google-search-robots-meta#q01",
+    "google-search-robots-meta#q02",
+    "google-search-robots-meta#q03",
+    "google-search-robots-meta#q04",
+    "google-search-robots-meta#q05",
+    "google-search-robots-meta#q06",
+    "google-search-robots-meta#q07",
+    "google-search-robots-meta#q08",
+    "google-search-robots-meta#q09",
+    "google-search-robots-meta#q10",
+    "google-search-javascript-seo#q03"
+   ],
+   "method": "Examinar la respuesta final: sus cabeceras (http.headers de meta.json) y su documento (response.html). No se usan el DOM renderizado ni page_meta.robots de meta.json, que se lee del DOM y solo de name=\"robots\". (1) Meta: los elementos meta del head con name robots o googlebot, sin distinguir mayúsculas (googlebot-news y los demás valores no se dirigen a Googlebot), con su content partido por comas. (2) X-Robots-Tag: cada valor de la cabecera (capture une con saltos de línea las cabeceras repetidas), partido por comas. Si empieza por un nombre seguido de dos puntos que no es una regla (unavailable_after, max-snippet, max-image-preview y max-video-preview también los llevan), ese nombre es el user agent, y la regla solo se aplica a Googlebot si es googlebot; sin user agent, se aplica a todos. Es regla noindex el valor noindex o none, sin distinguir mayúsculas. No satisfecho si alguna se aplica a Googlebot: Google suma las reglas negativas de todos los elementos que le aplican. Lo que añade o quita JavaScript no se ve bajo el perfil (D-156); con un noindex en la respuesta, Google no llega a renderizar la página.",
+   "evidence": "Las meta robots y googlebot del head con su content, los valores de X-Robots-Tag y las reglas noindex o none que se aplican a Googlebot, o su ausencia.",
+   "applicability": "La respuesta final tiene el estado 200, el único con el que Google indexa la página: con otro, no se indexa, y lo recoge w-consumer/002.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [
+    "El documento tiene una meta robots o googlebot con noindex o none fuera del head, y ninguna aplicable en el head ni en la cabecera: Google pide ponerla en el head y la fuente no dice si aplica la que está fuera."
+   ]
+  },
+  {
+   "id": "w-consumer/011",
+   "scope": "Web",
+   "spec": "openai-bots",
+   "condition": "Las reglas de robots.txt no impiden a OAI-SearchBot rastrear la URL de la página.",
+   "nature": "recomendada",
+   "quotes": [
+    "openai-bots#q01",
+    "openai-bots#q02",
+    "openai-bots#q03",
+    "ietf-rfc9309#q04",
+    "ietf-rfc9309#q05",
+    "ietf-rfc9309#q06",
+    "ietf-rfc9309#q07",
+    "ietf-rfc9309#q08",
+    "ietf-rfc9309#q14",
+    "ietf-rfc9309#q15",
+    "ietf-rfc9309#q16",
+    "ietf-rfc9309#q17"
+   ],
+   "method": "Leer el robots.txt del origen de la URL pedida como fija el método común de Web (punto 3), según RFC 9309: OpenAI no publica una lectura propia. Se comprueba la URL pedida y, si la ficha tiene la respuesta, cada URL de la cadena de redirecciones (redirects) y la final que estén en ese mismo origen; las de otro origen no se examinan y se registran. Estado del fichero (legitimacy.robots.status de meta.json): con 2xx se leen sus reglas; con 4xx, incluido el 429, que RFC 9309 da como «unavailable», no hay restricciones; con 5xx o sin respuesta («unreachable»), todo está prohibido y el requisito no se satisface. Grupo: el que nombra el token OAI-SearchBot, sin distinguir mayúsculas y con todos sus grupos unidos; si no hay ninguno, el de *; si tampoco, no se aplica ninguna regla. Regla: la de ruta más larga que case con la ruta de la URL y su query, normalizadas y con los comodines * y $; entre allow y disallow equivalentes, allow. No satisfecho si alguna URL examinada queda excluida por un disallow. Satisfecho si ninguna lo queda. El outcome disallowed de capture se refiere a su propio user agent, no a este bot.",
+   "evidence": "Estado del robots.txt y, por cada URL examinada, las líneas user-agent del grupo aplicado (o que no hay grupo) y la regla que decide, o que no casa ninguna, con las URL de otro origen que no se examinan.",
+   "applicability": "universal",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [
+    "La auditoría no conserva el robots.txt del origen o su estado (sites/HOST/robots.txt y legitimacy.robots.status de meta.json; método común de Web, punto 3)."
+   ],
+   "rationale": "OpenAI recomienda permitir OAI-SearchBot en robots.txt para que el sitio aparezca en la búsqueda de ChatGPT. La otra mitad de la frase, permitir las peticiones de sus rangos de IP publicados, no se puede comprobar desde fuera del operador y no da requisito. GPTBot es de entrenamiento y ChatGPT-User no se rige por robots.txt: tampoco dan requisito."
+  },
+  {
+   "id": "w-consumer/012",
+   "scope": "Web",
+   "spec": "perplexity-crawlers",
+   "condition": "Las reglas de robots.txt no impiden a PerplexityBot rastrear la URL de la página.",
+   "nature": "recomendada",
+   "quotes": [
+    "perplexity-crawlers#q01",
+    "perplexity-crawlers#q02",
+    "ietf-rfc9309#q04",
+    "ietf-rfc9309#q05",
+    "ietf-rfc9309#q06",
+    "ietf-rfc9309#q07",
+    "ietf-rfc9309#q08",
+    "ietf-rfc9309#q14",
+    "ietf-rfc9309#q15",
+    "ietf-rfc9309#q16",
+    "ietf-rfc9309#q17"
+   ],
+   "method": "Leer el robots.txt del origen de la URL pedida como fija el método común de Web (punto 3), según RFC 9309: Perplexity no publica una lectura propia. Se comprueba la URL pedida y, si la ficha tiene la respuesta, cada URL de la cadena de redirecciones (redirects) y la final que estén en ese mismo origen; las de otro origen no se examinan y se registran. Estado del fichero (legitimacy.robots.status de meta.json): con 2xx se leen sus reglas; con 4xx, incluido el 429, que RFC 9309 da como «unavailable», no hay restricciones; con 5xx o sin respuesta («unreachable»), todo está prohibido y el requisito no se satisface. Grupo: el que nombra el token PerplexityBot, sin distinguir mayúsculas y con todos sus grupos unidos; si no hay ninguno, el de *; si tampoco, no se aplica ninguna regla. Regla: la de ruta más larga que case con la ruta de la URL y su query, normalizadas y con los comodines * y $; entre allow y disallow equivalentes, allow. No satisfecho si alguna URL examinada queda excluida por un disallow. Satisfecho si ninguna lo queda. El outcome disallowed de capture se refiere a su propio user agent, no a este bot.",
+   "evidence": "Estado del robots.txt y, por cada URL examinada, las líneas user-agent del grupo aplicado (o que no hay grupo) y la regla que decide, o que no casa ninguna, con las URL de otro origen que no se examinan.",
+   "applicability": "universal",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [
+    "La auditoría no conserva el robots.txt del origen o su estado (sites/HOST/robots.txt y legitimacy.robots.status de meta.json; método común de Web, punto 3)."
+   ],
+   "rationale": "Perplexity recomienda permitir PerplexityBot en robots.txt para que el sitio aparezca en sus resultados de búsqueda. La recomendación de permitir las peticiones de sus rangos de IP publicados no se puede comprobar desde fuera del operador, y Perplexity-User en general no sigue robots.txt: no dan requisito."
+  },
+  {
+   "id": "w-consumer/013",
+   "scope": "Web",
+   "spec": "google-crawling-robots-txt",
+   "condition": "Cada línea sitemap del robots.txt del sitio lleva una URL absoluta, con su protocolo y su host.",
+   "nature": "obligatoria",
+   "quotes": [
+    "google-crawling-robots-txt#q19",
+    "sitemaps-org-protocol#q17"
+   ],
+   "method": "Leer las líneas sitemap del robots.txt del origen (el nombre del campo sin distinguir mayúsculas) y comprobar que cada valor es una URL absoluta con esquema y host. Puede estar en otro host.",
+   "evidence": "Las líneas sitemap del robots.txt y las que no llevan una URL absoluta.",
+   "applicability": "El robots.txt del sitio responde 2xx y tiene al menos una línea sitemap.",
+   "view": "general",
+   "not_evaluable": [
+    "La auditoría no conserva el robots.txt del origen o su estado (sites/HOST/robots.txt y legitimacy.robots.status de meta.json; método común de Web, punto 3)."
+   ]
+  },
+  {
+   "id": "w-consumer/014",
+   "scope": "Web",
+   "decision": "D-162",
+   "condition": "La URL de la página está en un sitemap del sitio.",
+   "nature": "obligatoria",
+   "quotes": [
+    "sitemaps-org-protocol#q15",
+    "sitemaps-org-protocol#q17",
+    "google-search-sitemaps-overview#q02"
+   ],
+   "method": "Reunir las URL válidas de los sitemaps del sitio, en cualquiera de sus formatos (método común de Web, punto 5), y buscar la URL final de la página (url_final de meta.json). Se comparan sin distinguir mayúsculas en el esquema y el host y con el resto exacto, tras normalizar los escapes de porcentaje; la barra final cuenta. Se satisface si está. No se satisface si se obtuvieron todos los sitemaps y no está, también si el sitio no publica ninguno (D-162: sin sitemap, ninguna página está en él). Que esté la URL pedida y no la final se registra.",
+   "evidence": "Los sitemaps examinados (URL y estado), el sitemap y la entrada en que aparece la URL, o que no aparece; la URL pedida y la final.",
+   "applicability": "universal",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [
+    "Algún sitemap del conjunto no se pudo obtener y la URL no está en los obtenidos."
+   ],
+   "rationale": "Condición del proyecto (D-162): toda página que se audita debe estar en los sitemaps. Ninguna especificación lo pide; las citas apoyan el método (qué URL cuentan y cómo se declaran los sitemaps)."
+  },
+  {
+   "id": "w-consumer/015",
+   "scope": "Web",
+   "spec": "google-search-canonical",
+   "condition": "La página declara su URL canónica con rel=canonical, en un elemento link de head o en la cabecera Link.",
+   "nature": "recomendada",
+   "quotes": [
+    "google-search-canonical#q02",
+    "google-search-canonical#q03",
+    "google-search-canonical#q04",
+    "google-search-canonical#q06",
+    "google-search-canonical#q07"
+   ],
+   "method": "Buscar en el cuerpo de response.html, analizado con un analizador HTML conforme, los elementos link de head cuyo rel contiene canonical (sin distinguir mayúsculas ASCII) y tienen href no vacío, y en las cabeceras de meta.json (http.headers) un campo Link con rel=canonical. Un link rel=canonical fuera de head no cuenta (q06). Se satisface si hay al menos uno. No se exige que apunte a la propia página: en una página duplicada apunta a otra.",
+   "evidence": "Cada elemento link rel=canonical con su href y su posición (dentro o fuera de head), y el valor literal de la cabecera Link, o su ausencia.",
+   "applicability": "El cuerpo de la respuesta es un documento HTML: el tipo de su Content-Type es text/html o, si la respuesta no lo declara, capture registra text/html en http.mime.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [],
+   "rationale": "q03 es una de las buenas prácticas que Google pide seguir (q02): incluir rel=canonical en la propia página canónica. q04 recomienda usar una de las dos vías de q07. Ninguna es obligatoria (google-search-canonical#q01). Como dato de sostén del mínimo de representación de Web, su presencia se queda en la técnica (D-168)."
+  },
+  {
+   "id": "w-consumer/016",
+   "scope": "Web",
+   "spec": "google-search-canonical",
+   "condition": "El href de cada elemento link rel=canonical del documento es una URL absoluta.",
+   "nature": "recomendada",
+   "quotes": [
+    "google-search-canonical#q05"
+   ],
+   "method": "Para cada elemento link de head cuyo rel contiene canonical, analizar su href, sin el espacio en blanco ASCII de los extremos, con el analizador de URL de WHATWG sin URL base. Se satisface si todos dan una URL con esquema http o https. Un href relativo (/ruta, ruta, //host/ruta) no lo satisface.",
+   "evidence": "El href literal de cada elemento link rel=canonical y si se resolvió sin base.",
+   "applicability": "El documento tiene al menos un elemento link rel=canonical en head.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [],
+   "rationale": "q05: Google no recomienda las rutas relativas en el elemento link rel=canonical."
+  },
+  {
+   "id": "w-consumer/017",
+   "scope": "Web",
+   "spec": "google-search-canonical",
+   "condition": "La página no declara su URL canónica a la vez con un elemento link rel=canonical y con la cabecera Link.",
+   "nature": "recomendada",
+   "quotes": [
+    "google-search-canonical#q04",
+    "google-search-canonical#q07",
+    "google-search-canonical#q08"
+   ],
+   "method": "Con lo encontrado en w-consumer/015: se satisface si la canónica se declara solo en elementos link de head o solo en la cabecera Link. No se satisface si se declara en los dos sitios, aunque coincidan las URL.",
+   "evidence": "Las canónicas del elemento y de la cabecera, con sus URL.",
+   "applicability": "La página declara una URL canónica con rel=canonical (w-consumer/015 satisfecho).",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [],
+   "rationale": "q04 recomienda elegir una de las dos vías de q07, porque usar las dos facilita declarar URL distintas (q08)."
+  }
+ ]
+}

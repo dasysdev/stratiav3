@@ -1,0 +1,1964 @@
+{
+ "group": "return-shipping",
+ "results": [
+  {
+   "id": "ws-consumer/208",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Su única MerchantReturnPolicy es valor de hasMerchantReturnPolicy del Offer (JSON-LD bloque 2): se descarta."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Ninguna MerchantReturnPolicy en el marcado (JSON-LD ni Microdata)."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Ninguna MerchantReturnPolicy en el Microdata (31 Product)."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Ninguna MerchantReturnPolicy en JSON-LD ni Microdata."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Ninguna MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/209",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/210",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/211",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/212",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/213",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/215",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/216",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/217",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/218",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/220",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/222",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/224",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/225",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/226",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/228",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/230",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/232",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/234",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/237",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/239",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/240",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/241",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/242",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/243",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/244",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization; la única MerchantReturnPolicy cuelga del Offer, no de una Organization."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasMerchantReturnPolicy."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization solo como seller en Microdata, sin hasMerchantReturnPolicy."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller del Offer (JSON-LD) sin hasMerchantReturnPolicy."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni MerchantReturnPolicy en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/245",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/246",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/248",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/251",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/253",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/254",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/257",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/258",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/259",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/260",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/261",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/262",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/263",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/264",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/265",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/274",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/276",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/277",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/278",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/279",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/280",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/282",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/283",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/284",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/285",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/286",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/287",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/288",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/289",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/290",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/291",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/292",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/293",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/294",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/295",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/296",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/297",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/298",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/299",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/300",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/301",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/302",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/303",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/304",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/305",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  },
+  {
+   "id": "ws-consumer/306",
+   "fichas": {
+    "eci-lijadora-a200805914": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    },
+    "cojin-018": {
+     "state": "NA",
+     "evidence": "Organization #organization sin hasShippingService; ningún ShippingService."
+    },
+    "colchoneta-refrescante-freedog": {
+     "state": "NA",
+     "evidence": "Organization seller (Microdata) sin hasShippingService; ningún ShippingService."
+    },
+    "cuerda-tootoy": {
+     "state": "NA",
+     "evidence": "Organization seller sin hasShippingService; ningún ShippingService."
+    },
+    "sofa-cama-luna": {
+     "state": "NA",
+     "evidence": "Sin Organization ni ShippingService en el marcado."
+    }
+   }
+  }
+ ],
+ "problems": [
+  {
+   "id": "ws-consumer/253",
+   "kind": "método",
+   "fichas": [],
+   "description": "La condición («Cada ShippingService de una Organization tiene validForMemberTier») choca con ws-consumer/254 (exige al menos un ShippingService sin validForMemberTier): una Organization con servicio de miembros no puede satisfacer ambas. La cita («if applicable») solo pide validForMemberTier en el servicio que es de miembros; el método restringe por la página pero sigue exigiéndolo a cada ShippingService. Además, por D-145 es presencia de una recomendada que solo añade un hecho: candidata a retirarse como «modelo de demanda».",
+   "proposal": {
+    "field": "condition",
+    "text": "Cada ShippingService de una Organization que corresponde a un servicio de envío que la página muestra como reservado a los miembros de un programa de fidelización tiene validForMemberTier. (Alternativa preferente: retirarlo con motivo «modelo de demanda», D-145.)"
+   }
+  },
+  {
+   "id": "ws-consumer/279",
+   "kind": "no comprobable",
+   "fichas": [],
+   "description": "El método exige que addressRegion, unido al addressCountry, «forma un código asignado de ISO 3166-2», pero references no tiene fuente de ISO 3166-2 (la nota de iso-3166-1 en sources.json: «ISO 3166-2 no tiene fuente oficial reutilizable»). No se puede ejecutar la última parte.",
+   "proposal": {
+    "field": "method",
+    "text": "… Comprobar que cada valor de addressRegion tiene 2 o 3 caracteres alfanuméricos y no lleva el prefijo del país (dos letras y guion: ES-, US-…). La asignación del código en ISO 3166-2 no se comprueba mientras no haya fuente en references."
+   }
+  },
+  {
+   "id": "ws-consumer/245",
+   "kind": "aplicabilidad",
+   "fichas": [],
+   "description": "En Schema.org 30.1 hasShippingService tiene dominio Organization y OfferShippingDetails. Un ShippingService válido bajo el OfferShippingDetails de un Offer (política de la oferta) daría «no satisfecho», mientras que ws-consumer/208 sí descarta la MerchantReturnPolicy del Offer. Asimetría entre las dos políticas paralelas.",
+   "proposal": {
+    "field": "applicability",
+    "text": "El marcado contiene al menos un ShippingService que no es valor de hasShippingService de un OfferShippingDetails. (Y en method: «…descartar los que son valor de hasShippingService de un OfferShippingDetails y comprobar que cada uno de los restantes…»; condición: «Cada ShippingService del marcado que no es valor de hasShippingService de un OfferShippingDetails es valor de hasShippingService de una entidad Organization.»)"
+   }
+  },
+  {
+   "id": "ws-consumer/209",
+   "related_ids": [
+    "ws-consumer/210..244 (return)",
+    "ws-consumer/246..306 (shipping)"
+   ],
+   "kind": "no comprobable",
+   "fichas": [],
+   "description": "Las directrices (q03 de ambas fichas) recomiendan publicar la política en una sola página del sitio. Un recurso de producto puede enlazar la política con una referencia @id que se define en otra página (hasMerchantReturnPolicy/hasShippingService: {\"@id\": \"https://…/#returns\"}). El método la seguiría «por @id» sin encontrarla: o se cuenta como política sin partes (no satisfecho falso) o no se sabe si la aplicabilidad se da. No hay causa NE propia para esto. En las 5 fichas no ocurre (todas NA).",
+   "proposal": {
+    "field": "not_evaluable",
+    "text": "[\"La MerchantReturnPolicy (o el ShippingService) es una referencia @id que no se define en el marcado del recurso examinado (se publica en otra página del sitio).\"]"
+   }
+  },
+  {
+   "id": "ws-consumer/259",
+   "related_ids": [
+    "209..244 y 246..306: todos los que encadenan más de un nivel"
+   ],
+   "kind": "método",
+   "fichas": [],
+   "description": "Los métodos dicen «por anidamiento o por @id» solo en el enlace Organization → política; los niveles siguientes (shippingConditions, shippingDestination/DefinedRegion, handlingTime/transitTime, duration, shippingRate, seasonalOverride, returnPolicySeasonalOverride) se recorren solo por anidamiento. En @graph es habitual referenciar esos nodos por @id. Tampoco dicen cómo enlazar en Microdata (anidamiento por itemscope; itemid/itemref).",
+   "proposal": {
+    "field": "method",
+    "text": "Añadir a cada método que recorre varios niveles: «Cada enlace (Organization → política y los siguientes) se sigue por anidamiento o por @id en JSON-LD, y por anidamiento o itemref en Microdata.»"
+   }
+  },
+  {
+   "id": "ws-consumer/211",
+   "related_ids": [
+    "ws-consumer/239"
+   ],
+   "kind": "método",
+   "fichas": [],
+   "description": "Los métodos de 211 (applicableCountry) y 239 (returnPolicyCountry) son idénticos palabra por palabra y ninguno nombra la propiedad: «Comprobar que cada valor son dos letras…» no dice valor de qué. Ejecutado tal cual, comprueba lo mismo en ambos (o nada).",
+   "proposal": {
+    "field": "method",
+    "text": "211: «…Comprobar que cada valor de applicableCountry son dos letras…»; 239: «…Comprobar que cada valor de returnPolicyCountry son dos letras…» (resto igual)."
+   }
+  },
+  {
+   "id": "ws-consumer/212",
+   "related_ids": [
+    "ws-consumer/212",
+    "ws-consumer/215",
+    "ws-consumer/220",
+    "ws-consumer/222",
+    "ws-consumer/224",
+    "ws-consumer/228",
+    "ws-consumer/230",
+    "ws-consumer/232",
+    "ws-consumer/234",
+    "ws-consumer/237",
+    "ws-consumer/251",
+    "ws-consumer/241"
+   ],
+   "kind": "método",
+   "fichas": [],
+   "description": "Los métodos de enumeración («Identificar el miembro de la enumeración que nombra cada valor») no dicen de qué propiedad son los valores; en 241 «cada valor» se lee como cada returnPolicySeasonalOverride, no su returnPolicyCategory. Solo la condición lo dice.",
+   "proposal": {
+    "field": "method",
+    "text": "«…Identificar el miembro de la enumeración que nombra cada valor de <propiedad> (IRI https://schema.org/… o http://schema.org/…, o el nombre del miembro) y comprobar que es uno de los admitidos.» con <propiedad> = returnPolicyCategory (212, 241), returnFees (215), returnMethod (220), etc."
+   }
+  },
+  {
+   "id": "ws-consumer/217",
+   "kind": "método",
+   "fichas": [],
+   "description": "El método termina con «Identificar el miembro… y comprobar que es uno de los admitidos», copiado de los de enumeración: aquí no hay lista de admitidos, la condición pide exactamente ReturnShippingFees. No dice tampoco qué pasa si no hay returnFees (la condición implica no satisfecho).",
+   "proposal": {
+    "field": "method",
+    "text": "Extraer las entidades Organization (o de un subtipo) del marcado (JSON-LD, Microdata y RDFa) y, de cada una, las MerchantReturnPolicy que son valor de su hasMerchantReturnPolicy, por anidamiento o por @id, quedarse con las que tienen returnShippingFeesAmount y comprobar que cada una tiene un valor de returnFees que nombra ReturnShippingFees (IRI https://schema.org/… o http://schema.org/…, o el nombre del miembro); sin returnFees, no se satisface."
+   }
+  },
+  {
+   "id": "ws-consumer/213",
+   "related_ids": [
+    "ws-consumer/216",
+    "ws-consumer/218",
+    "ws-consumer/225",
+    "ws-consumer/226",
+    "ws-consumer/242"
+   ],
+   "kind": "método",
+   "fichas": [],
+   "description": "Filtran por un miembro de enumeración («de returnPolicyCategory MerchantReturnFiniteReturnWindow», «de returnFees ReturnShippingFees») sin decir cómo se reconoce el valor (IRI completo, http/https o nombre). ECI publica IRIs completos en su política del Offer; una lectura literal del nombre no la reconocería.",
+   "proposal": {
+    "field": "method",
+    "text": "Añadir: «El valor se reconoce como en ws-consumer/212: IRI https://schema.org/…, http://schema.org/… o el nombre del miembro.»"
+   }
+  },
+  {
+   "id": "ws-consumer/218",
+   "kind": "método",
+   "fichas": [],
+   "description": "El método compara «el value (o, si no lo hay, el maxValue)» con cero, pero no dice qué estado da un returnShippingFeesAmount sin value ni maxValue (ninguna otra regla de este grupo lo cubre).",
+   "proposal": {
+    "field": "method",
+    "text": "…comprobar que el value (o, si no lo hay, el maxValue) de su returnShippingFeesAmount es un número distinto de cero; si no tiene ninguno de los dos, no se satisface."
+   }
+  },
+  {
+   "id": "ws-consumer/274",
+   "related_ids": [
+    "ws-consumer/276"
+   ],
+   "kind": "método",
+   "fichas": [],
+   "description": "«doesNotShip igual a true» no dice cómo se reconoce el booleano: true de JSON, texto \"true\", https://schema.org/True o, en Microdata, <link href=\"https://schema.org/True\"> o content=\"true\". Lecturas distintas cambian la aplicabilidad.",
+   "proposal": {
+    "field": "method",
+    "text": "Añadir: «doesNotShip es verdadero si su valor es el booleano true, el texto true (sin distinguir mayúsculas) o el IRI https://schema.org/True o http://schema.org/True.»"
+   }
+  },
+  {
+   "id": "ws-consumer/257",
+   "related_ids": [
+    "ws-consumer/282"
+   ],
+   "kind": "aplicabilidad",
+   "fichas": [],
+   "description": "Un handlingTime/transitTime publicado sin duration es una estructura sin la parte que la hace interpretable (formación estructural, README «Qué se escribe»), con independencia de que la página muestre el plazo. Supeditarlo a lo que muestra la página da NA a un ServicePeriod vacío. Además la política de Organization suele estar en otra página que el producto: «la página» es ambigua.",
+   "proposal": {
+    "field": "applicability",
+    "text": "Algún ShippingService de una Organization tiene handlingTime. (282: «Algún ShippingConditions de un ShippingService de una Organization tiene transitTime.»; method sin la frase «Si la página muestra…» y not_evaluable [].)"
+   }
+  }
+ ]
+}

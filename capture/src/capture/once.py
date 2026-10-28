@@ -1,5 +1,7 @@
 """Capture of a single page (pages.fetch): the legitimacy of its site, one visit without a
 reader's pace and its snapshot. The refusals (robots.txt, TDM reservation) also leave meta.json.
+The capture profile (capture.profiles) is the caller's; under one that keeps evidence the record
+also says what robots.txt allows each AI and search bot.
 """
 from __future__ import annotations
 
@@ -7,7 +9,7 @@ import json
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from . import profile
+from . import profile, profiles
 from .browser import Browser
 from .files import now
 from .legitimacy import access
@@ -15,19 +17,23 @@ from .tdm import reserved_by_entries
 from .visit import visit
 
 
-def capture_once(url: str, folder: Path, browser: Browser | None = None) -> dict:
+def capture_once(url: str, folder: Path, browser: Browser | None = None,
+                 capture_profile: str | profiles.Profile | None = None) -> dict:
     """Snapshot of `url` in `folder`: {'outcome', 'detail', 'meta'} (and 'elapsed_s' if visited).
     Uses the Chrome already running in the container, or launches one."""
+    chosen = profiles.get(capture_profile)
     own = browser is None
     if own:
         browser = Browser(profile())
         browser.start()
-    page = browser.new_window()
+    page = browser.new_window(chosen)
     try:
         parts = urlsplit(url)
         base = f"{parts.scheme}://{parts.netloc}"
         robots, entries, summary = access(page, base, folder)
-        meta = {"legitimacy": summary}
+        meta = {"profile": chosen.name, "legitimacy": summary}
+        if chosen.evidence:
+            meta["robots_bots"] = robots.by_bot(url, profiles.BOTS)
         if not robots.allowed(url):
             detail = "robots.txt inaccesible" if robots.mode == "unreachable" else "robots.txt"
             return _refused(folder, url, meta, "disallowed", detail)

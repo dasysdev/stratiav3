@@ -3,9 +3,9 @@ id: audit-gsc-inputs-outputs
 title: Contratos de entrada y de salida
 layer: method
 status: propuesta
-version: 0.3
-updated: 2026-10-27
-sources: [GSC0 §3, GSC0 Anexo D, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
+version: 0.8
+updated: 2026-10-28
+sources: [GSC0 §3, GSC0 Anexo D, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-28-single-consumption-profile, INTAKE 2026-10-28-request-context-and-scripts, INTAKE 2026-10-28-capture-profile-no-js]
 ---
 
 # Contratos de entrada y de salida
@@ -20,7 +20,7 @@ Antes de ejecutar, deben estar disponibles:
 |---|---|---|
 | **RI identificado** | ID, redacción exacta, dimensión y clase de oferta. | Modelo de demanda. |
 | **Objeto y alcance** | Entidad/es interrogadas, desagregación, condiciones y aplicabilidad. | Modelo de demanda; aclaración de auditoría si procede. |
-| **Ámbito pertinente** | Catálogos distribuidos, Web o Web Schema.org. | Modelo de demanda. |
+| **Ámbito pertinente** | Catálogos distribuidos, Web o Web Schema.org. En la V1, Web o Web Schema.org ([D-152](../../30-governance/decisions.md#d-152)). Todo RI del modelo es pertinente salvo las excepciones de la ficha del ámbito; se registra la versión de la ficha ([D-155](../../30-governance/decisions.md#d-155)). | Modelo de demanda compuesto con la [ficha del ámbito](../../10-model/demand-model.md#ficha-de-ámbito). |
 | **Perfil informativo del RI** | Núcleo del hecho/relación solicitados y componentes de respuesta; puede elaborarse con el protocolo de [ri-profile.md](ri-profile.md) si no existe. | Modelo de demanda o fase preparatoria controlada. |
 | **Caso evaluado** | Ecommerce, oferta/recurso, identificadores disponibles y momento/mercado relevantes. | Configuración de auditoría. |
 | **Perfil de consumo** | Qué vías de obtención/lectura están permitidas y qué recursos se incluyen. | Configuración de ámbito. |
@@ -31,6 +31,8 @@ La **importancia relativa** del RI puede acompañar al expediente, pero **no alt
 ### Perfil de consumo
 
 Condiciones bajo las que el recurso se obtiene y lee en un ámbito: vías de obtención/lectura permitidas y recursos incluidos. La modalidad es **sin navegación interactiva**; el perfil documentado determina qué es utilizable, sin establecer una prohibición universal de JavaScript desvinculada de él ([ámbitos de evaluación](../../10-model/evaluation-scopes.md)). Se versiona cuando cambian las representaciones o vías admitidas; no se comparan resultados de distintos perfiles sin advertirlo.
+
+En Web y Web Schema.org hay **un solo perfil**: la **respuesta HTTP sin ejecutar JavaScript** (`response.html` de la ficha congelada en capture), de la que se usa todo el documento, no solo el texto visible ([D-156](../../30-governance/decisions.md#d-156), [evaluation-scopes](../../10-model/evaluation-scopes.md#perfil-de-consumo-no-interactivo)). Es un navegador real que no ejecuta JavaScript, con estado limpio por ficha, `es-ES`, IP española y el user agent real; los scripts que no son marcado no cuentan ([D-157](../../30-governance/decisions.md#d-157)). En capture es el perfil de captura `audit-es`: JavaScript desactivado y un contexto de navegador nuevo por ficha ([D-163](../../30-governance/decisions.md#d-163)).
 
 ## Validación previa de entradas
 

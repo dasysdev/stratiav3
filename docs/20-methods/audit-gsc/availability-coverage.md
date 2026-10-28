@@ -3,9 +3,9 @@ id: audit-gsc-availability-coverage
 title: Disponibilidad efectiva y cobertura (procedimiento)
 layer: method
 status: propuesta
-version: 0.2
-updated: 2026-10-27
-sources: [GSC0 §8, FUND §5.3, FUND §9.4, INTAKE 2026-10-27-ac-applicability-and-reliability]
+version: 0.3
+updated: 2026-10-28
+sources: [GSC0 §8, FUND §5.3, FUND §9.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1]
 ---
 
 # Disponibilidad efectiva y cobertura
@@ -34,7 +34,7 @@ La cobertura necesaria es **proporcional a la afirmación que debe sostenerse**:
 - Para **afirmar ausencia de información pertinente**, se necesita demostrar una revisión adecuada de las fuentes, representaciones y zonas plausibles del ámbito, incluyendo relaciones y expresiones alternativas razonables.
 - Para **afirmar carencia de un componente o variante** en Concreción/Aplicabilidad, se necesita cobertura dirigida a ese componente y conjunto, no únicamente una búsqueda general.
 - Para **afirmar coherencia o contradicción**, se necesita inspección adecuada de afirmaciones comparables relevantes; no se puede inferir exactitud a partir de la falta de conflictos encontrados.
-- Para **afirmar fiabilidad**, la cobertura y el soporte dependen de la naturaleza y volatilidad del hecho, sin imponer a todos los casos una verificación externa idéntica.
+- Para **afirmar fiabilidad**, la cobertura y el soporte dependen de la naturaleza y volatilidad del hecho, sin verificación externa: la auditoría no consulta fuentes externas ([D-154](../../30-governance/decisions.md#d-154)).
 
 > **Estado: vigente** (FUND §9.4). **La ausencia requiere una prueba de cobertura.** Una búsqueda infructuosa no demuestra que no haya información pertinente. Para fundamentar un resultado negativo hay que documentar qué recursos y representaciones se obtuvieron, qué se inspeccionó, qué candidatos aparecieron, por qué no aportan información pertinente utilizable y qué limitaciones permanecen. La ausencia acreditada no se confunde con la insuficiencia de evidencia.
 
@@ -54,7 +54,7 @@ La cobertura necesaria es **proporcional a la afirmación que debe sostenerse**:
 
 **CO-07.** Distinguir: *no publicado*, *no obtenible/legible bajo el perfil*, *no localizado pese a revisión suficiente* y *no comprobado por cobertura insuficiente*. Son diagnósticos diferentes y no autorizan idénticas conclusiones.
 
-**CO-08.** Conservar prueba de cómo se examinó el contenido y de los límites de esa inspección, especialmente para una ausencia.
+**CO-08.** Conservar prueba de cómo se examinó el contenido y de los límites de esa inspección, especialmente para una ausencia. En la V1, esa prueba la deja la fase 1 de la [ejecución](execution.md#ejecución-en-dos-fases), que mira la página entera del ámbito; un 0 sin ella no pasa el validador ([D-153](../../30-governance/decisions.md#d-153), QA-15).
 
 **CO-09.** Si una comprobación no alcanza cobertura adecuada para su conclusión, ampliar inspección o declarar la decisión inconclusa/NE según la fase y el juicio afectados.
 

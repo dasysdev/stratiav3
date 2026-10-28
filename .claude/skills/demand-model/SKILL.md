@@ -29,7 +29,7 @@ Todo desde `demand-engine/`.
    - devuelve el nombre del modelo, los bloques generados y sus dudas principales.
 
    No le pases resultados esperados ni conclusiones tuyas.
-4. **Ensamblar:** `bin/model assemble var/runs/live/ID.json`. Escribe `ID.model.json` e `ID.model.md` y deja en `var/queue.jsonl` lo usado sin compilar.
+4. **Ensamblar:** `bin/model assemble var/runs/live/ID.json`. Escribe `ID.model.json` e `ID.model.md` y deja en `var/queue.jsonl` lo usado sin compilar. Después, `bin/model scope var/runs/live/ID.model.json` compone el modelo con la ficha de cada ámbito (D-155) y escribe `ID.web.json` e `ID.web-schema-org.json`, con sus unidades RI × ámbito y su localización.
 5. **Informar** al usuario, de forma breve:
    - el nombre y la clave del modelo;
    - el número de requisitos por importancia;

@@ -1,0 +1,63 @@
+{
+ "source": "google-search-robots-meta",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Especificación de la meta robots, el atributo data-nosnippet y la cabecera X-Robots-Tag: a qué rastreadores se dirigen, qué reglas admiten y cómo se combinan. Da el método de w-consumer/010.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#robotsmeta",
+   "text": "Place the robots meta tag in the <head> section of a given page, like this:"
+  },
+  {
+   "id": "q02",
+   "section": "#robotsmeta",
+   "text": "The value of the name attribute (robots) specifies that the rule applies to all crawlers. Both the name and the content attributes are case-insensitive. To address a specific crawler, replace the robots value of the name attribute with the user agent token of the crawler that you are addressing. Google supports two user agent tokens in the robots meta tag; other values are ignored: - googlebot: for all text results. - googlebot-news: for news results."
+  },
+  {
+   "id": "q03",
+   "section": "#xrobotstag",
+   "text": "Any rule that can be used in a robots meta tag can also be specified as an X-Robots-Tag."
+  },
+  {
+   "id": "q04",
+   "section": "#xrobotstag",
+   "text": "Multiple X-Robots-Tag headers can be combined within the HTTP response, or you can specify a comma-separated list of rules."
+  },
+  {
+   "id": "q05",
+   "section": "#xrobotstag",
+   "text": "The X-Robots-Tag may optionally specify a user agent before the rules."
+  },
+  {
+   "id": "q06",
+   "section": "#xrobotstag",
+   "text": "Rules specified without a user agent are valid for all crawlers. The HTTP header, the user agent name, and the specified values are not case sensitive."
+  },
+  {
+   "id": "q07",
+   "section": "#directives",
+   "text": "Multiple rules may be combined in a comma-separated list or in separate meta tags. These rules are case-insensitive."
+  },
+  {
+   "id": "q08",
+   "section": "#directives",
+   "text": "noindex | Do not show this page, media, or resource in search results."
+  },
+  {
+   "id": "q09",
+   "section": "#directives",
+   "text": "none | Equivalent to noindex, nofollow."
+  },
+  {
+   "id": "q10",
+   "section": "#combined",
+   "text": "For situations where multiple crawlers are specified along with different rules, the search engine will use the sum of the negative rules."
+  }
+ ],
+ "note": "Sus «must» son de forma de reglas de presentación: la fecha de unavailable_after en un formato de uso extendido y el HTML válido de una sección con data-nosnippet. No se escriben como requisitos: no afectan al acceso ni a la indexación de la página (una fecha no válida hace que la regla se ignore), y la validez del HTML es del nivel documento."
+}

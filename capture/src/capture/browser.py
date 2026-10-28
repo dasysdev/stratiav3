@@ -4,6 +4,11 @@ Chrome stable, headed (Xvfb or the host desktop), persistent profile, no automat
 and no --headless: the sites see an ordinary Chrome with its own user agent. Each site works
 in its own window, so every page is visible and rendered (a background tab is throttled and
 its lazy content does not load). Launch flags adapted from stratia.rpa (launcher.py).
+
+The capture profile (capture.profiles) sets how a window reads: in the persistent profile or
+in a browser context of its own, disposed with the window; with or without the page's
+JavaScript; and whether the original bytes of each document are kept (Fetch, at the response
+stage: Network.getResponseBody gives the body decoded by Chrome).
 """
 from __future__ import annotations
 
@@ -19,6 +24,7 @@ import urllib.request
 from pathlib import Path
 
 from .cdp import Cdp, CdpError
+from .profiles import READER, Profile
 
 SINGLETON_FILES = ("SingletonLock", "SingletonSocket", "SingletonCookie")
 
@@ -99,11 +105,16 @@ class Browser:
     def version(self) -> dict:
         return self._json("/json/version")
 
-    def new_window(self) -> "Page":
+    def new_window(self, profile: Profile = READER) -> "Page":
+        params = {"url": "about:blank", "newWindow": True}
         with self._lock:
-            target = self._cdp.send("Target.createTarget", {"url": "about:blank", "newWindow": True})
+            if profile.fresh_context:
+                params["browserContextId"] = self._cdp.send(
+                    "Target.createBrowserContext", {"disposeOnDetach": True})["browserContextId"]
+            target = self._cdp.send("Target.createTarget", params)
         target_id = target["targetId"]
-        return Page(self, target_id, Cdp(f"ws://127.0.0.1:{self.port}/devtools/page/{target_id}"))
+        return Page(self, target_id, Cdp(f"ws://127.0.0.1:{self.port}/devtools/page/{target_id}"),
+                    profile, params.get("browserContextId"))
 
     def close_window(self, page: "Page") -> None:
         page.cdp.close()
@@ -112,6 +123,11 @@ class Browser:
                 self._cdp.send("Target.closeTarget", {"targetId": page.target_id})
             except CdpError:
                 pass
+            if page.context_id:
+                try:
+                    self._cdp.send("Target.disposeBrowserContext", {"browserContextId": page.context_id})
+                except CdpError:
+                    pass
 
     def close_other_tabs(self, keep: "Page") -> int:
         """Close every tab but `keep` and return how many: a run cut short leaves its tab
@@ -147,14 +163,41 @@ class Page:
     """One window. Scripts of the engine run in an isolated world: the page cannot see
     or alter them, and they see a pristine DOM API."""
 
-    def __init__(self, browser: Browser, target_id: str, cdp: Cdp) -> None:
+    def __init__(self, browser: Browser, target_id: str, cdp: Cdp, profile: Profile = READER,
+                 context_id: str | None = None) -> None:
         self.browser = browser
         self.target_id = target_id
         self.cdp = cdp
+        self.profile = profile
+        self.context_id = context_id  # the browser context of its own, if the profile has one
         self.frame_id = ""
         self._context: int | None = None
+        self._raw: dict[str, bytes] = {}  # original body of each document, by Network requestId
         cdp.send("Network.enable", {"maxTotalBufferSize": 200_000_000,
                                     "maxResourceBufferSize": 50_000_000})
+        if not profile.javascript:
+            cdp.send("Emulation.setScriptExecutionDisabled", {"value": True})
+        if profile.evidence:
+            cdp.handlers["Fetch.requestPaused"] = self._paused
+            cdp.send("Fetch.enable", {"patterns": [{"urlPattern": "*", "resourceType": "Document",
+                                                    "requestStage": "Response"}]})
+
+    def _paused(self, p: dict) -> None:
+        """A document paused at the response stage: keep the body of the main frame's (not of
+        a redirect) and let it go on unchanged."""
+        try:
+            status = p.get("responseStatusCode") or 0
+            if p.get("frameId") in (self.target_id, self.frame_id) and not 300 <= status < 400:
+                body = self.cdp.send("Fetch.getResponseBody", {"requestId": p["requestId"]}, timeout=60)
+                self._raw[p.get("networkId")] = base64.b64decode(body["body"]) if body.get("base64Encoded") \
+                    else body.get("body", "").encode("utf-8")
+        except CdpError:
+            pass
+        finally:
+            try:
+                self.cdp.send("Fetch.continueRequest", {"requestId": p["requestId"]})
+            except CdpError:
+                pass
 
     # ------------------------------------------------------------ navigation
     def navigate(self, url: str) -> dict:
@@ -274,8 +317,23 @@ class Page:
             if ev.get("method") == "Network.requestWillBeSent" and p.get("type") == "Document" \
                     and p.get("frameId") == self.frame_id and p.get("redirectResponse"):
                 r = p["redirectResponse"]
-                chain.append({"url": r.get("url"), "status": r.get("status"), "to": p["request"]["url"]})
+                chain.append({"url": r.get("url"), "status": r.get("status"), "to": p["request"]["url"],
+                              "headers": r.get("headers")})
         return chain
+
+    def request_headers(self, request_id: str) -> dict:
+        """The headers of a request as they went out (Accept-Language among them); after a
+        redirect, those of the last hop, which shares the request id."""
+        found = {}
+        for ev in self.cdp.events:
+            p = ev.get("params", {})
+            if ev.get("method") == "Network.requestWillBeSentExtraInfo" and p.get("requestId") == request_id:
+                found = p.get("headers") or {}
+        return found
+
+    def raw_body(self, request_id: str) -> bytes | None:
+        """The original bytes of a document's body, if the profile keeps them."""
+        return self._raw.get(request_id)
 
     def response_body(self, request_id: str) -> bytes:
         """Body of a response; retried while Chrome has not finished receiving it."""

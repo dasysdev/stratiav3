@@ -3,6 +3,9 @@
   "version": "2026-10-27",
   "class": "especificación aplicable",
   "level": "serialización",
+  "scopes": [
+    "Web Schema.org"
+  ],
   "summary": "Sintaxis de Microdata en HTML (WHATWG, sección 5): cómo se forman los items (itemscope, itemtype, itemid, itemref), los nombres de propiedad (itemprop) y sus valores, y las condiciones que ha de cumplir el documento que los contiene.",
   "note": "La versión congelada solo contiene la sección 5 del HTML Living Standard. Lo que HTML exige a cada elemento portador de valor (meta con content, link con href, time con datetime válido) está en la sección 4 y no se puede citar desde esta fuente. El WHATWG escribe los requisitos de autor con «must» en minúscula, y su párrafo de conformidad (sección 2) tampoco está en la versión congelada: la naturaleza la fija el «must» de cada cita. Las secciones 5.3 (vocabularios de ejemplo) y 5.4 (conversión) no aplican a Schema.org; de 5.4 solo se cita el algoritmo de extracción, que sirve de método.",
   "quotes": [

@@ -3,9 +3,9 @@ id: demand-model
 title: Modelo de demanda y requisitos informativos
 layer: model
 status: vigente
-version: 3.6
+version: 3.8
 updated: 2026-10-28
-sources: [BASE §4, FUND §3, FUND §11.1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-block-catalog, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-26-question-formulation, INTAKE 2026-10-26-answer-form, INTAKE 2026-10-26-resolving-information, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-issues, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-26-model-name-full-composition, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-comparison-mark, INTAKE 2026-10-27-requirement-hints-location, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation]
+sources: [BASE §4, FUND §3, FUND §11.1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-block-catalog, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-26-question-formulation, INTAKE 2026-10-26-answer-form, INTAKE 2026-10-26-resolving-information, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-issues, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-26-model-name-full-composition, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-comparison-mark, INTAKE 2026-10-27-requirement-hints-location, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-28-shipping-zones]
 ---
 
 # Modelo de demanda y requisitos informativos
@@ -109,7 +109,7 @@ La clase sobre la que se construye el modelo es la **clase de estudio**: clase g
 >
 > — INTAKE 2026-10-25-offer-application (propuestas de Claude aprobadas)
 
-Todo modelo incluye la capa general completa, universal y condicionada con su disparador. Lo que distingue un modelo son sus bloques de categoría y de especialización y los condicionados del producto (elementos digitales). La **aplicación** es la lista de condiciones de la oferta que se dan: variantes ofrecidas, unidad no nueva, descuento, cantidad limitada, garantía comercial, asistencia posventa, opiniones publicadas, precio personalizado o suscripción ([D-066](../30-governance/decisions.md#d-066)). Los cambios no son una condición de la oferta: son condiciones de devolución y cambio ([D-085](../30-governance/decisions.md#d-085)). Lo que se audita es la oferta: el modelo de su producto más su aplicación. El modelo solo incluye cuestiones relevantes para la clase: lo que no lo es sale por el [filtro de relevancia](model-training.md#relevancia) ([D-050](../30-governance/decisions.md#d-050)). Cuándo vale como «no» lo que la ficha no declara lo fija la auditoría ([OQ-50](../30-governance/open-questions.md)). Una cuestión que solo trae una condición de la oferta es un requisito condicionado de la clase, como la salud de la batería de un smartphone reacondicionado (ejemplo hipotético) ([D-047](../30-governance/decisions.md#d-047), [D-048](../30-governance/decisions.md#d-048)). Las categorías por clasificación objetiva que no aportan requisitos son [alias](study-class.md#composición-de-la-clase). Pila de bloques: capa general → sector → clase → especializaciones ([D-033](../30-governance/decisions.md#d-033)). Sector y categoría son un mismo tipo de bloque, con los atributos propios de una categoría de Shopify que no lista ninguna de sus madres ([D-040](../30-governance/decisions.md#d-040)), y se distinguen por su posición: los de las madres forman el sector; así la base heredada ([D-029](../30-governance/decisions.md#d-029)) no se cuenta dos veces ([D-038](../30-governance/decisions.md#d-038)). Un atributo repetido en varios niveles va siempre al bloque de la categoría más general que lo lista, y los bloques de categoría salen de un catálogo generado con la herramienta y compilado en el entrenamiento; si falta la categoría, en ejecución se genera con las reglas vigentes y se usa en estado «no compilado» (si su rama no tiene regla, la importancia es el voto del agente, provisional) ([D-040](../30-governance/decisions.md#d-040), [D-041](../30-governance/decisions.md#d-041), [D-044](../30-governance/decisions.md#d-044), [D-045](../30-governance/decisions.md#d-045)).
+Todo modelo incluye la capa general completa, universal y condicionada con su disparador. Lo que distingue un modelo son sus bloques de categoría y de especialización y los condicionados del producto (elementos digitales). La **aplicación** es la lista de condiciones de la oferta que se dan: variantes ofrecidas, unidad no nueva, descuento, cantidad limitada, garantía comercial, asistencia posventa, opiniones publicadas, precio personalizado, suscripción ([D-066](../30-governance/decisions.md#d-066)) o envío a Canarias, Ceuta o Melilla ([D-165](../30-governance/decisions.md#d-165)). Los cambios no son una condición de la oferta: son condiciones de devolución y cambio ([D-085](../30-governance/decisions.md#d-085)). Lo que se audita es la oferta: el modelo de su producto más su aplicación. El modelo solo incluye cuestiones relevantes para la clase: lo que no lo es sale por el [filtro de relevancia](model-training.md#relevancia) ([D-050](../30-governance/decisions.md#d-050)). Cuándo vale como «no» lo que la ficha no declara lo fija la auditoría ([OQ-50](../30-governance/open-questions.md)). Una cuestión que solo trae una condición de la oferta es un requisito condicionado de la clase, como la salud de la batería de un smartphone reacondicionado (ejemplo hipotético) ([D-047](../30-governance/decisions.md#d-047), [D-048](../30-governance/decisions.md#d-048)). Las categorías por clasificación objetiva que no aportan requisitos son [alias](study-class.md#composición-de-la-clase). Pila de bloques: capa general → sector → clase → especializaciones ([D-033](../30-governance/decisions.md#d-033)). Sector y categoría son un mismo tipo de bloque, con los atributos propios de una categoría de Shopify que no lista ninguna de sus madres ([D-040](../30-governance/decisions.md#d-040)), y se distinguen por su posición: los de las madres forman el sector; así la base heredada ([D-029](../30-governance/decisions.md#d-029)) no se cuenta dos veces ([D-038](../30-governance/decisions.md#d-038)). Un atributo repetido en varios niveles va siempre al bloque de la categoría más general que lo lista, y los bloques de categoría salen de un catálogo generado con la herramienta y compilado en el entrenamiento; si falta la categoría, en ejecución se genera con las reglas vigentes y se usa en estado «no compilado» (si su rama no tiene regla, la importancia es el voto del agente, provisional) ([D-040](../30-governance/decisions.md#d-040), [D-041](../30-governance/decisions.md#d-041), [D-044](../30-governance/decisions.md#d-044), [D-045](../30-governance/decisions.md#d-045)).
 
 > Hay dos niveles:
 >
@@ -150,13 +150,31 @@ El modelo de cada producto se construye en una **ejecución** automática con la
 
 ## Relación con los ámbitos de evaluación
 
-El catálogo relaciona cada RI con sus [ámbitos pertinentes](evaluation-scopes.md) (Catálogos distribuidos, Web, Web Schema.org). Esa relación determina **dónde** se examina su satisfacción y **qué entidades, condiciones y contenidos** incluye la comprobación.
+El catálogo relaciona cada RI con sus [ámbitos pertinentes](evaluation-scopes.md) (Catálogos distribuidos, Web, Web Schema.org). Esa relación determina **dónde** se examina su satisfacción y **qué entidades, condiciones y contenidos** incluye la comprobación. La relación no es un campo del catálogo: es la composición del modelo con la **ficha de cada ámbito** ([D-155](../30-governance/decisions.md#d-155)).
 
-La presencia de las propiedades que los consumidores del perfil de Web Schema.org **recomiendan sin exigir** es, en general, **apoyo del modelo para ese ámbito**, salvo las partes de la formación estructural ([D-148](../30-governance/decisions.md#d-148)) y los datos del mínimo de representación ([D-147](../30-governance/decisions.md#d-147)) ([D-145](../30-governance/decisions.md#d-145); [frontera entre evaluaciones](evaluation-scopes.md#frontera-entre-la-evaluación-técnica-y-la-informativa)):
+### Ficha de ámbito
 
-- cuenta que la propiedad aparezca en la referencia, no su naturaleza; la importancia la decide el modelo, como con los PTD de Amazon ([D-052](../30-governance/decisions.md#d-052));
-- una propiedad no es un RI por sí misma: apoya un requisito o una aportación existentes, o propone un candidato si ninguno la cubre;
-- cómo entran en el motor de demanda (vía, mapeo, ámbito pertinente, versión de la referencia): [OQ-76](../30-governance/open-questions.md#a-modelo-de-demanda).
+> El modelo de demanda es uno: preguntas, importancia, información resolutiva y pistas no dependen del ámbito. Cada ámbito tiene una **ficha** propia, versionada, con dos partes:
+>
+> - **Pertinencia:** por defecto, todo RI del modelo es pertinente en el ámbito. Las excepciones son NA fundamentados en la función del ámbito, formulados como reglas (por entidad o componente), no RI a RI. La falta de una propiedad o un campo en el vocabulario del ámbito no es motivo. Web no tiene excepciones.
+> - **Localización:** el vocabulario del ámbito (por ejemplo, las propiedades de Schema.org, citadas `fuente:Tipo.propiedad@versión`) relacionado con las aportaciones de la información resolutiva. Llega al auditor como expresiones ilustrativas del perfil del RI: orienta, no cierra la búsqueda ni decide la pertinencia.
+>
+> La auditoría compone modelo × ficha para obtener las unidades RI × ámbito y registra la versión de la ficha.
+>
+> — INTAKE 2026-10-28-scope-sheet
+
+- **Las pistas de valoración no dicen ámbito:** lo que cambia por ámbito es localización, no valoración ([assessment-hints](assessment-hints.md)).
+- **La no pertinencia es de RI**, la unidad RI × ámbito: no hay aportaciones no exigibles por ámbito. El NA es el del requisito que no corresponde a un ámbito ([acceptance-criteria](acceptance-criteria.md)), no un estado nuevo.
+- La falta de una propiedad no excluye un RI por la **independencia de un campo o formato** (regla 5) y porque no se mide una IA concreta (invariante 14).
+
+### Propiedades recomendadas de Web Schema.org
+
+Lo que los consumidores del perfil de Web Schema.org **recomiendan sin exigir**, salvo las partes de la formación estructural ([D-148](../30-governance/decisions.md#d-148)) y los datos del mínimo de representación ([D-147](../30-governance/decisions.md#d-147)), sale de la evaluación técnica ([D-145](../30-governance/decisions.md#d-145); [frontera entre evaluaciones](evaluation-scopes.md#frontera-entre-la-evaluación-técnica-y-la-informativa)). Cada propiedad tiene **dos papeles separados** (precisión de [D-155](../30-governance/decisions.md#d-155)):
+
+- **Apoyo de demanda**, sin ámbito: origen «referencias», como los PTD de Amazon ([D-052](../30-governance/decisions.md#d-052), [construction-routes](construction-routes.md)). Cuenta que la propiedad aparezca en la referencia, no su naturaleza; la importancia la decide el modelo. Una propiedad no es un RI por sí misma: apoya un requisito o una aportación existentes, o propone un candidato si ninguno la cubre.
+- **Localizador** en la ficha de Web Schema.org: dónde mirar en el marcado.
+
+Las citas nombran la versión fijada compartida en [references](../../references/README.md) ([D-149](../30-governance/decisions.md#d-149)).
 
 ## Núcleo de conocimiento y perfil de resolución y pertinencia
 
@@ -178,7 +196,7 @@ Como instrumento auxiliar, cada RI puede tener un **perfil de resolución y pert
 | Relaciones y formas de resolución | Reconocer afirmaciones directas, relaciones y derivaciones justificadas. |
 | Funciones informativas de los elementos | Identificar si cada dato describe, identifica, relaciona, contextualiza, sustenta o contrasta. |
 | Expresiones ilustrativas y casos fronterizos | Facilitar la detección sin limitarla a coincidencias literales. |
-| Ámbitos pertinentes y fundamento | Precisar dónde procede la evaluación y por qué. |
+| Ámbitos pertinentes y fundamento | Precisar dónde procede la evaluación y por qué ([ficha de ámbito](#ficha-de-ámbito)). |
 
 **Pertinencia informativa:** la **contribución identificable y justificable** de un elemento a una necesidad constitutiva del RI. La proximidad temática no basta. Un contenido puede ser pertinente aunque sea general, incompleto o insuficiente; esas limitaciones se valoran después con los [criterios de aceptación](acceptance-criteria.md).
 
@@ -210,8 +228,7 @@ Ver [open-questions](../30-governance/open-questions.md):
 - calibración de la importancia relativa (pruebas operativas en propuesta);
 - pendientes del catálogo de la capa general: importancia de la condicionada de suscripción y depósitos, trasposición de la directiva Omnibus sobre opiniones, letra l del art. 97.1 y equivalentes del GPSR en alimentos y piensos ([OQ-45](../30-governance/open-questions.md));
 - forma definitiva del perfil de RI;
-- función de los escenarios de compra;
-- cómo entran en el modelo las propiedades que recomiendan los consumidores de datos estructurados ([OQ-76](../30-governance/open-questions.md#a-modelo-de-demanda)).
+- función de los escenarios de compra.
 
 ## Relacionado
 

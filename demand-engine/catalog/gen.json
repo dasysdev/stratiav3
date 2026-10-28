@@ -1,6 +1,6 @@
 {
   "catalog": "capa general",
-  "version": "0.7",
+  "version": "0.9",
   "source": "docs/20-methods/product-taxonomy/requirement-blocks.md#capa-general",
   "decisions": [
     "D-034",
@@ -15,7 +15,11 @@
     "D-080",
     "D-085",
     "D-089",
-    "D-144"
+    "D-144",
+    "D-145",
+    "D-155",
+    "D-164",
+    "D-165"
   ],
   "blocks": [
     {
@@ -23,7 +27,7 @@
       "type": "general universal",
       "name": "Capa general",
       "trigger": null,
-      "version": "0.7",
+      "version": "0.9",
       "status": "marco",
       "refs": [
         "amazon-ptd:todos@2026-10-24",
@@ -52,7 +56,10 @@
           "importance": "crítico",
           "origin": "normativa",
           "sources": [
-            "ley:TRLGDCU-97.1.a@2026-02-28"
+            "ley:TRLGDCU-97.1.a@2026-02-28",
+            "google-search-merchant-listing:Product.description@2026-10-27",
+            "google-search-product-variants:ProductGroup.description@2026-10-27",
+            "google-search-merchant-listing:Product.category@2026-10-27"
           ],
           "applicability": "universal",
           "validated_by": "D-038, D-065",
@@ -70,7 +77,17 @@
               "component": "qué es",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.a@2026-02-28"
+                "ley:TRLGDCU-97.1.a@2026-02-28",
+                "google-search-merchant-listing:Product.description@2026-10-27",
+                "google-search-product-variants:ProductGroup.description@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "categoría del producto",
+              "component": "qué es",
+              "origin": "referencias",
+              "support": [
+                "google-search-merchant-listing:Product.category@2026-10-27"
               ]
             }
           ]
@@ -110,7 +127,9 @@
           "importance": "principal",
           "origin": "normativa",
           "sources": [
-            "ley:UE-2023/988-19.a@2026-05-29"
+            "ley:UE-2023/988-19.a@2026-05-29",
+            "google-search-merchant-listing:Product.brand.name@2026-10-27",
+            "google-search-product-variants:ProductGroup.brand@2026-10-27"
           ],
           "applicability": "universal",
           "validated_by": "D-052, D-065",
@@ -121,7 +140,9 @@
               "component": "marca",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.a@2026-05-29"
+                "ley:UE-2023/988-19.a@2026-05-29",
+                "google-search-merchant-listing:Product.brand.name@2026-10-27",
+                "google-search-product-variants:ProductGroup.brand@2026-10-27"
               ]
             }
           ]
@@ -155,7 +176,9 @@
           "importance": "principal",
           "origin": "normativa",
           "sources": [
-            "ley:UE-2023/988-19.c@2026-05-29"
+            "ley:UE-2023/988-19.c@2026-05-29",
+            "google-search-merchant-listing:Product.gtin@2026-10-27",
+            "google-search-merchant-listing:Product.mpn@2026-10-27"
           ],
           "applicability": "universal",
           "validated_by": "D-052",
@@ -166,7 +189,8 @@
               "component": "identificadores",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.c@2026-05-29"
+                "ley:UE-2023/988-19.c@2026-05-29",
+                "google-search-merchant-listing:Product.gtin@2026-10-27"
               ]
             },
             {
@@ -174,7 +198,8 @@
               "component": "referencia",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.c@2026-05-29"
+                "ley:UE-2023/988-19.c@2026-05-29",
+                "google-search-merchant-listing:Product.mpn@2026-10-27"
               ]
             },
             {
@@ -248,7 +273,8 @@
           "origin": "normativa",
           "sources": [
             "ley:TRLGDCU-97.1.e@2026-02-28",
-            "ley:RD-3423/2000-3.2@2000-12-28"
+            "ley:RD-3423/2000-3.2@2000-12-28",
+            "google-search-product-snippet:AggregateOffer.highPrice@2026-10-27"
           ],
           "applicability": "universal",
           "validated_by": "D-038, D-065, D-089",
@@ -283,6 +309,14 @@
               "origin": "marco",
               "support": [
                 "ley:RD-3423/2000-3.2@2000-12-28"
+              ]
+            },
+            {
+              "contribution": "precio mínimo y máximo de las variantes u ofertas que agrupa",
+              "component": "precio",
+              "origin": "referencias",
+              "support": [
+                "google-search-product-snippet:AggregateOffer.highPrice@2026-10-27"
               ]
             }
           ],
@@ -328,23 +362,102 @@
         },
         {
           "id": "gen/25",
-          "question": "¿Cuánto cuesta el envío a España?",
+          "question": "¿A qué zonas de España se envía y cuánto cuesta el envío a cada una?",
           "entity": "entrega",
           "importance": "crítico",
           "origin": "normativa",
           "sources": [
-            "ley:TRLGDCU-97.1.e@2026-02-28"
+            "ley:TRLGDCU-97.1.e@2026-02-28",
+            "google-search-merchant-listing:Offer.shippingDetails@2026-10-27",
+            "google-search-shipping-policy:ShippingConditions.shippingDestination@2026-10-27",
+            "google-search-shipping-policy:ShippingConditions.shippingRate@2026-10-27",
+            "google-search-organization:Organization.hasShippingService@2026-10-27",
+            "google-search-shipping-policy:ShippingConditions.doesNotShip@2026-10-27"
           ],
           "applicability": "universal",
-          "validated_by": "D-065",
+          "validated_by": "D-165",
           "resolving_info": [
             {
-              "contribution": "gastos de envío o entrega a España",
-              "component": "cuánto cuesta el envío",
+              "contribution": "zonas de España a las que se envía",
+              "component": "a qué zonas se envía",
+              "origin": "referencias",
+              "support": [
+                "google-search-merchant-listing:Offer.shippingDetails@2026-10-27",
+                "google-search-shipping-policy:ShippingConditions.shippingDestination@2026-10-27",
+                "google-search-organization:Organization.hasShippingService@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "zonas o destinos a los que no se envía",
+              "component": "a qué zonas se envía",
+              "origin": "referencias",
+              "support": [
+                "google-search-shipping-policy:ShippingConditions.doesNotShip@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "gastos de envío a la Península",
+              "component": "cuánto cuesta el envío a cada zona",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.e@2026-02-28"
+                "ley:TRLGDCU-97.1.e@2026-02-28",
+                "google-search-merchant-listing:Offer.shippingDetails@2026-10-27",
+                "google-search-shipping-policy:ShippingConditions.shippingRate@2026-10-27",
+                "google-search-organization:Organization.hasShippingService@2026-10-27"
               ]
+            },
+            {
+              "contribution": "gastos de envío a Baleares",
+              "component": "cuánto cuesta el envío a cada zona",
+              "origin": "marco",
+              "support": [
+                "ley:TRLGDCU-97.1.e@2026-02-28",
+                "google-search-merchant-listing:Offer.shippingDetails@2026-10-27",
+                "google-search-shipping-policy:ShippingConditions.shippingRate@2026-10-27",
+                "google-search-organization:Organization.hasShippingService@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "gastos de envío a Canarias",
+              "component": "cuánto cuesta el envío a cada zona",
+              "origin": "marco",
+              "support": [
+                "ley:TRLGDCU-97.1.e@2026-02-28",
+                "google-search-merchant-listing:Offer.shippingDetails@2026-10-27",
+                "google-search-shipping-policy:ShippingConditions.shippingRate@2026-10-27",
+                "google-search-organization:Organization.hasShippingService@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "gastos de envío a Ceuta y Melilla",
+              "component": "cuánto cuesta el envío a cada zona",
+              "origin": "marco",
+              "support": [
+                "ley:TRLGDCU-97.1.e@2026-02-28",
+                "google-search-merchant-listing:Offer.shippingDetails@2026-10-27",
+                "google-search-shipping-policy:ShippingConditions.shippingRate@2026-10-27",
+                "google-search-organization:Organization.hasShippingService@2026-10-27"
+              ]
+            }
+          ],
+          "description": "A qué zonas de España envía la tienda y cuánto cuesta el envío a cada una. El conjunto son cuatro zonas: Península, Baleares, Canarias, y Ceuta y Melilla; que no se envía a una zona la resuelve para esa zona. Lo responde la tarifa o la regla de coste de cada zona, o una declaración que las cubra todas («a toda España»). No lo responden los criterios de cálculo del coste, que son otro requisito (gen/05), ni los impuestos y la aduana de Canarias, Ceuta y Melilla (gen.envio-canarias-ceuta-melilla/01).",
+          "hints": [
+            {
+              "id": "PV-42",
+              "pista": "Un coste de envío vale solo para la zona a la que se atribuye: uno sin zona, o solo de la Península, no responde por Baleares, Canarias ni Ceuta y Melilla, salvo que lo publicado lo extienda («a toda España»).",
+              "propiedad": [
+                "P12",
+                "P07"
+              ],
+              "ac": [
+                "Aplicabilidad"
+              ],
+              "origen": {
+                "tipo": "normativa",
+                "apoyo": [
+                  "ley:TRLGDCU-97.1.e@2026-02-28"
+                ]
+              }
             }
           ]
         },
@@ -355,7 +468,11 @@
           "importance": "principal",
           "origin": "normativa",
           "sources": [
-            "ley:TRLGDCU-97.1.e@2026-02-28"
+            "ley:TRLGDCU-97.1.e@2026-02-28",
+            "google-search-shipping-policy:ShippingConditions.numItems@2026-10-27",
+            "google-search-shipping-policy:ShippingConditions.orderValue@2026-10-27",
+            "google-search-shipping-policy:ShippingConditions.weight@2026-10-27",
+            "google-search-shipping-policy:ShippingConditions.seasonalOverride@2026-10-27"
           ],
           "applicability": "universal",
           "validated_by": "D-038",
@@ -365,7 +482,10 @@
               "component": "de qué depende el coste del envío",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.e@2026-02-28"
+                "ley:TRLGDCU-97.1.e@2026-02-28",
+                "google-search-shipping-policy:ShippingConditions.numItems@2026-10-27",
+                "google-search-shipping-policy:ShippingConditions.orderValue@2026-10-27",
+                "google-search-shipping-policy:ShippingConditions.weight@2026-10-27"
               ]
             },
             {
@@ -373,7 +493,8 @@
               "component": "de qué depende el coste del envío",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.e@2026-02-28"
+                "ley:TRLGDCU-97.1.e@2026-02-28",
+                "google-search-shipping-policy:ShippingConditions.orderValue@2026-10-27"
               ]
             },
             {
@@ -383,6 +504,14 @@
               "support": [
                 "ley:TRLGDCU-97.1.e@2026-02-28"
               ]
+            },
+            {
+              "contribution": "periodos en que cambian las condiciones del envío",
+              "component": "de qué depende el coste del envío",
+              "origin": "referencias",
+              "support": [
+                "google-search-shipping-policy:ShippingConditions.seasonalOverride@2026-10-27"
+              ]
             }
           ]
         },
@@ -391,16 +520,22 @@
           "question": "¿Está disponible?",
           "entity": "oferta",
           "importance": "crítico",
-          "origin": "inferida",
-          "sources": [],
+          "origin": "referencias",
+          "sources": [
+            "google-search-merchant-listing:Offer.availability@2026-10-27",
+            "google-search-product-snippet:Offer.availability@2026-10-27"
+          ],
           "applicability": "universal",
           "validated_by": "D-065",
           "resolving_info": [
             {
               "contribution": "estado de disponibilidad de la oferta",
               "component": "si está disponible",
-              "origin": "inferida",
-              "support": []
+              "origin": "referencias",
+              "support": [
+                "google-search-merchant-listing:Offer.availability@2026-10-27",
+                "google-search-product-snippet:Offer.availability@2026-10-27"
+              ]
             }
           ]
         },
@@ -409,30 +544,41 @@
           "question": "¿En qué estado se vende la unidad que se entrega?",
           "entity": "oferta",
           "importance": "principal",
-          "origin": "inferida",
-          "sources": [],
+          "origin": "referencias",
+          "sources": [
+            "google-search-merchant-listing:Offer.itemCondition@2026-10-27"
+          ],
           "applicability": "universal",
           "validated_by": "D-034",
           "resolving_info": [
             {
               "contribution": "estado declarado de la unidad que se entrega",
               "component": "estado de la unidad",
-              "origin": "inferida",
-              "support": []
+              "origin": "referencias",
+              "support": [
+                "google-search-merchant-listing:Offer.itemCondition@2026-10-27"
+              ]
             }
           ]
         },
         {
           "id": "gen/08",
-          "question": "¿En qué plazo se entrega?",
+          "question": "¿En qué plazo se entrega, según la zona y la modalidad de entrega?",
           "entity": "entrega",
           "importance": "principal",
           "origin": "normativa",
           "sources": [
-            "ley:TRLGDCU-97.1.h@2026-02-28"
+            "ley:TRLGDCU-97.1.h@2026-02-28",
+            "google-search-merchant-listing:Offer.shippingDetails@2026-10-27",
+            "google-search-merchant-listing:ShippingDeliveryTime.handlingTime@2026-10-27",
+            "google-search-shipping-policy:ShippingService.handlingTime@2026-10-27",
+            "google-search-merchant-listing:ShippingDeliveryTime.transitTime@2026-10-27",
+            "google-search-shipping-policy:ShippingConditions.transitTime@2026-10-27",
+            "google-search-shipping-policy:ServicePeriod.businessDays@2026-10-27",
+            "google-search-shipping-policy:ServicePeriod.cutoffTime@2026-10-27"
           ],
           "applicability": "universal",
-          "validated_by": "D-038",
+          "validated_by": "D-165",
           "resolving_info": [
             {
               "contribution": "fecha o plazo de entrega comprometidos",
@@ -443,12 +589,96 @@
               ]
             },
             {
-              "contribution": "plazo de entrega de cada modalidad o destino",
+              "contribution": "plazo de entrega a cada zona",
+              "component": "plazo de entrega",
+              "origin": "marco",
+              "support": [
+                "ley:TRLGDCU-97.1.h@2026-02-28",
+                "google-search-merchant-listing:Offer.shippingDetails@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "plazo de entrega de cada modalidad",
               "component": "plazo de entrega",
               "origin": "marco",
               "support": [
                 "ley:TRLGDCU-97.1.h@2026-02-28"
               ]
+            },
+            {
+              "contribution": "plazo de entrega de cada variante cuando difiere (en stock o bajo pedido)",
+              "component": "plazo de entrega",
+              "origin": "inferida",
+              "support": []
+            },
+            {
+              "contribution": "tiempo de preparación del pedido antes del envío",
+              "component": "plazo de entrega",
+              "origin": "referencias",
+              "support": [
+                "google-search-merchant-listing:ShippingDeliveryTime.handlingTime@2026-10-27",
+                "google-search-shipping-policy:ShippingService.handlingTime@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "tiempo de tránsito del envío",
+              "component": "plazo de entrega",
+              "origin": "referencias",
+              "support": [
+                "google-search-merchant-listing:ShippingDeliveryTime.transitTime@2026-10-27",
+                "google-search-shipping-policy:ShippingConditions.transitTime@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "días que cuentan para preparar y transportar el pedido",
+              "component": "plazo de entrega",
+              "origin": "referencias",
+              "support": [
+                "google-search-shipping-policy:ServicePeriod.businessDays@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "hora límite de pedido para que se prepare ese mismo día",
+              "component": "plazo de entrega",
+              "origin": "referencias",
+              "support": [
+                "google-search-shipping-policy:ServicePeriod.cutoffTime@2026-10-27"
+              ]
+            }
+          ],
+          "description": "Cuándo recibe el comprador el pedido según la zona de destino (Península, Baleares, Canarias, y Ceuta y Melilla), la modalidad de entrega (estándar, exprés, recogida), la variante o su disponibilidad (en stock o bajo pedido) y el momento del pedido (hora límite, fines de semana). Lo responde un plazo o una fecha de entrega comprometidos para cada caso, o los tiempos de preparación y de tránsito que lo forman. No lo responde por sí solo el plazo en que sale el pedido, ni las modalidades disponibles, que son otro requisito (gen/09).",
+          "hints": [
+            {
+              "id": "PV-43",
+              "pista": "El plazo de entrega dice cuándo llega el pedido: «envío en 24 h» dice cuándo sale, no cuándo llega.",
+              "propiedad": [
+                "P08"
+              ],
+              "ac": [
+                "Precisión"
+              ],
+              "origen": {
+                "tipo": "normativa",
+                "apoyo": [
+                  "ley:TRLGDCU-97.1.h@2026-02-28"
+                ]
+              }
+            },
+            {
+              "id": "PV-44",
+              "pista": "Un plazo en días dice si son hábiles o naturales y desde cuándo cuentan (el pedido, el pago o la salida): «24/48 h» o «envío inmediato», sin más, admiten varias lecturas.",
+              "propiedad": [
+                "P09"
+              ],
+              "ac": [
+                "Precisión"
+              ],
+              "origen": {
+                "tipo": "normativa",
+                "apoyo": [
+                  "ley:TRLGDCU-97.1.h@2026-02-28"
+                ]
+              }
             }
           ]
         },
@@ -459,7 +689,11 @@
           "importance": "complementario",
           "origin": "normativa",
           "sources": [
-            "ley:TRLGDCU-97.1.h@2026-02-28"
+            "ley:TRLGDCU-97.1.h@2026-02-28",
+            "google-search-shipping-policy:ShippingService.name@2026-10-27",
+            "google-search-shipping-policy:ShippingService.fulfillmentType@2026-10-27",
+            "google-search-organization:Organization.hasShippingService@2026-10-27",
+            "google-search-shipping-policy:ShippingService.description@2026-10-27"
           ],
           "applicability": "universal",
           "validated_by": "D-038",
@@ -469,7 +703,10 @@
               "component": "modalidades de entrega o recogida",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.h@2026-02-28"
+                "ley:TRLGDCU-97.1.h@2026-02-28",
+                "google-search-shipping-policy:ShippingService.name@2026-10-27",
+                "google-search-shipping-policy:ShippingService.fulfillmentType@2026-10-27",
+                "google-search-organization:Organization.hasShippingService@2026-10-27"
               ]
             },
             {
@@ -477,7 +714,8 @@
               "component": "modalidades de entrega o recogida",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.h@2026-02-28"
+                "ley:TRLGDCU-97.1.h@2026-02-28",
+                "google-search-shipping-policy:ShippingService.description@2026-10-27"
               ]
             }
           ]
@@ -519,7 +757,17 @@
           "importance": "principal",
           "origin": "normativa",
           "sources": [
-            "ley:TRLGDCU-97.1.j@2026-02-28"
+            "ley:TRLGDCU-97.1.j@2026-02-28",
+            "google-search-merchant-listing:Offer.hasMerchantReturnPolicy@2026-10-27",
+            "google-search-organization:Organization.hasMerchantReturnPolicy@2026-10-27",
+            "google-search-merchant-listing:MerchantReturnPolicy.returnMethod@2026-10-27",
+            "google-search-return-policy:MerchantReturnPolicy.returnMethod@2026-10-27",
+            "google-search-return-policy:MerchantReturnPolicy.refundType@2026-10-27",
+            "google-search-return-policy:MerchantReturnPolicy.returnLabelSource@2026-10-27",
+            "google-search-return-policy:MerchantReturnPolicy.customerRemorseReturnLabelSource@2026-10-27",
+            "google-search-return-policy:MerchantReturnPolicy.itemDefectReturnLabelSource@2026-10-27",
+            "google-search-return-policy:MerchantReturnPolicy.itemCondition@2026-10-27",
+            "google-search-return-policy:MerchantReturnPolicy.returnPolicyCountry@2026-10-27"
           ],
           "applicability": "universal",
           "validated_by": "D-038, D-065, D-085",
@@ -529,7 +777,9 @@
               "component": "si se puede desistir o devolver",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.j@2026-02-28"
+                "ley:TRLGDCU-97.1.j@2026-02-28",
+                "google-search-merchant-listing:Offer.hasMerchantReturnPolicy@2026-10-27",
+                "google-search-organization:Organization.hasMerchantReturnPolicy@2026-10-27"
               ]
             },
             {
@@ -545,7 +795,9 @@
               "component": "condiciones",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.j@2026-02-28"
+                "ley:TRLGDCU-97.1.j@2026-02-28",
+                "google-search-merchant-listing:MerchantReturnPolicy.returnMethod@2026-10-27",
+                "google-search-return-policy:MerchantReturnPolicy.returnMethod@2026-10-27"
               ]
             },
             {
@@ -553,7 +805,8 @@
               "component": "condiciones",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.j@2026-02-28"
+                "ley:TRLGDCU-97.1.j@2026-02-28",
+                "google-search-return-policy:MerchantReturnPolicy.refundType@2026-10-27"
               ]
             },
             {
@@ -593,6 +846,32 @@
               "component": "condiciones",
               "origin": "inferida",
               "support": []
+            },
+            {
+              "contribution": "forma de obtener la etiqueta de devolución",
+              "component": "condiciones",
+              "origin": "referencias",
+              "support": [
+                "google-search-return-policy:MerchantReturnPolicy.returnLabelSource@2026-10-27",
+                "google-search-return-policy:MerchantReturnPolicy.customerRemorseReturnLabelSource@2026-10-27",
+                "google-search-return-policy:MerchantReturnPolicy.itemDefectReturnLabelSource@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "estado en que debe estar el producto para devolverlo",
+              "component": "condiciones",
+              "origin": "referencias",
+              "support": [
+                "google-search-return-policy:MerchantReturnPolicy.itemCondition@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "país al que se devuelve el producto",
+              "component": "condiciones",
+              "origin": "referencias",
+              "support": [
+                "google-search-return-policy:MerchantReturnPolicy.returnPolicyCountry@2026-10-27"
+              ]
             }
           ]
         },
@@ -603,7 +882,12 @@
           "importance": "principal",
           "origin": "normativa",
           "sources": [
-            "ley:TRLGDCU-97.1.k@2026-02-28"
+            "ley:TRLGDCU-97.1.k@2026-02-28",
+            "google-search-merchant-listing:MerchantReturnPolicy.returnFees@2026-10-27",
+            "google-search-return-policy:MerchantReturnPolicy.returnFees@2026-10-27",
+            "google-search-return-policy:MerchantReturnPolicy.customerRemorseReturnFees@2026-10-27",
+            "google-search-return-policy:MerchantReturnPolicy.itemDefectReturnFees@2026-10-27",
+            "google-search-return-policy:MerchantReturnPolicy.restockingFee@2026-10-27"
           ],
           "applicability": "universal",
           "validated_by": "D-065, D-085",
@@ -613,7 +897,10 @@
               "component": "coste de devolución",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.k@2026-02-28"
+                "ley:TRLGDCU-97.1.k@2026-02-28",
+                "google-search-merchant-listing:MerchantReturnPolicy.returnFees@2026-10-27",
+                "google-search-return-policy:MerchantReturnPolicy.returnFees@2026-10-27",
+                "google-search-return-policy:MerchantReturnPolicy.customerRemorseReturnFees@2026-10-27"
               ]
             },
             {
@@ -629,6 +916,22 @@
               "component": "coste de cambio",
               "origin": "inferida",
               "support": []
+            },
+            {
+              "contribution": "coste de devolver un producto defectuoso",
+              "component": "coste de devolución",
+              "origin": "referencias",
+              "support": [
+                "google-search-return-policy:MerchantReturnPolicy.itemDefectReturnFees@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "cargo por reposición que se descuenta del reembolso",
+              "component": "coste de devolución",
+              "origin": "referencias",
+              "support": [
+                "google-search-return-policy:MerchantReturnPolicy.restockingFee@2026-10-27"
+              ]
             }
           ]
         },
@@ -720,7 +1023,13 @@
           "importance": "principal",
           "origin": "normativa",
           "sources": [
-            "ley:TRLGDCU-97.1.b@2026-02-28"
+            "ley:TRLGDCU-97.1.b@2026-02-28",
+            "google-search-organization:Organization.legalName@2026-10-27",
+            "google-search-organization:Organization.alternateName@2026-10-27",
+            "google-search-organization:Organization.taxID@2026-10-27",
+            "google-search-organization:Organization.vatID@2026-10-27",
+            "google-search-organization:Organization.description@2026-10-27",
+            "google-search-organization:Organization.url@2026-10-27"
           ],
           "applicability": "universal",
           "validated_by": "D-038",
@@ -730,7 +1039,8 @@
               "component": "quién vende",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.b@2026-02-28"
+                "ley:TRLGDCU-97.1.b@2026-02-28",
+                "google-search-organization:Organization.legalName@2026-10-27"
               ]
             },
             {
@@ -738,7 +1048,8 @@
               "component": "quién vende",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.b@2026-02-28"
+                "ley:TRLGDCU-97.1.b@2026-02-28",
+                "google-search-organization:Organization.alternateName@2026-10-27"
               ]
             },
             {
@@ -746,6 +1057,31 @@
               "component": "quién vende",
               "origin": "inferida",
               "support": []
+            },
+            {
+              "contribution": "número de identificación fiscal del vendedor",
+              "component": "quién vende",
+              "origin": "referencias",
+              "support": [
+                "google-search-organization:Organization.taxID@2026-10-27",
+                "google-search-organization:Organization.vatID@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "descripción del vendedor y de su actividad",
+              "component": "quién vende",
+              "origin": "referencias",
+              "support": [
+                "google-search-organization:Organization.description@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "sitio web del vendedor",
+              "component": "quién vende",
+              "origin": "referencias",
+              "support": [
+                "google-search-organization:Organization.url@2026-10-27"
+              ]
             }
           ]
         },
@@ -757,7 +1093,18 @@
           "origin": "normativa",
           "sources": [
             "ley:TRLGDCU-97.1.c@2026-02-28",
-            "ley:TRLGDCU-97.1.d@2026-02-28"
+            "ley:TRLGDCU-97.1.d@2026-02-28",
+            "google-search-organization:Organization.address@2026-10-27",
+            "google-search-organization:Organization.address.addressCountry@2026-10-27",
+            "google-search-organization:Organization.address.addressLocality@2026-10-27",
+            "google-search-organization:Organization.address.addressRegion@2026-10-27",
+            "google-search-organization:Organization.address.postalCode@2026-10-27",
+            "google-search-organization:Organization.address.streetAddress@2026-10-27",
+            "google-search-organization:Organization.telephone@2026-10-27",
+            "google-search-organization:Organization.contactPoint@2026-10-27",
+            "google-search-organization:Organization.contactPoint.telephone@2026-10-27",
+            "google-search-organization:Organization.email@2026-10-27",
+            "google-search-organization:Organization.contactPoint.email@2026-10-27"
           ],
           "applicability": "universal",
           "validated_by": "D-038",
@@ -767,7 +1114,13 @@
               "component": "cómo se contacta",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.c@2026-02-28"
+                "ley:TRLGDCU-97.1.c@2026-02-28",
+                "google-search-organization:Organization.address@2026-10-27",
+                "google-search-organization:Organization.address.addressCountry@2026-10-27",
+                "google-search-organization:Organization.address.addressLocality@2026-10-27",
+                "google-search-organization:Organization.address.addressRegion@2026-10-27",
+                "google-search-organization:Organization.address.postalCode@2026-10-27",
+                "google-search-organization:Organization.address.streetAddress@2026-10-27"
               ]
             },
             {
@@ -775,7 +1128,10 @@
               "component": "cómo se contacta",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.c@2026-02-28"
+                "ley:TRLGDCU-97.1.c@2026-02-28",
+                "google-search-organization:Organization.telephone@2026-10-27",
+                "google-search-organization:Organization.contactPoint@2026-10-27",
+                "google-search-organization:Organization.contactPoint.telephone@2026-10-27"
               ]
             },
             {
@@ -783,7 +1139,10 @@
               "component": "cómo se contacta",
               "origin": "marco",
               "support": [
-                "ley:TRLGDCU-97.1.c@2026-02-28"
+                "ley:TRLGDCU-97.1.c@2026-02-28",
+                "google-search-organization:Organization.email@2026-10-27",
+                "google-search-organization:Organization.contactPoint@2026-10-27",
+                "google-search-organization:Organization.contactPoint.email@2026-10-27"
               ]
             },
             {
@@ -801,28 +1160,56 @@
           "question": "¿Qué opiniones de compradores tiene?",
           "entity": "oferta",
           "importance": "complementario",
-          "origin": "inferida",
-          "sources": [],
+          "origin": "referencias",
+          "sources": [
+            "google-search-merchant-listing:Product.review@2026-10-27",
+            "google-search-product-snippet:Product.review@2026-10-27",
+            "google-search-product-variants:ProductGroup.review@2026-10-27",
+            "google-search-merchant-listing:Product.aggregateRating@2026-10-27",
+            "google-search-product-snippet:Product.aggregateRating@2026-10-27",
+            "google-search-product-variants:ProductGroup.aggregateRating@2026-10-27",
+            "google-search-review-snippet:Review.datePublished@2026-10-27"
+          ],
           "applicability": "universal",
           "validated_by": "D-034, D-065",
           "resolving_info": [
             {
               "contribution": "opiniones de compradores",
               "component": "opiniones",
-              "origin": "inferida",
-              "support": []
+              "origin": "referencias",
+              "support": [
+                "google-search-merchant-listing:Product.review@2026-10-27",
+                "google-search-product-snippet:Product.review@2026-10-27",
+                "google-search-product-variants:ProductGroup.review@2026-10-27"
+              ]
             },
             {
               "contribution": "valoración media de las opiniones",
               "component": "opiniones",
-              "origin": "inferida",
-              "support": []
+              "origin": "referencias",
+              "support": [
+                "google-search-merchant-listing:Product.aggregateRating@2026-10-27",
+                "google-search-product-snippet:Product.aggregateRating@2026-10-27",
+                "google-search-product-variants:ProductGroup.aggregateRating@2026-10-27"
+              ]
             },
             {
               "contribution": "número de opiniones",
               "component": "opiniones",
-              "origin": "inferida",
-              "support": []
+              "origin": "referencias",
+              "support": [
+                "google-search-merchant-listing:Product.aggregateRating@2026-10-27",
+                "google-search-product-snippet:Product.aggregateRating@2026-10-27",
+                "google-search-product-variants:ProductGroup.aggregateRating@2026-10-27"
+              ]
+            },
+            {
+              "contribution": "fecha de cada opinión",
+              "component": "opiniones",
+              "origin": "referencias",
+              "support": [
+                "google-search-review-snippet:Review.datePublished@2026-10-27"
+              ]
             }
           ]
         },
@@ -831,8 +1218,15 @@
           "question": "¿Tiene la oferta alguna promoción o descuento vigente (rebaja, cupón, regalo, unidades gratis…) y en qué consiste?",
           "entity": "oferta",
           "importance": "complementario",
-          "origin": "inferida",
-          "sources": [],
+          "origin": "referencias",
+          "sources": [
+            "google-search-merchant-listing:Offer.priceValidUntil@2026-10-27",
+            "google-search-product-snippet:Offer.priceValidUntil@2026-10-27",
+            "google-search-merchant-listing:Offer.validFrom@2026-10-27",
+            "google-search-merchant-listing:Offer.validThrough@2026-10-27",
+            "google-search-merchant-listing:UnitPriceSpecification.validFrom@2026-10-27",
+            "google-search-merchant-listing:UnitPriceSpecification.validThrough@2026-10-27"
+          ],
           "applicability": "universal (un «no» fundamentado la resuelve)",
           "validated_by": "D-049",
           "resolving_info": [
@@ -851,8 +1245,15 @@
             {
               "contribution": "vigencia de la promoción",
               "component": "en qué consiste",
-              "origin": "inferida",
-              "support": []
+              "origin": "referencias",
+              "support": [
+                "google-search-merchant-listing:Offer.priceValidUntil@2026-10-27",
+                "google-search-product-snippet:Offer.priceValidUntil@2026-10-27",
+                "google-search-merchant-listing:Offer.validFrom@2026-10-27",
+                "google-search-merchant-listing:Offer.validThrough@2026-10-27",
+                "google-search-merchant-listing:UnitPriceSpecification.validFrom@2026-10-27",
+                "google-search-merchant-listing:UnitPriceSpecification.validThrough@2026-10-27"
+              ]
             }
           ]
         },
@@ -1272,6 +1673,60 @@
       "scope": "oferta"
     },
     {
+      "id": "gen.envio-canarias-ceuta-melilla",
+      "type": "general condicionado",
+      "name": "Con envío a Canarias, Ceuta o Melilla",
+      "trigger": "se envía a Canarias, Ceuta o Melilla",
+      "version": "0.1",
+      "status": "marco",
+      "refs": [
+        "ley:TRLGDCU-97.1.e@2026-02-28",
+        "ley:LIVA-3@2026-10-07",
+        "ley:UE-2006/112-6@2025-04-14",
+        "ley:UE-952/2013-4@2022-12-12"
+      ],
+      "scope": "oferta",
+      "requirements": [
+        {
+          "id": "gen.envio-canarias-ceuta-melilla/01",
+          "question": "¿Qué impuestos y gastos de aduana asume el comprador en los envíos a Canarias, Ceuta y Melilla?",
+          "description": "Qué impuestos indirectos (IGIC en Canarias, IPSI en Ceuta y Melilla) y qué gastos de despacho de aduana paga el comprador además del precio publicado, porque esos territorios están fuera del territorio del IVA y Ceuta y Melilla, también del territorio aduanero de la UE. Lo responde una declaración de quién asume esos impuestos y gastos y, si los asume el comprador, cuánto son o cómo se calculan. No lo responde el coste del envío a esas zonas (gen/25).",
+          "entity": "entrega",
+          "importance": "crítico",
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-97.1.e@2026-02-28",
+            "ley:LIVA-3@2026-10-07",
+            "ley:UE-2006/112-6@2025-04-14",
+            "ley:UE-952/2013-4@2022-12-12"
+          ],
+          "applicability": "si se envía a Canarias, Ceuta o Melilla",
+          "validated_by": "D-165",
+          "resolving_info": [
+            {
+              "contribution": "impuestos indirectos de destino que asume el comprador",
+              "component": "qué impuestos asume el comprador",
+              "origin": "marco",
+              "support": [
+                "ley:TRLGDCU-97.1.e@2026-02-28",
+                "ley:LIVA-3@2026-10-07",
+                "ley:UE-2006/112-6@2025-04-14"
+              ]
+            },
+            {
+              "contribution": "gastos de despacho de aduana que asume el comprador",
+              "component": "qué gastos de aduana asume el comprador",
+              "origin": "marco",
+              "support": [
+                "ley:TRLGDCU-97.1.e@2026-02-28",
+                "ley:UE-952/2013-4@2022-12-12"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "gen.garantia-comercial",
       "type": "general condicionado",
       "name": "Con garantía comercial",
@@ -1636,5 +2091,6 @@
   ],
   "note_status": "La capa general es parte del marco (D-044, D-045): sus importancias son fijas y no tiene estado de compilación.",
   "note_scope": "Los bloques condicionados de alcance «oferta» forman la aplicación de la oferta; los de alcance «producto» entran en el modelo de demanda (D-047).",
-  "note_resolving": "Información resolutiva (D-063, D-065): las aportaciones de origen «marco» salen de la ley que es fuente de cada requisito (las primeras listas las aprobó el usuario el 2026-10-26, D-069; desde D-084 no requieren aprobación); las que se redactan sin apoyo en la ley son inferidas y provisionales."
+  "note_resolving": "Información resolutiva (D-063, D-065): las aportaciones de origen «marco» salen de la ley que es fuente de cada requisito (las primeras listas las aprobó el usuario el 2026-10-26, D-069; desde D-084 no requieren aprobación); las que se redactan sin apoyo en la ley son inferidas y provisionales.",
+  "note_references": "Propiedades que los consumidores de Google Search del perfil de Web Schema.org recomiendan sin exigir (D-145, D-155): apoyo de demanda con origen «referencias», sin ámbito, como los PTD de Amazon (D-052). Apoyan una aportación existente o añaden la que aporta un hecho más; su presencia en la referencia no fija la importancia. Una cuestión o aportación inferida que gana su primer apoyo pasa a «referencias». Las propiedades de los atributos de categoría y los candidatos, en catalog/google-search.json."
 }

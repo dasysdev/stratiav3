@@ -1,0 +1,28 @@
+{
+ "source": "whatwg-encoding",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "documento",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Encoding Standard (WHATWG): las codificaciones, sus nombres y etiquetas y sus algoritmos de decodificación y codificación. Exige a los autores UTF-8 y su etiqueta «utf-8».",
+ "note": "En el perfil de Web, la condición de UTF-8 sobre el documento HTML la fija HTML (whatwg-html-semantics, 4.2.5.4), que remite a esta norma: aquí se cita como apoyo.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#preface",
+   "text": "The UTF-8 encoding is the most appropriate encoding for interchange of Unicode, the universal coded character set. Therefore, for new protocols and formats, as well as existing formats deployed in new contexts, this specification requires (and defines) the UTF-8 encoding."
+  },
+  {
+   "id": "q02",
+   "section": "#names-and-labels",
+   "text": "The table below lists all encodings and their labels user agents must support. User agents must not support any other encodings or labels."
+  },
+  {
+   "id": "q03",
+   "section": "#names-and-labels",
+   "text": "Authors must use the UTF-8 encoding and must use its (ASCII case-insensitive) \"utf-8\" label to identify it."
+  }
+ ]
+}

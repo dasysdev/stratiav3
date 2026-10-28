@@ -3,9 +3,9 @@ id: audit-gsc-dossier
 title: Expediente, informe, diagnóstico y recomendaciones
 layer: method
 status: propuesta
-version: 0.2
-updated: 2026-10-27
-sources: [GSC0 §14.1, GSC0 §14.5, GSC0 §9.6, FUND §9.4, FUND §9.5, INTAKE 2026-10-27-ac-applicability-and-reliability]
+version: 0.4
+updated: 2026-10-28
+sources: [GSC0 §14.1, GSC0 §14.5, GSC0 §9.6, FUND §9.4, FUND §9.5, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-request-context-and-scripts]
 ---
 
 # Expediente, informe, diagnóstico y recomendaciones
@@ -38,7 +38,7 @@ Una evidencia puede sustentar varios hallazgos; un hallazgo puede apoyarse en va
 
 El informe tiene dos niveles conectados:
 
-**A. Ficha de resultado accesible:** unidad evaluada; disponibilidad; tabla de AC y GSC (o NE por incidencia); síntesis de hallazgos que explican los resultados; limitaciones y recomendaciones condicionadas.
+**A. Ficha de resultado accesible:** unidad evaluada; disponibilidad; tabla de AC y GSC (o NE por incidencia); síntesis de hallazgos que explican los resultados; limitaciones y recomendaciones condicionadas; sospechas de Fiabilidad, como «a verificar por el ecommerce».
 
 **B. Expediente reexaminable:** detalles de observación, recursos originales, contexto, método de obtención, cobertura, candidatos decisivos, rutas de relación, pruebas por propiedad, hallazgos, juicios y revisiones.
 
@@ -54,6 +54,8 @@ Plantilla de redacción por regla general:
 
 > **Estado: vigente** (FUND §9.5).
 
+Si un dato existe en un script que no es marcado (estado de la aplicación) pero no en el HTML ni en el marcado, el diagnóstico lo registra como hallazgo («el dato existe en el estado de la aplicación, pero no se publica»), sin efecto en la disponibilidad ni en los GSC ([D-157](../../30-governance/decisions.md#d-157)).
+
 El diagnóstico distingue **qué información se ha encontrado y podido leer, qué cuestión permite responder, qué limitación subsiste y cuál es su causa observada**. Cuando una incidencia de implementación afecta a un RI, se explica el efecto informativo y se remite el examen de conformidad al control técnico correspondiente.
 
 ## Recomendaciones
@@ -67,6 +69,7 @@ Las recomendaciones deben:
 - Identificar la entidad, el ámbito, las condiciones y, cuando proceda, la relación informativa afectada.
 - Guardar proporción con la importancia de la cuestión y el impacto de los criterios afectados, evitando prioridades numéricas no aprobadas.
 - Distinguir acciones correctivas verificables de comprobaciones adicionales cuando falte evidencia.
+- Presentar las **sospechas** de Fiabilidad (lo que hace improbable un dato sin refutarlo, o lo que el auditor sabe de un producto concreto) como «a verificar por el ecommerce», con su motivo y sin efecto en el GSC ([D-154](../../30-governance/decisions.md#d-154)).
 
 Un mismo hallazgo puede afectar a diversos AC o RI, pero cada consecuencia se justifica de manera diferenciada. **No se multiplica el defecto por el número de criterios relacionados**, ni se degrada un criterio solo porque exista una incidencia técnica cuya repercusión informativa no está acreditada.
 

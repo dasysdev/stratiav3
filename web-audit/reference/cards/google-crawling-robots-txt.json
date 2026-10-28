@@ -1,0 +1,108 @@
+{
+ "source": "google-crawling-robots-txt",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Cómo interpreta Google el Robots Exclusion Protocol (RFC 9309): validez de robots.txt por origen, tratamiento de sus códigos de estado, formato, elección del grupo del user agent y precedencia de las reglas. No fija requisitos de la página: da la lectura de Google en el método de w-consumer/009, porque Search Essentials exige que Googlebot no esté bloqueado.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#how-google-interprets-the-robots.txt-specification",
+   "text": "Google's automated crawlers support the Robots Exclusion Protocol (REP). This means that before crawling a site, Google's crawlers download and parse the site's robots.txt file to extract information about which parts of the site may be crawled."
+  },
+  {
+   "id": "q02",
+   "section": "#file-location-and-range-of-validity",
+   "text": "The rules listed in the robots.txt file apply only to the host, protocol, and port number where the robots.txt file is hosted."
+  },
+  {
+   "id": "q03",
+   "section": "#http-status-codes",
+   "text": "HTTP status codes that signal success prompt Google's crawlers to process the robots.txt file as provided by the server."
+  },
+  {
+   "id": "q04",
+   "section": "#http-status-codes",
+   "text": "Google follows at least five redirect hops as defined by RFC 1945 and then stops and treats it as a 404 for the robots.txt file."
+  },
+  {
+   "id": "q05",
+   "section": "#http-status-codes",
+   "text": "Google's crawlers treat all 4xx errors, except 429, as if a valid robots.txt file didn't exist. This means that Google assumes that there are no crawl restrictions."
+  },
+  {
+   "id": "q06",
+   "section": "#http-status-codes",
+   "text": "If Google finds a robots.txt file but can't fetch it, Google follows this behavior: For the first 12 hours, Google stops crawling the site but keeps trying to fetch the robots.txt file. If Google can't fetch a new version, for the next 30 days Google will use the last good version, while still trying to fetch a new version."
+  },
+  {
+   "id": "q07",
+   "section": "#http-status-codes",
+   "text": "A robots.txt file which cannot be fetched due to DNS or networking issues, such as timeouts, invalid responses, reset or interrupted connections, and HTTP chunking errors, is treated as a server error."
+  },
+  {
+   "id": "q08",
+   "section": "#file-format",
+   "text": "Google ignores invalid lines in robots.txt files, including the Unicode Byte Order Mark (BOM) at the beginning of the robots.txt file, and use only valid lines."
+  },
+  {
+   "id": "q09",
+   "section": "#file-format",
+   "text": "Google enforces a robots.txt file size limit of 500 kibibytes (KiB). Content which is after the maximum file size is ignored."
+  },
+  {
+   "id": "q10",
+   "section": "#syntax",
+   "text": "These rules are always specified in the form of rule: [path] where [path] is optional. By default, there are no restrictions for crawling for the designated crawlers. Crawlers ignore rules without a [path]."
+  },
+  {
+   "id": "q11",
+   "section": "#user-agent",
+   "text": "Both the user-agent field name and its value are case-insensitive."
+  },
+  {
+   "id": "q12",
+   "section": "#order-of-precedence-for-user-agents",
+   "text": "Only one group is valid for a particular crawler. Google's crawlers determine the correct group of rules by finding in the robots.txt file the group with the most specific user agent that matches the crawler's user agent. Other groups are ignored. All non-matching text is ignored (for example, both googlebot/1.2 and googlebot* are equivalent to googlebot). The order of the groups within the robots.txt file is irrelevant."
+  },
+  {
+   "id": "q13",
+   "section": "#order-of-precedence-for-user-agents",
+   "text": "If there's more than one specific group declared for a user agent, all the rules from the groups applicable to the specific user agent are combined internally into a single group. User agent specific groups and global groups (*) are not combined."
+  },
+  {
+   "id": "q14",
+   "section": "#matching-of-user-agent-fields",
+   "text": "Googlebot (web) | googlebot follows group 3."
+  },
+  {
+   "id": "q15",
+   "section": "#grouping-of-rules",
+   "text": "Rules other than allow, disallow, and user-agent are ignored by the robots.txt parser."
+  },
+  {
+   "id": "q16",
+   "section": "#url-matching-based-on-path-values",
+   "text": "Google uses the path value in the allow and disallow rules as a basis to determine whether or not a rule applies to a specific URL on a site. This works by comparing the rule to the path component of the URL that the crawler is trying to fetch."
+  },
+  {
+   "id": "q17",
+   "section": "#url-matching-based-on-path-values",
+   "text": "Google, Bing, and other major search engines support a limited form of wildcards for path values. These wildcard characters are: - * designates 0 or more instances of any valid character. - $ designates the end of the URL."
+  },
+  {
+   "id": "q18",
+   "section": "#order-of-precedence-for-rules",
+   "text": "When matching robots.txt rules to URLs, crawlers use the most specific rule based on the length of the rule path. In case of conflicting rules, including those with wildcards, Google uses the least restrictive rule."
+  },
+  {
+   "id": "q19",
+   "section": "#sitemap",
+   "text": "The [absoluteURL] line points to the location of a sitemap or sitemap index file. It must be a fully qualified URL, including the protocol and host,"
+  }
+ ],
+ "note": "Sus «must» se refieren al propio fichero robots.txt (ubicación, UTF-8, ruta que empieza por /, sitemap como URL absoluta), no a la página: su efecto sobre ella lo recoge w-consumer/009, porque Google ignora las líneas inválidas (q08). Donde difiere de RFC 9309 rige para Googlebot (método común de Web, punto 3): un 429 o un 5xx no es «todo prohibido», sino 12 horas sin rastrear y después la última versión buena (q05–q07)."
+}

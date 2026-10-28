@@ -1,0 +1,90 @@
+{
+ "source": "ietf-rfc9110",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "protocolo",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "HTTP Semantics: la semántica de los mensajes HTTP. En el perfil de Web fija lo que el servidor genera en su respuesta: el campo Location en las redirecciones 301, 302, 307 y 308 («SHOULD»), Content-Type en un mensaje con contenido («SHOULD») y Content-Encoding cuando ha aplicado codificaciones de contenido («MUST»).",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#section-2.2",
+   "text": "The key words \"MUST\", \"MUST NOT\", \"REQUIRED\", \"SHALL\", \"SHALL NOT\", \"SHOULD\", \"SHOULD NOT\", \"RECOMMENDED\", \"NOT RECOMMENDED\", \"MAY\", and \"OPTIONAL\" in this document are to be interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all capitals, as shown here."
+  },
+  {
+   "id": "q02",
+   "section": "#section-15.4",
+   "text": "Redirects that indicate this resource might be available at a different URI, as provided by the Location header field, as in the status codes 301 (Moved Permanently), 302 (Found), 307 (Temporary Redirect), and 308 (Permanent Redirect)."
+  },
+  {
+   "id": "q03",
+   "section": "#section-15.4.2",
+   "text": "The server SHOULD generate a Location header field in the response containing a preferred URI reference for the new permanent URI.",
+   "note": "301 (Moved Permanently)."
+  },
+  {
+   "id": "q04",
+   "section": "#section-15.4.3",
+   "text": "The server SHOULD generate a Location header field in the response containing a URI reference for the different URI.",
+   "note": "302 (Found)."
+  },
+  {
+   "id": "q05",
+   "section": "#section-15.4.8",
+   "text": "The server SHOULD generate a Location header field in the response containing a URI reference for the different URI.",
+   "note": "307 (Temporary Redirect)."
+  },
+  {
+   "id": "q06",
+   "section": "#section-15.4.9",
+   "text": "The server SHOULD generate a Location header field in the response containing a preferred URI reference for the new permanent URI.",
+   "note": "308 (Permanent Redirect)."
+  },
+  {
+   "id": "q07",
+   "section": "#section-10.2.2",
+   "text": "For 3xx (Redirection) responses, the Location value refers to the preferred target resource for automatically redirecting the request."
+  },
+  {
+   "id": "q08",
+   "section": "#section-8.3",
+   "text": "A sender that generates a message containing content SHOULD generate a Content-Type header field in that message unless the intended media type of the enclosed representation is unknown to the sender."
+  },
+  {
+   "id": "q09",
+   "section": "#section-8.3",
+   "text": "If a Content-Type header field is not present, the recipient MAY either assume a media type of \"application/octet-stream\" ([RFC2046], Section 4.5.1) or examine the data to determine its type.",
+   "note": "Por qué el tipo que deduce Chrome (http.mime en capture) no prueba que hubiera Content-Type."
+  },
+  {
+   "id": "q10",
+   "section": "#section-8.4",
+   "text": "The \"Content-Encoding\" header field indicates what content codings have been applied to the representation, beyond those inherent in the media type, and thus what decoding mechanisms have to be applied in order to obtain data in the media type referenced by the Content-Type header field."
+  },
+  {
+   "id": "q11",
+   "section": "#section-8.4",
+   "text": "If one or more encodings have been applied to a representation, the sender that applied the encodings MUST generate a Content-Encoding header field that lists the content codings in the order in which they were applied."
+  },
+  {
+   "id": "q12",
+   "section": "#section-8.4",
+   "text": "Note that the coding named \"identity\" is reserved for its special role in Accept-Encoding and thus SHOULD NOT be included.",
+   "note": "identity no es una codificación aplicada: un Content-Encoding con solo identity no declara ninguna."
+  },
+  {
+   "id": "q13",
+   "section": "#section-5.1",
+   "text": "Field names are case-insensitive and ought to be registered within the \"Hypertext Transfer Protocol (HTTP) Field Name Registry\"; see Section 16.3.1.",
+   "note": "Los métodos buscan los campos de http.headers sin distinguir mayúsculas."
+  },
+  {
+   "id": "q14",
+   "section": "#section-8.4.1",
+   "text": "All content codings are case-insensitive and ought to be registered within the \"HTTP Content Coding Registry\", as described in Section 16.6"
+  }
+ ],
+ "note": "Lo que fundamenta los requisitos del nivel protocolo de Web (web-protocol.json). capture registra, en meta.json, las cabeceras de la respuesta final (http.headers) tal como las envió el servidor; de las redirecciones que Chrome siguió solo guarda url, status y to. 303 (See Other) dice que la URI va en Location, sin «SHOULD», y 300 (Multiple Choices) lo condiciona a que el servidor tenga una opción preferida: no dan requisito."
+}

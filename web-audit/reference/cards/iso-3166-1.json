@@ -1,0 +1,8 @@
+{
+ "source": "iso-3166-1",
+ "version": "20260923-0",
+ "class": "instrumento del sistema",
+ "summary": "Tabla «Country» de EU Vocabularies, con el código ISO 3166-1 alfa-2 de cada país. Sirve para comprobar los requisitos que piden un código ISO 3166-1 alfa-2; la condición la fija la especificación aplicable que lo pide, no esta tabla (D-132).",
+ "quotes": [],
+ "note": "RDF sin texto citable. Lector: references.read.country_codes. ISO no publica una lista reutilizable; la tabla de la UE es una fuente secundaria. En la versión 20260923-0 tiene 253 códigos: los 249 asignados de ISO 3166-1 más EU, IC, CP y CQ, que ISO reserva excepcionalmente y no asigna. Los métodos de los requisitos los excluyen."
+}

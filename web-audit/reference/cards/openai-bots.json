@@ -1,0 +1,38 @@
+{
+ "source": "openai-bots",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Página de OpenAI sobre sus bots: OAI-SearchBot (búsqueda de ChatGPT), GPTBot (entrenamiento), OAI-AdsBot (anuncios) y ChatGPT-User (acciones de un usuario, sin robots.txt asegurado). Recomienda permitir OAI-SearchBot en robots.txt para aparecer en la búsqueda.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#",
+   "text": "OpenAI uses OAI-SearchBot and GPTBot robots.txt tags to enable webmasters to manage how their sites and content work with AI."
+  },
+  {
+   "id": "q02",
+   "section": "#",
+   "text": "OAI-SearchBot is used to surface websites in search results in ChatGPT’s search features. Sites that are opted out of OAI-SearchBot will not be shown in ChatGPT search answers, though can still appear as navigational links."
+  },
+  {
+   "id": "q03",
+   "section": "#",
+   "text": "To help ensure your site appears in search results, we recommend allowing OAI-SearchBot in your site’s robots.txt file and allowing requests from our published IP ranges below."
+  },
+  {
+   "id": "q04",
+   "section": "#",
+   "text": "Because these actions are initiated by a user, robots.txt rules may not apply. ChatGPT-User is not used to determine whether content may appear in Search."
+  },
+  {
+   "id": "q05",
+   "section": "#",
+   "text": "Disallowing GPTBot indicates a site’s content should not be used in training generative AI foundation models."
+  }
+ ],
+ "note": "La página no tiene encabezados en su raíz de contenido: todo el texto está en el preámbulo (#). La parte de la recomendación sobre los rangos de IP publicados no se puede comprobar desde fuera del operador, y GPTBot es de entrenamiento: ninguna da requisito."
+}

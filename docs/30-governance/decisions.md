@@ -79,7 +79,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-050](#d-050) | Filtro de relevancia aprendido: lo no relevante sale del modelo de la clase | aceptada | 2026-10-25 |
 | [D-051](#d-051) | Peso, grosor y gramaje: rasgo «magnitud física», fuera de la regla de las medidas | aceptada (vocabulario abierto por D-056) | 2026-10-25 |
 | [D-052](#d-052) | Fabricante, país de fabricación y seguridad en la capa general, según su origen | aceptada (ampliada a hechos de la oferta por D-065; ampliación sin efecto por D-066; fabricante con marca propia por D-080; la imagen, por D-144) | 2026-10-25 |
-| [D-053](#d-053) | Catálogo de entrenamiento, primera selección: El Corte Inglés, amplitud de tipos y piloto | aceptada | 2026-10-25 |
+| [D-053](#d-053) | Catálogo de entrenamiento, primera selección: El Corte Inglés, amplitud de tipos y piloto | aceptada (primera vía de entrada del catálogo curado por D-158) | 2026-10-25 |
 | [D-054](#d-054) | El entrenamiento a escala clasifica con agentes de Claude Code, no con la API | aceptada | 2026-10-25 |
 | [D-055](#d-055) | Crítico por requisito y clase; la medida descriptiva puede ser crítica | aceptada (generalizada por D-058) | 2026-10-26 |
 | [D-056](#d-056) | Vocabulario de rasgos abierto: rasgos propuestos y votados por los agentes | aceptada (criterio de crítico sustituido por D-058) | 2026-10-26 |
@@ -146,9 +146,9 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-117](#d-117) | Los criterios de aceptación se aplican siempre; NE es una incidencia | aceptada (NA de Comparabilidad: D-126) | 2026-10-27 |
 | [D-118](#d-118) | Comparabilidad: el contraste se exige cuando la respuesta es una dimensión de comparación de la clase | aceptada | 2026-10-27 |
 | [D-119](#d-119) | La prestación derivada de un atributo se decide en la pertinencia | aceptada | 2026-10-27 |
-| [D-120](#d-120) | Prueba de derivación: conclusión necesaria con reglas generales, descriptivas y citadas | aceptada | 2026-10-27 |
+| [D-120](#d-120) | Prueba de derivación: conclusión necesaria con reglas generales, descriptivas y citadas | aceptada (el hecho particular tomado de fuera, enmendado por D-154) | 2026-10-27 |
 | [D-121](#d-121) | Fiabilidad: nueva definición y lectura refutadora | aceptada | 2026-10-27 |
-| [D-122](#d-122) | Comprobaciones de corrección: tres familias, límites del conocimiento del dominio e identificador ausente | aceptada | 2026-10-27 |
+| [D-122](#d-122) | Comprobaciones de corrección: tres familias, límites del conocimiento del dominio e identificador ausente | aceptada (familias y fuente independiente, enmendadas por D-154) | 2026-10-27 |
 | [D-123](#d-123) | Se retira la propiedad P15 · Actualidad | aceptada | 2026-10-27 |
 | [D-124](#d-124) | Consistencia transversal: nueva dimensión de análisis por RI × par de ámbitos | aceptada | 2026-10-27 |
 | [D-125](#d-125) | Pistas de valoración: nombre, tres niveles y alcance | aceptada | 2026-10-27 |
@@ -171,12 +171,30 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-142](#d-142) | Moda, popularidad, preferencia general y alternativa de producto en PAA | aceptada | 2026-10-28 |
 | [D-143](#d-143) | Mínimo de representación de la oferta | aceptada (papel del mínimo precisado por D-145; datos en Web Schema.org, D-147) | 2026-10-28 |
 | [D-144](#d-144) | La imagen: sostén del mínimo de representación; lo que muestra no es información | aceptada | 2026-10-28 |
-| [D-145](#d-145) | Frontera entre la evaluación técnica y la informativa: decide la naturaleza que fija la especificación | aceptada (mínimo fijado por D-147; completitud y excepción precisadas por D-148) | 2026-10-28 |
+| [D-145](#d-145) | Frontera entre la evaluación técnica y la informativa: decide la naturaleza que fija la especificación | aceptada (mínimo fijado por D-147; completitud y excepción precisadas por D-148; destino de lo recomendado precisado por D-155) | 2026-10-28 |
 | [D-146](#d-146) | La categoría madre y el material en el perímetro de PAA | aceptada | 2026-10-28 |
 | [D-147](#d-147) | Datos del mínimo de representación en Web Schema.org | aceptada | 2026-10-28 |
 | [D-148](#d-148) | Formación estructural | aceptada | 2026-10-28 |
 | [D-149](#d-149) | Sistema references: custodia común de las fuentes externas congeladas | aceptada | 2026-10-28 |
 | [D-150](#d-150) | Sistema capture: motor de captura y almacén común de fichas congeladas | aceptada | 2026-10-28 |
+| [D-151](#d-151) | Perfil de consumo base de Web: la respuesta HTTP sin ejecutar JavaScript | aceptada (segundo perfil retirado por D-156) | 2026-10-28 |
+| [D-152](#d-152) | Ámbitos de la V1 de la auditoría informativa: Web y Web Schema.org | aceptada | 2026-10-28 |
+| [D-153](#d-153) | Ejecución del auditor en dos fases: disponibilidad por ficha × ámbito, AC por lotes | propuesta | 2026-10-28 |
+| [D-154](#d-154) | Fiabilidad sin fuentes externas y conocimiento del modelo como regla asimétrica | aceptada | 2026-10-28 |
+| [D-155](#d-155) | Un modelo de demanda y una ficha por ámbito: pertinencia por excepción y localización | aceptada | 2026-10-28 |
+| [D-156](#d-156) | Un solo perfil de consumo: sin JavaScript y con todo el documento | aceptada | 2026-10-28 |
+| [D-157](#d-157) | Contexto de la petición del perfil de consumo y datos en scripts que no son marcado | aceptada (estado limpio precisado por D-163) | 2026-10-28 |
+| [D-158](#d-158) | Catálogo de entrenamiento curado: candidatos, filtros, motivos de admisión, topes y casos manuales | aceptada | 2026-10-28 |
+| [D-159](#d-159) | Perfil de implementación de Web: protocolo, documento y consumidor (Google Search y operadores de IA) | aceptada (enmendada por D-168: Open Graph en el nivel de documento) | 2026-10-28 |
+| [D-160](#d-160) | Frontera entre la evaluación técnica y la informativa en Web | aceptada | 2026-10-28 |
+| [D-161](#d-161) | Vistas general y particular de la evaluación técnica; tipos de página | aceptada | 2026-10-28 |
+| [D-162](#d-162) | Descubribilidad: toda página auditada está en los sitemaps (condición del proyecto) | aceptada | 2026-10-28 |
+| [D-163](#d-163) | Cómo cumple la captura el perfil de consumo: JavaScript desactivado y un contexto de navegador nuevo por ficha | aceptada | 2026-10-28 |
+| [D-164](#d-164) | Las unidades de un conjunto no son partes de la cuestión: las valoran los AC | aceptada | 2026-10-28 |
+| [D-165](#d-165) | Envío y plazos por zona de España en la capa general; impuestos y aduana de Canarias, Ceuta y Melilla | aceptada | 2026-10-28 |
+| [D-166](#d-166) | Tasa de cumplimiento técnico: una sola tasa con desglose por naturaleza y cobertura; agregación por tipo de página | aceptada | 2026-10-28 |
+| [D-167](#d-167) | Páginas de una auditoría: fichas del encargo, portada, políticas, categoría inmediata, robots.txt y sitemaps | aceptada | 2026-10-28 |
+| [D-168](#d-168) | Mínimo de representación de Web: url, título y URL canónica; Open Graph condicional en el perfil de Web | aceptada | 2026-10-28 |
 
 ---
 
@@ -2128,8 +2146,8 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - En Web Schema.org, tres niveles: **serialización** (JSON-LD 1.1 con su procesado, Microdata y RDFa 1.1); **vocabulario** (Schema.org, versión fijada **30.1**); **consumidor** (Google Search: fichas de comerciante, variantes de producto, políticas de devolución y de envío, organización y fragmentos de producto).
   - La versión del vocabulario se fija y queda registrada con cada resultado; cambiarla obliga a revisar los requisitos que dependen de ella.
   - Google Merchant Center pertenece a Catálogos distribuidos; en Web Schema.org solo sirve para la consistencia transversal ([D-124](#d-124)).
-  - (Enmendada por [D-145](#d-145): del consumidor, lo que exige es técnico; la presencia de lo que solo recomienda es, en general, apoyo del modelo de demanda del ámbito, con las salvedades de D-145.)
-- **Interpretación adoptada:** el «sí» aprueba la recomendación sin añadir otros consumidores (Bing u otros); pueden añadirse después con la skill, como perfil nuevo. Los perfiles de Web (sin marcado) y de Catálogos distribuidos siguen en OQ-30.
+  - (Enmendada por [D-145](#d-145): del consumidor, lo que exige es técnico; la presencia de lo que solo recomienda es, en general, apoyo del modelo de demanda del ámbito, con las salvedades de D-145; precisada después por [D-155](#d-155): sin ámbito, y localizador en la ficha de Web Schema.org.)
+- **Interpretación adoptada:** el «sí» aprueba la recomendación sin añadir otros consumidores (Bing u otros); pueden añadirse después con la skill, como perfil nuevo. Los perfiles de Web (sin marcado) y de Catálogos distribuidos siguen en OQ-30 (el de Web, fijado después por [D-159](#d-159)).
 - **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#perfil-de-implementación) 1.2; [scoring-systems](../10-model/scoring-systems.md#tasa-de-cumplimiento-técnico) 1.4; glosario (Perfil de implementación, Requisito técnico general); OQ-30 anotada.
 - **Relacionado:** D-124, D-131, D-132, OQ-30.
 
@@ -2152,7 +2170,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 - **Contexto:** `INTAKE 2026-10-27-web-schema-technical-framework` §4. El inventario de fuentes de Schema.org (`tmp/inventario_fuentes_auditoria_schema_org.md`, base del estudio que cita el artefacto) reúne especificaciones, directrices de consumidores, buenas prácticas, validadores y skills de terceros. Claude propuso la función de cada clase de fuente, aprobada con el plan.
 - **Decisión:**
-  - Solo una **especificación aplicable** (de serialización, de vocabulario o de un consumidor) fundamenta un requisito técnico.
+  - Solo una **especificación aplicable** (de serialización, de vocabulario o de un consumidor) fundamenta un requisito técnico. (Ampliada por [D-159](#d-159): también de protocolo y de documento, según el perfil del ámbito. Enmendada por [D-162](#d-162): por excepción, también una condición del proyecto adoptada en el canon, que el requisito nombra en lugar de citar una especificación.)
   - Las demás clases tienen otra función: instrumento del sistema (SHACL, PROV-O); principios generales (W3C Data on the Web Best Practices); método de comprobación (Schema Markup Validator, Rich Results Test), que no es fuente de criterios ni equivale a calidad informativa; práctica de terceros (skills de auditoría SEO), sin autoridad; antecedente histórico (GS1 SmartSearch, 2015); datos comerciales distribuidos (Merchant Center), para Catálogos distribuidos y la consistencia transversal.
   - Un requisito técnico expresa una sola condición comprobable.
   - Cada requisito técnico cita literalmente su especificación: fuente, sección y versión congelada.
@@ -2365,7 +2383,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - **Excepción:** los recomendados que sirven para interpretar un valor ya publicado (`bestRating`, `worstRating`, la unidad del peso, la URL del logo) siguen en la técnica. (Precisada por [D-148](#d-148): es el punto 2 de la formación estructural, que también recoge la completitud de lo exigido.)
   - **Doble lectura, solo en lo exigido:** si falta el precio, la técnica dice que el consumidor lo exige y falta, y la informativa, que la cuestión no tiene respuesta en el ámbito. No es doble cómputo.
   - **Mínimo de representación:** mantiene en la técnica los datos del mínimo que el consumidor recomienda sin exigir ([OQ-74](open-questions.md), candidatos: url de la oferta, identificadores, marca). (Cerrada por [D-147](#d-147): marca, GTIN y MPN, fuera.)
-  - **Lo recomendado, al modelo de demanda del ámbito Web Schema.org:** cuenta que la propiedad aparezca en la referencia, no su naturaleza; la importancia la decide el modelo, como con los PTD de Amazon ([D-052](#d-052)). Una propiedad no es un RI por sí misma: apoya un requisito o una aportación existentes, o propone un candidato. Incluirlo en el motor de demanda es una tarea aparte, por indicación del usuario: T-056.
+  - **Lo recomendado, al modelo de demanda del ámbito Web Schema.org:** cuenta que la propiedad aparezca en la referencia, no su naturaleza; la importancia la decide el modelo, como con los PTD de Amazon ([D-052](#d-052)). Una propiedad no es un RI por sí misma: apoya un requisito o una aportación existentes, o propone un candidato. Incluirlo en el motor de demanda es una tarea aparte, por indicación del usuario: T-056. (Precisada por [D-155](#d-155): la propiedad recomendada es apoyo de demanda sin ámbito y localizador en la ficha de Web Schema.org; desaparece «del ámbito».)
   - **Referencia técnica:** los 126 requisitos de presencia recomendada (48 de primer nivel y 78 de completitud) salen, salvo los que OQ-74 incluya en el mínimo (nueve, [D-147](#d-147)), y se conservan en un registro con su motivo. De los 83 que el usuario apartó en el triaje, 29 pasan a la informativa y 54 siguen técnicos (atributos 11/5, certificaciones 2/6, fragmentos de producto 9/18, reseñas 7/25). Retirada en `web-audit/reference/` (estos y los 26 que no se auditan): T-055, después de OQ-74.
   - **Perfil de implementación:** el nivel del consumidor deja de fijar «propiedades exigidas y recomendadas»: lo exigido es técnico y la presencia de lo recomendado es apoyo del modelo de demanda. Enmienda [D-130](#d-130).
   - Alternativas descartadas: B, decide la función (obliga a juzgar dato a dato y a separar el primer nivel de lo anidado sin criterio firme); C, todo el perfil es técnico (ruido y la misma ausencia informada dos veces).
@@ -2408,7 +2426,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - **Lo obligatorio, también lo condicional, es técnico** (D-145): 169 obligatorios del consumidor, 9 universales y 160 condicionales, con la condición en su aplicabilidad. Google Search exige un identificador por variante (`195`) y el del grupo (`193`), técnicos con independencia del mínimo.
   - **GTIN, MPN y marca** son recomendados en Google Search y quedan fuera del mínimo por la prueba de universalidad. En Merchant Center, que pertenece a Catálogos distribuidos ([D-130](#d-130)), el GTIN es «It depends», muy recomendado si existe, y el MPN (si no hay GTIN) y la marca (en productos nuevos) son obligaciones condicionales; al definir ese perfil, D-145 hará técnicas esas obligaciones, y el perfil decidirá el GTIN. `identifier_exists` de Merchant Center confirma la prueba de universalidad; el marcado Schema.org no tiene un campo equivalente.
 - **Interpretaciones adoptadas:**
-  - La lista vale para Web Schema.org, el único ámbito con perfil. Los datos del mínimo en Web y en Catálogos distribuidos se fijarán con sus perfiles ([OQ-30](open-questions.md)); OQ-74 se cierra para Web Schema.org.
+  - La lista vale para Web Schema.org, el único ámbito con perfil. Los datos del mínimo en Web y en Catálogos distribuidos se fijarán con sus perfiles ([OQ-30](open-questions.md)); OQ-74 se cierra para Web Schema.org. (El perfil de Web lo fija [D-159](#d-159) sin decidir su mínimo, que pasa a [OQ-84](open-questions.md#f-evaluación-técnica).)
   - La prueba de universalidad se lee como un segundo filtro de [D-143](#d-143), no como un concepto nuevo: concreta «hace falta» con la invariante de neutralidad (un «no» fundamentado resuelve la cuestión).
   - El registro del hueco del `@id` se hace en la referencia técnica, dentro de T-055.
 - **Consecuencias:** precisa D-143; cierra OQ-74; OQ-30 anotada. [commercial-information](../10-model/commercial-information.md) 1.4; [evaluation-scopes](../10-model/evaluation-scopes.md) 1.5; glosario (Mínimo de representación). T-055 queda desbloqueada.
@@ -2459,3 +2477,342 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - Las políticas de acceso del motor ([D-042](#d-042), D-046) no cambian: siguen siendo del motor y se aplican igual a todas las capturas, también a las de web-audit y la auditoría.
 - **Consecuencias:** enmienda D-046 en dónde vive el motor (el código pasa de demand-engine a `capture/`). [model-training](../10-model/model-training.md#casos-alcance-y-ejecución) 1.21 (motor de captura); glosario (nueva entrada capture; motor de captura); enlaces al README del motor en [sampling-capture](../20-methods/mpir/sampling-capture.md) 1.5, OQ-14 e I-18. Fuera de `docs/`: T-066 (construir y probar `capture/`, sin mover datos ni consumidores: hasta el corte, demand-engine sigue con su copia del motor y sus fichas) y T-067 (corte: mover las fichas y el perfil de Chrome sin volver a capturar ni alterar ninguna ficha, y repuntar los consumidores).
 - **Relacionado:** D-042, D-046, D-129, D-149.
+
+### D-151
+
+**Perfil de consumo base de Web: la respuesta HTTP sin ejecutar JavaScript.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-informative-audit-v1` §1, al empezar el sistema de valoración de calidad. El canon pedía que el perfil de consumo no interactivo de Web precisara qué se puede recuperar y leer sin operar la página, sin fijar cuál. Las fichas congeladas de [capture](../../capture/README.md) ([D-150](#d-150)) guardan las dos lecturas posibles: la respuesta HTTP y el DOM tras la carga. Claude propuso la respuesta HTTP como perfil base y el DOM cargado como segundo perfil versionado, más adelante. Usuario: «perfil correcto».
+- **Decisión:**
+  - El **perfil de consumo base de Web** es la **respuesta HTTP del recurso, sin ejecutar JavaScript** ni operar la página (en capture, `response.html`).
+  - El **DOM tras la carga sin interacción** (`dom.html`) queda como posible segundo perfil, versionado, más adelante (retirado por [D-156](#d-156)).
+- **Interpretación adoptada:**
+  - Claude aplica el mismo perfil a **Web Schema.org**: su marcado es el que trae la respuesta HTTP. Web incluye el marcado, y si los dos ámbitos leyeran representaciones distintas de la misma página, sus resultados no serían comparables. El marcado que se inyecta con JavaScript queda abierto en [OQ-77](open-questions.md#f-evaluación-técnica) (cerrada por [D-156](#d-156)).
+  - Es el perfil de consumo de la evaluación informativa (qué información se obtiene y se lee), no el perfil de implementación de la técnica ([D-130](#d-130)). Los perfiles de implementación de Web y de Catálogos distribuidos siguen en [OQ-30](open-questions.md#f-evaluación-técnica).
+  - Que un dato solo aparezca tras ejecutar JavaScript no es una prohibición técnica: bajo este perfil, ese dato no es utilizable y su efecto se refleja en la disponibilidad efectiva (caso C de [calibration](../20-methods/audit-gsc/calibration.md#caso-c--ausencia-de-información-pertinente-bajo-el-perfil)).
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#perfil-de-consumo-no-interactivo) 1.7; [inputs-outputs](../20-methods/audit-gsc/inputs-outputs.md#perfil-de-consumo) 0.4; glosario (perfil de consumo); anotaciones en OQ-20 y OQ-30; nueva OQ-77.
+- **Relacionado:** D-130, D-150, D-152, D-156.
+
+### D-152
+
+**Ámbitos de la V1 de la auditoría informativa: Web y Web Schema.org.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-informative-audit-v1` §2. Claude propuso Web y Web Schema.org para la V1 y aplazar Catálogos distribuidos, porque no hay feeds con que auditarlo. Usuario: «web + web schema».
+- **Decisión:** la V1 de la auditoría informativa examina **Web** y **Web Schema.org**. **Catálogos distribuidos** queda aplazado.
+- **Interpretación adoptada:** es un alcance de la V1 del método, no del modelo: Catálogos distribuidos sigue siendo uno de los tres ámbitos ([evaluation-scopes](../10-model/evaluation-scopes.md)). Mientras esté aplazado, la consistencia transversal de la V1 solo examina el par Web ↔ Web Schema.org.
+- **Consecuencias:** [audit-gsc](../20-methods/audit-gsc/README.md) 0.3; [inputs-outputs](../20-methods/audit-gsc/inputs-outputs.md) 0.4.
+- **Relacionado:** D-013, D-124, D-151.
+
+### D-153
+
+**Ejecución del auditor en dos fases: disponibilidad por ficha × ámbito, AC por lotes.** · propuesta · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-informative-audit-v1` §3. Un modelo de demanda real tiene entre 44 y 72 RI (unos 55 de mediana; recuento de Claude sobre los modelos ensamblados de los 14 casos de control): unos 110 RI × ámbito y hasta 660 juicios de AC por ficha. Claude comparó cinco unidades de trabajo del agente: A, un agente por ficha (salida inmanejable); B, ficha × ámbito en un solo paso (en Web, unos 330 juicios); C, lotes de RI sin fase común (ninguno ve la página entera para probar una ausencia, invariante 11); D, un agente por RI (más de cien agentes por ficha); E, dos fases. Usuario: «2 ok a E».
+- **Decisión (propuesta V1):**
+  - **Fase 1, un agente por ficha × ámbito:** exploración, pertinencia y disponibilidad efectiva de **todos** los RI (OP-03…07). Mira la página entera una vez y deja la prueba de cobertura de cada ausencia. Los RI con disponibilidad 0 terminan aquí (IR = 0).
+  - **Fase 2, agentes por lote de RI con disponibilidad 1** (un bloque o una entidad, unos 10–15 RI): los seis AC con sus pistas (OP-08…10). Reciben las evidencias localizadas y la representación completa del ámbito, para poder reabrir la búsqueda. En Web ven juntos el HTML y el Schema.org.
+  - **Entre las dos fases, el código** comprueba que cada fragmento citado existe literalmente en la representación del ámbito.
+  - **Mitigación:** un 0 sin registro de cobertura no pasa el validador; la calibración mide sobre todo los falsos 0.
+- **Interpretación adoptada:** es una forma admitida de procesar varios RI sobre la misma representación ([execution](../20-methods/audit-gsc/execution.md#orden-de-procesamiento-y-eficiencia)); no cambia la unidad RI × ámbito ni sus registros. Se incorpora como propuesta, como el resto de la V1: el reparto en lotes y su tamaño se ajustan en la calibración.
+- **Consecuencias:** [execution](../20-methods/audit-gsc/execution.md#ejecución-en-dos-fases) 0.4; [availability-coverage](../20-methods/audit-gsc/availability-coverage.md) 0.3; [qa](../20-methods/audit-gsc/qa.md) 0.4 (QA-15).
+- **Relacionado:** D-152.
+
+### D-154
+
+**Fiabilidad sin fuentes externas y conocimiento del modelo como regla asimétrica.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-informative-audit-v1` §4. [D-122](#d-122) incluía en Fiabilidad una tercera familia, la fuente independiente (registros públicos: OEKO-TEX, EPREL, GS1). Claude propuso limitarla a los registros concluyentes; en 45 fichas congeladas no había ninguna certificación con número ni clase energética, y el GTIN aparecía en 43. Usuario: «no voy a validar certificaciones. Replantea como se evalua este AC». Ante el replanteo, el usuario preguntó: «¿Podrías usar el conocimiento del modelo?». Claude distinguió tres tipos de conocimiento del modelo y propuso una regla asimétrica. Usuario: «OK».
+- **Decisión:**
+  - **La auditoría no consulta nada externo a lo que publica el ecommerce.** Usa la representación del ámbito y reglas generales citadas: definiciones, normas que fijan el significado de un término y especificaciones de formato. Ningún hecho particular del producto tomado de fuera (un registro, la web del fabricante, lo que el auditor sepa del modelo) entra en la auditoría como regla ni como evidencia, ni siquiera para contrastar; lo que el auditor sepa de un caso concreto solo puede frenar una refutación o quedar como sospecha (regla asimétrica, abajo). Enmienda la frase de [D-120](#d-120) «solo sirve para contrastar».
+  - **La definición de Fiabilidad no cambia** ([D-121](#d-121)), ni su escala: 0, defecto material; 1, defecto no material o que afecta a parte de lo examinado; 2, sin defectos detectados. No hay estado nuevo.
+  - **Tres familias de comprobación**, que sustituyen a las de D-122: **estructura del dato** (refuta con certeza), **conocimiento del dominio** (solo refuta: una regla general citada y sin contrafuente, o una imposibilidad física o lógica; si el dato solo es improbable, sospecha) y **consistencia dentro del ámbito** (entre las representaciones del ámbito y entre requisitos del mismo ámbito). Desaparece la fuente independiente.
+  - **Conocimiento del modelo, regla asimétrica:**
+
+    > El conocimiento del modelo puede **frenar** una refutación libremente, pero solo puede **producirla** con una regla general citada o con una imposibilidad física o lógica. Lo que el modelo sepa de un producto, una marca o un modelo concretos es una **sospecha**: se anota con su motivo, no gradúa y pasa al informe como «a verificar por el ecommerce». — INTAKE 2026-10-28-informative-audit-v1
+  - **El registro** dice qué familias se aplicaron: «sin defectos detectados en estructura, dominio y consistencia del ámbito; sin contraste externo». Si a un dato solo le toca la consistencia, también es 2 y el registro lo dice.
+  - **Certificaciones:** se juzgan por lo publicado, no se validan. Fiabilidad: solo estructura, dominio y consistencia (una fecha de validez vencida, un sello incompatible con la composición). Justificación: que se publiquen el número y el organismo, porque son la base que permite a cualquiera, IA incluida, verificarlos. Precisión: «OEKO-TEX» sin decir qué norma. Aplicabilidad: que la certificación se atribuya al producto que se vende y no a una materia prima.
+  - **Límite de interpretación:** Fiabilidad mide la corrección y la coherencia interna de lo publicado, no su veracidad frente al mundo. Un 2 no acredita que una certificación, una clase energética o un GTIN sean válidos.
+- **Motivos de la regla asimétrica** (de la propuesta aceptada): el hecho particular que el modelo «sabe» no es reexaminable (M10); la memoria del modelo puede estar desfasada o confundir versiones, variantes y mercados; el resultado dependería del auditor (M12, invariante 14); trataría distinto a marcas conocidas y desconocidas; un falso 0 daña al cliente sin fundamento; y es el espíritu de la invariante 9 (no se completan hechos ausentes con conocimiento externo; tampoco se destruyen con él). Frenar es seguro: usar lo que el modelo sabe como contrafuente solo evita penalizar.
+- **Interpretaciones adoptadas:**
+  - La imposibilidad física o lógica es una regla general en el sentido de la [prueba de derivación](../10-model/effective-availability.md#prueba-de-derivación) (lógica, aritmética, hechos generales del mundo); no es un tercer tipo de regla.
+  - Con la fuente independiente desaparece el ejemplo de NE «un registro externo que no respondió». En Fiabilidad, NE queda casi limitado a no poder leer una representación que pide la comprobación de consistencia.
+  - La falta del identificador que permitiría verificar un dato (el número de certificado) sigue contando en Justificación (P18), como en D-122: la auditoría no lo verifica, pero el identificador es la base que permite verificarlo.
+  - La consistencia transversal no es una fuente externa: compara representaciones del propio ecommerce y sigue como dimensión aparte ([D-124](#d-124)).
+- **Consecuencias:**
+  - Enmienda D-122 (familias y fuente independiente) y D-120 (el hecho particular tomado de fuera ya no contrasta).
+  - [acceptance-criteria](../10-model/acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones) 1.6; [effective-availability](../10-model/effective-availability.md#prueba-de-derivación) 1.3; [scoring-systems](../10-model/scoring-systems.md) 1.5; [assessment-hints](../10-model/assessment-hints.md) 1.7; [quality-properties](../10-model/quality-properties.md) 1.4; [scope](../00-context/scope.md#límite-de-interpretación) 1.2.
+  - Método: [audit-gsc](../20-methods/audit-gsc/README.md) 0.3, [ac-guides](../20-methods/audit-gsc/ac-guides.md) 0.5, [evidence](../20-methods/audit-gsc/evidence.md) 0.3, [property-checks](../20-methods/audit-gsc/property-checks.md) 0.3, [gsc-decision](../20-methods/audit-gsc/gsc-decision.md) 0.5, [qa](../20-methods/audit-gsc/qa.md) 0.4, [calibration](../20-methods/audit-gsc/calibration.md) 0.4, [availability-coverage](../20-methods/audit-gsc/availability-coverage.md) 0.3, [dossier](../20-methods/audit-gsc/dossier.md) 0.3 (sospechas en el informe).
+  - Glosario (Fiabilidad, prueba de derivación, sospecha); OQ-66 reducida a las tres familias.
+  - Fuera de `docs/` (código, pendiente): en `demand-engine/catalog/hints.json`, retirar PV-5 y PV-39 (el número ha de existir en el registro); retirar PV-6 y PV-40 y reescribirlas como pistas de Aplicabilidad con número nuevo. PV-4 y PV-38 (número de certificado y organismo, Justificación) se mantienen.
+- **Relacionado:** D-006, D-119, D-120, D-121, D-122, D-124, D-128.
+
+### D-155
+
+**Un modelo de demanda y una ficha por ámbito: pertinencia por excepción y localización.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-scope-sheet`. Responde a [OQ-76](open-questions.md). Antes de implantar T-056, el usuario pidió analizar críticamente que cada ámbito tenga sus requisitos aplicables y quizá sus pistas, y preguntó si el modelo es uno y lo que cambia es una ficha de aplicabilidad. El canon decía que el catálogo relaciona cada RI con sus ámbitos pertinentes (FUND §3.5) y que cada ámbito tiene su propio conjunto de RI pertinentes (regla 4 de [evaluation-scopes](../10-model/evaluation-scopes.md#reglas-e-invariantes)), pero esa relación no se había registrado ([D-061](#d-061), sustituida por [D-062](#d-062)). Claude comparó tres alternativas: A, un campo de ámbitos en cada RI del catálogo; B, un modelo y una ficha por ámbito; C, sin aplicabilidad. Usuario: «si como dices».
+- **Decisión (alternativa B):**
+  - **El modelo de demanda es uno.** Preguntas, importancia, información resolutiva y pistas de valoración no dependen del ámbito.
+  - **Cada ámbito tiene una ficha propia, versionada,** con dos partes:
+    - **Pertinencia:** por defecto, todo RI del modelo es pertinente en el ámbito. Las excepciones son NA fundamentados en la función del ámbito, formulados como reglas (por entidad o componente), no RI a RI. La falta de una propiedad o un campo en el vocabulario del ámbito no es motivo (independencia de un campo o formato, invariante 14). Web no tiene excepciones.
+    - **Localización:** el vocabulario del ámbito (por ejemplo, las propiedades de Schema.org, citadas `fuente:Tipo.propiedad@versión`) relacionado con las aportaciones de la información resolutiva. Llega al auditor como expresiones ilustrativas del perfil del RI: orienta, no cierra la búsqueda ni decide la pertinencia.
+  - **La auditoría compone modelo × ficha** para obtener las unidades RI × ámbito y registra la versión de la ficha.
+  - **Las pistas de valoración siguen sin ámbito:** lo que cambia por ámbito es localización, no valoración.
+  - **La no pertinencia, solo a nivel de RI** (la unidad es RI × ámbito): no hay aportaciones no exigibles por ámbito.
+  - **Precisa [D-145](#d-145):** una propiedad que un consumidor del perfil de Web Schema.org recomienda sin exigir tiene dos papeles separados: **apoyo de demanda** (origen «referencias», sin ámbito, como los PTD de Amazon, [D-052](#d-052)) y **localizador** en la ficha de Web Schema.org. Desaparece «apoyo del modelo para ese ámbito».
+  - Alternativas descartadas: A, un campo de ámbitos en cada RI (reparte el conocimiento del ámbito por todo el catálogo y deja la pertinencia al juicio RI a RI, con la tentación de «hay propiedad, luego es pertinente»); C, sin aplicabilidad (contradice FUND §3.5 donde la función del ámbito sí limita, como en Catálogos distribuidos).
+- **Interpretaciones adoptadas:**
+  - «El catálogo relaciona cada RI con sus ámbitos pertinentes» (FUND §3.5) se cumple a través de la ficha: la relación es la composición del catálogo con la ficha de cada ámbito, no un campo del catálogo. La regla 4 de evaluation-scopes (cada ámbito tiene su propio conjunto de RI pertinentes) se lee igual.
+  - El NA de la ficha es el NA del requisito que ya prevén las AC («un RI que no corresponde a un ámbito», FUND §3.5); no es un estado nuevo.
+  - Los motivos de excepción que el artefacto admite son la función del ámbito (fundamentada) y, en parte, la entidad. Claude lo leyó así: la entidad es una forma de formular la regla, y la razón sigue siendo la función.
+  - OQ-76 se cierra con esta decisión: vía (referencias como apoyo y ficha de ámbito), mapeo (propiedad → requisito o aportación, o candidato si ninguno la cubre), ámbito pertinente (ficha, por excepción) y versión (citas con `@versión` a la versión fijada compartida en references, comprobadas con `bin/model refs`, [D-149](#d-149)).
+  - Dónde vive la ficha y su formato son de implantación (T-056), no de canon.
+  - Implantación (T-056): una cuestión o aportación de la capa general que era inferida y gana su primer apoyo de referencia pasa a «referencias», como manda D-052 («según su origen»): disponibilidad (gen/06), estado de la unidad (gen/07), opiniones (gen/15) y promociones (gen/16). Las propiedades que no cubre ningún requisito ni aportación quedan como candidatos (programa de fidelización, origen del envío) o descartadas con su motivo (número de ofertas; modelo 3D y logotipo, por D-144).
+  - Que la localización no decida la pertinencia se apoya, en lectura de Claude, en la invariante 10 (pertinencia ≠ proximidad temática): una propiedad cercana no prueba que su valor responda al RI.
+- **Consecuencias:** precisa D-145; cierra OQ-76. [demand-model](../10-model/demand-model.md#relación-con-los-ámbitos-de-evaluación) 3.7; [evaluation-scopes](../10-model/evaluation-scopes.md) 1.8; [construction-routes](../10-model/construction-routes.md) 1.8; [assessment-hints](../10-model/assessment-hints.md) 1.8; método: [inputs-outputs](../20-methods/audit-gsc/inputs-outputs.md) 0.5 y [ri-profile](../20-methods/audit-gsc/ri-profile.md) 0.3; glosario (nueva entrada Ficha de ámbito); [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.33. Fuera de `docs/`: T-056 (ficha de Web Schema.org y apoyo «referencias» en demand-engine).
+- **Relacionado:** D-010, D-052, D-062, D-135, D-145, D-149, D-152, OQ-76.
+
+### D-156
+
+**Un solo perfil de consumo: sin JavaScript y con todo el documento.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-single-consumption-profile`, tras la investigación «Perfil de consumo de agentes IA» (informe en `reports/`). La investigación encontró dos vías de lectura: la lectura en vivo de los asistentes pide el HTML sin ejecutar JavaScript y casi siempre lo reduce a texto visible, de modo que el JSON-LD casi nunca llega al modelo; la vía de índice puede renderizar (Google siempre, Bing a veces, OpenAI quizá). Propuso dos perfiles (A: respuesta HTTP; B: DOM tras la carga) y señaló una tensión: Web es HTML + Schema.org, pero la lectura en vivo solo entrega el texto visible. Usuario: «vamos dejar solo un perfil que no ejecuta js y utiliza todo el DOM» y «Nos basamos en que es más compatible y preferible generalmente que la información no dependa de ejecución de javascript (aunque algunos sistemas sí puedan leerla). Es una condición que decidimos adoptar ahora.»
+- **Decisión:**
+  - Web y Web Schema.org tienen **un solo perfil de consumo**: la respuesta HTTP **sin ejecutar JavaScript**, de la que se usa **todo el documento**, no solo el texto visible.
+  - **Fundamento:** es más compatible, y es preferible en general que la información no dependa de ejecutar JavaScript, aunque algunos sistemas sí puedan leerla. Es una **condición adoptada** por el proyecto, no una afirmación de que ningún sistema de IA ejecute JavaScript.
+  - Enmienda [D-151](#d-151): desaparece el DOM tras la carga como posible segundo perfil.
+- **Interpretaciones adoptadas:**
+  - Lectura de Claude: «todo el DOM» es el documento de la respuesta HTTP analizado sin ejecutar JavaScript (en capture, `response.html`), no el DOM tras la carga (`dom.html`), que exige ejecutarlo. Incluye el texto visible, los atributos y el marcado (JSON-LD, microdatos, RDFa) y `<noscript>`.
+  - Según Claude, así se resuelve la tensión de la investigación: Web sigue siendo HTML + Schema.org y cuenta todo el documento; que la lectura en vivo de un asistente reduzca la página a texto visible no excluye el marcado de Web. Web Schema.org sigue limitado al marcado ([D-010](#d-010) y [evaluation-scopes](../10-model/evaluation-scopes.md)).
+  - Lo que solo aparece al ejecutar JavaScript, incluido el marcado inyectado, no es utilizable bajo el perfil: su efecto se refleja en la disponibilidad efectiva. Cierra [OQ-77](open-questions.md#f-evaluación-técnica).
+  - Los datos que la página lleva dentro de scripts que no son marcado (el estado de la aplicación en JSON, variables de JavaScript) están en el documento, pero leerlos como información comercial es otra cuestión: queda en [OQ-79](open-questions.md#d-auditoría-informativa-localización-evidencias-gsc).
+  - El usuario no se pronunció sobre el contexto de la petición que señaló la investigación (estado, `Accept-Language`, IP de origen, user agent, robots.txt, sondas): queda en [OQ-78](open-questions.md#d-auditoría-informativa-localización-evidencias-gsc).
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#perfil-de-consumo-no-interactivo) 1.9; [inputs-outputs](../20-methods/audit-gsc/inputs-outputs.md#perfil-de-consumo) 0.6; glosario (perfil de consumo); OQ-77 cerrada; anotación en OQ-20; nuevas OQ-78 y OQ-79.
+- **Relacionado:** D-010, D-151, D-152, D-155.
+
+### D-157
+
+**Contexto de la petición del perfil de consumo y datos en scripts que no son marcado.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-request-context-and-scripts`. Cierra [OQ-78](open-questions.md#d-auditoría-informativa-localización-evidencias-gsc) y [OQ-79](open-questions.md#d-auditoría-informativa-localización-evidencias-gsc), abiertas por [D-156](#d-156). Claude vio que el motor de captura está hecho para parecer un Chrome corriente y evitar bloqueos (perfil persistente, user agent real, `es-ES`, sin banderas de automatización; políticas de [D-042](#d-042) y [D-046](#d-046)). Propuso separar cómo se obtiene la ficha (el motor) de qué contexto de petición define la representación, y corregir solo lo que sesga el resultado y es barato. Usuario: «si. matiz sobre el perfil. Mantenemos el navegador real para evitar bloqueos. pero es un navegador que no ejecuta js.»
+- **Decisión:**
+  - **El perfil es un navegador real que no ejecuta JavaScript.** Navegador real, para evitar bloqueos; sin ejecutar JavaScript, como fija D-156.
+  - **Contexto de la petición:**
+    - **Estado limpio por ficha:** antes de cada captura se borran las cookies y el almacenamiento del dominio, y nunca se acepta un banner (precisado por [D-163](#d-163): un contexto de navegador nuevo por ficha). Un desafío es una incidencia, no una ausencia; el efecto en la tasa de desafíos se mide en el piloto.
+    - **`Accept-Language: es-ES`**, registrado en la ficha.
+    - **IP de origen en España**, con su país y su ASN registrados; sin proxies.
+    - **User agent: el real del navegador.** No se reabren D-042 ni D-046: un token propio aumenta los bloqueos, y suplantar a un bot desde una IP que no es suya es un bot falso para el WAF.
+    - **robots.txt por bot**, registrado en la ficha (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-User, PerplexityBot, Googlebot, Google-Extended, Bingbot y los de Meta y Amazon) como hecho técnico. No afecta al GSC (invariante 8).
+    - **Sin sondas** desde EE. UU. ni con `en-US`. Si un cliente vende fuera de España, se añadirá un perfil nuevo.
+  - **Datos en scripts que no son marcado** (el estado de la aplicación en JSON, variables de JavaScript): **no cuentan como información**. No dan disponibilidad ni sirven de base a los AC. Solo sirven de diagnóstico: si el dato existe ahí pero no en el HTML ni en el marcado, se registra como hallazgo («el dato existe en el estado de la aplicación, pero no se publica»).
+  - **Frontera del documento:** cuentan el texto del HTML (también el oculto), los atributos y el marcado. De los scripts, solo `application/ld+json`.
+- **Motivos** (de la propuesta aceptada): el comprador español es el perímetro; todas las IA llegan sin estado, y el consentimiento heredado es el sesgo más claro; los navegadores agénticos envían el idioma y la IP del usuario; omitir `Accept-Language` exige interceptar peticiones y es una señal de bot; una IP de EE. UU. exige proxy y podría auditar otra tienda. Los scripts que no son marcado son estructuras internas para JavaScript, con claves sin significado publicado; las lecturas en vivo los descartan, y contarlos contradiría el fundamento de D-156. Descartadas en OQ-79: contarlos como información (A) y decidir caso a caso (C, contra M10).
+- **Interpretaciones adoptadas:**
+  - Claude lee el matiz del usuario como una condición sobre la lectura: la representación es la de un navegador real (su user agent, sus cabeceras) que no ejecuta JavaScript. Cómo lo cumple el motor de captura no lo decidió el usuario. Hoy Chrome ejecuta JavaScript al cargar, y desactivarlo puede impedir pasar desafíos antibot, así que queda en [OQ-80](open-questions.md#d-auditoría-informativa-localización-evidencias-gsc).
+  - El hallazgo de diagnóstico de los scripts no es un estado nuevo: es un hallazgo del expediente ([dossier](../20-methods/audit-gsc/dossier.md#diagnóstico)).
+  - Es coherente con el caso C de [calibration](../20-methods/audit-gsc/calibration.md#caso-c--ausencia-de-información-pertinente-bajo-el-perfil): un contenedor vacío en el HTML da disponibilidad 0 aunque el dato esté en el estado de la aplicación.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#perfil-de-consumo-no-interactivo) 2.0; [inputs-outputs](../20-methods/audit-gsc/inputs-outputs.md#perfil-de-consumo) 0.7; [dossier](../20-methods/audit-gsc/dossier.md#diagnóstico) 0.4; glosario (perfil de consumo); OQ-78 y OQ-79 cerradas; nueva OQ-80. Fuera de `docs/` (código de capture, pendiente): estado limpio por ficha, registro de `Accept-Language`, IP, país y ASN, y matriz de robots.txt por bot.
+- **Relacionado:** D-042, D-046, D-150, D-156.
+
+### D-158
+
+**Catálogo de entrenamiento curado: candidatos, filtros, motivos de admisión, topes y casos manuales.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-curated-training-catalog`. Tras la idea de entrenar con los modelos de una auditoría completa ([OQ-81](open-questions.md#b-taxonomía-de-clases-de-producto)), el usuario propuso «mantener un catálogo de casos relevantes para entrenamiento», al que cada caso evaluado puede entrar como candidato si el sistema lo considera y al que él puede añadir casos a mano, para «basarnos en un catálogo curado, no en cualquier ficha que hayamos auditado». Claude lo revisó y propuso criterios. Ante la pregunta de si lo llevaba al canon y las tres confirmaciones (topes de partida de 3 y 1, conservar las fichas del catálogo y poder retirar a mano los casos manuales), el usuario respondió «sí».
+- **Decisión:**
+  - El entrenamiento solo aprende del **catálogo de entrenamiento**, en git y con versión. Se entra por la selección inicial ([D-053](#d-053)), por un caso evaluado (auditoría o `/demand-model`) que el sistema admite o por un caso que el usuario añade a mano. Una ficha evaluada es candidata, no caso.
+  - **Filtros:** validez (F1), ficha de producto (F2), sin duplicados por tienda y clave (F3) y topes (F4): de partida, 3 por clase y 1 por tienda y clase, parámetros del usuario.
+  - **Motivos de admisión:** clase poco representada (A1), algo no compilado (A2), contradicción de una regla compilada (A3), huecos de cobertura (A4), tienda nueva para la clase (A5) y composición nueva (A6). Entra el candidato que pasa los filtros y aporta al menos uno.
+  - **Clase en su tope:** solo entra lo que aporta A2 o A3, sustituyendo a un caso que no aporte nada de eso; el sustituido se retira con registro, sin borrarse.
+  - **Casos manuales:** pasan F1 y F2, sin topes, con origen «manual» y un motivo; el usuario puede retirarlos a mano.
+  - **Registro de cada caso:** origen, motivo, fecha, tienda, clave de entrada y versión del reglamento.
+  - **Conservación:** las fichas congeladas de los casos del catálogo se conservan.
+  - Enmienda el paso 1 del entrenamiento y la conexión «la ejecución deja en la cola […] y el entrenamiento lo convierte en casos» de [D-044](#d-044) ([model-training](../10-model/model-training.md#entrenamiento)): lo evaluado, también lo encolado, es candidato.
+- **Interpretaciones adoptadas:**
+  - El «sí» del usuario aprueba la decisión y las tres confirmaciones.
+  - **Admisión:** la decide el sistema («si el sistema lo considera»); el usuario solo añade y retira casos manuales.
+  - **Casos manuales y F3:** el artefacto dice «salvo el último» en los filtros (F1 a F3) y «pasan F1 y F2» en los casos manuales. El canon recoge F1 y F2 y deja F3 sin decidir ([OQ-83](open-questions.md#b-taxonomía-de-clases-de-producto)).
+  - **Retirada a mano:** el usuario confirmó que puede retirar los casos manuales. Si puede retirar también los que admitió el sistema queda sin decidir (OQ-83).
+  - **Conservación:** afecta solo a las fichas del catálogo. El resto de `capture/var/` sigue siendo desechable ([D-150](#d-150)).
+  - **Lecturas de Claude, no confirmadas por el usuario,** que el módulo marca como propuesta (OQ-83): la clase de los topes es cada categoría de Shopify de la composición (un juego cuenta en cada una); la admisión ocurre al reunir los casos y un caso retirado deja de aportar votos; se sustituye el más antiguo de los que no aportan A2 ni A3, nunca un caso manual; la selección de D-053 entra tal cual y los topes rigen para los candidatos.
+- **Consecuencias:** módulo nuevo [training-catalog](../10-model/training-catalog.md) 1.0; [model-training](../10-model/model-training.md#casos-alcance-y-ejecución) 1.22 (citas anotadas y el catálogo pasa al módulo nuevo); glosario (catálogo de entrenamiento); índice de `docs/`. OQ-81, punto 1 cerrado (los topes F3 y F4 sustituyen el voto por tienda) y punto 4 reformulado; OQ-48 anotada; nuevas [OQ-82](open-questions.md#b-taxonomía-de-clases-de-producto) (fichas de clientes) y OQ-83 (lecturas propuestas y lo no decidido). Fuera de `docs/` (código de demand-engine y capture, pendiente): registro del catálogo, admisión en `bin/train`, casos manuales y conservación de sus fichas.
+- **Relacionado:** D-044, D-045, D-053, D-054, D-063, D-150, OQ-48, OQ-81.
+
+### D-159
+
+**Perfil de implementación de Web: protocolo, documento y consumidor (Google Search y operadores de IA).** · aceptada (enmendada por [D-168](#d-168)) · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-web-implementation-profile` §1, §2, §4 y §5, tarea T-072. El usuario pidió construir los requisitos técnicos de «todo el recurso web» sobre un documento base de 19 requisitos (RT-HTML-01…14, RT-WEB-15…19; anexo A del artefacto). El canon solo tenía el perfil de Web Schema.org ([D-130](#d-130)); el de Web seguía en [OQ-30](open-questions.md#f-evaluación-técnica), y según [D-133](#d-133) lo fija el usuario. Claude comprobó en origen el texto de las fuentes candidatas y propuso un perfil de tres niveles y el reparto de los 19 RT. Usuario: consumidor «Google Search y operadores de IA» (Claude recomendaba solo Google Search) y «Apruebo».
+- **Decisión:**
+  - **Perfil de implementación de Web**, tres niveles:
+    - **Protocolo:** HTTP Semantics (RFC 9110) y Robots Exclusion Protocol (RFC 9309): la respuesta (estado, redirecciones, `Content-Type`, `Content-Encoding`) y cómo se leen las reglas de robots.txt.
+    - **Documento:** HTML (WHATWG Living Standard: sintaxis, codificación de caracteres, enlaces y errores de análisis) y Encoding (WHATWG): la codificación declarada y UTF-8, la sintaxis del documento y la forma de los enlaces.
+    - **Consumidor:** Google Search (requisitos técnicos de Search Essentials, enlaces rastreables, robots.txt, meta robots y `X-Robots-Tag`, bloqueo de la indexación, códigos de estado HTTP, redirecciones, tipos de fichero indexables, JavaScript y las directrices generales de datos estructurados, para la presencia del marcado) y los **operadores de IA** OpenAI, Anthropic y Perplexity, cada uno con su página de bots: lo que el consumidor exige o recomienda para rastrear, indexar o recuperar la página.
+  - Como en Web Schema.org, la naturaleza la fija la especificación: un operador de IA da requisito solo donde su página dice must, should o recommend.
+  - El marcado Schema.org se examina en Web solo por su **presencia**; su sintaxis, estructura y conformidad son de Web Schema.org.
+- **Interpretaciones adoptadas:**
+  - Amplía [D-132](#d-132): las especificaciones aplicables son de serialización, de vocabulario, de protocolo, de documento o de un consumidor, según el perfil del ámbito.
+  - El reparto de los 19 RT (§2 del artefacto) es contenido de la referencia técnica, que deciden los agentes ([D-133](#d-133)); el canon recoge solo por qué seis no dan requisito, porque se sigue del propio canon: el RT-06 (condiciones de solicitud) es el [perfil de consumo](../10-model/evaluation-scopes.md#perfil-de-consumo-no-interactivo) ([D-157](#d-157)), la condición de todas las comprobaciones; el RT-10 (DOM utilizable) es una condición previa, porque un analizador HTML conforme siempre da un DOM (si no se obtiene el documento, es NE común); los RT-12, 13 y 14 (JavaScript, recursos dependientes, interacción) se siguen del perfil único sin JavaScript ni operación de la página ([D-156](#d-156)): el 12 se reduce al 11, el 13 nunca se aplica y lo que exige interactuar tiene efecto informativo; y el RT-01 (direccionabilidad) no tiene texto con must ni should (Google solo dice «Don't use fragments»), y el recurso se pide por su URL.
+  - Lo que dice D-130 de no añadir otros consumidores vale para Web Schema.org. En Web, los operadores de IA son los tres que nombró la propuesta. Lectura de Claude, por analogía con D-130: otros se añadirían como perfil nuevo.
+  - El **mínimo de representación de Web**, que [D-147](#d-147) dejaba para cuando se fijara su perfil, no se decidió: queda en [OQ-84](open-questions.md#f-evaluación-técnica).
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#perfil-de-implementación) 2.1; glosario (perfil de implementación, especificación aplicable); OQ-30 anotada; nueva OQ-84. Fuera de `docs/` (T-072): en la referencia técnica de web-audit, el ámbito `Web`, sus niveles, un fichero por nivel e ids `w-<nivel>/NNN`, y la validación de la naturaleza acepta «requirement(s)» como término de lo obligatorio (Search Essentials dice «minimum technical requirements»); registrar en references las fuentes del perfil (pendiente, T-072). En capture (T-069): los bytes originales del cuerpo (hasta entonces, la codificación real y el BOM son NE) y robots.txt por bot.
+- **Relacionado:** D-130, D-132, D-133, D-147, D-156, D-157, D-160, OQ-30, OQ-84.
+
+### D-160
+
+**Frontera entre la evaluación técnica y la informativa en Web.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-web-implementation-profile` §2 (nota del RT-11) y §3. La frontera de [D-145](#d-145) se formuló para el perfil de Web Schema.org, donde lo que el consumidor solo recomienda suele ser otro hecho comercial. En Web, las recomendaciones del consumidor son sobre el acceso y la forma (permitir un bot en robots.txt, enlaces `<a href>`).
+- **Decisión:**
+  - **Técnico** en Web: el acceso y la recuperación del recurso, la forma de la respuesta y del documento, y la presencia de lo que el consumidor exige para la página (no bloqueado, 200, contenido indexable, marcado). Las recomendaciones del consumidor sobre el acceso y la forma son técnicas: no añaden un hecho comercial.
+  - **Informativo:** si la información comercial pertinente está en el documento y se puede leer (disponibilidad efectiva y AC). Que haya contenido indexable es técnico; que ese contenido sea la información comercial, no.
+- **Interpretaciones adoptadas:**
+  - La «lectura» que [evaluation-scopes](../10-model/evaluation-scopes.md#ámbitos-de-evaluación) cuenta entre las áreas técnicas de Web es la del documento (tipo, codificación, análisis); si se puede leer la información comercial es de la informativa.
+  - Es la lectura de D-145 en Web, no una excepción: D-145 lleva a la informativa la presencia de lo recomendado porque añade otro hecho, y una recomendación de acceso o de forma no lo añade (como la forma de lo recomendado, que D-145 ya deja en la técnica).
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#frontera-entre-la-evaluación-técnica-y-la-informativa) 2.1.
+- **Relacionado:** D-145, D-147, D-148, D-159.
+
+### D-161
+
+**Vistas general y particular de la evaluación técnica; tipos de página.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-technical-views-and-sitemaps` §1, tarea T-074. Tras el triaje de Web, el usuario propuso una «evaluación técnica con una visión general (aquellos que aplican de forma general) y con una visión particular (aquellos que aplican al caso (página de producto, categoría, página de contenido, etc.))». Claude propuso las dos vistas, los tipos de página y tres formas de marcarlas. Usuario: «Sí, opción A».
+- **Decisión:**
+  - **Vista general:** lo que se evalúa una vez por sitio u origen, sus recursos de sitio y las entidades de nivel de sitio. Ejemplos: robots.txt (estado y forma del fichero, campo `sitemap:` y política por bot) y los sitemaps (su forma); en Web Schema.org, la organización y sus políticas.
+  - **Vista particular:** lo que se evalúa en cada página auditada, según su tipo.
+  - **Tipos de página:** ficha de producto, categoría o listado, políticas y contenido (envíos, devoluciones, contacto, aviso legal) y portada.
+  - Cada requisito técnico dice su vista y, si es particular, los tipos de página a los que se aplica (opción A: un campo en cada requisito).
+  - Valen para Web y Web Schema.org, y para Catálogos distribuidos cuando tenga perfil (el feed frente al artículo).
+  - La vista general se acota al descubrimiento y al acceso de las páginas que llevan la información comercial. Sigue sin ser una auditoría integral del rastreo.
+- **Interpretaciones adoptadas:**
+  - La vista es una dimensión del requisito técnico, no un ámbito ni un perfil. No cambia la unidad (requisito técnico × ámbito), los estados ni el perfil de implementación.
+  - La evaluación informativa sigue partiendo de la ficha de producto. Qué páginas de cada tipo entran en una auditoría no lo decidió el usuario: queda en [OQ-85](open-questions.md#f-evaluación-técnica).
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.2 (sección nueva y regla 7); glosario (vista de la evaluación técnica, tipo de página); nueva OQ-85. Fuera de `docs/` (T-074): campos `view` y `page_types` en la referencia técnica y su validación; capture tendrá que congelar robots.txt, los sitemaps y las páginas de cada tipo.
+- **Relacionado:** D-129, D-131, D-159, D-162, OQ-85.
+
+### D-162
+
+**Descubribilidad: toda página auditada está en los sitemaps (condición del proyecto).** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-technical-views-and-sitemaps` §2 y §3. El usuario pidió considerar «sitemaps.xml» para el descubrimiento. Claude comprobó que las fuentes fijan la forma de un sitemap publicado (sitemaps.org, Google) y la del campo `sitemap:` de robots.txt, pero que ninguna exige ni recomienda tener uno. Usuario: «lo que fijan las fuentes. Pero añado un criterio nuestro. Toda página que se audita debe estar en el sitemaps. lo asumo como requisito de descubribilidad.» Sobre los enlaces internos: «No, solo sitemaps».
+- **Decisión:**
+  - De los sitemaps entran como requisitos técnicos los de forma que fijan las fuentes, con su naturaleza.
+  - **Condición del proyecto:** toda página que se audita debe estar en los sitemaps del sitio. Es un requisito técnico de descubribilidad, obligatorio.
+  - Sin sitemap, ninguna página está en él. No hay un requisito aparte de existencia.
+  - Los enlaces internos no se auditan: el bloque «rastreo del sitio» del triaje de Web sigue fuera.
+  - **Enmienda [D-132](#d-132):** un requisito técnico lo funda una especificación aplicable o, por excepción, una condición del proyecto adoptada en el canon, que fija su naturaleza y que el requisito nombra en lugar de una cita.
+- **Interpretaciones adoptadas:**
+  - «Debe estar» fija la naturaleza obligatoria.
+  - Es una condición adoptada, como el perfil sin JavaScript ([D-156](#d-156)). No afirma que los sistemas de IA lean los sitemaps.
+  - **Lectura de Claude, no confirmada por el usuario:** lo evalúa la vista particular, porque se evalúa en cada página auditada, aunque su evidencia sean recursos de sitio, y se aplica a todos los tipos de página.
+  - «Los sitemaps» son los que publica el sitio. Cuáles cuentan (los que declara robots.txt, el de la raíz, los índices de sitemaps) es método de la referencia técnica.
+  - **Lectura de Claude, no confirmada por el usuario:** «lo que fijan las fuentes» amplía el perfil de Web ([D-159](#d-159)). El protocolo de sitemaps (sitemaps.org) entra en el nivel protocolo, y la guía de sitemaps de Google en el consumidor.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.2 («Fuentes de los requisitos técnicos», puntos 1 y 3, y regla 7); glosario (requisito técnico general, condición del proyecto). Fuera de `docs/` (T-074): fuentes de los sitemaps, sus requisitos y el campo del requisito que nombra la decisión.
+- **Relacionado:** D-132, D-156, D-159, D-161. (D-159 queda ampliada en su perfil: sitemaps.org y la guía de sitemaps de Google.)
+
+### D-163
+
+**Cómo cumple la captura el perfil de consumo: JavaScript desactivado y un contexto de navegador nuevo por ficha.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-capture-profile-no-js`, tarea T-069. Cierra [OQ-80](open-questions.md#d-auditoría-informativa-localización-evidencias-gsc). Claude propuso tres vías para que el motor de captura cumpliera «navegador real que no ejecuta JavaScript» ([D-157](#d-157)):
+  - A: desactivar JavaScript en Chrome;
+  - B: cargar con JavaScript y leer la respuesta HTTP;
+  - C: A y, solo ante un desafío, un intento con JavaScript para que se resuelva, con recarga sin él.
+
+  Recomendó A, medir la tasa de desafíos y añadir C solo si los datos lo piden. Usuario: «A, y C si hace falta». Para el estado limpio por ficha, propuso un contexto de navegador nuevo por ficha, y el usuario lo eligió. Sobre una IP de origen no española o que no se pueda comprobar, el usuario dijo: «ignora lo de la ip. no hace falta que lo tengas en cuenta».
+- **Decisión:**
+  - **El navegador real no ejecuta JavaScript:** el motor de captura lo desactiva en Chrome (vía A). Un desafío que exige JavaScript no se pasa: es una incidencia, no una ausencia, como fija D-157.
+  - **La vía C (JavaScript solo para resolver un desafío) se añadirá solo si la tasa de desafíos lo pide.** Datos del lote de prueba (22 portadas de tiendas españolas, una visita por perfil, 2026-10-28): con este perfil, 1 desafío de 22 (DataDome, 403 con CAPTCHA en la primera respuesta, antes de que pudiera ejecutarse JavaScript; C no lo resolvería); con el Chrome persistente con JavaScript del motor, 0 de 22. Con estos datos, C no se adopta.
+  - **Estado limpio por ficha:** cada ficha se captura en un **contexto de navegador nuevo**, que se desecha al terminar: sin cookies, almacenamiento ni caché de ningún sitio, y sin consentimiento heredado. Precisa el «se borran las cookies y el almacenamiento del dominio» de D-157, de forma más estricta.
+- **Motivos** (de la propuesta aceptada): con A, lo que se lee es lo que recibe un navegador real que no ejecuta JavaScript. Con B, una navegación, una recarga o las cookies hechas por JavaScript cambian sin rastro el documento leído. El contexto nuevo no deja estado de ningún sitio y no toca el perfil persistente que usan otras capturas; su riesgo, que un antibot lo detecte, se ve en la tasa de desafíos.
+- **Interpretaciones adoptadas:**
+  - Lectura de Claude sobre la IP: la IP de origen, su país y su ASN **se registran**, como pide D-157, pero **no se comprueban** ni condicionan la captura.
+  - En el motor de captura, este perfil es un **perfil de captura** con nombre, distinto del perfil de siempre (el que se usa por defecto), que no cambia. Es implementación de capture, no un concepto del canon ([capture/README.md](../../capture/README.md#perfiles-de-captura)).
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#perfil-de-consumo-no-interactivo) 2.3; [inputs-outputs](../20-methods/audit-gsc/inputs-outputs.md#perfil-de-consumo) 0.8; glosario (perfil de consumo); OQ-80 cerrada. Fuera de `docs/` (T-069, hecho): el perfil de captura `audit-es` de capture.
+- **Relacionado:** D-042, D-046, D-150, D-156, D-157, D-159.
+
+### D-164
+
+**Las unidades de un conjunto no son partes de la cuestión: las valoran los AC.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-shipping-zones`, tarea T-076. El usuario pidió tratar de forma específica las zonas de envío de España, «tanto si se envía como si no». Claude propuso primero requisitos por zona. El usuario dudó: «Tanta especificidad me hace dudar si debería ser un requisito general único de envío y modular el cumplimiento a través de los AC […] No puedo crear un requisito para cada tipo; ¿es más bien si se puede determinar por precisión? Quizás es una cuestión de reformular la pregunta». Claude comparó las dos vías y recomendó un requisito con el conjunto explícito. Usuario: «todo si».
+- **Decisión:** precisa la regla 3 de [D-060](#d-060), ampliada en la capa general por [D-065](#d-065).
+  - **Partes de la cuestión:** necesidades distintas (el precio y el coste del envío; el plazo y el coste de una devolución). Las sigue dividiendo la regla 3.
+  - **Unidades de un conjunto:** la misma necesidad repetida sobre varios destinos, modalidades de entrega, variantes o momentos del pedido. No son partes y **no se divide por ellas**. El requisito declara su conjunto (en la pregunta o en la descripción) y lo valoran los AC:
+    - **Concreción:** la cobertura de las unidades;
+    - **Aplicabilidad:** la atribución de cada valor a su unidad;
+    - **Precisión:** el significado de lo expresado («nacional», «24/48 h»).
+  - Es el tratamiento que el canon ya daba a las variantes: «¿Qué variantes están disponibles?» es un solo requisito, y la falta de una talla es Concreción 1 y Aplicabilidad 1 ([ejemplo mínimo](../10-model/acceptance-criteria.md#ejemplo-mínimo-hipotético); RI-02 y GSC-09).
+- **Severidad asumida:** el silencio sobre una unidad del conjunto es cobertura parcial (Concreción), no disponibilidad 0 del requisito. La frontera 0/1 de Concreción depende de la prueba de materialidad ([OQ-22](open-questions.md)).
+- **Interpretación adoptada:** la regla vale para cualquier requisito, no solo para la capa general; el intake la formula en general («las unidades de un conjunto […] no son partes de la cuestión»).
+- **Consecuencias:** [acceptance-criteria](../10-model/acceptance-criteria.md#unidades-de-un-conjunto) 1.7; [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formulación-de-las-cuestiones) 1.34; anotación en OQ-22. Aplicación en la capa general: [D-165](#d-165).
+- **Relacionado:** D-060, D-065, D-117, D-165.
+
+### D-165
+
+**Envío y plazos por zona de España en la capa general; impuestos y aduana de Canarias, Ceuta y Melilla.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-shipping-zones`, tarea T-076. Aplica [D-164](#d-164) al envío. Canarias está fuera del territorio del IVA; Ceuta y Melilla, fuera del IVA y del territorio aduanero de la UE (Ley 37/1992, art. 3; Directiva 2006/112/CE, art. 6; Reglamento (UE) 952/2013, art. 4): allí el precio con IVA no es el que se paga. El art. 97.1.e TRLGDCU exige el precio total «incluidos los impuestos y tasas» y «cualquier otro gasto».
+- **Decisión:**
+  - **`gen/25` se reformula:** «¿A qué zonas de España se envía y cuánto cuesta el envío a cada una?». El conjunto, en su descripción: Península, Baleares, Canarias, y Ceuta y Melilla. La información resolutiva lleva el coste de cada zona como componente, y el requisito, una pista de Aplicabilidad: un coste vale solo para la zona a la que se atribuye.
+  - **Requisito condicionado nuevo,** si se envía a Canarias, Ceuta o Melilla: «¿Qué impuestos y gastos de aduana asume el comprador en los envíos a Canarias, Ceuta y Melilla?». Origen normativa (97.1.e), con apoyo en las tres normas territoriales. **Crítico**, por el mismo argumento con el que [D-038](#d-038) hizo crítico el envío: forma el precio total. Impuestos y aduana son otra parte de la cuestión, no una unidad del conjunto.
+  - **`gen/08` se reformula:** «¿En qué plazo se entrega, según la zona y la modalidad de entrega?». Conjunto: destino, modalidad, variante o disponibilidad y momento del pedido. Pistas de Precisión: envío no es entrega; días hábiles o naturales; desde cuándo cuenta el plazo.
+  - **Candidatos del mismo criterio:** `gen/26` (coste de devolver desde las islas) y `gen/09` (recogida solo en la Península), sin crear requisitos ([OQ-86](open-questions.md)).
+- **Interpretaciones adoptadas:**
+  - El requisito condicionado va en un bloque condicionado propio, `gen.envio-canarias-ceuta-melilla`, de alcance oferta: su disparador es un hecho de la oferta ([D-047](#d-047), [D-066](#d-066)) y entra en la aplicación.
+  - Ceuta y Melilla son una sola zona del conjunto, como en el intake; tienen el mismo régimen.
+  - La importancia de `gen/25` (crítico) y de `gen/08` (principal) no cambia: el intake no la toca.
+  - El conjunto vive en la descripción de cada requisito ([D-092](#d-092)). En el catálogo ningún requisito la llevaba aún (comprobado en `demand-engine/catalog/`); estos tres son los primeros.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.34; [demand-model](../10-model/demand-model.md) (aplicación); glosario (aplicación); OQ-86. Fuera de `docs/` (T-076): `demand-engine/catalog/gen.json` 0.9; reglamento del clasificador (paso 6); localización de la ficha de Web Schema.org; normas registradas en `references/` (`es-liva`, `eu-dir-2006-112`, `eu-reg-952-2013`).
+- **Relacionado:** D-038, D-060, D-065, D-066, D-092, D-155, D-164.
+
+### D-166
+
+**Tasa de cumplimiento técnico: una sola tasa con desglose por naturaleza y cobertura; agregación por tipo de página.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-technical-rate-pages-web-minimum` §1 y §2, tarea T-077. El sistema cuantitativo técnico seguía abierto en [OQ-30](open-questions.md#f-evaluación-técnica) ([D-131](#d-131)). Claude propuso cuatro formas (dos tasas sin tasa conjunta, dos tasas y un estado «conforme», una tasa con desglose, sin tasa) y tres de agregación. Usuario: «Una tasa y desglose» y «Por tipo de página».
+- **Decisión:**
+  - **Una sola tasa por ámbito y vista:** satisfechos / evaluados, con evaluados = pertinentes − NA − NE. Obligatorias y recomendadas entran **sin pesos**: cada requisito cuenta uno.
+  - **Desglose obligatorio** por naturaleza (obligatorias, recomendadas), con el mismo cálculo en cada parte.
+  - **Cobertura al lado:** evaluados / pertinentes. NE es una incidencia: no entra en el denominador y se informa en la cobertura.
+  - **Sin umbrales** ni estados derivados de la tasa.
+  - **Vista particular:** la tasa de un tipo de página cuenta los casos requisito × página; además, por requisito, la proporción de páginas del tipo en que se satisface (sobre las páginas en que se evaluó), y el resultado de cada página. La vista general se evalúa una vez por sitio y da su propia tasa.
+  - Web y Web Schema.org no se suman ni se promedian.
+- **Interpretación adoptada:** «pertinentes» son los requisitos del perfil del ámbito que corresponden a la vista y al tipo de página; NA los separa de los pertinentes, como ya decía el canon. La tasa de un tipo de página no se combina con la de la vista general ni con la de otro tipo: el artefacto no lo pide. Con la tasa fijada, de OQ-30 solo queda el perfil de Catálogos distribuidos: los requisitos concretos, su método y su evidencia viven en la referencia técnica, que deciden los agentes ([D-133](#d-133)), y la cobertura es la de la tasa.
+- **Consecuencias:** [scoring-systems](../10-model/scoring-systems.md#tasa-de-cumplimiento-técnico) 1.6; [evaluation-scopes](../10-model/evaluation-scopes.md#estados-del-requisito-técnico) 2.4; glosario (tasa de cumplimiento técnico); OQ-30 anotada (queda el perfil de Catálogos distribuidos). Fuera de `docs/`: el auditor de web-audit (T-049) calcula la tasa así.
+- **Relacionado:** D-017, D-131, D-161, OQ-30.
+
+### D-167
+
+**Páginas de una auditoría: fichas del encargo, portada, políticas, categoría inmediata, robots.txt y sitemaps.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-technical-rate-pages-web-minimum` §3, tarea T-077. Cierra [OQ-85](open-questions.md#f-evaluación-técnica), abierta por [D-161](#d-161). Claude propuso tres alternativas (encargo y páginas fijas, muestra del sitemap, solo fichas y políticas). Usuario: «Encargo + fijas».
+- **Decisión:**
+  - **Fichas de producto:** las del encargo, las mismas URL y la misma instantánea que la auditoría informativa.
+  - **Portada:** siempre.
+  - **Políticas y contenido:** siempre: envíos, devoluciones, contacto y aviso legal, localizadas desde la portada y su pie. La que no se localiza se registra como no localizada; no se sustituye por otra.
+  - **Categoría o listado:** la inmediata de cada ficha, por sus migas de pan. Si la ficha no tiene migas, se registra.
+  - **Recursos de la vista general:** robots.txt y los sitemaps (los declarados en robots.txt o, si no hay ninguno, `/sitemap.xml`; con sus índices y gzip).
+  - Todo se captura con el perfil de auditoría (`audit-es`, [D-157](#d-157), [D-163](#d-163)).
+- **Interpretación adoptada:** una página no localizada no es un requisito no satisfecho: sus requisitos no se evalúan y queda registrada. Si dos fichas comparten categoría inmediata, se captura una vez.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.4; OQ-85 cerrada. Fuera de `docs/`: capture debe congelar robots.txt, los sitemaps y las páginas de cada tipo de una auditoría (tarea nueva); hasta entonces los requisitos que los necesitan son NE.
+- **Relacionado:** D-157, D-161, D-162, D-163, OQ-85.
+
+### D-168
+
+**Mínimo de representación de Web: url, título y URL canónica; Open Graph condicional en el perfil de Web.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-technical-rate-pages-web-minimum` §4, tarea T-077. Cierra [OQ-84](open-questions.md#f-evaluación-técnica). [D-147](#d-147) dejó el mínimo de Web para cuando tuviera perfil; [D-159](#d-159) lo fijó sin decidirlo. Claude exploró `title`, `meta description`, `rel=canonical` y Open Graph con las dos pruebas de D-147 (función y universalidad) y con el texto de las fuentes: WHATWG exige exactamente un `title`; Google recomienda una canónica que apunte a la propia página y da reglas de su forma; Open Graph exige `og:title`, `og:type`, `og:image` y `og:url` en toda página que lo use, no tiene tipo de producto, y Google usa `og:title` como una de las fuentes del título. Usuario: «Título + canónica + OG condicional».
+- **Decisión:**
+  - **Forman el mínimo de Web:**
+    - la **url de la página**, cubierta por los requisitos de acceso (200, indexable, sin bloqueo);
+    - el **título del documento** (`<title>`), con hecho comercial (el nombre): lo juzgan la técnica y la informativa ([D-143](#d-143));
+    - la **URL canónica** (`link rel=canonical`), de sostén: su presencia, que recomienda Google, se queda en la técnica ([D-145](#d-145)); su forma (en `<head>`, absoluta, sin fragmento, sin canónicas contradictorias) es técnica;
+    - la **imagen**, cubierta por `og:image` cuando la página usa Open Graph; si no, hueco registrado.
+  - **Enmienda [D-159](#d-159):** el protocolo **Open Graph** entra en el perfil de Web, en el nivel de documento, **de forma condicional**: si la página publica alguna propiedad `og:`, lleva las cuatro que el protocolo exige para toda página, bien formadas, y `og:url` coincide con la URL canónica. Sin Open Graph, esos requisitos son NA.
+  - **Fuera del mínimo:** `meta description` (contenido) y el idioma del documento.
+  - **No técnico:** que coincidan `title`, `og:title`, el encabezado principal y el `name` del marcado es un juicio informativo (Fiabilidad dentro del ámbito o consistencia transversal).
+- **Motivo (del artefacto):** Open Graph es la única declaración formal de la imagen y de la URL canónica de la página fuera de Schema.org, y Google usa `og:title` como fuente del título, aunque ningún consumidor del perfil lo exija.
+- **Interpretación adoptada:** Open Graph es una especificación del documento, no un consumidor, por eso entra en ese nivel; su naturaleza la fija el propio protocolo. Las páginas de Google sobre la canonicalización y los títulos se suman al consumidor Google Search. Las comprobaciones concretas son requisitos de la referencia técnica, que deciden los agentes con cita ([D-133](#d-133)).
+- **Consecuencias:** [commercial-information](../10-model/commercial-information.md#mínimo-de-representación) 1.6; [evaluation-scopes](../10-model/evaluation-scopes.md#perfil-de-implementación) 2.4; glosario (mínimo de representación, perfil de implementación); OQ-84 cerrada. Fuera de `docs/`: registrar y congelar Open Graph y la página de canonicalización de Google, y escribir los requisitos del mínimo de Web (T-077).
+- **Relacionado:** D-143, D-144, D-145, D-147, D-159, D-160, OQ-84.

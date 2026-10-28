@@ -1,0 +1,21 @@
+{
+  "id": "web",
+  "scope": "Web",
+  "version": "0.1",
+  "decisions": [
+    "D-152",
+    "D-155"
+  ],
+  "note": "Ficha del ámbito Web (D-155): el recurso completo, HTML y marcado Schema.org combinables.",
+  "pertinence": {
+    "default": "pertinente",
+    "exceptions": [],
+    "note": "Web no tiene excepciones (D-155): es el recurso completo."
+  },
+  "localization": {
+    "include": [
+      "web-schema-org"
+    ],
+    "note": "El marcado forma parte de Web: su localización es la de Web Schema.org. El HTML no tiene vocabulario que relacionar."
+  }
+}

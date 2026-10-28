@@ -3,9 +3,9 @@ id: effective-availability
 title: Disponibilidad efectiva
 layer: model
 status: vigente
-version: 1.2
+version: 1.3
 updated: 2026-10-28
-sources: [BASE §5.1, FUND §5.3, FUND §7.3, FUND §10.1-10.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-minimum-representation-image]
+sources: [BASE §5.1, FUND §5.3, FUND §7.3, FUND §10.1-10.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-informative-audit-v1]
 ---
 
 # Disponibilidad efectiva
@@ -51,14 +51,15 @@ Lo dictamina esta puerta, en la auditoría, no la valoración de los AC ni el mo
 ### Prueba de derivación
 
 > Una derivación se admite si su conclusión **no puede ser falsa cuando lo publicado es verdad**, aplicando reglas:
-> - **generales:** valen para cualquier oferta (definiciones, lógica, aritmética, hechos generales del mundo). Un hecho particular del producto tomado de fuera (un registro, la web del fabricante, lo que el auditor sepa del modelo) no es una regla y solo sirve para contrastar.
+> - **generales:** valen para cualquier oferta (definiciones, lógica, aritmética, hechos generales del mundo). Un hecho particular del producto tomado de fuera (un registro, la web del fabricante, lo que el auditor sepa del modelo) no es una regla y no entra en la auditoría como regla ni como evidencia, ni siquiera para contrastar.
 > - **descriptivas:** dicen qué son las cosas. Una norma solo cuenta para fijar el significado de un término («seda», qué exige GOTS), no para dar por hecho que la oferta cumple lo que obliga: la ley dice lo que debe ser, no lo que la oferta es.
 > - **citadas con su fuente y sin contrafuente:** si una fuente admisible o la realidad documentada del mercado la contradice, la regla no es necesaria.
 >
-> Si la información trata la misma cuestión, aunque sea con menos detalle, en general o con otro alcance, no hay derivación: es pertinente y la juzgan los AC. — INTAKE 2026-10-27-ac-applicability-and-reliability
+> Si la información trata la misma cuestión, aunque sea con menos detalle, en general o con otro alcance, no hay derivación: es pertinente y la juzgan los AC. — INTAKE 2026-10-27-ac-applicability-and-reliability, enmendada por [D-154](../30-governance/decisions.md#d-154) (el hecho particular tomado de fuera ya no contrasta)
 
 - Rige tres usos ([D-120](../30-governance/decisions.md#d-120)): esta puerta; las derivaciones de los AC ([acceptance-criteria](acceptance-criteria.md#reglas-e-invariantes), regla 7); y la refutación por conocimiento del dominio en Fiabilidad, que usa solo la parte de necesidad ([acceptance-criteria](acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones)).
 - No cuenta pasos ni es una escala de grado de derivación.
+- Lo que el auditor sepa de un producto, una marca o un modelo concretos puede servir de contrafuente, pero no de regla: es una sospecha ([regla asimétrica](acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones), [D-154](../30-governance/decisions.md#d-154)).
 
 | Publicado (hipotético) | Pregunta | Resultado | Por qué |
 |---|---|---|---|
@@ -72,7 +73,7 @@ Lo dictamina esta puerta, en la auditoría, no la valoración de los AC ni el mo
 | «Percal 100 % algodón» | ¿Es fresca? | No admitida | No es necesaria |
 | «Muy vendido» | ¿Hay stock? | No admitida | No es necesaria |
 | «Producto nuevo», venta en España | ¿Garantía legal? | No admitida | Regla normativa; además, `gen/12` existe porque la ley obliga a informar (art. 97.1.n) |
-| GTIN | ¿Marca? | No admitida | Hecho particular tomado de fuera: solo contrasta |
+| GTIN | ¿Marca? | No admitida | Hecho particular tomado de fuera: no entra en la auditoría ([D-154](../30-governance/decisions.md#d-154)) |
 | «Modelo disponible» | ¿Está la 42? | Pertinente, sin derivación | Misma cuestión con otro alcance; lo juzga Aplicabilidad |
 
 ### Imágenes: lo que muestran y lo que expresan

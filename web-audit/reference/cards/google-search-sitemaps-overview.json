@@ -1,0 +1,22 @@
+{
+ "source": "google-search-sitemaps-overview",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Qué es un sitemap para Google y cuándo conviene. No exige ni recomienda tener uno: la condición de que toda página auditada esté en los sitemaps es del proyecto (D-162).",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#do-i-need-a-sitemap",
+   "text": "If your site's pages are properly linked, Google can usually discover most of your site."
+  },
+  {
+   "id": "q02",
+   "section": "#do-i-need-a-sitemap",
+   "text": "You might need a sitemap if:"
+  }
+ ]
+}

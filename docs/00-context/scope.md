@@ -3,9 +3,9 @@ id: scope
 title: Problema, objeto y alcance del estudio
 layer: context
 status: vigente
-version: 1.1
-updated: 2026-10-24
-sources: [CTX §1-5, FUND §1, FUND §2.1, FUND §12]
+version: 1.2
+updated: 2026-10-28
+sources: [CTX §1-5, FUND §1, FUND §2.1, FUND §12, INTAKE 2026-10-28-informative-audit-v1]
 ---
 
 # Problema, objeto y alcance del estudio
@@ -66,7 +66,8 @@ El estudio valora la información comercial expuesta y sus condiciones técnicas
 
 - **no mide** el comportamiento, la precisión ni la dificultad computacional de un agente de IA particular;
 - **no garantiza** el éxito universal de resolución;
-- **no acredita** por sí mismo efectos de visibilidad, recomendación o conversión.
+- **no acredita** por sí mismo efectos de visibilidad, recomendación o conversión;
+- **no acredita la veracidad de lo publicado frente al mundo.** La auditoría no consulta fuentes externas: Fiabilidad mide la corrección y la coherencia interna de lo publicado. Un 2 no acredita que una certificación, una clase energética o un GTIN sean válidos ([D-154](../30-governance/decisions.md#d-154)).
 
 La independencia frente a modelos concretos de IA es metodológica y razonablemente reproducible. No equivale a invariancia absoluta del comportamiento de todos los agentes. El fundamento se desarrolla en [ai-functions](../10-model/ai-functions.md#fundamento-interpretación-y-utilización-por-sistemas-de-ia).
 

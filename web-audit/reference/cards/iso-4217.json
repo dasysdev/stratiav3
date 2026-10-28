@@ -1,0 +1,8 @@
+{
+ "source": "iso-4217",
+ "version": "2026-10-28",
+ "class": "instrumento del sistema",
+ "summary": "Lista uno de ISO 4217 (monedas y fondos vigentes), de SIX, su agencia de mantenimiento. Sirve para comprobar los requisitos que piden un código ISO 4217; la condición la fija la especificación aplicable que lo pide, no esta lista (D-132).",
+ "quotes": [],
+ "note": "XML sin texto citable. Lector: references.read.currency_codes. Los códigos históricos (lista tres) no están en la lista uno."
+}

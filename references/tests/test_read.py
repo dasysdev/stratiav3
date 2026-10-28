@@ -142,6 +142,14 @@ def test_sections_of_a_document(documents):
         read.section_text("spec-pdf", "document", "#x")
 
 
+def test_the_preamble_is_a_section():
+    """`#`: the text before the first heading, or all of it when there is none (a page whose title
+    is out of its content root)."""
+    assert read.document_section("Breadcrumbs\n\n# Title {#top}\n\nBody.\n", "#") == "Breadcrumbs\n"
+    assert read.document_section("We recommend allowing the bot.\n\n| Bot | Use |\n", "#").startswith("We recommend")
+    assert read.document_section("# Title\n\nBody.\n", "#") == ""
+
+
 def test_terms_of_a_vocabulary(documents):
     assert read.section_text("schemaorg", "schemaorg", "schema:gtin").endswith("should be a valid GTIN.")
     assert read.vocabulary(documents / "schemaorg/30.1" / read.VOCABULARY)["schema:name"] == "The name of the item."

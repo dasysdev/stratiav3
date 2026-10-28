@@ -7,10 +7,23 @@
    "spec": "schemaorg-data-model",
    "condition": "Cada entidad con tipo declarado que es valor de una propiedad de Schema.org es de alguno de los tipos esperados de esa propiedad en 30.1, de un subtipo suyo o de Role.",
    "nature": "recomendada",
-   "quotes": ["schemaorg-data-model#q02", "schemaorg-data-model#q03", "schemaorg-getting-started#q02", "schemaorg#q10", "schemaorg-faq#q03"],
-   "method": "Extraer del marcado (JSON-LD, Microdata y RDFa) los pares propiedad–valor cuya propiedad es un término definido en Schema.org 30.1 (con el espacio de nombres https://schema.org/ o http://schema.org/) y cuyo valor es una entidad: un nodo con tipo declarado (@type, itemtype o typeof, más los IRI de additionalType) o un IRI que en 30.1 es miembro de una enumeración, cuyo tipo es el @type del miembro en la release. Los tipos esperados son los schema:rangeIncludes de la propiedad en schemaorg-current-https.jsonld de 30.1, con sus subtipos por el cierre transitivo de rdfs:subClassOf del mismo fichero. Un par se cumple si al menos un tipo de la entidad es esperado, subtipo de uno esperado, o Role o un subtipo de Role. Quedan fuera los valores literales (texto, números, fechas, URL), las entidades sin tipo declarado y las propiedades no definidas en 30.1, que se registran aparte. Satisfecho si se cumplen todos los pares.",
+   "quotes": [
+    "schemaorg-data-model#q02",
+    "schemaorg-data-model#q03",
+    "schemaorg-getting-started#q02",
+    "schemaorg#q10",
+    "schemaorg-faq#q03"
+   ],
+   "method": "Extraer del marcado (JSON-LD, Microdata y RDFa) los pares propiedad–valor cuya propiedad es un término definido en Schema.org 30.1 (con el espacio de nombres https://schema.org/ o http://schema.org/) y cuyo valor es una entidad: un nodo con tipo declarado (@type, itemtype o typeof, más los IRI de additionalType); una referencia sin tipo ({\"@id\": …}, itemid o resource) cuyo identificador tiene tipo declarado en otro nodo de la página, en cualquier bloque o sintaxis (los nodos con el mismo identificador se unen); o un valor que, como IRI, cadena JSON, content de meta o href de link, es la URL http o https de un miembro de una enumeración en 30.1, cuyo tipo es el @type del miembro en la release. Los tipos esperados son los schema:rangeIncludes de la propiedad en schemaorg-current-https.jsonld de 30.1, con sus subtipos por el cierre transitivo de rdfs:subClassOf del mismo fichero. Un par se cumple si al menos un tipo de la entidad es esperado, subtipo de uno esperado, o Role o un subtipo de Role. Quedan fuera los valores literales que no son miembros de enumeración, las entidades sin tipo declarado en la página y las propiedades no definidas en 30.1, que se registran en la evidencia con su entidad. Satisfecho si se cumplen todos los pares.",
    "evidence": "Por cada par que no se cumple: la entidad sujeto, la propiedad, los tipos del valor, los tipos esperados en 30.1 y su localización en el marcado. Aparte, las propiedades no definidas en 30.1 y las entidades sin tipo declarado que se han dejado fuera.",
    "applicability": "El marcado contiene al menos una entidad con tipo declarado como valor de una propiedad definida en Schema.org 30.1.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
    "not_evaluable": [],
    "rationale": "q02 fija la recomendación sobre los rangos. La guía (getting-started q02) y la conformidad (data-model q03) admiten texto o URL donde se espera una entidad, una entidad de un subtipo del tipo esperado y Role en cualquier propiedad: por eso solo se examinan las entidades y esos casos se cumplen. additionalType equivale a rdf:type (schemaorg q10) y ambos espacios de nombres valen (faq q03)."
   },
@@ -20,38 +33,22 @@
    "spec": "schemaorg-data-model",
    "condition": "Ninguna página u obra del marcado tiene más de una entidad principal declarada con mainEntity o con su inversa mainEntityOfPage.",
    "nature": "recomendada",
-   "quotes": ["schemaorg-data-model#q07", "schemaorg-data-model#q06"],
+   "quotes": [
+    "schemaorg-data-model#q07",
+    "schemaorg-data-model#q06"
+   ],
    "method": "Extraer del marcado los valores de mainEntity de cada entidad y los de mainEntityOfPage, su inversa en 30.1 (schema:inverseOf). Agrupar las entidades principales por la página u obra a la que se refieren: el sujeto de mainEntity o el valor de mainEntityOfPage, identificado por su @id, itemid, resource o URL resuelta contra la URL de la página. Dos entidades con el mismo identificador son una; las que no tienen identificador cuentan por separado. Satisfecho si ningún grupo tiene más de una entidad principal.",
    "evidence": "Por cada página u obra con más de una entidad principal: su identificador y, de cada entidad principal, su tipo, su identificador, la propiedad que la declara y su localización en el marcado.",
    "applicability": "El marcado usa mainEntity o mainEntityOfPage.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
    "not_evaluable": [],
    "rationale": "q07 distingue about, que puede referirse a varias entidades, de mainEntity, que se usa solo para la principal: una página u obra tiene como mucho una. mainEntityOfPage (q06) declara la misma relación desde la entidad."
-  },
-  {
-   "id": "ws-vocabulary/003",
-   "scope": "Web Schema.org",
-   "spec": "schemaorg-getting-started",
-   "condition": "Ningún elemento con una propiedad Microdata o RDFa, salvo meta y link, está oculto en la página renderizada.",
-   "nature": "recomendada",
-   "quotes": ["schemaorg-getting-started#q01", "schemaorg-getting-started#q03", "schemaorg-getting-started#q04"],
-   "method": "En el DOM renderizado, en su estado inicial y sin interacción, tomar cada elemento con itemprop (Microdata) o property (RDFa) que no sea meta ni link, y comprobar que ni él ni ninguno de sus ancestros está oculto: atributo hidden, display none o visibility hidden o collapse en su estilo calculado, o dentro de template, noscript o head. Un elemento dentro de un details cerrado o de un panel que un control de la página designa con aria-controls (pestañas, acordeones) cuenta como visible, porque la página lo muestra a quien la visita sin cambiar de página. Satisfecho si no hay ningún elemento oculto.",
-   "evidence": "Por cada elemento oculto: la propiedad, su localización (selector CSS) y la causa (el atributo, el estilo o el ancestro que lo oculta); o constancia de que no hay ninguno.",
-   "applicability": "La página contiene marcado Microdata o RDFa.",
-   "not_evaluable": ["No se obtiene el DOM renderizado de la página."],
-   "rationale": "q01 se comprueba directamente en la sintaxis en línea, donde el contenido marcado está en elementos de la página. meta y link quedan fuera porque la misma guía los propone para dar valores legibles por máquina (q03, q04). En JSON-LD el contenido no está en elementos de la página: contrastarlo con el texto visible exigiría decidir qué información es implícita, y no se incluye."
-  },
-  {
-   "id": "ws-vocabulary/004",
-   "scope": "Web Schema.org",
-   "spec": "schemaorg-faq",
-   "condition": "Ningún elemento con una propiedad Microdata o RDFa, salvo meta y link, está oculto en la página renderizada.",
-   "nature": "recomendada",
-   "quotes": ["schemaorg-faq#q02", "schemaorg-getting-started#q03", "schemaorg-getting-started#q04"],
-   "method": "En el DOM renderizado, en su estado inicial y sin interacción, tomar cada elemento con itemprop (Microdata) o property (RDFa) que no sea meta ni link, y comprobar que ni él ni ninguno de sus ancestros está oculto: atributo hidden, display none o visibility hidden o collapse en su estilo calculado, o dentro de template, noscript o head. Un elemento dentro de un details cerrado o de un panel que un control de la página designa con aria-controls (pestañas, acordeones) cuenta como visible, porque la página lo muestra a quien la visita sin cambiar de página. Satisfecho si no hay ningún elemento oculto.",
-   "evidence": "Por cada elemento oculto: la propiedad, su localización (selector CSS) y la causa (el atributo, el estilo o el ancestro que lo oculta); o constancia de que no hay ninguno.",
-   "applicability": "La página contiene marcado Microdata o RDFa.",
-   "not_evaluable": ["No se obtiene el DOM renderizado de la página."],
-   "rationale": "La FAQ repite la pauta de la guía de inicio (ws-vocabulary/003) y tiene su propio requisito. meta y link quedan fuera porque la guía los propone para dar valores legibles por máquina (getting-started q03, q04). En JSON-LD no se incluye, por la misma razón que en ws-vocabulary/003."
   },
   {
    "id": "ws-vocabulary/005",
@@ -59,11 +56,23 @@
    "spec": "schemaorg",
    "condition": "Cada valor de gtin del marcado, o de gtin8, gtin12, gtin13 y gtin14, es una cadena de 8, 12, 13 o 14 dígitos o una URL GS1 Digital Link basada en una cadena así.",
    "nature": "recomendada",
-   "quotes": ["schemaorg#q01", "schemaorg#q03"],
+   "quotes": [
+    "schemaorg#q01",
+    "schemaorg#q03"
+   ],
    "method": "Extraer los valores de gtin y de sus subpropiedades en 30.1 (gtin8, gtin12, gtin13 y gtin14) de cada entidad del marcado. Cada valor, sin los espacios iniciales y finales (un número JSON, por sus cifras), se cumple si solo tiene dígitos ASCII y son 8, 12, 13 o 14, o si es una URL http o https cuya ruta tiene el segmento 01 seguido de un segmento de 8, 12, 13 o 14 dígitos (forma no comprimida de GS1 Digital Link). Satisfecho si se cumplen todos los valores.",
    "evidence": "Por cada valor que no se cumple: la entidad, la propiedad, el valor literal y su localización en el marcado.",
    "applicability": "El marcado contiene al menos un valor de gtin, gtin8, gtin12, gtin13 o gtin14.",
-   "not_evaluable": ["Algún valor es una URL que podría ser un GS1 Digital Link comprimido: reconocerlo exige el estándar GS1 Digital Link, que no está en la referencia."],
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [
+    "Algún valor es una URL que podría ser un GS1 Digital Link comprimido: reconocerlo exige el estándar GS1 Digital Link, que no está en la referencia."
+   ],
    "rationale": "gtin8, gtin12, gtin13 y gtin14 son subpropiedades de gtin en 30.1 (rdfs:subPropertyOf) y la definición dice que gtin las generaliza (q03): sus valores son valores de gtin."
   },
   {
@@ -72,10 +81,20 @@
    "spec": "schemaorg",
    "condition": "El componente numérico de cada valor de gtin del marcado, o de gtin8, gtin12, gtin13 y gtin14, tiene un dígito de control GS1 válido.",
    "nature": "recomendada",
-   "quotes": ["schemaorg#q02", "schemaorg#q03"],
+   "quotes": [
+    "schemaorg#q02",
+    "schemaorg#q03"
+   ],
    "method": "Tomar los valores de gtin, gtin8, gtin12, gtin13 y gtin14 cuyo componente numérico (el propio valor o, en una URL GS1 Digital Link, el segmento que sigue a 01) tiene 8, 12, 13 o 14 dígitos ASCII. Calcular su dígito de control GS1 (módulo 10): sin el último dígito, multiplicar las cifras por 3 y por 1 alternando desde la derecha (la primera, por 3), sumar los productos y tomar (10 − suma mód 10) mód 10. Un valor se cumple si el resultado coincide con su último dígito. Satisfecho si se cumplen todos.",
    "evidence": "Por cada valor que no se cumple: la entidad, la propiedad, el valor, el dígito de control calculado y su localización en el marcado.",
    "applicability": "El marcado contiene al menos un valor de gtin, gtin8, gtin12, gtin13 o gtin14 cuyo componente numérico tiene 8, 12, 13 o 14 dígitos.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
    "not_evaluable": [],
    "rationale": "q02 pide además que el valor cumpla «the other rules for valid GTINs», que la definición no detalla: solo se comprueba el dígito de control. Los valores sin forma de GTIN no cumplen ws-vocabulary/005 y no se examinan aquí."
   },
@@ -85,11 +104,23 @@
    "spec": "schemaorg",
    "condition": "Cada entidad del marcado que da como gtin una URL GS1 Digital Link tiene la propiedad hasGS1DigitalLink.",
    "nature": "recomendada",
-   "quotes": ["schemaorg#q04", "schemaorg#q01"],
+   "quotes": [
+    "schemaorg#q04",
+    "schemaorg#q01"
+   ],
    "method": "Buscar las entidades con algún valor de gtin, gtin8, gtin12, gtin13 o gtin14 que es una URL GS1 Digital Link en forma no comprimida (URL http o https cuya ruta tiene el segmento 01 seguido de un segmento de 8, 12, 13 o 14 dígitos) y comprobar que cada una tiene al menos un valor de hasGS1DigitalLink.",
    "evidence": "Por cada entidad: su localización en el marcado, la URL dada como gtin y los valores de hasGS1DigitalLink, o su ausencia.",
    "applicability": "El marcado contiene al menos un valor de gtin, gtin8, gtin12, gtin13 o gtin14 que es una URL GS1 Digital Link.",
-   "not_evaluable": ["Algún valor es una URL que podría ser un GS1 Digital Link comprimido: reconocerlo exige el estándar GS1 Digital Link, que no está en la referencia."],
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
+   "not_evaluable": [
+    "Algún valor es una URL que podría ser un GS1 Digital Link comprimido: reconocerlo exige el estándar GS1 Digital Link, que no está en la referencia."
+   ],
    "rationale": "La definición de gtin admite una URL GS1 Digital Link como valor (q01) y pide que los Digital Links se den en hasGS1DigitalLink (q04). Se lee como una exigencia añadida, no como una prohibición de darlos en gtin."
   },
   {
@@ -98,10 +129,19 @@
    "spec": "schemaorg",
    "condition": "Cada valor de position de los elementos de una BreadcrumbList del marcado es un número entero.",
    "nature": "recomendada",
-   "quotes": ["schemaorg#q05"],
+   "quotes": [
+    "schemaorg#q05"
+   ],
    "method": "Por cada entidad BreadcrumbList, tomar los valores de position de las entidades de su itemListElement. Cada valor se cumple si es un número JSON escrito sin punto decimal ni exponente, o un texto (cadena JSON, o contenido o atributo content en Microdata y RDFa) que, sin los espacios iniciales y finales, tiene forma de entero: signo opcional y solo dígitos ASCII. Satisfecho si se cumplen todos.",
    "evidence": "Por cada valor que no se cumple: la BreadcrumbList, el elemento, el valor literal y su localización en el marcado.",
    "applicability": "El marcado contiene al menos una BreadcrumbList cuyos elementos tienen position.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
    "not_evaluable": [],
    "rationale": "«e.g. beginning with '1'» es un ejemplo, no parte de la recomendación: no se comprueba el valor inicial ni la secuencia."
   },
@@ -111,10 +151,19 @@
    "spec": "schemaorg",
    "condition": "Cada propiedad de página web del marcado, como breadcrumb, está en una entidad con el tipo WebPage o un subtipo suyo declarado explícitamente.",
    "nature": "recomendada",
-   "quotes": ["schemaorg#q06"],
+   "quotes": [
+    "schemaorg#q06"
+   ],
    "method": "Las propiedades de página web son las que en 30.1 tienen WebPage como único dominio (domainIncludes): breadcrumb, lastReviewed, mainContentOfPage, primaryImageOfPage, relatedLink, reviewedBy, significantLink, significantLinks y specialty. Localizar cada uso en el marcado y en el HTML, incluidos los atributos itemprop con esos nombres fuera de todo elemento itemscope y no referidos por itemref. Un uso se cumple si su sujeto es una entidad cuyo tipo declarado (@type, itemtype o typeof) es WebPage o un subtipo suyo por rdfs:subClassOf en 30.1 (ItemPage, CollectionPage…). Satisfecho si se cumplen todos.",
    "evidence": "Por cada uso que no se cumple: la propiedad, su localización y el tipo declarado de su sujeto, o su ausencia (sujeto sin tipo o itemprop fuera de itemscope).",
    "applicability": "El marcado o el HTML usan al menos una propiedad que en 30.1 tiene WebPage como único dominio.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
    "not_evaluable": [],
    "rationale": "q06 recomienda declarar WebPage explícitamente cuando se usan propiedades de la página. Se toman como tales las que en 30.1 solo tienen WebPage como dominio; las que lo comparten con otros tipos (speakable, con Article) pueden pertenecer a otra entidad."
   },
@@ -124,10 +173,19 @@
    "spec": "schemaorg",
    "condition": "Cada valor de texto de addressCountry del marcado es un código ISO 3166-1 alfa-2.",
    "nature": "recomendada",
-   "quotes": ["schemaorg#q07"],
-   "method": "Tomar los valores literales de addressCountry de todas las entidades del marcado (PostalAddress, DefinedRegion y demás); los que son una entidad Country quedan fuera. Cada valor, sin los espacios iniciales y finales, se cumple si son dos letras que, en mayúsculas, forman un código alfa-2 asignado de ISO 3166-1 (por ejemplo, ES). Satisfecho si se cumplen todos.",
+   "quotes": [
+    "schemaorg#q07"
+   ],
+   "method": "Tomar los valores literales de addressCountry de todas las entidades del marcado (PostalAddress, DefinedRegion y demás); los que son una entidad Country quedan fuera. Cada valor, sin los espacios iniciales y finales, se cumple si son dos letras que, en mayúsculas, forman un código alfa-2 asignado de ISO 3166-1 (por ejemplo, ES). Satisfecho si se cumplen todos. Un código cumple si, sin los espacios iniciales y finales y en mayúsculas, figura en la tabla de países de EU Vocabularies a su versión fijada en references (fuente iso-3166-1, lector references.read.country_codes), salvo EU, IC, CP y CQ: la tabla los incluye, pero ISO 3166-1 los reserva excepcionalmente y no los asigna, así que no cumplen.",
    "evidence": "Por cada valor que no se cumple: la entidad, el valor literal y su localización en el marcado.",
    "applicability": "El marcado contiene al menos un valor de texto de addressCountry.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
    "not_evaluable": [],
    "rationale": "La misma definición admite, por compatibilidad, códigos alfa-3 y nombres completos: no son errores de sintaxis, pero no siguen la recomendación."
   },
@@ -137,24 +195,21 @@
    "spec": "schemaorg",
    "condition": "Cada valor de value de una entidad QuantitativeValue o MonetaryAmount del marcado es un número.",
    "nature": "recomendada",
-   "quotes": ["schemaorg#q08"],
+   "quotes": [
+    "schemaorg#q08"
+   ],
    "method": "Por cada entidad QuantitativeValue o MonetaryAmount, o de un subtipo suyo en 30.1, tomar sus valores de value. Cada valor se cumple si es un número JSON, un literal con tipo numérico, o un texto (cadena JSON, o contenido o atributo content en Microdata y RDFa) que, sin los espacios iniciales y finales, tiene forma de número: signo opcional, dígitos ASCII y como mucho un punto decimal, sin separadores de miles, unidades ni otros caracteres. Satisfecho si se cumplen todos.",
    "evidence": "Por cada valor que no se cumple: la entidad, su tipo, el valor literal y su localización en el marcado.",
    "applicability": "El marcado contiene al menos una entidad QuantitativeValue o MonetaryAmount con value.",
+   "view": "particular",
+   "page_types": [
+    "ficha de producto",
+    "categoría o listado",
+    "políticas y contenido",
+    "portada"
+   ],
    "not_evaluable": [],
    "rationale": "Microdata y RDFa solo dan texto, así que el tipo Number se reconoce por la forma del valor en todas las sintaxis. Un texto como «1,5» o «10 kg» no es un número."
-  },
-  {
-   "id": "ws-vocabulary/012",
-   "scope": "Web Schema.org",
-   "spec": "schemaorg",
-   "condition": "Cada valor de iso6523Code del marcado tiene la forma XXXX:YYYYYY o XXXX:YYYYYY:ZZZ de ISO 6523.",
-   "nature": "recomendada",
-   "quotes": ["schemaorg#q09"],
-   "method": "Tomar los valores de iso6523Code de las entidades del marcado. Cada valor, sin los espacios iniciales y finales, se cumple si tiene cuatro dígitos (ICD), dos puntos y un OID de 1 a 35 caracteres sin puntos, guiones ni espacios, seguido opcionalmente de dos puntos y un OPI de 1 a 35 caracteres sin dos puntos, es decir, si encaja en ^[0-9]{4}:[^:.\\- ]{1,35}(:[^:]{1,35})?$. No se comprueba que el ICD esté asignado. Satisfecho si se cumplen todos.",
-   "evidence": "Por cada valor que no se cumple: la entidad, el valor literal y su localización en el marcado.",
-   "applicability": "El marcado contiene al menos un valor de iso6523Code.",
-   "not_evaluable": []
   }
  ]
 }

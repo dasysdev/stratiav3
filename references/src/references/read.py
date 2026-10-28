@@ -147,10 +147,17 @@ def headings(text: str) -> list:
     return out
 
 
+PREAMBLE = "#"  # the section of the text before the first heading (all of it, if there is none)
+
+
 def document_section(text: str, section: str) -> str:
     """A heading and everything under it, up to the next heading of the same or a higher level.
-    `section` is an anchor (#product-properties) or, for a heading without one, its text."""
+    `section` is an anchor (#product-properties) or, for a heading without one, its text; `#` is
+    the preamble, the text before the first heading (the opening of a page whose title is out of
+    its content root)."""
     heads = headings(text)
+    if section == PREAMBLE:
+        return "\n".join(text.splitlines()[:heads[0][0] if heads else None])
     found = [h for h in heads if (h[3] == section[1:] if section.startswith("#") else h[2] == section)]
     if not found:
         raise RefsError(f"no existe la sección {section}")

@@ -1,0 +1,53 @@
+{
+ "source": "google-search-canonical",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Cómo indicar a Google Search la URL canónica de una página (rel=canonical en el elemento link o en la cabecera Link, sitemaps, redirecciones) y sus buenas prácticas. La URL canónica es dato de sostén del mínimo de representación de Web (D-168).",
+ "note": "Ningún método es obligatorio (q01). «Don't specify a URL fragment as canonical» es una buena práctica sin must, should ni recommend: no da requisito. Que la canónica del sitemap coincida con la del elemento link (q08) es rastreo del sitio y depende de los sitemaps: no se escribe.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#how-to-specify-a-canonical-url-with-rel=canonical-and-other-methods",
+   "text": "While we encourage you to use these methods, none of them are required; your site will likely do just fine without specifying a canonical preference."
+  },
+  {
+   "id": "q02",
+   "section": "#best-practices",
+   "text": "For all canonicalization methods, follow these best practices:"
+  },
+  {
+   "id": "q03",
+   "section": "#best-practices",
+   "text": "Do include a rel=\"canonical\" link on the canonical page itself (also known as a self-referential canonical)."
+  },
+  {
+   "id": "q04",
+   "section": "#use-rel=canonical-link-annotations",
+   "text": "We recommend that you choose one of these and go with that; while supported, using both methods at the same time is more error prone (for example, you might provide one URL in the HTTP header, and another URL in the rel=\"canonical\" link element)."
+  },
+  {
+   "id": "q05",
+   "section": "#rel-canonical-link-method",
+   "text": "Use absolute paths rather than relative paths with the rel=\"canonical\" link element. Even though relative paths are supported by Google, they can cause problems in the long run (for example, if you unintentionally allow your testing site to be crawled) and thus we don't recommend them."
+  },
+  {
+   "id": "q06",
+   "section": "#rel-canonical-link-method",
+   "text": "The rel=\"canonical\" link element is only accepted if it appears in the <head> section of the HTML, so make sure at least the <head> section is valid HTML."
+  },
+  {
+   "id": "q07",
+   "section": "#use-rel=canonical-link-annotations",
+   "text": "You can provide the rel=\"canonical\" link annotations in two ways:"
+  },
+  {
+   "id": "q08",
+   "section": "#best-practices",
+   "text": "Don't specify different URLs as canonical for the same page using different canonicalization techniques (for example, don't specify one URL in a sitemap, but a different URL for that same page using rel=\"canonical\")."
+  }
+ ]
+}

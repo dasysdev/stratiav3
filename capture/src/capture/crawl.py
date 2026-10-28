@@ -2,7 +2,9 @@
 
 Each site sees one reader at a time; the total speeds up with the number of sites. The caller
 (the MPIR, the training of the demand model) owns the inventory: it gives the items of each
-site, where each snapshot goes and what to do with each result.
+site, where each snapshot goes and what to do with each result. The capture profile is the
+caller's (`reader` by default); one with a fresh context opens a window per page, so that no
+page inherits the state of the one before.
 """
 from __future__ import annotations
 
@@ -11,8 +13,10 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
 
+from . import profiles
 from .browser import Browser
 from .pacing import Pacer, Pacing
+from .profiles import Profile
 from .robots import Robots
 from .visit import visit
 
@@ -45,14 +49,16 @@ def run_parallel(jobs: dict, stop: threading.Event) -> None:
 
 
 def crawl(runs: list[SiteRun], browser: Browser, pacing: Pacing, out, stop: threading.Event,
-          max_per_site: int | None = None, ignore_hours: bool = False) -> None:
-    run_parallel({run.key: _job(run, browser, pacing, out, stop, max_per_site, ignore_hours) for run in runs}, stop)
+          max_per_site: int | None = None, ignore_hours: bool = False, profile: str | Profile | None = None) -> None:
+    chosen = profiles.get(profile)
+    run_parallel({run.key: _job(run, browser, pacing, out, stop, max_per_site, ignore_hours, chosen)
+                  for run in runs}, stop)
 
 
-def _job(run: SiteRun, browser, pacing, out, stop, max_per_site, ignore_hours):
+def _job(run: SiteRun, browser, pacing, out, stop, max_per_site, ignore_hours, profile):
     def work():
         pacer = Pacer(pacing, crawl_delay=run.robots.crawl_delay())
-        page = browser.new_window()
+        page = browser.new_window(profile)
         done = 0
         try:
             for i, item in enumerate(run.items):
@@ -70,7 +76,13 @@ def _job(run: SiteRun, browser, pacing, out, stop, max_per_site, ignore_hours):
                     run.on_result(item, {"outcome": "disallowed", "detail": "robots.txt", "folder": None})
                     continue
                 folder = run.folder_for(item)
-                result = visit(page, item["url"], folder, pacer, run.tdm_entries, browser.info, stop, run.meta_for(item))
+                meta = run.meta_for(item)
+                if profile.evidence:
+                    meta = {**meta, "robots_bots": run.robots.by_bot(item["url"], profiles.BOTS)}
+                if profile.fresh_context and done:
+                    browser.close_window(page)
+                    page = browser.new_window(profile)
+                result = visit(page, item["url"], folder, pacer, run.tdm_entries, browser.info, stop, meta)
                 done += 1
                 run.on_result(item, {**result, "folder": folder})
                 if result["outcome"] == "blocked":

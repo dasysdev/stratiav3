@@ -1,0 +1,32 @@
+{
+ "source": "google-search-sitemaps-build",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Guía de Google para construir un sitemap: remite al protocolo de sitemaps y repite sus límites, la codificación UTF-8, la ubicación y las URL absolutas. No da requisitos propios: lo que fija ya lo fija sitemaps.org (triaje Web, «redundantes»).",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#general-guidelines",
+   "text": "The best practices for sitemaps are defined by the sitemaps protocol."
+  },
+  {
+   "id": "q02",
+   "section": "#general-guidelines",
+   "text": "Sitemap size limits: All formats limit a single sitemap to 50MB (uncompressed) or 50,000 URLs. If you have a larger file or more URLs, you must break your sitemap into multiple sitemaps."
+  },
+  {
+   "id": "q03",
+   "section": "#general-guidelines",
+   "text": "Sitemap file encoding and location: The sitemap file must be UTF-8 encoded."
+  },
+  {
+   "id": "q04",
+   "section": "#general-guidelines",
+   "text": "Referenced URLs' properties: Use fully-qualified, absolute URLs in your sitemaps."
+  }
+ ]
+}

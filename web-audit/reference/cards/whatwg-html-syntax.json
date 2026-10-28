@@ -1,0 +1,48 @@
+{
+ "source": "whatwg-html-syntax",
+ "version": "2026-10-28",
+ "class": "especificación aplicable",
+ "level": "documento",
+ "scopes": [
+  "Web"
+ ],
+ "summary": "Sintaxis HTML (WHATWG HTML, 13.1 «Writing HTML documents»): las partes del documento y su orden, el DOCTYPE, los elementos, las etiquetas, los atributos, el texto, las referencias de carácter y los comentarios. Obliga a los documentos y a quienes los generan, no a los validadores.",
+ "note": "Los must de 13.1 obligan al documento regla a regla. Ninguno dice que el documento no tenga errores de análisis: esos errores los define 13.2 (whatwg-html-parsing), que se dirige a los agentes de usuario y a los validadores (q02). La recomendación de no usar la cadena heredada del DOCTYPE «unless the document is generated from a system that cannot output the shorter string» depende del sistema que genera el documento, que no se observa: no da requisito.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#syntax",
+   "text": "This section only describes the rules for resources labeled with an HTML MIME type. Rules for XML resources are discussed in the section below entitled \"The XML syntax\"."
+  },
+  {
+   "id": "q02",
+   "section": "#writing",
+   "text": "This section only applies to documents, authoring tools, and markup generators. In particular, it does not apply to conformance checkers; conformance checkers must use the requirements given in the next section (\"parsing HTML documents\")."
+  },
+  {
+   "id": "q03",
+   "section": "#writing",
+   "text": "Documents must consist of the following parts, in the given order: - Optionally, a single U+FEFF BYTE ORDER MARK (BOM) character. - Any number of comments and ASCII whitespace. - A DOCTYPE. - Any number of comments and ASCII whitespace. - The document element, in the form of an html element. - Any number of comments and ASCII whitespace."
+  },
+  {
+   "id": "q04",
+   "section": "#the-doctype",
+   "text": "A DOCTYPE is a required preamble."
+  },
+  {
+   "id": "q05",
+   "section": "#the-doctype",
+   "text": "A DOCTYPE must consist of the following components, in this order: - A string that is an ASCII case-insensitive match for the string \"<!DOCTYPE\". - One or more ASCII whitespace. - A string that is an ASCII case-insensitive match for the string \"html\". - Optionally, a DOCTYPE legacy string. - Zero or more ASCII whitespace. - A U+003E GREATER-THAN SIGN character (>). In other words, <!DOCTYPE html>, case-insensitively."
+  },
+  {
+   "id": "q06",
+   "section": "#the-doctype",
+   "text": "For the purposes of HTML generators that cannot output HTML markup with the short DOCTYPE \"<!DOCTYPE html>\", a DOCTYPE legacy string may be inserted into the DOCTYPE (in the position defined above). This string must consist of: - One or more ASCII whitespace. - A string that is an ASCII case-insensitive match for the string \"SYSTEM\". - One or more ASCII whitespace. - A U+0022 QUOTATION MARK or U+0027 APOSTROPHE character (the quote mark). - The literal string \"about:legacy-compat\". - A matching U+0022 QUOTATION MARK or U+0027 APOSTROPHE character (i.e. the same character as in the earlier step labeled quote mark). In other words, <!DOCTYPE html SYSTEM \"about:legacy-compat\"> or <!DOCTYPE html SYSTEM 'about:legacy-compat'>, case-insensitively except for the part in single or double quotes."
+  },
+  {
+   "id": "q07",
+   "section": "#comments",
+   "text": "Comments must have the following format: - The string \"<!--\". - Optionally, text, with the additional restriction that the text must not start with the string \">\", nor start with the string \"->\", nor contain the strings \"<!--\", \"-->\", or \"--!>\", nor end with the string \"<!-\". - The string \"-->\"."
+  }
+ ]
+}

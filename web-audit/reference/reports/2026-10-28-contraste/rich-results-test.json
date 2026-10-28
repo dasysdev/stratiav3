@@ -1,0 +1,305 @@
+{
+ "eci-lijadora-a200805914": {
+  "result_url": "https://search.google.com/test/rich-results/result?id=AvOZy8GEuKtCXSbq0qM7fw",
+  "crawled": "28 oct 2026, 19:24:01",
+  "summary": "Se han detectado 3 elementos válidos",
+  "types": {
+   "Fragmentos de productos": {
+    "detected": 1,
+    "items_read": [
+     {
+      "name": "Lijadora orbital Einhell TC-OS 18/187 Li - Solo",
+      "problems": "2 problemas no críticos",
+      "messages": [
+       "Falta el campo \"aggregateRating\" (opcional)",
+       "Falta el campo \"review\" (opcional)"
+      ]
+     }
+    ]
+   },
+   "Fichas de comerciantes": {
+    "detected": 1,
+    "items_read": [
+     {
+      "name": "Lijadora orbital Einhell TC-OS 18/187 Li - Solo",
+      "problems": "1 problema no crítico",
+      "messages": [
+       "Falta el campo \"shippingDetails\" (opcional)"
+      ]
+     }
+    ]
+   },
+   "Rutas de exploración": {
+    "detected": 1,
+    "items_read": [
+     {
+      "name": "Elemento sin nombre",
+      "problems": null,
+      "messages": []
+     }
+    ]
+   }
+  }
+ },
+ "cojin-018": {
+  "result_url": "https://search.google.com/test/rich-results/result?id=Oj3dsGZgTlZiNnYeEO9kkg",
+  "crawled": "28 oct 2026, 19:25:14",
+  "summary": "Se han detectado 5 elementos válidos",
+  "types": {
+   "Fragmentos de productos": {
+    "detected": 1,
+    "items_read": [
+     {
+      "name": "Cojines decorativos con relleno 018 Azul",
+      "problems": "2 problemas no críticos",
+      "messages": [
+       "Falta el campo \"aggregateRating\" (opcional)",
+       "Falta el campo \"review\" (opcional)"
+      ]
+     }
+    ]
+   },
+   "Fichas de comerciantes": {
+    "detected": 1,
+    "items_read": [
+     {
+      "name": "Cojines decorativos con relleno 018 Azul",
+      "problems": "3 problemas no críticos",
+      "messages": [
+       "Falta el campo \"hasMerchantReturnPolicy\" (opcional)",
+       "Falta el campo \"shippingDetails\" (opcional)"
+      ]
+     }
+    ]
+   },
+   "Rutas de exploración": {
+    "detected": 1,
+    "items_read": [
+     {
+      "name": "Elemento sin nombre",
+      "problems": null,
+      "messages": []
+     }
+    ]
+   },
+   "Organización": {
+    "detected": 0,
+    "items_read": []
+   },
+   "Fragmentos de reseñas": {
+    "detected": 1,
+    "items_read": [
+     {
+      "name": "Burrito Blanco",
+      "problems": null,
+      "messages": []
+     }
+    ]
+   }
+  }
+ },
+ "colchoneta-refrescante-freedog": {
+  "result_url": "https://search.google.com/test/rich-results/result?id=ow6BE6PR9-2HFoM4KKbubQ",
+  "crawled": "28 oct 2026, 19:25:55",
+  "summary": "Se han detectado 72 elementos válidos",
+  "types": {
+   "Fragmentos de productos": {
+    "detected": 32,
+    "items_read": [
+     {
+      "name": "Freedog ECO Colchoneta Refrescante para Perros Azul",
+      "problems": "1 problema no crítico",
+      "messages": [
+       "Falta el campo \"aggregateRating\" (opcional)",
+       "Falta el campo \"availability\" (opcional)",
+       "Falta el campo \"review\" (opcional)"
+      ]
+     },
+     {
+      "name": "Ownat Classic Complet Pienso para Perros con Pollo",
+      "problems": "2 problemas no críticos",
+      "messages": [
+       "Falta el campo \"aggregateRating\" (opcional)",
+       "Falta el campo \"availability\" (opcional)",
+       "Falta el campo \"review\" (opcional)"
+      ]
+     },
+     {
+      "name": "Orijen Six Fish pienso para perros con pescado",
+      "problems": "2 problemas no críticos",
+      "messages": [
+       "Falta el campo \"aggregateRating\" (opcional)",
+       "Falta el campo \"availability\" (opcional)",
+       "Falta el campo \"review\" (opcional)"
+      ]
+     }
+    ]
+   },
+   "Fichas de comerciantes": {
+    "detected": 32,
+    "items_read": [
+     {
+      "name": "Freedog ECO Colchoneta Refrescante para Perros Azul",
+      "problems": "3 problemas no críticos",
+      "messages": [
+       "Falta el campo \"availability\" (opcional)",
+       "Falta el campo \"hasMerchantReturnPolicy\" (opcional)",
+       "Falta el campo \"shippingDetails\" (opcional)",
+       "Falta el campo \"validFrom\" (opcional)"
+      ]
+     },
+     {
+      "name": "Ownat Classic Complet Pienso para Perros con Pollo",
+      "problems": "3 problemas no críticos",
+      "messages": [
+       "Falta el campo \"availability\" (opcional)",
+       "Falta el campo \"hasMerchantReturnPolicy\" (opcional)",
+       "Falta el campo \"shippingDetails\" (opcional)",
+       "Falta el campo \"validFrom\" (opcional)"
+      ]
+     },
+     {
+      "name": "Orijen Six Fish pienso para perros con pescado",
+      "problems": "3 problemas no críticos",
+      "messages": [
+       "Falta el campo \"availability\" (opcional)",
+       "Falta el campo \"hasMerchantReturnPolicy\" (opcional)",
+       "Falta el campo \"shippingDetails\" (opcional)",
+       "Falta el campo \"validFrom\" (opcional)"
+      ]
+     }
+    ]
+   },
+   "Rutas de exploración": {
+    "detected": 1,
+    "items_read": [
+     {
+      "name": "Elemento sin nombre",
+      "problems": null,
+      "messages": []
+     }
+    ]
+   },
+   "Fragmentos de reseñas": {
+    "detected": 7,
+    "items_read": [
+     {
+      "name": "Freedog ECO Colchoneta Refrescante para Perros Azul",
+      "problems": null,
+      "messages": []
+     },
+     {
+      "name": "Freedog ECO Colchoneta Refrescante para Perros Azul",
+      "problems": null,
+      "messages": []
+     },
+     {
+      "name": "Freedog ECO Colchoneta Refrescante para Perros Azul",
+      "problems": null,
+      "messages": []
+     }
+    ]
+   }
+  }
+ },
+ "cuerda-tootoy": {
+  "result_url": "https://search.google.com/test/rich-results/result?id=Qdyo_f-wWlt9ZwSFWs2kaw",
+  "crawled": "28 oct 2026, 19:26:37",
+  "summary": "Se han detectado 3 elementos válidos",
+  "types": {
+   "Fragmentos de productos": {
+    "detected": 1,
+    "items_read": [
+     {
+      "name": "Tootoy! Hueso Mordedor de Cuerda Verde y Azul para perros",
+      "problems": "2 problemas no críticos",
+      "messages": [
+       "Falta el campo \"aggregateRating\" (opcional)",
+       "Falta el campo \"review\" (opcional)"
+      ]
+     }
+    ]
+   },
+   "Fichas de comerciantes": {
+    "detected": 1,
+    "items_read": [
+     {
+      "name": "Tootoy! Hueso Mordedor de Cuerda Verde y Azul para perros",
+      "problems": "3 problemas no críticos",
+      "messages": [
+       "Falta el campo \"description\" (opcional)",
+       "Falta el campo \"hasMerchantReturnPolicy\" (opcional)",
+       "Falta el campo \"shippingDetails\" (opcional)"
+      ]
+     }
+    ]
+   },
+   "Rutas de exploración": {
+    "detected": 1,
+    "items_read": [
+     {
+      "name": "Elemento sin nombre",
+      "problems": null,
+      "messages": []
+     }
+    ]
+   }
+  }
+ },
+ "sofa-cama-luna": {
+  "result_url": "https://search.google.com/test/rich-results/result?id=T_sNWasaIoVqHSx6icC03g",
+  "crawled": "28 oct 2026, 19:27:07",
+  "summary": "Se han detectado 5 elementos válidos",
+  "types": {
+   "Fragmentos de productos": {
+    "detected": 1,
+    "items_read": [
+     {
+      "name": "Sofá cama Luna de dos plazas",
+      "problems": null,
+      "messages": []
+     }
+    ]
+   },
+   "Fichas de comerciantes": {
+    "detected": 1,
+    "items_read": [
+     {
+      "name": "Sofá cama Luna de dos plazas",
+      "problems": "3 problemas no críticos",
+      "messages": [
+       "Falta el campo \"hasMerchantReturnPolicy\" (opcional)",
+       "Falta el campo \"shippingDetails\" (opcional)",
+       "Falta el campo \"validFrom\" (opcional)"
+      ]
+     }
+    ]
+   },
+   "Rutas de exploración": {
+    "detected": 1,
+    "items_read": [
+     {
+      "name": "Elemento sin nombre",
+      "problems": null,
+      "messages": []
+     }
+    ]
+   },
+   "Fragmentos de reseñas": {
+    "detected": 2,
+    "items_read": [
+     {
+      "name": "Sofá cama Luna de dos plazas",
+      "problems": null,
+      "messages": []
+     },
+     {
+      "name": "Sofá cama Luna de dos plazas",
+      "problems": null,
+      "messages": []
+     }
+    ]
+   }
+  }
+ }
+}

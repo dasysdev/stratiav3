@@ -3,9 +3,9 @@ id: model-training
 title: Entrenamiento y ejecución del modelo de demanda
 layer: model
 status: vigente
-version: 1.21
+version: 1.22
 updated: 2026-10-28
-sources: [INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-25-training-catalog-selection, INTAKE 2026-10-25-training-classifier, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-26-color-and-requirement-exceptions, INTAKE 2026-10-26-any-property-precision, INTAKE 2026-10-26-critical-count-not-a-goal, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-formulation, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-capture-system]
+sources: [INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-25-training-catalog-selection, INTAKE 2026-10-25-training-classifier, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-26-color-and-requirement-exceptions, INTAKE 2026-10-26-any-property-precision, INTAKE 2026-10-26-critical-count-not-a-goal, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-formulation, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-capture-system, INTAKE 2026-10-28-curated-training-catalog]
 ---
 
 # Entrenamiento y ejecución del modelo de demanda
@@ -53,7 +53,7 @@ Es la única intervención humana. Las decisiones ya aceptadas del canon forman 
 > 7. **Validar automáticamente:** se aceptan si mejoran las métricas y no violan el marco; si no, se descartan.
 > 8. **Publicar versión e informe agregado:** métricas, reglas añadidas o retiradas y sus efectos. El usuario lee el informe, no las reglas.
 >
-> — INTAKE 2026-10-25-induced-rules
+> — INTAKE 2026-10-25-induced-rules; el paso 1 reúne los casos del [catálogo de entrenamiento](training-catalog.md), un catálogo curado: lo evaluado, también lo que está en la cola, es candidato y solo entra lo que el sistema admite o lo que añade el usuario (enmendado por [D-158](../30-governance/decisions.md#d-158))
 
 Lo que antes validaba la persona responsable (las especializaciones, [D-022](../30-governance/decisions.md#d-022); las cuestiones inferidas, [D-036](../30-governance/decisions.md#d-036); la relevancia de las propiedades de Amazon, [D-039](../30-governance/decisions.md#d-039); los bloques del catálogo, [D-040](../30-governance/decisions.md#d-040); las importancias, [D-041](../30-governance/decisions.md#d-041)) lo valida ahora el entrenamiento contra el marco ([D-044](../30-governance/decisions.md#d-044)). Una cuestión con fuente que su bloque ni pregunta ni excluye es una propuesta al bloque: la compilación la incorpora al catálogo ([D-088](../30-governance/decisions.md#d-088)). El vocabulario de rasgos, las reglas de importancia, las métricas y los casos se fijan en la [operación de la primera versión](#operación-de-la-primera-versión) ([D-045](../30-governance/decisions.md#d-045)).
 
@@ -90,7 +90,7 @@ Una cuestión inferida se usa en la ejecución como añadido provisional del mod
 > - La ejecución deja en la cola todo lo que usó sin compilar, y el entrenamiento lo convierte en casos y reglas.
 > - El marco fija qué cuenta como buen resultado, y el entrenamiento solo acepta reglas que lo cumplen.
 >
-> — INTAKE 2026-10-25-induced-rules
+> — INTAKE 2026-10-25-induced-rules; los casos que deja la ejecución son candidatos al [catálogo de entrenamiento](training-catalog.md), no casos del entrenamiento (enmendado por [D-158](../30-governance/decisions.md#d-158))
 
 > - **Identidad por bloques.**
 > - **Reglas inducidas, no escritas:** las reglas concretas, generales y específicas, salen del entrenamiento; el humano define el marco.
@@ -211,16 +211,10 @@ La primera parte de la cobertura se mide en el conjunto de control y la segunda 
 > - **I-19:** La clave del modelo lleva la versión de cada bloque. Un bloque generado en ejecución lleva el estado «no compilado» hasta que el entrenamiento lo compila.
 > - **Ejecución:** para probar productos reales ahora, un comando de Claude Code; […]
 >
-> — INTAKE 2026-10-25-training-operation; desde [D-050](../30-governance/decisions.md#d-050) también se induce la relevancia; el resto del punto «Ejecución», sobre el entrenamiento con miles de fichas, enmendado por [D-054](../30-governance/decisions.md#d-054)
+> — INTAKE 2026-10-25-training-operation; desde [D-050](../30-governance/decisions.md#d-050) también se induce la relevancia; el resto del punto «Ejecución», sobre el entrenamiento con miles de fichas, enmendado por [D-054](../30-governance/decisions.md#d-054); el «catálogo grande capturado por el motor» es un [catálogo curado](training-catalog.md), enmendado por [D-158](../30-governance/decisions.md#d-158)
 
 - **Motor de captura.** Es el motor de captura compartido con el MPIR ([D-046](../30-governance/decisions.md#d-046)). Vive, con el almacén común de fichas congeladas, en el sistema `capture/`, que comparten demand-engine, web-audit y la futura auditoría para evaluar la misma instantánea de una ficha; nunca se sustituye una ficha congelada: la captura nueva lleva otro ID ([D-150](../30-governance/decisions.md#d-150)).
-- **Catálogo de entrenamiento.**
-
-  > utiliza un grupo pequeño de productos de cada categoría, pero quiero suficiente variedad de categorías para que sea de utilidad para el entrenamiento. […] sí a 3 fichas. […] empecemos con 30 para validar el sistema de entrenamiento.
-  >
-  > — INTAKE 2026-10-25-training-catalog-selection (palabras del usuario)
-
-  Primera selección ([D-053](../30-governance/decisions.md#d-053)): El Corte Inglés, 3 fichas por tipo de producto y 100 tipos (300 fichas), con un piloto previo de 30. El tipo es una aproximación conocida antes de capturar; la clase la da el clasificador. Se captura sin desplazamiento: basta el HTML de la primera carga.
+- **Catálogo de entrenamiento.** Es un catálogo curado: entra lo que el sistema admite de lo evaluado, con filtros, motivos y topes, y lo que añade el usuario; la primera vía de entrada es la selección de El Corte Inglés ([D-053](../30-governance/decisions.md#d-053)). Está en [training-catalog](training-catalog.md) ([D-158](../30-governance/decisions.md#d-158)).
 - **Comando de prueba.** El comando es `/demand-model URL`: lanza los agentes y llama al código determinista.
 - **Clasificación a escala.**
 
@@ -236,7 +230,7 @@ La primera parte de la cobertura se mide en el conjunto de control y la segunda 
 
 Ver [open-questions](../30-governance/open-questions.md):
 
-- otras tiendas del catálogo de entrenamiento y su relación con el panel del MPIR ([OQ-48](../30-governance/open-questions.md));
+- otras tiendas del catálogo de entrenamiento y su relación con el panel del MPIR ([OQ-48](../30-governance/open-questions.md)); lo pendiente del catálogo curado, en [training-catalog](training-catalog.md#pendiente);
 - inducción de las reglas de composición, especializaciones, relevancia de Amazon e inferidas ([OQ-49](../30-governance/open-questions.md));
 - importancia de las dimensiones de detalle ([OQ-51](../30-governance/open-questions.md));
 - rasgos propuestos con nombres distintos para lo mismo y retirada de rasgos ([OQ-52](../30-governance/open-questions.md));
@@ -247,4 +241,5 @@ Ver [open-questions](../30-governance/open-questions.md):
 - [demand-model](demand-model.md) — modelo de demanda, bloques y capa general
 - [study-class](study-class.md) — clase de estudio y criterio de especialización
 - [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md) — catálogo de bloques (método, propuesta)
+- [training-catalog](training-catalog.md) — catálogo curado de casos de entrenamiento
 - [paa-training](paa-training.md) — entrenamiento de PAA

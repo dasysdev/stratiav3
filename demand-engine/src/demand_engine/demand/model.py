@@ -23,6 +23,9 @@ Usage:
                                       (refs, sources, support, hints by source), with the citations to sources
                                       without a registry and without a version apart;
                                       a citation of a law (ley:) must name an article and apartado of its version
+  model scope MODEL.json [SCOPE ...]  compose an assembled model with the sheet of each scope (D-155; all by
+                                      default: web, web-schema-org): RI × scope units, NA by the rules of the
+                                      sheet and localization; writes <case>.<scope>.json and .md next to it
 
 The classifier decides the composition, specializations, inferred questions, application
 and votes (importance and, from rulebook v3, trait), and says which contribution of the
@@ -40,7 +43,7 @@ from pathlib import Path
 
 from references.store import pins
 
-from . import citations, hints, resolving
+from . import citations, hints, resolving, scopes
 from .catalog import (CAT_DIR, COMPILED, ROOT, DOUBTFUL, ESP_ORDER, EMPTY, LEVELS, NO_RULE, NOT_RELEVANT, QUEUE,
                       RUNTIME_DIR, UNCOMPILED, VOTES, blocks_by_node, category_name, chain, class_nodes_for, depth,
                       load_blocks, load_empty, load_gen, load_resolving, load_rules, load_traits, protected, read_json,
@@ -251,9 +254,11 @@ def cmd_check_catalog() -> None:
             if r.get("id") in seen:
                 problems.append(f"{r['id']}: repetido en {seen[r['id']]} y {b['id']}")
             seen[r.get("id")] = b["id"]
-    problems += gen_problems(load_gen())
+    gen = load_gen()
+    problems += gen_problems(gen) + scopes.catalog_problems(gen)
     contributions = sum(len(r.get("resolving_info", [])) for b in blocks.values() for r in b["requirements"])
-    print(f"catálogo: {len(blocks)} bloques, {len(seen)} requisitos, {contributions} aportaciones; capa general incluida")
+    print(f"catálogo: {len(blocks)} bloques, {len(seen)} requisitos, {contributions} aportaciones; capa general, "
+          f"propiedades de Google Search y fichas de ámbito ({', '.join(scopes.scope_names())}) incluidas")
     print("  correcto" if not problems else "  problemas:\n    " + "\n    ".join(problems))
     if problems:
         sys.exit(1)
@@ -344,9 +349,13 @@ def assemble(out_path: Path) -> dict:
             continue
         applies = scope != "oferta" or b["id"] in triggered
         general.append({"id": b["id"], "name": b.get("name"), "version": b.get("version"), "scope": scope, "applies": applies,
-                        "requirements": [{"id": r["id"], "question": r["question"], "entity": r.get("entity"),
+                        "requirements": [{"id": r["id"], "question": r["question"],
+                                          **({"description": r["description"]} if r.get("description") else {}),
+                                          "entity": r.get("entity"),
                                           "importance": r.get("importance"), "rule": "marco:capa-general", "applies": applies,
                                           "applicability": r.get("applicability", "universal"), "origin": r.get("origin"),
+                                          "sources": r.get("sources", []),
+                                          "references": scopes.google_sources(r.get("sources", [])),
                                           "resolving_info": resolving.for_model(r, compiled)}
                                          for r in b["requirements"]]})
     esp = sorted((b for b in model_blocks if b["type"] == "especialización"),
@@ -377,10 +386,15 @@ def assemble(out_path: Path) -> dict:
         + [r["id"] for r in inferred if r["provisional"] and r["rule"] == NO_RULE]
     doubtful = [r["id"] for b in model_blocks for r in b["requirements"] if r["doubtful"]] \
         + [r["id"] for r in inferred if r["doubtful"]]
+    # D-155: the recommended properties of Google Search support category requirements through the Shopify
+    # attributes they cite (catalog/google-search.json); those of the general layer are in its sources.
+    google = scopes.load_google()
+    for r in [r for b in model_blocks for r in b["requirements"] + b.get("excluded", [])] + inferred:
+        r["references"] = scopes.attribute_support(r.get("sources", []), google)
     model = {
         "case": out.get("case"), "product": out.get("product"), "url": out.get("url"),
         "engine": {"rulebook": out.get("rulebook"), "rules": rules.get("version"), "refs": pins("demand-engine"),
-                   "assembled": datetime.date.today().isoformat()},
+                   "google_search": google.get("version"), "assembled": datetime.date.today().isoformat()},
         "key": key, "name": name, "offer": offer,
         "composition": {"classes": classes, "aliases": aliases},
         "general": general, "blocks": model_blocks, "inferred": inferred,
@@ -454,6 +468,13 @@ def render(model: dict) -> str:
         for rid, items in info:
             lines.append(f"- {rid}: " + " · ".join(f"{c['contribution']} [{c.get('component') or '—'}] ({c.get('origin')}; "
                                                     f"{len(c.get('stores', []))})" for c in items))
+    support = [(r["id"], r["references"]) for b in model["general"] for r in b["requirements"] if r.get("references")]
+    support += [(r["id"], r["references"]) for b in model["blocks"] for r in b["requirements"] if r.get("references")]
+    if support:
+        lines += ["", "## Apoyo de Google Search", "",
+                  "Propiedades que los consumidores del perfil de Web Schema.org recomiendan sin exigir: apoyo de demanda con "
+                  "origen «referencias», sin ámbito (D-145, D-155). La importancia no sale de aquí.", ""]
+        lines += [f"- {rid}: " + ", ".join(f"`{c.removeprefix('google-search-')}`" for c in cites) for rid, cites in support]
     if model.get("doubts"):
         lines += ["", "## Dudas del clasificador", ""] + [f"- {d}" for d in model["doubts"]]
     return "\n".join(lines) + "\n"
@@ -582,7 +603,7 @@ def cmd_assemble(path: Path) -> None:
 
 def main() -> None:
     args = sys.argv[1:]
-    if not args or args[0] not in ("blocks", "register", "check", "assemble", "show", "hints", "refs"):
+    if not args or args[0] not in ("blocks", "register", "check", "assemble", "show", "hints", "refs", "scope"):
         sys.exit(__doc__)
     if args == ["refs"]:
         citations.cmd_check()
@@ -603,6 +624,8 @@ def main() -> None:
         cmd_check(Path(args[1]))
     elif args[0] == "assemble" and len(args) == 2:
         cmd_assemble(Path(args[1]))
+    elif args[0] == "scope" and len(args) > 1:
+        scopes.cmd_scope(Path(args[1]), args[2:])
     elif args[0] == "show" and len(args) == 2:
         print(render(read_json(Path(args[1]))), end="")
     else:

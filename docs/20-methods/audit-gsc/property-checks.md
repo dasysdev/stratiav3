@@ -3,9 +3,9 @@ id: audit-gsc-property-checks
 title: Comprobación operativa de propiedades P06–P18
 layer: method
 status: propuesta
-version: 0.2
-updated: 2026-10-27
-sources: [GSC0 §10, FUND §7, INTAKE 2026-10-27-ac-applicability-and-reliability]
+version: 0.3
+updated: 2026-10-28
+sources: [GSC0 §10, FUND §7, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1]
 ---
 
 # Comprobación operativa de propiedades P06–P18
@@ -107,8 +107,8 @@ Cada ficha: **Pregunta** · **Prueba** · **Evidencia** · **Precaución** · **
 ### P14 · Exactitud
 
 - **Pregunta:** ¿qué comprobaciones sustentan la correspondencia de la afirmación con un hecho comercial comprobable?
-- **Prueba:** identificar la afirmación y su tipo de dato; aplicar las comprobaciones de estructura del dato, de conocimiento del dominio (solo refuta, con la regla y su fuente) y de fuente independiente cuando exista ([D-122](../../30-governance/decisions.md#d-122)); documentar defectos, sospechas y alcance de la verificación.
-- **Evidencia:** dato publicado, comprobación/ref. de contraste, momento, método y resultado, sin confundir corroboración con certeza absoluta.
+- **Prueba:** identificar la afirmación y su tipo de dato; aplicar las comprobaciones de estructura del dato y de conocimiento del dominio (solo refuta, con la regla general y su fuente, o una imposibilidad física o lógica), sin fuentes externas ([D-122](../../30-governance/decisions.md#d-122), [D-154](../../30-governance/decisions.md#d-154)); documentar defectos, sospechas y alcance de la verificación.
+- **Evidencia:** dato publicado, comprobación aplicada y fuente de la regla, momento, método y resultado, sin confundir la ausencia de defectos con certeza.
 - **Precaución:** falta de contraste no prueba falsedad; coincidencia de dos representaciones del mismo origen no demuestra exactitud; un dato sin defectos detectados no es por ello exacto.
 - **Incidencia típica:** Fiabilidad.
 

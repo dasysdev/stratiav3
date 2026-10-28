@@ -3,9 +3,9 @@ id: acceptance-criteria
 title: Criterios de aceptación
 layer: model
 status: vigente
-version: 1.5
+version: 1.7
 updated: 2026-10-28
-sources: [BASE §5.2, FUND §6, FUND §10.1, GSC0 §6.4, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-minimum-representation-image]
+sources: [BASE §5.2, FUND §6, FUND §10.1, GSC0 §6.4, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-shipping-zones]
 ---
 
 # Criterios de aceptación (AC)
@@ -46,7 +46,7 @@ Cada criterio se valora con el **GSC** (0/1/2). No hay NA de criterio, salvo el 
 8. **El GSC expresa la satisfacción de la condición**, no la capacidad compensatoria ni el esfuerzo computacional de un modelo. Una valoración baja no demuestra que ninguna IA pueda resolver la cuestión; una alta no garantiza el éxito de cualquier sistema.
 9. **Los seis criterios se aplican siempre** que la disponibilidad efectiva es 1 ([D-117](../30-governance/decisions.md#d-117)).
    - No hay NA de criterio. La única excepción es el NA de Comparabilidad en los requisitos que no son dimensión de comparación (regla 6).
-   - **NE es una incidencia de la auditoría:** una comprobación que no se pudo hacer (un recurso que no se pudo inspeccionar, un registro externo que no respondió). Queda fuera de la escala (NE ≠ 0) y se registra qué comprobación falló. No es falta de evidencia sobre lo publicado.
+   - **NE es una incidencia de la auditoría:** una comprobación que no se pudo hacer (un recurso que no se pudo inspeccionar). Queda fuera de la escala (NE ≠ 0) y se registra qué comprobación falló. No es falta de evidencia sobre lo publicado.
    - El NA del requisito es otro estado y se mantiene: un requisito condicionado que no se activa, o un RI que no corresponde a un ámbito (FUND §3.5).
 
 ### Fiabilidad: lectura refutadora y comprobaciones
@@ -57,24 +57,42 @@ Cada criterio se valora con el **GSC** (0/1/2). No hay NA de criterio, salvo el 
 - El 2 afirma que se superaron las comprobaciones, no que el dato sea verdadero: la ausencia de contradicción sigue sin demostrar exactitud.
 - Consecuencia asumida: Fiabilidad discrimina cuando hay defectos; la mayoría de los datos estables sin defectos obtendrán 2.
 
-**Tres familias de comprobación** ([D-122](../30-governance/decisions.md#d-122)):
+**Sin fuentes externas** ([D-154](../30-governance/decisions.md#d-154), que enmienda [D-122](../30-governance/decisions.md#d-122)): la auditoría no consulta nada externo a lo que publica el ecommerce. Usa la representación del ámbito y reglas generales citadas (definiciones, normas que fijan el significado de un término, especificaciones de formato). Ningún hecho particular del producto tomado de fuera (un registro, la web del fabricante) entra, ni siquiera para contrastar. Lo que el auditor sepa de un producto concreto no es regla ni evidencia: solo puede frenar una refutación o quedar como sospecha (regla asimétrica, abajo).
+
+**Tres familias de comprobación** ([D-154](../30-governance/decisions.md#d-154)):
 
 | Familia | Qué comprueba | Ejemplos (hipotéticos) | Qué puede concluir |
 |---|---|---|---|
-| **Estructura del dato** | Las reglas que el propio dato lleva consigo | Dígito de control del GTIN; composición que suma 100 %; precio final = base − descuento; unidad coherente con la magnitud; valor dentro de una enumeración cerrada (clase energética A–G); fecha de validez ya vencida en la captura | Refutar, con certeza |
-| **Conocimiento del dominio** | Reglas generales: definiciones, denominaciones legales, normas que fijan el significado de un término | «Certificado GOTS» en una sábana 100 % poliéster (GOTS exige al menos un 70 % de fibra natural ecológica); «satén de seda» con composición 100 % poliéster (el Reglamento (UE) 1007/2011 reserva «seda» a esa fibra) | Solo refutar |
-| **Fuente independiente** | Hechos particulares en registros públicos | Número de certificado en el Label Check de OEKO-TEX; EPREL; GS1 | Refutar o corroborar, solo en algunos tipos de dato |
+| **Estructura del dato** | Las reglas que el propio dato lleva consigo | Dígito de control y longitud del GTIN; composición que suma 100 %; precio final = base − descuento; unidad coherente con la magnitud; valor dentro de una enumeración cerrada (clase energética A–G); fecha de validez publicada y ya vencida en la captura | Refutar, con certeza |
+| **Conocimiento del dominio** | Reglas generales: definiciones, denominaciones legales, normas que fijan el significado de un término; imposibilidades físicas o lógicas | «Certificado GOTS» en una sábana 100 % poliéster (GOTS exige al menos un 70 % de fibra natural ecológica); «satén de seda» con composición 100 % poliéster (el Reglamento (UE) 1007/2011 reserva «seda» a esa fibra); un plaid de 130 × 170 cm que pesa 40 kg | Solo refutar |
+| **Consistencia dentro del ámbito** | Que lo publicado en el ámbito no se contradiga | Web: texto, tabla, variantes, y HTML frente a Schema.org. Web Schema.org: dentro del marcado. Entre requisitos del mismo ámbito: una bajera de 90 × 190 en una ficha que dice «cama de 150» | Refutar: la contradicción material es el defecto |
 
 - **Conocimiento del dominio** (el del modelo de IA que audita):
   - solo refuta: no puede confirmar un hecho de la oferta;
-  - un dato es defecto solo si **no puede** ser verdad según una regla general y descriptiva, citada con su fuente y sin contrafuente (la parte de necesidad de la [prueba de derivación](effective-availability.md#pertinencia-de-lo-derivado));
+  - un dato es defecto solo si **no puede** ser verdad según una regla general y descriptiva, citada con su fuente y sin contrafuente (la parte de necesidad de la [prueba de derivación](effective-availability.md#pertinencia-de-lo-derivado)), o por una imposibilidad física o lógica;
   - si solo es improbable, es una sospecha: se anota y no gradúa. «Percal 100 % poliéster» no se refuta, porque existe percal de poliéster. Así, una inferencia por tendencia no puede crear un hecho ([D-119](../30-governance/decisions.md#d-119)) ni destruirlo (Fiabilidad);
   - si el auditor no puede enunciar la regla y de dónde sale, es una sospecha (reexaminabilidad).
-- **Fuente independiente:** cuando existe para un tipo de dato (certificaciones, clase energética, GTIN), consultarla forma parte de las comprobaciones que le tocan.
+- **Conocimiento del modelo, regla asimétrica:**
+
+  > El conocimiento del modelo puede **frenar** una refutación libremente, pero solo puede **producirla** con una regla general citada o con una imposibilidad física o lógica. Lo que el modelo sepa de un producto, una marca o un modelo concretos es una **sospecha**: se anota con su motivo, no gradúa y pasa al informe como «a verificar por el ecommerce». — INTAKE 2026-10-28-informative-audit-v1
+
+  Lo que el modelo sabe de un caso concreto no es reexaminable, puede estar desfasado o confundir variantes, haría depender el resultado del auditor y trataría distinto a marcas conocidas y desconocidas. Usarlo como contrafuente solo evita penalizar ([D-154](../30-governance/decisions.md#d-154)).
+- **Registro:** dice qué familias se aplicaron: «sin defectos detectados en estructura, dominio y consistencia del ámbito; sin contraste externo». Si a un dato solo le toca la consistencia, también es 2, y el registro lo dice.
+- **NE** queda casi limitado a no poder leer una representación que pide la comprobación de consistencia.
+- **Certificaciones:** se juzgan por lo publicado, no se validan. En Fiabilidad, solo estructura, dominio y consistencia (una fecha de validez vencida, un sello incompatible con la composición). Los demás AC miran lo suyo: Justificación, que se publiquen el número y el organismo; Precisión, «OEKO-TEX» sin decir qué norma; Aplicabilidad, que la certificación se atribuya al producto que se vende y no a una materia prima.
 - **Imágenes:** lo que una foto muestra no sirve para refutar un dato; solo cuenta la información explícita que lleve ([effective-availability](effective-availability.md#imágenes-lo-que-muestran-y-lo-que-expresan), [D-144](../30-governance/decisions.md#d-144)).
-- **Identificador ausente:** si el ecommerce no da el identificador que permitiría la comprobación externa (p. ej., el número de certificado), cuenta en **Justificación** (P18), no en Fiabilidad.
+- **Identificador ausente:** si el ecommerce no da el identificador que permitiría verificar un dato (p. ej., el número de certificado), cuenta en **Justificación** (P18), no en Fiabilidad. La auditoría no lo verifica, pero es la base que permite a cualquiera verificarlo ([D-154](../30-governance/decisions.md#d-154)).
 - **Frontera con la evaluación técnica:** una propiedad mal escrita o una sintaxis inválida es técnica y solo cuenta por su efecto en la disponibilidad; una sintaxis válida con un valor imposible (GTIN con dígito de control erróneo) es Fiabilidad. ⚠ Ver [I-41](../30-governance/issues.md#i-41).
-- **Consistencia por ámbito:** se comprueba dentro de las representaciones de cada ámbito y cuenta en su GSC de Fiabilidad. En Web: texto, tabla, variantes, y HTML frente a Schema.org. En Web Schema.org: dentro del marcado. En Catálogos distribuidos: dentro del ítem y entre las variantes de un grupo. La consistencia entre ámbitos es otra dimensión de análisis, que no modifica este GSC ([consistencia transversal](evaluation-scopes.md#consistencia-transversal)).
+- **Consistencia por ámbito:** cuenta en el GSC de Fiabilidad de su ámbito. En Catálogos distribuidos se comprueba dentro del ítem y entre las variantes de un grupo. La consistencia entre ámbitos es otra dimensión de análisis, que no modifica este GSC ([consistencia transversal](evaluation-scopes.md#consistencia-transversal)).
+- **Límite:** Fiabilidad mide la corrección y la coherencia interna de lo publicado, no su veracidad frente al mundo. Un 2 no acredita que una certificación, una clase energética o un GTIN sean válidos ([scope](../00-context/scope.md#límite-de-interpretación)).
+
+### Unidades de un conjunto
+
+> Las unidades de un conjunto (destinos, modalidades de entrega, variantes, momentos del pedido) no son partes de la cuestión y no se divide por ellas. Las cubre la **Concreción** (cobertura de las unidades), la **Aplicabilidad** (atribución de cada valor a su unidad) y la **Precisión** (significado de lo expresado: «nacional», «24/48 h»). — INTAKE 2026-10-28-shipping-zones
+
+- El requisito declara su conjunto, en la pregunta o en la descripción ([D-164](../30-governance/decisions.md#d-164)). Es el tratamiento de las variantes del [ejemplo mínimo](#ejemplo-mínimo-hipotético).
+- El silencio sobre una unidad es cobertura parcial (Concreción), no disponibilidad 0 del requisito, y no equivale a un «no»: una ausencia exige prueba de cobertura. La frontera 0/1 depende de la prueba de materialidad ([OQ-22](../30-governance/open-questions.md)).
+- Ejemplos (hipotéticos) en el envío, cuyo conjunto son las zonas de España ([D-165](../30-governance/decisions.md#d-165)): solo «envío a Península 4,95 €» afecta a la Concreción; «envío 4,95 €» sin zona, a la Aplicabilidad; «envío nacional», a la Precisión si admite dos lecturas materiales; «envíos a toda España 4,95 €» da Concreción 2 en el coste, porque cubre las zonas por derivación; «no enviamos a Canarias, Ceuta ni Melilla», con las tarifas de la Península y Baleares, da Concreción 2, porque el «no» resuelve; una ficha que dice «gratis a toda España» con una página de envíos que excluye Canarias, a la Fiabilidad (contradicción dentro del ámbito).
 
 ## Distinciones
 
@@ -84,7 +102,7 @@ Cada criterio se valora con el **GSC** (0/1/2). No hay NA de criterio, salvo el 
 | **Concreción** frente a **Precisión** | La primera comprueba si la cuestión queda cubierta; la segunda, si el significado de lo expresado es inequívoco. |
 | **Precisión** frente a **Aplicabilidad** | Comprender «disponible» no determina **qué variante** está disponible. |
 | **Aplicabilidad** frente a **Fiabilidad** | Atribuir bien una afirmación no garantiza su exactitud ni su consistencia. |
-| **Fiabilidad** frente a **Justificación** | La fiabilidad depende de que la información supere las comprobaciones de corrección y consistencia. La justificación exige un soporte identificable para reconstruir la respuesta; la falta del identificador que permitiría verificar un dato cuenta en ella ([D-122](../30-governance/decisions.md#d-122)). Citar una fuente no demuestra su verdad, y la ausencia de contradicciones no demuestra exactitud. |
+| **Fiabilidad** frente a **Justificación** | La fiabilidad depende de que la información supere las comprobaciones de corrección y consistencia. La justificación exige un soporte identificable para reconstruir la respuesta; la falta del identificador que permitiría verificar un dato cuenta en ella ([D-122](../30-governance/decisions.md#d-122), [D-154](../30-governance/decisions.md#d-154)). Citar una fuente no demuestra su verdad, y la ausencia de contradicciones no demuestra exactitud. |
 | **Evidencia compartida** | Un hallazgo puede afectar a varios criterios, pero hay que explicar la consecuencia específica para cada uno, sin tratarlo como varios defectos independientes. |
 
 **Resumen:** la disponibilidad trata del acceso; la concreción, de la cobertura; la precisión, del significado; la aplicabilidad, de la atribución; la fiabilidad, de la confianza en lo afirmado; la justificación, del fundamento. La comparabilidad interviene cuando hay contraste.
@@ -115,7 +133,7 @@ Los valores son ilustrativos, no una auditoría real.
 ## Pendiente
 
 - Guías por criterio con pruebas, evidencias, reglas interpretativas y anclajes 0/1/2. Hay propuesta V1 en [ac-guides](../20-methods/audit-gsc/ac-guides.md), pendiente de calibración. Ver [open-questions](../30-governance/open-questions.md).
-- Qué comprobaciones de corrección tocan a cada tipo de dato y qué reglas del dominio guarda el modelo de demanda ([OQ-66](../30-governance/open-questions.md)).
+- Qué comprobaciones de estructura, dominio y consistencia tocan a cada tipo de dato y qué reglas del dominio guarda el modelo de demanda ([OQ-66](../30-governance/open-questions.md)).
 
 ## Relacionado
 

@@ -3,7 +3,10 @@
  "version": "2026-10-27",
  "class": "especificación aplicable",
  "level": "consumidor",
- "summary": "Propiedades exigidas y recomendadas por Google Search para los fragmentos de reseña (Review, AggregateRating y su Rating), con sus directrices técnicas. En el perfil se aplica a las reseñas y valoraciones agregadas que son valor de review o aggregateRating de un Product o ProductGroup.",
+ "scopes": [
+  "Web Schema.org"
+ ],
+ "summary": "Propiedades exigidas y recomendadas por Google Search para los fragmentos de reseña (Review, AggregateRating y su Rating), con sus directrices técnicas. En el perfil se aplica a las reseñas y valoraciones agregadas que son valor de review o aggregateRating de una entidad valorada: una entidad de uno de los tipos válidos de la guía (q36) o de un subtipo.",
  "quotes": [
   {
    "id": "q01",
@@ -184,7 +187,22 @@
    "id": "q35",
    "section": "#technical-guidelines",
    "text": "If you include multiple individual reviews, also include an aggregate rating of the individual reviews."
+  },
+  {
+   "id": "q36",
+   "section": "#review-properties",
+   "text": "The valid types for the reviewed item are: Book Course CreativeWorkSeason CreativeWorkSeries Episode Event Game HowTo LocalBusiness MediaObject Movie MusicPlaylist MusicRecording Organization Product Recipe SoftwareApplication"
+  },
+  {
+   "id": "q37",
+   "section": "#technical-guidelines",
+   "text": "If the review snippet is for a local business or an organization, you must follow these additional guidelines:"
+  },
+  {
+   "id": "q38",
+   "section": "#technical-guidelines",
+   "text": "If the entity that's being reviewed controls the reviews about itself, their pages that use LocalBusiness or any other type of Organization structured data are ineligible for star review feature. For example, a review about entity A is placed on the website of entity A, either directly in their structured data or through an embedded third-party widget (for example, Google Business reviews or Facebook reviews widget)."
   }
  ],
- "note": "Es especificación aplicable del nivel consumidor por remisión: las filas de Product en google-search-product-snippet y google-search-merchant-listing, y las de ProductGroup en google-search-product-variants, dicen «Follow the Review snippet guidelines and the list of required and recommended AggregateRating properties» (aggregateRating: google-search-product-snippet#q07, google-search-merchant-listing#q11, google-search-product-variants#q15) y «Follow the Review snippet guidelines and the list of required and recommended review properties» (review: google-search-product-variants#q21; en las fichas de product-snippet y merchant-listing la fila review lo dice, pero sus citas q10 y q31 no llegan a esa frase). Por eso solo se aplica a Review, AggregateRating y Rating cuando son valor de review o aggregateRating de un Product o ProductGroup. Lo que la página dedica a otros tipos (Book, Recipe, Movie, LocalBusiness, Organization…), a las reseñas sueltas con itemReviewed y a las reseñas sobre uno mismo («self-serving») queda fuera. Sus directrices que exigen juzgar la veracidad, la procedencia o la independencia de las reseñas (reseñas falsas o incentivadas sin declarar, reseñas agregadas de otros sitios) quedan fuera de los requisitos técnicos (D-129)."
+ "note": "Es especificación aplicable del nivel consumidor por remisión: las filas de Product en google-search-product-snippet y google-search-merchant-listing, y las de ProductGroup en google-search-product-variants, dicen «Follow the Review snippet guidelines and the list of required and recommended AggregateRating properties» (aggregateRating: google-search-product-snippet#q07, google-search-merchant-listing#q11, google-search-product-variants#q15) y «Follow the Review snippet guidelines and the list of required and recommended review properties» (review: google-search-product-variants#q21; en las fichas de product-snippet y merchant-listing la fila review lo dice, pero sus citas q10 y q31 no llegan a esa frase). Entró por esa remisión, pero desde el contraste de T-048 (2026-10-28, decisión del usuario: el marcado ha de ser correcto aunque describa otra cosa) se aplica a las reseñas y valoraciones de cualquier entidad valorada (los tipos válidos de q36 y sus subtipos), no solo de Product o ProductGroup. La reseña de una organización sobre sí misma («self-serving», q37 y q38) se comprueba como hecho estructural: la organización valorada es la del propio sitio (ws-consumer/385). Las reseñas sueltas con itemReviewed siguen fuera. Sus directrices que exigen juzgar la veracidad, la procedencia o la independencia de las reseñas (reseñas falsas o incentivadas sin declarar, reseñas agregadas de otros sitios) quedan fuera de los requisitos técnicos (D-129)."
 }

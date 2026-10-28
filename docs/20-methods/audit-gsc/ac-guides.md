@@ -3,9 +3,9 @@ id: audit-gsc-ac-guides
 title: Guías operativas de los seis criterios de aceptación
 layer: method
 status: propuesta
-version: 0.4
-updated: 2026-10-27
-sources: [GSC0 §11, GSC0 Anexo B, FUND §6.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
+version: 0.5
+updated: 2026-10-28
+sources: [GSC0 §11, GSC0 Anexo B, FUND §6.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-informative-audit-v1]
 ---
 
 # Guías operativas de los seis criterios de aceptación
@@ -94,9 +94,9 @@ En todos los AC, antes de asignar 0/1/2: verificar **evidencia suficiente** y **
 
 **Condición vigente:** la información supera las comprobaciones de corrección y consistencia proporcionadas a su naturaleza: no se acreditan errores ni contradicciones materiales.
 
-**Lectura refutadora** (canon: [acceptance-criteria](../../10-model/acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones), [D-121](../../30-governance/decisions.md#d-121), [D-122](../../30-governance/decisions.md#d-122)): el grado sale de las comprobaciones superadas, no de la corroboración.
+**Lectura refutadora** (canon: [acceptance-criteria](../../10-model/acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones), [D-121](../../30-governance/decisions.md#d-121), [D-122](../../30-governance/decisions.md#d-122), [D-154](../../30-governance/decisions.md#d-154)): el grado sale de las comprobaciones superadas, no de la corroboración. La auditoría no consulta fuentes externas.
 
-**Pruebas:** (a) identificar las afirmaciones esenciales y su tipo de dato; (b) aplicar las comprobaciones de **estructura del dato**; (c) contrastar con el **conocimiento del dominio**, solo para refutar, enunciando la regla y su fuente; (d) consultar la **fuente independiente** cuando exista para ese tipo de dato; (e) buscar contradicciones **dentro del ámbito**; (f) registrar las comprobaciones hechas, sus resultados y las sospechas anotadas.
+**Pruebas:** (a) identificar las afirmaciones esenciales y su tipo de dato; (b) aplicar las comprobaciones de **estructura del dato**; (c) contrastar con el **conocimiento del dominio**, solo para refutar, enunciando la regla general y su fuente, o la imposibilidad física o lógica; (d) buscar contradicciones **dentro del ámbito** (entre sus representaciones y entre requisitos); (e) registrar las familias aplicadas, sus resultados y las sospechas anotadas: «sin defectos detectados en estructura, dominio y consistencia del ámbito; sin contraste externo».
 
 **Propiedades habituales:** P14 y P16.
 
@@ -106,7 +106,7 @@ En todos los AC, antes de asignar 0/1/2: verificar **evidencia suficiente** y **
 | **1** | Hay un **defecto no material**, o uno que afecta solo a parte de lo examinado. |
 | **2** | La información **supera las comprobaciones** que tocan a ese tipo de dato: sin defectos detectados. |
 
-**Evidencias:** afirmaciones, comprobaciones aplicadas (estructura, regla del dominio y su fuente, fuente independiente consultada), pares comparables, defectos y sospechas anotadas.
+**Evidencias:** afirmaciones, comprobaciones aplicadas (estructura, regla del dominio y su fuente, consistencia), pares comparables, defectos y sospechas anotadas con su motivo.
 
 **Fronteras decisivas:**
 
@@ -114,7 +114,9 @@ En todos los AC, antes de asignar 0/1/2: verificar **evidencia suficiente** y **
 - **Sin defectos detectados no significa exacto.** El resultado dice «sin defectos detectados en…», nunca «exacto».
 - **Sospecha frente a defecto.** Una regla que solo hace improbable el dato no gradúa: se anota. «Percal 100 % poliéster» no se refuta, porque existe percal de poliéster.
 - **La hora de captura no acredita que el dato sea exacto ni que esté al día.** Una fecha de validez vencida en la captura sí es un defecto de estructura.
-- **Identificador ausente:** si falta el que permitiría la comprobación externa (número de certificado), cuenta en Justificación, no aquí.
+- **Conocimiento del modelo:** frena una refutación libremente, pero solo la produce con una regla general citada o una imposibilidad física o lógica. Lo que el auditor sepa de un producto, una marca o un modelo concretos es una sospecha: se anota con su motivo, no gradúa y pasa al informe como «a verificar por el ecommerce» ([D-154](../../30-governance/decisions.md#d-154)).
+- **Certificaciones:** no se validan. Aquí solo cuentan estructura, dominio y consistencia (fecha de validez vencida, sello incompatible con la composición).
+- **Identificador ausente:** si falta el que permitiría verificar un dato (número de certificado), cuenta en Justificación, no aquí.
 - **Sintaxis frente a valor:** una sintaxis inválida es técnica; un valor imposible con sintaxis válida es Fiabilidad. ⚠ Ver [I-41](../../30-governance/issues.md#i-41).
 - **Discrepancia entre ámbitos:** es un hallazgo de [consistencia transversal](../../10-model/evaluation-scopes.md#consistencia-transversal) y no reduce este GSC.
 
@@ -145,7 +147,7 @@ En todos los AC, antes de asignar 0/1/2: verificar **evidencia suficiente** y **
 - Puede significar inequívocamente «disponible para compra online» → **Precisión** potencialmente suficiente.
 - Puede no identificar qué talla está disponible → consecuencia para **Aplicabilidad**.
 - Puede no sostener una conclusión sobre la talla 42 → consecuencia para **Justificación**.
-- Su corrección puede no tener corroboración externa → **Fiabilidad** según las comprobaciones superadas (estructura del dato, consistencia con el marcado), no NE ni falsedad automática.
+- Su corrección no se contrasta fuera de la ficha → **Fiabilidad** según las comprobaciones superadas (estructura del dato, consistencia con el marcado), no NE ni falsedad automática.
 - Si la respuesta no es una dimensión de comparación, **Comparabilidad = NA**, según la marca de dimensión de comparación del requisito ([D-126](../../30-governance/decisions.md#d-126)).
 
 Una observación puede afectar varios AC **solo** si se razona la consecuencia **diferenciada** para cada condición. No se computan penalizaciones mecánicas ni se deduce el resultado de un AC a partir del valor de otro.

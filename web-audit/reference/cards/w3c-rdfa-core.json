@@ -3,6 +3,9 @@
   "version": "2026-10-27",
   "class": "especificación aplicable",
   "level": "serialización",
+  "scopes": [
+    "Web Schema.org"
+  ],
   "summary": "Sintaxis y reglas de procesado de RDFa 1.1 (tercera edición): los atributos (vocab, typeof, property, resource, prefix…), sus tipos de valor (términos, CURIE, IRI) y cómo se resuelven a IRI. Fija pocas condiciones de documento; la conformidad de un documento HTML con RDFa la completa HTML+RDFa.",
   "note": "La conformidad de documento propia de RDFa Core (4.3) es la de XML+RDFa (text/xml, application/xml) y no aplica a una ficha servida como HTML. La conformidad de procesador (4.1, 7, 8, 10) queda fuera, salvo la recomendación a los autores de 4.1 (q04). La sintaxis de los atributos (sección 5) no lleva término de naturaleza: la recomendación de usarlos conforme a RDFa Core la da HTML+RDFa (w3c-html-rdfa#q02).",
   "quotes": [

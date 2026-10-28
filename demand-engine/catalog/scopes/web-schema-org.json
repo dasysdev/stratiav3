@@ -1,0 +1,161 @@
+{
+  "id": "web-schema-org",
+  "scope": "Web Schema.org",
+  "version": "0.1",
+  "decisions": [
+    "D-145",
+    "D-147",
+    "D-152",
+    "D-155"
+  ],
+  "note": "Ficha del ámbito Web Schema.org (D-155): se compone con el modelo de demanda, que es uno, para obtener las unidades RI × ámbito. La pertinencia es por excepción; la localización orienta al auditor, no cierra la búsqueda ni decide la pertinencia.",
+  "pertinence": {
+    "default": "pertinente",
+    "exceptions": [],
+    "note": "Sin excepciones: todas las entidades de los requisitos (producto, variante, oferta, entrega, condiciones, vendedor) tienen tipo en Schema.org (Product, ProductGroup, Offer, OfferShippingDetails y ShippingService, MerchantReturnPolicy, Organization), y lo que no tiene propiedad propia puede publicarse en description o additionalProperty. La falta de una propiedad no es motivo (D-155)."
+  },
+  "localization": {
+    "from": [
+      "gen.json",
+      "google-search.json"
+    ],
+    "note": "Del catálogo: el apoyo de Google Search de cada aportación de la capa general y, en los bloques de categoría, el de los atributos de Shopify que cita el requisito. Aquí, las propiedades que no son apoyo de demanda (exigidas o del mínimo de representación) y localizan una aportación de la capa general.",
+    "properties": [
+      {
+        "source": "google-search-merchant-listing:Product.name@2026-10-27",
+        "requirement": "gen/01",
+        "contribution": "denominación del producto"
+      },
+      {
+        "source": "google-search-product-variants:ProductGroup.name@2026-10-27",
+        "requirement": "gen/01",
+        "contribution": "denominación del producto"
+      },
+      {
+        "source": "google-search-merchant-listing:Product.sku@2026-10-27",
+        "requirement": "gen/03",
+        "contribution": "referencia interna del vendedor"
+      },
+      {
+        "source": "google-search-merchant-listing:Offer.price@2026-10-27",
+        "requirement": "gen/04",
+        "contribution": "precio con impuestos incluidos"
+      },
+      {
+        "source": "google-search-merchant-listing:Offer.priceCurrency@2026-10-27",
+        "requirement": "gen/04",
+        "contribution": "precio con impuestos incluidos"
+      },
+      {
+        "source": "google-search-merchant-listing:Offer.priceSpecification@2026-10-27",
+        "requirement": "gen/04",
+        "contribution": "precio con impuestos incluidos"
+      },
+      {
+        "source": "google-search-merchant-listing:UnitPriceSpecification.referenceQuantity@2026-10-27",
+        "requirement": "gen/04",
+        "contribution": "precio por unidad de medida"
+      },
+      {
+        "source": "google-search-product-snippet:AggregateOffer.lowPrice@2026-10-27",
+        "requirement": "gen/04",
+        "contribution": "precio mínimo y máximo de las variantes u ofertas que agrupa"
+      },
+      {
+        "source": "google-search-merchant-listing:UnitPriceSpecification.priceType@2026-10-27",
+        "requirement": "gen/16",
+        "contribution": "descripción de la promoción o el descuento vigente"
+      },
+      {
+        "source": "google-search-merchant-listing:OfferShippingDetails.shippingRate@2026-10-27",
+        "requirement": "gen/25",
+        "contribution": "gastos de envío a la Península"
+      },
+      {
+        "source": "google-search-merchant-listing:OfferShippingDetails.shippingRate@2026-10-27",
+        "requirement": "gen/25",
+        "contribution": "gastos de envío a Baleares"
+      },
+      {
+        "source": "google-search-merchant-listing:OfferShippingDetails.shippingRate@2026-10-27",
+        "requirement": "gen/25",
+        "contribution": "gastos de envío a Canarias"
+      },
+      {
+        "source": "google-search-merchant-listing:OfferShippingDetails.shippingRate@2026-10-27",
+        "requirement": "gen/25",
+        "contribution": "gastos de envío a Ceuta y Melilla"
+      },
+      {
+        "source": "google-search-merchant-listing:OfferShippingDetails.shippingDestination@2026-10-27",
+        "requirement": "gen/25",
+        "contribution": "zonas de España a las que se envía"
+      },
+      {
+        "source": "google-search-merchant-listing:OfferShippingDetails.deliveryTime@2026-10-27",
+        "requirement": "gen/08",
+        "contribution": "plazo de entrega a cada zona"
+      },
+      {
+        "source": "google-search-merchant-listing:MerchantReturnPolicy.returnPolicyCategory@2026-10-27",
+        "requirement": "gen/11",
+        "contribution": "existencia del derecho de desistimiento"
+      },
+      {
+        "source": "google-search-return-policy:MerchantReturnPolicy.returnPolicyCategory@2026-10-27",
+        "requirement": "gen/11",
+        "contribution": "existencia del derecho de desistimiento"
+      },
+      {
+        "source": "google-search-merchant-listing:MerchantReturnPolicy.merchantReturnDays@2026-10-27",
+        "requirement": "gen/11",
+        "contribution": "plazo para desistir o devolver"
+      },
+      {
+        "source": "google-search-return-policy:MerchantReturnPolicy.merchantReturnDays@2026-10-27",
+        "requirement": "gen/11",
+        "contribution": "plazo para desistir o devolver"
+      },
+      {
+        "source": "google-search-return-policy:MerchantReturnPolicy.merchantReturnLink@2026-10-27",
+        "requirement": "gen/11",
+        "contribution": "canal o procedimiento de devolución"
+      },
+      {
+        "source": "google-search-merchant-listing:MerchantReturnPolicy.returnShippingFeesAmount@2026-10-27",
+        "requirement": "gen/26",
+        "contribution": "indicación de si el comprador asume el coste de la devolución"
+      },
+      {
+        "source": "google-search-return-policy:MerchantReturnPolicy.returnShippingFeesAmount@2026-10-27",
+        "requirement": "gen/26",
+        "contribution": "indicación de si el comprador asume el coste de la devolución"
+      },
+      {
+        "source": "google-search-organization:Organization.name@2026-10-27",
+        "requirement": "gen/13",
+        "contribution": "nombre comercial del vendedor"
+      },
+      {
+        "source": "google-search-review-snippet:AggregateRating.ratingValue@2026-10-27",
+        "requirement": "gen/15",
+        "contribution": "valoración media de las opiniones"
+      },
+      {
+        "source": "google-search-review-snippet:AggregateRating.reviewCount@2026-10-27",
+        "requirement": "gen/15",
+        "contribution": "número de opiniones"
+      },
+      {
+        "source": "google-search-review-snippet:AggregateRating.ratingCount@2026-10-27",
+        "requirement": "gen/15",
+        "contribution": "número de opiniones"
+      },
+      {
+        "source": "google-search-review-snippet:Review.reviewRating@2026-10-27",
+        "requirement": "gen/15",
+        "contribution": "opiniones de compradores"
+      }
+    ]
+  }
+}

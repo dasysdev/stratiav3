@@ -16,8 +16,9 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+from capture.files import now, read_json, write_json
+
 from .. import ROOT
-from ..capture.files import now, read_json, write_json
 from .store import SeedSet, StoreError, var_root
 from .text import norm
 

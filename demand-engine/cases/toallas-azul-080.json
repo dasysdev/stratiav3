@@ -4,7 +4,7 @@
   "retailer": "burritoblanco.com",
   "vertical": "textil hogar",
   "split": "dev",
-  "page": "var/pages/toallas-azul-080.html",
+  "page": "capture/var/pages/toallas-azul-080.html",
   "source": "docs/20-methods/product-taxonomy/cases.md#juego-de-toallas",
   "rules": [
     "D-023",

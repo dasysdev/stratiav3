@@ -27,7 +27,8 @@ import os
 import sys
 from pathlib import Path
 
-from ..capture.files import read_json, write_json
+from capture.files import read_json, write_json
+
 from . import classify, control, store
 from .store import STATUS, SeedSet, StoreError, var_root
 from .text import norm
@@ -46,7 +47,7 @@ def shown(path: Path) -> Path:
 
 def browser():
     """The engine's own Chrome: separate profile and port from the capture engine's."""
-    from ..capture.browser import Browser  # websockets: only in the container
+    from capture.browser import Browser  # websockets: only in the container
     profile = Path(os.environ.get("PAA_PROFILE") or var_root() / "chrome-profile")
     return Browser(profile, port=int(os.environ.get("PAA_CDP_PORT", "9224")))
 

@@ -9,7 +9,7 @@
     "google:2188@2021-09-21",
     "amazon-ptd:FOOD@2026-10-24",
     "amazon-btg:6372259031@2026-10-24",
-    "ley:ES-RD-863/2003@2003-07-04"
+    "ley:ES-RD-863/2003@2025-11-13"
   ],
   "requirements": [
     {
@@ -47,17 +47,17 @@
     },
     {
       "id": "cat.confituras-y-gelatinas/02",
-      "question": "¿Con cuántos gramos de fruta por cada 100 g se ha preparado y cuál es su contenido total de azúcares?",
-      "dimension": "contenido de fruta y de azúcares",
+      "question": "¿Con cuántos gramos de fruta por cada 100 g se ha preparado?",
+      "dimension": "contenido de fruta",
       "entity": "producto",
       "trait": "material",
       "vote": "principal",
       "origin": "normativa",
       "sources": [
-        "ley:ES-RD-863/2003@2003-07-04"
+        "ley:ES-RD-863/2003@2025-11-13"
       ],
       "applicability": "si es una confitura, jalea o mermelada de frutas en el ámbito de la norma de calidad",
-      "rationale": "La norma de calidad de confituras, jaleas y mermeladas obliga a indicar el contenido de fruta y el de azúcares totales; es el criterio con el que se comparan calidades dentro de la clase.",
+      "rationale": "La norma de calidad de confituras, jaleas y mermeladas obliga a indicar el contenido de fruta («elaborado con … gramos de fruta por 100 gramos»); es el criterio con el que se comparan calidades dentro de la clase. Los azúcares los pide la información nutricional de cat.alimentos/04.",
       "seed_importance": "principal",
       "importance": "principal",
       "rule": "imp:material@fb-2",
@@ -67,22 +67,8 @@
           "component": "gramos de fruta por cada 100 g",
           "origin": "referencias",
           "support": [
-            "ley:ES-RD-863/2003@2003-07-04"
+            "ley:ES-RD-863/2003@2025-11-13"
           ]
-        },
-        {
-          "contribution": "contenido total de azúcares por cada 100 g",
-          "component": "contenido total de azúcares",
-          "origin": "referencias",
-          "support": [
-            "ley:ES-RD-863/2003@2003-07-04"
-          ]
-        },
-        {
-          "contribution": "información nutricional con la cantidad de azúcares",
-          "component": "contenido total de azúcares",
-          "origin": "inferida",
-          "support": []
         }
       ]
     },

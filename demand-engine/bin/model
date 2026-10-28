@@ -3,7 +3,8 @@
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+ROOT = Path(__file__).resolve().parents[2]
+sys.path[:0] = [str(ROOT / "demand-engine/src"), str(ROOT / "references/src")]
 from demand_engine.demand.model import main  # noqa: E402
 
 main()

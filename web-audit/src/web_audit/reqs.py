@@ -18,17 +18,22 @@ Usage:
   reqs section SOURCE [SECTION]    sections of the pinned version of a source, or the text of one
                                    as the check reads it (where quotes are copied from)
 
-REFERENCE_DIR overrides the reference directory (tests); REFS_DIR and SOURCES_FILE, as in refs.
+The frozen sources, their registry and the pinned versions are those of references/ (D-149): web-audit
+checks the sources whose `uses` includes it, and reads their sections with references.read.
+
+REFERENCE_DIR overrides the reference directory (tests); REFS_DIR and SOURCES_FILE, as in references.
 """
 import argparse
 import json
 import os
 import re
 import sys
-from functools import lru_cache
 from pathlib import Path
 
-from . import ROOT, refs
+from references.read import citable, headings, section_text, vocabulary
+from references.store import RefsError, pins, sources, sources_file
+
+from . import ROOT
 
 REFERENCE = Path(os.environ.get("REFERENCE_DIR") or ROOT / "reference")
 
@@ -50,12 +55,7 @@ REQUIREMENT_KEYS = ({"id", "scope", "spec", "condition", "nature", "quotes", "me
                      "applicability", "not_evaluable"}, {"rationale"})
 QUOTE_ID = re.compile(r"^q\d{2,}$")
 QUOTE_REF = re.compile(r"^([a-z0-9]+(?:-[a-z0-9]+)*)#(q\d{2,})$")
-HEADING = re.compile(r"^(#{1,6}) (.*?)(?: \{#([^}]*)\})?$")
 SENTENCE_BREAK = re.compile(r"[.!?]\s+\S")
-
-
-class ReqsError(LookupError):
-    pass
 
 
 def fail(msg: str) -> None:
@@ -65,61 +65,6 @@ def fail(msg: str) -> None:
 
 def normalized(text: str) -> str:
     return " ".join(text.split())
-
-
-# --- Sections of a frozen source ----------------------------------------------
-
-def headings(text: str) -> list:
-    """(line, level, title, anchor) of each heading of a text.md, outside code blocks."""
-    out, code = [], False
-    for i, line in enumerate(text.splitlines()):
-        if line.startswith("```"):
-            code = not code
-        elif not code and (m := HEADING.match(line)):
-            out.append((i, len(m[1]), m[2], m[3]))
-    return out
-
-
-def document_section(text: str, section: str) -> str:
-    """A heading and everything under it, up to the next heading of the same or a higher level."""
-    heads = headings(text)
-    found = [h for h in heads if (h[3] == section[1:] if section.startswith("#") else h[2] == section)]
-    if not found:
-        raise ReqsError(f"no existe la sección {section}")
-    if len(found) > 1:
-        raise ReqsError(f"hay {len(found)} encabezados «{section}»; nombra la sección por su ancla")
-    line, level = found[0][:2]
-    end = next((h[0] for h in heads if h[0] > line and h[1] <= level), None)
-    return "\n".join(text.splitlines()[line:end])
-
-
-@lru_cache(maxsize=None)
-def vocabulary(path: Path) -> dict:
-    """Definition (rdfs:comment) of each term of a vocabulary in JSON-LD."""
-    graph = json.loads(path.read_text(encoding="utf-8")).get("@graph", [])
-    return {node["@id"]: refs.literal(node.get("rdfs:comment", "")) for node in graph if "@id" in node}
-
-
-def citable(source: str, kind: str) -> Path:
-    """The file of the pinned version of `source` that quotes come from."""
-    folder = refs.pinned(source)
-    if kind == "schemaorg":
-        return folder / refs.VOCABULARY
-    names = [f["path"] for f in json.loads((folder / "MANIFEST.json").read_text(encoding="utf-8"))["files"]]
-    name = "text.md" if "text.md" in names else names[0]
-    if name != "text.md" and Path(name).suffix not in (".jsonld", ".json"):
-        raise ReqsError(f"{source}: {name} no tiene texto citable")
-    return folder / name
-
-
-def section_text(source: str, kind: str, section: str) -> str:
-    path = citable(source, kind)
-    if path.name == "text.md":
-        return document_section(path.read_text(encoding="utf-8"), section)
-    terms = vocabulary(path)
-    if section not in terms:
-        raise ReqsError(f"no existe el término {section} en {path.name}")
-    return terms[section]
 
 
 # --- Check --------------------------------------------------------------------
@@ -155,7 +100,7 @@ def check_card(path: Path, card: dict, registry: dict, pinned: dict) -> list:
     if source != path.stem:
         errors.append(f"{where}: source «{source}» no coincide con el nombre del fichero")
     if source not in registry:
-        return errors + [f"{where}: «{source}» no está en {refs.SOURCES_FILE.name}"]
+        return errors + [f"{where}: «{source}» no es una fuente de web-audit (uses en {sources_file()})"]
     cls = card.get("class")
     if cls not in CLASSES:
         errors.append(f"{where}: class «{cls}» no es una clase del canon ({', '.join(CLASSES)})")
@@ -165,10 +110,10 @@ def check_card(path: Path, card: dict, registry: dict, pinned: dict) -> list:
         errors.append(f"{where}: level solo corresponde a una especificación aplicable")
     pin = pinned.get(source)
     if not pin:
-        return errors + [f"{where}: {source} no tiene versión fijada (web-audit/bin/refs fetch {source})"]
+        return errors + [f"{where}: {source} no tiene versión fijada (references/bin/refs fetch {source})"]
     if card.get("version") != pin:
         errors.append(f"{where}: cita la versión {card.get('version')} y la fijada es {pin}; revisa las "
-                      f"citas (refs diff {source} {card.get('version')} {pin}) y actualiza version")
+                      f"citas (references/bin/refs diff {source} {card.get('version')} {pin}) y actualiza version")
     quotes = card.get("quotes")
     if not isinstance(quotes, list):
         return errors + [f"{where}: quotes ha de ser una lista"]
@@ -187,7 +132,7 @@ def check_card(path: Path, card: dict, registry: dict, pinned: dict) -> list:
         seen.add(qid)
         try:
             found = section_text(source, registry[source]["kind"], quote["section"])
-        except (ReqsError, refs.RefsError, OSError, ValueError) as e:
+        except (RefsError, OSError, ValueError) as e:
             errors.append(f"{at}: {e}")
             continue
         if normalized(quote["text"]) not in normalized(found):
@@ -256,7 +201,8 @@ def check_requirement(where: str, req: dict, level: str, cards: dict) -> list:
 
 def check() -> tuple:
     """(errors, summary) of the whole reference."""
-    registry, pinned = refs.sources(), refs.pins()
+    registry = {sid: s for sid, s in sources().items() if "web-audit" in s["uses"]}
+    pinned = pins("web-audit")
     errors, cards = [], {}
     for path in sorted((REFERENCE / "cards").glob("*.json")):
         card, problems = load(path)
@@ -316,9 +262,12 @@ def cmd_check(args) -> None:
 
 
 def cmd_section(args) -> None:
-    registry = refs.sources()
+    try:
+        registry = sources()
+    except RefsError as e:
+        fail(str(e))
     if args.source not in registry:
-        fail(f"fuente desconocida: {args.source} (ver {refs.SOURCES_FILE.name})")
+        fail(f"fuente desconocida: {args.source} (ver {sources_file()})")
     kind = registry[args.source]["kind"]
     try:
         if args.section:
@@ -330,7 +279,7 @@ def cmd_section(args) -> None:
             return
         for _, level, title, anchor in headings(path.read_text(encoding="utf-8")):
             print("  " * (level - 1) + (f"#{anchor}  " if anchor else "") + title)
-    except (ReqsError, refs.RefsError, OSError, ValueError) as e:
+    except (RefsError, OSError, ValueError) as e:
         fail(str(e))
 
 

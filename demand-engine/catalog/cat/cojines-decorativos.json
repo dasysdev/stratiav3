@@ -9,7 +9,7 @@
     "google:4454@2021-09-21",
     "amazon-ptd:PILLOW@2026-10-24",
     "amazon-btg:2844244031@2026-10-24",
-    "ley:UE-1007/2011-16.1@2011-10-18"
+    "ley:UE-1007/2011-16.1@2018-02-15"
   ],
   "version": "4",
   "status": "compilado",
@@ -135,7 +135,7 @@
       "importance": "principal",
       "origin": "normativa",
       "sources": [
-        "ley:UE-1007/2011-16.1@2011-10-18",
+        "ley:UE-1007/2011-16.1@2018-02-15",
         "shopify-attr:cover-material",
         "amazon-ptd-prop:PILLOW.fabric_type"
       ],
@@ -158,7 +158,7 @@
           "component": "composición en fibras",
           "origin": "referencias",
           "support": [
-            "ley:UE-1007/2011-16.1@2011-10-18",
+            "ley:UE-1007/2011-16.1@2018-02-15",
             "amazon-ptd-prop:PILLOW.fabric_type"
           ]
         },
@@ -167,7 +167,7 @@
           "component": "composición en fibras",
           "origin": "referencias",
           "support": [
-            "ley:UE-1007/2011-16.1@2011-10-18",
+            "ley:UE-1007/2011-16.1@2018-02-15",
             "amazon-ptd-prop:PILLOW.fabric_type"
           ]
         }

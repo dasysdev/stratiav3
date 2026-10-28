@@ -4,7 +4,7 @@
   "retailer": "burritoblanco.com",
   "vertical": "textil hogar",
   "split": "dev",
-  "page": "var/pages/funda-nordica-salvia-642.html",
+  "page": "capture/var/pages/funda-nordica-salvia-642.html",
   "source": "docs/20-methods/product-taxonomy/cases.md#juego-de-funda-nórdica",
   "rules": [
     "D-023",

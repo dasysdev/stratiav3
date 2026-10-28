@@ -20,8 +20,10 @@ relevant and writing the questions, their trait and the vote is the drafting ste
 import json
 import sys
 
+from references.read import enum_values, google_mapping, ptd, shopify_attributes, shopify_categories, short
+from references.store import RefsError, pins
+
 from . import ROOT
-from .refs import RefsError, enum_values, google_mapping, pins, ptd, shopify_attributes, shopify_categories, short
 
 SKIP_PTD = {
     "product_description", "bullet_point", "generic_keyword", "item_name", "brand", "part_number", "model_number",
@@ -66,7 +68,7 @@ def plan(ids: list, extra_map: dict = None) -> dict:
     english = {k: (en, [g for g, _ in outputs]) for k, (en, outputs) in google_mapping().items()}
     amazon = json.loads((ROOT / "catalog/amazon-map.json").read_text(encoding="utf-8"))["map"]
     amazon.update(extra_map or {})
-    versions = pins()
+    versions = pins("demand-engine")
     blocks = {}
     for cid in ids:
         if cid not in cats:

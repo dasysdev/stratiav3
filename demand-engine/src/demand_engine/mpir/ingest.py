@@ -7,7 +7,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from ..capture.files import html_part, now, write_evidence
+from capture.files import html_part, now, write_evidence
+
 from .store import Study, StoreError
 
 

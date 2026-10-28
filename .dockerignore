@@ -4,8 +4,12 @@
 !pyproject.toml
 !uv.lock
 !env/docker/
+!capture/pyproject.toml
+!capture/src/
 !demand-engine/pyproject.toml
 !demand-engine/src/
+!references/pyproject.toml
+!references/src/
 !web-audit/pyproject.toml
 !web-audit/src/
 **/.env

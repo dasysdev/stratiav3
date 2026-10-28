@@ -4,7 +4,7 @@
   "retailer": "grupotodoplano.com",
   "vertical": "mobiliario",
   "split": "dev",
-  "page": "var/pages/sofa-cama-luna.html",
+  "page": "capture/var/pages/sofa-cama-luna.html",
   "source": "docs/20-methods/product-taxonomy/cases.md#sofá-cama",
   "rules": [
     "D-024",

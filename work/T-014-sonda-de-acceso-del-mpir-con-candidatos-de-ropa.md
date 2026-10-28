@@ -1,9 +1,10 @@
 ---
 id: T-014
 title: Sonda de acceso del MPIR con candidatos de ropa de cama
-status: pendiente
+status: bloqueada
 depends: T-013
 milestone: codigo
+reason: Aparcada por D-095 (MPIR aparcado); retomarlo es una decisión nueva
 created: 2026-10-25
 ---
 

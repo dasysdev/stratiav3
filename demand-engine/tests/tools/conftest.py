@@ -1,13 +1,18 @@
-"""A tiny frozen reference tree (pinned versions of every source) in a temporary directory."""
+"""A tiny frozen reference tree (pinned versions of every source of demand-engine) in a temporary
+REFS_DIR, with its registry (SOURCES_FILE)."""
 import gzip
 import json
 
 import pytest
 
-from demand_engine import refs
+from references import read
 
 G = "gid://shopify/TaxonomyCategory/"
-CACHED = (refs.shopify_categories, refs.shopify_attributes, refs.google_mapping, refs.google_names)
+CACHED = (read.shopify_categories, read.shopify_attributes, read.google_mapping, read.google_names)
+SOURCES = [{"id": sid, "kind": kind, "title": sid, "url": "https://example.org/" + sid, "uses": ["demand-engine"]}
+           for sid, kind in (("shopify", "shopify-taxonomy"), ("shopify-google", "shopify-google"),
+                             ("google", "google-taxonomy"), ("amazon-btg", "amazon-browse-tree"),
+                             ("amazon-ptd", "amazon-ptd"))]
 
 
 def write_gz(path, obj) -> None:
@@ -58,8 +63,10 @@ def fake_refs(tmp_path, monkeypatch):
     }}), encoding="utf-8")
     (root / "pins.json").write_text(json.dumps({"shopify": "v1", "shopify-google": "v1", "google": "g1",
                                                 "amazon-ptd": "p1", "amazon-btg": "b1"}), encoding="utf-8")
-    monkeypatch.setattr(refs, "REFS", root)
-    monkeypatch.setattr(refs, "PINS", root / "pins.json")
+    (tmp_path / "sources.json").write_text(json.dumps({"systems": {"demand-engine": {"review": "entrenamiento"}},
+                                                      "sources": SOURCES}), encoding="utf-8")
+    monkeypatch.setenv("REFS_DIR", str(root))
+    monkeypatch.setenv("SOURCES_FILE", str(tmp_path / "sources.json"))
     for fn in CACHED:
         fn.cache_clear()
     yield root

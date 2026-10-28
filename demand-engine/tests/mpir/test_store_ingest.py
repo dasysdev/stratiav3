@@ -5,7 +5,7 @@ from email.message import EmailMessage
 
 import pytest
 
-from demand_engine.capture.files import html_part, write_evidence
+from capture.files import html_part, write_evidence
 from demand_engine.mpir.ingest import ingest
 from demand_engine.mpir.store import Study, StoreError
 

@@ -2,7 +2,7 @@
 id: T-056
 title: Incluir en el motor de demanda los requisitos que salen de las referencias de datos estructurados (ámbito Web Schema.org)
 status: pendiente
-depends: T-055
+depends: T-055, T-061
 milestone:
 created: 2026-10-28
 ---
@@ -19,3 +19,5 @@ Que el motor de demanda (demand-engine) use como fuente las propiedades que los 
 - [ ] Canon actualizado con /docs-update si el diseño introduce una vía o un origen nuevo
 
 ## Notas
+
+- 2026-10-28 Reorganización de referencias (T-059 a T-061): las propiedades de Google Search y su versión se leen de references (lector de T-061), con la versión fijada compartida con web-audit, y se citan fuente:Tipo.propiedad@versión. Qué recomendados siguen siendo técnicos (mínimo D-147, formación estructural D-148) lo fija T-055; cómo lo recibe demand-engine (el registro de retirados como contrato entre los dos sistemas, o el canon aplicado en el mapa y contrastado con la referencia técnica) es parte del diseño de OQ-76 que se acuerda con el usuario.

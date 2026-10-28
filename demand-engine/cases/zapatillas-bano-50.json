@@ -4,7 +4,7 @@
   "retailer": "burritoblanco.com",
   "vertical": "calzado",
   "split": "dev",
-  "page": "var/pages/zapatillas-bano-50.html",
+  "page": "capture/var/pages/zapatillas-bano-50.html",
   "source": "docs/20-methods/product-taxonomy/cases.md#zapatillas-de-baño",
   "rules": [
     "D-024",

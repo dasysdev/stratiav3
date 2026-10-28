@@ -26,10 +26,11 @@ import time
 import urllib.parse
 from datetime import datetime, timezone
 
-from ..capture import detect
-from ..capture.browser import Page
-from ..capture.cdp import CdpError
-from ..capture.visit import OUTER_HTML
+from capture import detect
+from capture.browser import Page
+from capture.cdp import CdpError
+from capture.visit import OUTER_HTML
+
 from .text import norm
 
 NORM_JS = r"""s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')

@@ -19,6 +19,10 @@ Usage:
   model hints check                   check the catalog of assessment hints (fields, id, origin, destination,
                                       same destination and property) and the comparison marks (D-136, D-139)
   model hints find REQ_ID [...]       hints of each requirement by its tags (type, source, id), code only (D-134)
+  model refs                          citations of the catalog whose version is not the pinned one in references
+                                      (refs, sources, support, hints by source), with the citations to sources
+                                      without a registry and without a version apart;
+                                      a citation of a law (ley:) must name an article and apartado of its version
 
 The classifier decides the composition, specializations, inferred questions, application
 and votes (importance and, from rulebook v3, trait), and says which contribution of the
@@ -34,8 +38,9 @@ import sys
 from contextlib import contextmanager
 from pathlib import Path
 
-from ..refs import pins
-from . import hints, resolving
+from references.store import pins
+
+from . import citations, hints, resolving
 from .catalog import (CAT_DIR, COMPILED, ROOT, DOUBTFUL, ESP_ORDER, EMPTY, LEVELS, NO_RULE, NOT_RELEVANT, QUEUE,
                       RUNTIME_DIR, UNCOMPILED, VOTES, blocks_by_node, category_name, chain, class_nodes_for, depth,
                       load_blocks, load_empty, load_gen, load_resolving, load_rules, load_traits, protected, read_json,
@@ -374,7 +379,7 @@ def assemble(out_path: Path) -> dict:
         + [r["id"] for r in inferred if r["doubtful"]]
     model = {
         "case": out.get("case"), "product": out.get("product"), "url": out.get("url"),
-        "engine": {"rulebook": out.get("rulebook"), "rules": rules.get("version"), "refs": pins(),
+        "engine": {"rulebook": out.get("rulebook"), "rules": rules.get("version"), "refs": pins("demand-engine"),
                    "assembled": datetime.date.today().isoformat()},
         "key": key, "name": name, "offer": offer,
         "composition": {"classes": classes, "aliases": aliases},
@@ -577,8 +582,11 @@ def cmd_assemble(path: Path) -> None:
 
 def main() -> None:
     args = sys.argv[1:]
-    if not args or args[0] not in ("blocks", "register", "check", "assemble", "show", "hints"):
+    if not args or args[0] not in ("blocks", "register", "check", "assemble", "show", "hints", "refs"):
         sys.exit(__doc__)
+    if args == ["refs"]:
+        citations.cmd_check()
+        return
     if args[0] == "hints" and args[1:] == ["check"]:
         hints.cmd_check()
         return

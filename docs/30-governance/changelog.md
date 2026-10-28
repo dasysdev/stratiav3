@@ -14,6 +14,27 @@ Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módul
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
 
+## 2026-10-28 — Sistema capture: motor de captura y almacén común de fichas congeladas · aplicado
+
+- **canon** — `INTAKE 2026-10-28-capture-system` (decisión del usuario, estudio T-063, alternativa B; T-066):
+  - el motor de captura y el almacén de fichas congeladas pasan de demand-engine a un sistema propio, `capture/`, compartido por demand-engine, web-audit y la futura auditoría para evaluar la misma instantánea; la interpretación sigue en cada sistema; un ID que ya tiene ficha se rechaza y nunca se sustituye una ficha congelada ([D-150](decisions.md#d-150), que enmienda D-046 en dónde vive el motor).
+  - Módulos: [model-training](../10-model/model-training.md) 1.21 (motor de captura); glosario (nueva entrada capture; motor de captura).
+- **editorial** — Los enlaces «motor de captura» de [sampling-capture](../20-methods/mpir/sampling-capture.md) 1.5 (dos), OQ-14 e I-18 apuntan al README de `capture/`. Sin cambio de significado.
+- **gobernanza** — D-046 anotada en la tabla; mapa de `CLAUDE.md` (capture/ y la copia del motor en demand-engine hasta el corte). Fuera de `docs/`: T-066 (construcción, sin mover datos ni consumidores) y T-067 (corte sin volver a capturar).
+
+## 2026-10-28 — Versión de las citas de normas en el catálogo · aplicado
+
+- **editorial** — Cambio descrito por el usuario en T-062 (custodia de las normas en references): las normas citadas por el catálogo de demand-engine se registran en references y se versionan por la fecha con que la fuente oficial nombra el texto; el catálogo pasa sus citas a la versión fijada cuando el pasaje citado no cambia.
+  - Módulos: [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md) 1.32 (referencias del bloque: la versión es la fijada en references, conforme a [D-149](decisions.md#d-149); composición textil: `ley:UE-1007/2011-16.1@2018-02-15`, consolidada con el art. 16.1 igual al original). Sin cambio de concepto, escala ni indicador.
+- **gobernanza** — La cita de [I-42](issues.md#i-42) con la versión antigua (T-050) es histórica y no se toca. Fuera de `docs/`: T-062; la supresión del apartado 8.4 del RD 863/2003 (RD 1026/2025) queda en T-064.
+
+## 2026-10-28 — Sistema references: custodia común de las fuentes externas · aplicado
+
+- **canon** — `INTAKE 2026-10-28-references-system` (decisión del usuario, reorganización de las referencias, opción A; T-059):
+  - las fuentes externas congeladas por versión pasan de demand-engine y web-audit a un sistema propio, `references/` (registro con `uses`, versiones, una versión fijada, diff y lectores); la interpretación sigue en cada sistema; la referencia técnica (fichas y requisitos) sigue en `web-audit/reference/` ([D-149](decisions.md#d-149), que enmienda D-133).
+  - Módulos: [evaluation-scopes](../10-model/evaluation-scopes.md) 1.6 (regla 4 de las fuentes); glosario (nueva entrada references; web-audit).
+- **gobernanza** — D-133 anotada en la tabla. Fuera de `docs/`: T-059 (construcción), T-060 (corte) y T-061.
+
 ## 2026-10-28 — Datos del mínimo de representación en Web Schema.org y formación estructural · aplicado
 
 - **canon** — `INTAKE 2026-10-28-minimum-members-structural-formation` (preguntas del usuario sobre lo obligatorio y lo condicional de Google y sobre las estructuras opcionales incluidas; propuesta conjunta aprobada):

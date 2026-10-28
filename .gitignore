@@ -6,14 +6,17 @@ tmp
 .env
 
 # demand-engine: en git va lo que gobierna el sistema y los resultados del entrenamiento.
-# var/ es desechable (salida de la ejecución, estado, datos de terceros, referencias);
+# var/ es desechable (salida de la ejecución, estado y datos de terceros);
 # git no es una copia de seguridad. Ver demand-engine/README.md.
 demand-engine/var/
 demand-engine/catalog/rules/importance.candidate.json
 demand-engine/catalog/REVIEW.md
 
-# web-audit: var/ es desechable (fuentes congeladas de la referencia técnica). Ver web-audit/README.md.
-web-audit/var/
+# capture: var/ es desechable y no tiene copia (fichas congeladas y perfil de Chrome). Ver capture/README.md.
+capture/var/
+
+# references: var/ es desechable (fuentes externas congeladas y pins.json). Ver references/README.md.
+references/var/
 
 # Código Python (el corpus del MPIR va en demand-engine/var/mpir/)
 __pycache__/

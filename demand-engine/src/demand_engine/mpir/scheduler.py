@@ -8,11 +8,12 @@ import threading
 import time
 from datetime import datetime, timedelta
 
-from ..capture.browser import Browser
-from ..capture.crawl import SiteRun, crawl, run_parallel
-from ..capture.legitimacy import check_site
-from ..capture.pacing import Pacing
-from ..capture.robots import Robots
+from capture.browser import Browser
+from capture.crawl import SiteRun, crawl, run_parallel
+from capture.legitimacy import check_site
+from capture.pacing import Pacing
+from capture.robots import Robots
+
 from .store import STATUS, Study, now
 
 

@@ -9,9 +9,9 @@
     "google:3530@2021-09-21",
     "amazon-ptd:PET_FOOD@2026-10-24",
     "amazon-btg:13441954031@2026-10-24",
-    "ley:CE-767/2009-11.3@2009-09-01",
-    "ley:CE-767/2009-15.a@2009-09-01",
-    "ley:CE-767/2009-17.1.f@2009-09-01"
+    "ley:CE-767/2009-11.3@2018-12-26",
+    "ley:CE-767/2009-15.a@2018-12-26",
+    "ley:CE-767/2009-17.1.f@2018-12-26"
   ],
   "version": "4",
   "status": "compilado",
@@ -541,8 +541,8 @@
       "importance": "principal",
       "origin": "normativa",
       "sources": [
-        "ley:CE-767/2009-11.3@2009-09-01",
-        "ley:CE-767/2009-15.a@2009-09-01"
+        "ley:CE-767/2009-11.3@2018-12-26",
+        "ley:CE-767/2009-15.a@2018-12-26"
       ],
       "applicability": "universal",
       "rationale": "Cuestión inferida (criterio 5; añadido provisional hasta su aprobación, D-041): ninguna referencia del esqueleto la recoge (ni Shopify ni PET_FOOD). Decide si la oferta puede ser la alimentación única del perro y si es comparable con otra; un alimento complementario no se compara con uno completo. Apoyo normativo: Reglamento (CE) 767/2009, art. 11.3 (en la venta a distancia, las indicaciones obligatorias del etiquetado deben figurar antes de la celebración del contrato), art. 15.a (tipo de pienso: completo o complementario).",
@@ -554,8 +554,8 @@
           "component": "completo o complementario",
           "origin": "referencias",
           "support": [
-            "ley:CE-767/2009-15.a@2009-09-01",
-            "ley:CE-767/2009-11.3@2009-09-01"
+            "ley:CE-767/2009-15.a@2018-12-26",
+            "ley:CE-767/2009-11.3@2018-12-26"
           ]
         },
         {
@@ -575,8 +575,8 @@
       "importance": "principal",
       "origin": "normativa",
       "sources": [
-        "ley:CE-767/2009-11.3@2009-09-01",
-        "ley:CE-767/2009-17.1.f@2009-09-01"
+        "ley:CE-767/2009-11.3@2018-12-26",
+        "ley:CE-767/2009-17.1.f@2018-12-26"
       ],
       "applicability": "universal",
       "rationale": "Cuestión inferida (criterio 5; añadido provisional hasta su aprobación, D-041): ninguna referencia del esqueleto la recoge (nutritional_info de PET_FOOD es el tamaño de la ración). Es la base para comparar el valor nutricional entre ofertas y para fundamentar las declaraciones nutricionales (/09). Apoyo normativo: Reglamento (CE) 767/2009, art. 11.3 (en la venta a distancia, las indicaciones obligatorias del etiquetado deben figurar antes de la celebración del contrato), art. 17.1.f (componentes analíticos de los piensos compuestos). Redacción con D-060 (T-031, regla 4): el aporte energético no lo exige el Reglamento 767/2009 (11.3, 17.1.f) ni lo recoge otra fuente del requisito: sale como inferida.",
@@ -588,8 +588,8 @@
           "component": "composición analítica",
           "origin": "referencias",
           "support": [
-            "ley:CE-767/2009-17.1.f@2009-09-01",
-            "ley:CE-767/2009-11.3@2009-09-01"
+            "ley:CE-767/2009-17.1.f@2018-12-26",
+            "ley:CE-767/2009-11.3@2018-12-26"
           ]
         },
         {
@@ -597,8 +597,8 @@
           "component": "composición analítica",
           "origin": "referencias",
           "support": [
-            "ley:CE-767/2009-17.1.f@2009-09-01",
-            "ley:CE-767/2009-11.3@2009-09-01"
+            "ley:CE-767/2009-17.1.f@2018-12-26",
+            "ley:CE-767/2009-11.3@2018-12-26"
           ]
         },
         {
@@ -606,8 +606,8 @@
           "component": "composición analítica",
           "origin": "referencias",
           "support": [
-            "ley:CE-767/2009-17.1.f@2009-09-01",
-            "ley:CE-767/2009-11.3@2009-09-01"
+            "ley:CE-767/2009-17.1.f@2018-12-26",
+            "ley:CE-767/2009-11.3@2018-12-26"
           ]
         },
         {
@@ -615,8 +615,8 @@
           "component": "composición analítica",
           "origin": "referencias",
           "support": [
-            "ley:CE-767/2009-17.1.f@2009-09-01",
-            "ley:CE-767/2009-11.3@2009-09-01"
+            "ley:CE-767/2009-17.1.f@2018-12-26",
+            "ley:CE-767/2009-11.3@2018-12-26"
           ]
         },
         {
@@ -624,8 +624,8 @@
           "component": "composición analítica",
           "origin": "referencias",
           "support": [
-            "ley:CE-767/2009-17.1.f@2009-09-01",
-            "ley:CE-767/2009-11.3@2009-09-01"
+            "ley:CE-767/2009-17.1.f@2018-12-26",
+            "ley:CE-767/2009-11.3@2018-12-26"
           ]
         }
       ]

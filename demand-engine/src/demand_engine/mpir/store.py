@@ -1,6 +1,7 @@
 """Files of the MPIR (no database). What a person defines is versioned, under MPIR_STUDIES
 (default demand-engine/studies/); what the engine produces is disposable, under MPIR_VAR
-(default demand-engine/var/mpir/). The Chrome profile is the capture engine's (var/capture/).
+(default demand-engine/var/mpir/). The Chrome profile is the capture engine's
+(capture/var/chrome-profile).
 
   studies/<study>/plan.json               observation plan (class, segments, pacing…)
   studies/<study>/sites/<site>.json       reference site: selection card
@@ -26,10 +27,11 @@ import threading
 from datetime import datetime
 from pathlib import Path
 
+from capture import OUTCOMES
+from capture.files import now, read_json, unique_dir, write_json
+from capture.pacing import DEFAULTS
+
 from .. import ROOT
-from ..capture import OUTCOMES
-from ..capture.files import now, read_json, unique_dir, write_json
-from ..capture.pacing import DEFAULTS
 
 _LOCK = threading.RLock()
 

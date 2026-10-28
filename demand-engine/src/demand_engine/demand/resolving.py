@@ -9,7 +9,9 @@ evidence, not a weight.
 """
 from urllib.parse import urlparse
 
-from ..refs import RefsError, ptd, shopify_attributes
+from references.read import ptd, shopify_attributes
+from references.store import RefsError
+
 from .text import stems
 
 SKIP = {"marketplace_id", "language_tag"}

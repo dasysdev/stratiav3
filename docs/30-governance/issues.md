@@ -264,7 +264,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 **Renderizado selectivo del MPIR frente al motor de captura, que renderiza siempre.**
 
 - [sampling-capture](../20-methods/mpir/sampling-capture.md#contenido-dinámico-e-interacción-selectiva) dice que el renderizado con navegador automatizado «se empleará **selectivamente** para evitar coste y complejidad innecesarios».
-- El [motor de captura](../../demand-engine/src/demand_engine/capture/README.md) (T-013), con la aprobación del usuario (2026-10-25), renderiza siempre con Chrome real por CDP. En una sola visita guarda el HTML de la respuesta, el DOM renderizado y el MHTML.
+- El [motor de captura](../../capture/README.md) (T-013), con la aprobación del usuario (2026-10-25), renderiza siempre con Chrome real por CDP. En una sola visita guarda el HTML de la respuesta, el DOM renderizado y el MHTML.
 - Motivos: la incoherencia entre capas (curl con user-agent de navegador, headless) es lo que más bloqueos provoca; con el volumen del piloto, el coste es despreciable. — INTAKE 2026-10-25-mpir-capture-engine
 - **Afecta a:** [sampling-capture](../20-methods/mpir/sampling-capture.md#contenido-dinámico-e-interacción-selectiva).
 - **Propuesta:** actualizar `sampling-capture` para que el renderizado sea el procedimiento por defecto, con esa justificación, y mantener que la presencia de JavaScript no es una limitación metodológica.

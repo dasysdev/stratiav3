@@ -9,50 +9,38 @@ Sistema de la **evaluación técnica** de los ámbitos Web y Web Schema.org (uni
 
 | Módulo | Qué hace | Dónde |
 |---|---|---|
-| Referencias | Fuentes de la referencia técnica, congeladas por versión: el vocabulario Schema.org por release, en formato máquina, y los documentos publicados (páginas HTML con su texto, PDF y ficheros de datos). La versión que cita la referencia queda fijada. | `bin/refs` · `reference/sources.json` · `var/refs/` |
+| Referencias | Fuentes de la referencia técnica, congeladas por versión en [references](../references/README.md): el vocabulario Schema.org por release, en formato máquina, y los documentos publicados (páginas HTML con su texto, PDF y ficheros de datos). La versión que cita la referencia queda fijada. | `references/bin/refs` · `references/sources.json` · `references/var/` |
 | Referencia técnica | Fichas de fuente con citas literales y requisitos técnicos ([D-133](../docs/30-governance/decisions.md#d-133)): una ficha por fuente y un fichero de requisitos por nivel del perfil. Se crea y se mantiene con la skill `/web-reference` y se valida con `bin/reqs check`; `bin/reqs section` muestra el texto citable de una fuente. Formato: [reference/README.md](reference/README.md). | `bin/reqs` · `reference/cards/` · `reference/requirements/` |
+| Fichas reales | Las del almacén común de [capture](../capture/README.md#almacén-de-fichas) ([D-150](../docs/30-governance/decisions.md#d-150)), que comparte con demand-engine para evaluar la misma instantánea: el contraste de los requisitos técnicos (T-048) y, después, el auditado. Una ficha nueva se captura con `capture/bin/pages fetch ID URL`, con un ID nuevo; su interpretación técnica queda aquí. | `capture/var/pages/` · `capture/bin/pages` |
 | Auditado | Más adelante (T-049). | — |
 
 ## Referencias
 
-`web-audit/bin/refs status | check | fetch | diff | pin` (`--help`). Solo usa la biblioteca estándar y se ejecuta en el host.
+Las fuentes de la referencia técnica son las de [references](../references/README.md) cuyo `uses` incluye web-audit ([D-149](../docs/30-governance/decisions.md#d-149)): allí están su registro (`references/sources.json`), sus versiones congeladas, la versión fijada y el diff, y se descargan y se fijan con `references/bin/refs`. web-audit solo las interpreta: fichas de fuente y requisitos técnicos, en [reference/](reference/README.md).
 
-- **Registro:** [reference/sources.json](reference/sources.json), una entrada por fuente: `id` (kebab-case; es el que nombra una cita), `kind`, `title`, `publisher` y `url`. Opcionales: `inventory` (código en el inventario de partida) y `note`.
-- **Tipos de fuente** (`kind`):
-  - `schemaorg`: una release del vocabulario (GitHub `schemaorg/schemaorg`, `data/releases/<versión>/`). Se guardan el JSON-LD vigente, el JSON-LD con los términos retirados (ático), los CSV de tipos y propiedades y el contexto JSON-LD. Cada fichero se comprueba con su sha de git. La versión es la release (`30.1`, la que fija [D-130](../docs/30-governance/decisions.md#d-130)).
-  - `document`: un documento publicado, versionado por la fecha de descarga. Una página HTML se guarda tal cual (`page.html`) y con su texto (`text.md`), que es lo que cita una ficha. El texto es Markdown ligero, con el ancla de cada encabezado (`{#id}`) y una línea por fila de tabla. La página cuenta por su texto: un cambio solo de marcado no crea versión. Los PDF y los ficheros de datos se guardan tal cual.
-- **Versiones:** `var/refs/<fuente>/<versión>/`, con sus ficheros y un `MANIFEST.json`: origen, tamaño, sha256, fecha y, si la página la declara, su marca de versión («Last updated» de Google, «Schema.org V30.1», «This version» del W3C). Las versiones no se sobrescriben, y una descarga igual a la última se descarta.
-- **Versión fijada:** `var/refs/pins.json`. La primera versión de una fuente se fija sola. Después solo la cambia `refs pin`, porque obliga a revisar las fichas y los requisitos que citan la anterior (`refs diff`).
+- **Tipos de fuente** que usa: `schemaorg` (una release del vocabulario en formato máquina; la versión es la release, `30.1`, la que fija [D-130](../docs/30-governance/decisions.md#d-130)) y `document` (un documento publicado, versionado por la fecha de descarga). De una página HTML lo que cita una ficha es su texto (`text.md`): Markdown ligero, con el ancla de cada encabezado (`{#id}`) y una línea por fila de tabla. Los PDF y los ficheros de datos se guardan tal cual.
+- **Versión fijada:** una ficha cita la fijada. Cambiarla (`references/bin/refs pin`) obliga a revisar las fichas y los requisitos que citan la anterior (`references/bin/refs diff`); `bin/reqs check` falla hasta entonces.
 - **Idioma:** las páginas de Google se congelan en inglés, que es la versión original; las traducciones pueden ir con retraso.
 - **Fuera del registro:** los validadores (Schema Markup Validator, Rich Results Test), que son aplicaciones y método de comprobación, y las skills de terceros, que no tienen autoridad ([D-132](../docs/30-governance/decisions.md#d-132)). `ref.gs1.org/voc/` es una aplicación JavaScript: se congela el fichero del vocabulario que carga.
-- **Descargas:** puntuales y a petición, como las de `demand-engine/bin/refs`, con un segundo entre documentos. El robots.txt de todos los orígenes las permite (comprobado el 2026-10-27).
+- **Descargas:** puntuales y a petición, con un segundo entre documentos. El robots.txt de todos los orígenes las permite (comprobado el 2026-10-27).
 
 ## Estructura
 
 ```
 web-audit/
 ├── pyproject.toml        miembro del workspace (solo biblioteca estándar)
-├── bin/refs, bin/reqs    envoltorios de línea de comandos (el código está en src/)
-├── src/web_audit/        paquete Python: refs, reqs
+├── bin/reqs              envoltorio de línea de comandos (el código está en src/)
+├── src/web_audit/        paquete Python: reqs
 ├── tests/                pruebas
-├── reference/            referencia técnica: sources.json (registro de fuentes), inventory.md,
-│                         cards/ (fichas), requirements/ (requisitos por nivel), reports/
-│                         (informes de las pasadas); formato en su README
-└── var/                  desechable: refs/ (fuentes congeladas y pins.json)
+└── reference/            referencia técnica: inventory.md, cards/ (fichas), requirements/
+                          (requisitos por nivel), reports/ (informes de las pasadas); formato en su README
 ```
 
 ## Qué entra en git
 
-En git va **lo que gobierna el sistema**. Lo demás vive en `var/`, que es desechable y no tiene copia: git no es una copia de seguridad.
-
-| En git | En `var/` (desechable) |
-|---|---|
-| Código, pruebas, `pyproject.toml` | `refs/`: fuentes descargadas y la versión fijada (`pins.json`); se regeneran con `refs fetch` |
-| `reference/`: registro de fuentes, fichas y requisitos técnicos | |
-
-Si `var/` se pierde, se regenera, pero la versión de un documento lleva la fecha de su descarga: la nueva tendrá otra fecha, y si la página cambió en origen, otro texto. Las citas a la versión perdida habrá que revisarlas. La release de Schema.org sí se recupera igual.
+Todo lo de web-audit: código, pruebas, `pyproject.toml` y `reference/` (fichas y requisitos técnicos). Las fuentes congeladas y su versión fijada son de `references/var/`, desechable y fuera de git: si se pierden, las citas a una versión que no se recupere igual habrá que revisarlas (ver [references](../references/README.md#qué-entra-en-git)).
 
 ## Ejecución
 
-- **`refs` y `reqs`** se ejecutan en el host: `web-audit/bin/refs …`, `web-audit/bin/reqs …`.
+- **`reqs`** se ejecuta en el host (`web-audit/bin/reqs …`) y solo usa la biblioteca estándar y `references`.
 - **Pruebas:** `bin/run dev test web-audit/tests` (todas las del proyecto: `bin/run dev test`).

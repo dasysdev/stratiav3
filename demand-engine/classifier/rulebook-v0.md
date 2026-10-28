@@ -14,7 +14,7 @@ Son las opciones de lectura que fija el canon. Un experimento puede variarlas; e
 
 | ID | Parámetro | Valor vigente | Fuente |
 |---|---|---|---|
-| P1 | Versiones de las referencias | Las fijadas en `var/refs/pins.json` | refs |
+| P1 | Versiones de las referencias | Las fijadas en `references/var/pins.json` | refs |
 | P2 | Eje de la clase general | Shopify Standard Product Taxonomy | D-021 |
 | P3 | Base de una categoría de Shopify | Atributos propios + los de todas sus ascendientes | D-029 |
 | P4 | Base en Amazon | Propiedades del PTD + valores de `special_feature` | D-030 |

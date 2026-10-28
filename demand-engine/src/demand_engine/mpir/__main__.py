@@ -34,9 +34,10 @@ import threading
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from ..capture import profile, sitemaps
-from ..capture.browser import Browser, signals
-from ..capture.files import now, stamp, write_json
+from capture import profile, sitemaps
+from capture.browser import Browser, signals
+from capture.files import now, stamp, write_json
+
 from . import scheduler
 from .ingest import ingest
 from .store import PROFILES, SITE_TYPES, STATUS, Study, StoreError

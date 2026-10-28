@@ -1,0 +1,542 @@
+{
+ "systems": {
+  "demand-engine": {
+   "review": "mapeos del catálogo y reglas construidos sobre la versión anterior: entrenamiento (demand-engine/bin/train; cada modelo registra sus versiones en engine.refs); citas del catálogo en la versión anterior: demand-engine/bin/model refs"
+  },
+  "web-audit": {
+   "review": "fichas y requisitos técnicos que citan la versión anterior: actualizar con /web-reference y validar con web-audit/bin/reqs check"
+  }
+ },
+ "sources": [
+  {
+   "id": "shopify",
+   "kind": "shopify-taxonomy",
+   "title": "Shopify Standard Product Taxonomy, Spanish release assets",
+   "publisher": "Shopify",
+   "url": "https://github.com/Shopify/product-taxonomy/releases",
+   "uses": [
+    "demand-engine"
+   ]
+  },
+  {
+   "id": "shopify-google",
+   "kind": "shopify-google",
+   "title": "Shopify's official mapping to the Google Product Taxonomy (English only)",
+   "publisher": "Shopify",
+   "url": "https://github.com/Shopify/product-taxonomy/releases",
+   "uses": [
+    "demand-engine"
+   ]
+  },
+  {
+   "id": "google",
+   "kind": "google-taxonomy",
+   "title": "Google Product Taxonomy es-ES, with IDs",
+   "publisher": "Google",
+   "url": "https://www.google.com/basepages/producttype/taxonomy-with-ids.es-ES.txt",
+   "uses": [
+    "demand-engine"
+   ]
+  },
+  {
+   "id": "amazon-btg",
+   "kind": "amazon-browse-tree",
+   "title": "Amazon.es browse tree (SP-API report GET_XML_BROWSE_TREE_DATA)",
+   "publisher": "Amazon",
+   "url": "https://developer-docs.amazon.com/sp-api/docs/report-type-values-browse-tree",
+   "uses": [
+    "demand-engine"
+   ],
+   "note": "Sin versión publicada: cada extracción es una versión fechada. Credenciales de SP-API."
+  },
+  {
+   "id": "amazon-ptd",
+   "kind": "amazon-ptd",
+   "title": "Amazon.es Product Type Definitions es_ES (index, definitions, schemas)",
+   "publisher": "Amazon",
+   "url": "https://developer-docs.amazon.com/sp-api/docs/product-type-definitions-api",
+   "uses": [
+    "demand-engine"
+   ],
+   "note": "Requisitos LISTING. Cada extracción es una versión fechada. Credenciales de SP-API."
+  },
+  {
+   "id": "schemaorg",
+   "kind": "schemaorg",
+   "title": "Schema.org vocabulary, release files (JSON-LD, CSV and JSON-LD context)",
+   "publisher": "Schema.org",
+   "url": "https://github.com/schemaorg/schemaorg/tree/main/data/releases",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Versión fijada por el canon: 30.1 (D-130)."
+  },
+  {
+   "id": "schemaorg-getting-started",
+   "kind": "document",
+   "title": "Getting Started",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/docs/gs.html",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "SCH-01"
+  },
+  {
+   "id": "schemaorg-data-model",
+   "kind": "document",
+   "title": "Data model",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/docs/datamodel.html",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "SCH-02"
+  },
+  {
+   "id": "schemaorg-full-hierarchy",
+   "kind": "document",
+   "title": "Full schema hierarchy",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/docs/full.html",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "SCH-03"
+  },
+  {
+   "id": "schemaorg-faq",
+   "kind": "document",
+   "title": "FAQ",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/docs/faq.html",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "SCH-04"
+  },
+  {
+   "id": "schemaorg-product",
+   "kind": "document",
+   "title": "Product - Schema.org Type",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/Product",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "SCH-05"
+  },
+  {
+   "id": "schemaorg-productgroup",
+   "kind": "document",
+   "title": "ProductGroup - Schema.org Type",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/ProductGroup",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "SCH-06"
+  },
+  {
+   "id": "schemaorg-offer",
+   "kind": "document",
+   "title": "Offer - Schema.org Type",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/Offer",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "SCH-07"
+  },
+  {
+   "id": "schemaorg-organization",
+   "kind": "document",
+   "title": "Organization - Schema.org Type",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/Organization",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "SCH-08"
+  },
+  {
+   "id": "google-search-sd-policies",
+   "kind": "document",
+   "title": "General Structured Data Guidelines",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "GSC-01"
+  },
+  {
+   "id": "google-search-merchant-listing",
+   "kind": "document",
+   "title": "Merchant listing (Product, Offer) structured data",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/merchant-listing",
+   "uses": [
+    "web-audit",
+    "demand-engine"
+   ],
+   "inventory": "GSC-02"
+  },
+  {
+   "id": "google-search-product-variants",
+   "kind": "document",
+   "title": "Product Variant Structured Data (ProductGroup, Product)",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/product-variants",
+   "uses": [
+    "web-audit",
+    "demand-engine"
+   ],
+   "inventory": "GSC-03"
+  },
+  {
+   "id": "google-search-return-policy",
+   "kind": "document",
+   "title": "Merchant Return Policy Structured Data (MerchantReturnPolicy)",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/return-policy",
+   "uses": [
+    "web-audit",
+    "demand-engine"
+   ],
+   "inventory": "GSC-04"
+  },
+  {
+   "id": "google-search-shipping-policy",
+   "kind": "document",
+   "title": "Merchant Shipping Policy Structured Data (ShippingService)",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/shipping-policy",
+   "uses": [
+    "web-audit",
+    "demand-engine"
+   ],
+   "inventory": "GSC-05"
+  },
+  {
+   "id": "google-search-organization",
+   "kind": "document",
+   "title": "Organization Schema Markup",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/organization",
+   "uses": [
+    "web-audit",
+    "demand-engine"
+   ],
+   "inventory": "GSC-06"
+  },
+  {
+   "id": "google-merchant-center-structured-data",
+   "kind": "document",
+   "title": "Set up structured data for Merchant Center",
+   "publisher": "Google Merchant Center Help",
+   "url": "https://support.google.com/merchants/answer/7331077?hl=en",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "GMC-01"
+  },
+  {
+   "id": "google-merchant-center-product-data-spec",
+   "kind": "document",
+   "title": "Product data specification",
+   "publisher": "Google Merchant Center Help",
+   "url": "https://support.google.com/merchants/answer/7052112?hl=en",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "GMC-02"
+  },
+  {
+   "id": "w3c-json-ld11",
+   "kind": "document",
+   "title": "JSON-LD 1.1",
+   "publisher": "W3C",
+   "url": "https://www.w3.org/TR/json-ld11/",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "W3C-01"
+  },
+  {
+   "id": "w3c-dwbp",
+   "kind": "document",
+   "title": "Data on the Web Best Practices",
+   "publisher": "W3C",
+   "url": "https://www.w3.org/TR/dwbp/",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "W3C-02"
+  },
+  {
+   "id": "w3c-shacl",
+   "kind": "document",
+   "title": "Shapes Constraint Language (SHACL)",
+   "publisher": "W3C",
+   "url": "https://www.w3.org/TR/shacl/",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "W3C-03"
+  },
+  {
+   "id": "w3c-prov-o",
+   "kind": "document",
+   "title": "PROV-O: The PROV Ontology",
+   "publisher": "W3C",
+   "url": "https://www.w3.org/TR/prov-o/",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "W3C-04"
+  },
+  {
+   "id": "gs1-web-vocabulary",
+   "kind": "document",
+   "title": "GS1 Web Vocabulary (gs1Voc.jsonld)",
+   "publisher": "GS1",
+   "url": "https://ref.gs1.org/voc/data/gs1Voc.jsonld",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "GS1-01",
+   "note": "https://ref.gs1.org/voc/ es una aplicación JavaScript sin el contenido en el HTML: se congela el fichero del vocabulario que carga."
+  },
+  {
+   "id": "gs1-smartsearch",
+   "kind": "document",
+   "title": "GS1 SmartSearch Implementation Guideline",
+   "publisher": "GS1",
+   "url": "https://ref.gs1.org/guidelines/smart-search/",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "GS1-02",
+   "note": "Se publica como PDF; no tiene text.md."
+  },
+  {
+   "id": "gs1-web-vocabulary-standard",
+   "kind": "document",
+   "title": "The GS1 Web Vocabulary",
+   "publisher": "GS1",
+   "url": "https://ref.gs1.org/standards/webvoc/",
+   "uses": [
+    "web-audit"
+   ],
+   "inventory": "GS1-03"
+  },
+  {
+   "id": "w3c-json-ld11-api",
+   "kind": "document",
+   "title": "JSON-LD 1.1 Processing Algorithms and API",
+   "publisher": "W3C",
+   "url": "https://www.w3.org/TR/json-ld11-api/",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Hueco del inventario (T-044): el procesado de JSON-LD 1.1 que nombra el perfil (D-130)."
+  },
+  {
+   "id": "whatwg-html-microdata",
+   "kind": "document",
+   "title": "HTML Living Standard — Microdata",
+   "publisher": "WHATWG",
+   "url": "https://html.spec.whatwg.org/multipage/microdata.html",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Hueco del inventario (T-044). Microdata se especifica en el HTML Living Standard; la nota del W3C (HTML Microdata) remite a él."
+  },
+  {
+   "id": "w3c-rdfa-core",
+   "kind": "document",
+   "title": "RDFa Core 1.1 - Third Edition",
+   "publisher": "W3C",
+   "url": "https://www.w3.org/TR/rdfa-core/",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Hueco del inventario (T-044): RDFa 1.1, sintaxis y procesado."
+  },
+  {
+   "id": "w3c-html-rdfa",
+   "kind": "document",
+   "title": "HTML+RDFa 1.1 - Second Edition",
+   "publisher": "W3C",
+   "url": "https://www.w3.org/TR/html-rdfa/",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Hueco del inventario (T-044): RDFa 1.1 en HTML (lenguaje anfitrión)."
+  },
+  {
+   "id": "google-search-product-snippet",
+   "kind": "document",
+   "title": "Product snippet (Product, Review, Offer) structured data",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/product-snippet",
+   "uses": [
+    "web-audit",
+    "demand-engine"
+   ],
+   "note": "Hueco del inventario (T-044): consumidor del perfil (D-130)."
+  },
+  {
+   "id": "google-search-javascript",
+   "kind": "document",
+   "title": "Generate Structured Data with JavaScript",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/generate-structured-data-with-javascript",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "Hueco del inventario (T-044): marcado generado con JavaScript."
+  },
+  {
+   "id": "google-search-review-snippet",
+   "kind": "document",
+   "title": "Review snippet (Review, AggregateRating) structured data",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/review-snippet",
+   "uses": [
+    "web-audit",
+    "demand-engine"
+   ],
+   "note": "Tipos de las fichas reales (T-047): google-search-product-snippet y google-search-merchant-listing remiten a ella para las propiedades de Review y AggregateRating."
+  },
+  {
+   "id": "es-trlgdcu",
+   "kind": "law",
+   "title": "Real Decreto Legislativo 1/2007, de 16 de noviembre, texto refundido de la Ley General para la Defensa de los Consumidores y Usuarios",
+   "publisher": "Agencia Estatal Boletín Oficial del Estado",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-20555",
+   "uses": [
+    "demand-engine"
+   ],
+   "cite": "TRLGDCU",
+   "boe": "BOE-A-2007-20555",
+   "note": "BOE, legislación consolidada (API de datos abiertos): reutilización autorizada con cita de la fuente y de la fecha de la última actualización (licencia tipo del BOE, Resolución de 27-06-2024; Ley 37/2007). robots.txt permite /datosabiertos/. Versión: fecha de publicación de la última modificación incluida."
+  },
+  {
+   "id": "es-locm",
+   "kind": "law",
+   "title": "Ley 7/1996, de 15 de enero, de Ordenación del Comercio Minorista",
+   "publisher": "Agencia Estatal Boletín Oficial del Estado",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-1072",
+   "uses": [
+    "demand-engine"
+   ],
+   "cite": "LOCM",
+   "boe": "BOE-A-1996-1072",
+   "note": "BOE, legislación consolidada (API de datos abiertos): reutilización autorizada con cita de la fuente y de la fecha de la última actualización (licencia tipo del BOE, Resolución de 27-06-2024; Ley 37/2007). robots.txt permite /datosabiertos/. Versión: fecha de publicación de la última modificación incluida."
+  },
+  {
+   "id": "es-rd-3423-2000",
+   "kind": "law",
+   "title": "Real Decreto 3423/2000, de 15 de diciembre, indicación de los precios de los productos ofrecidos a los consumidores y usuarios",
+   "publisher": "Agencia Estatal Boletín Oficial del Estado",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2000-24118",
+   "uses": [
+    "demand-engine"
+   ],
+   "cite": "RD-3423/2000",
+   "boe": "BOE-A-2000-24118",
+   "note": "BOE, legislación consolidada (API de datos abiertos): reutilización autorizada con cita de la fuente y de la fecha de la última actualización (licencia tipo del BOE, Resolución de 27-06-2024; Ley 37/2007). robots.txt permite /datosabiertos/. Versión: fecha de publicación de la última modificación incluida."
+  },
+  {
+   "id": "es-rd-863-2003",
+   "kind": "law",
+   "title": "Real Decreto 863/2003, de 4 de julio, Norma de calidad de confituras, jaleas, «marmalades» de frutas y crema de castañas",
+   "publisher": "Agencia Estatal Boletín Oficial del Estado",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2003-13473",
+   "uses": [
+    "demand-engine"
+   ],
+   "cite": "ES-RD-863/2003",
+   "boe": "BOE-A-2003-13473",
+   "note": "BOE, legislación consolidada (API de datos abiertos): reutilización autorizada con cita de la fuente y de la fecha de la última actualización (licencia tipo del BOE, Resolución de 27-06-2024; Ley 37/2007). robots.txt permite /datosabiertos/. Versión: fecha de publicación de la última modificación incluida."
+  },
+  {
+   "id": "eu-reg-1007-2011",
+   "kind": "law",
+   "title": "Reglamento (UE) n.º 1007/2011, denominaciones de las fibras textiles y etiquetado y marcado de la composición en fibras",
+   "publisher": "Oficina de Publicaciones de la Unión Europea",
+   "url": "https://eur-lex.europa.eu/legal-content/ES/ALL/?uri=CELEX:32011R1007",
+   "uses": [
+    "demand-engine"
+   ],
+   "cite": "UE-1007/2011",
+   "celex": "32011R1007",
+   "note": "EUR-Lex por Cellar (publications.europa.eu, robots.txt lo permite; eur-lex.europa.eu responde con un desafío). Reutilización autorizada con reconocimiento de la fuente (Decisión 2011/833/UE). Versión: fecha de la versión consolidada o, en el original, de su publicación en el DO."
+  },
+  {
+   "id": "eu-reg-1169-2011",
+   "kind": "law",
+   "title": "Reglamento (UE) n.º 1169/2011, información alimentaria facilitada al consumidor",
+   "publisher": "Oficina de Publicaciones de la Unión Europea",
+   "url": "https://eur-lex.europa.eu/legal-content/ES/ALL/?uri=CELEX:32011R1169",
+   "uses": [
+    "demand-engine"
+   ],
+   "cite": "UE-1169/2011",
+   "celex": "32011R1169",
+   "note": "EUR-Lex por Cellar (publications.europa.eu, robots.txt lo permite; eur-lex.europa.eu responde con un desafío). Reutilización autorizada con reconocimiento de la fuente (Decisión 2011/833/UE). Versión: fecha de la versión consolidada o, en el original, de su publicación en el DO."
+  },
+  {
+   "id": "eu-reg-2023-988",
+   "kind": "law",
+   "title": "Reglamento (UE) 2023/988, relativo a la seguridad general de los productos (GPSR)",
+   "publisher": "Oficina de Publicaciones de la Unión Europea",
+   "url": "https://eur-lex.europa.eu/legal-content/ES/ALL/?uri=CELEX:32023R0988",
+   "uses": [
+    "demand-engine"
+   ],
+   "cite": "UE-2023/988",
+   "celex": "32023R0988",
+   "note": "EUR-Lex por Cellar (publications.europa.eu, robots.txt lo permite; eur-lex.europa.eu responde con un desafío). Reutilización autorizada con reconocimiento de la fuente (Decisión 2011/833/UE). Versión: fecha de la versión consolidada o, en el original, de su publicación en el DO."
+  },
+  {
+   "id": "eu-reg-767-2009",
+   "kind": "law",
+   "title": "Reglamento (CE) n.º 767/2009, comercialización y utilización de los piensos",
+   "publisher": "Oficina de Publicaciones de la Unión Europea",
+   "url": "https://eur-lex.europa.eu/legal-content/ES/ALL/?uri=CELEX:32009R0767",
+   "uses": [
+    "demand-engine"
+   ],
+   "cite": "CE-767/2009",
+   "celex": "32009R0767",
+   "note": "EUR-Lex por Cellar (publications.europa.eu, robots.txt lo permite; eur-lex.europa.eu responde con un desafío). Reutilización autorizada con reconocimiento de la fuente (Decisión 2011/833/UE). Versión: fecha de la versión consolidada o, en el original, de su publicación en el DO."
+  },
+  {
+   "id": "iso-4217",
+   "kind": "document",
+   "title": "ISO 4217, Current currency & funds code list (list one, XML)",
+   "publisher": "SIX Financial Information (ISO 4217 Maintenance Agency)",
+   "url": "https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml",
+   "uses": [
+    "web-audit"
+   ],
+   "note": "La agencia de mantenimiento de ISO 4217 publica las listas en línea y gratis; robots.txt permite /dam. El fichero declara su fecha de publicación (Pblshd); la versión es la de descarga."
+  },
+  {
+   "id": "iso-3166-1",
+   "kind": "eu-authority",
+   "title": "EU Vocabularies, Country authority table (SKOS), con los códigos ISO 3166-1 alfa-2",
+   "publisher": "Oficina de Publicaciones de la Unión Europea",
+   "url": "https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country",
+   "uses": [
+    "web-audit"
+   ],
+   "authority": "country",
+   "file": "countries-skos.rdf",
+   "note": "No es la agencia de ISO 3166 (ISO no publica una lista reutilizable): tabla de autoridad de la UE, CC BY 4.0, que mapea cada país a su código ISO 3166-1 alfa-2. Incluye algunos códigos que ISO reserva excepcionalmente (EU, IC, CP, CQ). ISO 3166-2 no tiene fuente oficial reutilizable."
+  }
+ ]
+}

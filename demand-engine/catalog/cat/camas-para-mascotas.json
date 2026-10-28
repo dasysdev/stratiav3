@@ -202,7 +202,7 @@
       "sources": [
         "shopify-attr:material",
         "amazon-ptd-prop:PET_BED_MAT.cover",
-        "ley:UE-1007/2011-16.1@2011-10-18"
+        "ley:UE-1007/2011-16.1@2018-02-15"
       ],
       "applicability": "universal",
       "rationale": "El material de la superficie decide el tacto, la resistencia a uñas y mordidas y la limpieza, y es criterio de comparación. Se unen el material de Shopify y la cubierta de Amazon. Cuando la cama es un producto textil, la composición en fibras tiene además apoyo normativo (criterio 6: Reglamento (UE) 1007/2011, art. 16.1). Redacción con D-060 (T-031, regla 2): «si es textil» sobra: todo material tiene composición, que en los textiles se expresa en fibras (Reglamento 1007/2011).",
@@ -224,7 +224,7 @@
           "component": "composición",
           "origin": "referencias",
           "support": [
-            "ley:UE-1007/2011-16.1@2011-10-18"
+            "ley:UE-1007/2011-16.1@2018-02-15"
           ]
         },
         {
@@ -232,7 +232,7 @@
           "component": "composición",
           "origin": "referencias",
           "support": [
-            "ley:UE-1007/2011-16.1@2011-10-18"
+            "ley:UE-1007/2011-16.1@2018-02-15"
           ]
         }
       ]

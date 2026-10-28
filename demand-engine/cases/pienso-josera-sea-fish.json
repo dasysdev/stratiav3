@@ -4,7 +4,7 @@
   "retailer": "guaw.com",
   "vertical": "mascotas",
   "split": "dev",
-  "page": "var/pages/pienso-josera-sea-fish.html",
+  "page": "capture/var/pages/pienso-josera-sea-fish.html",
   "source": "docs/20-methods/product-taxonomy/cases.md#pienso-para-perros",
   "rules": [
     "D-025",

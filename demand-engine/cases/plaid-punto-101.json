@@ -4,7 +4,7 @@
   "retailer": "burritoblanco.com",
   "vertical": "textil hogar",
   "split": "dev",
-  "page": "var/pages/plaid-punto-101.html",
+  "page": "capture/var/pages/plaid-punto-101.html",
   "source": "docs/20-methods/product-taxonomy/cases.md#plaid-de-punto",
   "rules": [
     "D-026",

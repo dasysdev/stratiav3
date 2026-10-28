@@ -15,14 +15,14 @@ Todo desde `demand-engine/`.
 
 1. **Comprobar la URL.**
    - Amazon.es no se captura: si la URL es de Amazon, dilo y para.
-   - `ID`: el que dé el usuario o, si no, un slug del último segmento de la ruta (minúsculas, guiones, como mucho 40 caracteres). Si `var/pages/ID.html` ya existe y es de otra URL, añade un sufijo.
-2. **Congelar la ficha:** `bin/taxo page fetch ID URL`. Captura con el motor de captura (Chrome real, robots.txt y reservas TDM) dentro del contenedor: si no está levantado, `bin/run dev up`. Si la tienda lo excluye o lo bloquea, la orden falla y deja la evidencia en `var/pages/ID/`.
+   - `ID`: el que dé el usuario o, si no, un slug del último segmento de la ruta (minúsculas, guiones, como mucho 40 caracteres). Si `../capture/var/pages/ID.html` ya existe, añade un sufijo: una ficha congelada no se sustituye y `page fetch` rechaza el ID (D-150).
+2. **Congelar la ficha:** `bin/taxo page fetch ID URL`. Captura con el motor de captura (Chrome real, robots.txt y reservas TDM) dentro del contenedor: si no está levantado, `bin/run dev up`. Si la tienda lo excluye o lo bloquea, la orden falla y deja la evidencia en `../capture/var/pages/ID/`.
    - Si falla o devuelve una página de desafío o bloqueo, dilo y para.
    - El motor de captura compartido (D-046) sustituirá esta descarga en T-020.
 3. **Clasificar.** Carpeta `var/runs/live/`; salida `var/runs/live/ID.json`. Lanza **un** agente (`Agent`, `general-purpose`) con este encargo:
    - eres el clasificador del motor de demanda;
    - trabaja en `/home/gonwsl/projects/stratiav3/demand-engine` y sigue `classifier/rulebook.md`, y `catalog/DRAFTING.md` solo si falta un bloque;
-   - caso `ID`, con la URL y la ficha congelada en `var/pages/ID.html`;
+   - caso `ID`, con la URL y la ficha congelada en `../capture/var/pages/ID.html`;
    - escribe la salida en `var/runs/live/ID.json` y comprueba con `bin/model check` hasta que diga «correcto»;
    - no leas `cases/`, `var/runs/` (salvo su salida) ni `docs/`;
    - no ejecutes `bin/model assemble` ni `bin/train`;

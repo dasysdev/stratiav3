@@ -4,7 +4,7 @@
   "retailer": "grupotodoplano.com",
   "vertical": "mobiliario",
   "split": "dev",
-  "page": "var/pages/stressless-wave-outlet.html",
+  "page": "capture/var/pages/stressless-wave-outlet.html",
   "source": "docs/20-methods/product-taxonomy/cases.md#sofá-reclinable-de-exposición",
   "rules": [
     "D-026",

@@ -4,8 +4,8 @@ Función y estado de cada fuente de la referencia técnica de Web Schema.org.
 
 - **Origen:** el inventario de partida del estudio de Schema.org (códigos SCH, GSC, GMC, W3C, GS1, VAL y SKL; T-044), más los huecos detectados al planificar web-audit.
 - **Dónde está cada dato:**
-  - título, editor y URL: [sources.json](sources.json);
-  - versión fijada: `var/refs/pins.json`;
+  - título, editor y URL: [references/sources.json](../../references/sources.json);
+  - versión fijada: `references/var/pins.json`;
   - clase, nivel y citas: la ficha de cada fuente (`cards/`).
 - **Clases y niveles:** los del canon. Clases de fuente, [D-132](../../docs/30-governance/decisions.md#d-132); niveles del perfil, [D-130](../../docs/30-governance/decisions.md#d-130).
 - **Estado:** a 2026-10-27, primera pasada (T-047), con el informe en [reports/2026-10-27-primera-pasada.md](reports/2026-10-27-primera-pasada.md).
@@ -75,7 +75,7 @@ Schema.org es permisivo por diseño: todos los requisitos de este nivel son reco
 | Documento | Lo citan | Situación |
 |---|---|---|
 | HTML Living Standard, sección 4 (`meta`, `link`, `time` y `script` como bloque de datos) | Microdata, JSON-LD | **Pendiente.** Es lo que HTML exige a los elementos que llevan el valor de una propiedad Microdata (las 5 fichas con Microdata usan `<meta itemprop>`) y al `script` de JSON-LD. |
-| ISO 4217 e ISO 3166-1/2 (códigos de moneda, país y región) | Google (precio, envío, devoluciones) | **Pendiente.** Hasta tenerlas, comprobar el código es causa de NE. |
+| ISO 4217 e ISO 3166-1/2 (códigos de moneda, país y región) | Google (precio, envío, devoluciones) | **ISO 4217 e ISO 3166-1 alfa-2, registradas en [references](../../references/README.md)** (T-062): `iso-4217`, la lista uno de SIX, agencia de mantenimiento de ISO 4217, y `iso-3166-1`, la tabla «Country» de EU Vocabularies (Oficina de Publicaciones de la UE, CC BY 4.0). ISO no publica una lista reutilizable de ISO 3166; la tabla de la UE incluye además algunos códigos que ISO reserva excepcionalmente (EU, IC, CP, CQ). Lectores: `references.read.currency_codes` y `country_codes`. Los requisitos que daban NE por no tener la lista quedan por revisar con `/web-reference`. **ISO 3166-2 (región), sin registrar:** no hay fuente oficial reutilizable, y hoy ningún requisito la comprueba. |
 | Formatos de imagen de Google Images | Google (image, logo) | **Pendiente.** Hasta tenerlos, el formato del logo (`ws-consumer/336`) queda en NE. |
 | Search Essentials | Fichas de comerciante (#guidelines) | Fuera: son condiciones del sitio (rastreo, indexación, spam), del ámbito Web, cuyo perfil está pendiente (OQ-30). |
 | Free listings guidelines, Member program | Fichas de comerciante, Organization | Fuera: Merchant Center (Catálogos distribuidos). |
@@ -85,7 +85,7 @@ Schema.org es permisivo por diseño: todos los requisitos de este nivel son reco
 
 ## Tipos de las fichas reales
 
-Muestra: las 45 fichas congeladas en `demand-engine/var/pages/`.
+Muestra: las 45 fichas congeladas en `capture/var/pages/` (el almacén común de [capture](../../capture/README.md#almacén-de-fichas)).
 
 - **Tiendas (6):** El Corte Inglés 30, Burrito Blanco 9, Guaw 2, Grupo Todoplano 2, 5V Valverde 1, Kiwoko 1.
 - **Sintaxis:** 40 solo JSON-LD, 2 solo Microdata y 3 con las dos; ninguna con RDFa.

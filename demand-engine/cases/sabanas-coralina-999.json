@@ -4,7 +4,7 @@
   "retailer": "burritoblanco.com",
   "vertical": "textil hogar",
   "split": "dev",
-  "page": "var/pages/sabanas-coralina-999.html",
+  "page": "capture/var/pages/sabanas-coralina-999.html",
   "source": "docs/20-methods/product-taxonomy/subclasses.md#caso-de-trabajo-juego-de-sábanas-de-coralina",
   "rules": [
     "D-020",

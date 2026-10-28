@@ -1,9 +1,10 @@
 ---
 id: T-015
 title: Estructuración MPIR (capa B): unidades de contenido con localizador
-status: pendiente
+status: bloqueada
 depends: T-013
 milestone: codigo
+reason: Aparcada por D-095 (MPIR aparcado); retomarlo es una decisión nueva
 created: 2026-10-25
 ---
 

@@ -11,9 +11,9 @@ from pathlib import Path
 
 import pytest
 
-from demand_engine.capture import sitemaps
-from demand_engine.capture.browser import Browser
-from demand_engine.capture.files import write_json
+from capture import sitemaps
+from capture.browser import Browser
+from capture.files import write_json
 from demand_engine.mpir import scheduler
 from demand_engine.mpir.store import Study
 

@@ -1,6 +1,6 @@
 {
   "catalog": "capa general",
-  "version": "0.6",
+  "version": "0.7",
   "source": "docs/20-methods/product-taxonomy/requirement-blocks.md#capa-general",
   "decisions": [
     "D-034",
@@ -14,7 +14,8 @@
     "D-067",
     "D-080",
     "D-085",
-    "D-089"
+    "D-089",
+    "D-144"
   ],
   "blocks": [
     {
@@ -22,7 +23,7 @@
       "type": "general universal",
       "name": "Capa general",
       "trigger": null,
-      "version": "0.6",
+      "version": "0.7",
       "status": "marco",
       "refs": [
         "amazon-ptd:todos@2026-10-24",
@@ -36,11 +37,11 @@
         "ley:TRLGDCU-97.1.k@2026-02-28",
         "ley:TRLGDCU-97.1.m@2026-02-28",
         "ley:TRLGDCU-97.1.n@2026-02-28",
-        "ley:UE-2023/988-19.a@2023-05-23",
-        "ley:UE-2023/988-19.b@2023-05-23",
-        "ley:UE-2023/988-19.c@2023-05-23",
-        "ley:UE-2023/988-19.d@2023-05-23",
-        "ley:UE-2023/988-3.8@2023-05-23",
+        "ley:UE-2023/988-19.a@2026-05-29",
+        "ley:UE-2023/988-19.b@2026-05-29",
+        "ley:UE-2023/988-19.c@2026-05-29",
+        "ley:UE-2023/988-19.d@2026-05-29",
+        "ley:UE-2023/988-3.8@2026-05-29",
         "ley:RD-3423/2000-3.2@2000-12-28"
       ],
       "requirements": [
@@ -109,7 +110,7 @@
           "importance": "principal",
           "origin": "normativa",
           "sources": [
-            "ley:UE-2023/988-19.a@2023-05-23"
+            "ley:UE-2023/988-19.a@2026-05-29"
           ],
           "applicability": "universal",
           "validated_by": "D-052, D-065",
@@ -120,7 +121,7 @@
               "component": "marca",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.a@2023-05-23"
+                "ley:UE-2023/988-19.a@2026-05-29"
               ]
             }
           ]
@@ -132,7 +133,7 @@
           "importance": "principal",
           "origin": "normativa",
           "sources": [
-            "ley:UE-2023/988-19.c@2023-05-23"
+            "ley:UE-2023/988-19.c@2026-05-29"
           ],
           "applicability": "universal",
           "validated_by": "D-065",
@@ -142,15 +143,7 @@
               "component": "modelo",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.c@2023-05-23"
-              ]
-            },
-            {
-              "contribution": "imagen que permite identificar el producto",
-              "component": "modelo",
-              "origin": "marco",
-              "support": [
-                "ley:UE-2023/988-19.c@2023-05-23"
+                "ley:UE-2023/988-19.c@2026-05-29"
               ]
             }
           ]
@@ -162,7 +155,7 @@
           "importance": "principal",
           "origin": "normativa",
           "sources": [
-            "ley:UE-2023/988-19.c@2023-05-23"
+            "ley:UE-2023/988-19.c@2026-05-29"
           ],
           "applicability": "universal",
           "validated_by": "D-052",
@@ -173,7 +166,7 @@
               "component": "identificadores",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.c@2023-05-23"
+                "ley:UE-2023/988-19.c@2026-05-29"
               ]
             },
             {
@@ -181,7 +174,7 @@
               "component": "referencia",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.c@2023-05-23"
+                "ley:UE-2023/988-19.c@2026-05-29"
               ]
             },
             {
@@ -870,8 +863,8 @@
           "importance": "complementario",
           "origin": "normativa",
           "sources": [
-            "ley:UE-2023/988-19.a@2023-05-23",
-            "ley:UE-2023/988-3.8@2023-05-23"
+            "ley:UE-2023/988-19.a@2026-05-29",
+            "ley:UE-2023/988-3.8@2026-05-29"
           ],
           "applicability": "universal (apoyo normativo del GPSR en su ámbito; fuera de él, por comprobar: OQ-45)",
           "validated_by": "D-052, D-080",
@@ -881,7 +874,7 @@
               "component": "quién es el fabricante",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.a@2023-05-23"
+                "ley:UE-2023/988-19.a@2026-05-29"
               ]
             },
             {
@@ -889,7 +882,7 @@
               "component": "dirección postal",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.a@2023-05-23"
+                "ley:UE-2023/988-19.a@2026-05-29"
               ]
             },
             {
@@ -897,7 +890,7 @@
               "component": "dirección electrónica",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.a@2023-05-23"
+                "ley:UE-2023/988-19.a@2026-05-29"
               ]
             },
             {
@@ -905,7 +898,7 @@
               "component": "quién es el fabricante",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-3.8@2023-05-23"
+                "ley:UE-2023/988-3.8@2026-05-29"
               ]
             }
           ]
@@ -917,7 +910,7 @@
           "importance": "complementario",
           "origin": "normativa",
           "sources": [
-            "ley:UE-2023/988-19.b@2023-05-23"
+            "ley:UE-2023/988-19.b@2026-05-29"
           ],
           "applicability": "si el fabricante no está establecido en la UE (requisito condicionado a un hecho del producto; lo decide la auditoría)",
           "validated_by": "D-052",
@@ -927,7 +920,7 @@
               "component": "quién es la persona responsable",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.b@2023-05-23"
+                "ley:UE-2023/988-19.b@2026-05-29"
               ]
             },
             {
@@ -935,7 +928,7 @@
               "component": "dirección postal",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.b@2023-05-23"
+                "ley:UE-2023/988-19.b@2026-05-29"
               ]
             },
             {
@@ -943,7 +936,7 @@
               "component": "dirección electrónica",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.b@2023-05-23"
+                "ley:UE-2023/988-19.b@2026-05-29"
               ]
             }
           ]
@@ -955,7 +948,7 @@
           "importance": "principal",
           "origin": "normativa",
           "sources": [
-            "ley:UE-2023/988-19.d@2023-05-23"
+            "ley:UE-2023/988-19.d@2026-05-29"
           ],
           "applicability": "universal (apoyo normativo del GPSR en su ámbito; fuera de él, por comprobar: OQ-45)",
           "validated_by": "D-052",
@@ -965,7 +958,7 @@
               "component": "advertencias",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.d@2023-05-23"
+                "ley:UE-2023/988-19.d@2026-05-29"
               ]
             },
             {
@@ -973,7 +966,7 @@
               "component": "información de seguridad",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.d@2023-05-23"
+                "ley:UE-2023/988-19.d@2026-05-29"
               ]
             }
           ]

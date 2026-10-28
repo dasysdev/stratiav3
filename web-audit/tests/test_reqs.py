@@ -3,7 +3,8 @@ import json
 
 import pytest
 
-from web_audit import refs, reqs
+from references import read, store
+from web_audit import reqs
 
 TEXT = """# Merchant listing {#top}
 
@@ -42,16 +43,18 @@ VOCABULARY = {"@context": {}, "@graph": [
      "rdfs:comment": "A Global Trade Item Number.\n\nA correct [[gtin]] value should be a valid GTIN."},
 ]}
 
+SYSTEMS = {"web-audit": {"review": "web-audit/bin/reqs check"}, "demand-engine": {"review": "entrenamiento"}}
 SOURCES = [
-    {"id": "guide", "kind": "document", "title": "Guide", "url": "https://example.org/guide"},
-    {"id": "schemaorg", "kind": "schemaorg", "title": "Vocabulary", "url": "https://github.com/x"},
-    {"id": "spec-pdf", "kind": "document", "title": "Spec", "url": "https://example.org/spec/"},
-    {"id": "principles", "kind": "document", "title": "Principles", "url": "https://example.org/p"},
+    {"id": "guide", "kind": "document", "title": "Guide", "url": "https://example.org/guide", "uses": ["web-audit"]},
+    {"id": "schemaorg", "kind": "schemaorg", "title": "Vocabulary", "url": "https://github.com/x", "uses": ["web-audit"]},
+    {"id": "spec-pdf", "kind": "document", "title": "Spec", "url": "https://example.org/spec/", "uses": ["web-audit"]},
+    {"id": "principles", "kind": "document", "title": "Principles", "url": "https://example.org/p", "uses": ["web-audit"]},
+    {"id": "taxonomy", "kind": "google-taxonomy", "title": "Taxonomy", "url": "https://example.org/t", "uses": ["demand-engine"]},
 ]
 
 
 def freeze(source: str, version: str, files: dict) -> None:
-    folder = refs.REFS / source / version
+    folder = store.refs_dir() / source / version
     folder.mkdir(parents=True)
     for name, data in files.items():
         (folder / name).write_bytes(data)
@@ -61,18 +64,17 @@ def freeze(source: str, version: str, files: dict) -> None:
 @pytest.fixture
 def reference(tmp_path, monkeypatch):
     """Frozen sources (a page, the vocabulary, a PDF), pinned, and an empty reference."""
-    monkeypatch.setattr(refs, "REFS", tmp_path / "refs")
-    monkeypatch.setattr(refs, "PINS", tmp_path / "refs/pins.json")
-    monkeypatch.setattr(refs, "SOURCES_FILE", tmp_path / "sources.json")
+    monkeypatch.setenv("REFS_DIR", str(tmp_path / "refs"))
+    monkeypatch.setenv("SOURCES_FILE", str(tmp_path / "sources.json"))
     monkeypatch.setattr(reqs, "REFERENCE", tmp_path / "reference")
-    (tmp_path / "sources.json").write_text(json.dumps({"sources": SOURCES}), encoding="utf-8")
+    (tmp_path / "sources.json").write_text(json.dumps({"systems": SYSTEMS, "sources": SOURCES}), encoding="utf-8")
     freeze("guide", "2026-10-27", {"page.html": b"<html></html>", "text.md": TEXT.encode()})
     freeze("guide", "2026-11-02", {"page.html": b"<html></html>", "text.md": b"# Merchant listing {#top}\n"})
-    freeze("schemaorg", "30.1", {refs.VOCABULARY: json.dumps(VOCABULARY).encode()})
+    freeze("schemaorg", "30.1", {read.VOCABULARY: json.dumps(VOCABULARY).encode()})
     freeze("spec-pdf", "2026-10-27", {"document.pdf": b"%PDF-1.4"})
     freeze("principles", "2026-10-27", {"text.md": b"# Principles {#p}\n\nData should be reusable.\n"})
-    refs.save_pins({"guide": "2026-10-27", "schemaorg": "30.1", "spec-pdf": "2026-10-27", "principles": "2026-10-27"})
-    reqs.vocabulary.cache_clear()
+    store.save_pins({"guide": "2026-10-27", "schemaorg": "30.1", "spec-pdf": "2026-10-27", "principles": "2026-10-27"})
+    read.vocabulary.cache_clear()
     return tmp_path / "reference"
 
 
@@ -125,21 +127,6 @@ def test_a_valid_reference(reference):
                        "(1 obligatorias, 2 recomendadas)", "sin ficha (1): spec-pdf"]
 
 
-def test_sections(reference):
-    section = reqs.section_text("guide", "document", "#product-properties")
-    assert section.startswith("### Product") and "We recommend" in section     # with its subsections
-    assert "## Examples" not in section and "# not a heading" in section        # code is no heading
-    assert reqs.section_text("guide", "document", "#examples").endswith("An example.")
-    assert reqs.section_text("guide", "document", "Identifiers").startswith("#### Identifiers\n")
-    with pytest.raises(reqs.ReqsError, match="hay 2 encabezados «Example»"):
-        reqs.section_text("guide", "document", "Example")
-    with pytest.raises(reqs.ReqsError, match="no existe la sección #nope"):
-        reqs.section_text("guide", "document", "#nope")
-    assert reqs.section_text("schemaorg", "schemaorg", "schema:gtin").endswith("should be a valid GTIN.")
-    with pytest.raises(reqs.ReqsError, match="no tiene texto citable"):
-        reqs.section_text("spec-pdf", "document", "#x")
-
-
 def test_card_errors(reference):
     write(reference, [
         {**card(quotes=[("#product-properties", "offers | Offer A nested\n  Offer to sell the product."),
@@ -150,6 +137,7 @@ def test_card_errors(reference):
         card("schemaorg", "30.0", cls="principios generales", quotes=[("schema:nope", "x")]),
     ])
     (reference / "cards" / "other.json").write_text(json.dumps(card("guide")), encoding="utf-8")
+    (reference / "cards" / "taxonomy.json").write_text(json.dumps(card("taxonomy")), encoding="utf-8")
     found = errors(reference)
     assert "cards/guide.json: campo no admitido «score»" in found
     assert "guide.json q01" not in found                    # whitespace does not count
@@ -163,13 +151,14 @@ def test_card_errors(reference):
     assert "schemaorg.json: cita la versión 30.0 y la fijada es 30.1" in found
     assert "schemaorg.json q01: no existe el término schema:nope" in found
     assert "other.json: source «guide» no coincide con el nombre del fichero" in found
+    assert "taxonomy.json: «taxonomy» no es una fuente de web-audit" in found  # another system uses it
 
 
 def test_a_new_pin_shows_the_quotes_to_review(reference):
     write(reference, [GUIDE])
-    refs.save_pins({**refs.pins(), "guide": "2026-11-02"})
+    store.save_pins({**store.pins(), "guide": "2026-11-02"})
     found = errors(reference)
-    assert "cita la versión 2026-10-27 y la fijada es 2026-11-02; revisa las citas (refs diff guide" in found
+    assert "cita la versión 2026-10-27 y la fijada es 2026-11-02; revisa las citas (references/bin/refs diff guide" in found
     assert "q03: la cita no está en #product-properties" not in found     # the section is gone first
     assert "q03: no existe la sección #product-properties" in found
 

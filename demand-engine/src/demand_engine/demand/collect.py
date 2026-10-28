@@ -1,11 +1,12 @@
 """Capture of the training catalog (T-025, D-053): the pages of a selection in one batch of the
-capture engine (crawl), at the pace of the store's spec. Each captured page becomes
-var/pages/ID.html, like taxo page fetch; a page that no longer exists, or that the store
-excludes, is replaced by a reserve of its type.
+capture engine (crawl), at the pace of the store's spec. Each captured page becomes a frozen page
+of the capture store (capture/var/pages/ID.html), like taxo page fetch; a page that no longer
+exists, or that the store excludes, is replaced by a reserve of its type.
 
 The log of each selection (var/training/<store>/capture-<selection>.jsonl) makes the batch
 resumable: what was captured or ruled out is not visited again, and a block or a failure is
-retried in the next run. It also counts the visits of the day for the daily cap.
+retried in the next run. It also counts the visits of the day for the daily cap. The snapshot of
+a record is relative to capture/, like that of ID.json.
 """
 from __future__ import annotations
 
@@ -15,10 +16,18 @@ from collections import Counter
 from datetime import date
 from pathlib import Path
 
-from .. import pages
+from capture import pages
+
 from .selection import DISCOVERIES, SelectionError, shown
 
 FINAL = ("captured", "gone", "disallowed", "reserved")  # not visited again
+
+
+def snapshot(folder: Path) -> str:
+    try:
+        return str(Path(folder).relative_to(pages.ROOT))
+    except ValueError:
+        return str(folder)
 
 
 def log_path(selection: dict, selection_file: Path) -> Path:
@@ -57,12 +66,12 @@ class Batch:
 def capture(spec: dict, selection_file: Path, pilot_only: bool = False, max_visits: int | None = None,
             ignore_hours: bool = False, out=print, browser=None) -> list:
     """Visit what is pending of the selection; returns the records of this run."""
-    from ..capture import profile
-    from ..capture.browser import Browser
-    from ..capture.crawl import SiteRun, crawl
-    from ..capture.files import now, stamp, unique_dir, write_json
-    from ..capture.legitimacy import access
-    from ..capture.pacing import Pacing
+    from capture import profile
+    from capture.browser import Browser
+    from capture.crawl import SiteRun, crawl
+    from capture.files import now, stamp, unique_dir, write_json
+    from capture.legitimacy import access
+    from capture.pacing import Pacing
 
     selection = json.loads(Path(selection_file).read_text(encoding="utf-8"))
     log = log_path(selection, selection_file)
@@ -96,7 +105,7 @@ def capture(spec: dict, selection_file: Path, pilot_only: bool = False, max_visi
             record = {"id": item["id"], "url": item["url"], "category": item["category"],
                       "outcome": result["outcome"], "detail": result["detail"], "at": now(),
                       "elapsed_s": result.get("elapsed_s"),
-                      "snapshot": shown(result["folder"]) if result.get("folder") else None}
+                      "snapshot": snapshot(result["folder"]) if result.get("folder") else None}
             if result["outcome"] == "captured":
                 pages.freeze(item["id"], item["url"], result["folder"], result["meta"],
                              {"selection": shown(selection_file), "category": item["category"]})

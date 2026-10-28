@@ -18,11 +18,13 @@ import json
 from collections import Counter
 from pathlib import Path
 
+from capture.files import now, read_json, write_json
+from references.read import shopify_categories
+from references.store import RefsError
+
 from .. import ROOT
-from ..capture.files import now, read_json, write_json
 from ..demand import hints as catalog_hints
 from ..demand.hints import ACS, CASES, MARKS, MAX_CHARS, MAX_SENTENCES, PROPERTIES
-from ..refs import RefsError, shopify_categories
 from .store import SeedSet, StoreError, slug
 from .text import norm
 

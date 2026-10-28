@@ -7,7 +7,7 @@
   "refs": [
     "shopify:hg-15@v2026-08",
     "google:4171@2021-09-21",
-    "ley:UE-1007/2011-16.1@2011-10-18",
+    "ley:UE-1007/2011-16.1@2018-02-15",
     "amazon-ptd:FITTED_SHEET@2026-10-24",
     "amazon-ptd:BLANKET@2026-10-24",
     "amazon-ptd:TOWEL@2026-10-24"
@@ -24,7 +24,7 @@
       "importance": "principal",
       "origin": "normativa",
       "sources": [
-        "ley:UE-1007/2011-16.1@2011-10-18",
+        "ley:UE-1007/2011-16.1@2018-02-15",
         "shopify-attr:fabric",
         "shopify-attr:material"
       ],
@@ -54,7 +54,7 @@
           "component": "composición en fibras",
           "origin": "referencias",
           "support": [
-            "ley:UE-1007/2011-16.1@2011-10-18",
+            "ley:UE-1007/2011-16.1@2018-02-15",
             "shopify-attr:fabric"
           ]
         },
@@ -63,7 +63,7 @@
           "component": "porcentajes",
           "origin": "referencias",
           "support": [
-            "ley:UE-1007/2011-16.1@2011-10-18"
+            "ley:UE-1007/2011-16.1@2018-02-15"
           ]
         },
         {
@@ -90,7 +90,7 @@
           "origen": {
             "tipo": "normativa",
             "apoyo": [
-              "ley:UE-1007/2011-16.1@2011-10-18"
+              "ley:UE-1007/2011-16.1@2018-02-15"
             ]
           }
         }

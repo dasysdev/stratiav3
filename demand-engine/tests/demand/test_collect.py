@@ -7,7 +7,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import pytest
 
-from demand_engine import pages
+from capture import pages
 from demand_engine.demand import collect
 
 CHROME = os.environ.get("CAPTURE_CHROME", "google-chrome")
@@ -57,7 +57,7 @@ class Handler(BaseHTTPRequestHandler):
 @pytest.mark.chrome
 @pytest.mark.skipif(not shutil.which(CHROME), reason="sin Chrome (se ejecuta en el contenedor)")
 def test_capture_first_load_and_reserve(tmp_path, monkeypatch):
-    from demand_engine.capture.browser import Browser
+    from capture.browser import Browser
 
     httpd = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
     threading.Thread(target=httpd.serve_forever, daemon=True).start()

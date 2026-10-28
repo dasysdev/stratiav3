@@ -4,7 +4,7 @@
   "retailer": "kiwoko.com",
   "vertical": "mascotas",
   "split": "dev",
-  "page": "var/pages/cuerda-tootoy.html",
+  "page": "capture/var/pages/cuerda-tootoy.html",
   "source": "docs/20-methods/product-taxonomy/cases.md#juguete-de-cuerda-para-perro",
   "rules": [
     "D-022",

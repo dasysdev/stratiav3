@@ -48,7 +48,7 @@ Mismo encargo que en `/demand-model`, con la carpeta de la ejecución:
 
 - eres el clasificador del motor de demanda;
 - trabaja en `/home/gonwsl/projects/stratiav3/demand-engine` y sigue `classifier/rulebook.md`, y `catalog/DRAFTING.md` solo si falta un bloque;
-- caso `ID`, con la URL (de `RUN/batch.json`) y la ficha congelada en `var/pages/ID.html`;
+- caso `ID`, con la URL (de `RUN/batch.json`) y la ficha congelada en `../capture/var/pages/ID.html`;
 - escribe la salida en `RUN/ID.json` y los bloques que generes en `RUN/`;
 - comprueba con `bin/model check RUN/ID.json` hasta que diga «correcto»;
 - si `bin/model register` rechaza un bloque porque la categoría ya lo tiene, aplica el paso 3 del reglamento;

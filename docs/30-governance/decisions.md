@@ -72,7 +72,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-043](#d-043) | Criterios de redacción del catálogo de bloques de categoría | aceptada (criterio 5 sustituido por D-044; criterio 1 precisado por D-051 y enmendado por D-055; reglas de formulación añadidas por D-060) | 2026-10-25 |
 | [D-044](#d-044) | Marco humano y reglas inducidas: el usuario define el marco, no revisa reglas ni requisitos | aceptada (operación: D-045; «críticos pocos» retirado del marco por D-059) | 2026-10-25 |
 | [D-045](#d-045) | Operación del entrenamiento, primera versión: rasgos, reglas de importancia por el árbol de Shopify y métricas | aceptada (relevancia inducida por D-050; vocabulario ampliado por D-051 y abierto por D-056; ejecución a escala enmendada por D-054; crítico por requisito y clase por D-055; excepciones por requisito y crítico de cualquier propiedad por D-058; información resolutiva inducida por D-063) | 2026-10-25 |
-| [D-046](#d-046) | Motor de captura compartido por el MPIR y el entrenamiento del modelo de demanda | aceptada (primera selección: D-053) | 2026-10-25 |
+| [D-046](#d-046) | Motor de captura compartido por el MPIR y el entrenamiento del modelo de demanda | aceptada (primera selección: D-053; dónde vive el motor: D-150) | 2026-10-25 |
 | [D-047](#d-047) | El modelo de demanda va con el producto; la aplicación, con la oferta | aceptada (tres disparadores nuevos por D-066; nombre con sectores por D-077) | 2026-10-25 |
 | [D-048](#d-048) | La oferta no aporta requisitos: activa requisitos condicionados de la clase | aceptada | 2026-10-25 |
 | [D-049](#d-049) | Pregunta universal de promociones y descuentos | aceptada | 2026-10-25 |
@@ -159,7 +159,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-130](#d-130) | Perfil de implementación: definición y tres niveles en Web Schema.org | aceptada (nivel del consumidor enmendado por D-145) | 2026-10-27 |
 | [D-131](#d-131) | Estados del requisito técnico | aceptada | 2026-10-27 |
 | [D-132](#d-132) | Solo una especificación aplicable fundamenta un requisito técnico | aceptada | 2026-10-27 |
-| [D-133](#d-133) | Referencia técnica en web-audit: datos gobernados por el canon, decididos por los agentes | aceptada | 2026-10-27 |
+| [D-133](#d-133) | Referencia técnica en web-audit: datos gobernados por el canon, decididos por los agentes | aceptada (las fuentes congeladas, en references: D-149) | 2026-10-27 |
 | [D-134](#d-134) | Catálogo de pistas con destinatario; encontrarlas es código | aceptada (enmendada por D-140: las pistas de un requisito viven en él) | 2026-10-27 |
 | [D-135](#d-135) | Campos de una pista de valoración, quién escribe las dirigidas a una fuente y cómo llegan al auditor | aceptada (precisada por D-140: `para`) | 2026-10-27 |
 | [D-136](#d-136) | Gobierno de las pistas de valoración: aceptación, duplicadas, retiradas y orígenes | aceptada | 2026-10-27 |
@@ -175,6 +175,8 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-146](#d-146) | La categoría madre y el material en el perímetro de PAA | aceptada | 2026-10-28 |
 | [D-147](#d-147) | Datos del mínimo de representación en Web Schema.org | aceptada | 2026-10-28 |
 | [D-148](#d-148) | Formación estructural | aceptada | 2026-10-28 |
+| [D-149](#d-149) | Sistema references: custodia común de las fuentes externas congeladas | aceptada | 2026-10-28 |
+| [D-150](#d-150) | Sistema capture: motor de captura y almacén común de fichas congeladas | aceptada | 2026-10-28 |
 
 ---
 
@@ -2428,3 +2430,32 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - El ejemplo del envío en la oferta y la tabla de estructuras de la referencia son ilustración y evidencia de la decisión, con requisitos reales (`105`, `122`).
 - **Consecuencias:** precisa D-145. [evaluation-scopes](../10-model/evaluation-scopes.md) 1.5 (frontera); [demand-model](../10-model/demand-model.md) 3.6; glosario (nueva entrada Formación estructural; Perfil de implementación); OQ-30 anotada. T-055 separa requisito a requisito las partes de interpretación y las reglas de coherencia.
 - **Relacionado:** D-130, D-143, D-145, D-147.
+
+### D-149
+
+**Sistema references: custodia común de las fuentes externas congeladas.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-references-system`. demand-engine (taxonomías de Shopify, Google y Amazon.es) y web-audit (Schema.org y los documentos de las especificaciones) custodiaban cada uno sus fuentes externas por separado. Contexto añadido por Claude: eran dos almacenes de versiones con dos versiones fijadas, y cuando demand-engine necesite citar fuentes de la referencia técnica ([OQ-76](open-questions.md)) las dos custodias divergirían. Usuario, en la reorganización de las referencias: opción A.
+- **Decisión:**
+  - Las fuentes externas congeladas por versión viven en un sistema propio de primer nivel, `references/`: registro (`references/sources.json`, con `uses`, los sistemas que usan cada fuente), versiones congeladas fuera de git y desechables (`references/var/`), una sola versión fijada por fuente (`pins.json`), diff entre versiones y lectores por formato.
+  - Las fuentes se comparten; su interpretación sigue en cada sistema: el catálogo de bloques y el material de taxonomía, en demand-engine; las fichas de fuente y los requisitos técnicos (la referencia técnica), en `web-audit/reference/`.
+- **Interpretaciones adoptadas:**
+  - La referencia técnica de D-133 deja de incluir las fuentes congeladas, pero sigue citándolas a la versión fijada (D-132).
+  - Lectura de Claude: como la versión fijada es una sola para todos los sistemas, un cambio de versión fijada lo revisa cada sistema de `uses` con lo que interpreta de la fuente.
+- **Consecuencias:** enmienda D-133. [evaluation-scopes](../10-model/evaluation-scopes.md#fuentes-de-los-requisitos-técnicos) 1.6 (regla 4); glosario (nueva entrada references; web-audit). Fuera de `docs/`: T-059 (construir y probar `references/`), T-060 (corte de datos y consumidores) y T-061 (propiedades de Google Search para demand-engine).
+- **Relacionado:** D-045, D-129, D-132, D-133.
+
+### D-150
+
+**Sistema capture: motor de captura y almacén común de fichas congeladas.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-capture-system`, tareas T-063 (estudio) y T-066. El motor de captura ([D-046](#d-046)) y las fichas congeladas vivían en demand-engine. Contexto añadido por Claude: web-audit ([D-129](#d-129)) también los necesita, porque el contraste de los requisitos técnicos lee fichas congeladas y el auditado técnico tendrá que capturar; es el mismo caso que las fuentes externas, que pasaron a un sistema común ([D-149](#d-149)). Usuario, en el estudio T-063: alternativa B. Descartadas: A (el motor y las fichas siguen en demand-engine y web-audit depende de demand-engine), C (solo el motor en común, con capturas duplicadas por sistema) y D (dentro de references: otra ejecución, otra naturaleza, sin versión fijada).
+- **Decisión:**
+  - El motor de captura y el almacén de fichas congeladas viven en un sistema propio de primer nivel, `capture/`, compartido por demand-engine, web-audit y la futura auditoría, para que todos evalúen la misma instantánea de una ficha.
+  - La captura se comparte; su interpretación sigue en cada sistema.
+  - Regla del almacén: un ID que ya tiene ficha se rechaza y la captura nueva lleva otro ID. Nunca se sustituye una ficha congelada.
+- **Interpretaciones adoptadas:**
+  - Lectura de Claude: un intento de captura rechazado o bloqueado deja su instantánea pero no ficha, así que su ID sigue libre.
+  - Las políticas de acceso del motor ([D-042](#d-042), D-046) no cambian: siguen siendo del motor y se aplican igual a todas las capturas, también a las de web-audit y la auditoría.
+- **Consecuencias:** enmienda D-046 en dónde vive el motor (el código pasa de demand-engine a `capture/`). [model-training](../10-model/model-training.md#casos-alcance-y-ejecución) 1.21 (motor de captura); glosario (nueva entrada capture; motor de captura); enlaces al README del motor en [sampling-capture](../20-methods/mpir/sampling-capture.md) 1.5, OQ-14 e I-18. Fuera de `docs/`: T-066 (construir y probar `capture/`, sin mover datos ni consumidores: hasta el corte, demand-engine sigue con su copia del motor y sus fichas) y T-067 (corte: mover las fichas y el perfil de Chrome sin volver a capturar ni alterar ninguna ficha, y repuntar los consumidores).
+- **Relacionado:** D-042, D-046, D-129, D-149.

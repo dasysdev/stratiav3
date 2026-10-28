@@ -18,8 +18,9 @@ import re
 from datetime import datetime, timedelta
 from pathlib import Path
 
+from capture.files import now, read_json, unique_dir, write_evidence, write_json
+
 from .. import ROOT
-from ..capture.files import now, read_json, unique_dir, write_evidence, write_json
 from .text import norm
 
 DEFAULTS = {

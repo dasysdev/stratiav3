@@ -56,13 +56,14 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from references.store import pins
+
 from . import resolving
 from .catalog import (CAT_DIR, CATALOG, COMPILED, EMPTY, FIXED, LEVELS, NO_RULE, NOT_RELEVANT, RESOLVING, ROOT,
                       RULES, RUNTIME_DIR, TRAITS, UNCOMPILED, VOTES, blocks_by_node, category_name, chain, depth, floor,
                       load_blocks, load_empty, load_gen, load_resolving, load_rules, load_traits, majority, parent,
                       protected, rank, read_json, relevance, requirement_trait, resolve, save_block, trait_index,
                       write_json)
-from ..refs import pins
 from .text import covers, match_names, stems
 
 CANDIDATE = CATALOG / "rules" / "importance.candidate.json"
@@ -387,7 +388,7 @@ def cmd_induce(run_dirs: list) -> dict:
     candidate.update({"version": str(int(current.get("version", "0")) + 1), "induced": datetime.date.today().isoformat(),
                       "points": {"catalog": sum(1 for p in points if p["from"] == "catálogo"),
                                  "votes": sum(1 for p in points if p["from"] != "catálogo")},
-                      "runs": [str(d) for d in run_dirs], "refs": pins()})
+                      "runs": [str(d) for d in run_dirs], "refs": pins("demand-engine")})
     write_json(CANDIDATE, candidate)
     kinds = Counter(r["kind"] for r in candidate["rules"])
     print(f"candidata {candidate['version']}: {len(candidate['rules'])} reglas ({', '.join(f'{v} {k}' for k, v in kinds.items())}) "
@@ -1024,7 +1025,7 @@ def cmd_report(args: list) -> None:
 
 
 def cmd_discover(spec_path: Path) -> None:
-    from .. import pages
+    from capture import pages
     from . import selection
     if not pages.engine_available():
         # On the host: the capture engine (Chrome, websockets) runs in the container
@@ -1066,7 +1067,7 @@ def cmd_select(spec_path: Path, discovery: Path | None) -> None:
 
 
 def cmd_capture(args: list) -> None:
-    from .. import pages
+    from capture import pages
     from . import collect, selection
     path, flags = Path(args[0]), args[1:]
     pilot = "--pilot" in flags

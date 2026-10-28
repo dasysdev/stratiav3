@@ -2,7 +2,7 @@
 
 Captura recursos de ecommerce referentes para el [MPIR](../../../../docs/20-methods/mpir/README.md): la capa **A** (corpus de recursos originales) de su [arquitectura](../../../../docs/20-methods/mpir/concepts-architecture.md#arquitectura-de-información). La estructuración (capa B) es T-015.
 
-Aquí está lo propio del MPIR: el plan de observación, las fichas de referente, el inventario de recursos y la ingesta manual. La captura la hace el [motor de captura](../capture/README.md) compartido. Su principio, la legitimidad, el ritmo, lo que hace ante un bloqueo y los ficheros de cada instantánea están en su README.
+Aquí está lo propio del MPIR: el plan de observación, las fichas de referente, el inventario de recursos y la ingesta manual. La captura la hace el [motor de captura](../../../../capture/README.md) compartido. Su principio, la legitimidad, el ritmo, lo que hace ante un bloqueo y los ficheros de cada instantánea están en su README.
 
 ## Uso
 

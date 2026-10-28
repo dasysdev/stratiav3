@@ -1,11 +1,9 @@
 [project]
 name = "demand-engine"
 version = "0.1.0"
-description = "stratia.cic: construcción de modelos de demanda (taxonomía, clasificador y motor de captura del MPIR)"
+description = "stratia.cic: construcción de modelos de demanda (taxonomía, clasificador, entrenamiento, MPIR y PAA)"
 requires-python = ">=3.13"
-dependencies = [
-    "websockets>=13.1,<16",
-]
+dependencies = []
 
 [tool.uv]
 # Not a distributable package: the code runs from src/ with PYTHONPATH (see env/docker/app/Dockerfile)

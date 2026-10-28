@@ -7,8 +7,8 @@
   "refs": [
     "shopify:fb-2@v2026-08",
     "google:422@2021-09-21",
-    "ley:UE-1169/2011-9.1@2011-10-25",
-    "ley:UE-1169/2011-14.1.a@2011-10-25"
+    "ley:UE-1169/2011-9.1@2025-04-01",
+    "ley:UE-1169/2011-14.1.a@2025-04-01"
   ],
   "requirements": [
     {
@@ -20,8 +20,8 @@
       "vote": "crítico",
       "origin": "normativa",
       "sources": [
-        "ley:UE-1169/2011-9.1.e@2011-10-25",
-        "ley:UE-1169/2011-14.1.a@2011-10-25",
+        "ley:UE-1169/2011-9.1.e@2025-04-01",
+        "ley:UE-1169/2011-14.1.a@2025-04-01",
         "amazon-ptd-prop:FOOD.item_weight"
       ],
       "applicability": "universal (alimentos envasados)",
@@ -35,8 +35,8 @@
           "component": "cantidad neta",
           "origin": "referencias",
           "support": [
-            "ley:UE-1169/2011-9.1.e@2011-10-25",
-            "ley:UE-1169/2011-14.1.a@2011-10-25"
+            "ley:UE-1169/2011-9.1.e@2025-04-01",
+            "ley:UE-1169/2011-14.1.a@2025-04-01"
           ]
         },
         {
@@ -71,7 +71,7 @@
       "origin": "normativa",
       "sources": [
         "shopify-attr:ingredients",
-        "ley:UE-1169/2011-9.1.b@2011-10-25",
+        "ley:UE-1169/2011-9.1.b@2025-04-01",
         "amazon-ptd-prop:FOOD.ingredients",
         "amazon-ptd-prop:FOOD.material"
       ],
@@ -87,7 +87,7 @@
           "origin": "referencias",
           "support": [
             "shopify-attr:ingredients",
-            "ley:UE-1169/2011-9.1.b@2011-10-25",
+            "ley:UE-1169/2011-9.1.b@2025-04-01",
             "amazon-ptd-prop:FOOD.ingredients"
           ]
         },
@@ -125,7 +125,7 @@
       "origin": "normativa",
       "sources": [
         "shopify-attr:allergen-information",
-        "ley:UE-1169/2011-9.1.c@2011-10-25",
+        "ley:UE-1169/2011-9.1.c@2025-04-01",
         "amazon-ptd-prop:FOOD.allergen_information"
       ],
       "applicability": "universal",
@@ -140,7 +140,7 @@
           "origin": "referencias",
           "support": [
             "shopify-attr:allergen-information",
-            "ley:UE-1169/2011-9.1.c@2011-10-25",
+            "ley:UE-1169/2011-9.1.c@2025-04-01",
             "amazon-ptd-prop:FOOD.allergen_information"
           ]
         },
@@ -178,7 +178,7 @@
       "vote": "principal",
       "origin": "normativa",
       "sources": [
-        "ley:UE-1169/2011-9.1.l@2011-10-25",
+        "ley:UE-1169/2011-9.1.l@2025-04-01",
         "amazon-ptd-prop:FOOD.nutritional_info"
       ],
       "applicability": "universal (alimentos envasados, salvo exenciones del anexo V del Reglamento 1169/2011)",
@@ -192,7 +192,7 @@
           "component": "valor energético",
           "origin": "referencias",
           "support": [
-            "ley:UE-1169/2011-9.1.l@2011-10-25",
+            "ley:UE-1169/2011-9.1.l@2025-04-01",
             "amazon-ptd-prop:FOOD.nutritional_info"
           ]
         },
@@ -201,7 +201,7 @@
           "component": "grasas",
           "origin": "referencias",
           "support": [
-            "ley:UE-1169/2011-9.1.l@2011-10-25",
+            "ley:UE-1169/2011-9.1.l@2025-04-01",
             "amazon-ptd-prop:FOOD.nutritional_info"
           ]
         },
@@ -210,7 +210,7 @@
           "component": "hidratos de carbono",
           "origin": "referencias",
           "support": [
-            "ley:UE-1169/2011-9.1.l@2011-10-25",
+            "ley:UE-1169/2011-9.1.l@2025-04-01",
             "amazon-ptd-prop:FOOD.nutritional_info"
           ]
         },
@@ -219,7 +219,7 @@
           "component": "azúcares",
           "origin": "referencias",
           "support": [
-            "ley:UE-1169/2011-9.1.l@2011-10-25",
+            "ley:UE-1169/2011-9.1.l@2025-04-01",
             "amazon-ptd-prop:FOOD.nutritional_info"
           ]
         },
@@ -228,7 +228,7 @@
           "component": "proteínas",
           "origin": "referencias",
           "support": [
-            "ley:UE-1169/2011-9.1.l@2011-10-25",
+            "ley:UE-1169/2011-9.1.l@2025-04-01",
             "amazon-ptd-prop:FOOD.nutritional_info"
           ]
         },
@@ -237,7 +237,7 @@
           "component": "sal",
           "origin": "referencias",
           "support": [
-            "ley:UE-1169/2011-9.1.l@2011-10-25"
+            "ley:UE-1169/2011-9.1.l@2025-04-01"
           ]
         },
         {
@@ -260,7 +260,7 @@
       "origin": "normativa",
       "sources": [
         "shopify-attr:storage-requirements",
-        "ley:UE-1169/2011-9.1.g@2011-10-25"
+        "ley:UE-1169/2011-9.1.g@2025-04-01"
       ],
       "applicability": "universal",
       "rationale": "Las condiciones especiales de conservación son información obligatoria cuando existen y condicionan el uso; rara vez deciden la elección.",
@@ -274,7 +274,7 @@
           "origin": "referencias",
           "support": [
             "shopify-attr:storage-requirements",
-            "ley:UE-1169/2011-9.1.g@2011-10-25"
+            "ley:UE-1169/2011-9.1.g@2025-04-01"
           ]
         },
         {
@@ -283,7 +283,7 @@
           "origin": "referencias",
           "support": [
             "shopify-attr:storage-requirements",
-            "ley:UE-1169/2011-9.1.g@2011-10-25"
+            "ley:UE-1169/2011-9.1.g@2025-04-01"
           ]
         },
         {
@@ -291,7 +291,7 @@
           "component": "plazo en que debe consumirse una vez abierto",
           "origin": "referencias",
           "support": [
-            "ley:UE-1169/2011-9.1.g@2011-10-25"
+            "ley:UE-1169/2011-9.1.g@2025-04-01"
           ]
         }
       ]

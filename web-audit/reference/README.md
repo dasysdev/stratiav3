@@ -4,7 +4,6 @@ Fichas de fuente con citas literales y requisitos técnicos de la evaluación t�
 
 ```
 reference/
-├── sources.json              registro de fuentes que congela refs (ver el README de web-audit)
 ├── inventory.md              inventario: función y estado de cada fuente, las que quedan fuera del
 │                             registro y la cobertura de los tipos de las fichas reales
 ├── cards/<fuente>.json       ficha de cada fuente registrada
@@ -19,8 +18,8 @@ Una por fuente registrada, con su id como nombre de fichero. Dice qué función 
 
 | Campo | Contenido |
 |---|---|
-| `source` | Id de la fuente en `sources.json`. |
-| `version` | La versión que cita la ficha. Ha de ser la **fijada** (`var/refs/pins.json`). |
+| `source` | Id de la fuente en [references/sources.json](../../references/sources.json), con web-audit en su `uses`. |
+| `version` | La versión que cita la ficha. Ha de ser la **fijada** (`references/var/pins.json`). |
 | `class` | Su clase según el canon ([D-132](../../docs/30-governance/decisions.md#d-132)): `especificación aplicable`, `instrumento del sistema`, `principios generales`, `método de comprobación`, `práctica de terceros`, `antecedente histórico` o `datos comerciales distribuidos`. |
 | `level` | Solo en una especificación aplicable: su nivel del perfil ([D-130](../../docs/30-governance/decisions.md#d-130)), `serialización`, `vocabulario` o `consumidor`. |
 | `summary` | Qué fija la fuente o para qué sirve, en una o dos frases. |
@@ -85,7 +84,7 @@ Ejemplo (ilustrativo, con citas reales de `google-search-merchant-listing` 2026-
 `web-audit/bin/reqs check` se ejecuta en el host y sale con error si encuentra algún problema:
 
 - **Formato:** campos obligatorios presentes, ningún campo fuera del formato, valores del canon (clase, nivel, ámbito y naturaleza), ids únicos y con su forma.
-- **Citas:** la ficha cita la versión fijada y cada cita está, literal, en su sección de esa versión. Tras `refs pin`, la comprobación falla hasta que se revisan las fichas de la fuente.
+- **Citas:** la ficha cita la versión fijada y cada cita está, literal, en su sección de esa versión. Tras `references/bin/refs pin`, la comprobación falla hasta que se revisan las fichas de la fuente.
 - **Requisitos:** su especificación es aplicable y del nivel del fichero. Cada cita existe y es de una especificación aplicable. Al menos una es de `spec`, y alguna de las de `spec` contiene el término de su naturaleza (must, required o shall para obligatoria; should o recommend para recomendada). La condición es una sola frase, sin «;».
 - **Resumen:** fichas, citas y requisitos por naturaleza, y las fuentes registradas sin ficha.
 

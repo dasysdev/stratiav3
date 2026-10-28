@@ -1,7 +1,8 @@
 """Look up the frozen references and product pages while composing a study class.
 
-Reads the pinned version of each source (var/refs/pins.json). Read-only except
-`page fetch`, which freezes a product page under var/pages/.
+Reads the pinned version of each source (references/, D-149) and the frozen pages of the
+capture store (capture/, D-150). Read-only except `page fetch`, which freezes a product page
+in that store under a new ID.
 
 Usage:
   taxo shopify REGEX                 Shopify categories whose full name matches
@@ -17,8 +18,9 @@ Usage:
   taxo ptd TYPE [REGEX] [--enum PROP ...] [--all-groups]
                                      PTD properties (group, name, title, values);
                                      --enum prints the full value list of PROP
-  taxo page fetch ID URL             freeze a product page as var/pages/ID.html with the
-                                     capture engine (on the host it runs in the container)
+  taxo page fetch ID URL             freeze a product page as capture/var/pages/ID.html with
+                                     the capture engine, under a new ID (on the host it runs
+                                     in the container)
   taxo page facts ID [KEYWORD ...]   JSON-LD Product, breadcrumb and lines with keywords
   taxo page section ID HEADING [N]   the N text lines that follow a heading
   taxo page grep ID REGEX            text lines of the page that match
@@ -35,10 +37,13 @@ import subprocess
 import sys
 import xml.etree.ElementTree as ET
 
-from . import ROOT, pages
-from .pages import PageError
-from .refs import (RefsError, enum_values, google_mapping, google_names, pinned, ptd, shopify_attributes,
-                   shopify_categories, short)
+from capture import pages
+from capture.pages import PageError
+from references.read import (browse_tree, enum_values, google_mapping, google_names, ptd, shopify_attributes,
+                             shopify_categories, short)
+from references.store import RefsError
+
+from . import ROOT
 
 SKIP_GROUPS = {"images", "offer", "shipping", "variations", "safety_and_compliance", "compliance"}
 VALUES_SHOWN = 25
@@ -122,7 +127,7 @@ def cmd_google(args) -> None:
 def cmd_amazon(args) -> None:
     rx = re.compile(args.regex, re.I)
     rows = set()
-    with gzip.open(pinned("amazon-btg") / "browse_tree.es.xml.gz") as f:
+    with gzip.open(browse_tree()) as f:
         for _, el in ET.iterparse(f):
             if el.tag == "Node":
                 path = el.findtext("browsePathByName") or ""
@@ -158,7 +163,15 @@ def cmd_ptd(args) -> None:
 
 # --- Pages --------------------------------------------------------------------
 
+def read_page(case_id: str) -> str:
+    try:
+        return pages.read(case_id)
+    except PageError:
+        raise PageError(f"no hay página congelada para {case_id}; usa: taxo page fetch {case_id} URL") from None
+
+
 def cmd_page_fetch(args) -> None:
+    pages.check_new(args.id)
     if not pages.engine_available():
         # On the host: the capture engine (Chrome, websockets) runs in the container
         code = subprocess.call([str(ROOT.parent / "bin/run"), "dev", "exec", "python", "-m", "demand_engine.taxo",
@@ -171,7 +184,7 @@ def cmd_page_fetch(args) -> None:
 
 
 def cmd_page_facts(args) -> None:
-    raw = pages.read(args.id)
+    raw = read_page(args.id)
     print("TITLE:", (re.search(r"<title>(.*?)</title>", raw, re.S) or [None, ""])[1].strip())
     for data in pages.json_ld(raw):
         for node in pages.walk(data):
@@ -192,7 +205,7 @@ def cmd_page_facts(args) -> None:
 
 
 def cmd_page_section(args) -> None:
-    lines = pages.text_lines(pages.read(args.id))
+    lines = pages.text_lines(read_page(args.id))
     found = False
     for i, l in enumerate(lines):
         if l.lower() == args.heading.lower():
@@ -204,7 +217,7 @@ def cmd_page_section(args) -> None:
 
 def cmd_page_grep(args) -> None:
     rx = re.compile(args.regex, re.I)
-    for l in pages.text_lines(pages.read(args.id)):
+    for l in pages.text_lines(read_page(args.id)):
         if rx.search(l):
             print(l[:600])
 

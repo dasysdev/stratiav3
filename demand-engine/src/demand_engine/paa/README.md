@@ -10,7 +10,7 @@ El robots.txt de Google excluye `/search` para cualquier agente (`User-agent: *`
 
 Es una excepción que decidió el usuario para **investigación y uso interno**, no para ofrecer un servicio, registrada en [D-096](../../../../docs/30-governance/decisions.md#d-096) con los límites de ejecución de abajo. Se limita a las búsquedas de este motor; cualquier otra captura sigue con las políticas de D-042.
 
-Del principio del [motor de captura](../capture/README.md#principio) se mantiene todo lo demás:
+Del principio del [motor de captura](../../../../capture/README.md#principio) se mantiene todo lo demás:
 
 - Chrome estable con ventana, sin banderas de automatización. Perfil y puerto propios (`var/paa/chrome-profile`, 9224), separados del Chrome de captura.
 - Una sola ventana y una sola sesión: las búsquedas nunca van en paralelo.

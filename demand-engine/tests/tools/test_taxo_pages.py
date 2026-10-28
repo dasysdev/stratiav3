@@ -5,7 +5,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import pytest
 
-from demand_engine import pages, taxo
+from capture import pages
+from demand_engine import taxo
 
 PAGE = """<html><head><title>Sábanas Coralina</title>
 <script type="application/ld+json">{"@graph": [{"@type": "Product", "name": "Sábanas Coralina", "material": "Franela"},
@@ -37,13 +38,6 @@ def test_ptd_and_errors(fake_refs, monkeypatch, capsys):
         run(monkeypatch, "ptd", "NOPE")
 
 
-def test_page_text_and_json_ld():
-    lines = pages.text_lines(PAGE)
-    assert "100 % algodón" in lines and not any("oculto" in l for l in lines)
-    kinds = [n.get("@type") for data in pages.json_ld(PAGE) for n in pages.walk(data)]
-    assert [k for k in kinds if k] == ["Product", "BreadcrumbList"]   # graph root and crumbs have no type
-
-
 def test_page_facts(tmp_path, monkeypatch, capsys):
     monkeypatch.setattr(pages, "PAGES", tmp_path)
     (tmp_path / "caso.html").write_text(PAGE, encoding="utf-8")
@@ -51,8 +45,17 @@ def test_page_facts(tmp_path, monkeypatch, capsys):
     out = capsys.readouterr().out
     assert "PRODUCT: {'name': 'Sábanas Coralina', 'material': 'Franela'}" in out
     assert "BREADCRUMB: Hogar > Sábanas" in out and "[composición] Composición | 100 % algodón" in out
-    with pytest.raises(SystemExit, match="taxo: no hay página congelada para otro"):
+    with pytest.raises(SystemExit, match="taxo: no hay página congelada para otro; usa: taxo page fetch otro URL"):
         run(monkeypatch, "page", "grep", "otro", "x")
+
+
+def test_page_fetch_refuses_an_existing_id(tmp_path, monkeypatch):
+    monkeypatch.setattr(pages, "PAGES", tmp_path)
+    monkeypatch.setattr(pages, "engine_available", lambda: pytest.fail("no se delega ni se visita"))
+    (tmp_path / "caso.html").write_text(PAGE, encoding="utf-8")
+    with pytest.raises(SystemExit, match="taxo: caso ya tiene página congelada y no se sustituye"):
+        run(monkeypatch, "page", "fetch", "caso", "https://example.org/ficha")
+    assert (tmp_path / "caso.html").read_text(encoding="utf-8") == PAGE
 
 
 @pytest.mark.chrome

@@ -4,7 +4,7 @@
   "retailer": "burritoblanco.com",
   "vertical": "textil hogar",
   "split": "dev",
-  "page": "var/pages/manta-nacarina-046.html",
+  "page": "capture/var/pages/manta-nacarina-046.html",
   "source": "docs/20-methods/product-taxonomy/cases.md#manta-de-cama-o-de-sofá",
   "rules": [
     "D-026",

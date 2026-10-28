@@ -2,14 +2,14 @@
 # Stages: base (system and uv), dev (dependencies with the dev group; code mounted),
 # prod (runtime dependencies and code copied into the image).
 #
-# Chrome runs headed on Xvfb (or on the host display): the capture engine of demand-engine
-# never uses --headless. The Chrome package depends on wget, so it cannot be purged afterwards.
+# Chrome runs headed on Xvfb (or on the host display): the capture engine (capture/) never
+# uses --headless. The Chrome package depends on wget, so it cannot be purged afterwards.
 FROM python:3.13-slim-bookworm AS base
 
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONPATH=/work/demand-engine/src:/work/web-audit/src \
+    PYTHONPATH=/work/capture/src:/work/demand-engine/src:/work/references/src:/work/web-audit/src \
     LANG=es_ES.UTF-8 \
     LC_ALL=es_ES.UTF-8 \
     TZ=Europe/Madrid \
@@ -51,7 +51,9 @@ ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
 # ---------------------------------------------------------------- dev
 FROM base AS dev
 COPY pyproject.toml uv.lock /work/
+COPY capture/pyproject.toml /work/capture/
 COPY demand-engine/pyproject.toml /work/demand-engine/
+COPY references/pyproject.toml /work/references/
 COPY web-audit/pyproject.toml /work/web-audit/
 RUN uv sync --locked --all-packages && rm -rf /tmp/uv-cache
 USER app
@@ -60,10 +62,14 @@ CMD ["sleep", "infinity"]
 # ---------------------------------------------------------------- prod
 FROM base AS prod
 COPY pyproject.toml uv.lock /work/
+COPY capture/pyproject.toml /work/capture/
 COPY demand-engine/pyproject.toml /work/demand-engine/
+COPY references/pyproject.toml /work/references/
 COPY web-audit/pyproject.toml /work/web-audit/
 RUN uv sync --locked --all-packages --no-dev && rm -rf /tmp/uv-cache
+COPY capture/src /work/capture/src
 COPY demand-engine/src /work/demand-engine/src
+COPY references/src /work/references/src
 COPY web-audit/src /work/web-audit/src
 USER app
 CMD ["sleep", "infinity"]

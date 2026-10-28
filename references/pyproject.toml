@@ -1,0 +1,10 @@
+[project]
+name = "references"
+version = "0.1.0"
+description = "stratia.cic: custodia común de las fuentes externas (registro, versiones congeladas, versión fijada, diff) y lectores por formato"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.uv]
+# Not a distributable package: the code runs from src/ with PYTHONPATH (see env/docker/app/Dockerfile)
+package = false

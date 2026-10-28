@@ -4,7 +4,7 @@
   "retailer": "5vvalverde.com",
   "vertical": "calzado",
   "split": "dev",
-  "page": "var/pages/bota-polo-e.html",
+  "page": "capture/var/pages/bota-polo-e.html",
   "source": "docs/20-methods/product-taxonomy/cases.md#bota-de-equitación",
   "rules": [
     "D-022",

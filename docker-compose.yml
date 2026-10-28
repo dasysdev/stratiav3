@@ -1,6 +1,6 @@
 # Development environment. One service for the Python code of every system (top-level
 # directories, members of the uv workspace), with the repo mounted at /work and Chrome
-# available for the capture engine of demand-engine.
+# available for the capture engine (capture/).
 # Start: bin/run dev up   |   commands: bin/run dev exec <command>, bin/run dev test
 #
 # No port is published: Chrome's DevTools port must never leave the container.

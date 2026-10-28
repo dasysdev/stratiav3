@@ -15,7 +15,7 @@ El modelo establece **requisitos informativos**: las cuestiones que la informaci
 
 | ID | Parámetro | Valor vigente | Fuente |
 |---|---|---|---|
-| P1 | Versiones de las referencias | Las fijadas en `var/refs/pins.json` | refs |
+| P1 | Versiones de las referencias | Las fijadas en `references/var/pins.json` | refs |
 | P2 | Eje de la clase | Shopify Standard Product Taxonomy | D-021 |
 | P3 | Base de una categoría (para decidir especializaciones) | Requisitos de sus bloques y de los de sus madres (`bin/model blocks`) + propiedades y `special_feature` del PTD de Amazon | D-029, D-030, D-039 |
 | P4 | Apoyo de una especialización | Estricto: la dimensión existe en algún componente | D-024 |

@@ -4,6 +4,6 @@
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 if [ "$1" = classify ] || [ "$1" = control ]; then
   # Clasificación de las preguntas y control contra cases/paa: solo biblioteca estándar
-  cd "$ROOT/demand-engine" && PYTHONPATH="$ROOT/demand-engine/src" exec python3 -m demand_engine.paa "$@"
+  cd "$ROOT/demand-engine" && PYTHONPATH="$ROOT/demand-engine/src:$ROOT/capture/src:$ROOT/references/src" exec python3 -m demand_engine.paa "$@"
 fi
 exec "$ROOT/bin/run" dev exec python -m demand_engine.paa "$@"

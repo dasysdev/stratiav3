@@ -21,8 +21,9 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
+from capture.robots import Robots
+
 from .. import ROOT
-from ..capture.robots import Robots
 
 SELECTIONS = ROOT / "training" / "selection"
 DISCOVERIES = ROOT / "var" / "training"
@@ -45,10 +46,10 @@ def read_spec(path: Path) -> dict:
 
 def discover(spec: dict, browser=None) -> Path:
     """check_site and the product and category URLs of the sitemaps → var/training/<store>/discovery-<stamp>/."""
-    from ..capture import profile, sitemaps
-    from ..capture.browser import Browser
-    from ..capture.files import now, stamp, write_json
-    from ..capture.legitimacy import check_site
+    from capture import profile, sitemaps
+    from capture.browser import Browser
+    from capture.files import now, stamp, write_json
+    from capture.legitimacy import check_site
 
     folder = DISCOVERIES / spec["store"] / f"discovery-{stamp()}"
     folder.mkdir(parents=True)

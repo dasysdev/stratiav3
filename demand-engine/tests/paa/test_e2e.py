@@ -14,7 +14,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import pytest
 
-from demand_engine.capture.browser import Browser
+from capture.browser import Browser
 from demand_engine.paa import store
 from demand_engine.paa.run import run
 from demand_engine.paa.store import SeedSet

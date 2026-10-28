@@ -16,8 +16,9 @@ import json
 from collections import Counter
 from pathlib import Path
 
+from references.read import shopify_categories
+
 from .. import ROOT
-from ..refs import shopify_categories
 
 CATALOG = ROOT / "catalog"
 CAT_DIR = CATALOG / "cat"

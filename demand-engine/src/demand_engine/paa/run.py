@@ -22,9 +22,10 @@ import random
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-from ..capture.browser import Browser
-from ..capture.cdp import CdpError
-from ..capture.pacing import draw
+from capture.browser import Browser
+from capture.cdp import CdpError
+from capture.pacing import draw
+
 from . import serp, store
 from .store import SeedSet, searches_today
 

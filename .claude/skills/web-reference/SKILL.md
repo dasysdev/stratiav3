@@ -5,7 +5,7 @@ description: Crea y mantiene la referencia técnica de web-audit (D-133). Añade
 
 # web-reference: referencia técnica de web-audit
 
-Fichas de fuente con citas literales y requisitos técnicos de Web Schema.org, en `web-audit/reference/`. El formato está en `web-audit/reference/README.md` y las fuentes congeladas, en `web-audit/README.md`. Los comandos (`web-audit/bin/refs` y `web-audit/bin/reqs`) se ejecutan en el host, desde la raíz del proyecto.
+Fichas de fuente con citas literales y requisitos técnicos de Web Schema.org, en `web-audit/reference/`. El formato está en `web-audit/reference/README.md`. Las fuentes las custodia `references/` (D-149): registro, versiones congeladas y versión fijada, comunes a todos los sistemas (`references/README.md`; lo propio de web-audit, en `web-audit/README.md`). Los comandos (`references/bin/refs` y `web-audit/bin/reqs`) se ejecutan en el host, desde la raíz del proyecto.
 
 **Entrada:** `añadir FUENTE|URL…`, `actualizar [FUENTE…]` o `validar` (lo que se haga si no se indica nada).
 
@@ -14,10 +14,11 @@ Fichas de fuente con citas literales y requisitos técnicos de Web Schema.org, e
 ## Añadir una fuente
 
 1. **Registro.**
-   - Si no está en `web-audit/reference/sources.json`, añade su entrada: `id` en kebab-case, `kind`, `title`, `publisher` y `url`; si viene del inventario de partida, también `inventory`.
+   - Si no está en `references/sources.json`, añade su entrada: `id` en kebab-case, `kind`, `title`, `publisher`, `url` y `uses` con `web-audit`; si viene del inventario de partida, también `inventory`.
+   - Si ya está registrada para otro sistema, añade `web-audit` a su `uses`.
    - Los validadores y las skills de terceros no se registran (D-132).
    - Añade la fuente a `web-audit/reference/inventory.md`, con su función y su estado.
-2. **Congelar:** `web-audit/bin/refs fetch ID`. La primera versión queda fijada sola.
+2. **Congelar:** `references/bin/refs fetch ID`. La primera versión queda fijada sola.
 3. **Clase y nivel**, según las tablas del canon: la de clases de fuente (D-132) y, si es una especificación aplicable, la de niveles del perfil (D-130).
    - Si la fuente no encaja en ellas (un consumidor que el perfil no recoge, una clase que no está), no la trates como especificación aplicable.
    - Regístralo en `docs/30-governance/issues.md` con una propuesta, o prepara un intake para `/docs-update`, y dilo en el informe.
@@ -34,9 +35,10 @@ Fichas de fuente con citas literales y requisitos técnicos de Web Schema.org, e
 
 ## Actualizar ante una versión nueva
 
-1. `web-audit/bin/refs check [FUENTE…]`: qué ha cambiado en origen.
-2. `web-audit/bin/refs fetch FUENTE` y `web-audit/bin/refs diff FUENTE`: los cambios respecto a la versión fijada.
-3. **Fijar** la versión nueva con `web-audit/bin/refs pin FUENTE VERSIÓN`: la referencia sigue la versión vigente de cada documento.
+1. `references/bin/refs check [FUENTE…]`: qué ha cambiado en origen.
+2. `references/bin/refs fetch FUENTE` y `references/bin/refs diff FUENTE`: los cambios respecto a la versión fijada.
+3. **Fijar** la versión nueva con `references/bin/refs pin FUENTE VERSIÓN`: la referencia sigue la versión vigente de cada documento.
+   - La versión fijada es una para todos los sistemas. Si `uses` nombra otro, `refs pin` dice cómo revisa él lo suyo: dilo en el informe.
    - La excepción es `schemaorg`. Su versión la fija el canon (D-130): otra release va al intake y no se fija desde aquí.
 4. `web-audit/bin/reqs check` muestra las fichas que citan la versión anterior y las citas que ya no están. Por cada ficha de la fuente:
    - vuelve a copiar las citas que cambiaron;

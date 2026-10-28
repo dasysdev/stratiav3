@@ -88,7 +88,7 @@ Métodos: [product-taxonomy](../20-methods/product-taxonomy/README.md).
 | OQ-11 | Tamaño y combinación del panel de ecommerce por tipo de clase. | abierta | MPIR §15.2 |
 | OQ-12 | Número de páginas y productos por perfil y segmento. | abierta | MPIR §15.2 |
 | OQ-13 | Umbrales o reglas prácticas de suficiencia de cobertura y de saturación cualitativa. | abierta | MPIR §15.2, §11.2 |
-| OQ-14 | Campos finales obligatorios/opcionales y almacenamiento físico de los recursos. El [motor de captura](../../demand-engine/src/demand_engine/capture/README.md) fija de forma provisional ficheros JSON y gzip por instantánea en `demand-engine/var/mpir`, sin base de datos ([D-042](decisions.md#d-042)). | abierta | MPIR §15.2, INTAKE 2026-10-25-mpir-capture-engine |
+| OQ-14 | Campos finales obligatorios/opcionales y almacenamiento físico de los recursos. El [motor de captura](../../capture/README.md) fija de forma provisional ficheros JSON y gzip por instantánea en `demand-engine/var/mpir`, sin base de datos ([D-042](decisions.md#d-042)). | abierta | MPIR §15.2, INTAKE 2026-10-25-mpir-capture-engine |
 | OQ-15 | Herramientas y selectores por plataforma, navegador y configuración de captura. El motor fija de forma provisional Chrome estable con ventana sobre Xvfb, controlado por CDP. La configuración definitiva (Chrome del contenedor o del host, porque sin GPU el contenedor bloquea WebGL) la decide la sonda T-014 ([D-042](decisions.md#d-042)). | abierta | MPIR §15.2, INTAKE 2026-10-25-mpir-capture-engine |
 | OQ-16 | Taxonomía fina de funciones o señales tras resolver casos fronterizos. | abierta | MPIR §15.2 |
 | OQ-17 | Proporción y procedimiento de revisión humana, medición de errores y tratamiento de discrepancias. | abierta | MPIR §15.2 |

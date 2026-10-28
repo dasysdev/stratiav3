@@ -1,0 +1,13 @@
+{
+ "source": "w3c-prov-o",
+ "version": "2026-10-27",
+ "class": "instrumento del sistema",
+ "summary": "Ontología para representar e intercambiar información de procedencia. Puede servir para registrar la procedencia de las evidencias del auditado; no es una condición que deba cumplir el ecommerce (D-132).",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "Abstract",
+   "text": "It provides a set of classes, properties, and restrictions that can be used to represent and interchange provenance information generated in different systems and under different contexts."
+  }
+ ]
+}

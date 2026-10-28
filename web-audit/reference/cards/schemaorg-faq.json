@@ -1,0 +1,15 @@
+{
+ "source": "schemaorg-faq",
+ "version": "2026-10-27",
+ "class": "especificación aplicable",
+ "level": "vocabulario",
+ "summary": "Preguntas frecuentes de Schema.org (V30.1). Confirma que marcar solo algunas propiedades está bien (no hay propiedades obligatorias), que valen los espacios de nombres http y https, y fija que solo se marque el contenido visible.",
+ "quotes": [
+  {"id": "q01", "section": "About Schema.org",
+   "text": "It is fine to mark up only some properties of an item - markup is not an all-or-nothing choice."},
+  {"id": "q02", "section": "About Schema.org",
+   "text": "As a general rule, you should mark up only the content that is visible to people who visit the web page and not content in hidden div's or other hidden page elements."},
+  {"id": "q03", "section": "About Schema.org",
+   "text": "This is a lengthy way of saying that both 'https://schema.org' and 'http://schema.org' are fine."}
+ ]
+}

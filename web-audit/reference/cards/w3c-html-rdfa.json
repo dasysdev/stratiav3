@@ -1,0 +1,52 @@
+{
+  "source": "w3c-html-rdfa",
+  "version": "2026-10-27",
+  "class": "especificación aplicable",
+  "level": "serialización",
+  "summary": "RDFa 1.1 en HTML (HTML+RDFa 1.1, segunda edición): conformidad de un documento HTML con marcado RDFa, atributos admitidos, extensiones a la sintaxis de HTML (meta y link con property) y reglas propias de HTML (contexto inicial, idioma, atributos xmlns:).",
+  "note": "La conformidad de procesador y de agente de usuario (2.2, 2.3, 3.4, 3.5, 5.3–5.5) queda fuera. Los criterios propios del modo XML (XHTML5+RDFa servido como application/xhtml+xml) no aplican a una ficha servida como text/html.",
+  "quotes": [
+    {
+      "id": "q01",
+      "section": "#conformance",
+      "text": "The key words MAY, MUST, MUST NOT, RECOMMENDED, SHOULD, and SHOULD NOT are to be interpreted as described in [RFC2119]."
+    },
+    {
+      "id": "q02",
+      "section": "#document-conformance",
+      "text": "All HTML5 elements and attributes SHOULD be used in a way that conforms to [html5]. All RDFa attributes SHOULD be used in a way that is conforms to [rdfa-core] and this document."
+    },
+    {
+      "id": "q03",
+      "section": "#extensions-to-the-html5-syntax",
+      "text": "If the RDFa @property attribute is present on the meta element, neither the @name, @http-equiv, nor @charset attributes are required and the @content attribute MUST be specified."
+    },
+    {
+      "id": "q04",
+      "section": "#xmlns--prefixed-attributes",
+      "text": "Since CURIE prefix mappings have been specified using @xmlns:, and since HTML attribute names are case-insensitive, CURIE prefix names declared using the @xmlns:attribute-name pattern xmlns:<PREFIX>=\"<URI>\" SHOULD be specified using only lower-case characters. For example, the text \"@xmlns:\" and the text in \"<PREFIX>\" SHOULD be lower-case only."
+    },
+    {
+      "id": "q05",
+      "section": "#conformance-criteria-for-xmlns--prefixed-attributes",
+      "text": "All attributes starting with a case insensitive prefix matching \"@xmlns:\" MUST conform to the production rules outlined in Namespaces in XML [xml-names11], Section 3: Declaring Namespaces."
+    },
+    {
+      "id": "q06",
+      "section": "#additional-rules",
+      "text": "When both @lang and @xml:lang are specified on the same element, they MUST have the same value."
+    },
+    {
+      "id": "q07",
+      "section": "#extensions-to-the-html5-syntax",
+      "text": "For the avoidance of doubt, the following RDFa attributes are allowed on all elements in the HTML5 content model: @vocab, @typeof, @property, @resource, @prefix, @content, @about, @rel, @rev, @datatype, and @inlist.",
+      "note": "Función: qué atributos son RDFa en un documento HTML."
+    },
+    {
+      "id": "q08",
+      "section": "#additional-rules",
+      "text": "The default vocabulary URI is undefined.\n- HTML+RDFa uses an additional initial context by default, http://www.w3.org/2011/rdfa-context/html-rdfa-1.1, which must be applied after the initial context for [rdfa-core] (http://www.w3.org/2011/rdfa-context/rdfa-1.1).",
+      "note": "Función: contexto con el que se resuelven términos y prefijos en HTML (sin vocabulario por defecto)."
+    }
+  ]
+}

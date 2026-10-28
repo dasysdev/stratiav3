@@ -1,0 +1,153 @@
+{
+  "set": "botas",
+  "label": "Botas",
+  "cases": [
+    "bota-polo-e"
+  ],
+  "catalog": "gen@0.5 cat.ropa-y-accesorios@2 cat.calzado@4 cat.botas@4",
+  "questions": 100,
+  "reviewed": {
+    "at": "2026-10-27",
+    "by": "usuario",
+    "rulebook": "classifier/paa.md v3",
+    "task": "T-042",
+    "decisions": [
+      "D-100",
+      "D-101",
+      "D-102",
+      "D-103",
+      "D-104",
+      "D-105",
+      "D-106",
+      "D-107",
+      "D-108",
+      "D-109",
+      "D-110",
+      "D-112",
+      "D-113"
+    ]
+  },
+  "perimeter": {
+    "out": [
+      "¿Cuál es el mejor calzado para andar por la montaña?",
+      "¿Cuál es la marca de zapatos más vendida en el mundo?",
+      "¿Cuáles son las tendencias de moda para el otoño-invierno 2026-2027?",
+      "¿Cómo puedo recuperar la polipiel pelada?",
+      "¿Cómo reparar unas botas de piel sintética?",
+      "¿Dónde puedo comprar suelas de goma para calzado?",
+      "¿Qué calzado recomiendan los podólogos?",
+      "¿Qué hacer si mis botas se están pelando?"
+    ],
+    "expected": true,
+    "added": [
+      "¿Cuál es el mejor calzado para andar por la montaña?",
+      "¿Qué calzado recomiendan los podólogos?"
+    ],
+    "why": {
+      "¿Cuál es el mejor calzado para andar por la montaña?": "solo tiene sentido para otro producto (calzado de montaña en general): fuera (D-146; T-053)",
+      "¿Qué calzado recomiendan los podólogos?": "solo tiene sentido para otro producto (recomendaciones de un podólogo): fuera (D-146; T-053)"
+    }
+  },
+  "criteria": [
+    {
+      "name": "Marca",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Cuáles son las mejores marcas de zapatos de piel?",
+        "¿Qué marcas de botas de piel hay disponibles?",
+        "¿Qué marcas de botas son buenas?",
+        "¿Cuáles son las 10 mejores marcas de botas de montaña?",
+        "¿Qué marca de botas es la mejor?",
+        "¿Cuáles son las mejores marcas de botas?",
+        "¿Cuáles son algunas marcas españolas de botas?"
+      ]
+    },
+    {
+      "name": "Estar de moda",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Qué botas se llevan este año 2026?",
+        "¿Qué botas de mujer son tendencia en 2026?",
+        "¿Cómo se llaman las botas que están de moda?"
+      ],
+      "why": "la moda nunca genera (T-042, paso 3)"
+    },
+    {
+      "name": "Efecto estético sobre la figura (estilizar las piernas)",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Qué tipo de botas estilizan más las piernas?"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "question": "¿Cede o se adapta el corte al pie con el uso?",
+      "blocks": [
+        "cat.calzado"
+      ],
+      "trait": "uso",
+      "expected": true,
+      "questions": [
+        "¿Se estira el calzado de cuero?"
+      ],
+      "why": "«¿Se estira el calzado de cuero?» pregunta por el cuero del corte, que botas hereda de cat.calzado: dentro (D-146; T-053, corrige T-042, paso 2)"
+    }
+  ],
+  "revisions": [
+    {
+      "target": "cat.calzado/23",
+      "action": "reformular",
+      "summary": "Ampliar la pregunta a la resistencia al pelado y al agrietamiento (cuarteo) de la superficie del corte: «¿Qué resistencia al desgaste declara (abrasión, manchas, formación de bolitas, pelado o agrietamiento de la superficie)?». Mismo tema, rasgo e importancia: no es un requisito propio. Aportaciones inferidas: declaración de resistencia al pelado o al agrietamiento; resultado de un ensayo de resistencia a la flexión del material del corte.",
+      "expected": true
+    }
+  ],
+  "contributions": [
+    {
+      "target": "cat.calzado/04",
+      "contribution": "denominación concreta del material sintético del corte (poliuretano, PVC…) en lugar de un término comercial como «polipiel» o «piel sintética»",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.calzado/04",
+      "contribution": "sello o certificación de un tercero que acredita que el corte es de piel",
+      "kind": "sustento",
+      "expected": true
+    },
+    {
+      "target": "cat.botas/04",
+      "contribution": "descripción de la cara o del tratamiento de la piel que define el acabado declarado (ante, nobuk, serraje…)",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.calzado/08",
+      "contribution": "denominación precisa del material de la suela (caucho natural, caucho sintético, TR, PVC…) en lugar de «goma»",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.calzado/13",
+      "contribution": "productos o métodos de limpieza desaconsejados para el material",
+      "kind": "precisión",
+      "expected": true
+    }
+  ],
+  "amended": [
+    {
+      "at": "2026-10-28",
+      "by": "usuario",
+      "task": "T-053",
+      "decisions": [
+        "D-141",
+        "D-142",
+        "D-146"
+      ],
+      "summary": "«¿Se estira el calzado de cuero?» vuelve dentro y su candidato pasa a esperado; el calzado para la montaña y los podólogos quedan fuera; las demás preguntas sobre zapatos o calzado siguen dentro."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+ "source": "google-merchant-center-structured-data",
+ "version": "2026-10-27",
+ "class": "datos comerciales distribuidos",
+ "summary": "Cómo empareja Merchant Center el marcado de la ficha con los datos de producto que recibe, y las condiciones de ese emparejamiento. Pertenece a Catálogos distribuidos; en Web Schema.org solo sirve para la consistencia transversal (D-130).",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "Set up structured data for Merchant Center",
+   "text": "This article outlines how to implement structured data markup for your product data."
+  },
+  {
+   "id": "q02",
+   "section": "#getting_started",
+   "text": "In order for Google’s crawler to match the structured data to your product data, the following conditions must be satisfied:"
+  },
+  {
+   "id": "q03",
+   "section": "#getting_started",
+   "text": "Structured data markup must be present in the HTML returned from the web server. The structured data markup can’t be generated with JavaScript after the page has loaded."
+  }
+ ],
+ "note": "Sus condiciones no fundamentan requisitos de Web Schema.org (D-132). Servirán cuando se defina el perfil de Catálogos distribuidos (OQ-30). q03 contrasta con google-search-merchant-listing, que solo recomienda el marcado en el HTML inicial."
+}

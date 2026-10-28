@@ -1,0 +1,55 @@
+{
+ "source": "google-search-sd-policies",
+ "version": "2026-10-27",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "summary": "Directrices generales de Google Search para todos los datos estructurados: formatos admitidos, acceso de Googlebot, contenido visible, ubicación, imágenes y elementos múltiples.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#general-structured-data-guidelines",
+   "text": "In addition, this page details the general guidelines that apply to all structured data: they must be followed in order to be eligible for appearance as a rich result in Google Search."
+  },
+  {
+   "id": "q02",
+   "section": "#format",
+   "text": "In order to be eligible for rich results, mark up your site's pages using one of three supported formats: - JSON-LD (recommended) - Microdata - RDFa"
+  },
+  {
+   "id": "q03",
+   "section": "#access",
+   "text": "Don't block your structured data pages to Googlebot using robots.txt, noindex, or any other access control methods."
+  },
+  {
+   "id": "q04",
+   "section": "#content",
+   "text": "Don't mark up content that is not visible to readers of the page. For example, if the JSON-LD markup describes a performer, the HTML body must describe that same performer."
+  },
+  {
+   "id": "q05",
+   "section": "#completeness",
+   "text": "Specify all required properties listed in the documentation for your specific rich result type. Items that are missing required properties are not eligible for rich results."
+  },
+  {
+   "id": "q06",
+   "section": "#location",
+   "text": "If you have duplicate pages for the same content, we recommend placing the same structured data on all page duplicates, not just on the canonical page."
+  },
+  {
+   "id": "q07",
+   "section": "#images",
+   "text": "All image URLs specified in structured data must be crawlable and indexable."
+  },
+  {
+   "id": "q08",
+   "section": "#additional-tips",
+   "text": "To make sure that Google Search understands what the main purpose of the page is, include the main type of structured data that reflects the main focus of the page."
+  },
+  {
+   "id": "q09",
+   "section": "#additional-tips",
+   "text": "To ensure that the page fully represents the content that's visible to users, make sure all structured data items are complete. For example, if you include multiple reviews, make sure that you include all of the reviews that are visible to people on the page."
+  }
+ ],
+ "note": "Es especificación aplicable del nivel consumidor porque las fichas de comerciante la incorporan por remisión en google-search-merchant-listing#guidelines («For your Product markup to be eligible for merchant listing experiences, you must follow these guidelines: …», cita q05 de su ficha). Los fragmentos de producto la incorporan igual en google-search-product-snippet#guidelines (q02). Sus directrices de calidad que solo se aplican juzgando la verdad, la relevancia o la licitud del contenido quedan fuera de los requisitos técnicos (D-129)."
+}

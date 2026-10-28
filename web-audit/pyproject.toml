@@ -1,0 +1,10 @@
+[project]
+name = "web-audit"
+version = "0.1.0"
+description = "stratia.cic: evaluación técnica de Web y Web Schema.org (referencia técnica y, después, el auditado)"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.uv]
+# Not a distributable package: the code runs from src/ with PYTHONPATH (see env/docker/app/Dockerfile)
+package = false

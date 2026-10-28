@@ -1,0 +1,21 @@
+{
+ "source": "schemaorg-getting-started",
+ "version": "2026-10-27",
+ "class": "especificación aplicable",
+ "level": "vocabulario",
+ "summary": "Guía de inicio de Schema.org (V30.1), centrada en Microdata: cómo marcar tipos y propiedades, qué admite donde una propiedad espera un tipo y cómo dar valores legibles por máquina (time, link, meta). Fija que solo se marque el contenido visible.",
+ "quotes": [
+  {"id": "q01", "section": "#schemaorg_expected",
+   "text": "More is better, except for hidden text. In general, the more content you mark up, the better. However, as a general rule, you should mark up only the content that is visible to people who visit the web page and not content in hidden div's or other hidden page elements."},
+  {"id": "q02", "section": "#schemaorg_expected",
+   "text": "This means that the value of the property can itself be an embedded item (see section 1d: embedded items). But this is not a requirement—it's fine to include just regular text or a URL. In addition, whenever an expected type is specified, it is also fine to embed an item that is a child type of the expected type."},
+  {"id": "q03", "section": "#advanced_enum_enum",
+   "text": "And here is the same item, but using link and href to unambiguously specify the availability as one of the permitted values:"},
+  {"id": "q04", "section": "#advanced_missing",
+   "text": "In these cases, use the meta tag along with the content attribute to specify the information."},
+  {"id": "q05", "section": "#advanced_missing",
+   "text": "This technique should be used sparingly. Only use meta with content for information that cannot otherwise be marked up.",
+   "note": "No da requisito: decidir qué información «no se puede marcar de otro modo» exige juicio."}
+ ],
+ "note": "Las demás pautas de la guía no dan requisito: las de fechas (time con datetime) y enumeraciones (link con href) son imperativos sin término normativo; la de url en páginas con colecciones de elementos no se aplica a una ficha de producto, y la de probar el marcado es un proceso, no una condición del recurso."
+}

@@ -15,8 +15,16 @@ LIST_SOURCES = ["amazon-ptd-prop:PILLOWCASE.special_feature=Resistente a las arr
                 "amazon-ptd-prop:PILLOWCASE.special_feature=Resistente al encogimiento"]
 
 
+CURRENT = {"cat.ropa-de-casa/01": {
+    "hints": [{"id": "PV-3", "key": "fuente", "pista": "La composición usa el nombre legal de cada fibra.",
+               "propiedad": ["P09"], "ac": ["Precisión"]}],
+    "comparison": {"mark": "sí", "reason": "Se elige por la fibra."}},
+    "cat.ropa-de-cama/02": {"hints": [], "comparison": {"mark": "sí", "reason": "dudoso"}}}
+
+
 @pytest.fixture
-def seedset(paa_dirs):
+def seedset(paa_dirs, monkeypatch):
+    monkeypatch.setattr(classify, "current", lambda: CURRENT)      # what the catalog has today, not the real one
     model = {"key": {"model": ["gen@0.5", "cat.ropa-de-cama@2", "cat.sabanas@2"]},
              "general": [{"id": "gen", "requirements": [{"id": "gen/01", "question": "¿Qué es el producto?",
                                                          "applicability": "universal", "origin": "normativa"}]}],
@@ -74,8 +82,15 @@ def good_output():
         "contributions": [
             {"target": "cat.ropa-de-casa/01", "contribution": "denominación legal de la fibra", "component": "materiales",
              "kind": "precisión", "questions": [8]}],
-        "ac_evidence": [
-            {"requirement": "cat.ropa-de-casa/01", "ac": "Precisión", "questions": [8], "why": "término ambiguo"}],
+        "hints": [
+            {"target": "cat.ropa-de-casa/01", "pista": "Una fibra artificial se nombra por su fibra, no por su marca.",
+             "propiedad": ["P09"], "ac": ["Precisión"], "questions": [8], "note": "otra cosa que PV-3"},
+            {"target": "N1", "pista": "Se compara la declaración antiarrugas, no se deduce del tejido.",
+             "propiedad": ["P08"], "ac": ["Comparabilidad"], "questions": [3]}],
+        "marks": [
+            {"target": "N1", "mark": "sí", "reason": "Se prefiere la que menos se arruga.", "questions": [3]},
+            {"target": "cat.ropa-de-cama/02", "mark": "no", "case": "b", "reason": "Filtro por la cama.",
+             "questions": [6]}],
         "proposed_traits": [],
         "doubts": ["una duda"]}
 
@@ -146,7 +161,6 @@ def test_check_of_revisions_contributions_and_ac_evidence(seedset):
                              "questions": [99], "tests": {"a": OK, "b": OK}})
     out["revisions"].append({"id": "R3", "target": "cat.x/09", "action": "fusionar", "proposal": "", "questions": [1]})
     out["contributions"][0].update(kind="otra", questions=[])
-    out["ac_evidence"][0].update(ac="Rapidez")
     out["criteria"][1].update(intermediate=True)                 # an intermediate criterion is covered
     write_output(seedset, out)
     joined = "\n".join(classify.check(*classify.load(seedset)))
@@ -156,8 +170,42 @@ def test_check_of_revisions_contributions_and_ac_evidence(seedset):
     assert "revisión «R3»: falta «proposal»" in joined
     assert "aportación 1: «kind» ha de ser precisión o sustento" in joined
     assert "aportación 1: faltan las preguntas que lo apoyan" in joined
-    assert "pertinencia de AC 1: «Rapidez» no es un criterio de aceptación" in joined
     assert "criterio «marca»: un criterio intermedio queda «cubierto» (D-104)" in joined
+
+
+def test_check_of_hints_and_marks(seedset):
+    classify.prepare(seedset)
+    out = good_output()
+    out["ac_evidence"] = []                                      # the old step 8
+    out["hints"][0].pop("note")                                  # same property and AC as PV-3, unexplained
+    out["hints"].append({"target": "cat.x/01", "id": "PV-9", "pista": "Una. Dos. Tres.", "propiedad": ["P15"],
+                         "ac": ["Rapidez"], "questions": []})
+    out["hints"].append({"target": "cat.ropa-de-cama/02", "pista": "Mismas medidas.", "propiedad": ["P13"],
+                         "ac": ["Comparabilidad"], "questions": [6]})
+    out["marks"][0].update(target="cat.ropa-de-casa/01", case="a")    # N1 left without a mark; «sí» with a case
+    out["marks"][1].update(questions=[])
+    out["marks"].append({"target": "cat.ropa-de-cama/02", "mark": "no", "reason": "x", "questions": [6]})
+    write_output(seedset, out)
+    joined = "\n".join(classify.check(*classify.load(seedset)))
+    assert "«ac_evidence» ya no existe (OQ-59, superada)" in joined
+    assert "pista 1: misma propiedad y AC que PV-3 en «cat.ropa-de-casa/01»" in joined
+    assert "pista 3: «cat.x/01» no es un requisito ni un candidato" in joined
+    assert "pista 3: sin «id» ni «origen»" in joined
+    assert "pista 3: la pista ha de ser una o dos frases breves (3 frases" in joined
+    assert "pista 3: propiedad fuera de P06–P18 (sin P15): ['P15']" in joined
+    assert "pista 3: AC no válido" in joined and "pista 3: faltan las preguntas que lo apoyan" in joined
+    assert "candidato «N1»: falta su marca de comparación (D-139" in joined
+    assert "marca de «cat.ropa-de-cama/02»: repetida" in joined
+    assert "marca de «cat.ropa-de-casa/01»: «sí» no lleva caso" in joined
+    assert "marca de «cat.ropa-de-cama/02»: faltan las preguntas que lo apoyan" in joined
+    assert "marca de «cat.ropa-de-cama/02»: «no» lleva su caso (a, b o c)" in joined
+    assert "marca de «cat.ropa-de-cama/02»: no se compara y lleva pistas solo de Comparabilidad: 4" in joined
+
+
+def test_prepare_shows_the_current_hints_and_marks(seedset):
+    md = (classify.prepare(seedset) / "input.md").read_text(encoding="utf-8")
+    assert "- **cat.ropa-de-casa/01** · se compara: Se elige por la fibra." in md
+    assert "  - PV-3 (fuente; P09; Precisión): La composición usa el nombre legal de cada fibra." in md
 
 
 def test_taking_a_value_out_needs_no_questions_and_mirrors_must_exist(seedset):
@@ -219,7 +267,12 @@ def test_report_gives_sources_and_contrasts(seedset, paa_dirs):
     assert "- Bloques: `cat.sabanas`, `cat.fundas-de-almohada`" in md and "- Sale de: criterio arrugas, revisión R1" in md
     assert "### R1 · separar `cat.fundas-de-almohada/06`" in md and "- Crea: N1 «¿Qué resistencia a las arrugas tiene?»" in md
     assert "| `cat.ropa-de-casa/01` «¿De qué materiales está hecho?» | denominación legal de la fibra |" in md
-    assert "| `cat.ropa-de-casa/01` «¿De qué materiales está hecho?» | Precisión | término ambiguo | 1:" in md
+    hint = saved["hints"][0]
+    assert "id" not in hint and hint["origen"] == {"tipo": "paa", "apoyo": ["paa-q:s:la-microfibra-es-plastico"]}
+    assert [(m["target"], m["status"]) for m in saved["marks"]] == [("N1", "nueva"),
+                                                                    ("cat.ropa-de-cama/02", "contradice: duda")]
+    assert "| `cat.ropa-de-casa/01` «¿De qué materiales está hecho?» | Una fibra artificial se nombra" in md
+    assert "| `cat.ropa-de-cama/02` «¿Qué medidas tiene?» | no (b) | Filtro por la cama. | contradice: duda | 1:" in md
     assert "- clase · no genera (C2) → clase · respondida (1): «¿Qué es una sábana encimera?»" in md
     assert "4 preguntas; 3 comunes" in md
     assert "| arrugas | 2 | 0 | 1 | 0 | 0 | 1 | N1 (1); criterio arrugas → N1 (1) |" in md

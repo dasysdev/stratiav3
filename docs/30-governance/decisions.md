@@ -4,7 +4,7 @@ title: Registro de decisiones
 layer: governance
 status: vigente
 version: 1.0
-updated: 2026-10-27
+updated: 2026-10-28
 sources: [GSC0 §18.4]
 ---
 
@@ -78,7 +78,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-049](#d-049) | Pregunta universal de promociones y descuentos | aceptada | 2026-10-25 |
 | [D-050](#d-050) | Filtro de relevancia aprendido: lo no relevante sale del modelo de la clase | aceptada | 2026-10-25 |
 | [D-051](#d-051) | Peso, grosor y gramaje: rasgo «magnitud física», fuera de la regla de las medidas | aceptada (vocabulario abierto por D-056) | 2026-10-25 |
-| [D-052](#d-052) | Fabricante, país de fabricación y seguridad en la capa general, según su origen | aceptada (ampliada a hechos de la oferta por D-065; ampliación sin efecto por D-066; fabricante con marca propia por D-080) | 2026-10-25 |
+| [D-052](#d-052) | Fabricante, país de fabricación y seguridad en la capa general, según su origen | aceptada (ampliada a hechos de la oferta por D-065; ampliación sin efecto por D-066; fabricante con marca propia por D-080; la imagen, por D-144) | 2026-10-25 |
 | [D-053](#d-053) | Catálogo de entrenamiento, primera selección: El Corte Inglés, amplitud de tipos y piloto | aceptada | 2026-10-25 |
 | [D-054](#d-054) | El entrenamiento a escala clasifica con agentes de Claude Code, no con la API | aceptada | 2026-10-25 |
 | [D-055](#d-055) | Crítico por requisito y clase; la medida descriptiva puede ser crítica | aceptada (generalizada por D-058) | 2026-10-26 |
@@ -126,7 +126,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-097](#d-097) | Origen «paa» para los requisitos que entran solo por PAA | aceptada (también desde preguntas factuales: D-099) | 2026-10-27 |
 | [D-098](#d-098) | La construcción del modelo de demanda pasa a un módulo propio | aceptada | 2026-10-27 |
 | [D-099](#d-099) | PAA propone requisitos nuevos, también desde preguntas factuales | aceptada | 2026-10-27 |
-| [D-100](#d-100) | Lectura sobre la oferta de las preguntas PAA de clase | aceptada | 2026-10-27 |
+| [D-100](#d-100) | Lectura sobre la oferta de las preguntas PAA de clase | aceptada (enmendada por D-141: el perímetro va antes) | 2026-10-27 |
 | [D-101](#d-101) | Confirmaciones y aportaciones de precisión que salen de PAA | aceptada | 2026-10-27 |
 | [D-102](#d-102) | Basta una pregunta para apoyar un candidato de PAA | aceptada | 2026-10-27 |
 | [D-103](#d-103) | Separación por dimensión en los atributos de lista | aceptada (precisada por D-109) | 2026-10-27 |
@@ -152,9 +152,29 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-123](#d-123) | Se retira la propiedad P15 · Actualidad | aceptada | 2026-10-27 |
 | [D-124](#d-124) | Consistencia transversal: nueva dimensión de análisis por RI × par de ámbitos | aceptada | 2026-10-27 |
 | [D-125](#d-125) | Pistas de valoración: nombre, tres niveles y alcance | aceptada | 2026-10-27 |
-| [D-126](#d-126) | Marca de dimensión de comparación y NA de Comparabilidad | aceptada | 2026-10-27 |
-| [D-127](#d-127) | Quién escribe las pistas de valoración | aceptada | 2026-10-27 |
+| [D-126](#d-126) | Marca de dimensión de comparación y NA de Comparabilidad | aceptada (cómo se fija: D-139) | 2026-10-27 |
+| [D-127](#d-127) | Quién escribe las pistas de valoración | aceptada (dónde viven: D-134, D-140) | 2026-10-27 |
 | [D-128](#d-128) | Las pistas de valoración son criterios breves apoyados en las propiedades, no listas | aceptada | 2026-10-27 |
+| [D-129](#d-129) | web-audit: sistema de la evaluación técnica de Web y Web Schema.org | aceptada | 2026-10-27 |
+| [D-130](#d-130) | Perfil de implementación: definición y tres niveles en Web Schema.org | aceptada (nivel del consumidor enmendado por D-145) | 2026-10-27 |
+| [D-131](#d-131) | Estados del requisito técnico | aceptada | 2026-10-27 |
+| [D-132](#d-132) | Solo una especificación aplicable fundamenta un requisito técnico | aceptada | 2026-10-27 |
+| [D-133](#d-133) | Referencia técnica en web-audit: datos gobernados por el canon, decididos por los agentes | aceptada | 2026-10-27 |
+| [D-134](#d-134) | Catálogo de pistas con destinatario; encontrarlas es código | aceptada (enmendada por D-140: las pistas de un requisito viven en él) | 2026-10-27 |
+| [D-135](#d-135) | Campos de una pista de valoración, quién escribe las dirigidas a una fuente y cómo llegan al auditor | aceptada (precisada por D-140: `para`) | 2026-10-27 |
+| [D-136](#d-136) | Gobierno de las pistas de valoración: aceptación, duplicadas, retiradas y orígenes | aceptada | 2026-10-27 |
+| [D-137](#d-137) | Cuándo se definen las pistas de valoración | aceptada | 2026-10-27 |
+| [D-138](#d-138) | Pistas de valoración: niveles no exclusivos, sin ámbito, trazabilidad y versión | aceptada | 2026-10-27 |
+| [D-139](#d-139) | Cómo se fija la marca de dimensión de comparación | aceptada | 2026-10-27 |
+| [D-140](#d-140) | Las pistas dirigidas a un requisito viven en el requisito | aceptada | 2026-10-27 |
+| [D-141](#d-141) | Productos vecinos fuera del perímetro de PAA, antes de la lectura sobre la oferta | aceptada (madre y material: D-146) | 2026-10-28 |
+| [D-142](#d-142) | Moda, popularidad, preferencia general y alternativa de producto en PAA | aceptada | 2026-10-28 |
+| [D-143](#d-143) | Mínimo de representación de la oferta | aceptada (papel del mínimo precisado por D-145; datos en Web Schema.org, D-147) | 2026-10-28 |
+| [D-144](#d-144) | La imagen: sostén del mínimo de representación; lo que muestra no es información | aceptada | 2026-10-28 |
+| [D-145](#d-145) | Frontera entre la evaluación técnica y la informativa: decide la naturaleza que fija la especificación | aceptada (mínimo fijado por D-147; completitud y excepción precisadas por D-148) | 2026-10-28 |
+| [D-146](#d-146) | La categoría madre y el material en el perímetro de PAA | aceptada | 2026-10-28 |
+| [D-147](#d-147) | Datos del mínimo de representación en Web Schema.org | aceptada | 2026-10-28 |
+| [D-148](#d-148) | Formación estructural | aceptada | 2026-10-28 |
 
 ---
 
@@ -968,7 +988,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - Se descarta otra lectura: que lo no normativo entre por el camino de su fuente, es decir, `country_of_origin` en los bloques de categoría ([D-039](#d-039), [D-040](#d-040)). La propiedad está en los 1.877 PTD de Amazon (`amazon-ptd@2026-10-24`; etiqueta «País de origen», y «País de publicación» en 33 PTD de mascotas). Ir por los bloques la repetiría en todos ellos, con la inestabilidad que ya se vio: los agentes la pusieron como inferida en tres bloques distintos. Una cuestión de cualquier producto va en la capa general. Esto amplía D-039, que solo admitía los PTD como fuente de la categoría. El apoyo es la presencia de la propiedad en el PTD, no su obligatoriedad, que es un requisito de la plataforma.
   - El GPSR no se aplica a alimentos ni piensos, entre otras exclusiones (art. 2.3). Las cuestiones del fabricante y de las advertencias siguen siendo universales: tienen sentido en cualquier producto, y un «no» o los datos del operador las resuelven. Su origen es normativo por el GPSR, y fuera de su ámbito su apoyo normativo está por comprobar ([OQ-45](open-questions.md)). Lo mismo vale para la marca, el modelo y los identificadores.
   - La persona responsable en la UE es un requisito condicionado a un hecho del producto (el fabricante no está establecido en la UE) dentro del bloque universal, como los requisitos condicionados de los bloques de categoría ([D-024](#d-024)). Lo evalúa la auditoría y no distingue el modelo. Precisa [D-034](#d-034) y [D-047](#d-047): un bloque universal puede llevar requisitos condicionados a un hecho del producto; sus demás cuestiones se aplican siempre.
-  - La «imagen» que pide el art. 19.c no es una cuestión nueva: es un medio de responder qué es el producto (gen/01) y su identificación.
+  - La «imagen» que pide el art. 19.c no es una cuestión nueva: es un medio de responder qué es el producto (gen/01) y su identificación. (Enmendada por [D-144](#d-144): la imagen sostiene la identificación como parte del mínimo de representación, pero no resuelve gen/01 ni gen/24.)
   - La capa general pasa a la versión 0.3.
 - **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) 1.9; [demand-model](../10-model/demand-model.md#capa-general) 2.7; `demand-engine/catalog/gen.json`; OQ-45 anotada.
 - **Relacionado:** D-024, D-034, D-038, D-039, D-040, D-045, D-047, D-049, OQ-45.
@@ -1667,16 +1687,17 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-100
 
-**Lectura sobre la oferta de las preguntas PAA de clase.** · aceptada · 2026-10-27
+**Lectura sobre la oferta de las preguntas PAA de clase.** · aceptada (enmendada por [D-141](#d-141): el perímetro va antes) · 2026-10-27
 
 - **Contexto:** `INTAKE 2026-10-27-paa-classification-criteria` §1. En la primera clasificación con un agente (T-040), C2 se aplicó a la pregunta tal como está escrita, y cayeron en C2 cosas muy distintas («¿Qué es una sábana encimera?», «¿Qué significa 144 hilos?», «¿Cómo coser una bajera?», «¿Cada cuánto se cambian las sábanas?»). Claude propuso y el usuario decidió.
 - **Decisión:**
   - Antes de aplicar C2 a una pregunta de clase, se relee sobre la oferta: «¿… esta oferta?». Si un hecho que la oferta puede declarar la responde, la pregunta confirma ese requisito o propone un candidato. C2 solo se aplica cuando ningún hecho de la oferta la responde (hábitos, saber doméstico).
   - La confección casera (coser, hacer o arreglar la pieza) queda fuera del perímetro: no hay compra.
-  - La misma lectura vale para el perímetro dudoso: «¿Cuáles son las contraindicaciones del bambú?» va dentro, porque responde a las advertencias y a los efectos sobre la piel que declara la oferta; «¿Qué país produce la mejor seda?» también, porque es el origen de la fibra. Las curiosidades («¿Cuál es la seda más cara?») siguen fuera.
+  - La misma lectura vale para el perímetro dudoso: «¿Cuáles son las contraindicaciones del bambú?» va dentro, porque responde a las advertencias y a los efectos sobre la piel que declara la oferta; «¿Qué país produce la mejor seda?» también, porque es el origen de la fibra. Las curiosidades («¿Cuál es la seda más cara?») siguen fuera. (Enmendado por [D-141](#d-141): la lectura ya no resuelve el perímetro.)
 - **Interpretación adoptada:** es una lectura de C2 ([D-091](#d-091)) para las preguntas factuales de [D-099](#d-099), que ya decía que C2 a C4 «sirven igual» sobre la pregunta; no cambia C2 para los criterios de elección.
 - **Consecuencias:** [choice-criteria](../10-model/choice-criteria.md) 1.3; [construction-routes](../10-model/construction-routes.md) 1.2; glosario (Lectura sobre la oferta); reglamento del agente (`demand-engine/classifier/paa.md`, v2).
-- **Relacionado:** D-091, D-099, D-101.
+- **Enmienda ([D-141](#d-141)):** la lectura sobre la oferta ya no resuelve el perímetro. El perímetro va antes y las preguntas sobre otro producto quedan fuera siempre; los dos ejemplos de dentro siguen dentro porque tratan del material del producto de la clase.
+- **Relacionado:** D-091, D-099, D-101, D-141.
 
 ### D-101
 
@@ -2040,7 +2061,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-126
 
-**Marca de dimensión de comparación y NA de Comparabilidad.** · aceptada · 2026-10-27
+**Marca de dimensión de comparación y NA de Comparabilidad.** · aceptada (cómo se fija: [D-139](#d-139)) · 2026-10-27
 
 - **Contexto:** `INTAKE 2026-10-27-assessment-hints` §3; [OQ-65](open-questions.md). Usuario: «sí» a «marcamos "no se compara" en los requisitos que no se usan para comparar».
 - **Decisión:**
@@ -2055,7 +2076,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-127
 
-**Quién escribe las pistas de valoración.** · aceptada · 2026-10-27
+**Quién escribe las pistas de valoración.** · aceptada (la «tabla por tipo» es parte del catálogo de pistas de [D-134](#d-134)) · 2026-10-27
 
 - **Contexto:** `INTAKE 2026-10-27-assessment-hints` §4: «sí» a «taxo y PAA escriben las pistas». Antes, en `INTAKE 2026-10-27-ac-applicability-and-reliability` §7: «los matices de AC por requisito no solo dependen de PAA. Taxo también puede calibrarlos».
 - **Decisión:**
@@ -2080,3 +2101,330 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 - **Interpretación adoptada:** coherente con [D-006](#d-006) (no se adopta una equivalencia entre pertinencia y coincidencia literal) y con la invariante 5 (las propiedades no reciben puntuación).
 - **Consecuencias:** [assessment-hints](../10-model/assessment-hints.md) 1.0; glosario (Pistas de valoración).
 - **Relacionado:** D-006, D-125, D-127.
+
+### D-129
+
+**web-audit: sistema de la evaluación técnica de Web y Web Schema.org.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-web-schema-technical-framework` §1, tarea T-044. El usuario pidió crear «un nuevo sistema web-audit» con «una skill de creación y mantenimiento de documentación de referencia con los criterios de evaluación» y, más adelante, «el sistema de auditado». En la sesión de planificación, Claude recomendó que fuera solo técnico. Usuario: «solo técnico».
+- **Decisión:**
+  - **web-audit** es el sistema de la evaluación técnica de los ámbitos Web y Web Schema.org (unidad: requisito técnico × ámbito). Empieza por Web Schema.org.
+  - No hace la evaluación informativa (disponibilidad efectiva, AC, GSC); la auditoría GSC es otro sistema. Esa auditoría puede consultar la referencia técnica para interpretar el marcado, sin que los requisitos técnicos se conviertan en criterios informativos.
+  - Primera pieza: la documentación de referencia con los criterios de la evaluación técnica ([D-133](#d-133)) y una skill para crearla y mantenerla. El sistema de auditado viene después.
+- **Interpretación adoptada:** la consulta de la referencia por la auditoría GSC es de interpretación (qué significa un tipo o una propiedad); no altera la independencia de [D-006](#d-006) ni la invariante 8: un incumplimiento técnico sigue sin descontar el GSC.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#requisitos-técnicos-generales) 1.2. El directorio, su README y la fila del mapa de `CLAUDE.md` se crean con el código (T-045).
+- **Relacionado:** D-006, D-130, D-133, OQ-30.
+
+### D-130
+
+**Perfil de implementación: definición y tres niveles en Web Schema.org.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-web-schema-technical-framework` §2. BASE §6.2 usa «perfil de implementación» en la tasa de cumplimiento técnico sin definirlo ([OQ-30](open-questions.md#f-evaluación-técnica)). Al estudiar el inventario de fuentes de Schema.org, Claude observó que Schema.org es permisivo por diseño (los rangos son tipos esperados, admite texto donde espera una entidad y no tiene propiedades obligatorias), que las condiciones de sintaxis salen de la serialización y que las propiedades exigidas y recomendadas salen de los consumidores. Propuso tres niveles. Usuario: «sí. versión más reciente 30.1 (ahora)».
+- **Decisión:**
+  - El **perfil de implementación** es el conjunto de especificaciones aplicables respecto del cual se determinan los requisitos técnicos pertinentes de un ámbito y su naturaleza obligatoria o recomendada.
+  - La naturaleza obligatoria o recomendada de un requisito técnico es relativa al perfil que la establece. La fija la especificación, nunca el auditor.
+  - En Web Schema.org, tres niveles: **serialización** (JSON-LD 1.1 con su procesado, Microdata y RDFa 1.1); **vocabulario** (Schema.org, versión fijada **30.1**); **consumidor** (Google Search: fichas de comerciante, variantes de producto, políticas de devolución y de envío, organización y fragmentos de producto).
+  - La versión del vocabulario se fija y queda registrada con cada resultado; cambiarla obliga a revisar los requisitos que dependen de ella.
+  - Google Merchant Center pertenece a Catálogos distribuidos; en Web Schema.org solo sirve para la consistencia transversal ([D-124](#d-124)).
+  - (Enmendada por [D-145](#d-145): del consumidor, lo que exige es técnico; la presencia de lo que solo recomienda es, en general, apoyo del modelo de demanda del ámbito, con las salvedades de D-145.)
+- **Interpretación adoptada:** el «sí» aprueba la recomendación sin añadir otros consumidores (Bing u otros); pueden añadirse después con la skill, como perfil nuevo. Los perfiles de Web (sin marcado) y de Catálogos distribuidos siguen en OQ-30.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#perfil-de-implementación) 1.2; [scoring-systems](../10-model/scoring-systems.md#tasa-de-cumplimiento-técnico) 1.4; glosario (Perfil de implementación, Requisito técnico general); OQ-30 anotada.
+- **Relacionado:** D-124, D-131, D-132, OQ-30.
+
+### D-131
+
+**Estados del requisito técnico.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-web-schema-technical-framework` §3. BASE §3.1 y FUND §4.2 piden documentar para cada requisito técnico «los estados de satisfacción, aplicabilidad y evaluación» sin fijar sus valores. Claude propuso fijar ahora solo los estados y dejar abierto el sistema cuantitativo. Usuario: «sí».
+- **Decisión:**
+  - **Satisfacción:** satisfecho o no satisfecho, según la comprobación de su método.
+  - **Aplicabilidad:** no aplicable (NA) cuando el requisito no corresponde al perfil o al recurso examinado; se justifica y se separa de los pertinentes.
+  - **Evaluación:** no evaluable (NE) es una incidencia de la auditoría (una comprobación que no se pudo hacer), no una puntuación, y no equivale a «no satisfecho». Es el mismo tratamiento que en la evaluación informativa ([D-117](#d-117)).
+  - El sistema cuantitativo sigue abierto: cómo entran las obligatorias y las recomendadas en la tasa de cumplimiento técnico, umbrales y cobertura. No se fijan pesos.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#estados-del-requisito-técnico) 1.2; [scoring-systems](../10-model/scoring-systems.md#tasa-de-cumplimiento-técnico) 1.4; glosario (Estados del requisito técnico); OQ-30 anotada.
+- **Relacionado:** D-117, D-130, OQ-30.
+
+### D-132
+
+**Solo una especificación aplicable fundamenta un requisito técnico.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-web-schema-technical-framework` §4. El inventario de fuentes de Schema.org (`tmp/inventario_fuentes_auditoria_schema_org.md`, base del estudio que cita el artefacto) reúne especificaciones, directrices de consumidores, buenas prácticas, validadores y skills de terceros. Claude propuso la función de cada clase de fuente, aprobada con el plan.
+- **Decisión:**
+  - Solo una **especificación aplicable** (de serialización, de vocabulario o de un consumidor) fundamenta un requisito técnico.
+  - Las demás clases tienen otra función: instrumento del sistema (SHACL, PROV-O); principios generales (W3C Data on the Web Best Practices); método de comprobación (Schema Markup Validator, Rich Results Test), que no es fuente de criterios ni equivale a calidad informativa; práctica de terceros (skills de auditoría SEO), sin autoridad; antecedente histórico (GS1 SmartSearch, 2015); datos comerciales distribuidos (Merchant Center), para Catálogos distribuidos y la consistencia transversal.
+  - Un requisito técnico expresa una sola condición comprobable.
+  - Cada requisito técnico cita literalmente su especificación: fuente, sección y versión congelada.
+- **Interpretación adoptada:** la condición única por requisito sigue el mismo criterio que la formulación de los requisitos informativos ([D-060](#d-060)): una necesidad, una condición.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#fuentes-de-los-requisitos-técnicos) 1.2; glosario (Especificación aplicable).
+- **Relacionado:** D-060, D-130, D-133.
+
+### D-133
+
+**Referencia técnica en web-audit: datos gobernados por el canon, decididos por los agentes.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-web-schema-technical-framework` §5. En la sesión de planificación, Claude comparó tres ubicaciones para la documentación de referencia y recomendó la A: datos y fichas en `web-audit/reference/`. El artefacto solo recoge la elegida. Usuario: «sí, A».
+- **Decisión:**
+  - La documentación de referencia vive en `web-audit/reference/`, como datos y fichas gobernados por el canon, igual que el catálogo de bloques de demand-engine: las fuentes, congeladas por versión (fuera de git y desechables); una ficha por fuente, con citas literales; y los requisitos técnicos, con los campos que pide el canon, su perfil y su cita.
+  - Los requisitos técnicos los deciden los agentes, siempre con cita. El usuario los revisa si lo pide.
+  - Una skill los crea y los mantiene: añadir una fuente, actualizar ante una versión nueva y validar. No crea conceptos, estados, pesos ni fórmulas; si le falta algo, va al intake.
+- **Interpretación adoptada:**
+  - El artefacto dice «los siete campos del canon»; el canon enumera seis (ámbito, especificación aplicable, naturaleza, método, evidencia y estados). Se lee como «los campos que pide el canon».
+  - Es el mismo reparto que con el modelo de demanda ([D-044](#d-044), [D-084](#d-084)): el usuario fija el marco (perfiles, estados, función de las fuentes) y los agentes escriben el contenido. El canon prevalece sobre la referencia.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#fuentes-de-los-requisitos-técnicos) 1.2. Formato, validador y skill: T-046.
+- **Relacionado:** D-044, D-084, D-129, D-132.
+
+### D-134
+
+**Catálogo de pistas con destinatario; encontrarlas es código.** · aceptada (enmendada por [D-140](#d-140): las pistas de un requisito viven en él) · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-hints-catalog`. Usuario: «¿Dónde viven las reglas de pistas? Me interesa montar un sistema eficiente que reduzca al máximo la duplicidad, usando algún sistema de catálogo y referencias.» Claude comparó pistas dentro de cada requisito, un catálogo con destinatario y un catálogo con referencias desde cada requisito, y recomendó el segundo. Usuario: «podría ser» y, sobre encontrarlas solo con código, «Así es».
+- **Decisión:**
+  - Las pistas viven en un catálogo propio del motor de demanda. Cada pista se escribe una vez y va dirigida, con una de tres llaves, a un tipo de requisito (rasgo × entidad, o uno de los dos), a los requisitos que citan una misma fuente o a un requisito por su id.
+  - Los requisitos no copian ni referencian sus pistas. Al montar el modelo, el motor junta las de las tres llaves sin repetir; el modelo lleva las pistas resueltas.
+  - Encontrar las pistas de un requisito es una búsqueda por etiquetas exactas, solo con código. Aplicarlas lo hace el auditor razonando.
+- **Interpretación adoptada:** la «tabla de reglas por rasgo × entidad» de [D-127](#d-127) pasa a ser el conjunto de pistas dirigidas a un tipo dentro de este catálogo; quién las escribe no cambia. Los campos exactos y el lugar en el perfil del RI siguen en [OQ-68](open-questions.md); la marca de dimensión de comparación podría usar las mismas llaves (posibilidad sustituida por [D-139](#d-139)) (OQ-69).
+- **Consecuencias:** [assessment-hints](../10-model/assessment-hints.md) 1.1 (reglas 6 a 8, pendiente); [demand-model](../10-model/demand-model.md) 3.2; [model-training](../10-model/model-training.md) 1.19; glosario (Pistas de valoración); OQ-68 y OQ-69 anotadas.
+- **Enmienda ([D-140](#d-140)):** la tercera llave (un requisito por su id) queda sustituida: las pistas de un requisito viven en el propio requisito, y «los requisitos no copian ni referencian sus pistas» vale solo para las de tipo y de fuente.
+- **Relacionado:** D-125, D-127, D-128, D-140, OQ-68, OQ-69.
+
+### D-135
+
+**Campos de una pista de valoración, quién escribe las dirigidas a una fuente y cómo llegan al auditor.** · aceptada (precisada por [D-140](#d-140): `para`) · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-hint-fields`; cierra [OQ-68](open-questions.md). Claude propuso seis campos, un escritor por destino y un campo en el perfil del RI. Usuario: «OK», con «ok al id, pero sin 0s delante» y «olvida lo de los índices por ahora».
+- **Decisión:**
+  - Campos: `id` (número del sistema sin ceros delante: `PV-1`, `PV-2`…), `pista` (criterio y porqué en una o dos frases), `propiedad`, `ac`, `para` (tipo, fuente o requisito) y `origen` (quién y en qué se apoya).
+  - Escritores por destino: tipo, el entrenamiento; fuente, taxo; requisito, taxo o PAA.
+  - Al montar el modelo, el código guarda las pistas resueltas de cada requisito; el perfil del RI las recibe en `pistas_valoracion`, que se rellena solo.
+- **Interpretación adoptada:** el índice generado de pistas por requisito queda aplazado como cuestión abierta ([OQ-70](open-questions.md)); hasta entonces el código recorre las pistas al montar el modelo ([D-134](#d-134)).
+- **Consecuencias:** cierra OQ-68; nueva OQ-70. [assessment-hints](../10-model/assessment-hints.md) 1.2 (reglas 6, 9 y 10, pendiente); [ri-profile](../20-methods/audit-gsc/ri-profile.md) 0.2 (campo `pistas_valoracion`); glosario (Pistas de valoración).
+- **Precisión ([D-140](#d-140)):** `para` vale para un tipo o una fuente; las pistas de un requisito viven en él y no llevan `para`.
+- **Relacionado:** D-127, D-128, D-134, D-140, OQ-68, OQ-70.
+
+### D-136
+
+**Gobierno de las pistas de valoración: aceptación, duplicadas, retiradas y orígenes.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-hints-governance` §1, §3–5 y §7. Claude estudió si ya estaba todo lo necesario para definir las pistas y propuso lo que faltaba. Usuario: «te acepto todas las recomendaciones. Lo demás vayamos resolviendo poco a poco».
+- **Decisión:**
+  - Las pistas las redactan los agentes sin aprobación del usuario, que las revisa cuando quiere. Entran si pasan comprobaciones automáticas: seis campos, destino existente, criterio y no lista. Por ahora no hay métrica de calidad.
+  - Antes de añadir una pista se busca otra con el mismo destino y la misma propiedad: si dice lo mismo, no se añade; si la contradice, se marca como duda.
+  - Una pista no se borra: se retira, y su número no se reutiliza. «Nunca se quitan» ([D-127](#d-127)) vale entre escritores, no para corregir.
+  - Valores de `origen`: «marco», «normativa», «referencias» y «paa».
+  - Orden de trabajo aceptado: gobierno; OQ-69; piloto con las pistas de los nueve requisitos de sábanas y sus tipos, para probar el formato antes de automatizar; después el paso de taxo, el lote por tipo y T-043.
+- **Interpretación adoptada:** «marco» es aquí el origen de las pistas por tipo que redacta Claude, no el origen «marco» de la capa general de la información resolutiva; no son el mismo origen. La métrica de calidad queda en [OQ-72](open-questions.md).
+- **Consecuencias:** precisa D-127 y D-128; [assessment-hints](../10-model/assessment-hints.md) 1.3 (reglas 9, 11 y 13); nueva OQ-72.
+- **Relacionado:** D-127, D-128, D-135, D-137, OQ-72.
+
+### D-137
+
+**Cuándo se definen las pistas de valoración.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-hints-governance` §2. Usuario: «mediante una pasada manual de Claude podemos construir pistas. Pero luego las pistas se irán definiendo al crear modelos de demanda, incluso cuando se realizan entrenamientos».
+- **Decisión:**
+  - Arranque: una pasada manual de Claude construye un primer lote; sus pistas por tipo las redacta Claude por rasgo × entidad, desde la guía de los AC y las tres familias de comprobación, y el entrenamiento las guarda y las coloca.
+  - Después las pistas se van definiendo al crear modelos de demanda y en los entrenamientos.
+- **Interpretación adoptada** (de Claude, recogida en el artefacto para que el usuario la corrija): encaja en el mecanismo de [D-045](#d-045). Al crear un modelo, el motor escribe también las pistas de los bloques o requisitos nuevos, que quedan «sin compilar» y se encolan; los entrenamientos de taxo y de PAA añaden pistas y consolidan las encoladas. En qué paso y con qué material, y qué `origen` llevan esas pistas, queda en [OQ-71](open-questions.md).
+- **Consecuencias:** [assessment-hints](../10-model/assessment-hints.md) 1.3 (regla 12); [model-training](../10-model/model-training.md) 1.20; OQ-66 anotada; nueva OQ-71.
+- **Relacionado:** D-045, D-127, D-135, D-136, OQ-66, OQ-71.
+
+### D-138
+
+**Pistas de valoración: niveles no exclusivos, sin ámbito, trazabilidad y versión.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-hints-governance` §6 («te acepto todas las recomendaciones»).
+- **Decisión:**
+  - Los niveles no son exclusivos: dicen dónde se concentran las pistas, no que un tipo solo pueda tocar dos AC.
+  - Las pistas no dicen ámbito; el auditor las aplica a lo que vea en cada ámbito. Si una pista solo tiene sentido en uno, se añade el campo.
+  - El registro del GSC cita las pistas que usó el auditor (`PV-n`).
+  - El modelo de una ficha anota qué versión del catálogo de pistas usó.
+- **Consecuencias:** precisa [D-125](#d-125); [assessment-hints](../10-model/assessment-hints.md) 1.3 (reglas 1 y 10); [gsc-decision](../20-methods/audit-gsc/gsc-decision.md) 0.4 (GSC-12 y plantilla YAML: `pistas_usadas`).
+- **Relacionado:** D-125, D-135, D-136.
+
+### D-139
+
+**Cómo se fija la marca de dimensión de comparación.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-comparison-mark`; cierra [OQ-69](open-questions.md). Claude propuso decidir la marca requisito a requisito, con un criterio y «se compara» por defecto. Usuario: «en principio es tal cual propones», con la duda de si el valor por defecto era adecuado. Un estudio rápido (70 requisitos al azar, clasificados por Claude) dio 49 % se compara, 43 % no y 9 % dudoso. Usuario: «todo OK».
+- **Decisión:**
+  - Marca por requisito, no por tipo.
+  - Criterio: se compara si la respuesta cambia de una oferta a otra y el comprador elige por ese valor; no se compara si (a) es igual en todas las ofertas, (b) solo sirve para encajar con una necesidad o un gusto (un filtro) o (c) identifica la oferta o su estado.
+  - Sin valor por defecto: marca explícita con un motivo corto; los dudosos, «se compara» mientras no haya pruebas, para no quitar un criterio sin motivo.
+  - Pruebas: preguntas comparativas de PAA, la justificación del requisito en taxo, una ley que exista para comparar.
+  - Quién y cuándo: como las pistas ([D-137](#d-137)); contradicciones, como duda ([D-136](#d-136)).
+- **Interpretación adoptada:** el estudio es orientativo (muestra pequeña, un solo clasificador). Cuando dos fuentes se contradicen y la marca queda como duda, se trata como dudosa: «se compara» mientras se resuelve. Sustituye la posibilidad, anotada en [D-134](#d-134) y OQ-69, de fijar la marca con las mismas llaves que las pistas.
+- **Consecuencias:** precisa [D-126](#d-126); cierra OQ-69. [assessment-hints](../10-model/assessment-hints.md) 1.4 (regla 5, pendiente); [demand-model](../10-model/demand-model.md) 3.3; glosario (Marca de dimensión de comparación).
+- **Relacionado:** D-118, D-126, D-134, D-136, D-137, OQ-69.
+
+### D-140
+
+**Las pistas dirigidas a un requisito viven en el requisito.** · aceptada · 2026-10-27
+
+- **Contexto:** `INTAKE 2026-10-27-requirement-hints-location`, tras el piloto de T-050. El usuario preguntó por qué un catálogo de pistas «de uso general» tenía pistas vinculadas a un requisito. Claude explicó las tres llaves de [D-134](#d-134) y la alternativa descartada entonces («pistas dentro de cada requisito»). Usuario: «sí. Es mejor que vivan en el requisito».
+- **Decisión:**
+  - Las pistas dirigidas a un requisito concreto viven en el propio requisito del catálogo de demanda, no en el catálogo de pistas.
+  - Las dirigidas a un tipo y a una fuente siguen en el catálogo de pistas.
+- **Interpretación adoptada:**
+  - El requisito lleva sus pistas en una lista propia, como la información resolutiva. Cada pista tiene los mismos campos que en el catálogo salvo `para`: su destino es el requisito que la contiene.
+  - Los `id` (`PV-n`) siguen siendo únicos en todo el sistema, estén en el catálogo de pistas o en un requisito, porque el registro del GSC los cita ([D-138](#d-138)).
+  - Llegan por el árbol de bloques a todas las clases que heredan el requisito, como antes.
+  - Taxo y PAA las escriben en el requisito; se suman entre escritores, se retiran para corregirlas y se comprueban igual ([D-136](#d-136)).
+  - La búsqueda sigue siendo código sin LLM: junta las pistas de tipo y de fuente del catálogo con las que lleva el requisito, sin repetir.
+  - La versión del catálogo de pistas que anota el modelo ([D-138](#d-138)) cubre las de tipo y de fuente; las de un requisito van con la versión de su bloque.
+  - No cambia ninguna incidencia abierta: I-43 sigue para las llaves de tipo y fuente; I-44 sigue, porque una pista del requisito puede repetir una de tipo o de fuente; I-45 sigue (origen de las pistas propias de un requisito de la capa general).
+- **Consecuencias:** enmienda [D-134](#d-134) (los requisitos ya no se limitan a encontrar sus pistas por etiquetas) y precisa [D-135](#d-135) (`para`). [assessment-hints](../10-model/assessment-hints.md) 1.6 (reglas 6 a 10); [demand-model](../10-model/demand-model.md) 3.4; glosario (Pistas de valoración); OQ-73 anotada.
+- **Relacionado:** D-127, D-134, D-135, D-136, D-138, I-43, I-44, I-45, OQ-73.
+
+### D-141
+
+**Productos vecinos fuera del perímetro de PAA, antes de la lectura sobre la oferta.** · aceptada (la categoría madre y el material, enmendados por [D-146](#d-146)) · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-paa-control-review-rules`, paso 2. Al revisar los casos de control de PAA (T-042), el agente había metido dentro preguntas sobre el calzado en general (pantuflas, botas) o sobre almohadas (cojines), releyéndolas sobre la oferta. Comentario del usuario en la hoja de revisión: «No es de pantuflas» (notas de T-042).
+- **Decisión:**
+  - Las preguntas sobre **otro producto** quedan **fuera** del perímetro siempre: la categoría madre en general («calzado», «zapatos») o un hermano (almohadas, zapatillas deportivas).
+    (Enmendado por [D-146](#d-146): la parte de la categoría madre ya no rige; la pregunta sobre la madre va dentro si pregunta por algo que la clase hereda de su bloque.)
+  - **El perímetro va antes de la lectura sobre la oferta.** La lectura solo decide si una pregunta sobre el producto de la clase pide un hecho declarable.
+  - Un producto vecino nunca apoya requisitos de la clase (invariante 10).
+  - Su presencia es una señal para las semillas ([D-114](#d-114)).
+- **Interpretación adoptada:**
+  - Enmienda la cláusula de [D-100](#d-100) según la cual «la misma lectura vale para el perímetro dudoso». Lectura de Claude: sus dos ejemplos siguen dentro, pero por el perímetro, porque las contraindicaciones del bambú y el origen de la seda tratan del material del producto de la clase, que el paso de perímetro del reglamento ya ponía dentro.
+  - «Señal para las semillas» se lee como un dato para el entrenamiento de PAA (la estrategia de semillas, [D-114](#d-114)). No se fija aquí ninguna regla nueva de semillas; cómo se usa esa señal queda para el entrenamiento de PAA.
+- **Consecuencias:** enmienda D-100. [choice-criteria](../10-model/choice-criteria.md) 1.10; [construction-routes](../10-model/construction-routes.md) (perímetro); glosario (Lectura sobre la oferta, Producto vecino); reglamento del agente (`demand-engine/classifier/paa.md`, v5); casos de control de PAA (`demand-engine/cases/paa/`).
+- **Enmienda ([D-146](#d-146)):** la categoría madre ya no queda fuera siempre: va dentro cuando la pregunta trata de algo que la clase hereda de su bloque, y fuera si solo tiene sentido para otro producto. La pregunta sobre un material que la clase tiene o hereda va dentro.
+- **Relacionado:** D-094, D-100, D-114, D-142, D-146.
+
+### D-142
+
+**Moda, popularidad, preferencia general y alternativa de producto en PAA.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-paa-control-review-rules`, pasos 3 y 4. En los casos de control (notas de T-042), los agentes trataron de forma distinta la tendencia (botas y pantuflas «no genera»; el estilo de sofás cama, «genera»), la popularidad, el «¿cuál es el mejor?» y la elección entre dos productos.
+- **Decisión:**
+  - **La moda o tendencia nunca genera** («¿qué X se llevan?», «¿qué X están de moda?»): «estar de moda» depende del mercado y del momento (C2/C4). Es un caso de la excepción de [D-110](#d-110).
+  - **La popularidad** («la más vendida») no genera: es reputación (C4; invariante 14).
+  - **La preferencia general** («¿cuál es el mejor X?») es un **criterio intermedio** ([D-104](#d-104)): cubierto y descompuesto en las prestaciones, como «calidad» en sábanas. No es «no genera».
+  - **La alternativa de producto** («¿sofá cama o cama abatible?») no genera (C3).
+- **Interpretación adoptada:**
+  - Lectura de Claude de «caso de la excepción de D-110»: estar de moda es un aspecto que ninguna categoría declarable por la oferta resuelve; una oferta puede declarar su estilo, pero no que esté de moda. El efecto lo fijó el usuario en la revisión: sale el candidato de estilo de sofás cama.
+  - Lectura de Claude de la alternativa de producto: C3 porque depende de la situación de quien compra (un escenario, como en la tabla de C1–C4), no de la oferta.
+- **Consecuencias:** precisa D-104 y D-110. [choice-criteria](../10-model/choice-criteria.md) 1.10; glosario (Criterio de elección intermedio); reglamento del agente (`demand-engine/classifier/paa.md`, v5); casos de control de PAA.
+- **Relacionado:** D-091, D-104, D-110, D-141.
+
+### D-143
+
+**Mínimo de representación de la oferta.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-minimum-representation-image`. Al estudiar cómo se reparten la evaluación técnica y la de calidad informativa en Web Schema.org, el usuario planteó que hay datos fundamentales para poder representar la oferta (nombre, descripción, imagen, url…) cuya frontera no conseguía dibujar, y que podrían examinarse desde las dos evaluaciones: si existen y están bien formados, desde la técnica; la calidad de lo que transmiten, desde la informativa. Confirmó que el mínimo incluye también los datos que solo sostienen la representación.
+- **Decisión:**
+  - **Definición:** el mínimo de representación son los datos sin los que no existe una representación de la oferta: los que hacen falta para descubrirla, acceder a ella e identificarla, según las [funciones informativas de la IA](../10-model/ai-functions.md). Lo que sirve para comprender, comparar, evaluar y justificar es contenido.
+  - **Dos tipos:** los datos que llevan un hecho comercial (el nombre, los identificadores) y los que solo sostienen la representación y no responden a ninguna cuestión (la url, el identificador de la entidad, que el Product esté enlazado a su Offer, la imagen).
+  - **Evaluación:** si existen y están bien formados lo dice la evaluación técnica; los que llevan un hecho comercial los juzga también la informativa por lo que transmiten (disponibilidad efectiva y criterios de aceptación); los de sostén solo la técnica.
+  - **No es doble cómputo:** cada sistema informa en sus propios términos, y un incumplimiento técnico sigue sin descontar el GSC (invariante 8).
+  - **No crea requisitos técnicos:** sus comprobaciones son las de las especificaciones del perfil. Si un dato del mínimo no tiene requisito en el perfil de un ámbito, se registra el hueco; no se inventa el requisito.
+  - Qué datos lo forman, salvo la imagen ([D-144](#d-144)), queda abierto ([OQ-74](open-questions.md)). (Cerrada para Web Schema.org por [D-147](#d-147).)
+- **Interpretaciones adoptadas:**
+  - El concepto va en [commercial-information](../10-model/commercial-information.md), junto a la representación y las dos dimensiones de evaluación. Es una clasificación de datos que dice qué evaluación mira cada aspecto: no es una escala, un indicador ni una unidad de puntuación. Usar las funciones de la IA para trazar la frontera es orientar el estudio, que es lo que permiten (ai-functions, regla 1).
+  - El ejemplo de doble cómputo (sin nombre: requisito técnico no satisfecho y disponibilidad 0 en las cuestiones que solo él responde) es hipotético.
+  - La frontera general entre las dos evaluaciones (la técnica mira la forma; la informativa, la presencia y la suficiencia) y el tratamiento como informativos de los 83 requisitos técnicos apartados en el triaje siguen en estudio: [OQ-75](open-questions.md). (Cerrada por [D-145](#d-145).)
+- **Consecuencias:** [commercial-information](../10-model/commercial-information.md) 1.2; [evaluation-scopes](../10-model/evaluation-scopes.md) 1.3 (punto de contacto); glosario (nueva entrada Mínimo de representación); nuevas OQ-74 y OQ-75.
+- **Relacionado:** D-129, D-130, D-144.
+
+### D-144
+
+**La imagen: sostén del mínimo de representación; lo que muestra no es información.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-minimum-representation-image`. El usuario tenía dudas sobre si la imagen forma parte del mínimo de representación aunque no responda a ninguna cuestión, y pidió a Claude que lo estudiara a fondo y propusiera. Claude reunió lo que dicen el canon (D-052, disponibilidad efectiva, funciones de la IA), el art. 19.c del GPSR (comprobado en el texto oficial alemán), las referencias de Google, Merchant Center, Amazon y Schema.org, y las fichas congeladas, y comparó tres alternativas. El usuario eligió la A.
+- **Decisión:**
+  - La imagen **forma parte del mínimo de representación como sostén**: por Identificar (el art. 19.c del GPSR exige que la oferta a distancia incluya información que permita identificar el producto, incluida una imagen suya) y por Descubrir (image es obligatoria en las fichas de comerciante de Google).
+  - Se evalúa en la **evaluación técnica**: que exista, que su URL sea válida, que se pueda recuperar y que tenga un formato admitido (en Web Schema.org, `ws-consumer/003`–`010` y `185`–`186`).
+  - **Lo que la imagen muestra no es información; la información explícita que lleva sí lo es.** Tres papeles:
+    - sostiene la identificación: evaluación técnica;
+    - expresa información explícita (plano acotado, tabla de tallas, etiqueta energética, advertencias): es información si el ámbito permite leerla; en Web Schema.org, solo si está en texto en el marcado (`caption`, `embeddedTextCaption`); en Web, según las pruebas de legibilidad;
+    - muestra lo que no afirma (color, piezas, aspecto): no es información pertinente, no da disponibilidad, no resuelve ningún RI y no sirve para refutar en Fiabilidad; puede crear una necesidad que el texto debe resolver (descripción de `gen/21`).
+  - Si la foto es genérica o de otra variante, no se juzga como información: en Catálogos distribuidos es una regla de contenido de Merchant Center, cuando exista ese perfil; en Web Schema.org no se juzga, porque el contraste del marcado con la página o con la realidad quedó fuera en el triaje del 2026-10-28 (bloque «marcado frente a página»).
+  - **Catálogo:** la aportación «imagen que permite identificar el producto» de `gen/24` deja de ser aportación. Se enmienda la interpretación de [D-052](#d-052): la imagen no resuelve `gen/01` ni `gen/24`. Con esto desaparece también la discrepancia entre D-052, que hablaba de `gen/01`, y el catálogo, que la tenía en `gen/24`.
+  - Alternativas descartadas: B, un requisito propio valorado con los AC (crea una cuestión nueva, contra D-052; los AC están pensados para afirmaciones; el juicio visual es difícil de reproducir); C, una propiedad recomendada más (Google la exige y el GPSR la liga a la identificación).
+- **Interpretaciones adoptadas:**
+  - La regla de la imagen va en [effective-availability](../10-model/effective-availability.md), dentro de la pertinencia, porque decide qué cuenta como información pertinente; «no sirve para refutar» se refleja en [acceptance-criteria](../10-model/acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones).
+  - Si el texto dentro de una imagen cuenta como legible en Web no abre una OQ nueva: es parte de las pruebas de obtención y legibilidad, y se anota en [OQ-20](open-questions.md).
+  - El «plano o imagen acotada» de [resolving-information](../10-model/resolving-information.md#ejemplo-mínimo) sigue valiendo: es información explícita.
+  - La implantación en `demand-engine/catalog/gen.json` (quitar la aportación de `gen/24` y subir la versión de la capa general) queda como tarea T-054, como las implantaciones anteriores del catálogo; afecta también a `demand-engine/catalog/rules/resolving.json`, que lista la aportación en `gen/24`.
+- **Consecuencias:** enmienda una interpretación de D-052. [effective-availability](../10-model/effective-availability.md) 1.2; [acceptance-criteria](../10-model/acceptance-criteria.md) 1.5; [commercial-information](../10-model/commercial-information.md) 1.2 (miembro del mínimo); OQ-20 anotada; catálogo (`gen.json`, `rules/resolving.json`), por implantar en T-054.
+- **Relacionado:** D-052, D-119, D-120, D-130, D-143.
+
+### D-145
+
+**Frontera entre la evaluación técnica y la informativa: decide la naturaleza que fija la especificación.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-technical-informative-frontier`. Responde a [OQ-75](open-questions.md). El usuario propuso que la evaluación técnica mire, con la representación que hay, si se cumplen las pautas y requisitos técnicos, y que la de calidad informativa estudie la suficiencia a través de la disponibilidad; y que de las referencias se pueden extraer requisitos informativos para el ámbito Web Schema.org. Claude clasificó los 414 requisitos técnicos que siguen en pie tras el triaje del 2026-10-28 por lo que comprueban: unos 280 son técnicos con cualquier regla (sintaxis y vocabulario, acceso, forma del valor, estructura y completitud de lo exigido, 71) y la frontera solo afecta a los 136 que piden que se publique algo (presencia de primer nivel: 10 obligatorios y 48 recomendados; completitud recomendada: 78). Comparó tres reglas. Usuario: «lo que has recomendado».
+- **Decisión (alternativa A):**
+  - **Evaluación técnica:** cómo está construido lo que se publica (sintaxis y vocabulario; acceso y exposición; forma del valor; estructura y relaciones; completitud de lo publicado que el consumidor exige), más la presencia de lo que el consumidor **exige**.
+  - **Evaluación informativa:** si se publica lo que el consumidor solo **recomienda**, como cualquier otra cuestión del modelo de demanda.
+  - **El criterio es la naturaleza que fija la especificación**, no un juicio del auditor, igual en el primer nivel y en lo anidado.
+  - **Excepción:** los recomendados que sirven para interpretar un valor ya publicado (`bestRating`, `worstRating`, la unidad del peso, la URL del logo) siguen en la técnica. (Precisada por [D-148](#d-148): es el punto 2 de la formación estructural, que también recoge la completitud de lo exigido.)
+  - **Doble lectura, solo en lo exigido:** si falta el precio, la técnica dice que el consumidor lo exige y falta, y la informativa, que la cuestión no tiene respuesta en el ámbito. No es doble cómputo.
+  - **Mínimo de representación:** mantiene en la técnica los datos del mínimo que el consumidor recomienda sin exigir ([OQ-74](open-questions.md), candidatos: url de la oferta, identificadores, marca). (Cerrada por [D-147](#d-147): marca, GTIN y MPN, fuera.)
+  - **Lo recomendado, al modelo de demanda del ámbito Web Schema.org:** cuenta que la propiedad aparezca en la referencia, no su naturaleza; la importancia la decide el modelo, como con los PTD de Amazon ([D-052](#d-052)). Una propiedad no es un RI por sí misma: apoya un requisito o una aportación existentes, o propone un candidato. Incluirlo en el motor de demanda es una tarea aparte, por indicación del usuario: T-056.
+  - **Referencia técnica:** los 126 requisitos de presencia recomendada (48 de primer nivel y 78 de completitud) salen, salvo los que OQ-74 incluya en el mínimo (nueve, [D-147](#d-147)), y se conservan en un registro con su motivo. De los 83 que el usuario apartó en el triaje, 29 pasan a la informativa y 54 siguen técnicos (atributos 11/5, certificaciones 2/6, fragmentos de producto 9/18, reseñas 7/25). Retirada en `web-audit/reference/` (estos y los 26 que no se auditan): T-055, después de OQ-74.
+  - **Perfil de implementación:** el nivel del consumidor deja de fijar «propiedades exigidas y recomendadas»: lo exigido es técnico y la presencia de lo recomendado es apoyo del modelo de demanda. Enmienda [D-130](#d-130).
+  - Alternativas descartadas: B, decide la función (obliga a juzgar dato a dato y a separar el primer nivel de lo anidado sin criterio firme); C, todo el perfil es técnico (ruido y la misma ausencia informada dos veces).
+- **Interpretaciones adoptadas:**
+  - La forma del valor de lo recomendado (p. ej., `ws-consumer/043`, un solo valor de `sku`, y `064`, `priceValidUntil` en ISO 8601) sigue siendo técnica: el artefacto la cuenta entre lo técnico con cualquier regla y solo saca de la técnica la presencia. Así se lee la fila del consumidor del perfil: lo que exige y la forma de lo que se publica.
+  - «No es doble cómputo» se apoya en lo que ya dice el punto de contacto entre las evaluaciones: la incidencia técnica y su efecto sobre la disponibilidad se registran por separado.
+  - La regla vive en [evaluation-scopes](../10-model/evaluation-scopes.md), junto al perfil y al punto de contacto; el destino de lo recomendado, en [demand-model](../10-model/demand-model.md#relación-con-los-ámbitos-de-evaluación). La tabla de la clasificación es evidencia de la decisión, no canon.
+  - Cómo entra lo recomendado en el modelo de demanda (vía de construcción, mapeo, ámbito pertinente, versión de la referencia) es una cuestión metodológica además de una tarea: nueva [OQ-76](open-questions.md), que T-056 resuelve con `/docs-update`.
+- **Consecuencias:** enmienda D-130; precisa D-143; cierra OQ-75; OQ-74 y OQ-30 anotadas; nueva OQ-76. [evaluation-scopes](../10-model/evaluation-scopes.md) 1.4; [commercial-information](../10-model/commercial-information.md) 1.3; [demand-model](../10-model/demand-model.md) (relación con los ámbitos); glosario (Perfil de implementación). Fuera de `docs/`: T-055 (referencia técnica y skill `/web-reference`) y T-056 (motor de demanda).
+- **Relacionado:** D-052, D-129, D-130, D-131, D-143, D-144.
+
+### D-146
+
+**La categoría madre y el material en el perímetro de PAA.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-paa-parent-and-material`. Resuelve [I-48](issues.md#i-48). En la pasada de control con el reglamento PAA v5 (T-052), los agentes aplicaron al pie de la letra «la categoría madre en general, fuera siempre» de [D-141](#d-141) y sacaron 63 preguntas más que los casos de control: 35 sobre «el sofá» sin más en sofás cama y 26 sobre «zapatos» o «calzado» en botas y pantuflas. Con ellas se perdían aportaciones esperadas y el criterio de moda de sofás cama. En pantuflas, además, la revisión del usuario (T-042) había puesto fuera dos preguntas sobre el cuero que el agente v5 dejaba dentro.
+- **Decisión (opción B):**
+  - **Categoría madre:** una pregunta sobre la categoría madre va **dentro** cuando pregunta por algo que la clase hereda de su bloque: el cuidado del ante (`cat.calzado/13`) en botas, la firmeza (`cat.sofas/12`) en sofás cama, «¿Qué sofá me compro?» (preferencia general, [D-142](#d-142)) en sofás cama. Va **fuera** si solo tiene sentido para otro producto (calzado para la montaña, podólogos) o si trata de un hermano.
+  - **Material:** una pregunta sobre el material va **dentro** si la clase tiene o hereda ese material, como la seda en sábanas. «Zapatillas» sin señal de deporte o calle se lee como la clase (pantuflas).
+  - **Semillas:** no cambian. «Sofás» sigue en el núcleo de sofás cama ([D-114](#d-114)).
+  - Alternativas descartadas: A, la madre fuera siempre y semillas solo de la clase; C, solo la madre genérica («calzado», «muebles») fuera.
+- **Interpretaciones adoptadas:**
+  - «Algo que la clase hereda de su bloque» se lee como un requisito o una aportación de un bloque que la clase hereda, o un criterio de elección que vale igual para el producto de la clase; el último es el caso de la preferencia general de «¿Qué sofá me compro?», que el artefacto cita entre los ejemplos de dentro.
+  - El hermano y la pregunta que solo tiene sentido para otro producto siguen siendo **productos vecinos**: fuera, sin apoyar requisitos, y señal para las semillas. La madre deja de ser vecino en lo que la clase hereda.
+  - La lectura de «zapatillas» es un ejemplo del artefacto para pantuflas, no una regla de denominaciones para otras clases: una denominación ambigua se lee como la clase cuando no hay señal del vecino.
+  - En pantuflas se corrige la revisión del 2026-10-27 (`INTAKE 2026-10-28-paa-control-review-rules`, paso 2): «¿Cómo saber si unas zapatillas son de piel?», «¿Cómo saber si es 100% cuero?» y «¿Cuáles son los 3 tipos de cuero?» vuelven dentro y sus tres aportaciones de cuero pasan a esperadas. El resto del efecto de aquel paso en pantuflas y botas (N1 y el criterio de salud del pie) no lo toca el artefacto.
+- **Consecuencias:** enmienda D-141; resuelve I-48. [choice-criteria](../10-model/choice-criteria.md) 1.11; [construction-routes](../10-model/construction-routes.md) 1.7 (perímetro); glosario (Producto vecino). Fuera de `docs/`: reglamento del agente (`demand-engine/classifier/paa.md`, v6) y casos de control de PAA (`demand-engine/cases/paa/`), en T-053.
+- **Relacionado:** D-100, D-104, D-114, D-141, D-142.
+
+### D-147
+
+**Datos del mínimo de representación en Web Schema.org.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-minimum-members-structural-formation` §1. Responde a [OQ-74](open-questions.md). Con la frontera de [D-145](#d-145), lo que el consumidor exige ya es técnico, y el mínimo de representación decide qué datos que el consumidor solo recomienda se quedan en la técnica. El usuario preguntó si se tenía en cuenta lo que Google exige, también lo condicional. Claude lo comprobó en las fuentes congeladas de Google Search y de Merchant Center. Usuario, ante la propuesta conjunta con [D-148](#d-148): «yes».
+- **Decisión:**
+  - **Dos pruebas:** función (¿hace falta para descubrir la oferta, acceder a ella o identificarla?, [D-143](#d-143)) y universalidad (¿lo tiene toda oferta a la que se aplica? Si un producto puede no tenerlo legítimamente, su ausencia puede ser un hecho del producto, que resuelve la informativa con un «no» fundamentado; la técnica no puede distinguir «no tiene» de «no lo publica»).
+  - **Datos del mínimo en Web Schema.org:** de sostén, la url de la oferta (`ws-consumer/066`, y `202` para el grupo en un sitio de una sola página), el enlace Product → Offer (`001`, `153`), la relación variante ↔ grupo (`193`, `032`, `034`, `192`), variesBy (`205`), el identificador de la entidad (`@id`, sin requisito: hueco que se registra) y la imagen ([D-144](#d-144)); con hecho, el nombre del producto y del grupo (`002`, `150`, `187`), el SKU (`042`) y el nombre del vendedor (`339`).
+  - **Fuera del mínimo en Web Schema.org:** GTIN y MPN (gen/03), la marca (gen/02), la descripción, la categoría y los datos legales, de contacto, la url y el logo del vendedor (gen/13, gen/14). Su presencia la juzga la informativa.
+  - **Nueve recomendados se quedan en la técnica** por ser parte del mínimo (`032`, `034`, `042`, `066`, `153`, `192`, `202`, `205`, `339`); unos 117 de presencia recomendada pasan a la informativa (T-055), antes de separar las partes de interpretación y de coherencia que D-148 mantiene en la técnica.
+  - **Lo obligatorio, también lo condicional, es técnico** (D-145): 169 obligatorios del consumidor, 9 universales y 160 condicionales, con la condición en su aplicabilidad. Google Search exige un identificador por variante (`195`) y el del grupo (`193`), técnicos con independencia del mínimo.
+  - **GTIN, MPN y marca** son recomendados en Google Search y quedan fuera del mínimo por la prueba de universalidad. En Merchant Center, que pertenece a Catálogos distribuidos ([D-130](#d-130)), el GTIN es «It depends», muy recomendado si existe, y el MPN (si no hay GTIN) y la marca (en productos nuevos) son obligaciones condicionales; al definir ese perfil, D-145 hará técnicas esas obligaciones, y el perfil decidirá el GTIN. `identifier_exists` de Merchant Center confirma la prueba de universalidad; el marcado Schema.org no tiene un campo equivalente.
+- **Interpretaciones adoptadas:**
+  - La lista vale para Web Schema.org, el único ámbito con perfil. Los datos del mínimo en Web y en Catálogos distribuidos se fijarán con sus perfiles ([OQ-30](open-questions.md)); OQ-74 se cierra para Web Schema.org.
+  - La prueba de universalidad se lee como un segundo filtro de [D-143](#d-143), no como un concepto nuevo: concreta «hace falta» con la invariante de neutralidad (un «no» fundamentado resuelve la cuestión).
+  - El registro del hueco del `@id` se hace en la referencia técnica, dentro de T-055.
+- **Consecuencias:** precisa D-143; cierra OQ-74; OQ-30 anotada. [commercial-information](../10-model/commercial-information.md) 1.4; [evaluation-scopes](../10-model/evaluation-scopes.md) 1.5; glosario (Mínimo de representación). T-055 queda desbloqueada.
+- **Relacionado:** D-130, D-143, D-144, D-145, D-148.
+
+### D-148
+
+**Formación estructural.** · aceptada · 2026-10-28
+
+- **Contexto:** `INTAKE 2026-10-28-minimum-members-structural-formation` §2. El usuario preguntó por los datos obligatorios de una estructura opcional que se incluye, y propuso verlo como «formación estructural: que una estructura de datos que debe tener varias partes no quede incompleta». En [D-145](#d-145) eso era la «completitud de lo publicado que el consumidor exige», con una excepción aparte para los recomendados que sirven para interpretar un valor publicado. Usuario, ante la propuesta conjunta con [D-147](#d-147): «yes».
+- **Decisión:**
+  - **Formación estructural** (técnica): cuando se publica una estructura, (1) tiene las partes que el consumidor exige para ella; (2) tiene las partes sin las que un valor publicado no se puede interpretar (la unidad del peso, la escala de una valoración, el sistema de tallas, la moneda de un precio unitario); (3) sus partes son coherentes entre sí (con `doesNotShip` no hay tarifa; con devolución gratuita no hay importe de devolución).
+  - Las partes que solo añaden otro hecho (tipo de reembolso, tarifa de reposición, tiempo de preparación de un servicio de envío) son presencia de lo recomendado → informativa.
+  - La estructura puede ser opcional y estar incluida: lo que cuenta es que, si se publica, no quede incompleta.
+  - Absorbe la excepción de D-145 (punto 2).
+  - **Lo técnico** queda en tres categorías (sintaxis y vocabulario; acceso y exposición; formación estructural, que incluye la forma del valor) más dos presencias (los datos exigidos de primer nivel y los datos del mínimo de representación).
+- **Interpretaciones adoptadas:**
+  - La «estructura y relaciones» de D-145 queda dentro de la formación estructural como coherencia entre partes (punto 3), porque el artefacto deja lo técnico en tres categorías sin ella. Los ejemplos son requisitos de la referencia: una sola moneda (`ws-consumer/147`, `174`) y URL distintas por variante (`200`). Es una lectura de Claude: el punto 3 habla de las partes de una estructura, y esto lo extiende al marcado de la página.
+  - El ejemplo del envío en la oferta y la tabla de estructuras de la referencia son ilustración y evidencia de la decisión, con requisitos reales (`105`, `122`).
+- **Consecuencias:** precisa D-145. [evaluation-scopes](../10-model/evaluation-scopes.md) 1.5 (frontera); [demand-model](../10-model/demand-model.md) 3.6; glosario (nueva entrada Formación estructural; Perfil de implementación); OQ-30 anotada. T-055 separa requisito a requisito las partes de interpretación y las reglas de coherencia.
+- **Relacionado:** D-130, D-143, D-145, D-147.

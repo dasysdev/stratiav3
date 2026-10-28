@@ -1,0 +1,156 @@
+{
+  "set": "mantas",
+  "label": "Mantas",
+  "cases": [
+    "manta-nacarina-046",
+    "plaid-punto-101"
+  ],
+  "catalog": "gen@0.5 cat.casa-y-jardin@2 cat.ropa-de-casa@4 cat.ropa-de-cama@2 cat.mantas@4",
+  "questions": 104,
+  "reviewed": {
+    "at": "2026-10-27",
+    "by": "usuario",
+    "rulebook": "classifier/paa.md v3",
+    "task": "T-042",
+    "decisions": [
+      "D-100",
+      "D-101",
+      "D-102",
+      "D-103",
+      "D-104",
+      "D-105",
+      "D-106",
+      "D-107",
+      "D-108",
+      "D-109",
+      "D-110",
+      "D-112",
+      "D-113"
+    ]
+  },
+  "perimeter": {
+    "out": [
+      "¿Cuál es el nórdico que más calienta?",
+      "¿Cuánto cuesta Polar por Metro?",
+      "¿Cuánto cuesta el metro de manta de algodón?",
+      "¿Cuánto cuesta la tela de algodón 100%?",
+      "¿Cuánto cuesta un metro de manta?",
+      "¿Cuánto cuesta un metro de tela polar?",
+      "¿Cuánto tiene que medir un nórdico para una cama de 1,35?",
+      "¿Cuántos gramos tiene que tener un nórdico para que abrigue?",
+      "¿Cómo elegir un buen edredón nórdico?",
+      "¿Cómo meter nórdico en su funda?",
+      "¿Cómo se llama la tela de algodón de buena calidad?",
+      "¿Cómo se llama la tela parecida al polar?",
+      "¿Cómo se llama la tela que se parece a la manta?",
+      "¿Cómo se llaman las telas 100% algodón?",
+      "¿De qué país son los sherpas?",
+      "¿Dónde puedo encontrar edredones de buena calidad?",
+      "¿Es mejor una cama de 135 o 150 centímetros?",
+      "¿Las sábanas de 100% algodón se arrugan?",
+      "¿Por qué la lana se encoge en la lavadora?",
+      "¿Por qué lado se pone la manta térmica?",
+      "¿Qué color de manta térmica da calor?",
+      "¿Qué diferencia hay entre un edredón y un nórdico?",
+      "¿Qué es mejor, nórdico de pluma o plumón?",
+      "¿Qué es mejor, nórdico de plumón o sintético?",
+      "¿Qué lana se usa para hacer mantas nórdicas?",
+      "¿Qué marca de edredón es mejor?",
+      "¿Qué precio tiene la lana merino?",
+      "¿Qué tela es similar a la manta?",
+      "¿Qué tela es similar al polar?",
+      "¿Se coloca una sábana debajo del edredón nórdico?"
+    ],
+    "expected": true,
+    "added": [
+      "¿Por qué la lana se encoge en la lavadora?"
+    ]
+  },
+  "criteria": [
+    {
+      "name": "Marca",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Cuál es la mejor marca de ropa de cama?"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "question": "¿De qué variedad es la fibra (p. ej., lana merino, algodón de fibra larga)?",
+      "blocks": [
+        "cat.ropa-de-casa"
+      ],
+      "trait": "material",
+      "expected": true,
+      "questions": [
+        "¿Cómo saber si es lana merino?"
+      ]
+    },
+    {
+      "question": "¿Qué encogimiento al lavado declara (estabilidad dimensional)?",
+      "blocks": [
+        "cat.ropa-de-casa"
+      ],
+      "trait": "prestacion",
+      "expected": false,
+      "questions": [
+        "¿Por qué la lana se encoge en la lavadora?"
+      ],
+      "why": "C1: lo cubre la lista de resistencias cat.mantas/09; pasa a aportación (T-042, paso 1)"
+    },
+    {
+      "question": "¿Para qué uso o lugar está pensada (cama, sofá…)?",
+      "blocks": [
+        "cat.mantas"
+      ],
+      "trait": "uso",
+      "expected": true,
+      "questions": [
+        "¿Para qué se utiliza la manta polar?",
+        "¿Cuándo usar una manta térmica?"
+      ]
+    }
+  ],
+  "revisions": [],
+  "contributions": [
+    {
+      "target": "gen/01",
+      "contribution": "indicación de si es eléctrica o calefactable cuando se denomina «manta térmica»",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.mantas/03",
+      "contribution": "descripción de la estructura y el acabado que designa el nombre comercial del tejido (polar, sherpa…)",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.ropa-de-casa/01",
+      "contribution": "denominación de cada fibra según el Reglamento (UE) 1007/2011, no el nombre comercial de la mezcla",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.ropa-de-casa/01",
+      "contribution": "certificación o informe de ensayo de la composición en fibras",
+      "kind": "sustento",
+      "expected": true
+    },
+    {
+      "target": "cat.ropa-de-casa/02",
+      "contribution": "tipo de detergente o producto de lavado indicado",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.mantas/09",
+      "contribution": "declaración de estabilidad dimensional o de encogimiento al lavado",
+      "kind": "precisión",
+      "expected": true,
+      "why": "T-042, paso 1 (sustituye al candidato N2)"
+    }
+  ]
+}

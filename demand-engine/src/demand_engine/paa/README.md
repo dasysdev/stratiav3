@@ -154,12 +154,12 @@ Para cada pregunta, el agente decide:
 
 Antes de aplicar C2 a una pregunta de clase, la relee sobre la oferta (D-100). A cada criterio le aplica la regla C1–C4 (D-091). Los criterios intermedios («material», «calidad») quedan cubiertos y se descomponen en prestaciones (D-104). De los criterios que cumplen C1–C4, y de las preguntas de clase que ningún requisito responde (D-099), saca **requisitos candidatos** de origen «paa» (D-097). Basta una pregunta (D-102). Cada candidato lleva su descripción, sus bloques (repetido en las hermanas si no vale para todas las hijas de la madre: D-107), su rasgo, su voto y su información resolutiva.
 
-Propone además **revisiones** de requisitos existentes (separación por dimensión en los atributos de lista, D-103; partir por tema, reformular, mover aportaciones), **aportaciones** de precisión y de sustento (D-101) y, como propuesta, la **pertinencia de los criterios de aceptación** que muestran las preguntas (OQ-59).
+Propone además **revisiones** de requisitos existentes (separación por dimensión en los atributos de lista, D-103; partir por tema, reformular, mover aportaciones), **aportaciones** de precisión y de sustento (D-101), **pistas de valoración** del requisito, sobre todo de Precisión y de Comparabilidad, cada una con su propiedad y sus AC ([D-125](../../../../docs/30-governance/decisions.md#d-125) a [D-128](../../../../docs/30-governance/decisions.md#d-128)), y la **marca de dimensión de comparación** de cada candidato y de los requisitos sobre los que las preguntas son prueba ([D-126](../../../../docs/30-governance/decisions.md#d-126), [D-139](../../../../docs/30-governance/decisions.md#d-139)). Para no repetir pistas ni contradecir marcas sin verlo, la entrada trae las pistas que ya llegan a cada requisito y su marca vigente.
 
 El resto es determinista y se ejecuta en el host (`bin/paa classify …` no usa el contenedor):
 
 ```bash
-demand-engine/bin/paa classify prepare sabanas    # classify/input.md: preguntas, catálogo de la clase (del modelo del conjunto) y rasgos
+demand-engine/bin/paa classify prepare sabanas    # classify/input.md: preguntas, catálogo de la clase (del modelo del conjunto), pistas y marcas vigentes y rasgos
 demand-engine/bin/paa classify check sabanas      # lo que falla en classify/output.json, hasta «correcto»
 demand-engine/bin/paa classify usage sabanas TRANSCRIPCIÓN   # tokens del agente
 demand-engine/bin/paa classify report sabanas --compare var/paa/probe-20261026T204606/classified.json \
@@ -168,13 +168,29 @@ demand-engine/bin/paa classify report sabanas --compare var/paa/probe-20261026T2
 
 `report` escribe en la carpeta del conjunto:
 
-- `classified.json`: cada pregunta con su clasificación y su procedencia, y los criterios y candidatos, con las preguntas como fuentes (`paa-q:<conjunto>:<pregunta>`);
-- `report.md`: reparto, criterios con C1–C4, candidatos, revisiones, aportaciones, pertinencia de AC, requisitos confirmados, preguntas que no generan, contraste con la ejecución anterior y con una clasificación manual, y consumo.
+- `classified.json`: cada pregunta con su clasificación y su procedencia, y los criterios, candidatos, pistas y marcas, con las preguntas como fuentes (`paa-q:<conjunto>:<pregunta>`). Las pistas salen con origen «paa» y sin número: el `PV-n` lo asigna el sistema al guardarlas; cada marca dice si es nueva, confirma la vigente o la contradice (una duda: «se compara» mientras se resuelve);
+- `report.md`: reparto, criterios con C1–C4, candidatos, revisiones, aportaciones, pistas de valoración, marcas de comparación, requisitos confirmados, preguntas que no generan, contraste con la ejecución anterior y con una clasificación manual, y consumo.
 
 Para comparar dos reglamentos, guarda antes la ejecución anterior (`classify/v1/`, por ejemplo) y pásala con `--previous`.
 
 Los candidatos **no entran solos en el catálogo**: se deciden en el entrenamiento.
 
+## Control contra los casos de PAA
+
+`bin/paa control [CONJUNTO…]` (en el host; sin conjuntos, todos los de `cases/paa/`) compara el `classified.json` de cada conjunto con su caso de control, `cases/paa/<conjunto>.json` ([formato](../../../cases/paa/README.md)). Es la medida del entrenamiento de PAA ([D-114](../../../../docs/30-governance/decisions.md#d-114); las métricas siguen abiertas en OQ-64).
+
+Los ids (`N1`, `R2`, los de criterio) cambian en cada ejecución, así que compara **por contenido**:
+
+| Elemento | Se empareja por | Se compara además |
+|---|---|---|
+| Perímetro | las preguntas que el caso pone fuera | — |
+| Criterios | las preguntas que comparten | veredicto e intermedio |
+| Candidatos | las preguntas que los apoyan; si no comparten ninguna, las palabras de su pregunta | bloques y rasgo |
+| Revisiones | requisito y acción | — |
+| Aportaciones | requisito y tipo; entre varias, la redacción más parecida | — |
+
+Por cada apartado cuenta lo esperado que encuentra, lo que coincide sin diferencias, las **regresiones** (elementos marcados `expected: false` que vuelven) y lo **nuevo** (lo que la clasificación tiene y el caso no; los criterios cubiertos no cuentan, porque el caso no los recoge). Lo nuevo no es un error: el caso se revisó con otro reglamento. El informe queda en `var/paa/control/<fecha>/` (`report.md` y `control.json`).
+
 ## Pruebas
 
-`tests/paa/`: semillas, estado, bloqueos, consolidación y clasificación (entrada, comprobación, resultado y contraste). Con Chrome (`test_e2e.py`), una imitación local de la página de resultados que hace, como Google, una llamada con las preguntas y otras con la respuesta. Cubre consentimiento, eco de la búsqueda, despliegue por clics, aprendizaje y bloqueo de las respuestas, parada temprana, pestaña sobrante, bloqueo y página que deja de responder.
+`tests/paa/`: semillas, estado, bloqueos, consolidación, clasificación (entrada, comprobación, resultado y contraste) y control contra los casos. Con Chrome (`test_e2e.py`), una imitación local de la página de resultados que hace, como Google, una llamada con las preguntas y otras con la respuesta. Cubre consentimiento, eco de la búsqueda, despliegue por clics, aprendizaje y bloqueo de las respuestas, parada temprana, pestaña sobrante, bloqueo y página que deja de responder.

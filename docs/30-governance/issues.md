@@ -4,7 +4,7 @@ title: Registro de incidencias e incoherencias documentales
 layer: governance
 status: vigente
 version: 1.0
-updated: 2026-10-27
+updated: 2026-10-28
 sources: []
 ---
 
@@ -54,6 +54,14 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 | [I-38](#i-38) | Cuestiones con fuente en las referencias que el bloque no recoge | Baja | resuelta → [D-088](decisions.md#d-088) |
 | [I-39](#i-39) | Aportaciones que fija la norma ausentes de las listas de la capa general | Baja | resuelta → [D-089](decisions.md#d-089) |
 | [I-40](#i-40) | Estado de implantación de la información resolutiva en el catálogo | Baja | abierta |
+| [I-41](#i-41) | GTIN inválido: ¿solo Fiabilidad o también requisito técnico de un perfil de consumidor? | Baja | abierta |
+| [I-42](#i-42) | Pistas dirigidas a una fuente: qué separa el comienzo de la etiqueta | Baja | abierta |
+| [I-43](#i-43) | Pistas de un tema repartido en varios rasgos o fuentes: «para» con un solo valor | Media | abierta |
+| [I-44](#i-44) | Duplicadas que llegan al mismo requisito por llaves distintas | Media | abierta |
+| [I-45](#i-45) | Pistas de tipo en la capa general, que no tiene rasgo | Baja | abierta |
+| [I-46](#i-46) | «Es un criterio, no una lista»: qué puede comprobar el código | Baja | abierta |
+| [I-47](#i-47) | GS1 Web Vocabulary no encaja en ninguna clase de fuente | Baja | abierta |
+| [I-48](#i-48) | Alcance de «la categoría madre en general» y de las preguntas sobre el material en el perímetro de PAA | Media | resuelta → D-146 |
 
 ---
 
@@ -544,3 +552,89 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - La detectó el revisor al procesar `INTAKE 2026-10-26-choice-criteria-and-descriptions`; es anterior a ese artefacto.
 - **Afecta a:** [demand-model](../10-model/demand-model.md#requisito-informativo-ri).
 - **Propuesta:** comprobarlo en `demand-engine/catalog/` y, si las listas están registradas, quitar «aún no se registra en el catálogo» de demand-model.
+
+### I-41
+
+**GTIN inválido: ¿solo Fiabilidad o también requisito técnico de un perfil de consumidor?**
+
+- [acceptance-criteria](../10-model/acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones) fija la frontera de [D-122](decisions.md#d-122): una sintaxis inválida es técnica; una sintaxis válida con un valor imposible (un GTIN con el dígito de control erróneo) es Fiabilidad.
+- Con el [perfil de implementación](../10-model/evaluation-scopes.md#perfil-de-implementación) de [D-130](decisions.md#d-130), el consumidor Google Search (fichas de comerciante) trata la validez del GTIN como condición propia de su perfil. La misma observación sería entonces un defecto de Fiabilidad y, a la vez, un requisito técnico no satisfecho.
+- Ni D-122 ni el canon técnico dicen si la «sintaxis» de la frontera incluye las reglas internas de un valor que un perfil de consumidor exige.
+- La planteó Claude al procesar `INTAKE 2026-10-27-web-schema-technical-framework` §6.
+- **Anotación (T-047):** en la referencia técnica congelada, la página de fichas de comerciante solo pide que el GTIN esté en forma numérica (`ws-consumer/026`, recomendada). El dígito de control lo recomienda el nivel de vocabulario: la definición de `gtin` en Schema.org 30.1 dice «should also have a valid GS1 check digit» (`ws-vocabulary/006`, recomendada). La pregunta sigue en pie, pero el requisito técnico es del vocabulario y no de un consumidor.
+- **Afecta a:** [acceptance-criteria](../10-model/acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones), [ac-guides](../20-methods/audit-gsc/ac-guides.md), [evaluation-scopes](../10-model/evaluation-scopes.md#fuentes-de-los-requisitos-técnicos).
+- **Propuesta:** la «sintaxis» de D-122 es la del marcado (serialización y vocabulario); las reglas internas de un valor, como el dígito de control, son estructura del dato y cuentan en Fiabilidad. Si un perfil de consumidor exige un GTIN válido, ese requisito técnico se evalúa también en el expediente técnico: los dos expedientes son independientes ([execution](../20-methods/audit-gsc/execution.md): «una misma observación puede alimentar ambos expedientes») y en ninguno se cuenta dos veces.
+
+### I-42
+
+**Pistas dirigidas a una fuente: qué separa el comienzo de la etiqueta.**
+
+- [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes), regla 8: una pista dirigida a una fuente «encaja con las citas de esa fuente que llevan artículo, fecha o valor: se compara por el comienzo de la etiqueta».
+- El piloto de T-050 mostró que el comienzo no basta: el guion separa el artículo en una ley (`ley:UE-1007/2011-16.1@2011-10-18`), pero forma parte del nombre de un atributo de Shopify. Una pista dirigida a `shopify-attr:fabric` llegaría también a los requisitos que citan `shopify-attr:fabric-weave`.
+- **Afecta a:** [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) (regla 8).
+- **Propuesta:** el comienzo de la etiqueta encaja solo hasta un separador propio de cada clase de fuente: en una ley, el guion y el punto (artículo y apartado) y la arroba (fecha); en un atributo o una propiedad, el igual (valor) y la arroba. Es lo implementado en el piloto (`demand-engine/src/demand_engine/demand/hints.py`).
+
+### I-43
+
+**Pistas de un tema repartido en varios rasgos o fuentes: «para» con un solo valor.**
+
+- [D-134](decisions.md#d-134) pide que cada pista se escriba una sola vez, dirigida con «una de tres llaves»; [D-135](decisions.md#d-135) define `para` como «un tipo, una fuente o un requisito». Se lee como un solo valor por pista: así lo implementa el piloto. Desde [D-140](decisions.md#d-140) el requisito ya no es una llave (sus pistas viven en él): la incidencia queda limitada a las llaves de tipo y fuente.
+- En el catálogo actual, las certificaciones están repartidas en dos rasgos (`seguridad` y `certificacion-origen`) y tres atributos de Shopify (`safety-certifications`, `organic-certification` y `product-certifications-standards`). Las pistas del número de certificado, del registro del emisor y del alcance del certificado valen para todas, pero ninguna llave las alcanza escribiéndolas una sola vez. Dirigirlas al rasgo `seguridad` tampoco sirve, porque ese rasgo llega también a alérgenos, vibración, edad o advertencias.
+- En el piloto de T-050 se dirigieron a la fuente `shopify-attr:safety-certifications`, cuyos cuatro requisitos son todos certificaciones. `cat.sabanas/02` y las certificaciones de `certificacion-origen` se quedan sin ellas.
+- **Afecta a:** [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) (reglas 7 y 9).
+- **Propuesta:** que `para` admita una lista de valores de una misma llave (varias fuentes o varios tipos). La pista se sigue escribiendo una vez y la búsqueda sigue siendo por etiquetas exactas.
+
+### I-44
+
+**Duplicadas que llegan al mismo requisito por llaves distintas.**
+
+- [D-136](decisions.md#d-136) (regla 13 de [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes)): antes de añadir una pista se busca otra con el mismo destino y la misma propiedad.
+- En el piloto de T-050 esa búsqueda no encontró nada. La única duplicada real llegaba al mismo requisito por llaves distintas: «“100 %”, “puro” o “todo” solo caben en un producto de una sola fibra», dirigida a la fuente `ley:UE-1007/2011`, dice lo mismo que una pista del tipo material × producto sobre los nombres que implican un material.
+- Un aviso sobre lo que llega a cada requisito (misma propiedad y mismo AC por llaves distintas) dio cuatro avisos en los nueve requisitos, y uno de ellos era la duplicada.
+- **Afecta a:** [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) (regla 13).
+- **Propuesta:** hacer la búsqueda también sobre lo que llega a cada requisito, como aviso que un revisor resuelve, además de hacerla por destino.
+
+### I-45
+
+**Pistas de tipo en la capa general, que no tiene rasgo.**
+
+- Los requisitos de la capa general no tienen rasgo: sus pistas se dirigen por entidad o las lleva el propio requisito ([D-140](decisions.md#d-140); [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes), regla 8).
+- En el piloto de T-050, las comprobaciones propias de los identificadores (longitud y dígito de control del GTIN, un GTIN por variante) son de tipo, pero se dirigieron al requisito `gen/03`, con origen «marco». Por entidad no servían: la entidad producto llega a todos los requisitos de producto de cualquier clase. El problema real es el origen: [D-136](decisions.md#d-136) reserva «marco» para las pistas por tipo que redacta Claude.
+- La pista de la entidad variante (cada dato dice a qué variante se refiere) no llega a `gen/03`, cuya entidad es producto.
+- **Afecta a:** [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) (reglas 8 y 9).
+- **Propuesta:** admitir el origen «marco» en las pistas dirigidas a un requisito de la capa general, que es parte del marco ([D-045](decisions.md#d-045)), en vez de dar rasgo a la capa general. Hay que resolver la tensión con la interpretación de D-136, que separa el «marco» de las pistas por tipo del origen «marco» de la capa general en la información resolutiva: la propuesta los acercaría en este caso.
+
+### I-46
+
+**«Es un criterio, no una lista»: qué puede comprobar el código.**
+
+- [D-136](decisions.md#d-136) y la regla 11 de [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes): una pista entra si pasa unas comprobaciones automáticas, entre ellas que «es un criterio, no una lista». La regla 3 añade que el entrenamiento rechaza las pistas que sean una lista o una frase exacta.
+- En el piloto de T-050, el código solo pudo comprobar la forma: una o dos frases y como mucho 280 caracteres. Si la pista es un criterio que el auditor aplica razonando, o una lista o frase exacta disfrazada, lo tiene que juzgar quien la lee.
+- **Afecta a:** [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) (reglas 3 y 11).
+- **Propuesta:** la comprobación automática cubre la forma (seis campos, destino, longitud). Lo de «criterio, no lista» lo juzga un agente revisor en el mismo paso que escribe las pistas, sin aprobación del usuario ([D-136](decisions.md#d-136)).
+
+### I-47
+
+**GS1 Web Vocabulary no encaja en ninguna clase de fuente.**
+
+- [D-132](decisions.md#d-132) da siete clases a las fuentes de los requisitos técnicos ([evaluation-scopes](../10-model/evaluation-scopes.md#fuentes-de-los-requisitos-técnicos)). El inventario de partida incluye el GS1 Web Vocabulary: el vocabulario (GS1-01, `gs1-web-vocabulary`) y la documentación del estándar (GS1-03, `gs1-web-vocabulary-standard`).
+- No es especificación aplicable: es un vocabulario distinto de Schema.org («an extension to schema.org», según su documentación), y el nivel de vocabulario del perfil es solo Schema.org 30.1 ([D-130](decisions.md#d-130)). Tampoco es instrumento del sistema, principios generales ni antecedente histórico, porque está vigente.
+- Ninguna de las 45 fichas de producto congeladas usa términos `gs1:`. Las dos fuentes están registradas y congeladas en `web-audit`, pero sin ficha, porque una ficha exige una clase del canon. La planteó Claude en la primera pasada del inventario (T-047).
+- **Afecta a:** [evaluation-scopes](../10-model/evaluation-scopes.md#fuentes-de-los-requisitos-técnicos) (tabla de clases).
+- **Propuesta:** añadir la clase **vocabulario complementario**: vocabularios distintos de Schema.org que el marcado puede usar o a los que remiten sus definiciones, como el GS1 Web Vocabulary. Sirven para interpretar los términos y los identificadores que el marcado tome de ellos, y no fundamentan requisitos mientras no entren en un perfil. La alternativa es dejarlas sin ficha hasta que un perfil las necesite.
+
+### I-48
+
+**Alcance de «la categoría madre en general» y de las preguntas sobre el material en el perímetro de PAA.**
+
+- [D-141](decisions.md#d-141) deja fuera las preguntas sobre otro producto: «la categoría madre en general, como "calzado" o "zapatos", o un hermano». En la pasada de control con el reglamento PAA v5 (T-052; cinco conjuntos), los agentes la aplicaron al pie de la letra y sacaron más preguntas que los casos de control, revisados antes de la decisión:
+  - **Sofás cama:** 35 preguntas más fuera, todas sobre «el sofá» sin más (la madre): «¿Qué sofá me compro?», «¿Qué es mejor, un sofá duro o blando?». El caso las tiene dentro; «¿Qué sofá me compro?» es incluso el ejemplo de la preferencia general que decidió el usuario (D-142). Con ellas fuera, el criterio de moda del caso se queda sin preguntas.
+  - **Botas y pantuflas:** 18 y 8 preguntas más fuera, sobre «zapatos» o «calzado» (por ejemplo, «¿Cómo cuidar los zapatos de ante?» en botas). Con ellas fuera desaparecen 4 de las 5 aportaciones esperadas en botas.
+- **Preguntas sobre el material.** El reglamento v5 deja dentro una pregunta sobre el material del producto de la clase (los ejemplos de [D-100](decisions.md#d-100), seda y bambú en sábanas). En pantuflas, el caso pone fuera «¿Cuáles son los 3 tipos de cuero?» y «¿Cómo saber si es 100% cuero?» (revisión del usuario, paso 2 de T-042), y el agente v5 las deja dentro. Por eso vuelven dos aportaciones de cuero que la revisión había quitado.
+- **Afecta a:** [choice-criteria](../10-model/choice-criteria.md#lectura-de-las-preguntas-de-paa) (productos vecinos), reglamento PAA (paso 1) y casos de control (`demand-engine/cases/paa/`).
+- **Propuesta:**
+  1. **Madre en general:** la pregunta va fuera si habla de la madre **sin rasgo del producto de la clase** («¿Qué sofá me compro?» en sofás cama). Va dentro si nombra un rasgo que solo tiene la clase (mecanismo de apertura, uso en casa). Es la lectura literal de D-141. Implica actualizar los casos de sofás cama, botas y pantuflas, y anotar que en esas clases las semillas de la madre rinden poco (D-114).
+     - La alternativa es que «la madre en general» solo sea una madre **genérica**, como «calzado» o «muebles». Con ella, la madre inmediata («sofá» para sofás cama, «zapatos» para botas) seguiría dentro, como en los casos.
+  2. **Material:** una pregunta sobre el material va dentro si ese material es un valor del producto de la clase. Va fuera si solo la traen semillas o contextos del vecino. Las dos de pantuflas quedarían fuera solo si se confirma que vienen del calzado en general.
+- **Resolución (2026-10-28):** decisión del usuario, ninguna de las dos de la propuesta 1 (opción B): la pregunta sobre la madre va dentro cuando pregunta por algo que la clase hereda de su bloque, y fuera si solo tiene sentido para otro producto o trata de un hermano; las semillas no cambian. Material: dentro si la clase tiene o hereda ese material; en pantuflas, las preguntas de cuero vuelven dentro con sus tres aportaciones. → [D-146](decisions.md#d-146).
+

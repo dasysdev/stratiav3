@@ -13,7 +13,9 @@ Usage:
                                     classified.json and report.md, optionally against a manual classification
                                     and against an earlier one of the set
   paa classify usage SET TRANSCRIPT tokens of the agent (its output file), in classify/usage.json and the report
-  (classify runs on the host: standard library only)
+  paa control [SET ...]             the classification of each set against its control case (cases/paa; all of
+                                    them by default), by content; report in var/paa/control/<date>/
+  (classify and control run on the host: standard library only)
 
 Seed sets are demand-engine/paa/<SET>.json; manual: src/demand_engine/paa/README.md
 """
@@ -26,7 +28,7 @@ import sys
 from pathlib import Path
 
 from ..capture.files import read_json, write_json
-from . import classify, store
+from . import classify, control, store
 from .store import STATUS, SeedSet, StoreError, var_root
 from .text import norm
 
@@ -139,6 +141,15 @@ def cmd_classify(args) -> None:
               f"{shown(seedset.dir / 'report.md')}")
 
 
+def cmd_control(args) -> None:
+    out, data = control.run(args.sets or control.case_ids())
+    t = data["total"]
+    print(f"fuera {t['out_found']}/{t['out_expected']} · " + " · ".join(
+        f"{control.NAMES[k].lower()} {t[k]['found']}/{t[k]['expected']} (coinciden {t[k]['agree']}, "
+        f"regresiones {t[k]['regressions']}, nuevos {t[k]['new']})" for k in control.SECTIONS))
+    print(f"informe: {shown(out / 'report.md')}")
+
+
 def main(argv=None) -> None:
     ap = argparse.ArgumentParser(prog="paa", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -153,6 +164,7 @@ def main(argv=None) -> None:
     p.add_argument("transcript", nargs="?")
     p.add_argument("--compare", help="manual classification ([{q, code}]) for the contrast")
     p.add_argument("--previous", help="an earlier classified.json of the set"); p.set_defaults(func=cmd_classify)
+    p = sub.add_parser("control"); p.add_argument("sets", nargs="*"); p.set_defaults(func=cmd_control)
     args = ap.parse_args(argv)
     try:
         args.func(args)

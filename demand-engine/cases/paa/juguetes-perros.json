@@ -1,0 +1,162 @@
+{
+  "set": "juguetes-perros",
+  "label": "Juguetes para perros",
+  "cases": [
+    "cuerda-tootoy"
+  ],
+  "catalog": "gen@0.5 cat.productos-para-mascotas@2 cat.productos-para-perros@3 cat.juguetes-para-perros@5",
+  "questions": 61,
+  "reviewed": {
+    "at": "2026-10-27",
+    "by": "usuario",
+    "rulebook": "classifier/paa.md v3",
+    "task": "T-042",
+    "decisions": [
+      "D-100",
+      "D-101",
+      "D-102",
+      "D-103",
+      "D-104",
+      "D-105",
+      "D-106",
+      "D-107",
+      "D-108",
+      "D-109",
+      "D-110",
+      "D-112",
+      "D-113"
+    ]
+  },
+  "perimeter": {
+    "out": [
+      "¿Cuáles son 5 cosas que hacen feliz a un perro?",
+      "¿Qué es la regla 7 7 7 para los perros?",
+      "¿Cómo decir te quiero a tu perro?",
+      "¿Es bueno tapar a los perros para dormir?",
+      "¿Cómo se sabe si un perro es feliz?",
+      "¿Qué cariños les gustan a los perros?",
+      "¿Qué les relaja a los perros?",
+      "¿Cómo hacer para que mi perro no se aburra en casa?",
+      "¿Cómo divertir a mi perro en casa?",
+      "¿Cómo hacer que mi perro no llore cuando me voy?",
+      "¿Cómo se dice \"te amo\" en idioma de perro?",
+      "¿Es cierto que los perros entienden cuando les hablamos?",
+      "¿Cuántas veces al día deben salir los perros?",
+      "¿Cómo tranquilizar a un perro muy nervioso?",
+      "¿Qué es letal para perros?",
+      "¿Qué mimos les gustan a los perros?",
+      "¿Qué hacer para que mi perro no se aburra solo en casa?",
+      "¿Cuáles son las 5 señales de que mi perro va a morir?",
+      "¿Cómo dice un perro que te quiere?",
+      "¿Cómo demuestran cariño los perros?",
+      "¿Cómo le digo hola a un perro?",
+      "¿Qué intenta decirte un perro trayendo sus juguetes?",
+      "¿Cómo bajarle la ansiedad a un perro?",
+      "¿Cuál es el mejor tranquilizante natural para perros?",
+      "¿Qué relaja a un perro?",
+      "¿Cómo tranquilizar a un perro muy inquieto?",
+      "¿A qué edad los perros dejan de ser inquietos?",
+      "¿Dónde acariciar a un perro para que se relaje?",
+      "¿Cómo quitar la hiperactividad en perros?",
+      "¿Cuál es el mayor enemigo del perro?"
+    ],
+    "expected": true
+  },
+  "criteria": [
+    {
+      "name": "Que al perro le guste o le divierta",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Cuál es el juguete favorito de los perros?",
+        "¿Qué juguete les gusta más a los perros?",
+        "¿Cuál es el juguete que más les gusta a los perros?",
+        "¿Qué juguetes prefieren los perros?",
+        "¿Cuál es el juguete favorito de un perro?",
+        "¿Qué juguetes divertidos hay para perros?"
+      ]
+    },
+    {
+      "name": "Efecto calmante o contra la ansiedad",
+      "verdict": "genera",
+      "expected": true,
+      "questions": [
+        "¿Qué juguetes para perros pueden calmar la ansiedad?",
+        "¿Qué juguete puedo usar para calmar la ansiedad de mi perro?",
+        "¿Qué peluche calma la ansiedad de un perro?",
+        "¿Qué juguetes calman la ansiedad?",
+        "¿Qué juguetes son buenos para la ansiedad en perros?"
+      ]
+    },
+    {
+      "name": "Nivel de actividad o energía del perro destinatario",
+      "verdict": "genera",
+      "expected": true,
+      "questions": [
+        "¿Qué juguete es bueno para perros inquietos?",
+        "¿Cuáles son los mejores juguetes para perros muy hiperactivos?",
+        "¿Cuáles son los mejores juguetes para perros hiperactivos?",
+        "¿Qué juguete es bueno para perros hiperactivos?"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "question": "¿Está indicado para calmar al perro o reducir su ansiedad y por qué medio?",
+      "blocks": [
+        "cat.juguetes-para-perros"
+      ],
+      "trait": "prestacion",
+      "expected": true,
+      "questions": [
+        "¿Qué juguetes para perros pueden calmar la ansiedad?",
+        "¿Qué juguete puedo usar para calmar la ansiedad de mi perro?",
+        "¿Qué peluche calma la ansiedad de un perro?",
+        "¿Qué juguetes calman la ansiedad?",
+        "¿Qué juguetes son buenos para la ansiedad en perros?"
+      ]
+    },
+    {
+      "question": "¿Para qué nivel de actividad o energía del perro está indicado (tranquilo, activo, muy activo o hiperactivo)?",
+      "blocks": [
+        "cat.juguetes-para-perros"
+      ],
+      "trait": "uso",
+      "expected": true,
+      "questions": [
+        "¿Qué juguete es bueno para perros inquietos?",
+        "¿Cuáles son los mejores juguetes para perros muy hiperactivos?",
+        "¿Cuáles son los mejores juguetes para perros hiperactivos?",
+        "¿Qué juguete es bueno para perros hiperactivos?"
+      ]
+    }
+  ],
+  "revisions": [
+    {
+      "target": "cat.juguetes-para-perros/12",
+      "action": "reformular",
+      "summary": "La pregunta enumera tipos de juego pero no dice si el juguete está pensado para que el perro juegue solo o con una persona, que es lo que buscan las preguntas sobre perros que se quedan solos. Propuesta: «¿Para qué tipo de juego o actividad está pensado (lanzar y traer, morder, tirar, estimulación mental, entrenamiento…) y si es para que el perro juegue solo o con una persona?», con la aportación «indicación de juego autónomo o con una persona».",
+      "expected": true
+    },
+    {
+      "target": "cat.juguetes-para-perros/11",
+      "action": "partir-por-tema",
+      "summary": "El requisito une dos riesgos que se responden por separado y con información distinta: las piezas pequeñas o que se desprenden (riesgo de ingestión o atragantamiento; lo resuelve una advertencia) y la toxicidad de los materiales (lo resuelve una declaración o un informe de ensayo de sustancias). La 28 pregunta solo por los materiales. Propuesta: partir en «¿Tiene piezas pequeñas o que se puedan desprender y tragar?» y «¿Son no tóxicos sus materiales?».",
+      "expected": true
+    },
+    {
+      "target": "cat.juguetes-para-perros/01",
+      "action": "mover",
+      "summary": "La aportación «indicación de si lleva chirriador» (con las fuentes shopify-attr:dog-toy-type=Chirriante y amazon-ptd-prop:PET_TOY.special_feature=Chirriador) describe un estímulo sonoro, no el tipo de juguete: pasa a cat.juguetes-para-perros/09, que ya recoge el estímulo sonoro. La 53 pregunta por el sonido como estímulo.",
+      "expected": true
+    }
+  ],
+  "contributions": [
+    {
+      "target": "cat.juguetes-para-perros/11",
+      "contribution": "relación de sustancias o materiales de los que se declara libre",
+      "kind": "precisión",
+      "expected": true
+    }
+  ]
+}

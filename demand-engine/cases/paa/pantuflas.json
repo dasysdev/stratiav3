@@ -1,0 +1,186 @@
+{
+  "set": "pantuflas",
+  "label": "Pantuflas",
+  "cases": [
+    "zapatillas-bano-50"
+  ],
+  "catalog": "gen@0.5 cat.ropa-y-accesorios@2 cat.calzado@4 cat.pantuflas@4",
+  "questions": 62,
+  "reviewed": {
+    "at": "2026-10-27",
+    "by": "usuario",
+    "rulebook": "classifier/paa.md v3",
+    "task": "T-042",
+    "decisions": [
+      "D-100",
+      "D-101",
+      "D-102",
+      "D-103",
+      "D-104",
+      "D-105",
+      "D-106",
+      "D-107",
+      "D-108",
+      "D-109",
+      "D-110",
+      "D-112",
+      "D-113"
+    ]
+  },
+  "perimeter": {
+    "out": [
+      "¿Cuál es la mejor marca de calzado para la fascitis plantar?",
+      "¿Cuál es la zapatilla más cómoda para caminar?",
+      "¿Cuáles son las 10 mejores zapatillas para caminar?",
+      "¿Cuáles son las mejores zapatillas para caminar para mujer?",
+      "¿Cuáles son las mejores zapatillas para estar de pie todo el día?",
+      "¿Cuáles son las mejores zapatillas para trabajar de pie para mujeres?",
+      "¿Cuáles son las zapatillas más cómodas para caminar para mujer?",
+      "¿Cómo se llaman las zapatillas de casa en inglés?",
+      "¿Qué calzado es bueno para los pies doloridos?",
+      "¿Qué calzado recomiendan los podólogos?",
+      "¿Qué marca de zapatillas son las mejores para caminar?",
+      "¿Qué marca de zapatos recomiendan los podólogos?",
+      "¿Qué marcas de calzado son buenas para pies delicados?",
+      "¿Qué marcas de tenis son de piel?",
+      "¿Qué tipo de zapatos usar para que no me duelan los pies?",
+      "¿Qué zapatillas de mujer son comodas para caminar?",
+      "¿Qué zapatillas recomienda un podólogo?",
+      "¿Qué zapatillas son ideales para caminar mucho?",
+      "¿Qué zapatillas urbanas son comodas?",
+      "¿Qué zapatos de mujer estarán de moda en 2026?",
+      "¿Qué zapatos debo usar para que no me duelan los pies?",
+      "¿Qué zapatos son buenos para caminar todo el día?"
+    ],
+    "expected": true,
+    "added": [
+      "¿Cuál es la mejor marca de calzado para la fascitis plantar?",
+      "¿Qué calzado es bueno para los pies doloridos?",
+      "¿Qué calzado recomiendan los podólogos?",
+      "¿Qué marca de zapatos recomiendan los podólogos?",
+      "¿Qué marcas de calzado son buenas para pies delicados?",
+      "¿Qué tipo de zapatos usar para que no me duelan los pies?",
+      "¿Qué zapatillas recomienda un podólogo?",
+      "¿Qué zapatos de mujer estarán de moda en 2026?",
+      "¿Qué zapatos debo usar para que no me duelan los pies?"
+    ],
+    "why": {
+      "¿Cuál es la mejor marca de calzado para la fascitis plantar?": "solo tiene sentido para otro producto (calzado para los pies doloridos o las recomendaciones de un podólogo): fuera (D-141, D-146; T-042, paso 2)",
+      "¿Qué calzado es bueno para los pies doloridos?": "solo tiene sentido para otro producto (calzado para los pies doloridos o las recomendaciones de un podólogo): fuera (D-141, D-146; T-042, paso 2)",
+      "¿Qué calzado recomiendan los podólogos?": "solo tiene sentido para otro producto (calzado para los pies doloridos o las recomendaciones de un podólogo): fuera (D-141, D-146; T-042, paso 2)",
+      "¿Qué marca de zapatos recomiendan los podólogos?": "solo tiene sentido para otro producto (calzado para los pies doloridos o las recomendaciones de un podólogo): fuera (D-141, D-146; T-042, paso 2)",
+      "¿Qué marcas de calzado son buenas para pies delicados?": "solo tiene sentido para otro producto (calzado para los pies doloridos o las recomendaciones de un podólogo): fuera (D-141, D-146; T-042, paso 2)",
+      "¿Qué tipo de zapatos usar para que no me duelan los pies?": "solo tiene sentido para otro producto (calzado para los pies doloridos o las recomendaciones de un podólogo): fuera (D-141, D-146; T-042, paso 2)",
+      "¿Qué zapatillas recomienda un podólogo?": "solo tiene sentido para otro producto (calzado para los pies doloridos o las recomendaciones de un podólogo): fuera (D-141, D-146; T-042, paso 2)",
+      "¿Qué zapatos debo usar para que no me duelan los pies?": "solo tiene sentido para otro producto (calzado para los pies doloridos o las recomendaciones de un podólogo): fuera (D-141, D-146; T-042, paso 2)",
+      "¿Qué zapatos de mujer estarán de moda en 2026?": "solo tiene sentido para otro producto (la moda del calzado de calle): fuera (D-146; T-042, paso 2)"
+    }
+  },
+  "criteria": [
+    {
+      "name": "Indicación para afecciones o necesidades del pie",
+      "verdict": "genera",
+      "expected": false,
+      "questions": [
+        "¿Qué marca de zapatos recomiendan los podólogos?",
+        "¿Qué tipo de zapatos usar para que no me duelan los pies?",
+        "¿Cuál es la mejor marca de calzado para la fascitis plantar?",
+        "¿Qué calzado recomiendan los podólogos?",
+        "¿Qué zapatillas recomienda un podólogo?",
+        "¿Qué zapatos debo usar para que no me duelan los pies?",
+        "¿Qué calzado es bueno para los pies doloridos?",
+        "¿Qué marcas de calzado son buenas para pies delicados?"
+      ],
+      "why": "solo tiene sentido para otro producto (calzado para los pies doloridos o las recomendaciones de un podólogo): fuera (D-141, D-146; T-042, paso 2)"
+    },
+    {
+      "name": "Marca",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Cuáles son las 5 mejores marcas de zapatillas?",
+        "¿Cuáles son las 10 mejores marcas de zapatillas?",
+        "¿Cuáles son las mejores marcas de zapatillas para mujer?",
+        "¿Son buenas las zapatillas Skechers?"
+      ]
+    },
+    {
+      "name": "Popularidad o ventas",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Cuál es la zapatilla más vendida en España?",
+        "¿Cuál es la marca de zapatillas más vendida en el mundo?"
+      ],
+      "why": "reputación, C4; invariante 14 (T-042, paso 4)"
+    },
+    {
+      "name": "Moda o tendencia",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Cuáles son las zapatillas de moda para mujer en 2026?",
+        "¿Qué zapatillas están en tendencia actual?"
+      ],
+      "why": "la moda nunca genera (T-042, paso 3)"
+    }
+  ],
+  "candidates": [
+    {
+      "question": "¿Para qué afecciones o necesidades del pie está indicado (pies delicados o doloridos, fascitis plantar…), o no tiene una indicación específica?",
+      "blocks": [
+        "cat.calzado"
+      ],
+      "trait": "uso",
+      "expected": false,
+      "questions": [
+        "¿Qué marca de zapatos recomiendan los podólogos?",
+        "¿Qué tipo de zapatos usar para que no me duelan los pies?",
+        "¿Cuál es la mejor marca de calzado para la fascitis plantar?",
+        "¿Qué calzado recomiendan los podólogos?",
+        "¿Qué zapatillas recomienda un podólogo?",
+        "¿Qué zapatos debo usar para que no me duelan los pies?",
+        "¿Qué calzado es bueno para los pies doloridos?",
+        "¿Qué marcas de calzado son buenas para pies delicados?"
+      ],
+      "why": "solo tiene sentido para otro producto (calzado para los pies doloridos o las recomendaciones de un podólogo): fuera (D-141, D-146; T-042, paso 2)"
+    }
+  ],
+  "revisions": [],
+  "contributions": [
+    {
+      "target": "cat.calzado/04",
+      "contribution": "indicación de si el corte es íntegramente de cuero o combina otros materiales, con la parte de cada uno",
+      "kind": "precisión",
+      "expected": true,
+      "why": "pregunta sobre un material que la clase tiene (cuero); «zapatillas» sin señal de deporte o calle es la clase: dentro (D-146; T-053, corrige T-042, paso 2)"
+    },
+    {
+      "target": "cat.calzado/04",
+      "contribution": "certificación de piel o cuero auténtico emitida por un tercero",
+      "kind": "sustento",
+      "expected": true,
+      "why": "pregunta sobre un material que la clase tiene (cuero); «zapatillas» sin señal de deporte o calle es la clase: dentro (D-146; T-053, corrige T-042, paso 2)"
+    },
+    {
+      "target": "cat.pantuflas/06",
+      "contribution": "capa o calidad de la piel empleada (por ejemplo, flor o serraje)",
+      "kind": "precisión",
+      "expected": true,
+      "why": "pregunta sobre un material que la clase tiene (cuero); «zapatillas» sin señal de deporte o calle es la clase: dentro (D-146; T-053, corrige T-042, paso 2)"
+    }
+  ],
+  "amended": [
+    {
+      "at": "2026-10-28",
+      "by": "usuario",
+      "task": "T-053",
+      "decisions": [
+        "D-141",
+        "D-142",
+        "D-146"
+      ],
+      "summary": "Las tres preguntas de cuero vuelven dentro y sus tres aportaciones pasan a esperadas; podólogos y pies doloridos siguen fuera."
+    }
+  ]
+}

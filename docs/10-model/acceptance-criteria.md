@@ -3,9 +3,9 @@ id: acceptance-criteria
 title: Criterios de aceptación
 layer: model
 status: vigente
-version: 1.3
-updated: 2026-10-27
-sources: [BASE §5.2, FUND §6, FUND §10.1, GSC0 §6.4, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
+version: 1.5
+updated: 2026-10-28
+sources: [BASE §5.2, FUND §6, FUND §10.1, GSC0 §6.4, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-minimum-representation-image]
 ---
 
 # Criterios de aceptación (AC)
@@ -71,8 +71,9 @@ Cada criterio se valora con el **GSC** (0/1/2). No hay NA de criterio, salvo el 
   - si solo es improbable, es una sospecha: se anota y no gradúa. «Percal 100 % poliéster» no se refuta, porque existe percal de poliéster. Así, una inferencia por tendencia no puede crear un hecho ([D-119](../30-governance/decisions.md#d-119)) ni destruirlo (Fiabilidad);
   - si el auditor no puede enunciar la regla y de dónde sale, es una sospecha (reexaminabilidad).
 - **Fuente independiente:** cuando existe para un tipo de dato (certificaciones, clase energética, GTIN), consultarla forma parte de las comprobaciones que le tocan.
+- **Imágenes:** lo que una foto muestra no sirve para refutar un dato; solo cuenta la información explícita que lleve ([effective-availability](effective-availability.md#imágenes-lo-que-muestran-y-lo-que-expresan), [D-144](../30-governance/decisions.md#d-144)).
 - **Identificador ausente:** si el ecommerce no da el identificador que permitiría la comprobación externa (p. ej., el número de certificado), cuenta en **Justificación** (P18), no en Fiabilidad.
-- **Frontera con la evaluación técnica:** una propiedad mal escrita o una sintaxis inválida es técnica y solo cuenta por su efecto en la disponibilidad; una sintaxis válida con un valor imposible (GTIN con dígito de control erróneo) es Fiabilidad.
+- **Frontera con la evaluación técnica:** una propiedad mal escrita o una sintaxis inválida es técnica y solo cuenta por su efecto en la disponibilidad; una sintaxis válida con un valor imposible (GTIN con dígito de control erróneo) es Fiabilidad. ⚠ Ver [I-41](../30-governance/issues.md#i-41).
 - **Consistencia por ámbito:** se comprueba dentro de las representaciones de cada ámbito y cuenta en su GSC de Fiabilidad. En Web: texto, tabla, variantes, y HTML frente a Schema.org. En Web Schema.org: dentro del marcado. En Catálogos distribuidos: dentro del ítem y entre las variantes de un grupo. La consistencia entre ámbitos es otra dimensión de análisis, que no modifica este GSC ([consistencia transversal](evaluation-scopes.md#consistencia-transversal)).
 
 ## Distinciones

@@ -3,9 +3,9 @@ id: commercial-information
 title: Información comercial, representación, exposición y calidad
 layer: model
 status: vigente
-version: 1.1
-updated: 2026-10-27
-sources: [BASE §1, CTX §1, CTX §3, FUND §1.1-1.2, INTAKE 2026-10-27-ac-applicability-and-reliability]
+version: 1.4
+updated: 2026-10-28
+sources: [BASE §1, CTX §1, CTX §3, FUND §1.1-1.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation]
 ---
 
 # Información comercial, representación, exposición y calidad
@@ -37,6 +37,40 @@ sources: [BASE §1, CTX §1, CTX §3, FUND §1.1-1.2, INTAKE 2026-10-27-ac-appli
 
 La vigencia ya no se juzga como tal: la propiedad P15 · Actualidad está retirada porque no hay forma de evaluarla ([D-123](../30-governance/decisions.md#d-123)). Lo detectable (una fecha de validez vencida, un feed desfasado frente a la web) se cubre con las comprobaciones de [Fiabilidad](acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones) y con la [consistencia transversal](evaluation-scopes.md#consistencia-transversal).
 
+### Mínimo de representación
+
+> El **mínimo de representación** son los datos sin los que no existe una representación de la oferta. Son los que hacen falta para **descubrirla, acceder a ella e identificarla**, según las [funciones informativas de la IA](ai-functions.md). Lo que sirve para **comprender, comparar, evaluar y justificar** es contenido. — INTAKE 2026-10-28-minimum-representation-image
+
+- **Dos tipos** ([D-143](../30-governance/decisions.md#d-143)):
+  - datos que llevan un hecho comercial, como el nombre o los identificadores (en Web Schema.org, el SKU; GTIN y MPN quedan fuera por la prueba de universalidad);
+  - datos que solo sostienen la representación y no responden a ninguna cuestión: la url, el identificador de la entidad, que el Product esté enlazado a su Offer y la imagen ([D-144](../30-governance/decisions.md#d-144); qué vale lo que muestra: [effective-availability](effective-availability.md#imágenes-lo-que-muestran-y-lo-que-expresan)).
+- **Cómo se evalúan:**
+  - si existen y están bien formados lo dice la **evaluación técnica** (con el alcance que fija la [frontera general](evaluation-scopes.md#frontera-entre-la-evaluación-técnica-y-la-informativa));
+  - los que llevan un hecho comercial los juzga **también la informativa** por lo que transmiten, como cualquier otra información: disponibilidad efectiva y criterios de aceptación;
+  - los de sostén, en su papel de sostén, solo los mira la técnica.
+- **No es doble cómputo:** cada sistema informa en sus propios términos, y un incumplimiento técnico no descuenta el GSC: solo cuenta su efecto sobre la disponibilidad. Ejemplo (hipotético): si falta el nombre, el requisito técnico queda no satisfecho y, si nada más responde las cuestiones que dependen de él, su disponibilidad es 0.
+- **No crea requisitos técnicos:** sus comprobaciones son las de las especificaciones del perfil. En Web Schema.org, name, image y offers son obligatorias en las fichas de comerciante de Google. Si un dato del mínimo no tiene requisito en el perfil de un ámbito, se registra el hueco; no se inventa el requisito.
+- **Con la [frontera general](evaluation-scopes.md#frontera-entre-la-evaluación-técnica-y-la-informativa)** ([D-145](../30-governance/decisions.md#d-145)), lo que el consumidor exige ya es técnico. El mínimo sirve para mantener en la técnica los datos del mínimo que el consumidor solo recomienda.
+- **Qué datos lo forman** ([D-147](../30-governance/decisions.md#d-147)) sale de dos pruebas:
+  1. **Función:** ¿hace falta para descubrir la oferta, acceder a ella o identificarla? Si solo ayuda, es contenido.
+  2. **Universalidad:** ¿lo tiene toda oferta a la que se aplica? Si un producto puede no tenerlo legítimamente (sin GTIN, sin marca), su ausencia puede ser un hecho del producto, que resuelve la informativa con un «no» fundamentado: la técnica no puede distinguir «no tiene» de «no lo publica».
+
+  En **Web Schema.org**:
+
+  | Dato | Tipo | Requisitos (`ws-consumer/…`) |
+  |---|---|---|
+  | url de la oferta | Sostén | `066`; `202` (url del grupo en un sitio de una sola página) |
+  | Enlace Product → Offer | Sostén | `001` (obligatorio); `153` |
+  | Relación variante ↔ grupo | Sostén | `193` (obligatorio); `032`, `034`, `192` |
+  | variesBy (en qué difieren las variantes) | Sostén | `205` |
+  | Identificador de la entidad (`@id`) | Sostén | Ninguno: hueco que se registra |
+  | Imagen | Sostén | `003` (obligatorio) y su formación ([D-144](../30-governance/decisions.md#d-144)) |
+  | Nombre del producto y del grupo | Con hecho | `002`, `150`, `187` (obligatorios) |
+  | SKU | Con hecho | `042` |
+  | Nombre del vendedor | Con hecho | `339` |
+
+  Quedan fuera, como contenido: GTIN y MPN (gen/03), la marca (gen/02), la descripción, la categoría y los datos legales, de contacto, la url y el logo del vendedor (gen/13, gen/14). En Merchant Center, que pertenece a Catálogos distribuidos, el GTIN es muy recomendado si existe, y el MPN (sin GTIN) y la marca (productos nuevos) son obligaciones condicionales.
+
 ## Reglas e invariantes
 
 1. **Información, representación y exposición no son sinónimos.** La representación es una dimensión del objeto de estudio, pero **no sustituye a la información comercial como objeto principal**.
@@ -59,6 +93,10 @@ La vigencia ya no se juzga como tal: la propiedad P15 · Actualidad está retira
 ## Interpretación
 
 Una misma realidad comercial (un producto, sus variantes, una oferta) puede aparecer en varias representaciones: el HTML de la ficha, el marcado Schema.org o el feed de un catálogo. Esas representaciones tienen funciones, alcances y niveles de detalle distintos. Para interpretar información de varias representaciones hay que preservar la identidad de las entidades, el alcance, las condiciones y el momento de cada afirmación. Ver [evaluation-scopes](evaluation-scopes.md#complementariedad-y-coherencia-entre-representaciones).
+
+## Pendiente
+
+- Datos del mínimo de representación en Web y en Catálogos distribuidos, al definir sus perfiles: [OQ-30](../30-governance/open-questions.md#f-evaluación-técnica).
 
 ## Relacionado
 

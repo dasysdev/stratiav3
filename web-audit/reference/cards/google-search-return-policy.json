@@ -1,0 +1,197 @@
+{
+ "source": "google-search-return-policy",
+ "version": "2026-10-27",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "summary": "Política de devoluciones estándar del comerciante en Google Search: MerchantReturnPolicy anidada en Organization (hasMerchantReturnPolicy), con sus propiedades exigidas (opción A u opción B), las recomendadas según la ventana de devolución y las de las excepciones de temporada.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#merchant-return-policy-merchantreturnpolicy-structured-data",
+   "text": "A standard return policy for your business that applies to most or all products you sell can be specified using the MerchantReturnPolicy structured data type nested under the Organization structured data type using the hasMerchantReturnPolicy property."
+  },
+  {
+   "id": "q02",
+   "section": "#guidelines",
+   "text": "For your return policy markup to be eligible for usage in Google Search, you must follow these guidelines:"
+  },
+  {
+   "id": "q03",
+   "section": "#technical-guidelines",
+   "text": "We recommend placing return information on a single page on your site that describes the return policy of your business. You don't need to include it on every page of your site. Include the MerchantReturnPolicy structured data type under the Organization structured data type."
+  },
+  {
+   "id": "q04",
+   "section": "#technical-guidelines",
+   "text": "If you have a non-standard return policy for a specific product, specify the MerchantReturnPolicy structured data type under the Offer structured data type. Note that the properties supported for offer-level return policies are a subset of the properties supported for organization-level return policies.",
+   "note": "Las políticas de nivel de oferta son de google-search-merchant-listing."
+  },
+  {
+   "id": "q05",
+   "section": "#structured-data-type-definitions",
+   "text": "You must include the required properties for your structured data to be eligible for usage in Google Search. You can also include the recommended properties to add more information about your return policies, which could provide a better user experience."
+  },
+  {
+   "id": "q06",
+   "section": "#merchant-return-policy-properties",
+   "text": "Required properties (choose the option that best suits your use case)"
+  },
+  {
+   "id": "q07",
+   "section": "#merchant-return-policy-properties",
+   "text": "Option A"
+  },
+  {
+   "id": "q08",
+   "section": "#merchant-return-policy-properties",
+   "text": "applicableCountry | Text The country code that the return policy applies to (where the product is sold and will be returned from). Use the two-letter ISO 3166-1 alpha-2 country code formatting. You can specify up to 50 countries."
+  },
+  {
+   "id": "q09",
+   "section": "#merchant-return-policy-properties",
+   "text": "returnPolicyCategory | MerchantReturnEnumeration The type of return policy. Use one of the following values: https://schema.org/MerchantReturnFiniteReturnWindow: There's a set number of days to return a product. https://schema.org/MerchantReturnNotPermitted: Returns aren't permitted. https://schema.org/MerchantReturnUnlimitedWindow: There's an unlimited amount of time to return a product. If you use MerchantReturnFiniteReturnWindow, then the merchantReturnDays property is required."
+  },
+  {
+   "id": "q10",
+   "section": "#merchant-return-policy-properties",
+   "text": "Option B"
+  },
+  {
+   "id": "q11",
+   "section": "#merchant-return-policy-properties",
+   "text": "merchantReturnLink | URL Specify the URL of a web page that describes the return policy to your customers. This can be your own return policy, or a third-party policy from a service that handles your returns."
+  },
+  {
+   "id": "q12",
+   "section": "#finite-or-unlimited-return-windows",
+   "text": "The following properties are recommended when returnPolicyCategory is set to MerchantReturnFiniteReturnWindow or MerchantReturnUnlimitedWindow."
+  },
+  {
+   "id": "q13",
+   "section": "#finite-or-unlimited-return-windows",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q14",
+   "section": "#finite-or-unlimited-return-windows",
+   "text": "merchantReturnDays | Integer The number of days from the delivery date that a product can be returned. This property is only required if returnPolicyCategory equals MerchantReturnFiniteReturnWindow."
+  },
+  {
+   "id": "q15",
+   "section": "#finite-or-unlimited-return-windows",
+   "text": "returnFees | ReturnFeesEnumeration The default type of return fee. Use one of the following supported values: https://schema.org/FreeReturn: There's no charge to the consumer to return the product. If used, don't include the returnShippingFeesAmount property. https://schema.org/ReturnFeesCustomerResponsibility: The consumer needs to handle and pay for the return shipping themselves. If used, don't include the returnShippingFeesAmount property. https://schema.org/ReturnShippingFees: There's a shipping fee charged by the merchant to the consumer to return the product. Specify the (non-zero) shipping fee using the returnShippingFeesAmount property."
+  },
+  {
+   "id": "q16",
+   "section": "#finite-or-unlimited-return-windows",
+   "text": "returnMethod | ReturnMethodEnumeration The type of return method offered. Use one or more of the following values: https://schema.org/ReturnAtKiosk: The item can be returned at a kiosk. https://schema.org/ReturnByMail: The item can be returned by mail. https://schema.org/ReturnInStore: The item can be returned in store."
+  },
+  {
+   "id": "q17",
+   "section": "#finite-or-unlimited-return-windows",
+   "text": "returnShippingFeesAmount | MonetaryAmount The cost of shipping for returning a product. This property must be specified only when returnFees equals https://schema.org/ReturnShippingFees."
+  },
+  {
+   "id": "q18",
+   "section": "#finite-or-unlimited-return-windows_1",
+   "text": "The following properties are additionally recommended if returnPolicyCategory is set to MerchantReturnFiniteReturnWindow or MerchantReturnUnlimitedWindow."
+  },
+  {
+   "id": "q19",
+   "section": "#finite-or-unlimited-return-windows_1",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q20",
+   "section": "#finite-or-unlimited-return-windows_1",
+   "text": "customerRemorseReturnFees | ReturnFeesEnumeration A specific type of return fee if the product is returned due to customer remorse. See returnFees for possible values."
+  },
+  {
+   "id": "q21",
+   "section": "#finite-or-unlimited-return-windows_1",
+   "text": "customerRemorseReturnLabelSource | ReturnLabelSourceEnumeration The method by which the consumer obtains a return shipping label for a product. See returnLabelSource for possible values."
+  },
+  {
+   "id": "q22",
+   "section": "#finite-or-unlimited-return-windows_1",
+   "text": "customerRemorseReturnShippingFeesAmount | MonetaryAmount The cost of shipping for returning a product due to customer remorse. This property is only required if there's a non-zero shipping fee to be paid by the consumer to return a product. See returnShippingFeesAmount for details."
+  },
+  {
+   "id": "q23",
+   "section": "#finite-or-unlimited-return-windows_1",
+   "text": "itemCondition | OfferItemCondition The acceptable conditions of an item which can be returned. You can provide multiple conditions which are accepted. Use the following values: https://schema.org/DamagedCondition: Damaged items are accepted. https://schema.org/NewCondition: New items are accepted. https://schema.org/RefurbishedCondition: Refurbished items are accepted. https://schema.org/UsedCondition: Used items are accepted."
+  },
+  {
+   "id": "q24",
+   "section": "#finite-or-unlimited-return-windows_1",
+   "text": "itemDefectReturnFees | ReturnFeesEnumeration A specific type of return fee for defect products. See returnFees for possible values."
+  },
+  {
+   "id": "q25",
+   "section": "#finite-or-unlimited-return-windows_1",
+   "text": "itemDefectReturnLabelSource | ReturnLabelSourceEnumeration The method by which the consumer can obtain a return shipping label for a product. See returnLabelSource for possible values."
+  },
+  {
+   "id": "q26",
+   "section": "#finite-or-unlimited-return-windows_1",
+   "text": "itemDefectReturnShippingFeesAmount | MonetaryAmount The cost of shipping for returning a product due to defect products. This property is only required if there's a non-zero shipping fee to be paid by the consumer to return a product. See returnShippingFeesAmount for details."
+  },
+  {
+   "id": "q27",
+   "section": "#finite-or-unlimited-return-windows_1",
+   "text": "refundType | RefundType The type of refund(s) available for the consumer when returning a product. https://schema.org/ExchangeRefund: The item can be exchanged for the same product. https://schema.org/FullRefund: The item can be refunded for the full monetary amount. https://schema.org/StoreCreditRefund: The item can can be refunded for store credit."
+  },
+  {
+   "id": "q28",
+   "section": "#finite-or-unlimited-return-windows_1",
+   "text": "restockingFee | MonetaryAmount or Number The restocking fee charged to the consumer when returning a product. Specify a value of type Number to charge a percentage of the price paid by the consumer or use MonetaryAmount to charge a fixed amount."
+  },
+  {
+   "id": "q29",
+   "section": "#finite-or-unlimited-return-windows_1",
+   "text": "returnLabelSource | ReturnLabelSourceEnumeration The method by which the consumer can obtain a return shipping label for a product. Use one of the following values: https://schema.org/ReturnLabelCustomerResponsibility: It's the responsibility of the consumer to create a return label. https://schema.org/ReturnLabelDownloadAndPrint: The return label must be downloaded and printed by the customer. https://schema.org/ReturnLabelInBox: The return label was included when the product was originally shipped."
+  },
+  {
+   "id": "q30",
+   "section": "#finite-or-unlimited-return-windows_1",
+   "text": "returnPolicyCountry | Text The country where the product has to be sent to for returns. This country can be different from the country where the product was originally shipped or sent to. ISO 3166-1 alpha-2 country code formatting. You can specify up to 50 countries."
+  },
+  {
+   "id": "q31",
+   "section": "#seasonal-override-properties",
+   "text": "The following properties are required when you need to define seasonal overrides for your organization-level return policies."
+  },
+  {
+   "id": "q32",
+   "section": "#seasonal-override-properties",
+   "text": "returnPolicySeasonalOverride.returnPolicyCategory | MerchantReturnEnumeration The type of return policy. Use one of the following values: https://schema.org/MerchantReturnFiniteReturnWindow: There's a set number of days to return a product. https://schema.org/MerchantReturnNotPermitted: Returns aren't permitted. https://schema.org/MerchantReturnUnlimitedWindow: There's an unlimited amount of time to return a product. If you use MerchantReturnFiniteReturnWindow, then the merchantReturnDays property is required."
+  },
+  {
+   "id": "q33",
+   "section": "#seasonal-override-properties",
+   "text": "The following properties are recommended when you need to define seasonal overrides for your organization-level return policies."
+  },
+  {
+   "id": "q34",
+   "section": "#seasonal-override-properties",
+   "text": "returnPolicySeasonalOverride.endDate | Date or DateTime The end date of the seasonal override."
+  },
+  {
+   "id": "q35",
+   "section": "#seasonal-override-properties",
+   "text": "returnPolicySeasonalOverride.merchantReturnDays | Integer or Date or DateTime The number of days from the delivery date that a product can be returned. This property is only required if you set the returnPolicyCategory to MerchantReturnFiniteReturnWindow."
+  },
+  {
+   "id": "q36",
+   "section": "#seasonal-override-properties",
+   "text": "returnPolicySeasonalOverride.startDate | Date or DateTime The start date of the seasonal override."
+  },
+  {
+   "id": "q37",
+   "section": "#precedence",
+   "text": "If you're combining various return configurations, keep in mind how you can override your policy information based on the order of precedence. For example, if you provide both return policy markup on your site and return policy settings in Search Console, Google will only use the information provided in Search Console. Google uses the following order of precedence (from strongest to weakest): - Content API for Shopping (return settings) - Settings in Merchant Center or Search Console - Product-level merchant listing markup - Organization-level markup",
+   "note": "Función: precedencia del consumidor entre configuraciones; no da requisitos."
+  }
+ ],
+ "note": "Las políticas de una oferta concreta (MerchantReturnPolicy bajo Offer) remiten a google-search-merchant-listing, que fija su subconjunto de propiedades. La precedencia entre la configuración de Merchant Center o Search Console y el marcado es comportamiento del consumidor: se cita como función y no da requisitos."
+}

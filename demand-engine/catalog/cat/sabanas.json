@@ -109,6 +109,46 @@
           "origin": "inferida",
           "support": []
         }
+      ],
+      "comparison": {
+        "mark": "sí",
+        "reason": "En tejidos de calada es un criterio habitual para preferir una sábana a otra (más hilos)."
+      },
+      "hints": [
+        {
+          "id": "PV-28",
+          "pista": "Un recuento de hilos solo es claro si dice sobre qué superficie se cuenta y si cuenta hilos simples o de varios cabos.",
+          "propiedad": [
+            "P09"
+          ],
+          "ac": [
+            "Precisión"
+          ],
+          "origen": {
+            "tipo": "referencias",
+            "apoyo": [
+              "amazon-ptd-prop:FITTED_SHEET.thread",
+              "amazon-ptd-prop:FLAT_SHEET.thread"
+            ]
+          }
+        },
+        {
+          "id": "PV-29",
+          "pista": "Solo se comparan recuentos sobre la misma superficie y del mismo tipo de hilo: contar cabos multiplica la cifra sin cambiar el tejido.",
+          "propiedad": [
+            "P13"
+          ],
+          "ac": [
+            "Comparabilidad"
+          ],
+          "origen": {
+            "tipo": "referencias",
+            "apoyo": [
+              "amazon-ptd-prop:FITTED_SHEET.thread",
+              "amazon-ptd-prop:FLAT_SHEET.thread"
+            ]
+          }
+        }
       ]
     }
   ],

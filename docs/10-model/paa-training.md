@@ -3,9 +3,9 @@ id: paa-training
 title: Entrenamiento de PAA
 layer: model
 status: vigente
-version: 1.3
+version: 1.4
 updated: 2026-10-27
-sources: [INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-paa-pilot-classes, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
+sources: [INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-paa-pilot-classes, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields]
 ---
 
 # Entrenamiento de PAA
@@ -53,11 +53,11 @@ El entrenamiento de PAA **sí modifica el catálogo**. Tiene cuatro papeles, tod
 | # | Papel | Sobre qué |
 |---|---|---|
 | 1 | **Requisitos nuevos**, con id propio y origen «paa» ([D-097](../30-governance/decisions.md#d-097), [D-099](../30-governance/decisions.md#d-099)) | Lo que ningún requisito responde |
-| 2 | **[Pistas de valoración](assessment-hints.md)** de un requisito, desde lo que muestran las preguntas: sobre todo de Precisión (qué términos son ambiguos) y de Comparabilidad (si es dimensión de comparación y sobre qué base) | Un requisito ya constituido, de cualquier origen |
+| 2 | **[Pistas de valoración](assessment-hints.md)** de un requisito, desde lo que muestran las preguntas: sobre todo de Precisión (qué términos son ambiguos) y de Comparabilidad (sobre qué base se compara); sus preguntas comparativas son además prueba para la [marca de dimensión de comparación](assessment-hints.md#reglas-e-invariantes) ([D-139](../30-governance/decisions.md#d-139)) | Un requisito ya constituido, de cualquier origen |
 | 3 | **Confirmar o revisar cuestiones inferidas** ([D-094](../30-governance/decisions.md#d-094)); p. ej. `inf/01`, reformulado con los dos polos de la dimensión térmica ([D-108](../30-governance/decisions.md#d-108)) | Requisitos de origen «inferida» |
 | 4 | **Aportaciones aditivas** de precisión y de sustento ([D-101](../30-governance/decisions.md#d-101)) | Requisitos existentes, de cualquier origen |
 
-Lo que D-115 llamaba «reglas de AC» son las pistas de valoración ([D-125](../30-governance/decisions.md#d-125)): dicen qué mirar, no puntúan ni ponderan. PAA las escribe junto con taxo, cada una con su origen, y solo se suman ([D-127](../30-governance/decisions.md#d-127)). Su formato está pendiente ([OQ-68](../30-governance/open-questions.md)).
+Lo que D-115 llamaba «reglas de AC» son las pistas de valoración ([D-125](../30-governance/decisions.md#d-125)): dicen qué mirar, no puntúan ni ponderan. PAA las escribe junto con taxo, cada una con su origen, y solo se suman, salvo retirada ([D-136](../30-governance/decisions.md#d-136); [D-127](../30-governance/decisions.md#d-127)). Sus campos los fija [D-135](../30-governance/decisions.md#d-135) ([assessment-hints](assessment-hints.md#reglas-e-invariantes)).
 
 ### Un solo escritor por requisito
 
@@ -109,7 +109,7 @@ Con 12 clases el volumen de búsquedas, y con él el riesgo de bloqueo, es mayor
 
 Ver [open-questions](../30-governance/open-questions.md):
 
-- formato de las pistas de valoración y cómo las usa la auditoría ([OQ-68](../30-governance/open-questions.md));
+- índice generado de pistas de valoración por requisito, aplazado ([OQ-70](../30-governance/open-questions.md));
 - paso del entrenamiento de PAA en que se acepta lo que escribe, su estado y el formato de una pregunta como fuente ([OQ-62](../30-governance/open-questions.md));
 - formato del registro de revisiones estructurales y cómo lo lee la compilación de taxo ([OQ-63](../30-governance/open-questions.md));
 - métricas del entrenamiento de PAA frente a sus casos de control ([OQ-64](../30-governance/open-questions.md)).

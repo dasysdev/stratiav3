@@ -1,7 +1,7 @@
 # uv workspace of stratia.cic: one member per system (a top-level directory) and a single
 # uv.lock. The root is virtual: it only holds the members, the dev tools and pytest.
 [tool.uv.workspace]
-members = ["demand-engine"]
+members = ["demand-engine", "web-audit"]
 
 [dependency-groups]
 dev = [
@@ -9,7 +9,7 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
-testpaths = ["demand-engine/tests"]
+testpaths = ["demand-engine/tests", "web-audit/tests"]
 # Test files of different modules may share a basename
 addopts = "--import-mode=importlib"
 markers = ["chrome: needs Google Chrome (runs inside the container)"]

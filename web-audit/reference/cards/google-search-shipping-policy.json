@@ -1,0 +1,357 @@
+{
+ "source": "google-search-shipping-policy",
+ "version": "2026-10-27",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "summary": "Política de envío estándar del comerciante en Google Search: ShippingService anidado en Organization (hasShippingService), con sus condiciones de envío (ShippingConditions) y los tipos anidados que fijan destinos, tarifas, plazos de preparación y de tránsito, rangos y periodos de validez.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#merchant-shipping-policy-shippingservice-structured-data",
+   "text": "A standard shipping policy for your business that applies to most or all products you sell can be specified using the ShippingService structured data type nested under the Organization structured data type using the hasShippingService property."
+  },
+  {
+   "id": "q02",
+   "section": "#guidelines",
+   "text": "For your shipping policy markup to be eligible for usage in Google Search, you must follow these guidelines:"
+  },
+  {
+   "id": "q03",
+   "section": "#technical-guidelines",
+   "text": "We recommend placing shipping policy information on a single page on your site that describes the shipping policy of your business. You don't need to include it on every page of your site. Include the ShippingService structured data type under the Organization structured data type."
+  },
+  {
+   "id": "q04",
+   "section": "#technical-guidelines",
+   "text": "If you have a non-standard shipping policy for a specific product, specify the OfferShippingDetails structured data type directly under the Offer structured data type. Note that the properties supported for offer-level shipping policies are a subset of the properties supported for organization-level shipping policies.",
+   "note": "Las políticas de nivel de oferta son de google-search-merchant-listing."
+  },
+  {
+   "id": "q05",
+   "section": "#structured-data-type-definitions",
+   "text": "You must include the required properties for your structured data to be eligible for usage in Google Search. You can also include recommended properties to add more information about your shipping policies, which could provide a better user experience."
+  },
+  {
+   "id": "q06",
+   "section": "#merchant-shipping-policy-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q07",
+   "section": "#merchant-shipping-policy-properties",
+   "text": "shippingConditions | ShippingConditions Specify the shipping cost and/or delivery times that apply for a particular set of conditions, for example, a product weight range, product dimensions, order value, or delivery location. A ShippingService can have multiple shippingConditions. If more than one ShippingConditions applies to a product, we'll use the lowest shipping cost for the product for the given situation and display that rate and the associated shipping speed to customers. If the shipping cost is the same, we'll use the shipping information with the fastest shipping speed."
+  },
+  {
+   "id": "q08",
+   "section": "#merchant-shipping-policy-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q09",
+   "section": "#merchant-shipping-policy-properties",
+   "text": "name | Text A unique name for your shipping service, if applicable. For example, \"Standard Shipping\"."
+  },
+  {
+   "id": "q10",
+   "section": "#merchant-shipping-policy-properties",
+   "text": "description | Text A description of your shipping service, if applicable. This is typically more comprehensive than the name."
+  },
+  {
+   "id": "q11",
+   "section": "#merchant-shipping-policy-properties",
+   "text": "fulfillmentType | FulfillmentTypeEnumeration How the product is delivered to the customer for this shipping service, if applicable. https://schema.org/FulfillmentTypeDelivery: This service ships the product to the customer's address (this is the default if this property is not specified). https://schema.org/FulfillmentTypeCollectionPoint: The product is shipped to a collection point for customer pickup."
+  },
+  {
+   "id": "q12",
+   "section": "#merchant-shipping-policy-properties",
+   "text": "handlingTime | ServicePeriod Optional information about handling times (for example, in a warehouse) after receiving an order, if applicable. See also the list of ServicePeriod properties under the ShippingService type supported by Google."
+  },
+  {
+   "id": "q13",
+   "section": "#merchant-shipping-policy-properties",
+   "text": "validForMemberTier | MemberProgramTier The loyalty program and tier that this shipping service is valid for, if applicable. You can specify multiple member tiers if the shipping settings are the same for all of the tiers. If you use the validForMemberTier property to designate member shipping benefits, you must also provide at least one regular (non-member) shipping service."
+  },
+  {
+   "id": "q14",
+   "section": "#shipping-service-handling-time-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q15",
+   "section": "#shipping-service-handling-time-properties",
+   "text": "businessDays | DayOfWeek The days of the week when received orders are processed, if applicable."
+  },
+  {
+   "id": "q16",
+   "section": "#shipping-service-handling-time-properties",
+   "text": "cutoffTime | Time The time after which orders received on a day are not processed that same day, if applicable. For orders processed after cutoff time, one day gets added to the delivery time estimate. The time is indicated using the ISO-8601 time format, for example \"23:30:00-05:00\" represents 6:30 pm Eastern Standard Time (EST) which is 5 hours behind Coordinated Universal Time (UTC)."
+  },
+  {
+   "id": "q17",
+   "section": "#shipping-service-handling-time-properties",
+   "text": "duration | QuantitativeValue The delay between the receipt of an order and the goods leaving the warehouse, if applicable."
+  },
+  {
+   "id": "q18",
+   "section": "#handling-time-quantitative-value-properties",
+   "text": "You must provide either value (for a fixed handling time) or maxValue (for an upper bound for handling time) together with the unitCode."
+  },
+  {
+   "id": "q19",
+   "section": "#handling-time-quantitative-value-properties",
+   "text": "maxValue | Number The maximum number of days. The value must be a non-negative, whole number."
+  },
+  {
+   "id": "q20",
+   "section": "#handling-time-quantitative-value-properties",
+   "text": "minValue | Number The minimum number of days, if applicable. The value must be a non-negative, whole number."
+  },
+  {
+   "id": "q21",
+   "section": "#handling-time-quantitative-value-properties",
+   "text": "unitCode | Text The units of the minimum/maximum values. The value must be DAY or d."
+  },
+  {
+   "id": "q22",
+   "section": "#handling-time-quantitative-value-properties",
+   "text": "value | Number The exact number of handling days, if known. The value must be a non-negative, whole number. If provided, minValue and maxValue must not be specified."
+  },
+  {
+   "id": "q23",
+   "section": "#merchant-shipping-conditions-properties",
+   "text": "If no shipping destination is specified, the shipping conditions are applicable to all shipping destinations worldwide."
+  },
+  {
+   "id": "q24",
+   "section": "#merchant-shipping-conditions-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q25",
+   "section": "#merchant-shipping-conditions-properties",
+   "text": "doesNotShip | Boolean If applicable, set this to true if shipping from a location in the specified shippingOrigin to a location in the specified shippingDestination isn't available for orders with the specified combination of weight, numItems, and orderValue conditions."
+  },
+  {
+   "id": "q26",
+   "section": "#merchant-shipping-conditions-properties",
+   "text": "numItems | QuantitativeValue The range of the number of products in the order for this shipping conditions object, if applicable. See also the list of QuantitativeValue properties related to the ShippingConditions type supported by Google."
+  },
+  {
+   "id": "q27",
+   "section": "#merchant-shipping-conditions-properties",
+   "text": "orderValue | MonetaryAmount The range of the cost of the order for this shipping conditions object, if applicable. See also the list of MonetaryAmount properties related to the ShippingConditions type supported by Google."
+  },
+  {
+   "id": "q28",
+   "section": "#merchant-shipping-conditions-properties",
+   "text": "shippingDestination | DefinedRegion Indicates shipping destination, if applicable. See the list of DefinedRegion properties under the shippingDestination property supported by Google."
+  },
+  {
+   "id": "q29",
+   "section": "#merchant-shipping-conditions-properties",
+   "text": "shippingOrigin | DefinedRegion Indicates shipping origin, if applicable. See the list of DefinedRegion properties under the shippingOrigin property supported by Google."
+  },
+  {
+   "id": "q30",
+   "section": "#merchant-shipping-conditions-properties",
+   "text": "seasonalOverride | OpeningHoursSpecification If applicable, use this property to specify a limited time period for which this shipping conditions object is valid. See also the list of OpeningHoursSpecification properties supported for the ShippingConditions type by Google."
+  },
+  {
+   "id": "q31",
+   "section": "#merchant-shipping-conditions-properties",
+   "text": "shippingRate | ShippingRateSettings or MonetaryAmount If applicable, use this property to specify the shipping cost for shipments from a location in the specified shippingOrigin to a location in the specified shippingDestination for orders with the specified combination of weight, numItems, and orderValue conditions. See also the list of ShippingRateSettings properties and MonetaryAmount properties supported for the ShippingConditions type by Google. This property should only be specified if doesNotShip is absent or set to false."
+  },
+  {
+   "id": "q32",
+   "section": "#merchant-shipping-conditions-properties",
+   "text": "transitTime | ServicePeriod If applicable, use to specify the expected transit time between leaving the shipping origin (typically a warehouse) and arriving at the shipping destination (typically the customer). Applies to shipments from a location in the specified shippingOrigin property to a location in the specified shippingDestination property for orders with the specified combination of weight, numItems, and orderValue conditions. See also the list of ServicePeriod properties supported by Google. This property should only be specified if the doesNotShip property is absent or set to false."
+  },
+  {
+   "id": "q33",
+   "section": "#merchant-shipping-conditions-properties",
+   "text": "weight | QuantitativeValue The package's weight range for this shipping conditions object, if applicable. See also the list of QuantitativeValue properties related to the ShippingConditions type supported by Google."
+  },
+  {
+   "id": "q34",
+   "section": "#defined-region-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q35",
+   "section": "#defined-region-properties",
+   "text": "addressCountry | Text The two-letter country code, in ISO 3166-1 alpha-2 format."
+  },
+  {
+   "id": "q36",
+   "section": "#defined-region-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q37",
+   "section": "#defined-region-properties",
+   "text": "addressRegion | Text The country-specific region code, if applicable. The region must be a 2- or 3-character ISO 3166-2 subdivision code, without country prefix. Google Search only supports the US, Australia, and Japan. Examples: NY (for US, state of New York), NSW (for Australia, state of New South Wales), or 03 (for Japan, Iwate prefecture). Don't provide both a region and postal code information."
+  },
+  {
+   "id": "q38",
+   "section": "#defined-region-properties",
+   "text": "postalCode | Text The country-specific postal code, if applicable. For example, 94043. Postal codes are supported for Australia, Canada, and the US."
+  },
+  {
+   "id": "q39",
+   "section": "#shipping-service-transit-time-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q40",
+   "section": "#shipping-service-transit-time-properties",
+   "text": "businessDays | DayOfWeek The days of the week when an order is an active transit, if applicable. If your organization's business days are Monday through Saturday, you don't need to add this property."
+  },
+  {
+   "id": "q41",
+   "section": "#shipping-service-transit-time-properties",
+   "text": "duration | QuantitativeValue The number of business days in transit, if applicable. See also the list of QuantitativeValue properties for transit times supported by Google."
+  },
+  {
+   "id": "q42",
+   "section": "#transit-time-quantitative-value-properties",
+   "text": "You must provide either value (for a fixed transit time) or maxValue (for an upper bound for transit time) together with the unitCode."
+  },
+  {
+   "id": "q43",
+   "section": "#transit-time-quantitative-value-properties",
+   "text": "maxValue | Number The maximum number of days. The value must be a non-negative, whole number."
+  },
+  {
+   "id": "q44",
+   "section": "#transit-time-quantitative-value-properties",
+   "text": "minValue | Number The minimum number of days, if applicable. The value must be a non-negative, whole number."
+  },
+  {
+   "id": "q45",
+   "section": "#transit-time-quantitative-value-properties",
+   "text": "unitCode | Text The transit time unit. The value must be DAY or d."
+  },
+  {
+   "id": "q46",
+   "section": "#transit-time-quantitative-value-properties",
+   "text": "value | Number The exact number of transit days, if known. The value must be a non-negative, whole number. If provided, minValue and maxValue must not be specified."
+  },
+  {
+   "id": "q47",
+   "section": "#shipping-quantitative-value-properties",
+   "text": "Either the minValue or maxValue property must be provided."
+  },
+  {
+   "id": "q48",
+   "section": "#shipping-quantitative-value-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q49",
+   "section": "#shipping-quantitative-value-properties",
+   "text": "minValue | Number The minimum number for the dimension (weight or numItems), if applicable. Must be less than maxValue. Defaults to 0 when not provided."
+  },
+  {
+   "id": "q50",
+   "section": "#shipping-quantitative-value-properties",
+   "text": "unitCode | Text A unit relevant to the dimension (weight or numItems), if applicable. in UN/CEFACT Common Code (three characters) format: For weight units, the value must be LBR (pound) or KGM (kilogram) For number of items, unitCode can be omitted. Alternatively, you can use UN/CEFACT Common Code name H87."
+  },
+  {
+   "id": "q51",
+   "section": "#shipping-conditions-monetary-amount-properties",
+   "text": "Either the minValue or maxValue property must be provided. When not provided, the minValue property defaults to 0 and the maxValue property defaults to infinity."
+  },
+  {
+   "id": "q52",
+   "section": "#shipping-conditions-monetary-amount-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q53",
+   "section": "#shipping-conditions-monetary-amount-properties",
+   "text": "currency | Text The currency code for the order value in ISO 4217 format."
+  },
+  {
+   "id": "q54",
+   "section": "#shipping-conditions-monetary-amount-properties",
+   "text": "maxValue | Number The maximum value of the order. Defaults to infinity when not provided."
+  },
+  {
+   "id": "q55",
+   "section": "#shipping-conditions-monetary-amount-properties",
+   "text": "minValue | Number The minimum value of the order. Defaults to 0 when not provided."
+  },
+  {
+   "id": "q56",
+   "section": "#shipping-monetary-amount-properties",
+   "text": "Either the maxValue or value property must be provided together with the currency property."
+  },
+  {
+   "id": "q57",
+   "section": "#shipping-monetary-amount-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q58",
+   "section": "#shipping-monetary-amount-properties",
+   "text": "currency | Text The currency code for the shipping cost in ISO 4217 format."
+  },
+  {
+   "id": "q59",
+   "section": "#shipping-monetary-amount-properties",
+   "text": "maxValue | Number The maximum shipping cost for the given shipping condition. If you specify the maxValue property, don't specify the value property."
+  },
+  {
+   "id": "q60",
+   "section": "#shipping-monetary-amount-properties",
+   "text": "value | Number The fixed shipping cost for the given shipping condition. For free shipping, use 0 as the value."
+  },
+  {
+   "id": "q61",
+   "section": "#shipping-rate-settings-properties",
+   "text": "Either the orderPercentage or weightPercentage property must be provided when using the ShippingRateSettings type."
+  },
+  {
+   "id": "q62",
+   "section": "#shipping-rate-settings-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q63",
+   "section": "#shipping-rate-settings-properties",
+   "text": "orderPercentage | Number The shipping cost for the given shipping condition as a fraction of the order value. Use a value between 0 and 1."
+  },
+  {
+   "id": "q64",
+   "section": "#shipping-rate-settings-properties",
+   "text": "weightPercentage | Number The shipping cost for the given shipping condition as a fraction of the weight of the shipped goods. Use a value between 0 and 1."
+  },
+  {
+   "id": "q65",
+   "section": "#shipping-opening-hours-properties",
+   "text": "At least one of the validFrom and validThrough properties must be provided when using the OpeningHoursSpecification type."
+  },
+  {
+   "id": "q66",
+   "section": "#shipping-opening-hours-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q67",
+   "section": "#shipping-opening-hours-properties",
+   "text": "validFrom | Date The first date when the shipping condition is valid, in ISO 8601 format."
+  },
+  {
+   "id": "q68",
+   "section": "#shipping-opening-hours-properties",
+   "text": "validThrough | Date The last date when the shipping condition is valid, in ISO 8601 format."
+  },
+  {
+   "id": "q69",
+   "section": "#precedence",
+   "text": "If you're combining various shipping configurations, keep in mind how you can override your policy information based on the order of precedence. For example, if you provide both shipping policy markup on your site and shipping policy settings in Search Console, Google will only use the information provided in Search Console. Google uses the following order of precedence (from strongest to weakest): - Content API for Shopping (account level shipping settings) - Settings in Merchant Center or Search Console - Product-level merchant listing markup - Organization-level markup",
+   "note": "Función: precedencia del consumidor entre configuraciones; no da requisitos."
+  }
+ ],
+ "note": "Las políticas de envío de una oferta concreta (OfferShippingDetails bajo Offer) remiten a google-search-merchant-listing, que fija su subconjunto de propiedades. La precedencia entre la configuración de Merchant Center o Search Console y el marcado es comportamiento del consumidor: se cita como función y no da requisitos."
+}

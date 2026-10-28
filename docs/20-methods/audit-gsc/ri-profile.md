@@ -3,9 +3,9 @@ id: audit-gsc-ri-profile
 title: Estructuración operativa universal del RI
 layer: method
 status: propuesta
-version: 0.1
-updated: 2026-10-24
-sources: [GSC0 §4, GSC0 §14.2, FUND §3.6]
+version: 0.2
+updated: 2026-10-27
+sources: [GSC0 §4, GSC0 §14.2, FUND §3.6, INTAKE 2026-10-27-hint-fields]
 ---
 
 # Estructuración operativa universal del RI
@@ -36,6 +36,7 @@ Transformar un RI, ya definido en el modelo de demanda, en una **especificación
 | `expresiones_ejemplo` | Ejemplos de sinónimos, campos y representaciones. | Opcional, nunca excluyente. |
 | `casos_frontera` | Ejemplos de pertinencia parcial, conexión dudosa o proximidad solo temática. | Recomendado para calibración. |
 | `ambitos_pertinentes` | Interfaces en las que el RI debe evaluarse. | Obligatorio. |
+| `pistas_valoracion` | Pistas de valoración del requisito, ya resueltas en el modelo ([assessment-hints](../../10-model/assessment-hints.md#reglas-e-invariantes)). Se rellena solo desde el modelo; el auditor no lo escribe. | Automático ([D-135](../../30-governance/decisions.md#d-135)). |
 | `fundamento_perfil` | Justificar inclusiones, límites y decisiones no explícitas en el RI. | Obligatorio cuando hay interpretación. |
 
 ## Procedimiento de elaboración (RI-01 a RI-09)

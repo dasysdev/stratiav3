@@ -1,0 +1,12 @@
+{
+ "source": "schemaorg-full-hierarchy",
+ "version": "2026-10-27",
+ "class": "especificación aplicable",
+ "level": "vocabulario",
+ "summary": "Jerarquía completa de tipos y de tipos de datos de Schema.org (V30.1), como árbol de consulta. No fija condiciones propias.",
+ "quotes": [
+  {"id": "q01", "section": "Full schema hierarchy",
+   "text": "This is the main schema.org hierarchy: a collection of types (or \"classes\"), each of which has one or more parent types. Although a type may have more than one super-type, here we show each type in one branch of the tree only. There is also a parallel hierarchy for data types."}
+ ],
+ "note": "Muestra cada tipo en una sola rama: los supertipos y subtipos de un tipo se leen de la release (rdfs:subClassOf en schemaorg), no de esta página."
+}

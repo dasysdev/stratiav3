@@ -1,0 +1,138 @@
+{
+  "set": "toallas",
+  "label": "Toallas",
+  "cases": [
+    "toallas-azul-080"
+  ],
+  "catalog": "gen@0.5 cat.casa-y-jardin@2 cat.ropa-de-casa@4 cat.toallas@2 esp.juego@0",
+  "questions": 127,
+  "reviewed": {
+    "at": "2026-10-27",
+    "by": "usuario",
+    "rulebook": "classifier/paa.md v3",
+    "task": "T-042",
+    "decisions": [
+      "D-100",
+      "D-101",
+      "D-102",
+      "D-103",
+      "D-104",
+      "D-105",
+      "D-106",
+      "D-107",
+      "D-108",
+      "D-109",
+      "D-110",
+      "D-112",
+      "D-113"
+    ]
+  },
+  "perimeter": {
+    "out": [
+      "¿Cómo se resuelve el juego de las toallas?",
+      "¿Cómo se realiza el truco japonés de la toalla para reducir la cintura?",
+      "¿Cómo es la palabra correcta toalla o toalla?",
+      "¿Cuántas veces a la semana se lavan las sábanas?",
+      "¿Cómo bajar la panza y tener más cintura?",
+      "¿Qué es el truco de la toalla?",
+      "¿Cuáles son los métodos japoneses para bajar de peso?",
+      "¿Cuál era la antigua forma de llamar a la toalla?",
+      "¿Qué es la toballa?",
+      "¿Cómo se le dice toalla en inglés?",
+      "¿Qué toalla femenina es de algodón?",
+      "¿Las toallas higiénicas son malas para la salud?",
+      "¿Cuál es la mejor marca de sábanas en España?",
+      "¿Qué propiedades curativas tiene el bambú?",
+      "¿Cuáles son las mejores sábanas para dormir?",
+      "¿Las sábanas de bambú son frescas?",
+      "¿Cuáles son las enfermedades que afectan al bambú?",
+      "¿Qué significa tener un bambú en la casa?",
+      "¿Cómo se lavan las sábanas de bambú?",
+      "¿Dónde se coloca el bambú en la casa?",
+      "¿Por qué es bueno tener bambú en casa?",
+      "¿Cuáles son las 7 lecciones del bambú?",
+      "¿Son buenas las sábanas de bambú?",
+      "¿Cuánto cuesta el metro de tela de bambú?",
+      "¿Se puede mojar el bambú?",
+      "¿Qué sábanas usan los hoteles 5 estrellas?",
+      "¿Qué tipo de sábanas no dan calor?",
+      "¿Qué marcas de sábanas son de 100% algodón?",
+      "¿Qué da menos calor, algodón o lino?",
+      "¿Qué es mejor para dormir, algodón o lino?",
+      "¿Cuál es el color que más calor absorbe?",
+      "¿La ropa de lino es calurosa?",
+      "¿La microfibra da calor?",
+      "¿Cuánto cuesta una toalla de microfibra por metro?",
+      "¿Qué tipo de sábanas usan los hoteles 5 estrellas?"
+    ],
+    "expected": true
+  },
+  "criteria": [
+    {
+      "name": "Marca o reputación de la marca",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Cuál es la mejor marca de toallas para el cuerpo?",
+        "¿Qué marca de toallas es mejor?",
+        "¿Qué marca de toallas es buena?",
+        "¿Qué marcas de toallas de baño son buenas?",
+        "¿Cuál es la mejor marca de toallas?",
+        "¿Cuál es la mejor marca de toallas para baño?",
+        "¿Qué marcas de toallas son buenas?"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "question": "¿Qué acabado tiene el tejido (por ejemplo, lavado o prelavado)?",
+      "blocks": [
+        "cat.ropa-de-casa"
+      ],
+      "trait": "construccion",
+      "expected": true,
+      "questions": [
+        "¿Qué diferencia hay entre lino y lino lavado?"
+      ]
+    },
+    {
+      "question": "¿Qué indicaciones de uso tiene (preparación antes del primer uso, forma de uso)?",
+      "blocks": [
+        "cat.ropa-de-casa"
+      ],
+      "trait": "uso",
+      "expected": true,
+      "questions": [
+        "¿Cómo usar toallas de microfibra?"
+      ]
+    }
+  ],
+  "revisions": [
+    {
+      "target": "cat.toallas/05",
+      "action": "sacar",
+      "summary": "Sacar «Zero twist» (y su aportación «tipo de torsión del hilo») de la cuestión del tacto: es la construcción del hilo, no un tipo de tacto, y de ella solo se deduciría la suavidad (D-090, D-105). Su lugar natural es la construcción del tejido (cat.toallas/03).",
+      "expected": true
+    }
+  ],
+  "contributions": [
+    {
+      "target": "cat.ropa-de-casa/01",
+      "contribution": "denominación de cada fibra según el Reglamento (UE) 1007/2011 cuando la oferta usa un término comercial que no es una fibra (por ejemplo, «microfibra»)",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.ropa-de-casa/01",
+      "contribution": "certificación o informe de ensayo del contenido en fibras",
+      "kind": "sustento",
+      "expected": true
+    },
+    {
+      "target": "cat.ropa-de-casa/05",
+      "contribution": "gramaje expresado en g/m², distinto del peso de la pieza",
+      "kind": "precisión",
+      "expected": true
+    }
+  ]
+}

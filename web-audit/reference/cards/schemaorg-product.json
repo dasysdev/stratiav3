@@ -1,0 +1,20 @@
+{
+ "source": "schemaorg-product",
+ "version": "2026-10-27",
+ "class": "especificación aplicable",
+ "level": "vocabulario",
+ "summary": "Página del tipo Product de Schema.org (V30.1): su lugar en la jerarquía y la tabla de sus propiedades, incluidas las heredadas, con sus tipos esperados. Es una vista legible de la release; no fija condiciones propias.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "Product",
+   "text": "Thing > Product"
+  },
+  {
+   "id": "q02",
+   "section": "Product",
+   "text": "| Property | Expected Type | Description |"
+  }
+ ],
+ "note": "Sus definiciones y pautas (gtin, hasGS1DigitalLink, model, colorSwatch, additionalProperty…) son las mismas que los rdfs:comment de la release: los requisitos citan schemaorg, no esta página."
+}

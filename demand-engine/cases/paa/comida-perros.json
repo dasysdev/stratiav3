@@ -1,0 +1,145 @@
+{
+  "set": "comida-perros",
+  "label": "Comida para perros",
+  "cases": [
+    "pienso-josera-sea-fish"
+  ],
+  "catalog": "gen@0.5 cat.productos-para-mascotas@2 cat.productos-para-perros@3 cat.comida-para-perros@4",
+  "questions": 77,
+  "reviewed": {
+    "at": "2026-10-27",
+    "by": "usuario",
+    "rulebook": "classifier/paa.md v3",
+    "task": "T-042",
+    "decisions": [
+      "D-100",
+      "D-101",
+      "D-102",
+      "D-103",
+      "D-104",
+      "D-105",
+      "D-106",
+      "D-107",
+      "D-108",
+      "D-109",
+      "D-110",
+      "D-112",
+      "D-113"
+    ]
+  },
+  "perimeter": {
+    "out": [
+      "¿Qué tipo de comida casera se le puede dar a un perro?",
+      "¿Cuáles son 5 cosas que hacen feliz a un perro?",
+      "¿Qué comida casera no deben comer los perros?",
+      "¿Es bueno tapar a los perros para dormir?",
+      "¿Cómo decir te amo en perro?",
+      "¿Cuáles son las señales de que mi perro está feliz?",
+      "¿Cómo hacer comida húmeda casera para perros?",
+      "¿Qué alimentos no se deben combinar en la misma comida?",
+      "¿Qué verduras no pueden comer los perros?"
+    ],
+    "expected": true
+  },
+  "criteria": [
+    {
+      "name": "Marca",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Qué marca es la mejor comida para perros?",
+        "¿Cuáles son las mejores marcas de comida para perros?",
+        "¿Cuáles son las 5 mejores marcas de comida para perros?",
+        "¿Qué marca de comida para perros es buena y barata?",
+        "¿Qué marca de comida de perro es la mejor?",
+        "¿Qué marca de alimento para perros me recomiendan?",
+        "¿Qué marcas de comida para perros son premium?",
+        "¿Cuáles son las 10 mejores marcas de comida para perros?",
+        "¿Qué marca de comida es mejor para los perros?",
+        "¿Qué marca de comida para perros es de excelente calidad?",
+        "¿Qué pienso es similar a Royal Canin?",
+        "¿Qué marca de comida para perros es de la mejor calidad?",
+        "¿Qué marcas de comida de perros son buenas?",
+        "¿Cuáles son las mejores marcas de comida húmeda para perros?",
+        "¿Qué marcas no darle a tu perro?",
+        "¿Cuál es la mejor marca de comida para perros en España?",
+        "¿Cuál es una marca de alimento premium para perros?",
+        "¿Qué marca de comida húmeda es buena para perros?",
+        "¿Cuál es la mejor marca de comida húmeda para perros?",
+        "¿Cuáles son las opiniones sobre Purina One para perros?"
+      ]
+    },
+    {
+      "name": "Combinación con otros alimentos (alimentación mixta)",
+      "verdict": "genera",
+      "expected": true,
+      "questions": [
+        "¿Es posible mezclar comida húmeda con pienso para perros?",
+        "¿Es bueno mezclar pienso con comida para perros?",
+        "¿Es posible mezclar pienso con comida húmeda para perros?"
+      ]
+    },
+    {
+      "name": "Preparación para servir",
+      "verdict": "genera",
+      "expected": true,
+      "questions": [
+        "¿Es bueno mojar el pienso para perros?",
+        "¿Cómo es mejor darle la comida a los perros fría o caliente?"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "question": "¿Se puede combinar con otros alimentos (alimentación mixta con pienso seco o con comida húmeda) y qué ración recomienda en ese caso?",
+      "blocks": [
+        "cat.comida-para-perros"
+      ],
+      "trait": "uso",
+      "expected": true,
+      "questions": [
+        "¿Es posible mezclar comida húmeda con pienso para perros?",
+        "¿Es bueno mezclar pienso con comida para perros?",
+        "¿Es posible mezclar pienso con comida húmeda para perros?"
+      ]
+    },
+    {
+      "question": "¿Cómo se prepara para servirla (tal cual, humedecida o rehidratada, a temperatura ambiente o templada)?",
+      "blocks": [
+        "cat.comida-para-perros"
+      ],
+      "trait": "uso",
+      "expected": true,
+      "questions": [
+        "¿Es bueno mojar el pienso para perros?",
+        "¿Cómo es mejor darle la comida a los perros fría o caliente?"
+      ]
+    },
+    {
+      "question": "¿Cómo recomienda hacer el cambio desde el alimento anterior (transición gradual, número de días y proporciones)?",
+      "blocks": [
+        "cat.comida-para-perros"
+      ],
+      "trait": "uso",
+      "expected": true,
+      "questions": [
+        "¿Qué pasa si le cambias el pienso a un perro?"
+      ]
+    }
+  ],
+  "revisions": [],
+  "contributions": [
+    {
+      "target": "cat.comida-para-perros/02",
+      "contribution": "contenido de humedad que corresponde a la forma declarada",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "gen/04",
+      "contribution": "precio por unidad de medida (por kilogramo)",
+      "kind": "precisión",
+      "expected": true
+    }
+  ]
+}

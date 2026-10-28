@@ -1,0 +1,18 @@
+{
+ "source": "w3c-dwbp",
+ "version": "2026-10-27",
+ "class": "principios generales",
+ "summary": "Buenas prácticas de publicación y uso de datos en la Web. Orientan, pero no dan requisitos comprobables de una ficha de producto (D-132).",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#abstract",
+   "text": "This document provides Best Practices related to the publication and usage of data on the Web designed to help support a self-sustaining ecosystem."
+  },
+  {
+   "id": "q02",
+   "section": "#scope",
+   "text": "whether a Best Practice has or has not been followed should be judged against the intended outcome, not the possible approach to implementation which is offered as guidance."
+  }
+ ]
+}

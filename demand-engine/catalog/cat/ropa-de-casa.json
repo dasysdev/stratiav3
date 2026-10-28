@@ -72,6 +72,28 @@
           "origin": "inferida",
           "support": []
         }
+      ],
+      "comparison": {
+        "mark": "sí",
+        "reason": "Cambia de una oferta a otra y el comprador elige por la fibra y su proporción (más algodón, fibra natural)."
+      },
+      "hints": [
+        {
+          "id": "PV-23",
+          "pista": "Un material sin porcentaje («de algodón») no dice si es puro o una mezcla: la composición solo es explícita si declara el 100 % o el reparto.",
+          "propiedad": [
+            "P08"
+          ],
+          "ac": [
+            "Precisión"
+          ],
+          "origen": {
+            "tipo": "normativa",
+            "apoyo": [
+              "ley:UE-1007/2011-16.1@2011-10-18"
+            ]
+          }
+        }
       ]
     },
     {
@@ -182,6 +204,44 @@
           "origin": "inferida",
           "support": []
         }
+      ],
+      "comparison": {
+        "mark": "sí",
+        "reason": "Unas ofertas la acreditan y otras no, y el comprador prefiere la certificada; podría leerse como filtro (b), pero ante la duda se compara (D-139)."
+      },
+      "hints": [
+        {
+          "id": "PV-24",
+          "pista": "Una certificación se nombra con su norma y, si la norma tiene clases o niveles, con el que se certifica: el nombre del sello solo («OEKO-TEX») no dice qué se ha certificado.",
+          "propiedad": [
+            "P09"
+          ],
+          "ac": [
+            "Precisión"
+          ],
+          "origen": {
+            "tipo": "referencias",
+            "apoyo": [
+              "shopify-attr:safety-certifications"
+            ]
+          }
+        },
+        {
+          "id": "PV-25",
+          "pista": "Se comparan certificaciones de la misma norma y clase: dos sellos distintos no son equivalentes aunque los dos hablen de sustancias nocivas.",
+          "propiedad": [
+            "P13"
+          ],
+          "ac": [
+            "Comparabilidad"
+          ],
+          "origen": {
+            "tipo": "referencias",
+            "apoyo": [
+              "shopify-attr:safety-certifications"
+            ]
+          }
+        }
       ]
     },
     {
@@ -235,6 +295,48 @@
           "component": "gramaje",
           "origin": "inferida",
           "support": []
+        }
+      ],
+      "comparison": {
+        "mark": "sí",
+        "reason": "Cambia de una oferta a otra y el comprador elige más o menos gramaje (más cuerpo o más ligera)."
+      },
+      "hints": [
+        {
+          "id": "PV-26",
+          "pista": "El gramaje es masa por superficie del tejido: el peso de la pieza, un tramo o una clase («ligero», «peso medio») orientan, pero no lo fijan.",
+          "propiedad": [
+            "P09"
+          ],
+          "ac": [
+            "Precisión"
+          ],
+          "origen": {
+            "tipo": "referencias",
+            "apoyo": [
+              "amazon-ptd-prop:FITTED_SHEET.fabric_weight",
+              "amazon-ptd-prop:BLANKET.compliance_fabric_weight",
+              "amazon-ptd-prop:TOWEL.special_feature=Ligero"
+            ]
+          }
+        },
+        {
+          "id": "PV-27",
+          "pista": "Se comparan gramajes en g/m² del mismo tipo de tejido; un tramo o una clase solo ordenan las ofertas de forma gruesa.",
+          "propiedad": [
+            "P07",
+            "P13"
+          ],
+          "ac": [
+            "Comparabilidad"
+          ],
+          "origen": {
+            "tipo": "referencias",
+            "apoyo": [
+              "amazon-ptd-prop:TOWEL.fabric_weight",
+              "amazon-ptd-prop:BLANKET.compliance_fabric_weight"
+            ]
+          }
         }
       ]
     }

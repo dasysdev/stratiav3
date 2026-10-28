@@ -16,6 +16,9 @@ Usage:
                                       writes <case>.model.json and <case>.model.md next to it and
                                       appends what was used without compiling to the queue
   model show MODEL.json               print the readable version of an assembled model
+  model hints check                   check the catalog of assessment hints (fields, id, origin, destination,
+                                      same destination and property) and the comparison marks (D-136, D-139)
+  model hints find REQ_ID [...]       hints of each requirement by its tags (type, source, id), code only (D-134)
 
 The classifier decides the composition, specializations, inferred questions, application
 and votes (importance and, from rulebook v3, trait), and says which contribution of the
@@ -32,7 +35,7 @@ from contextlib import contextmanager
 from pathlib import Path
 
 from ..refs import pins
-from . import resolving
+from . import hints, resolving
 from .catalog import (CAT_DIR, COMPILED, ROOT, DOUBTFUL, ESP_ORDER, EMPTY, LEVELS, NO_RULE, NOT_RELEVANT, QUEUE,
                       RUNTIME_DIR, UNCOMPILED, VOTES, blocks_by_node, category_name, chain, class_nodes_for, depth,
                       load_blocks, load_empty, load_gen, load_resolving, load_rules, load_traits, protected, read_json,
@@ -574,8 +577,14 @@ def cmd_assemble(path: Path) -> None:
 
 def main() -> None:
     args = sys.argv[1:]
-    if not args or args[0] not in ("blocks", "register", "check", "assemble", "show"):
+    if not args or args[0] not in ("blocks", "register", "check", "assemble", "show", "hints"):
         sys.exit(__doc__)
+    if args[0] == "hints" and args[1:] == ["check"]:
+        hints.cmd_check()
+        return
+    if args[0] == "hints" and len(args) > 2 and args[1] == "find":
+        hints.cmd_find(args[2:])
+        return
     if args[0] == "blocks" and len(args) > 1:
         cmd_blocks(args[1:])
     elif args[0] == "register" and len([a for a in args if a != "--replace"]) > 1:

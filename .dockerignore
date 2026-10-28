@@ -6,6 +6,8 @@
 !env/docker/
 !demand-engine/pyproject.toml
 !demand-engine/src/
+!web-audit/pyproject.toml
+!web-audit/src/
 **/.env
 **/__pycache__
 **/.pytest_cache

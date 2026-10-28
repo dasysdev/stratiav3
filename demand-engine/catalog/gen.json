@@ -190,6 +190,61 @@
               "origin": "inferida",
               "support": []
             }
+          ],
+          "comparison": {
+            "mark": "no",
+            "case": "c",
+            "reason": "Identifica la oferta: sirve para emparejar ofertas, no para preferir una."
+          },
+          "hints": [
+            {
+              "id": "PV-31",
+              "pista": "Un GTIN se comprueba por su longitud y su dígito de control; su prefijo dice dónde se dio de alta el código, no dónde se fabricó el producto.",
+              "propiedad": [
+                "P14"
+              ],
+              "ac": [
+                "Fiabilidad"
+              ],
+              "origen": {
+                "tipo": "marco",
+                "apoyo": [
+                  "D-122"
+                ]
+              }
+            },
+            {
+              "id": "PV-32",
+              "pista": "Cada identificador dice de qué tipo es (GTIN, referencia del fabricante, referencia de la tienda): un número sin tipo no sirve para emparejar la oferta con otras.",
+              "propiedad": [
+                "P09"
+              ],
+              "ac": [
+                "Precisión"
+              ],
+              "origen": {
+                "tipo": "marco",
+                "apoyo": [
+                  "D-122"
+                ]
+              }
+            },
+            {
+              "id": "PV-33",
+              "pista": "Si hay variantes, cada una tiene su propio GTIN: un único código para todas no identifica la que se compra.",
+              "propiedad": [
+                "P11"
+              ],
+              "ac": [
+                "Aplicabilidad"
+              ],
+              "origen": {
+                "tipo": "marco",
+                "apoyo": [
+                  "D-122"
+                ]
+              }
+            }
           ]
         },
         {
@@ -236,6 +291,45 @@
               "support": [
                 "ley:RD-3423/2000-3.2@2000-12-28"
               ]
+            }
+          ],
+          "comparison": {
+            "mark": "sí",
+            "reason": "Cambia de una oferta a otra y el comprador prefiere menos; la ley fija además una base para compararlo (precio por unidad de medida)."
+          },
+          "hints": [
+            {
+              "id": "PV-34",
+              "pista": "El precio es un importe con su moneda para lo que se vende: un rango, o dos precios sin decir cuál es el vigente, no dicen cuánto cuesta.",
+              "propiedad": [
+                "P09"
+              ],
+              "ac": [
+                "Precisión"
+              ],
+              "origen": {
+                "tipo": "normativa",
+                "apoyo": [
+                  "ley:TRLGDCU-97.1.e@2026-02-28"
+                ]
+              }
+            },
+            {
+              "id": "PV-35",
+              "pista": "Se compara el precio total con impuestos de una misma cosa (mismas piezas, misma medida): el precio de un juego no se compara con el de una pieza suelta.",
+              "propiedad": [
+                "P12"
+              ],
+              "ac": [
+                "Comparabilidad"
+              ],
+              "origen": {
+                "tipo": "normativa",
+                "apoyo": [
+                  "ley:TRLGDCU-97.1.e@2026-02-28",
+                  "ley:RD-3423/2000-3.2@2000-12-28"
+                ]
+              }
             }
           ]
         },
@@ -601,6 +695,29 @@
               "origin": "inferida",
               "support": []
             }
+          ],
+          "comparison": {
+            "mark": "no",
+            "case": "a",
+            "reason": "La fija la ley y es la misma en todas las ofertas."
+          },
+          "hints": [
+            {
+              "id": "PV-36",
+              "pista": "La garantía legal se distingue de la comercial: «3 años de garantía» sin decir cuál de las dos es no dice qué derecho tiene el comprador.",
+              "propiedad": [
+                "P09"
+              ],
+              "ac": [
+                "Precisión"
+              ],
+              "origen": {
+                "tipo": "normativa",
+                "apoyo": [
+                  "ley:TRLGDCU-97.1.n@2026-02-28"
+                ]
+              }
+            }
           ]
         },
         {
@@ -958,6 +1075,29 @@
               "component": "qué variantes están disponibles",
               "origin": "inferida",
               "support": []
+            }
+          ],
+          "comparison": {
+            "mark": "no",
+            "case": "c",
+            "reason": "Dice en qué estado está la oferta: no hay un valor mejor por el que elegir."
+          },
+          "hints": [
+            {
+              "id": "PV-37",
+              "pista": "La disponibilidad de una variante es un estado que dice si se puede comprar ahora; un aviso vago («últimas unidades», «consultar») no lo dice.",
+              "propiedad": [
+                "P09"
+              ],
+              "ac": [
+                "Precisión"
+              ],
+              "origen": {
+                "tipo": "marco",
+                "apoyo": [
+                  "D-122"
+                ]
+              }
             }
           ]
         },

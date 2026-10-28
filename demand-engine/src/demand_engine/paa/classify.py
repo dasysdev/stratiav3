@@ -1,13 +1,16 @@
-"""Classification of the PAA questions of a set by an agent (T-040, T-041; D-091, D-094, D-097, D-099, D-100 to D-107).
+"""Classification of the PAA questions of a set by an agent (T-040, T-041, T-043; D-091, D-094, D-097, D-099, D-100 to
+D-107, D-125 to D-128, D-139).
 
 The agent follows classifier/paa.md; this module prepares what it reads, checks what it writes and builds the
 result. Standard library only: it runs on the host. In the set's folder (var/paa/sets/<set>/):
   classify/input.md · input.json     numbered questions, the catalog of the class (from the set's model, with the
-                                     sources and contributions of each requirement), the daughters of each block, traits
+                                     sources and contributions of each requirement, and the assessment hints and the
+                                     comparison mark it has in the current catalog), the daughters of each block, traits
   classify/output.json               the agent's classification
   classified.json · report.md        the result: each question with its classification and provenance, the criteria
                                      of choice, the candidate requirements with their sources, the revisions of
-                                     existing requirements, the proposed contributions and the evidence of AC relevance
+                                     existing requirements, the proposed contributions, assessment hints and
+                                     comparison marks
 """
 from __future__ import annotations
 
@@ -17,6 +20,8 @@ from pathlib import Path
 
 from .. import ROOT
 from ..capture.files import now, read_json, write_json
+from ..demand import hints as catalog_hints
+from ..demand.hints import ACS, CASES, MARKS, MAX_CHARS, MAX_SENTENCES, PROPERTIES
 from ..refs import RefsError, shopify_categories
 from .store import SeedSet, StoreError, slug
 from .text import norm
@@ -30,7 +35,12 @@ CONDITIONS = ("C1", "C2", "C3", "C4")
 VOTES = ("crítico", "principal", "complementario")
 ACTIONS = ("separar", "sacar", "partir-por-tema", "reformular", "mover")
 KINDS = ("precisión", "sustento")
-ACS = ("Concreción", "Precisión", "Aplicabilidad", "Comparabilidad", "Fiabilidad", "Justificación")
+
+
+def rulebook_version() -> str:
+    """The version in the heading of the rulebook («… · v5»)."""
+    first = RULEBOOK.read_text(encoding="utf-8").splitlines()[0]
+    return f"{RULEBOOK.relative_to(ROOT)} {first.rsplit('·', 1)[-1].strip()}"
 
 
 def folder(seedset: SeedSet) -> Path:
@@ -59,6 +69,19 @@ def requirement(r: dict, block: str | None) -> dict:
             "applicability": r.get("applicability"), "origin": r.get("origin"), "sources": r.get("sources") or [],
             "contributions": [c["contribution"] for c in r.get("resolving_info") or [] if c.get("contribution")],
             "excluded": bool(r.get("excluded"))}
+
+
+def current() -> dict:
+    """What each requirement of the current catalog already has: the hints that reach it, by key, and its comparison
+    mark (D-134, D-139), by id. Inferred questions are not in the catalog."""
+    found = {}
+    pool = catalog_hints.load_hints().get("hints", [])
+    for r in catalog_hints.requirements():
+        hints = [{"id": h["id"], "key": key, "pista": h["pista"], "propiedad": h["propiedad"], "ac": h["ac"]}
+                 for key, h in catalog_hints.find(r, pool)]
+        if hints or r.get("comparison"):
+            found[r["id"]] = {"hints": hints, "comparison": r.get("comparison")}
+    return found
 
 
 def catalog(model: dict) -> list[dict]:
@@ -92,9 +115,12 @@ def prepare(seedset: SeedSet) -> Path:
     vocabulary = read_json(TRAITS, {}).get("vocabulary", {})
     questions = [{"n": i, "q": q["q"], "seeds": sorted({s["query"] for s in q["seeds"]})}
                  for i, q in enumerate(data["questions"], 1)]
+    reqs, now_has = catalog(model), current()
+    for r in reqs:
+        r.update(now_has.get(r["id"], {"hints": [], "comparison": None}))
     spec = {"set": seedset.id, "class": seedset.definition().get("class"), "at": now(),
             "questions_at": data.get("at"), "model": seedset.definition()["model"],
-            "key": model.get("key"), "blocks": blocks, "catalog": catalog(model), "traits": sorted(vocabulary),
+            "key": model.get("key"), "blocks": blocks, "catalog": reqs, "traits": sorted(vocabulary),
             "questions": questions}
     out = folder(seedset)
     write_json(out / "input.json", spec)
@@ -129,11 +155,29 @@ def render_input(spec: dict, vocabulary: dict) -> str:
         applies = f" [{r['applicability']}]" if r.get("applicability") not in (None, "universal") else ""
         lines.append(f"| {r['id']} | {cell(r['question'])}{applies}{extra} | {cell(r['trait'])} | {cell(r['origin'])} "
                      f"| {cell(', '.join(r['sources']))} | {cell('; '.join(r['contributions']))} |")
+    lines += ["", "## Pistas de valoración y marcas vigentes", "",
+              "Las pistas que ya llegan a cada requisito (por su tipo, por una fuente o propias) y su marca de dimensión "
+              "de comparación. Los requisitos que no salen no tienen ni pistas ni marca.", ""]
+    for r in spec["catalog"]:
+        hints, mark = r.get("hints") or [], r.get("comparison")
+        if not hints and not mark:
+            continue
+        lines.append(f"- **{r['id']}** · {mark_label(mark)}")
+        lines += [f"  - {h['id']} ({h['key']}; {'/'.join(h['propiedad'])}; {', '.join(h['ac'])}): {cell(h['pista'])}"
+                  for h in hints]
     lines += ["", "## Rasgos", ""]
     lines += [f"- `{k}`: {cell(v.get('definition'))}" for k, v in sorted(vocabulary.items())]
     lines += ["", f"## Preguntas ({len(spec['questions'])})", "", "| n | pregunta | semillas |", "|---|---|---|"]
     lines += [f"| {q['n']} | {cell(q['q'])} | {cell(', '.join(q['seeds']))} |" for q in spec["questions"]]
     return "\n".join(lines) + "\n"
+
+
+def mark_label(mark: dict | None) -> str:
+    if not mark:
+        return "sin marca"
+    case = f" ({mark['case']})" if mark.get("case") else ""
+    label = "se compara" if mark.get("mark") == "sí" else f"no se compara{case}"
+    return f"{label}: {cell(mark.get('reason'))}"
 
 
 # ---------------------------------------------------------------- check
@@ -312,19 +356,101 @@ def check(spec: dict, output: dict) -> list[str]:
         if c.get("kind") not in KINDS:
             problems.append(f"{where}: «kind» ha de ser {' o '.join(KINDS)}")
         problems += bad_questions(where, c.get("questions"))
-    for i, a in enumerate(output.get("ac_evidence") or [], 1):
-        where = f"pertinencia de AC {i}"
-        if a.get("requirement") not in req_ids | set(candidates):
-            problems.append(f"{where}: «{a.get('requirement')}» no es un requisito ni un candidato")
-        if a.get("ac") not in ACS:
-            problems.append(f"{where}: «{a.get('ac')}» no es un criterio de aceptación ({', '.join(ACS)})")
-        if not (a.get("why") or "").strip():
-            problems.append(f"{where}: falta «why»")
-        problems += bad_questions(where, a.get("questions"))
+    if "ac_evidence" in output:
+        problems.append("«ac_evidence» ya no existe (OQ-59, superada): usa «hints» y «marks» (paso 8)")
+    problems += hint_problems(spec, output, candidates, bad_questions)
+    problems += mark_problems(spec, output, candidates, bad_questions)
+    return problems
+
+
+def hint_problems(spec: dict, output: dict, candidates: dict, bad_questions) -> list[str]:
+    """The assessment hints of the agent (paso 8; D-128, D-135, D-136): fields, length, properties, AC and repetition
+    of a hint the requirement already has or of another one of the agent."""
+    problems, reqs = [], {r["id"]: r for r in spec["catalog"]}
+    seen: dict[str, list] = {}
+    for i, h in enumerate(output.get("hints") or [], 1):
+        where = f"pista {i}"
+        to = h.get("target")
+        if to not in set(reqs) | set(candidates):
+            problems.append(f"{where}: «{to}» no es un requisito ni un candidato")
+        if "id" in h or "origen" in h:
+            problems.append(f"{where}: sin «id» ni «origen» (los pone el sistema)")
+        text = (h.get("pista") or "").strip()
+        n = catalog_hints.sentences(text)
+        if not text or n > MAX_SENTENCES or len(text) > MAX_CHARS:
+            problems.append(f"{where}: la pista ha de ser una o dos frases breves ({n} frases, {len(text)} car.)")
+        props, acs = h.get("propiedad") or [], h.get("ac") or []
+        if not props or set(props) - PROPERTIES:
+            problems.append(f"{where}: propiedad fuera de P06–P18 (sin P15): {props}")
+        if not acs or set(acs) - set(ACS):
+            problems.append(f"{where}: AC no válido ({', '.join(ACS)}): {acs}")
+        problems += bad_questions(where, h.get("questions"))
+        if h.get("duda") or h.get("note"):
+            continue
+        before = (reqs.get(to) or {}).get("hints", []) + seen.get(to, [])
+        same = [b.get("id") or f"la pista {b['_n']}" for b in before
+                if set(b["propiedad"]) & set(props) and set(b["ac"]) & set(acs)]
+        if same:
+            problems.append(f"{where}: misma propiedad y AC que {', '.join(same)} en «{to}»: si dice lo mismo, quítala; "
+                            f"si la contradice, «duda»; si dice otra cosa, explícalo en «note» (D-136)")
+        seen.setdefault(to, []).append({"_n": i, "propiedad": props, "ac": acs})
+    return problems
+
+
+def mark_problems(spec: dict, output: dict, candidates: dict, bad_questions) -> list[str]:
+    """The comparison marks of the agent (paso 8; D-126, D-139): one per destination, every candidate with its own."""
+    problems, req_ids = [], {r["id"] for r in spec["catalog"]}
+    marks = output.get("marks") or []
+    targets = Counter(m.get("target") for m in marks)
+    problems += [f"marca de «{x}»: repetida" for x, k in targets.items() if k > 1]
+    problems += [f"candidato «{x}»: falta su marca de comparación (D-139: sin valor por defecto)"
+                 for x in candidates if x not in targets]
+    for m in marks:
+        to = m.get("target")
+        where = f"marca de «{to}»"
+        if to not in req_ids | set(candidates):
+            problems.append(f"{where}: no es un requisito ni un candidato")
+        if m.get("mark") not in MARKS or not (m.get("reason") or "").strip():
+            problems.append(f"{where}: ha de llevar «mark» (sí/no) y «reason»")
+        elif m["mark"] == "no" and m.get("case") not in CASES:
+            problems.append(f"{where}: «no» lleva su caso (a, b o c)")
+        elif m["mark"] == "sí" and m.get("case"):
+            problems.append(f"{where}: «sí» no lleva caso")
+        if to in req_ids or m.get("questions"):
+            problems += bad_questions(where, m.get("questions"))
+        if m.get("mark") == "no":
+            only = [i for i, h in enumerate(output.get("hints") or [], 1)
+                    if h.get("target") == to and h.get("ac") == ["Comparabilidad"]]
+            if only:
+                problems.append(f"{where}: no se compara y lleva pistas solo de Comparabilidad: "
+                                f"{', '.join(map(str, only))}")
     return problems
 
 
 # ---------------------------------------------------------------- result
+def hints_result(set_id: str, spec: dict, output: dict) -> list[dict]:
+    """The agent's hints, ready for the catalog but for the number PV-n: origin «paa» with the questions as support."""
+    return [{"target": h["target"], "pista": h["pista"], "propiedad": h["propiedad"], "ac": h["ac"],
+             "origen": {"tipo": "paa", "apoyo": [source(set_id, spec["questions"][n - 1]["q"]) for n in h["questions"]]},
+             "questions": h["questions"], **{k: h[k] for k in ("duda", "note") if h.get(k)}}
+            for h in output.get("hints") or []]
+
+
+def marks_result(set_id: str, spec: dict, output: dict) -> list[dict]:
+    """The agent's marks against the current one: new, confirms or contradicts it (a doubt: «se compara» meanwhile,
+    D-139)."""
+    now_mark = {r["id"]: r.get("comparison") for r in spec["catalog"]}
+    out = []
+    for m in output.get("marks") or []:
+        before = now_mark.get(m["target"])
+        status = "nueva" if not before else ("confirma" if before.get("mark") == m["mark"] else "contradice: duda")
+        out.append({**{k: m[k] for k in ("target", "mark", "case", "reason") if m.get(k)},
+                    "questions": m.get("questions") or [],
+                    "sources": [source(set_id, spec["questions"][n - 1]["q"]) for n in m.get("questions") or []],
+                    "current": before, "status": status})
+    return out
+
+
 def sources_of(nid: str, output: dict) -> list[int]:
     """Questions that support a candidate: those that propose it, those of the criteria that generate it and those of
     the revisions that create it."""
@@ -380,9 +506,10 @@ def build(seedset: SeedSet, spec: dict, output: dict) -> dict:
         candidates.append({**c, "origin": "paa", "support": support,
                            "sources": [source(seedset.id, spec["questions"][n - 1]["q"]) for n in support]})
     return {"set": seedset.id, "class": spec["class"], "model": spec["model"], "at": now(),
-            "rulebook": str(RULEBOOK.relative_to(ROOT)), "questions_at": spec["questions_at"],
-            "questions": questions, "criteria": output.get("criteria", []), "candidates": candidates,
-            **{k: output.get(k, []) for k in ("revisions", "contributions", "ac_evidence", "proposed_traits", "doubts")}}
+            "rulebook": str(RULEBOOK.relative_to(ROOT)), "rulebook_version": rulebook_version(),
+            "questions_at": spec["questions_at"], "questions": questions, "criteria": output.get("criteria", []), "candidates": candidates,
+            "hints": hints_result(seedset.id, spec, output), "marks": marks_result(seedset.id, spec, output),
+            **{k: output.get(k, []) for k in ("revisions", "contributions", "proposed_traits", "doubts")}}
 
 
 def quoted(ns, by_n: dict) -> str:
@@ -399,7 +526,7 @@ def report(result: dict, spec: dict, manual: list | None = None, manual_name: st
     named = lambda x: f"`{x}` «{reqs[x]['question']}»" if x in reqs else (f"{x} «{cands[x]['question']}»" if x in cands else x)
     lines = [f"# Clasificación de las preguntas PAA · {result['set']}", "",
              f"- Clase: {result['class']}", f"- Modelo: `{result['model']}`",
-             f"- Reglamento: `{result['rulebook']}` · preguntas consolidadas el {result['questions_at']}",
+             f"- Reglamento: `{result.get('rulebook_version') or result['rulebook']}` · preguntas consolidadas el {result['questions_at']}",
              f"- Clasificado: {result['at']}", "", "## Reparto", ""]
     kinds = Counter(kind_of(q) for q in qs)
     lines += ["| Tipo | Preguntas |", "|---|---|"]
@@ -454,12 +581,27 @@ def report(result: dict, spec: dict, manual: list | None = None, manual_name: st
                   f"| {cell(quoted(c['questions'], by_n))} |" for c in result["contributions"]]
         lines.append("")
 
-    if result["ac_evidence"]:
-        lines += ["## Pertinencia de los criterios de aceptación (propuesta, OQ-59)", "",
-                  "| Requisito | AC | Por qué | Preguntas |", "|---|---|---|---|"]
-        lines += [f"| {named(a['requirement'])} | {a['ac']} | {cell(a['why'])} | {len(a['questions'])}: "
-                  f"{cell(quoted(a['questions'][:3], by_n))}{' …' if len(a['questions']) > 3 else ''} |"
-                  for a in result["ac_evidence"]]
+    if result["hints"]:
+        lines += ["## Pistas de valoración propuestas", "",
+                  "Origen «paa» (D-127). El número `PV-n` lo asigna el sistema al guardarlas (D-135).", "",
+                  "| Requisito | Pista | Propiedad | AC | Preguntas |", "|---|---|---|---|---|"]
+        for h in result["hints"]:
+            extra = (f" **Duda:** {h['duda']}" if h.get("duda") else "") + (f" ({h['note']})" if h.get("note") else "")
+            lines.append(f"| {named(h['target'])} | {cell(h['pista'] + extra)} | {', '.join(h['propiedad'])} "
+                         f"| {', '.join(h['ac'])} | {len(h['questions'])}: {cell(quoted(h['questions'][:3], by_n))}"
+                         f"{' …' if len(h['questions']) > 3 else ''} |")
+        lines.append("")
+
+    if result["marks"]:
+        lines += ["## Marca de dimensión de comparación", "",
+                  "Con «no», Comparabilidad es NA en el requisito (D-126). Si contradice la vigente, queda como duda: "
+                  "«se compara» mientras se resuelve (D-139).", "",
+                  "| Requisito | Marca | Motivo | Vigente | Preguntas |", "|---|---|---|---|---|"]
+        for m in result["marks"]:
+            label = "sí" if m["mark"] == "sí" else f"no ({m.get('case')})"
+            qs_m = m["questions"]
+            lines.append(f"| {named(m['target'])} | {label} | {cell(m['reason'])} | {m['status']} "
+                         f"| {len(qs_m)}: {cell(quoted(qs_m[:3], by_n))}{' …' if len(qs_m) > 3 else ''} |")
         lines.append("")
 
     if result["proposed_traits"]:

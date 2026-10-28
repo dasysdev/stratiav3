@@ -1,0 +1,556 @@
+{
+  "catalog": "pistas de valoración",
+  "version": "0.2",
+  "decisions": [
+    "D-125",
+    "D-126",
+    "D-127",
+    "D-128",
+    "D-134",
+    "D-135",
+    "D-136",
+    "D-137",
+    "D-138",
+    "D-140"
+  ],
+  "note": "Catálogo de pistas de valoración dirigidas a un tipo o a una fuente (D-134): cada pista se escribe una vez y va dirigida, en «para», a un tipo de requisito (rasgo, entidad o ambos) o a los requisitos que citan una fuente (comienzo de la etiqueta hasta un separador). Las pistas de un requisito viven en el propio requisito, en «hints», sin «para» (D-140). Los id PV-n son únicos en todo el sistema. Las encuentra el código («bin/model hints find»). Una pista no se borra: se retira con «retirada» y su número no se reutiliza (D-136). Primer lote: piloto manual de Claude con los nueve requisitos de sábanas (T-050).",
+  "hints": [
+    {
+      "id": "PV-1",
+      "pista": "Una composición en porcentajes suma 100 % para cada pieza o parte a la que se refiere: si no cuadra, el dato es erróneo aunque no se sepa cuál es el correcto.",
+      "propiedad": [
+        "P14"
+      ],
+      "ac": [
+        "Fiabilidad"
+      ],
+      "para": {
+        "rasgo": "material",
+        "entidad": "producto"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-2",
+      "pista": "Un nombre comercial que implica un material («satén de seda», «madera maciza») no puede contradecir la composición declarada: si la contradice, uno de los dos datos es falso.",
+      "propiedad": [
+        "P16"
+      ],
+      "ac": [
+        "Fiabilidad"
+      ],
+      "para": {
+        "rasgo": "material",
+        "entidad": "producto"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-3",
+      "pista": "Si el producto tiene partes de composición distinta (funda y relleno, cara y reverso, piezas de un juego), la composición dice a qué parte corresponde: sin eso no se sabe a qué se aplica.",
+      "propiedad": [
+        "P07",
+        "P10"
+      ],
+      "ac": [
+        "Aplicabilidad"
+      ],
+      "para": {
+        "rasgo": "material",
+        "entidad": "producto"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-4",
+      "pista": "Una certificación se acredita con el número de certificado y el organismo que lo emite: es lo que permite verificarla; sin ellos queda como declaración sin soporte.",
+      "propiedad": [
+        "P18"
+      ],
+      "ac": [
+        "Justificación"
+      ],
+      "para": {
+        "rasgo": "seguridad",
+        "entidad": "producto"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      },
+      "retirada": {
+        "fecha": "2026-10-27",
+        "motivo": "La sustituye PV-38, dirigida a la fuente shopify-attr:safety-certifications: el rasgo «seguridad» también llega a alérgenos, vibración, edad o advertencias, y los cuatro requisitos que citan esa fuente son certificaciones."
+      }
+    },
+    {
+      "id": "PV-5",
+      "pista": "Si el emisor publica un registro de certificados (como el de OEKO-TEX), el número declarado ha de existir, no estar vencido y cubrir este tipo de producto: si no, el dato queda refutado.",
+      "propiedad": [
+        "P14"
+      ],
+      "ac": [
+        "Fiabilidad"
+      ],
+      "para": {
+        "rasgo": "seguridad",
+        "entidad": "producto"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      },
+      "retirada": {
+        "fecha": "2026-10-27",
+        "motivo": "La sustituye PV-39, dirigida a la fuente shopify-attr:safety-certifications: el rasgo «seguridad» también llega a alérgenos, vibración, edad o advertencias, y los cuatro requisitos que citan esa fuente son certificaciones."
+      }
+    },
+    {
+      "id": "PV-6",
+      "pista": "La certificación ha de cubrir el producto que se vende, no una materia prima, otro artículo de la marca ni otro sector: lo dice el alcance de la norma y del certificado.",
+      "propiedad": [
+        "P12"
+      ],
+      "ac": [
+        "Aplicabilidad"
+      ],
+      "para": {
+        "rasgo": "seguridad",
+        "entidad": "producto"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      },
+      "retirada": {
+        "fecha": "2026-10-27",
+        "motivo": "La sustituye PV-40, dirigida a la fuente shopify-attr:safety-certifications: el rasgo «seguridad» también llega a alérgenos, vibración, edad o advertencias, y los cuatro requisitos que citan esa fuente son certificaciones."
+      }
+    },
+    {
+      "id": "PV-7",
+      "pista": "Una magnitud solo se entiende con su unidad, y la unidad ha de ser de esa magnitud (un gramaje en g/m², no en g): sin unidad no se interpreta, y con la de otra magnitud el dato es erróneo.",
+      "propiedad": [
+        "P13",
+        "P14"
+      ],
+      "ac": [
+        "Precisión",
+        "Fiabilidad"
+      ],
+      "para": {
+        "rasgo": "magnitud",
+        "entidad": "producto"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      },
+      "retirada": {
+        "fecha": "2026-10-27",
+        "motivo": "La sustituye PV-41: su ejemplo («un gramaje en g/m², no en g») es falso en otras clases con el mismo rasgo; el gramaje de un vinilo (cat.discos-y-lp/08) se da en gramos."
+      }
+    },
+    {
+      "id": "PV-8",
+      "pista": "Si el ámbito da también los datos de los que se deriva la magnitud (peso y medidas de la pieza), el valor declarado ha de ser compatible con ellos en orden de magnitud: una diferencia imposible es un defecto.",
+      "propiedad": [
+        "P16"
+      ],
+      "ac": [
+        "Fiabilidad"
+      ],
+      "para": {
+        "rasgo": "magnitud",
+        "entidad": "producto"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-9",
+      "pista": "Lo que se dice de la construcción ha de ser posible con el material y el tipo de producto declarados (un recuento de hilos en un tejido de punto no lo es): si no lo es, se refuta.",
+      "propiedad": [
+        "P16"
+      ],
+      "ac": [
+        "Fiabilidad"
+      ],
+      "para": {
+        "rasgo": "construccion",
+        "entidad": "producto"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-10",
+      "pista": "La medida que fija lo vendido ha de encajar con las demás medidas del ámbito (las de la pieza, el título, la tabla de tallas): una bajera de 90 × 190 en una ficha que dice «cama de 150» es una incoherencia.",
+      "propiedad": [
+        "P16"
+      ],
+      "ac": [
+        "Fiabilidad"
+      ],
+      "para": {
+        "rasgo": "medida-que-fija",
+        "entidad": "producto"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-11",
+      "pista": "Si la medida define las variantes, se da para cada variante y cada dato que cambia con ella (precio, estado, identificador) va asociado a su medida: si no, no se sabe qué medida se compra.",
+      "propiedad": [
+        "P11"
+      ],
+      "ac": [
+        "Aplicabilidad"
+      ],
+      "para": {
+        "rasgo": "medida-que-fija",
+        "entidad": "producto"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-12",
+      "pista": "Cada dato sobre variantes dice a qué variante se refiere (talla, color…): un estado, un precio o un código sin su variante no se puede aplicar a la que se compra.",
+      "propiedad": [
+        "P11"
+      ],
+      "ac": [
+        "Aplicabilidad"
+      ],
+      "para": {
+        "entidad": "variante"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-13",
+      "pista": "Lo que se dice de una variante coincide en todo el ámbito (selector, texto y, en Web, su marcado): una talla agotada en el selector y disponible en el texto es una incoherencia.",
+      "propiedad": [
+        "P16"
+      ],
+      "ac": [
+        "Fiabilidad"
+      ],
+      "para": {
+        "entidad": "variante"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-14",
+      "pista": "Si el precio u otra condición de la oferta cambia por variante, se da para cada una: un único importe o un «desde» no se aplica a la variante que se compra.",
+      "propiedad": [
+        "P07",
+        "P11"
+      ],
+      "ac": [
+        "Aplicabilidad"
+      ],
+      "para": {
+        "entidad": "oferta"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-15",
+      "pista": "Los importes relacionados cuadran entre sí (precio final y precio de referencia con su descuento; precio por unidad y cantidad): un error de cálculo refuta el dato.",
+      "propiedad": [
+        "P14"
+      ],
+      "ac": [
+        "Fiabilidad"
+      ],
+      "para": {
+        "entidad": "oferta"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-16",
+      "pista": "Una condición no puede dar al comprador menos de lo que la ley le garantiza: un plazo o un derecho por debajo del legal es inexacto aunque lo declare el vendedor.",
+      "propiedad": [
+        "P14"
+      ],
+      "ac": [
+        "Fiabilidad"
+      ],
+      "para": {
+        "entidad": "condiciones"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-17",
+      "pista": "Cada condición dice a qué se aplica (todos los productos, una categoría, unidades no nuevas) y desde cuándo cuenta su plazo: sin eso no se puede aplicar a esta oferta.",
+      "propiedad": [
+        "P12"
+      ],
+      "ac": [
+        "Aplicabilidad"
+      ],
+      "para": {
+        "entidad": "condiciones"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-18",
+      "pista": "La composición usa la denominación legal de cada fibra con su porcentaje en peso: es lo que permite entenderla y compararla; un nombre de tejido, de acabado o de marca de fibra no la sustituye.",
+      "propiedad": [
+        "P09",
+        "P13"
+      ],
+      "ac": [
+        "Precisión",
+        "Comparabilidad"
+      ],
+      "para": {
+        "fuente": "ley:UE-1007/2011"
+      },
+      "origen": {
+        "tipo": "normativa",
+        "apoyo": [
+          "ley:UE-1007/2011-5@2011-10-18",
+          "ley:UE-1007/2011-9@2011-10-18"
+        ]
+      }
+    },
+    {
+      "id": "PV-19",
+      "pista": "«100 %», «puro» o «todo» solo caben en un producto de una sola fibra: junto a una mezcla declarada, uno de los dos datos es falso.",
+      "propiedad": [
+        "P16"
+      ],
+      "ac": [
+        "Fiabilidad"
+      ],
+      "para": {
+        "fuente": "ley:UE-1007/2011"
+      },
+      "origen": {
+        "tipo": "normativa",
+        "apoyo": [
+          "ley:UE-1007/2011-7@2011-10-18"
+        ]
+      },
+      "retirada": {
+        "fecha": "2026-10-27",
+        "motivo": "Dice lo mismo que PV-2: «100 %» o «puro» es un nombre que implica un material y contradice la mezcla declarada. Los dos llegan a la composición textil por llaves distintas (fuente y tipo)."
+      }
+    },
+    {
+      "id": "PV-20",
+      "pista": "Un importe dice si incluye los impuestos, y los gastos que se le suman se dan con su importe o, si no se pueden calcular de antemano, avisando de que existen: si no, no se sabe cuánto se paga.",
+      "propiedad": [
+        "P09",
+        "P12"
+      ],
+      "ac": [
+        "Precisión",
+        "Comparabilidad"
+      ],
+      "para": {
+        "fuente": "ley:TRLGDCU-97.1.e"
+      },
+      "origen": {
+        "tipo": "normativa",
+        "apoyo": [
+          "ley:TRLGDCU-97.1.e@2026-02-28"
+        ]
+      }
+    },
+    {
+      "id": "PV-21",
+      "pista": "La identificación ha de permitir distinguir el producto concreto (tipo, modelo, lote o serie), no solo su gama o su familia: es lo que la ley pide para poder seguirlo.",
+      "propiedad": [
+        "P11"
+      ],
+      "ac": [
+        "Aplicabilidad"
+      ],
+      "para": {
+        "fuente": "ley:UE-2023/988-19.c"
+      },
+      "origen": {
+        "tipo": "normativa",
+        "apoyo": [
+          "ley:UE-2023/988-19.c@2023-05-23"
+        ]
+      }
+    },
+    {
+      "id": "PV-22",
+      "pista": "Si el producto se vende por cantidad (peso, volumen, longitud o superficie), la base de comparación que fija la ley es el precio por unidad de medida; si se vende por piezas, el de la pieza.",
+      "propiedad": [
+        "P13"
+      ],
+      "ac": [
+        "Comparabilidad"
+      ],
+      "para": {
+        "fuente": "ley:RD-3423/2000"
+      },
+      "origen": {
+        "tipo": "normativa",
+        "apoyo": [
+          "ley:RD-3423/2000-3.2@2000-12-28"
+        ]
+      }
+    },
+    {
+      "id": "PV-38",
+      "pista": "Una certificación se acredita con el número de certificado y el organismo que lo emite: es lo que permite verificarla; sin ellos queda como declaración sin soporte.",
+      "propiedad": [
+        "P18"
+      ],
+      "ac": [
+        "Justificación"
+      ],
+      "para": {
+        "fuente": "shopify-attr:safety-certifications"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-39",
+      "pista": "Si el emisor publica un registro de certificados (como el de OEKO-TEX), el número declarado ha de existir, no estar vencido y cubrir este tipo de producto: si no, el dato queda refutado.",
+      "propiedad": [
+        "P14"
+      ],
+      "ac": [
+        "Fiabilidad"
+      ],
+      "para": {
+        "fuente": "shopify-attr:safety-certifications"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-40",
+      "pista": "La certificación ha de cubrir el producto que se vende, no una materia prima, otro artículo de la marca ni otro sector: lo dice el alcance de la norma y del certificado.",
+      "propiedad": [
+        "P12"
+      ],
+      "ac": [
+        "Aplicabilidad"
+      ],
+      "para": {
+        "fuente": "shopify-attr:safety-certifications"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-41",
+      "pista": "Una magnitud solo se entiende con su unidad, y la unidad ha de ser de la magnitud que pregunta la cuestión (un grosor en una longitud, un peso en una masa): sin unidad no se interpreta, y con la de otra magnitud el dato es erróneo.",
+      "propiedad": [
+        "P13",
+        "P14"
+      ],
+      "ac": [
+        "Precisión",
+        "Fiabilidad"
+      ],
+      "para": {
+        "rasgo": "magnitud",
+        "entidad": "producto"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122"
+        ]
+      }
+    }
+  ]
+}

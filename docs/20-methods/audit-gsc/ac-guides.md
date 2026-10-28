@@ -3,7 +3,7 @@ id: audit-gsc-ac-guides
 title: Guías operativas de los seis criterios de aceptación
 layer: method
 status: propuesta
-version: 0.3
+version: 0.4
 updated: 2026-10-27
 sources: [GSC0 §11, GSC0 Anexo B, FUND §6.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
 ---
@@ -115,7 +115,7 @@ En todos los AC, antes de asignar 0/1/2: verificar **evidencia suficiente** y **
 - **Sospecha frente a defecto.** Una regla que solo hace improbable el dato no gradúa: se anota. «Percal 100 % poliéster» no se refuta, porque existe percal de poliéster.
 - **La hora de captura no acredita que el dato sea exacto ni que esté al día.** Una fecha de validez vencida en la captura sí es un defecto de estructura.
 - **Identificador ausente:** si falta el que permitiría la comprobación externa (número de certificado), cuenta en Justificación, no aquí.
-- **Sintaxis frente a valor:** una sintaxis inválida es técnica; un valor imposible con sintaxis válida es Fiabilidad.
+- **Sintaxis frente a valor:** una sintaxis inválida es técnica; un valor imposible con sintaxis válida es Fiabilidad. ⚠ Ver [I-41](../../30-governance/issues.md#i-41).
 - **Discrepancia entre ámbitos:** es un hallazgo de [consistencia transversal](../../10-model/evaluation-scopes.md#consistencia-transversal) y no reduce este GSC.
 
 ## Justificación

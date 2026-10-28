@@ -1,0 +1,214 @@
+{
+  "set": "fundas-nordicas",
+  "label": "Fundas nórdicas",
+  "cases": [
+    "funda-nordica-bordada-401",
+    "funda-nordica-salvia-642"
+  ],
+  "catalog": "gen@0.5 cat.casa-y-jardin@2 cat.ropa-de-casa@4 cat.ropa-de-cama@2 cat.sabanas@2 cat.fundas-de-nordico@3 cat.fundas-de-almohada-y-cojines@2 cat.sabanas-ajustables@2 cat.fundas-de-almohada@3 esp.juego@0",
+  "questions": 157,
+  "reviewed": {
+    "at": "2026-10-27",
+    "by": "usuario",
+    "rulebook": "classifier/paa.md v3",
+    "task": "T-042",
+    "decisions": [
+      "D-100",
+      "D-101",
+      "D-102",
+      "D-103",
+      "D-104",
+      "D-105",
+      "D-106",
+      "D-107",
+      "D-108",
+      "D-109",
+      "D-110",
+      "D-112",
+      "D-113"
+    ]
+  },
+  "perimeter": {
+    "out": [
+      "¿Es bueno poner fundas a los colchones?",
+      "¿Qué marca de edredón es mejor?",
+      "¿Qué abriga más, una manta o un nórdico?",
+      "¿Qué nórdico da más calor?",
+      "¿Qué tener en cuenta para comprar un nórdico?",
+      "¿Cuáles son los edredones de mejor calidad?",
+      "¿Cuál es la mejor funda para colchón?",
+      "¿Qué es mejor, una funda de silicona o de plástico?",
+      "¿Qué poner debajo del colchón para que no se hunda?",
+      "¿Qué programa de lavadora usar para nórdico?",
+      "¿Dónde puedo encontrar edredones de buena calidad?",
+      "¿Qué edredón usan los hoteles?",
+      "¿Cuántos años dura un edredón?",
+      "¿Cómo hacer ajustable una sábana bajera?",
+      "¿Cuánta goma elástica necesito para las esquinas de una sábana bajera?",
+      "¿Cómo coser una sábana bajera ajustable?",
+      "¿Cómo hacer sábanas bajeras con gomas?",
+      "¿Cuántos metros de elástico lleva una sábana ajustable?",
+      "¿Cómo confeccionar sábanas bajeras ajustables?",
+      "¿Cómo ajustar una sábana bajera que queda grande?",
+      "¿Qué es mejor, una almohada látex o viscoelástica?",
+      "¿Cómo hacer fundas para almohada?",
+      "¿Cuáles son 3 tipos de tela más comunes?",
+      "¿Qué da más calor, viscoelástica o látex?",
+      "¿Qué es mejor para dormir, una almohada blanda o dura?",
+      "¿Qué marca de almohada viscoelástica es mejor?",
+      "¿Cómo unir dos fundas de almohada?",
+      "¿Cómo se lavan las almohadas para que queden blancas?",
+      "¿Por qué mancho la almohada cuando duermo?",
+      "¿Cómo lavar almohadas amarillentas en lavadora?",
+      "¿Qué edredón nórdico comprar?",
+      "¿Qué abriga más, edredón o nórdico?",
+      "¿Cuál es el nórdico que más calienta?",
+      "¿Qué es mejor, nórdico de pluma o plumón?",
+      "¿Qué edredón poner para una cama de 135?",
+      "¿Qué nórdico calienta más?",
+      "¿Qué tener en cuenta al comprar un nórdico?",
+      "¿Cuántos gramos tiene que tener un nórdico para que abrigue?",
+      "¿Es Zara Home parte de Inditex?",
+      "¿Qué edredón es más fresco?",
+      "¿Qué programa poner en la lavadora para lavar un nórdico?",
+      "¿Qué tipo de edredón usan en los hoteles?",
+      "¿Cómo elegir un buen edredón nórdico?",
+      "¿Qué marca de colchón usan los hoteles 5 estrellas?",
+      "¿Qué tipo de nórdico abriga más?",
+      "¿Qué edredón es mejor para el frío?",
+      "¿Cómo comprar un buen nórdico?",
+      "¿Qué es mejor, un edredón o un nórdico?",
+      "¿Qué abriga más, el plumón o la pluma?",
+      "¿Qué nórdicos calientan mucho?",
+      "¿Qué gramaje tiene que tener un edredón de invierno?",
+      "¿Qué es el edredón de microfibra?",
+      "¿Cómo son los edredones de microfibra?",
+      "¿Cuál es el mejor material para un edredón?",
+      "¿Cómo lavar un edredón que no cabe en la lavadora?",
+      "¿Qué es mejor nórdico, de plumón o de fibra?",
+      "¿Cuánto cuesta la tela de microfibra?"
+    ],
+    "expected": true
+  },
+  "criteria": [
+    {
+      "name": "Abrigo o frescor (nivel térmico)",
+      "verdict": "genera",
+      "expected": true,
+      "questions": [
+        "¿La microfibra da calor?",
+        "¿Qué es más fresco, el algodón o la microfibra?",
+        "¿Las sábanas de microfibra son frescas?"
+      ]
+    },
+    {
+      "name": "Tacto del tejido",
+      "verdict": "genera",
+      "expected": true,
+      "questions": [
+        "¿Por qué las sábanas de los hoteles son tan suaves?"
+      ]
+    },
+    {
+      "name": "Marca",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Qué marca de sábanas es la mejor?",
+        "¿Qué marca de sábanas usan los hoteles 5 estrellas?",
+        "¿Cuál es la mejor marca de sábanas del mundo?"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "question": "¿Para qué temporada o nivel de abrigo está pensada la pieza (de verano o fresca, de entretiempo, de invierno o de abrigo, para todo el año)?",
+      "blocks": [
+        "cat.fundas-de-nordico",
+        "cat.sabanas",
+        "cat.fundas-de-almohada"
+      ],
+      "trait": "uso",
+      "expected": true,
+      "questions": [
+        "¿La microfibra da calor?",
+        "¿Qué es más fresco, el algodón o la microfibra?",
+        "¿Las sábanas de microfibra son frescas?"
+      ]
+    },
+    {
+      "question": "¿Qué tacto tiene el tejido (sedoso o liso, crujiente, afelpado o aterciopelado, fresco al tacto)?",
+      "blocks": [
+        "cat.ropa-de-casa"
+      ],
+      "trait": "sensorial",
+      "expected": true,
+      "questions": [
+        "¿Por qué las sábanas de los hoteles son tan suaves?"
+      ]
+    },
+    {
+      "question": "¿Tiene la funda algún sistema para sujetar el relleno por dentro (cintas o lazos en las esquinas, presillas…) y cuál?",
+      "blocks": [
+        "cat.fundas-de-nordico"
+      ],
+      "trait": "construccion",
+      "expected": true,
+      "questions": [
+        "¿Qué hacer para que no se mueva la funda nórdica?"
+      ]
+    }
+  ],
+  "revisions": [
+    {
+      "target": "cat.fundas-de-almohada/05",
+      "action": "sacar",
+      "summary": "Sacar el valor «Enfriamiento» (amazon-ptd-prop:PILLOWCASE.special_feature=Enfriamiento) y sus aportaciones «declaración de efecto frío o refrescante» y «resultado de un ensayo de frescor al tacto» del requisito de sensación térmica y transpiración: el efecto frío al tacto es un tipo de tacto, no un nivel térmico (D-108). Pasa al candidato de tacto N2. El requisito queda en transpirabilidad y gestión de la humedad y el sudor, y su pregunta se reformula sin «efecto frío».",
+      "expected": true
+    },
+    {
+      "target": "inf/01",
+      "action": "reformular",
+      "summary": "PAA confirma la cuestión inferida de la sujeción de la bajera (que no se salga, cuánto elástico lleva): pasa a origen «paa» (D-097). La pregunta se mantiene.",
+      "expected": true
+    }
+  ],
+  "contributions": [
+    {
+      "target": "cat.ropa-de-casa/01",
+      "contribution": "denominación de la fibra según el Reglamento (UE) 1007/2011 cuando el término comercial no es una fibra (microfibra → poliéster u otra)",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.ropa-de-casa/01",
+      "contribution": "etiqueta de composición o ensayo de composición que acredita las fibras declaradas",
+      "kind": "sustento",
+      "expected": true
+    },
+    {
+      "target": "cat.fundas-de-nordico/03",
+      "contribution": "unidad del recuento de hilos (por pulgada cuadrada o por 10 cm²)",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.sabanas/03",
+      "contribution": "unidad del recuento de hilos (por pulgada cuadrada o por 10 cm²)",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.fundas-de-almohada/03",
+      "contribution": "unidad del recuento de hilos (por pulgada cuadrada o por 10 cm²)",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.fundas-de-nordico/05",
+      "contribution": "posición de la abertura o del cierre en la funda (a los pies, lateral)",
+      "kind": "precisión",
+      "expected": true
+    }
+  ]
+}

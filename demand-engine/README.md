@@ -29,7 +29,7 @@ demand-engine/
 ├── src/demand_engine/    paquete Python: refs, taxo, pages, blocks, compare, catalog_review,
 │                         demand/ (motor de demanda), capture/ (motor de captura), mpir/ y paa/
 ├── tests/                pruebas, por módulo (tests/tools/, tests/demand/, tests/capture/, tests/mpir/, tests/paa/)
-├── classifier/ · cases/  reglamento del clasificador y conjunto de control
+├── classifier/ · cases/  reglamentos de los clasificadores y conjuntos de control (cases/paa/: lo esperado de PAA)
 ├── catalog/              catálogo compilado por el entrenamiento (bloques, reglas, rasgos)
 ├── training/selection/   selección del catálogo de entrenamiento: especificación y fichas elegidas
 ├── training/reports/     informe de cada ciclo de entrenamiento

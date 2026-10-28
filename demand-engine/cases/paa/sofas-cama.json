@@ -1,0 +1,172 @@
+{
+  "set": "sofas-cama",
+  "label": "Sofás cama",
+  "cases": [
+    "sofa-cama-luna"
+  ],
+  "catalog": "gen@0.5 cat.mobiliario@2 cat.sofas@3 cat.sofas-cama@4",
+  "questions": 84,
+  "reviewed": {
+    "at": "2026-10-27",
+    "by": "usuario",
+    "rulebook": "classifier/paa.md v3",
+    "task": "T-042",
+    "decisions": [
+      "D-100",
+      "D-101",
+      "D-102",
+      "D-103",
+      "D-104",
+      "D-105",
+      "D-106",
+      "D-107",
+      "D-108",
+      "D-109",
+      "D-110",
+      "D-112",
+      "D-113"
+    ]
+  },
+  "perimeter": {
+    "out": [
+      "¿Cuáles son algunas marcas de diseño italianas?",
+      "¿Cuáles son las marcas más famosas de Italia?",
+      "¿Cuáles son las mejores marcas italianas de muebles?",
+      "¿Cómo se dice sofá cama en italiano?",
+      "¿Qué muebles son tendencia en 2026?",
+      "¿Qué tipo de muebles se llevan ahora?"
+    ],
+    "expected": true,
+    "added": []
+  },
+  "criteria": [
+    {
+      "name": "Marca",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Cuáles son las marcas de sofás de buena calidad?",
+        "¿Cuáles son las mejores marcas de sofás españolas?",
+        "¿Cuál es el mejor sofá de IKEA?",
+        "¿Cuáles son las mejores marcas de sofás?",
+        "¿Cuál es la mejor marca de sofá cama?",
+        "¿Cuáles son algunas marcas de sofás italianos?",
+        "¿Cuáles son las mejores marcas de sofá cama?",
+        "¿Quiénes son los mejores fabricantes de sofás españoles?",
+        "¿Cuáles son algunas marcas italianas de sofás?",
+        "¿Cuál es la mejor marca de sofás?",
+        "¿Qué marcas de sofá son buenas?"
+      ]
+    },
+    {
+      "name": "Popularidad o ventas",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Cuál es el sofá de Ikea más vendido?",
+        "¿Cuál es el sofá cama más vendido en Amazon?"
+      ],
+      "why": "reputación, C4; invariante 14 (T-042, paso 4)"
+    },
+    {
+      "name": "Estilo decorativo (tendencia)",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Qué sofás se llevan ahora?",
+        "¿Cuáles son las tendencias en sofás para 2026?",
+        "¿Cómo se llevan los sofás en 2026?",
+        "¿Qué sofás están de moda?"
+      ],
+      "why": "la moda nunca genera (T-042, paso 3); sus preguntas sobre «sofás» van dentro, porque la clase hereda el criterio (D-146; T-053)",
+      "proposed_verdict": "genera"
+    },
+    {
+      "name": "Preferencia general («el mejor»)",
+      "verdict": "cubierto",
+      "expected": true,
+      "questions": [
+        "¿Qué sofá me compro?",
+        "¿Cuál es el mejor sofá cama?",
+        "¿Cuál es el mejor sofá cama del mercado?",
+        "¿Cuáles son los mejores sofás camas?"
+      ],
+      "why": "criterio intermedio, como «calidad» (D-104; T-042, paso 4)",
+      "proposed_verdict": "no-genera",
+      "intermediate": true
+    },
+    {
+      "name": "Sofá cama frente a otra solución de descanso",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Qué es mejor, un sofá cama o una cama abatible?"
+      ],
+      "why": "comparar con otro producto depende de quien compra, C3 (T-042, paso 4)"
+    }
+  ],
+  "candidates": [
+    {
+      "question": "¿Qué durabilidad declara: vida útil prevista o ensayos de durabilidad o de fatiga que supera?",
+      "blocks": [
+        "cat.sofas"
+      ],
+      "trait": "prestacion",
+      "expected": true,
+      "questions": [
+        "¿Cuánto dura un sofá bueno?",
+        "¿Cuánto tiempo dura un sofá cama?"
+      ]
+    },
+    {
+      "question": "¿Qué estilo decorativo tiene (moderno, nórdico, clásico, industrial, vintage…)?",
+      "blocks": [
+        "cat.sofas"
+      ],
+      "trait": "estetica",
+      "expected": false,
+      "questions": [
+        "¿Qué sofás se llevan ahora?",
+        "¿Cuáles son las tendencias en sofás para 2026?",
+        "¿Cómo se llevan los sofás en 2026?",
+        "¿Qué sofás están de moda?"
+      ],
+      "why": "la moda nunca genera: sin candidato de estilo (T-042, paso 3)"
+    }
+  ],
+  "revisions": [
+    {
+      "target": "cat.sofas-cama/04",
+      "action": "reformular",
+      "summary": "PAA confirma la inferida: quien compra pregunta si un sofá cama sirve para dormir todos los días. Se mantiene la pregunta y pasa a origen «paa» (D-097).",
+      "expected": true
+    },
+    {
+      "target": "cat.sofas-cama/03",
+      "action": "reformular",
+      "summary": "PAA confirma la inferida: se pregunta qué es un sofá cama italiano, qué tipos hay y cuál es mejor. Se mantiene la pregunta y pasa a origen «paa» (D-097).",
+      "expected": true
+    }
+  ],
+  "contributions": [
+    {
+      "target": "cat.sofas-cama/03",
+      "contribution": "descripción de en qué consiste el mecanismo nombrado (cómo se despliega, si el asiento forma la cama o el colchón sale plegado), además de su denominación comercial",
+      "kind": "precisión",
+      "expected": true
+    }
+  ],
+  "amended": [
+    {
+      "at": "2026-10-28",
+      "by": "usuario",
+      "task": "T-053",
+      "decisions": [
+        "D-141",
+        "D-142",
+        "D-146"
+      ],
+      "summary": "Las cuatro preguntas de moda sobre «sofás», que el caso ponía fuera y a la vez como apoyo del criterio de moda, vuelven dentro; las demás preguntas sobre el sofá sin más ya estaban dentro."
+    }
+  ]
+}

@@ -1,0 +1,632 @@
+{
+ "source": "google-search-merchant-listing",
+ "version": "2026-10-27",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "summary": "Propiedades exigidas y recomendadas por Google Search para las fichas de comerciante (Product, Offer y sus entidades anidadas: precio, tallas, público, certificaciones, envío, devoluciones y modelo 3D), con sus directrices técnicas.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#structured-data-type-definitions",
+   "text": "You must include the required properties for your content to be eligible for display as a rich result."
+  },
+  {
+   "id": "q02",
+   "section": "#product-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q03",
+   "section": "#product-properties",
+   "text": "offers | Offer A nested Offer to sell the product."
+  },
+  {
+   "id": "q04",
+   "section": "#product-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q05",
+   "section": "#guidelines",
+   "text": "For your Product markup to be eligible for merchant listing experiences, you must follow these guidelines: - General structured data guidelines - Search Essentials - Technical guidelines - Content guidelines - Free listings guidelines (for merchant listing experiences)",
+   "note": "Remisión: incorpora las directrices generales de datos estructurados (google-search-sd-policies) y las directrices técnicas de esta página."
+  },
+  {
+   "id": "q06",
+   "section": "#product-properties",
+   "text": "name | Text The name of the product."
+  },
+  {
+   "id": "q07",
+   "section": "#product-properties",
+   "text": "image | Repeated ImageObject or URL The URL of a product photo."
+  },
+  {
+   "id": "q08",
+   "section": "#product-properties",
+   "text": "Image URLs must be crawlable and indexable."
+  },
+  {
+   "id": "q09",
+   "section": "#product-properties",
+   "text": "For best results, we recommend providing multiple high-resolution images (minimum of 50K pixels when multiplying width and height) with the following aspect ratios: 16x9, 4x3, and 1x1."
+  },
+  {
+   "id": "q10",
+   "section": "#product-properties",
+   "text": "Product snippets accept an Offer or AggregateOffer but merchant listings require an Offer as the merchant has to be the seller of the product in order to be eligible for merchant listing experiences."
+  },
+  {
+   "id": "q11",
+   "section": "#product-properties",
+   "text": "aggregateRating | AggregateRating A nested aggregateRating of the product. Follow the Review snippet guidelines and the list of required and recommended AggregateRating properties."
+  },
+  {
+   "id": "q12",
+   "section": "#product-properties",
+   "text": "audience | PeopleAudience Optional information about the suggested audience for the product, such as the suggested gender and age group. Only the PeopleAudience type is supported."
+  },
+  {
+   "id": "q13",
+   "section": "#product-properties",
+   "text": "brand.name | Text Include the brand of the product in the name property of the Brand type if known. Include at most one brand name."
+  },
+  {
+   "id": "q14",
+   "section": "#product-properties",
+   "text": "category | Text or CategoryCode Specifies the product's categories."
+  },
+  {
+   "id": "q15",
+   "section": "#product-properties",
+   "text": "We recommend keeping custom product types under the 750-character limit."
+  },
+  {
+   "id": "q16",
+   "section": "#product-properties",
+   "text": "Set inCodeSet to a Google Product Taxonomy URL (for example, \"https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt\"). Set codeValue to the GPC ID (for example, \"2271\") or the full category path (for example, \"Apparel & Accessories > Clothing > Dresses\"). When using the path format, use > as the separator between levels. Each segment in the path must contain at least one letter."
+  },
+  {
+   "id": "q17",
+   "section": "#product-properties",
+   "text": "color | Text The color or color combination of the product (for example, \"red\" or \"yellow/sky blue\")."
+  },
+  {
+   "id": "q18",
+   "section": "#product-properties",
+   "text": "description | Text The product description. While the product description is not mandatory, it is strongly recommended to provide a description of the product in this property."
+  },
+  {
+   "id": "q19",
+   "section": "#product-properties",
+   "text": "gtin | gtin8 | gtin12 | gtin13 | gtin14 | isbn | Text Include all applicable global identifiers; these are described at schema.org/Product."
+  },
+  {
+   "id": "q20",
+   "section": "#product-properties",
+   "text": "While you can use the generic gtin property for all GTINs, we recommend that you use the most specific GTIN that applies to your product, as this is the most accurate representation of the product."
+  },
+  {
+   "id": "q21",
+   "section": "#product-properties",
+   "text": "Make sure the GTIN value is in the numerical form; we don't support the URL form for GTINs."
+  },
+  {
+   "id": "q22",
+   "section": "#product-properties",
+   "text": "isbn is only a valid property on Book. For best results, use ISBN-13 format. To use Book correctly, co-type with the Product."
+  },
+  {
+   "id": "q23",
+   "section": "#product-properties",
+   "text": "If you sell products that are considered adult-oriented according to Google's adult-oriented content policy, you must use this property to label them as adult-oriented."
+  },
+  {
+   "id": "q24",
+   "section": "#product-properties",
+   "text": "While schema.org defines multiple values for AdultOrientedEnumeration, Google Search only supports the value https://schema.org/SexualContentConsideration for this property."
+  },
+  {
+   "id": "q25",
+   "section": "#product-properties",
+   "text": "hasCertification | Certification Certifications, such as energy efficiency ratings, associated with a product."
+  },
+  {
+   "id": "q26",
+   "section": "#product-properties",
+   "text": "inProductGroupWithID | Text The ID of a product group that this product variant belongs to. See also Item Group Id in Google Merchant Center Help. Specify at most one value."
+  },
+  {
+   "id": "q27",
+   "section": "#product-properties",
+   "text": "isVariantOf | ProductGroup A product group that this product variant belongs to, if applicable."
+  },
+  {
+   "id": "q28",
+   "section": "#product-properties",
+   "text": "material | Text The material or material combination the product is made from, such as \"Leather\" or \"Cotton/Polyester\"."
+  },
+  {
+   "id": "q29",
+   "section": "#product-properties",
+   "text": "mpn | Text The manufacturer part number."
+  },
+  {
+   "id": "q30",
+   "section": "#product-properties",
+   "text": "pattern | Text The pattern of the product, such as \"polka dots\" or \"striped\"."
+  },
+  {
+   "id": "q31",
+   "section": "#product-properties",
+   "text": "review | Review A nested Review of the product."
+  },
+  {
+   "id": "q32",
+   "section": "#product-properties",
+   "text": "If you add a review for the product, the reviewer's name must be a valid name for a Person or Team. Not recommended: 50% off on Black Friday Recommended: \"James Smith\" or \"CNET Reviewers\""
+  },
+  {
+   "id": "q33",
+   "section": "#product-properties",
+   "text": "size | Text or SizeSpecification The size of the product, such as \"XL\" or \"medium\"."
+  },
+  {
+   "id": "q34",
+   "section": "#product-properties",
+   "text": "See the list of SizeSpecification properties supported by Google. Specify at most one value."
+  },
+  {
+   "id": "q35",
+   "section": "#product-properties",
+   "text": "sku | Text The merchant-specific identifier for the product. Specify at most one value. The sku value must use unicode characters that are valid for interchange. The sku value must not contain any whitespace characters (as defined by the Unicode whitespace property). We recommend that the sku value only contain ASCII characters."
+  },
+  {
+   "id": "q36",
+   "section": "#product-properties",
+   "text": "subjectOf | 3DModel A 3D model for the product, if applicable. See the list of 3DModel properties properties supported by Google. Specify at most one 3DModel value."
+  },
+  {
+   "id": "q37",
+   "section": "#3d-model-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q38",
+   "section": "#3d-model-properties",
+   "text": "encoding | MediaObject The media for the 3D model."
+  },
+  {
+   "id": "q39",
+   "section": "#3d-model-properties",
+   "text": "encoding.contentUrl | URL The link to a 3D model definition file in glTF format. The file must have a .gltf or .glb suffix."
+  },
+  {
+   "id": "q40",
+   "section": "#offer-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q41",
+   "section": "#offer-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q42",
+   "section": "#offer-properties",
+   "text": "price or priceSpecification.price | Number The current, active offer price of a product."
+  },
+  {
+   "id": "q43",
+   "section": "#offer-properties",
+   "text": "Unlike product snippets, merchant listing experiences require a price greater than zero. The active price is required but may be nested inside a priceSpecification property instead of being provided at the Offer level."
+  },
+  {
+   "id": "q44",
+   "section": "#offer-properties",
+   "text": "priceCurrency or priceSpecification.priceCurrency | Text The currency used to describe the product price, in three-letter ISO 4217 format. priceCurrency is required if price is specified, otherwise priceSpecification.priceCurrency is required if priceSpecification.price is specified."
+  },
+  {
+   "id": "q45",
+   "section": "#offer-properties",
+   "text": "availability | ItemAvailability The possible product availability options. The short names without the URL prefix are also supported (for example BackOrder). https://schema.org/BackOrder: The item is on back order. https://schema.org/Discontinued: The item has been discontinued. https://schema.org/InStock: The item is in stock. https://schema.org/InStoreOnly: The item is only available for purchase in store. https://schema.org/LimitedAvailability: The item has limited availability. https://schema.org/OnlineOnly: The item is available online only. https://schema.org/OutOfStock: The item is currently out of stock. https://schema.org/PreOrder: The item is available for pre-order. https://schema.org/PreSale: The item is available for ordering and delivery before general availability. https://schema.org/SoldOut: The item has been sold out. Don't specify more than one value."
+  },
+  {
+   "id": "q46",
+   "section": "#offer-properties",
+   "text": "hasMerchantReturnPolicy | MerchantReturnPolicy Nested information about the return policies associated with an Offer."
+  },
+  {
+   "id": "q47",
+   "section": "#offer-properties",
+   "text": "itemCondition | OfferItemCondition Condition of the item offered for sale. The short names without the URL prefix are also supported (for example NewCondition). https://schema.org/NewCondition: The item is new. https://schema.org/RefurbishedCondition: The item has been refurbished. https://schema.org/UsedCondition: The item is used (it is not new). Don't specify more than one value."
+  },
+  {
+   "id": "q48",
+   "section": "#offer-properties",
+   "text": "priceValidUntil | Date The date and time after which the price will no longer be available, in ISO 8601 format."
+  },
+  {
+   "id": "q49",
+   "section": "#offer-properties",
+   "text": "shippingDetails | OfferShippingDetails Nested information about the shipping policy associated with an Offer."
+  },
+  {
+   "id": "q50",
+   "section": "#offer-properties",
+   "text": "url | URL A URL of the product web page from which a shopper can purchase the product."
+  },
+  {
+   "id": "q51",
+   "section": "#offer-properties",
+   "text": "The URL can be omitted. Don't provide multiple URLs."
+  },
+  {
+   "id": "q52",
+   "section": "#offer-properties",
+   "text": "validFrom | DateTime or Date The start date and time when the price is valid, in ISO 8601 format."
+  },
+  {
+   "id": "q53",
+   "section": "#offer-properties",
+   "text": "validThrough | DateTime or Date The end date and time when the price is valid, in ISO 8601 format."
+  },
+  {
+   "id": "q54",
+   "section": "#pricing-examples",
+   "text": "The respective price specifications are identified by the price specification properties priceType and validForMemberTier, which must not be used together: - Active prices have neither a priceType nor a validForMemberTier property. - Strikethrough prices set the priceType property to StrikethroughPrice (for a transition period, ListPrice is also allowed) and cannot have a validForMemberTier property."
+  },
+  {
+   "id": "q55",
+   "section": "#sale-duration",
+   "text": "We recommend including the time and timezone in the ISO 8601 format for accuracy in Google systems."
+  },
+  {
+   "id": "q56",
+   "section": "#unit-price-specification-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q57",
+   "section": "#unit-price-specification-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q58",
+   "section": "#unit-price-specification-properties",
+   "text": "price | Number The offer price of a product. See also the price property of Offer."
+  },
+  {
+   "id": "q59",
+   "section": "#unit-price-specification-properties",
+   "text": "priceCurrency | Text The currency used to describe the product price, in three-letter ISO 4217 format. See also the priceCurrency property of Offer."
+  },
+  {
+   "id": "q60",
+   "section": "#unit-price-specification-properties",
+   "text": "membershipPointsEarned | Number The (whole) number of points that members of a particular loyalty program earn with this purchase. Use this property only together with validForMemberTier."
+  },
+  {
+   "id": "q61",
+   "section": "#unit-price-specification-properties",
+   "text": "priceType | PriceTypeEnumeration The presence of this property marks the full, original listing price of a product, if applicable. Only use this property if you want Google to show sale pricing for your product. You must set the priceType to the https://schema.org/StrikethroughPrice value (no other values are supported). If you use the priceType property to designate a list price, you must also provide a current sale price with the price or priceSpecification property on the Offer object. Don't mark the current sale price with the priceType property."
+  },
+  {
+   "id": "q62",
+   "section": "#unit-price-specification-properties",
+   "text": "referenceQuantity | QuantitativeValue (for unit pricing) The quantity of the product offered for the given price."
+  },
+  {
+   "id": "q63",
+   "section": "#unit-price-specification-properties",
+   "text": "validForMemberTier | MemberProgramTier The presence of this property indicates that this price is valid for members of a particular loyalty program."
+  },
+  {
+   "id": "q64",
+   "section": "#unit-price-specification-properties",
+   "text": "If you use the validForMemberTier property to designate a member price, you must also provide a current regular price with the price or priceSpecification property on the Offer object."
+  },
+  {
+   "id": "q65",
+   "section": "#unit-price-specification-properties",
+   "text": "validFrom | DateTime or Date The start date and time when the price is valid, in ISO 8601 format."
+  },
+  {
+   "id": "q66",
+   "section": "#unit-price-specification-properties",
+   "text": "validThrough | DateTime or Date The end date and time when the price is valid, in ISO 8601 format."
+  },
+  {
+   "id": "q67",
+   "section": "#unit-pricing-quantitative-value-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q68",
+   "section": "#unit-pricing-quantitative-value-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q69",
+   "section": "#unit-pricing-quantitative-value-properties",
+   "text": "unitCode | Text or URL The unit of measurement."
+  },
+  {
+   "id": "q70",
+   "section": "#unit-pricing-quantitative-value-properties",
+   "text": "value | Text The numeric value of the unit sold."
+  },
+  {
+   "id": "q71",
+   "section": "#unit-pricing-quantitative-value-properties",
+   "text": "valueReference | QuantitativeValue The base quantity in which the product is priced."
+  },
+  {
+   "id": "q72",
+   "section": "#size-specification-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q73",
+   "section": "#size-specification-properties",
+   "text": "name | Text A human readable name for the size, such as \"XL\"."
+  },
+  {
+   "id": "q74",
+   "section": "#size-specification-properties",
+   "text": "sizeGroup | WearableSizeGroupEnumeration or Text The suggested size group for the product, if applicable."
+  },
+  {
+   "id": "q75",
+   "section": "#size-specification-properties",
+   "text": "Google understands the text values for size_type as well (regular, petite, plus, tall, big, and maternity), but other search engines may not, so it is recommended to use the standard schema.org enumeration values."
+  },
+  {
+   "id": "q76",
+   "section": "#size-specification-properties",
+   "text": "sizeSystem | WearableSizeSystemEnumeration or Text The size system for the product, if applicable."
+  },
+  {
+   "id": "q77",
+   "section": "#size-specification-properties",
+   "text": "Google understands the text values for size_system as well (for example, UR, BR, CN, DE, EU), but other search engines may not, so it is recommended to use the standard schema.org enumeration values."
+  },
+  {
+   "id": "q78",
+   "section": "#people-audience-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q79",
+   "section": "#people-audience-properties",
+   "text": "suggestedGender | Text or GenderType The suggested gender the product is suitable for. Must be one of the following values: https://schema.org/Male https://schema.org/Female Unisex: This (case-insensitive) value is not in the schema.org standard and must not have a https://schema.org/ prefix."
+  },
+  {
+   "id": "q80",
+   "section": "#people-audience-properties",
+   "text": "suggestedMaxAge (or suggestedAge.maxValue) | Number The suggested maximum age for the product, in years."
+  },
+  {
+   "id": "q81",
+   "section": "#people-audience-properties",
+   "text": "suggestedMinAge (or suggestedAge.minValue) | Number The suggested minimum age for the product, in years."
+  },
+  {
+   "id": "q82",
+   "section": "#certification-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q83",
+   "section": "#certification-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q84",
+   "section": "#certification-properties",
+   "text": "issuedBy | Organization The authority or certification body responsible for issuing the certification. Use the property name to specify the organization. At this time, we support the following names: EC or European_Commission for energy labels in the EU ADEME for French CO2 emissions classes for vehicles BMWK for German CO2 emissions classes for vehicles"
+  },
+  {
+   "id": "q85",
+   "section": "#certification-properties",
+   "text": "name Text The name of the certification. At this time, we support the following values: - EPREL, which represents energy efficiency certifications in the EU European Registry for Energy Labeling (EPREL) database. - Vehicle_CO2_Class for the overall CO2 class of a vehicle - Vehicle_CO2_Class_Discharged_Battery for the CO2 class of a vehicle with a discharged battery",
+   "note": "En la versión fijada, esta fila de «Required properties» no está en formato de tabla: ocupa varias líneas entre la fila issuedBy y la cabecera «Recommended properties»."
+  },
+  {
+   "id": "q86",
+   "section": "#certification-properties",
+   "text": "certificationIdentification | Text The code of the certification. For example, for the EPREL certificate with the link https://example.com/product/dishwashers2019/123456 the code is 123456. The code is required for European Energy Labels."
+  },
+  {
+   "id": "q87",
+   "section": "#certification-properties",
+   "text": "certificationRating | Rating The value of the certification. This property is ignored for certifications that have the certificationIdentification property (for example, an EPREL code)."
+  },
+  {
+   "id": "q88",
+   "section": "#certification-properties",
+   "text": "The ratingValue property is required when the certificationRating property is used. For EU energy efficiency ratings, the bestRating and worstRating properties are also required."
+  },
+  {
+   "id": "q89",
+   "section": "#offer-shipping-details-properties",
+   "text": "While OfferShippingDetails isn't required, the following properties are required if you want your shipping details to be eligible for the shipping details enhancement."
+  },
+  {
+   "id": "q90",
+   "section": "#offer-shipping-details-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q91",
+   "section": "#offer-shipping-details-properties",
+   "text": "deliveryTime | ShippingDeliveryTime The total delay between the receipt of the order and the goods reaching the final customer. The following properties can be nested in the deliveryTime property: handlingTime transitTime Don't provide more than one deliveryTime."
+  },
+  {
+   "id": "q92",
+   "section": "#offer-shipping-details-properties",
+   "text": "shippingDestination | DefinedRegion Indicates shipping destinations. Specify the shippingDestination.addressCountry information."
+  },
+  {
+   "id": "q93",
+   "section": "#offer-shipping-details-properties",
+   "text": "shippingRate | MonetaryAmount Information about the cost of shipping to the specified destination. At least one of shippingRate.value or shippingRate.maxValue must be specified, along with shippingRate.currency. You can only specify one shippingRate per OfferShippingDetails property."
+  },
+  {
+   "id": "q94",
+   "section": "#offer-shipping-details-properties",
+   "text": "shippingRate.currency | Text The currency of the shipping cost, in 3-letter ISO 4217 format. The currency must be the same as the currency of the offer."
+  },
+  {
+   "id": "q95",
+   "section": "#offer-shipping-details-properties",
+   "text": "shippingRate.value or shippingRate.maxValue | Number The cost of shipping to the shippingDestination. If a string is used to provide the value, don't include currency symbols, thousands separators, or spaces."
+  },
+  {
+   "id": "q96",
+   "section": "#defined-region-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q97",
+   "section": "#defined-region-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q98",
+   "section": "#defined-region-properties",
+   "text": "addressCountry | Text The two-letter country code, in ISO 3166-1 alpha-2 format."
+  },
+  {
+   "id": "q99",
+   "section": "#defined-region-properties",
+   "text": "Choose either addressRegion or postalCode | Identifies the region for the customer delivery area. If omitted, the whole country is the defined region. Multiple regions can be listed, but you cannot mix different ways of specifying the regions in one DefinedRegion instance."
+  },
+  {
+   "id": "q100",
+   "section": "#defined-region-properties",
+   "text": "addressRegion | Text If you include this property, the region must be a 2- or 3-digit ISO 3166-2 subdivision code, without country prefix."
+  },
+  {
+   "id": "q101",
+   "section": "#defined-region-properties",
+   "text": "Do not provide both a region and postal code information."
+  },
+  {
+   "id": "q102",
+   "section": "#shipping-delivery-time-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q103",
+   "section": "#shipping-delivery-time-properties",
+   "text": "handlingTime | QuantitativeValue (for shipping times) The typical delay between the receipt of the order and the goods leaving the warehouse."
+  },
+  {
+   "id": "q104",
+   "section": "#shipping-delivery-time-properties",
+   "text": "transitTime | QuantitativeValue (for shipping times) The typical delay between when the order has been sent for delivery and when the goods reach the final customer."
+  },
+  {
+   "id": "q105",
+   "section": "#shipping-quantitative-value-properties",
+   "text": "A minimum and maximum number of days must be specified."
+  },
+  {
+   "id": "q106",
+   "section": "#shipping-quantitative-value-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q107",
+   "section": "#shipping-quantitative-value-properties",
+   "text": "maxValue | Number The maximum number of days. The value must be a non-negative, whole number."
+  },
+  {
+   "id": "q108",
+   "section": "#shipping-quantitative-value-properties",
+   "text": "minValue | Number The minimum number of days. The value must be a non-negative, whole number."
+  },
+  {
+   "id": "q109",
+   "section": "#shipping-quantitative-value-properties",
+   "text": "unitCode | Text The units of the minimum/maximum values. The value must be DAY or d."
+  },
+  {
+   "id": "q110",
+   "section": "#merchant-return-policy-properties",
+   "text": "Use the following properties to make your merchant listing eligible to show return policy information, including return fees and the window of time to return a product."
+  },
+  {
+   "id": "q111",
+   "section": "#merchant-return-policy-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q112",
+   "section": "#merchant-return-policy-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q113",
+   "section": "#merchant-return-policy-properties",
+   "text": "applicableCountry | Text The country code that the return policy applies to, using the two-letter ISO 3166-1 alpha-2 country code formatting."
+  },
+  {
+   "id": "q114",
+   "section": "#merchant-return-policy-properties",
+   "text": "returnPolicyCategory | MerchantReturnEnumeration The type of return policy. Use one of the following values: https://schema.org/MerchantReturnFiniteReturnWindow: There's a set number of days to return a product. https://schema.org/MerchantReturnNotPermitted: Returns aren't permitted. https://schema.org/MerchantReturnUnlimitedWindow: There's an unlimited amount of time to return a product. If you use MerchantReturnFiniteReturnWindow, the merchantReturnDays property is required."
+  },
+  {
+   "id": "q115",
+   "section": "#merchant-return-policy-properties",
+   "text": "merchantReturnDays | Integer The number of days from the delivery date that a product can be returned. This property is required if you set the returnPolicyCategory to MerchantReturnFiniteReturnWindow."
+  },
+  {
+   "id": "q116",
+   "section": "#merchant-return-policy-properties",
+   "text": "returnFees | ReturnFeesEnumeration The type of return fees. Use one of the following supported values: https://schema.org/FreeReturn: There's no charge to the consumer to return the product. If used, don't include the returnShippingFeesAmount property. https://schema.org/ReturnFeesCustomerResponsibility: The consumer needs to handle and pay for the return shipping themselves. If used, don't include the returnShippingFeesAmount property. https://schema.org/ReturnShippingFees: There's a shipping fee charged by the merchant to the consumer to return the product. Specify the (non-zero) shipping fee using the returnShippingFeesAmount property."
+  },
+  {
+   "id": "q117",
+   "section": "#merchant-return-policy-properties",
+   "text": "returnMethod | ReturnMethodEnumeration The type of return method offered. This is only recommended if you set the returnPolicyCategory to either MerchantReturnFiniteReturnWindow or MerchantReturnUnlimitedWindow. Use one or more of the following values: https://schema.org/ReturnAtKiosk: The item can be returned at a kiosk. https://schema.org/ReturnByMail: The item can be returned by mail. https://schema.org/ReturnInStore: The item can be returned in a store."
+  },
+  {
+   "id": "q118",
+   "section": "#merchant-return-policy-properties",
+   "text": "returnShippingFeesAmount | MonetaryAmount The cost of shipping for returning a product. This property is only required if there's a non-zero shipping fee to be paid by the consumer to the merchant to return a product, in which case returnFees must be set to https://schema.org/ReturnShippingFees. If the return is free, returnFees must be set to https://schema.org/FreeReturn. If the consumer needs to handle, and pay for, the return shipping cost, returnFees must be set to https://schema.org/ReturnFeesCustomerResponsibility."
+  },
+  {
+   "id": "q119",
+   "section": "#technical-guidelines",
+   "text": "Only pages where a shopper can purchase a product are eligible for merchant listing experiences, not pages with links to other sites that sell the product."
+  },
+  {
+   "id": "q120",
+   "section": "#technical-guidelines",
+   "text": "Product rich results only support pages that focus on a single product (or multiple variants of the same product). For example, \"shoes in our shop\" is not a specific product. This includes product variants where each product variant has a distinct URL. We recommend focusing on adding markup to product pages instead of pages that list products or a category of products."
+  },
+  {
+   "id": "q121",
+   "section": "#technical-guidelines",
+   "text": "When offering products for sale in multiple currencies, have a distinct URL per currency. For example, if a product is available for sale in Canadian and US dollars, use two distinct URLs, one per currency."
+  },
+  {
+   "id": "q122",
+   "section": "#technical-guidelines",
+   "text": "Car isn't supported automatically as a subtype of Product. For now, include both Car and Product types if you want to attach ratings to it and be eligible for the Search feature."
+  },
+  {
+   "id": "q123",
+   "section": "#technical-guidelines",
+   "text": "If you're a merchant optimizing for all types of shopping results, we recommend putting Product structured data in the initial HTML for best results."
+  },
+  {
+   "id": "q124",
+   "section": "#product-properties",
+   "text": "Follow the Review snippet guidelines and the list of required and recommended review properties.",
+   "note": "Remisión de la fila review a google-search-review-snippet."
+  }
+ ]
+}

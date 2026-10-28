@@ -1,0 +1,13 @@
+{
+ "source": "w3c-shacl",
+ "version": "2026-10-27",
+ "class": "instrumento del sistema",
+ "summary": "Lenguaje para validar grafos RDF contra un conjunto de restricciones (shapes). Puede servir para construir el auditor, con los requisitos técnicos expresados como restricciones; no es una condición que deba cumplir el ecommerce (D-132).",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#abstract",
+   "text": "This document defines the SHACL Shapes Constraint Language, a language for validating RDF graphs against a set of conditions."
+  }
+ ]
+}

@@ -1,0 +1,102 @@
+{
+  "source": "whatwg-html-microdata",
+  "version": "2026-10-27",
+  "class": "especificación aplicable",
+  "level": "serialización",
+  "summary": "Sintaxis de Microdata en HTML (WHATWG, sección 5): cómo se forman los items (itemscope, itemtype, itemid, itemref), los nombres de propiedad (itemprop) y sus valores, y las condiciones que ha de cumplir el documento que los contiene.",
+  "note": "La versión congelada solo contiene la sección 5 del HTML Living Standard. Lo que HTML exige a cada elemento portador de valor (meta con content, link con href, time con datetime válido) está en la sección 4 y no se puede citar desde esta fuente. El WHATWG escribe los requisitos de autor con «must» en minúscula, y su párrafo de conformidad (sección 2) tampoco está en la versión congelada: la naturaleza la fija el «must» de cada cita. Las secciones 5.3 (vocabularios de ejemplo) y 5.4 (conversión) no aplican a Schema.org; de 5.4 solo se cita el algoritmo de extracción, que sirve de método.",
+  "quotes": [
+    {
+      "id": "q01",
+      "section": "#items",
+      "text": "The itemtype attribute, if specified, must have a value that is an unordered set of unique space-separated tokens, none of which are identical to another token and each of which is a valid URL string that is an absolute URL, and all of which are defined to use the same vocabulary. The attribute's value must have at least one token."
+    },
+    {
+      "id": "q02",
+      "section": "#items",
+      "text": "The item types must all be types defined in applicable specifications and must all be defined to use the same vocabulary."
+    },
+    {
+      "id": "q03",
+      "section": "#items",
+      "text": "The itemtype attribute must not be specified on elements that do not have an itemscope attribute specified."
+    },
+    {
+      "id": "q04",
+      "section": "#items",
+      "text": "The itemid attribute, if specified, must have a value that is a valid URL potentially surrounded by spaces."
+    },
+    {
+      "id": "q05",
+      "section": "#items",
+      "text": "The itemid attribute must not be specified on elements that do not have both an itemscope attribute and an itemtype attribute specified, and must not be specified on elements with an itemscope attribute whose itemtype attribute specifies a vocabulary that does not support global identifiers for items, as defined by that vocabulary's specification."
+    },
+    {
+      "id": "q06",
+      "section": "#items",
+      "text": "The itemref attribute, if specified, must have a value that is an unordered set of unique space-separated tokens none of which are identical to another token and consisting of IDs of elements in the same tree."
+    },
+    {
+      "id": "q07",
+      "section": "#items",
+      "text": "The itemref attribute must not be specified on elements that do not have an itemscope attribute specified."
+    },
+    {
+      "id": "q08",
+      "section": "#items",
+      "text": "An item is said to be a typed item when either it has an item type, or it is the value of a property of a typed item. The relevant types for a typed item is the item's item types, if it has any, or else is the relevant types of the item for which it is a property's value."
+    },
+    {
+      "id": "q09",
+      "section": "#names:-the-itemprop-attribute",
+      "text": "The itemprop attribute, if specified, must have a value that is an unordered set of unique space-separated tokens none of which are identical to another token, representing the names of the name-value pairs that it adds. The attribute's value must have at least one token."
+    },
+    {
+      "id": "q10",
+      "section": "#names:-the-itemprop-attribute",
+      "text": "Each token must be either:\n\n- If the item is a typed item: a defined property name allowed in this situation according to the specification that defines the relevant types for the item, or\n- A valid URL string that is an absolute URL defined as an item property name allowed in this situation by a vocabulary specification, or\n- A valid URL string that is an absolute URL, used as a proprietary item property name (i.e. one used by the author for private purposes, not defined in a public specification), or\n- If the item is not a typed item: a string that contains no U+002E FULL STOP characters (.) and no U+003A COLON characters (:), used as a proprietary item property name (i.e. one used by the author for private purposes, not defined in a public specification)."
+    },
+    {
+      "id": "q11",
+      "section": "#values",
+      "text": "The URL property elements are the a, area, audio, embed, iframe, img, link, object, source, track, and video elements.\n\nIf a property's value, as defined by the property's definition, is an absolute URL, the property must be specified using a URL property element."
+    },
+    {
+      "id": "q12",
+      "section": "#values",
+      "text": "These requirements do not apply just because a property value happens to match the syntax for a URL. They only apply if the property is explicitly defined as taking such a value."
+    },
+    {
+      "id": "q13",
+      "section": "#associating-names-with-items",
+      "text": "A document must not contain any items for which the algorithm to find the properties of an item finds any microdata errors."
+    },
+    {
+      "id": "q14",
+      "section": "#associating-names-with-items",
+      "text": "If current is already in memory, there is a microdata error; continue."
+    },
+    {
+      "id": "q15",
+      "section": "#associating-names-with-items",
+      "text": "All itemref attributes in a Document must be such that there are no cycles in the graph formed from representing each item in the Document as a node in the graph and each property of an item whose value is another item as an edge in the graph connecting those two items."
+    },
+    {
+      "id": "q16",
+      "section": "#associating-names-with-items",
+      "text": "A document must not contain any elements that have an itemprop attribute that would not be found to be a property of any of the items in that document were their properties all to be determined."
+    },
+    {
+      "id": "q17",
+      "section": "#values",
+      "text": "The property value of a name-value pair added by an element with an itemprop attribute is as given for the first matching case in the following list:",
+      "note": "Función: reglas de valor según el elemento portador (meta → content, a/link → href, time → datetime…), que usan los métodos de los requisitos que leen valores de Microdata."
+    },
+    {
+      "id": "q18",
+      "section": "#json",
+      "text": "Given a list of nodes nodes in a Document, a user agent must run the following algorithm to extract the microdata from those nodes into a JSON form:",
+      "note": "Función: algoritmo de extracción de items a JSON, útil como método del auditor. Es conformidad de agente de usuario: no fundamenta requisitos."
+    }
+  ]
+}

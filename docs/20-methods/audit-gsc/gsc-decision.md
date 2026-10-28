@@ -3,9 +3,9 @@ id: audit-gsc-gsc-decision
 title: Decisión de GSC, incidencias y control de materialidad
 layer: method
 status: propuesta
-version: 0.3
+version: 0.4
 updated: 2026-10-27
-sources: [GSC0 §12, GSC0 §14.4, FUND §8.1, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
+sources: [GSC0 §12, GSC0 §14.4, FUND §8.1, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-governance]
 ---
 
 # Decisión de GSC, incidencias y control de materialidad
@@ -36,7 +36,7 @@ La escala GSC 0/1/2 y los estados NA/NE son canon ([sistemas de valoración](../
 
 **GSC-11 · Revisión de nueva evidencia.** Si un hallazgo o candidato altera materialmente un juicio, reabrir la comprobación afectada y documentar el cambio.
 
-**GSC-12 · Decisión completa.** Todo GSC debe quedar acompañado de: criterio y condición, valor, hechos comprobados, propiedades relacionadas, evidencias citadas, cobertura, motivo de la decisión y limitaciones.
+**GSC-12 · Decisión completa.** Todo GSC debe quedar acompañado de: criterio y condición, valor, hechos comprobados, propiedades relacionadas, pistas de valoración usadas (`PV-n`, [D-138](../../30-governance/decisions.md#d-138)), evidencias citadas, cobertura, motivo de la decisión y limitaciones.
 
 ## Árbol de decisión operativo
 
@@ -112,6 +112,7 @@ valoraciones:
     gsc: 1               # null si NE o NA
     condicion_evaluada: "<condicion vigente del AC>"
     propiedades_consideradas: ["P10", "P11", "P12"]
+    pistas_usadas: ["PV-12"]
     evidencias: ["E-001", "E-002"]
     hallazgos: ["H-001"]
     parte_satisfecha: "<que esta suficientemente acreditado>"

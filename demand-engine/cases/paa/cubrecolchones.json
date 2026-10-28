@@ -1,0 +1,124 @@
+{
+  "set": "cubrecolchones",
+  "label": "Cubrecolchones",
+  "cases": [
+    "protector-basic-010"
+  ],
+  "catalog": "gen@0.5 cat.casa-y-jardin@2 cat.ropa-de-casa@4 cat.ropa-de-cama@2 cat.protectores-de-colchon@3 cat.cubrecolchones@2",
+  "questions": 81,
+  "reviewed": {
+    "at": "2026-10-27",
+    "by": "usuario",
+    "rulebook": "classifier/paa.md v3",
+    "task": "T-042",
+    "decisions": [
+      "D-100",
+      "D-101",
+      "D-102",
+      "D-103",
+      "D-104",
+      "D-105",
+      "D-106",
+      "D-107",
+      "D-108",
+      "D-109",
+      "D-110",
+      "D-112",
+      "D-113"
+    ]
+  },
+  "perimeter": {
+    "out": [
+      "¿Qué grosor de topper es mejor?",
+      "¿Qué marca de colchón usan los hoteles 5 estrellas?",
+      "¿Cuánto vale un topper para colchón?",
+      "¿Es bueno dormir con un topper?",
+      "¿Qué grosor debe tener un topper?",
+      "¿Qué pasa si no cambio las sábanas en un mes?",
+      "¿Qué neutraliza el olor a orina?",
+      "¿Cómo limpiar un colchón que se ha hecho pipí?",
+      "¿Qué pasa si le pongo bicarbonato al colchón?",
+      "¿Los colchones de viscoelástica dan mucho calor?",
+      "¿Cuáles son las opiniones sobre los colchones de bambú?",
+      "¿Cuánto cuesta un colchón de bambú?",
+      "¿Cuál es el colchón más recomendable para dormir?",
+      "¿Cuánto cuesta el metro de tela de bambú?",
+      "¿Cuánto cuesta un buen colchón?",
+      "¿Qué marca de colchón es Bamboo?",
+      "¿Qué tal son los colchones de bambú?",
+      "¿Cuáles son las 3 mejores marcas de colchones?"
+    ],
+    "expected": true
+  },
+  "criteria": [
+    {
+      "name": "Tipo de tacto",
+      "verdict": "genera",
+      "expected": true,
+      "questions": [
+        "¿Qué protector de colchón es suave?"
+      ]
+    },
+    {
+      "name": "Marca",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Qué marca de cubre colchón es mejor?",
+        "¿Cuál es la mejor marca de fundas?"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "question": "¿Qué tacto tiene la cara superior (sedoso o liso, afelpado, fresco al tacto…)?",
+      "blocks": [
+        "cat.protectores-de-colchon"
+      ],
+      "trait": "sensorial",
+      "expected": true,
+      "questions": [
+        "¿Qué protector de colchón es suave?"
+      ]
+    },
+    {
+      "question": "¿Qué durabilidad declara (vida útil o número de lavados que resiste manteniendo sus prestaciones)?",
+      "blocks": [
+        "cat.ropa-de-casa"
+      ],
+      "trait": "prestacion",
+      "expected": true,
+      "questions": [
+        "¿Cuánto dura un cubre colchón?",
+        "¿Cuánto dura un protector de colchón?"
+      ]
+    },
+    {
+      "question": "¿Con qué tipos de colchón es compatible (viscoelástico, de muelles, de látex…)?",
+      "blocks": [
+        "cat.protectores-de-colchon"
+      ],
+      "trait": "uso",
+      "expected": true,
+      "questions": [
+        "¿Se puede poner una funda a un colchón viscoelástico?"
+      ]
+    }
+  ],
+  "revisions": [
+    {
+      "target": "cat.protectores-de-colchon/03",
+      "action": "sacar",
+      "summary": "El valor amazon-ptd-prop:MATTRESS_COVER.special_feature=Enfriamiento es un tipo de tacto (efecto frío al tacto), no un nivel térmico (D-108): sale de la lista de confort y pasa al candidato de tacto N1. La regulación térmica se queda con «Control de temperatura».",
+      "expected": true
+    }
+  ],
+  "contributions": [
+    {
+      "target": "cat.ropa-de-casa/01",
+      "contribution": "denominación genérica de la fibra según el Reglamento (UE) 1007/2011 junto al nombre comercial (p. ej., Tencel)",
+      "kind": "precisión",
+      "expected": true
+    }
+  ]
+}

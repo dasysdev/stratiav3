@@ -1,0 +1,30 @@
+{
+ "source": "schemaorg",
+ "version": "30.1",
+ "class": "especificación aplicable",
+ "level": "vocabulario",
+ "summary": "Release 30.1 del vocabulario Schema.org en formato máquina: tipos, propiedades, dominios (domainIncludes), rangos (rangeIncludes), jerarquía (rdfs:subClassOf, rdfs:subPropertyOf) y enumeraciones. Fija la definición de cada término y las pocas recomendaciones que traen sus rdfs:comment.",
+ "quotes": [
+  {"id": "q01", "section": "schema:gtin",
+   "text": "A correct [[gtin]] value should be a valid GTIN, which means that it should be an all-numeric string of either 8, 12, 13 or 14 digits, or a \"GS1 Digital Link\" URL based on such a string."},
+  {"id": "q02", "section": "schema:gtin",
+   "text": "The numeric component should also have a [valid GS1 check digit](https://www.gs1.org/services/check-digit-calculator) and meet the other rules for valid GTINs."},
+  {"id": "q03", "section": "schema:gtin",
+   "text": "The [[gtin]] property generalizes the earlier [[gtin8]], [[gtin12]], [[gtin13]], and [[gtin14]] properties."},
+  {"id": "q04", "section": "schema:gtin",
+   "text": "The GS1 [digital link specifications](https://www.gs1.org/standards/Digital-Link/) expresses GTINs as URLs (URIs, IRIs, etc.). Digital Links should be populated into the [[hasGS1DigitalLink]] attribute."},
+  {"id": "q05", "section": "schema:BreadcrumbList",
+   "text": "The specific values of 'position' are not assigned meaning for a BreadcrumbList, but they should be integers, e.g. beginning with '1' for the first item in the list."},
+  {"id": "q06", "section": "schema:WebPage",
+   "text": "Every web page is implicitly assumed to be declared to be of type WebPage, so the various properties about that webpage, such as <code>breadcrumb</code> may be used. We recommend explicit declaration if these properties are specified, but if they are found outside of an itemscope, they will be assumed to be about the page."},
+  {"id": "q07", "section": "schema:addressCountry",
+   "text": "The country. Recommended to be in 2-letter [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1) format, for example \"US\"."},
+  {"id": "q08", "section": "schema:value",
+   "text": "For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'."},
+  {"id": "q09", "section": "schema:iso6523Code",
+   "text": "The identifier should be in the `XXXX:YYYYYY:ZZZ` or `XXXX:YYYYYY`format. Where `XXXX` is a 4 digit _ICD_ (International Code Designator), `YYYYYY` is an _OID_ (Organization Identifier) with all formatting characters (dots, dashes, spaces) removed with a maximal length of 35 characters, and `ZZZ` is an optional OPI (Organization Part Identifier) with a maximum length of 35 characters."},
+  {"id": "q10", "section": "schema:additionalType",
+   "text": "Typically the value is a URI-identified RDF class, and in this case corresponds to the use of rdf:type in RDF."}
+ ],
+ "note": "Las secciones son términos y la cita es parte de su rdfs:comment. Rangos, dominios, jerarquía e inversas (schema:inverseOf) no tienen texto citable: se leen de schemaorg-current-https.jsonld de la misma release. Las pautas de price, priceCurrency, Number y value («Use…») no llevan término normativo y no dan requisito."
+}

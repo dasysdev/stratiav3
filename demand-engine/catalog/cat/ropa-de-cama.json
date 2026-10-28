@@ -62,6 +62,30 @@
           "origin": "inferida",
           "support": []
         }
+      ],
+      "comparison": {
+        "mark": "no",
+        "case": "b",
+        "reason": "Es un filtro: primero se elige el tamaño de la cama que se tiene y luego se comparan las ofertas de ese tamaño."
+      },
+      "hints": [
+        {
+          "id": "PV-30",
+          "pista": "El tamaño lo fijan las medidas del colchón o de la almohada en cm, o un ancho de colchón de los que se usan en España; una denominación sin medidas («matrimonio», «Queen») no lo fija.",
+          "propiedad": [
+            "P09",
+            "P13"
+          ],
+          "ac": [
+            "Precisión"
+          ],
+          "origen": {
+            "tipo": "referencias",
+            "apoyo": [
+              "shopify-attr:bedding-size"
+            ]
+          }
+        }
       ]
     },
     {

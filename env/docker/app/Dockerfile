@@ -9,7 +9,7 @@ FROM python:3.13-slim-bookworm AS base
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONPATH=/work/demand-engine/src \
+    PYTHONPATH=/work/demand-engine/src:/work/web-audit/src \
     LANG=es_ES.UTF-8 \
     LC_ALL=es_ES.UTF-8 \
     TZ=Europe/Madrid \
@@ -52,6 +52,7 @@ ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
 FROM base AS dev
 COPY pyproject.toml uv.lock /work/
 COPY demand-engine/pyproject.toml /work/demand-engine/
+COPY web-audit/pyproject.toml /work/web-audit/
 RUN uv sync --locked --all-packages && rm -rf /tmp/uv-cache
 USER app
 CMD ["sleep", "infinity"]
@@ -60,7 +61,9 @@ CMD ["sleep", "infinity"]
 FROM base AS prod
 COPY pyproject.toml uv.lock /work/
 COPY demand-engine/pyproject.toml /work/demand-engine/
+COPY web-audit/pyproject.toml /work/web-audit/
 RUN uv sync --locked --all-packages --no-dev && rm -rf /tmp/uv-cache
 COPY demand-engine/src /work/demand-engine/src
+COPY web-audit/src /work/web-audit/src
 USER app
 CMD ["sleep", "infinity"]

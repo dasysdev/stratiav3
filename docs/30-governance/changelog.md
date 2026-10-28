@@ -4,7 +4,7 @@ title: Registro de cambios de la documentación
 layer: governance
 status: vigente
 version: 1.0
-updated: 2026-10-27
+updated: 2026-10-28
 sources: []
 ---
 
@@ -13,6 +13,100 @@ sources: []
 Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módulos afectados, el tipo de cambio y la decisión que lo motiva.
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
+
+## 2026-10-28 — Datos del mínimo de representación en Web Schema.org y formación estructural · aplicado
+
+- **canon** — `INTAKE 2026-10-28-minimum-members-structural-formation` (preguntas del usuario sobre lo obligatorio y lo condicional de Google y sobre las estructuras opcionales incluidas; propuesta conjunta aprobada):
+  - datos del mínimo en Web Schema.org, con dos pruebas (función y universalidad): url de la oferta, enlace Product → Offer, relación variante ↔ grupo, variesBy, `@id` (hueco), imagen, nombre, SKU y nombre del vendedor; GTIN, MPN y marca quedan fuera por la prueba de universalidad; en Merchant Center el GTIN es muy recomendado si existe, y el MPN (sin GTIN) y la marca (productos nuevos) son obligaciones condicionales, para el perfil de Catálogos distribuidos ([D-147](decisions.md#d-147));
+  - formación estructural: una estructura publicada, aunque sea opcional, tiene las partes exigidas, las necesarias para interpretar sus valores y partes coherentes entre sí; absorbe la excepción de D-145 ([D-148](decisions.md#d-148)).
+  - Módulos: [commercial-information](../10-model/commercial-information.md) 1.4, [evaluation-scopes](../10-model/evaluation-scopes.md) 1.5, [demand-model](../10-model/demand-model.md) 3.6; glosario (Mínimo de representación, Perfil de implementación y nueva entrada Formación estructural).
+- **gobernanza** — OQ-74 cerrada; OQ-30 anotada; D-143 y D-145 anotadas. T-055 desbloqueada. Numeración: D-146 la tomó en paralelo otra sesión (perímetro de PAA); estas decisiones son D-147 y D-148.
+
+## 2026-10-28 — La categoría madre y el material en el perímetro de PAA · aplicado
+
+- **canon** — `INTAKE 2026-10-28-paa-parent-and-material` (decisión del usuario sobre I-48, a la vista de la pasada de control con el reglamento PAA v5; T-053):
+  - la pregunta sobre la categoría madre va dentro cuando pregunta por algo que la clase hereda de su bloque, y fuera si solo tiene sentido para otro producto o trata de un hermano; las semillas no cambian; la pregunta sobre el material va dentro si la clase lo tiene o lo hereda ([D-146](decisions.md#d-146), que enmienda D-141);
+  - en pantuflas, las tres preguntas de cuero vuelven dentro y sus aportaciones pasan a esperadas.
+  - Módulos: [choice-criteria](../10-model/choice-criteria.md) 1.11, [construction-routes](../10-model/construction-routes.md) 1.7; glosario (Producto vecino).
+- **gobernanza** — [I-48](issues.md#i-48) resuelta → D-146; D-141 anotada en la tabla. Fuera de `docs/`: reglamento PAA v6 y casos de control (T-053).
+
+## 2026-10-28 — Frontera entre la evaluación técnica y la informativa · aplicado
+
+- **canon** — `INTAKE 2026-10-28-technical-informative-frontier` (propuesta del usuario; clasificación de los 414 requisitos técnicos y alternativa A, elegida por el usuario):
+  - la técnica mira cómo está construido lo que se publica más la presencia de lo que el consumidor exige; la informativa, si se publica lo que el consumidor solo recomienda; decide la naturaleza que fija la especificación ([D-145](decisions.md#d-145), que enmienda D-130 y precisa D-143);
+  - la presencia de lo recomendado pasa a ser, en general, apoyo del modelo de demanda del ámbito Web Schema.org (salvo los recomendados que interpretan un valor publicado y los datos del mínimo que fije OQ-74).
+  - Módulos: [evaluation-scopes](../10-model/evaluation-scopes.md) 1.4 (fila del consumidor y nueva subsección «Frontera entre la evaluación técnica y la informativa»), [commercial-information](../10-model/commercial-information.md) 1.3, [demand-model](../10-model/demand-model.md) 3.5; glosario (Perfil de implementación).
+- **gobernanza** — OQ-75 cerrada; OQ-74 y OQ-30 anotadas; nueva OQ-76 (cómo entra lo recomendado en el modelo de demanda). D-130 y D-143 anotadas en la tabla. Fuera de `docs/`: T-055 (retirada en la referencia técnica de estos y de los 26 que no se auditan, después de OQ-74) y T-056 (motor de demanda).
+
+## 2026-10-28 — Mínimo de representación de la oferta y papel de la imagen · aplicado
+
+- **canon** — `INTAKE 2026-10-28-minimum-representation-image` (propuesta del usuario sobre los datos fundamentales de la representación; estudio de la imagen por Claude, alternativa A elegida por el usuario):
+  - nuevo concepto, el mínimo de representación: los datos que hacen falta para descubrir la oferta, acceder a ella e identificarla; si existen y están bien formados lo dice la técnica, y lo que transmiten los que llevan un hecho comercial, la informativa ([D-143](decisions.md#d-143));
+  - la imagen es un dato de sostén del mínimo y se evalúa en la técnica; lo que muestra no es información (no da disponibilidad, no resuelve ni refuta), y la información explícita que lleva sí lo es si el ámbito permite leerla ([D-144](decisions.md#d-144), que enmienda una interpretación de D-052).
+  - Módulos: [commercial-information](../10-model/commercial-information.md) 1.2, [effective-availability](../10-model/effective-availability.md) 1.2, [acceptance-criteria](../10-model/acceptance-criteria.md) 1.5, [evaluation-scopes](../10-model/evaluation-scopes.md) 1.3; glosario (nueva entrada Mínimo de representación).
+- **gobernanza** — nuevas OQ-74 (qué datos forman el mínimo) y OQ-75 (frontera general entre las dos evaluaciones y los 83 requisitos apartados en el triaje); OQ-20 anotada (texto dentro de una imagen); D-052 anotada en la tabla. Implantación en `demand-engine/catalog/gen.json` y `rules/resolving.json` (quitar la aportación de imagen de `gen/24`): T-054.
+
+## 2026-10-28 — Reglas de la revisión de los casos de control de PAA · aplicado
+
+- **canon** — `INTAKE 2026-10-28-paa-control-review-rules` (decisiones del usuario en la revisión de T-042, depositadas en T-052):
+  - productos vecinos fuera del perímetro siempre; el perímetro va antes de la lectura sobre la oferta, que ya no lo decide ([D-141](decisions.md#d-141), que enmienda D-100);
+  - la moda nunca genera; la popularidad no genera (C4); la preferencia general es un criterio intermedio; la alternativa de producto no genera (C3) ([D-142](decisions.md#d-142), que precisa D-104 y D-110).
+  - Módulos: [choice-criteria](../10-model/choice-criteria.md) 1.10, [construction-routes](../10-model/construction-routes.md) 1.6; glosario (Lectura sobre la oferta, Criterio de elección intermedio, nueva entrada Producto vecino).
+- **gobernanza** — nueva [I-48](issues.md#i-48): alcance de «la categoría madre en general» y de las preguntas sobre el material, a la vista de la pasada de control con el reglamento PAA v5 (T-052). Fila de [I-47](issues.md#i-47), que faltaba en la tabla.
+
+## 2026-10-27 — Las pistas de un requisito viven en el requisito · aplicado
+
+- **canon** — `INTAKE 2026-10-27-requirement-hints-location`: las pistas dirigidas a un requisito viven en el propio requisito; las de tipo y de fuente siguen en el catálogo de pistas ([D-140](decisions.md#d-140), que enmienda D-134 y precisa D-135).
+  - Módulos: [assessment-hints](../10-model/assessment-hints.md) 1.6 (reglas 6 a 10), [demand-model](../10-model/demand-model.md) 3.4; glosario (Pistas de valoración).
+- **gobernanza** — OQ-73 anotada.
+
+## 2026-10-27 — Primera pasada de la referencia técnica · aplicado
+
+- **gobernanza** — primera pasada del inventario de fuentes de Schema.org con `/web-reference` (T-047; referencia en `web-audit/reference/`, informe en `web-audit/reference/reports/2026-10-27-primera-pasada.md`). Sin intake ni decisiones: solo se registra lo que afecta al canon.
+  - Nueva [I-47](issues.md#i-47): el GS1 Web Vocabulary no encaja en ninguna clase de fuente; propuesta de la clase «vocabulario complementario».
+  - [I-41](issues.md#i-41) anotada: el dígito de control del GTIN lo recomienda Schema.org 30.1 (nivel de vocabulario); la página de fichas de comerciante solo pide la forma numérica.
+
+## 2026-10-27 — Hallazgos del piloto de pistas de valoración · aplicado
+
+- **gobernanza** — piloto de las pistas de valoración y de la marca de comparación con los nueve requisitos de sábanas (T-050; catálogo en `demand-engine/catalog/hints.json`). Sin intake ni decisiones: solo se registra lo que afecta al canon.
+  - Nuevas incidencias: [I-42](issues.md#i-42) (separadores de la etiqueta de una fuente), [I-43](issues.md#i-43) (`para` con un solo valor ante temas repartidos, como las certificaciones), [I-44](issues.md#i-44) (duplicadas por llaves distintas), [I-45](issues.md#i-45) (pistas de tipo en la capa general) e [I-46](issues.md#i-46) (qué puede comprobar el código de «criterio, no lista»).
+  - Nueva [OQ-73](open-questions.md) (corregir en su sitio una pista que no ha usado ningún modelo); OQ-66 y OQ-71 anotadas.
+- **editorial** — marcas ⚠ I-42 a I-46 y OQ-73 en [assessment-hints](../10-model/assessment-hints.md) 1.5.
+
+## 2026-10-27 — Marco de la evaluación técnica de Web Schema.org · aplicado
+
+- **canon** — `INTAKE 2026-10-27-web-schema-technical-framework` (planificación del sistema web-audit, T-044):
+  - **web-audit** es el sistema de la evaluación técnica de Web y Web Schema.org, solo técnico; empieza por Web Schema.org ([D-129](decisions.md#d-129));
+  - **perfil de implementación**: definición; la naturaleza obligatoria o recomendada es relativa al perfil; en Web Schema.org, serialización (JSON-LD 1.1, Microdata, RDFa 1.1), vocabulario (Schema.org 30.1) y consumidor (Google Search); Merchant Center, solo para Catálogos y la consistencia transversal ([D-130](decisions.md#d-130));
+  - **estados del requisito técnico**: satisfecho o no satisfecho, NA y NE como incidencia; el sistema cuantitativo sigue abierto ([D-131](decisions.md#d-131));
+  - solo una **especificación aplicable** fundamenta un requisito técnico; función de las demás clases de fuente; una condición por requisito y cita literal ([D-132](decisions.md#d-132));
+  - la **referencia técnica** vive en `web-audit/reference/`, gobernada por el canon; los requisitos los deciden los agentes con cita y una skill los mantiene ([D-133](decisions.md#d-133)).
+  - Módulos: [evaluation-scopes](../10-model/evaluation-scopes.md) 1.2 (perfil de implementación, estados, fuentes de los requisitos técnicos), [scoring-systems](../10-model/scoring-systems.md) 1.4 (tasa de cumplimiento técnico y lectura integrada); glosario (Requisito técnico general; nuevas: Perfil de implementación, Estados del requisito técnico, Especificación aplicable, web-audit).
+- **editorial** — marca ⚠ I-41 en [acceptance-criteria](../10-model/acceptance-criteria.md) 1.4 y [ac-guides](../20-methods/audit-gsc/ac-guides.md) 0.4 (frontera sintaxis/valor).
+- **gobernanza** — OQ-30 anotada (queda lo operativo y el sistema cuantitativo); nueva I-41 (GTIN inválido: Fiabilidad o también requisito técnico de un perfil).
+
+## 2026-10-27 — Cómo se fija la marca de comparación · aplicado
+
+- **canon** — `INTAKE 2026-10-27-comparison-mark`: la marca de dimensión de comparación se fija por requisito, con un criterio (se compara si el comprador elige por ese valor; no si es igual para todos, un filtro de necesidad o gusto, o identifica la oferta o su estado), explícita y con motivo, sin valor por defecto; los dudosos, «se compara»; pruebas, escritores y momentos como las pistas ([D-139](decisions.md#d-139); precisa D-126). [assessment-hints](../10-model/assessment-hints.md) 1.4, [demand-model](../10-model/demand-model.md) 3.3; glosario.
+- **gobernanza** — OQ-69 cerrada.
+
+## 2026-10-27 — Gobierno de las pistas de valoración · aplicado
+
+- **canon** — `INTAKE 2026-10-27-hints-governance`: las pistas las redactan los agentes sin aprobación y entran si pasan comprobaciones automáticas; duplicadas no se añaden, contradictorias quedan como duda; no se borran, se retiran; orígenes «marco», «normativa», «referencias» y «paa» ([D-136](decisions.md#d-136)). Nacen de una pasada manual de Claude y luego se van definiendo al crear modelos y en los entrenamientos; que queden sin compilar y encoladas es interpretación de Claude, pendiente de OQ-71 ([D-137](decisions.md#d-137)). Niveles no exclusivos, sin ámbito, el GSC cita las pistas usadas y el modelo anota la versión del catálogo de pistas ([D-138](decisions.md#d-138)). [assessment-hints](../10-model/assessment-hints.md) 1.3, [model-training](../10-model/model-training.md) 1.20; glosario (Pistas de valoración).
+- **método** — [gsc-decision](../20-methods/audit-gsc/gsc-decision.md) 0.4: GSC-12 y `pistas_usadas` en la plantilla.
+- **gobernanza** — OQ-66 anotada; nuevas OQ-71 (paso y material para escribir pistas) y OQ-72 (métrica de calidad).
+
+## 2026-10-27 — Campos de una pista de valoración · aplicado
+
+- **canon** — `INTAKE 2026-10-27-hint-fields`: seis campos (`id` `PV-1`… sin ceros delante, `pista`, `propiedad`, `ac`, `para`, `origen`); las pistas dirigidas a una fuente las escribe taxo; el perfil del RI las recibe resueltas en `pistas_valoracion` ([D-135](decisions.md#d-135)). [assessment-hints](../10-model/assessment-hints.md) 1.2; glosario (Pistas de valoración).
+- **método** — [ri-profile](../20-methods/audit-gsc/ri-profile.md) 0.2: campo `pistas_valoracion`.
+- **editorial** — paa-training, choice-criteria y construction-routes: pendientes que citaban OQ-68, actualizados.
+- **gobernanza** — OQ-68 cerrada; nueva OQ-70 (índice de pistas por requisito, aplazado).
+
+## 2026-10-27 — Catálogo de pistas de valoración · aplicado
+
+- **canon** — `INTAKE 2026-10-27-hints-catalog`: las pistas viven en un catálogo propio del motor de demanda; cada una se escribe una vez y va dirigida a un tipo, a una fuente o a un requisito; los requisitos no las copian; encontrarlas es una búsqueda por etiquetas, solo con código; aplicarlas lo hace el auditor ([D-134](decisions.md#d-134); precisa D-127). [assessment-hints](../10-model/assessment-hints.md) 1.1, [demand-model](../10-model/demand-model.md) 3.2, [model-training](../10-model/model-training.md) 1.19; glosario (Pistas de valoración).
+- **gobernanza** — OQ-68 y OQ-69 anotadas.
 
 ## 2026-10-27 — Pistas de valoración · aplicado
 

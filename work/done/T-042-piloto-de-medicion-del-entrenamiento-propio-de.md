@@ -1,10 +1,11 @@
 ---
 id: T-042
 title: Piloto de medición del entrenamiento propio de PAA
-status: en-curso
+status: hecha
 depends:
 milestone:
 created: 2026-10-27
+closed: 2026-10-27
 ---
 
 ## Objetivo
@@ -18,11 +19,11 @@ Medir con 3-4 clases muy distintas qué varía entre clases en PAA (semillas, cl
 - [x] Sus PAA capturadas con paa run dentro de D-096, con los bloqueos registrados si los hay
 - [x] Cada conjunto clasificado una vez con /paa-classify (reglamento PAA v3) y la versión del catálogo anotada
 - [x] Informe agregado del piloto: rendimiento por grupo de semillas y por clic, criterios por clase, dudas y divergencias repetidas
-- [ ] Casos de control de PAA: lo esperado de cada clase decidido por el usuario, junto con sábanas v3
+- [x] Casos de control de PAA: lo esperado de cada clase decidido por el usuario, junto con sábanas v3
 
-## Siguiente paso
+## Resultado
 
-Esperar las marcas del usuario en la hoja de revisión (https://claude.ai/artifact/MhwyMjZCCZhJxnFKzmu6z8; leer con ArtifactData list, colección «marks»). Después, escribir lo esperado de PAA en cada caso de demand-engine/cases/ (formato a proponer) y cerrar AC6.
+Piloto PAA: 12 conjuntos capturados y clasificados (v3), informe agregado y casos de control de PAA en demand-engine/cases/paa/ revisados por el usuario
 
 ## Notas
 
@@ -37,3 +38,8 @@ Esperar las marcas del usuario en la hoja de revisión (https://claude.ai/artifa
 - 2026-10-27 Clasificados con PAA v3 los 4 restantes (catálogo = clave del modelo v6-b): sofas-cama (gen@0.5 cat.mobiliario@2 cat.sofas@3 cat.sofas-cama@4) 84 preg., 6 fuera, 17 criterios (1 genera: estilo), 2 candidatos (durabilidad, estilo), 2 revisiones (confirma inferidas cat.sofas-cama/03 y /04), 586k tokens · sofas (gen@0.5 cat.mobiliario@2 cat.sofas@3) 89 preg., 8 fuera, 14 criterios (3 generan: durabilidad, frescor, arrugas), 3 candidatos, 2 revisiones (sacar «Transpirable» de cat.sofas/07; cuarteado en cat.sofas/08), 570k · toallas (gen@0.5 cat.casa-y-jardin@2 cat.ropa-de-casa@4 cat.toallas@2 esp.juego@0) 127 preg., 35 fuera (sábanas, planta del bambú, toallas higiénicas…), 7 criterios (0 generan), 2 candidatos (acabado del tejido, indicaciones de uso), 1 revisión (sacar «Zero twist» de cat.toallas/05), 561k · pantuflas (gen@0.5 cat.ropa-y-accesorios@2 cat.calzado@4 cat.pantuflas@4) 62 preg., 13 fuera (calzado deportivo/de trabajo), 11 criterios (1 genera: salud-del-pie), 1 candidato, 0 revisiones, 413k. Total piloto 12 conjuntos: 3.19M + 2.13M = 5.32M tokens (sin sábanas). Repetidas: durabilidad declarada en sofás y sofás cama (cat.sofas, dos agentes por separado); «comodidad» como intermedio dudoso (3 agentes); ambigüedad semántica de la semilla («zapatillas» deportivas/casa; «tela fresca» transpirable/tacto, D-108); marcas «españolas» → gen/17 vs gen/20 (3 agentes, divergen); prestaciones metidas en listas de otro tema (Transpirable, Zero twist, Antideslizante, Ergonómico).
 - 2026-10-27 AC5: informe agregado en demand-engine/training/reports/2026-10-27-paa-pilot-report.md (12 conjuntos, 68 búsquedas, 1239 preguntas únicas, 30 candidatos, 6,05 M tokens). Claves: 21/30 candidatos solo de semillas de valores; núcleo de una palabra sin caja (botas, cojines); clics 5–8 = 40 % de únicas y primer apoyo de 10/30 candidatos; 72 ids de criterio con sinónimos; sensorial propuesto en 3 conjuntos; inf/NN por modelo.
 - 2026-10-27 AC6 en curso: hoja de revisión publicada (https://claude.ai/artifact/MhwyMjZCCZhJxnFKzmu6z8) con 130 elementos de las 12 clases (30 candidatos, 18 revisiones, 36 aportaciones, criterios que generan o no, perímetro). El usuario marca esperado/no esperado/dudoso + comentario; las marcas quedan en la colección «marks» del artifact (ArtifactData list). Con ellas se escribe lo esperado de PAA en cada caso de cases/.
+- 2026-10-27 AC6, revisión del usuario (hoja de 130 elementos, colección «marks»): 116 esperados, 4 no esperados, 7 dudosos, 3 sin marca con comentario. Sin marcar al principio: sofás cama (11), cojines N1 y juguetes-perros R2, marcados después (esperados salvo sofás cama: alternativa-de-descanso, popularidad y preferencia-general, dudosos). Decidido: mantas N2 (encogimiento) no es requisito nuevo (C1, comentario del usuario «ya hay requisitos de resistencia al lavado»): pasa a aportación de cat.mantas/09 («declaración de estabilidad dimensional o de encogimiento»). Agenda pendiente: (2) perímetro con productos vecinos: pantuflas, calzado en general («No es de pantuflas»: N1 afecciones del pie, criterio salud-del-pie, 3 aportaciones de cuero), y cojines, almohadas (dudoso: «Durabilidad / indicaciones de secado / Es buena para cervicales»); (3) moda/tendencia/estilo: botas tendencia no-genera = no esperado; pantuflas tendencia dudoso; sofás cama estilo genera = esperado; (4) popularidad (pantuflas, sofás cama) y preferencia general, alternativa de descanso (sofás cama), dudosos; (5) botas N1 «¿cede el corte?» dudoso (1 pregunta: «¿Se estira el calzado de cuero?»).
+- 2026-10-27 Paso 2 decidido: preguntas sobre otro producto (la categoría madre en general, como «calzado» o «zapatos», o un hermano, como almohadas o zapatillas deportivas) quedan FUERA siempre. El perímetro va antes de la lectura sobre la oferta, que solo decide si una pregunta sobre el producto de la clase pide un hecho declarable. Un vecino nunca apoya requisitos de la clase (invariante 10), y su presencia es señal para las semillas (D-114). Pantuflas: salen N1 (afecciones del pie), el criterio salud-del-pie y las 3 aportaciones de cuero. Cojines: sin cambios (el secado y la resistencia ya los cubren cat.decoracion/03 y cat.cojines-decorativos/08 con preguntas propias; las cervicales son de otro producto).
+- 2026-10-27 Paso 3 decidido: la moda o tendencia NUNCA genera («¿qué X se llevan?», «¿qué X están de moda?»): «estar de moda» depende del mercado y del momento (C2/C4), un caso de la excepción de D-110. Efecto: sale el candidato de estilo decorativo de sofás cama (N2); botas, pantuflas y sofás quedan como «no genera» (esperado, aunque las marcas de botas y pantuflas dijeran otra cosa).
+- 2026-10-27 Paso 4 decidido: popularidad («la más vendida») no genera (reputación, C4; invariante 14); la preferencia general («¿cuál es el mejor sofá cama?») es un criterio intermedio (D-104), cubierto y descompuesto en las prestaciones, como «calidad» en sábanas; la alternativa de producto («¿sofá cama o cama abatible?») no genera (C3).
+- 2026-10-27 AC6 hecho: lo esperado de PAA en demand-engine/cases/paa/<conjunto>.json (12 conjuntos, formato en cases/paa/README.md: perimeter.out, criteria, candidates, revisions, contributions, con expected true/false y why cuando la revisión cambia lo del agente). Cinco pasos de la revisión: (1) los sin marcar se marcan; mantas N2 → aportación a cat.mantas/09; (2) productos vecinos (la madre en general o un hermano) FUERA siempre, el perímetro va antes de la lectura sobre la oferta y un vecino nunca apoya → salen pantuflas N1/salud-del-pie/3 aportaciones de cuero y botas N1; (3) la moda nunca genera → sale el estilo de sofás cama; (4) popularidad no genera; «el mejor» es criterio intermedio; alternativa de producto C3; (5) botas N1 sale por (2). Pendiente fuera de T-042: llevar (2) y (3) al canon (/docs-update) y al reglamento PAA v4; el comparador contra cases/paa (OQ-64).

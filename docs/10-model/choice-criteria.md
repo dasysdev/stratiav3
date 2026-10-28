@@ -3,9 +3,9 @@ id: choice-criteria
 title: Criterios de elección
 layer: model
 status: vigente
-version: 1.8
-updated: 2026-10-27
-sources: [INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-paa-new-requirements, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-classification-criteria-2, INTAKE 2026-10-27-paa-bottom-sheet-hold, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
+version: 1.11
+updated: 2026-10-28
+sources: [INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-paa-new-requirements, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-classification-criteria-2, INTAKE 2026-10-27-paa-bottom-sheet-hold, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-28-paa-control-review-rules, INTAKE 2026-10-28-paa-parent-and-material]
 ---
 
 # Criterios de elección
@@ -64,8 +64,22 @@ El segundo párrafo de la cita original de 2026-10-26 («lo dictamina la valorac
 
 ### Lectura de las preguntas de PAA
 
-Reglas decididas por el usuario al resolver las dudas de las dos primeras clasificaciones con un agente (`INTAKE 2026-10-27-paa-classification-criteria` e `INTAKE 2026-10-27-paa-classification-criteria-2`):
+Reglas decididas por el usuario al resolver las dudas de las dos primeras clasificaciones con un agente (`INTAKE 2026-10-27-paa-classification-criteria` e `INTAKE 2026-10-27-paa-classification-criteria-2`), al revisar los casos de control de PAA (`INTAKE 2026-10-28-paa-control-review-rules`) y a la vista de su pasada de control (`INTAKE 2026-10-28-paa-parent-and-material`):
 
+- **Productos vecinos** ([D-141](../30-governance/decisions.md#d-141), enmendada por [D-146](../30-governance/decisions.md#d-146)):
+
+  > Preguntas sobre otro producto (un hermano, como almohadas o zapatillas deportivas) quedan FUERA siempre. El perímetro va antes de la lectura sobre la oferta, que solo decide si una pregunta sobre el producto de la clase pide un hecho declarable. Un vecino nunca apoya requisitos de la clase (invariante 10), y su presencia es señal para las semillas (D-114). — INTAKE 2026-10-28-paa-control-review-rules (enmendada por D-146: la categoría madre ya no queda fuera siempre)
+
+- **Categoría madre** ([D-146](../30-governance/decisions.md#d-146)):
+
+  > Una pregunta sobre la categoría madre va DENTRO cuando pregunta por algo que la clase hereda de su bloque (cuidado del ante → cat.calzado/13 en botas; firmeza → cat.sofas/12 en sofás cama; «¿Qué sofá me compro?» → preferencia general). Va FUERA si solo tiene sentido para otro producto (calzado para la montaña, podólogos) o si es un hermano. — INTAKE 2026-10-28-paa-parent-and-material
+
+  Interpretación adoptada ([D-146](../30-governance/decisions.md#d-146)): lo que la clase hereda se lee como un requisito o una aportación de un bloque heredado, o un criterio de elección que vale igual para el producto de la clase. Las semillas no cambian: «sofás» sigue en el núcleo de sofás cama.
+- **Material** ([D-146](../30-governance/decisions.md#d-146)):
+
+  > Una pregunta sobre el material va DENTRO si la clase tiene o hereda ese material (como la seda en sábanas). «Zapatillas» sin señal de deporte o calle se lee como la clase. — INTAKE 2026-10-28-paa-parent-and-material
+
+  «¿Qué país produce la mejor seda?» sigue dentro en sábanas. La lectura de «zapatillas» es de pantuflas: una denominación ambigua se lee como la clase cuando no hay señal del vecino.
 - **Lectura sobre la oferta** ([D-100](../30-governance/decisions.md#d-100)):
 
   > Antes de aplicar C2 a una pregunta de clase, se relee sobre la oferta: «¿… esta oferta?». Si un hecho que la oferta puede declarar la responde, la pregunta confirma ese requisito o propone un candidato. C2 solo se aplica cuando ningún hecho de la oferta la responde: hábitos («¿cada cuánto se lavan?»), saber doméstico («¿cómo se dobla?»).
@@ -74,6 +88,18 @@ Reglas decididas por el usuario al resolver las dudas de las dos primeras clasif
 - **Criterios intermedios** ([D-104](../30-governance/decisions.md#d-104)): un criterio como el «material» o la «calidad» queda cubierto y se descompone en las prestaciones. El «material» lo cubre la composición en cuanto a qué material es (funciones Comprender y Comparar); en cuanto a si es mejor, se descompone en las prestaciones (función Evaluar): nivel térmico, arrugas, duración y resistencia, humedad, tacto y piel, en sábanas. Deducir esas prestaciones del material es lo que D-090 no admite. Una pregunta genérica («¿es bueno el lino?») no nombra ninguna prestación: apoya la composición, no a una prestación concreta.
 - **Preguntas de grado** ([D-110](../30-governance/decisions.md#d-110)): una pregunta de grado («tan suaves», «las más frescas», «cuál se arruga menos») indica el aspecto; C2 se juzga sobre el requisito, formulado por tipo o por declaración. Si la oferta puede declarar el tipo, la pregunta de grado apoya ese requisito. No genera cuando el aspecto solo admite más o menos y ninguna categoría declarable lo resuelve (la marca, C4).
 - **Tacto** ([D-105](../30-governance/decisions.md#d-105)): aplicación de la regla anterior. Cumple C2 si se formula por el tipo de tacto (sedoso o liso, crujiente, afelpado, fresco al tacto), no por el grado de suavidad, que solo admite más o menos.
+- **Moda o tendencia** ([D-142](../30-governance/decisions.md#d-142)): caso de la excepción de [D-110](../30-governance/decisions.md#d-110).
+
+  > La moda o tendencia NUNCA genera («¿qué X se llevan?», «¿qué X están de moda?»): «estar de moda» depende del mercado y del momento (C2/C4), un caso de la excepción de D-110. — INTAKE 2026-10-28-paa-control-review-rules
+
+- **Popularidad, preferencia general y alternativa de producto** ([D-142](../30-governance/decisions.md#d-142)):
+
+  > - La popularidad («la más vendida») no genera (reputación, C4; invariante 14).
+  > - La preferencia general («¿cuál es el mejor sofá cama?») es un criterio intermedio (D-104), cubierto y descompuesto en las prestaciones, como «calidad» en sábanas; no es «no genera».
+  > - La alternativa de producto («¿sofá cama o cama abatible?») no genera (C3).
+  >
+  > — INTAKE 2026-10-28-paa-control-review-rules
+
 - **Certificación y prestación** ([D-106](../30-governance/decisions.md#d-106)): si el requisito de certificaciones recoge la declaración de una prestación (por ejemplo, «hipoalergénico»), la cubre, salvo que PAA muestre que esa prestación es una dimensión de comparación de la clase ([D-109](../30-governance/decisions.md#d-109)).
 
 ## Distinciones
@@ -105,7 +131,6 @@ Clase de sábanas: sondas de PAA del 2026-10-26 (`INTAKE 2026-10-26-choice-crite
 ## Pendiente
 
 - Entrada en el catálogo de los requisitos candidatos de la clase de sábanas ([D-108](../30-governance/decisions.md#d-108)): la hace el [entrenamiento de PAA](paa-training.md) ([D-115](../30-governance/decisions.md#d-115)); paso de aceptación y estado, en [OQ-62](../30-governance/open-questions.md). La aplicación en el clasificador de preguntas PAA está en el reglamento de su agente (`demand-engine/classifier/paa.md`).
-- Formato de las [pistas de valoración](assessment-hints.md) que escriben taxo y PAA ([OQ-68](../30-governance/open-questions.md)).
 
 ## Relacionado
 

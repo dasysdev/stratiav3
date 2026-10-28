@@ -1,0 +1,176 @@
+{
+  "set": "sofas",
+  "label": "Sofás",
+  "cases": [
+    "stressless-wave-outlet"
+  ],
+  "catalog": "gen@0.5 cat.mobiliario@2 cat.sofas@3",
+  "questions": 89,
+  "reviewed": {
+    "at": "2026-10-27",
+    "by": "usuario",
+    "rulebook": "classifier/paa.md v3",
+    "task": "T-042",
+    "decisions": [
+      "D-100",
+      "D-101",
+      "D-102",
+      "D-103",
+      "D-104",
+      "D-105",
+      "D-106",
+      "D-107",
+      "D-108",
+      "D-109",
+      "D-110",
+      "D-112",
+      "D-113"
+    ]
+  },
+  "perimeter": {
+    "out": [
+      "¿Qué muebles son tendencia en 2026?",
+      "¿Cuánto cuesta tapizar un sofá de piel?",
+      "¿Es mejor tapizar un sofá o comprar uno nuevo?",
+      "¿Cuánto cobra un tapicero por tapizar un sillón?",
+      "¿Cuánto vale el metro de cuero para tapizar?",
+      "¿Qué hacer cuando la polipiel se pela?",
+      "¿Qué es más barato, tapizar o comprar un sofá?",
+      "¿Cómo arreglar polipiel cuarteada?"
+    ],
+    "expected": true
+  },
+  "criteria": [
+    {
+      "name": "Marca",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Cuáles son las marcas de sofás de buena calidad?",
+        "¿Cuál es el sofá de Ikea más vendido?",
+        "¿Cuáles son las mejores marcas de sofás españolas?",
+        "¿Cuál es el mejor sofá de IKEA?",
+        "¿Cuáles son algunas buenas marcas de sofás?",
+        "¿Cuál es la mejor marca de sofás?",
+        "¿Qué marcas de sofá son buenas?"
+      ]
+    },
+    {
+      "name": "Moda o tendencia",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Cuáles son los sofás que están de moda?",
+        "¿Cuáles son las tendencias en sofás para 2026?",
+        "¿Cuáles son los colores de sofá más en tendencia para 2026?",
+        "¿Qué tipo de sofá se lleva ahora?",
+        "¿Qué color se lleva en los sofás?",
+        "¿Qué color va a ser tendencia en 2026?",
+        "¿Cómo se llevan los sofás en 2026?",
+        "¿Qué sofás se llevan ahora?"
+      ]
+    },
+    {
+      "name": "Durabilidad (vida útil)",
+      "verdict": "genera",
+      "expected": true,
+      "questions": [
+        "¿Cuánto dura un sofá bueno?",
+        "¿Cuánto dura un sofá de piel?",
+        "¿Cuántos años dura la polipiel?",
+        "¿Qué material de sofá es más duradero?",
+        "¿Cuánto tiempo dura la polipiel?"
+      ]
+    },
+    {
+      "name": "Frescor de la tapicería",
+      "verdict": "genera",
+      "expected": true,
+      "questions": [
+        "¿Cuál es la tela más cómoda y fresca?"
+      ]
+    },
+    {
+      "name": "Resistencia a las arrugas",
+      "verdict": "genera",
+      "expected": true,
+      "questions": [
+        "¿Qué tela es fresca y no se arruga?"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "question": "¿Qué durabilidad declara el sofá (vida útil prevista, ensayos de durabilidad del asiento, el respaldo o la estructura)?",
+      "blocks": [
+        "cat.sofas"
+      ],
+      "trait": "prestacion",
+      "expected": true,
+      "questions": [
+        "¿Cuánto dura un sofá bueno?",
+        "¿Cuánto dura un sofá de piel?",
+        "¿Cuántos años dura la polipiel?",
+        "¿Qué material de sofá es más duradero?",
+        "¿Cuánto tiempo dura la polipiel?"
+      ]
+    },
+    {
+      "question": "¿Es transpirable la tapicería?",
+      "blocks": [
+        "cat.sofas"
+      ],
+      "trait": "prestacion",
+      "expected": true,
+      "questions": [
+        "¿Cuál es la tela más cómoda y fresca?",
+        "¿Qué tela es fresca y no se arruga?"
+      ]
+    },
+    {
+      "question": "¿Es resistente a las arrugas la tapicería?",
+      "blocks": [
+        "cat.sofas"
+      ],
+      "trait": "prestacion",
+      "expected": true,
+      "questions": [
+        "¿Qué tela es fresca y no se arruga?"
+      ]
+    }
+  ],
+  "revisions": [
+    {
+      "target": "cat.sofas/07",
+      "action": "sacar",
+      "summary": "Sacar «amazon-ptd-prop:SOFA.special_feature=Transpirable» de la composición de la tapicería: es una prestación, no un material (D-103). Pasa a N2.",
+      "expected": true
+    },
+    {
+      "target": "cat.sofas/08",
+      "action": "reformular",
+      "summary": "Añadir a la resistencia al desgaste de la tapicería el cuarteado o el pelado del recubrimiento (polipiel, piel sintética), con la aportación inferida «declaración de resistencia al cuarteado o al pelado del recubrimiento». Las preguntas 77 y 80 (fuera, por ser arreglos) muestran el mismo problema.",
+      "expected": true
+    }
+  ],
+  "contributions": [
+    {
+      "target": "cat.sofas/07",
+      "contribution": "indicación de si la tapicería es piel natural o un material sintético con aspecto de piel (polipiel, piel sintética)",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.sofas/07",
+      "contribution": "tipo y acabado de la piel de la tapicería",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.sofas/07",
+      "contribution": "certificado o etiqueta que acredita que la tapicería es piel natural",
+      "kind": "sustento",
+      "expected": true
+    }
+  ]
+}

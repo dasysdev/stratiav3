@@ -1,0 +1,247 @@
+{
+  "set": "sabanas",
+  "label": "Sábanas",
+  "cases": [
+    "sabanas-coralina-999"
+  ],
+  "catalog": "gen@0.5 cat.casa-y-jardin@2 cat.ropa-de-casa@4 cat.ropa-de-cama@2 cat.sabanas@2 cat.fundas-de-almohada-y-cojines@2 cat.sabanas-ajustables@2 cat.sabanas-planas@2 cat.fundas-de-almohada@3 esp.juego@0",
+  "questions": 200,
+  "reviewed": {
+    "at": "2026-10-27",
+    "by": "usuario",
+    "rulebook": "classifier/paa.md v3",
+    "task": "T-042",
+    "decisions": [
+      "D-100",
+      "D-101",
+      "D-102",
+      "D-103",
+      "D-104",
+      "D-105",
+      "D-106",
+      "D-107",
+      "D-108",
+      "D-109",
+      "D-110",
+      "D-112",
+      "D-113"
+    ]
+  },
+  "perimeter": {
+    "out": [
+      "¿Cómo alargar una sábana encimera?",
+      "¿Cómo se hacen las sábanas bajeras ajustables?",
+      "¿Cuánta goma elástica necesito para las esquinas de una sábana bajera?",
+      "¿Cómo coser una sábana bajera ajustable?",
+      "¿Cómo poner elástico a las sábanas de abajo?",
+      "¿Cómo calcular el elástico para una sábana ajustable?",
+      "¿Cómo hacer más pequeña una sábana bajera?",
+      "¿Cómo hacer sábanas bajeras ajustables?",
+      "¿Qué es mejor, una almohada látex o viscoelástica?",
+      "¿Cómo hacer fundas para almohada?",
+      "¿Cuáles son 3 tipos de tela más comunes?",
+      "¿Qué da más calor, viscoelástica o látex?",
+      "¿Qué es mejor para dormir, una almohada blanda o dura?",
+      "¿Qué marca de almohada viscoelástica es mejor?",
+      "¿Cómo unir dos fundas de almohada?",
+      "¿Cómo se lavan las almohadas para que queden blancas?",
+      "¿Por qué mancho la almohada cuando duermo?",
+      "¿Cómo lavar almohadas amarillentas en lavadora?",
+      "¿Cuáles son las sábanas más caras del mundo?",
+      "¿Dónde puedo conseguir ropa de lino?",
+      "¿Cuál es la seda más cara?"
+    ],
+    "expected": true
+  },
+  "criteria": [
+    {
+      "name": "Transpiración y gestión del sudor",
+      "verdict": "genera",
+      "expected": true,
+      "questions": [
+        "¿Qué tipo de sábanas no hacen sudar?"
+      ]
+    },
+    {
+      "name": "Resistencia a las arrugas",
+      "verdict": "genera",
+      "expected": true,
+      "questions": [
+        "¿Qué sábanas son las que menos se arrugan?"
+      ]
+    },
+    {
+      "name": "Origen geográfico de la fibra",
+      "verdict": "genera",
+      "expected": true,
+      "questions": [
+        "¿Qué país produce la mejor seda del mundo?"
+      ]
+    },
+    {
+      "name": "Marca",
+      "verdict": "no-genera",
+      "expected": true,
+      "questions": [
+        "¿Qué marca de sábanas me recomiendan?",
+        "¿Qué marca de sábanas usan los hoteles 5 estrellas?",
+        "¿Qué marca de sábanas es premium?",
+        "¿Cuáles son algunas marcas de ropa de cama de buena calidad?",
+        "¿Cuál es la mejor marca de sábanas en España?",
+        "¿Qué marca de sábanas es la mejor?",
+        "¿Qué marcas de sábanas son de buena calidad?",
+        "¿Qué marca de sábanas es de buena calidad?",
+        "¿Cuáles son las opiniones sobre las sábanas Teka?",
+        "¿Qué marca de sábanas es buena?",
+        "¿Qué marcas de sábanas de algodón son buenas?",
+        "¿Qué marca son las mejores sábanas?",
+        "¿Cuál es la mejor marca de sábanas del mundo?"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "question": "¿Qué tacto tiene el tejido (sedoso o liso, crujiente, afelpado, fresco al tacto…)?",
+      "blocks": [
+        "cat.sabanas",
+        "cat.fundas-de-almohada-y-cojines"
+      ],
+      "trait": "sensorial",
+      "expected": true,
+      "questions": [
+        "¿Por qué las sábanas de los hoteles son tan suaves?"
+      ]
+    },
+    {
+      "question": "¿Qué resistencia a las arrugas declara el tejido (antiarrugas, fácil planchado, no necesita plancha…)?",
+      "blocks": [
+        "cat.sabanas",
+        "cat.fundas-de-almohada"
+      ],
+      "trait": "prestacion",
+      "expected": true,
+      "questions": [
+        "¿Las sábanas de 100% algodón se arrugan?",
+        "¿Qué sábanas son las que menos se arrugan?",
+        "¿Se arruga mucho el lino?"
+      ]
+    },
+    {
+      "question": "¿Qué resistencia al uso y al lavado tiene (decoloración, encogimiento, bolitas, manchas, desgarro…)?",
+      "blocks": [
+        "cat.sabanas"
+      ],
+      "trait": "prestacion",
+      "expected": true,
+      "questions": [
+        "¿Qué le pasa al lino si se moja?",
+        "¿Se encoge el lino cuando se lava?",
+        "¿Qué seca más, la microfibra o el algodón?",
+        "¿Se estropea el bambú con el agua?"
+      ]
+    },
+    {
+      "question": "¿Qué transpiración ofrece (transpirable, gestión de la humedad y el sudor…)?",
+      "blocks": [
+        "cat.sabanas"
+      ],
+      "trait": "prestacion",
+      "expected": true,
+      "questions": [
+        "¿Qué tipo de sábanas no hacen sudar?"
+      ]
+    },
+    {
+      "question": "¿Qué variedad de la fibra declara (seda de morera, algodón de fibra larga, lino de fibra larga…)?",
+      "blocks": [
+        "cat.ropa-de-casa"
+      ],
+      "trait": "material",
+      "expected": true,
+      "questions": [
+        "¿Cuáles son 5 tipos de seda?"
+      ]
+    },
+    {
+      "question": "¿De qué país o región procede la fibra?",
+      "blocks": [
+        "cat.ropa-de-casa"
+      ],
+      "trait": "certificacion-origen",
+      "expected": true,
+      "questions": [
+        "¿Qué país produce la mejor seda del mundo?"
+      ]
+    }
+  ],
+  "revisions": [
+    {
+      "target": "inf/01",
+      "action": "reformular",
+      "summary": "PAA confirma la cuestión inferida y muestra los dos extremos del eje (frescas, dan calor, calurosas, para verano). Reformular: «¿Qué nivel térmico ofrece la sábana (fresca o ligera de verano, para todo el año, cálida de invierno)?», con origen «paa» (D-097). El tacto fresco queda en N1 (D-108).",
+      "expected": true
+    },
+    {
+      "target": "inf/02",
+      "action": "reformular",
+      "summary": "PAA confirma la cuestión inferida del ajuste de la bajera (cómo se sujeta, cuánto elástico lleva, qué sábanas no se salen). Mantener la pregunta y pasarla a origen «paa» (D-097).",
+      "expected": true
+    },
+    {
+      "target": "cat.fundas-de-almohada/06",
+      "action": "separar",
+      "summary": "Separar «Resistente a las arrugas» de la lista de resistencias como requisito propio (N2), repetido en sábanas y fundas de almohada. La aportación «resistencia a las arrugas y rapidez de secado» se parte: las arrugas van a N2 y el secado rápido sigue en la lista.",
+      "expected": true
+    },
+    {
+      "target": "cat.fundas-de-almohada/06",
+      "action": "sacar",
+      "summary": "Sacar «Dobladillo con doble vuelta» de la lista de resistencias: es una confección, no una resistencia (D-103). Si se conserva, como cuestión de confección (construcción) aparte.",
+      "expected": true
+    },
+    {
+      "target": "cat.fundas-de-almohada/05",
+      "action": "sacar",
+      "summary": "Sacar «Enfriamiento» de la lista de sensación térmica y transpiración: el efecto frío al tacto es un tipo de tacto (D-108) y va a N1, con sus aportaciones «declaración de efecto frío o refrescante» y «resultado de un ensayo de frescor al tacto». La lista queda como transpiración y gestión de la humedad y el sudor.",
+      "expected": true
+    },
+    {
+      "target": "cat.fundas-de-almohada/04",
+      "action": "partir-por-tema",
+      "summary": "Partir por beneficiario (D-043, criterio 2): protección de la piel y el cabello de quien duerme (hipoalergénica, piel, cabello) y protección de la almohada (ácaros, chinches, manchas, desgaste, contención del relleno).",
+      "expected": true
+    }
+  ],
+  "contributions": [
+    {
+      "target": "cat.ropa-de-casa/01",
+      "contribution": "denominación de cada fibra conforme al Reglamento (UE) 1007/2011 cuando la oferta usa un nombre comercial (microfibra, seda falsa o artificial)",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.ropa-de-casa/01",
+      "contribution": "certificación o análisis de la composición en fibras",
+      "kind": "sustento",
+      "expected": true
+    },
+    {
+      "target": "cat.sabanas/03",
+      "contribution": "unidad del recuento de hilos (superficie de referencia)",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.fundas-de-almohada/03",
+      "contribution": "unidad del recuento de hilos (superficie de referencia)",
+      "kind": "precisión",
+      "expected": true
+    },
+    {
+      "target": "cat.ropa-de-cama/01",
+      "contribution": "equivalencia en cm de las denominaciones de tamaño de otros mercados (full, queen, king…)",
+      "kind": "precisión",
+      "expected": true
+    }
+  ]
+}

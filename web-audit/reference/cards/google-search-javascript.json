@@ -1,0 +1,25 @@
+{
+ "source": "google-search-javascript",
+ "version": "2026-10-27",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "summary": "Cómo generar marcado con JavaScript (Google Tag Manager, JavaScript propio o renderizado en el servidor). No fija requisitos comprobables del recurso; su función es de método: Google Search procesa el marcado presente en el DOM renderizado, de modo que el marcado generado con JavaScript se extrae del DOM renderizado.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#custom-javascript",
+   "text": "Another way you can generate structured data is by using JavaScript to either generate all of your structured data or add more information to the server-side rendered structured data. Either way, Google Search can understand and process structured data that's available in the DOM when it renders the page."
+  },
+  {
+   "id": "q02",
+   "section": "#using-server-side-rendering",
+   "text": "If you are using server-side rendering, you can also include the structured data in the rendered output."
+  },
+  {
+   "id": "q03",
+   "section": "#testing",
+   "text": "If you are testing a structured data type that is not supported by the Rich Results test, check the rendered HTML. If the rendered HTML contains the structured data, Google Search will be able to process it."
+  }
+ ],
+ "note": "Fundamenta que la extracción del marcado use el DOM renderizado además del HTML servido. Que el marcado esté ya en el HTML servido es una recomendación de otras fuentes (google-search-product-variants y google-search-merchant-listing), no de esta."
+}

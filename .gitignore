@@ -12,6 +12,9 @@ demand-engine/var/
 demand-engine/catalog/rules/importance.candidate.json
 demand-engine/catalog/REVIEW.md
 
+# web-audit: var/ es desechable (fuentes congeladas de la referencia técnica). Ver web-audit/README.md.
+web-audit/var/
+
 # Código Python (el corpus del MPIR va en demand-engine/var/mpir/)
 __pycache__/
 .pytest_cache/

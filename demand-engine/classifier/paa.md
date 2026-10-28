@@ -1,8 +1,8 @@
-# Reglamento de clasificación de las preguntas PAA · v3
+# Reglamento de clasificación de las preguntas PAA · v6
 
-Procedimiento del **agente** que clasifica las preguntas de «Más preguntas» (PAA) de un conjunto de semillas: decide el perímetro y el objeto de cada pregunta, la contrasta con el catálogo de la clase, reconoce los **criterios de elección** y propone **requisitos candidatos**, **revisiones** de requisitos existentes y **aportaciones**. Condensa el canon (`docs/10-model/choice-criteria.md`, `construction-routes.md`, `demand-model.md`; `docs/20-methods/product-taxonomy/requirement-blocks.md`). Cada regla cita la decisión de la que sale. Si el reglamento y el canon discrepan, prevalece el canon y la discrepancia se anota en `doubts`.
+Procedimiento del **agente** que clasifica las preguntas de «Más preguntas» (PAA) de un conjunto de semillas: decide el perímetro y el objeto de cada pregunta, la contrasta con el catálogo de la clase, reconoce los **criterios de elección** y propone **requisitos candidatos**, **revisiones** de requisitos existentes, **aportaciones**, **pistas de valoración** y **marcas de dimensión de comparación**. Condensa el canon (`docs/10-model/choice-criteria.md`, `construction-routes.md`, `demand-model.md`, `assessment-hints.md`, `quality-properties.md`; `docs/20-methods/product-taxonomy/requirement-blocks.md`). Cada regla cita la decisión de la que sale. Si el reglamento y el canon discrepan, prevalece el canon y la discrepancia se anota en `doubts`.
 
-Cambios de la v2 (D-100 a D-107): lectura sobre la oferta, confirmaciones y aportaciones, apoyo mínimo, separación por dimensión, criterios intermedios, tacto, certificaciones, bloques hermanos y revisiones. Cambios de la v3 (D-108 a D-110): preguntas distintas para la prueba (a), cualquier atributo de lista, lista ausente en la clase, preguntas de grado, efecto frío al tacto, necesidades distintas de una fibra y sacar sin preguntas.
+Cambios de la v2 (D-100 a D-107): lectura sobre la oferta, confirmaciones y aportaciones, apoyo mínimo, separación por dimensión, criterios intermedios, tacto, certificaciones, bloques hermanos y revisiones. Cambios de la v3 (D-108 a D-110): preguntas distintas para la prueba (a), cualquier atributo de lista, lista ausente en la clase, preguntas de grado, efecto frío al tacto, necesidades distintas de una fibra y sacar sin preguntas. Cambios de la v4 (D-125 a D-128, D-139): el paso 8 escribe pistas de valoración y marcas de dimensión de comparación en lugar de la pertinencia de los AC. Cambios de la v5 (D-141, D-142): productos vecinos fuera, antes de la lectura sobre la oferta; moda, popularidad, preferencia general y alternativa de producto. Cambios de la v6 (D-146): la categoría madre va dentro en lo que la clase hereda de su bloque; el material, si la clase lo tiene o lo hereda; denominación ambigua.
 
 ## 0. Propósito
 
@@ -14,13 +14,14 @@ PAA es una vía de construcción del modelo de demanda (D-094). Sus preguntas so
 
 **No** aportan información resolutiva. Que una pregunta aparezca, o en qué posición, no prueba la importancia de nada (D-094).
 
-Tú no cambias el catálogo ni decides importancias. Los candidatos, las revisiones y las aportaciones son propuestas para el entrenamiento. Los candidatos entran con origen «paa» (D-097).
+Tú no cambias el catálogo ni decides importancias. Los candidatos, las revisiones, las aportaciones, las pistas y las marcas son propuestas para el entrenamiento. Los candidatos entran con origen «paa» (D-097).
 
 ## 1. Entrada y salida
 
 - **Entrada:** `classify/input.md` del conjunto. Contiene:
   - las preguntas numeradas, con las semillas que las mostraron;
   - el catálogo de la clase: capa general, bloques de la clave con sus fuentes y cuestiones inferidas;
+  - las pistas de valoración que ya llegan a cada requisito y su marca de dimensión de comparación;
   - las hijas de cada bloque en la taxonomía;
   - el vocabulario de rasgos.
 - **Salida:** `classify/output.json` (formato en §4). Compruébala con `bin/paa classify check CONJUNTO` hasta que diga «correcto».
@@ -31,10 +32,15 @@ Tú no cambias el catálogo ni decides importancias. Los candidatos, las revisio
 ### Paso 1 · Perímetro
 
 - **`dentro`:** la pregunta trata de los productos de la clase (sus categorías y especializaciones), o de una característica de sus materiales, tejidos o piezas tal como la vive quien compra en la clase.
+- **Categoría madre** (D-146): una pregunta sobre la madre («mochila» en una clase de mochilas escolares) va **dentro** cuando pregunta por algo que la clase **hereda de su bloque**: un requisito o una aportación de un bloque heredado, o un criterio de elección que vale igual para el producto de la clase. Va **fuera** si solo tiene sentido para otro producto. Por ejemplo hipotético, en mochilas escolares: «¿Cómo se lava una mochila?» o «¿Qué mochila me compro?» van dentro (cuidado heredado; preferencia general); «¿Qué mochila es mejor para hacer trekking?», fuera (solo tiene sentido para otra mochila). Las semillas de la madre no se tocan.
 - **`fuera`:**
-  - trata de otro producto, de textiles en general sin relación con la clase, o de curiosidades (el producto más caro del mundo, historia);
+  - trata de **otro producto** (D-141, D-146): un hermano, o la madre en lo que solo tiene sentido para otro producto. Por ejemplo hipotético, en una clase de mochilas escolares: «¿Qué maleta de cabina es más ligera?» (un hermano). **Siempre**, aunque la pregunta se pudiera releer sobre la oferta;
+  - trata de textiles en general sin relación con la clase, o de curiosidades (el producto más caro del mundo, historia);
   - **o es confección casera:** coser, hacer o arreglar la pieza. No hay compra (D-100).
-- **Caso dudoso:** se decide con la **lectura sobre la oferta** del paso 5. Si un hecho que la oferta puede declarar la responde, va **dentro** (D-100). Ejemplo hipotético: «¿Qué contraindicaciones tiene el corcho?» en una clase de esterillas de corcho se relee como «¿qué advertencias declara esta esterilla?».
+- **El perímetro va antes de la lectura sobre la oferta** (D-141). La lectura del paso 5 no decide el perímetro: solo decide si una pregunta sobre el producto de la clase pide un hecho declarable.
+- **Un vecino nunca apoya requisitos de la clase:** ni `answered_by`, ni criterio, ni candidato, ni revisión, ni aportación. Si muchas preguntas de un conjunto son de vecinos, anótalo en `doubts`: es una señal para las semillas (D-114).
+- Una pregunta sobre un **material** que la clase tiene o hereda no es de un vecino: va dentro (D-100, D-146), aunque no nombre el producto. Por ejemplo hipotético, «¿Qué contraindicaciones tiene el corcho?» o «¿Cómo saber si es corcho natural?» en una clase de esterillas de corcho.
+- Una **denominación ambigua** se lee como la clase cuando no hay señal del vecino (D-146). Por ejemplo hipotético, en una clase de batas de casa, «bata» sin señal de uso sanitario o de laboratorio es la clase.
 
 Pertinencia no es proximidad temática (invariante 10): que hable de dormir o de tejidos no la pone dentro.
 
@@ -78,6 +84,7 @@ A cada pregunta valorativa asígnale el **criterio de elección** que revela: el
   - Queda `cubierto`. En `covered_by` van el requisito que dice qué es (la composición) y los requisitos o candidatos de las prestaciones en que se descompone.
   - Una **pregunta genérica** («¿es bueno el lino?», «beneficios del bambú») no nombra ninguna prestación. Apoya el criterio intermedio, pero no a una prestación concreta: no le pongas el criterio ni el candidato de una prestación.
   - Solo apoya una prestación la pregunta que la nombra.
+- **Preferencia general** (D-142): «¿cuál es el mejor X?», «¿qué X me compro?», sin nombrar ningún aspecto. Es un criterio intermedio, como «calidad»: `cubierto`, con `"intermediate": true`, descompuesto en las prestaciones. No es `no-genera`.
 
 Aplica a cada criterio la regla C1–C4 (D-091). Genera un requisito solo si cumple **todas**:
 
@@ -89,6 +96,9 @@ Aplica a cada criterio la regla C1–C4 (D-091). Genera un requisito solo si cum
 | C4 | Se puede formular neutral y sobre la oferta. | `no-genera`: solo admite «mejor o peor» (marca, reputación). |
 
 - **Preguntas de grado** (D-110). Una pregunta de grado («tan suaves», «las más frescas», «cuál se arruga menos») indica el aspecto. **C2 se juzga sobre el requisito**, formulado por tipo o por declaración: si la oferta puede declarar el tipo, la pregunta de grado apoya ese requisito. Solo no genera cuando el aspecto únicamente admite más o menos y ninguna categoría declarable lo resuelve (la marca, C4).
+- **Moda o tendencia** (D-142): «¿qué X se llevan?», «¿qué X están de moda?», «tendencias en X para este año». **Nunca genera**: estar de moda depende del mercado y del momento, y ninguna oferta lo puede declarar (C2, o C4 si solo admite más o menos). Es un caso de la excepción de las preguntas de grado. Una oferta puede declarar su estilo, pero una pregunta de moda no apoya un candidato de estilo.
+- **Popularidad** (D-142): «¿cuál es el X más vendido?». No genera: es reputación (C4; no se mide la conversión, invariante 14).
+- **Alternativa de producto** (D-142): «¿qué es mejor, un X o un Y?», cuando X e Y son productos distintos que cubren la misma necesidad (por ejemplo hipotético, «¿mochila o trolley escolar?»), no dos valores de un atributo de la clase. Elegir entre dos productos depende de la situación de quien compra: no genera (C3).
 - **Tacto** (D-105, D-110): se formula por el **tipo** de tacto (sedoso o liso, crujiente, afelpado, fresco al tacto), no por el grado de suavidad. Una pregunta por lo suave que es apoya ese requisito. El **efecto frío al tacto** (reclamos como «Enfriamiento» o «tacto fresco») es un tipo de tacto, no un nivel térmico: el nivel térmico es la temporada o el abrigo (D-108). Su rasgo es `sensorial`, decidido por el usuario: si aún no está en el vocabulario, declara su definición en `proposed_traits`.
 
 ### Paso 5 · Preguntas de clase
@@ -151,15 +161,52 @@ Cada revisión lleva:
 
 Una revisión de un requisito repetido en bloques hermanos se aplica igual en todos (D-107).
 
-### Paso 8 · Pertinencia de los criterios de aceptación (propuesta, OQ-59)
+### Paso 8 · Pistas de valoración y marca de dimensión de comparación
 
-Opcional. Si un grupo de preguntas muestra que un criterio de aceptación es pertinente para un requisito, anótalo en `ac_evidence` con esas preguntas. Por ejemplo:
+Las preguntas muestran también **qué mirar al valorar** un requisito y **si se compara**. Lo recoges en `hints` y en `marks` (D-125 a D-128, D-139). En la entrada, cada requisito trae las pistas que ya le llegan y su marca vigente, si la tiene.
 
-- comparan materiales → Comparabilidad de la composición;
-- preguntan qué significa un término → Precisión;
-- preguntan cómo verificarlo → Fiabilidad.
+**Pistas de valoración** (`hints`). Una pista es lo que un requisito fija para orientar la valoración de sus criterios de aceptación (D-125). PAA escribe las del **requisito**, desde sus preguntas (D-127), y sobre todo de dos AC:
 
-Es una propuesta del canon, sin decidir (D-104): solo se recoge la evidencia.
+- **Precisión:** la pregunta muestra que un término o un valor no fija la respuesta por sí solo: qué significa un término, un recuento sin unidad, una talla sin medidas. La pista dice **qué lo fija**.
+- **Comparabilidad:** las preguntas comparan ofertas por ese aspecto. La pista dice **sobre qué base** se comparan (misma unidad, misma superficie, % en peso).
+
+Aplicabilidad y Fiabilidad van sobre todo por tipo de requisito y las compila el entrenamiento: escríbelas solo si la pregunta muestra algo propio de este requisito (D-138). Concreción ya está en los componentes de la información resolutiva.
+
+Cómo es una pista (D-128):
+
+- **Un criterio, no una lista.** El auditor la aplica razonando. Nada de vocabularios admitidos ni de frases exactas: «la composición usa el nombre legal de cada fibra», no «términos válidos: algodón, lino…». Los ejemplos ilustran, nunca cierran.
+- **Breve pero clara:** una o dos frases (hasta 280 caracteres) que dicen el criterio **y su porqué**.
+- **Nombra la propiedad** que hay que observar (`propiedad`, de P06 a P18; P15 está retirada) **y los AC** a los que afecta (`ac`). Una pista puede servir a varios AC. Nunca puntúa la propiedad.
+
+| Propiedad | Qué observa |
+|---|---|
+| P06 Completitud | Están los componentes necesarios para resolver la cuestión. |
+| P07 Granularidad | Nivel de detalle y diferenciación. |
+| P08 Explicitud | El hecho se dice, no hay que inferirlo. |
+| P09 Claridad | Términos y valores sin ambigüedad. |
+| P10 Estructuración semántica | Componentes delimitados y relacionados. |
+| P11 Identificabilidad | Se distinguen productos, variantes y ofertas. |
+| P12 Contextualización | Condiciones y referencias para interpretar el dato. |
+| P13 Normalización | Unidades, valores y referencias que permiten equivalencias. |
+| P14 Exactitud | Lo representado corresponde a los hechos comprobables. |
+| P16 Coherencia | Afirmaciones consistentes sobre lo mismo. |
+| P17 Trazabilidad | Se sigue la procedencia. |
+| P18 Verificabilidad | Se puede contrastar con evidencias. |
+
+- **No repitas.** Si una pista vigente del requisito ya dice lo mismo, no la escribas. Si la contradice, escríbela con `duda` y el porqué (D-136). Si comparte propiedad y AC con una vigente pero dice otra cosa, explícalo en `note`.
+- **Pista frente a aportación.** La aportación de precisión del paso 3 añade un componente a la información resolutiva (lo que la oferta ha de declarar). La pista dice al auditor cómo juzgar lo publicado. La misma pregunta puede dar las dos.
+- **Destino:** un requisito del catálogo o un candidato (`target`). No pongas `id`: el número `PV-n` lo asigna el sistema al guardarla; el origen «paa» y sus fuentes los pone el código.
+
+**Marca de dimensión de comparación** (`marks`; D-126, D-139). Con Comparabilidad NA en los requisitos que no se comparan. Criterio:
+
+> Un requisito **se compara** si su respuesta cambia de una oferta a otra y el comprador elige por ese valor: prefiere más, menos o uno mejor. **No se compara** si: (a) es igual en todas las ofertas, porque lo fija la ley o es universal (garantía legal); (b) solo sirve para que la oferta encaje con una **necesidad o un gusto** que ya se tiene: es un filtro (tamaño de cama, compatibilidad, idioma, color); (c) identifica la oferta o dice en qué estado está (identificadores, vendedor, disponibilidad).
+
+- **Cada candidato lleva su marca:** no hay valor por defecto.
+- **Un requisito del catálogo** lleva marca cuando las preguntas son prueba: las comparativas o de elección sobre el aspecto («¿qué tiene más…?», «¿X o Y?», «¿cuál es mejor para el calor?») apoyan **sí**; las que eligen por una necesidad que ya se tiene («¿qué medida para una cama de 150?») apoyan **no (b)**.
+- **Una pregunta genérica no es prueba** (paso 4). Los **dudosos**, «sí», para no quitar un criterio sin motivo.
+- Cada marca lleva un motivo corto según el criterio y, si es «no», su caso (a, b o c).
+- **Si contradice la marca vigente,** escríbela igual: el código la señala como duda (D-139).
+- En un requisito que no se compara, no escribas pistas solo de Comparabilidad.
 
 ## 3. Lo que no se hace
 
@@ -196,8 +243,12 @@ Es una propuesta del canon, sin decidir (D-104): solo se recoge la evidencia.
   "contributions": [
     {"target": "cat.…/NN", "contribution": "…", "component": "…", "kind": "precisión|sustento", "questions": [5]}
   ],
-  "ac_evidence": [
-    {"requirement": "cat.…/NN", "ac": "Comparabilidad", "questions": [9, 12], "why": "…"}
+  "hints": [
+    {"target": "cat.…/NN|N1", "pista": "…", "propiedad": ["P13"], "ac": ["Comparabilidad"], "questions": [9, 12],
+     "duda": "opcional: qué pista vigente contradice y por qué", "note": "opcional"}
+  ],
+  "marks": [
+    {"target": "cat.…/NN|N1", "mark": "sí|no", "case": "a|b|c (solo si no)", "reason": "…", "questions": [9, 12]}
   ],
   "proposed_traits": [{"name": "…", "definition": "…"}],
   "doubts": ["…"]
@@ -220,3 +271,8 @@ Es una propuesta del canon, sin decidir (D-104): solo se recoge la evidencia.
 - `separar` lleva `tests` con (a) y (b) cumplidas y al menos un candidato en `into`.
 - `sacar` puede ir sin `questions`; las demás acciones las llevan.
 - Las demás acciones no llevan `tests`.
+
+**Pistas y marcas**
+- Una pista lleva `target`, `pista`, `propiedad`, `ac` y `questions`; sin `id` ni `origen`.
+- Una marca por destino. Todo candidato lleva la suya; una marca de un requisito del catálogo lleva `questions`.
+- `no` lleva `case`; `sí`, no.

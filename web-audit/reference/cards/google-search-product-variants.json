@@ -1,0 +1,146 @@
+{
+ "source": "google-search-product-variants",
+ "version": "2026-10-27",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "summary": "Marcado de variantes de producto que admite Google Search: un ProductGroup con name, hasVariant, variesBy y productGroupID (o isVariantOf e inProductGroupWithID en las variantes), además del marcado Product de cada variante, en sitios de una o de varias páginas.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#product-variant-structured-data-productgroup,-product",
+   "text": "To help Google better understand which products are variations of the same parent product, use the ProductGroup class with associated properties variesBy, hasVariant, and productGroupID to group such variants together, in addition to Product structured data."
+  },
+  {
+   "id": "q02",
+   "section": "#guidelines",
+   "text": "For your product variant markup to be eligible for usage in Google Search, you must follow these guidelines:"
+  },
+  {
+   "id": "q03",
+   "section": "#technical-guidelines",
+   "text": "Each variant must have a unique ID in its corresponding structured data markup (for example, using the sku or gtin properties)."
+  },
+  {
+   "id": "q04",
+   "section": "#technical-guidelines",
+   "text": "Each product group must have a unique ID in its corresponding structured data markup, specified with the inProductGroupWithID property in variant Product properties or the productGroupID property in the ProductGroup property."
+  },
+  {
+   "id": "q05",
+   "section": "#technical-guidelines",
+   "text": "Be sure to add Product structured data in addition to the product variant properties, following the list of required properties for merchant listings (or product snippets)."
+  },
+  {
+   "id": "q06",
+   "section": "#technical-guidelines",
+   "text": "For single-page sites, there must be only one distinct canonical URL for the overall ProductGroup that all variants belong to. Typically this is the base URL that leads to a page without a variant pre-selected, for example: https://www.example.com/winter_coat."
+  },
+  {
+   "id": "q07",
+   "section": "#technical-guidelines",
+   "text": "For multi-page sites, each page must have full and self-contained markup for the entities defined on that page (meaning, off-page entities shouldn't be necessary to fully understand the markup on the page itself)."
+  },
+  {
+   "id": "q08",
+   "section": "#technical-guidelines",
+   "text": "The site must have the ability to preselect each variant directly with a distinct URL (using URL query parameters), for example https://www.example.com/winter_coat/size=small&color=green. This allows Google to crawl and identity each variant. Preselecting each variant includes showing the right image, price, and availability, as well as allowing the user to add the variant to the cart."
+  },
+  {
+   "id": "q09",
+   "section": "#technical-guidelines",
+   "text": "If you're a merchant optimizing for all types of shopping results, we recommend putting Product structured data in the initial HTML for best results."
+  },
+  {
+   "id": "q10",
+   "section": "#technical-guidelines",
+   "text": "For JavaScript-generated Product markup: Be aware that dynamically-generated markup can make Shopping crawls less frequent and less reliable, which can be an issue for fast-changing content like product availability and price."
+  },
+  {
+   "id": "q11",
+   "section": "#structured-data-type-definitions",
+   "text": "You must include the required properties for your structured data to be eligible for usage in Google Search. You can also include the recommended properties to add more information about your product variants, which could provide a better user experience."
+  },
+  {
+   "id": "q12",
+   "section": "#productgroup",
+   "text": "Required properties"
+  },
+  {
+   "id": "q13",
+   "section": "#productgroup",
+   "text": "name | Text The name of the ProductGroup (for example, \"Wool winter coat\"). Make sure that the name of the variants in each Product item is more specific (for example, \"Wool winter coat - green, size small\", based on the variant-identifying properties. See the Product documentation for details."
+  },
+  {
+   "id": "q14",
+   "section": "#productgroup",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q15",
+   "section": "#productgroup",
+   "text": "aggregateRating | AggregateRating A nested aggregateRating of the ProductGroup (which is representative of all variants), if applicable. Follow the Review snippet guidelines and the list of required and recommended AggregateRating properties."
+  },
+  {
+   "id": "q16",
+   "section": "#productgroup",
+   "text": "brand | Brand Brand information about the ProductGroup (same across all variants), if applicable. See the Product documentation for details on brand."
+  },
+  {
+   "id": "q17",
+   "section": "#productgroup",
+   "text": "brand.name | Text The name of the brand of the ProductGroup (same across all variants). If you're already adding the brand at the ProductGroup level, you don't need to add it again at the Product level. See the Product documentation for details on brand."
+  },
+  {
+   "id": "q18",
+   "section": "#productgroup",
+   "text": "description | Text or TextObject The description of the ProductGroup. For example, \"Wool winter coat for cold weather climates\". Make sure that the variant description is more specific and ideally uses words that identify the variant (such as color, size, material)."
+  },
+  {
+   "id": "q19",
+   "section": "#productgroup",
+   "text": "hasVariant | Product A nested Product property that is one of the variants of the ProductGroup property, if applicable. A ProductGroup typically has multiple nested variant Product properties. Alternatively, a variant Product property can reference back to its parent ProductGroup using the isVariantOf property on the Product property."
+  },
+  {
+   "id": "q20",
+   "section": "#productgroup",
+   "text": "productGroupID | Text The identifier of the product group (also known as the parent sku). This identifier must be provided for the ProductGroup property or, alternatively, using inProductGroupWithID property for variants of the ProductGroup property. If you provide the identifier for both the ProductGroup property and its variant Product properties, they must match."
+  },
+  {
+   "id": "q21",
+   "section": "#productgroup",
+   "text": "review | Review A nested review of the ProductGroup, if applicable. Follow the Review snippet guidelines and the list of required and recommended review properties."
+  },
+  {
+   "id": "q22",
+   "section": "#productgroup",
+   "text": "url | URL For single-page websites only: The URL (without variant selectors) where the ProductGroup property is located, if applicable. Don't use this property for multi-page websites."
+  },
+  {
+   "id": "q23",
+   "section": "#productgroup",
+   "text": "variesBy | DefinedTerm Aspects by which the variants in the ProductGroup vary, (for example, size or color), if applicable. Reference these variant-identifying properties through their full Schema.org URL (for example, https://schema.org/color). The following properties are supported: https://schema.org/color https://schema.org/size https://schema.org/suggestedAge https://schema.org/suggestedGender https://schema.org/material https://schema.org/pattern"
+  },
+  {
+   "id": "q24",
+   "section": "#examples",
+   "text": "Single page, where all variants are selectable on a single page without page reloads (usually through query parameters) - Multi page, where variants of the same product are accessible on different pages",
+   "note": "Define los sitios de una sola página y de varias páginas."
+  },
+  {
+   "id": "q25",
+   "section": "#single-page-example-1",
+   "text": "The ProductGroup and three Offer entities (under the Product properties) all have distinct URLs. Alternatively, the URLs could have also been provided under Product."
+  },
+  {
+   "id": "q26",
+   "section": "#multi-page-website",
+   "text": "Notice that there's no ProductGroup definition on only one page which gets referenced from another page. This is because the ProductGroup needs to reference common attributes of the variants, such as brand, material, and age group. This also means that the full ProductGroup definition needs to be repeated on each of the variant pages."
+  },
+  {
+   "id": "q27",
+   "section": "#multi-page-example-1",
+   "text": "The ProductGroup on each page has a full definition of the variants on the page as well as a variant with only the url property to link to the variants on the other page, which helps Google find your variants."
+  }
+ ],
+ "note": "Las propiedades Product de cada variante las fijan google-search-merchant-listing y google-search-product-snippet. Dato del proyecto para el contraste: dos fichas reales usan productGroupId en lugar de productGroupID; los requisitos de productGroupID solo cuentan esa grafía."
+}

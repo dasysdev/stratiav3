@@ -3,9 +3,9 @@ id: evaluation-scopes
 title: Interfaces, ámbitos de evaluación y requisitos técnicos
 layer: model
 status: vigente
-version: 1.1
-updated: 2026-10-27
-sources: [BASE §3, BASE §3.1, CTX §5, FUND §4, FUND §7.3, FUND §10.4, INTAKE 2026-10-27-ac-applicability-and-reliability]
+version: 1.5
+updated: 2026-10-28
+sources: [BASE §3, BASE §3.1, CTX §5, FUND §4, FUND §7.3, FUND §10.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-web-schema-technical-framework, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation]
 ---
 
 # Interfaces, ámbitos de evaluación y requisitos técnicos
@@ -34,6 +34,36 @@ El sistema establece tres **ámbitos de evaluación**. Cada ámbito determina qu
 - **Web Schema.org:** se examinan los requisitos técnicos específicos del marcado (sintaxis, estructura, conformidad).
 - **Catálogos distribuidos:** se examinan generación, formato, validación, actualización, entrega y distribución **por perfil**.
 
+Los evalúa el sistema **web-audit** en Web y Web Schema.org, empezando por Web Schema.org. Es solo técnico: no hace la evaluación informativa, que es de la auditoría GSC ([D-129](../30-governance/decisions.md#d-129)).
+
+### Perfil de implementación
+
+> El **perfil de implementación** es el conjunto de especificaciones aplicables respecto del cual se determinan los requisitos técnicos pertinentes de un ámbito y su naturaleza obligatoria o recomendada. — INTAKE 2026-10-27-web-schema-technical-framework
+
+- La naturaleza **obligatoria o recomendada** de un requisito técnico es **relativa al perfil** que la establece. La fija la especificación, nunca el auditor.
+- En **Web Schema.org**, el perfil tiene tres niveles:
+
+| Nivel | Especificaciones | Qué fijan |
+|---|---|---|
+| **Serialización** | JSON-LD 1.1 (con su procesado), Microdata y RDFa 1.1 | Sintaxis y estructura del marcado |
+| **Vocabulario** | Schema.org, versión fijada **30.1** | Tipos, propiedades, dominios, rangos y enumeraciones |
+| **Consumidor** | Google Search: fichas de comerciante (Merchant listing), variantes de producto, políticas de devolución y de envío, organización y fragmentos de producto (Product snippet) | Lo que exige ese consumidor y la forma de lo que se publica. La presencia de lo que solo recomienda es, en general, apoyo del modelo de demanda del ámbito ([frontera](#frontera-entre-la-evaluación-técnica-y-la-informativa)) |
+
+- Schema.org es permisivo por diseño: los rangos son tipos esperados, admite texto donde espera una entidad y no tiene propiedades obligatorias. Por eso las condiciones de sintaxis salen de la serialización, y las propiedades exigidas y recomendadas, de los consumidores. De las recomendadas, su presencia no es un requisito técnico, salvo las partes de la [formación estructural](#frontera-entre-la-evaluación-técnica-y-la-informativa) y los datos del mínimo de representación ([D-145](../30-governance/decisions.md#d-145), [D-147](../30-governance/decisions.md#d-147), [D-148](../30-governance/decisions.md#d-148)).
+- La versión del vocabulario se fija y queda registrada con cada resultado. Cambiarla obliga a revisar los requisitos que dependen de ella.
+- **Google Merchant Center** pertenece a Catálogos distribuidos. En Web Schema.org solo sirve para la [consistencia transversal](#consistencia-transversal).
+- No se añaden otros consumidores por ahora; podrían añadirse como perfil nuevo ([D-130](../30-governance/decisions.md#d-130), interpretación adoptada). Los perfiles de Web (sin marcado) y de Catálogos distribuidos están pendientes.
+
+### Estados del requisito técnico
+
+| Estado | Valores | Tratamiento |
+|---|---|---|
+| **Satisfacción** | **Satisfecho** · **no satisfecho** | Según la comprobación de su método. |
+| **Aplicabilidad** | **No aplicable (NA)** | El requisito no corresponde al perfil o al recurso examinado. Se justifica y se separa de los pertinentes. |
+| **Evaluación** | **No evaluable (NE)** | **Incidencia de la auditoría:** una comprobación que no se pudo hacer. No es una puntuación y **no equivale a «no satisfecho»**. |
+
+NE recibe el mismo tratamiento que en la evaluación informativa ([scoring-systems](scoring-systems.md#grado-de-satisfacción-de-criterio-gsc)). El sistema cuantitativo (cómo entran las obligatorias y las recomendadas en la tasa, umbrales y cobertura) sigue abierto; **no se fijan pesos** ([D-131](../30-governance/decisions.md#d-131)).
+
 ## Reglas e invariantes
 
 1. **Web y Web Schema.org no son independientes** en la información que contienen: Web incluye el marcado Schema.org. Sus resultados se mantienen **diferenciados** y **no se suman ni se promedian automáticamente**.
@@ -45,10 +75,29 @@ El sistema establece tres **ámbitos de evaluación**. Cada ámbito determina qu
 7. Para cada requisito técnico se documentan:
    - el ámbito;
    - la especificación aplicable;
-   - su naturaleza **obligatoria o recomendada**;
+   - su naturaleza **obligatoria o recomendada**, según su [perfil](#perfil-de-implementación);
    - el método de comprobación;
    - la evidencia;
-   - los estados de satisfacción, aplicabilidad y evaluación.
+   - los [estados](#estados-del-requisito-técnico) de satisfacción, aplicabilidad y evaluación.
+
+## Fuentes de los requisitos técnicos
+
+1. Solo una **especificación aplicable** (de serialización, de vocabulario o de un consumidor) fundamenta un requisito técnico. Las demás fuentes tienen otra función:
+
+| Clase | Ejemplos | Función |
+|---|---|---|
+| Instrumento del sistema | SHACL, PROV-O | Sirven para construir el auditor (perfiles como restricciones, procedencia de las evidencias); no son condiciones que deba cumplir el ecommerce. |
+| Principios generales | W3C Data on the Web Best Practices | Orientan; no dan requisitos comprobables de una ficha. |
+| Método de comprobación | Schema Markup Validator, Rich Results Test | Sirven para comprobar y calibrar; no son fuente de criterios ni equivalen a calidad informativa. |
+| Práctica de terceros | Skills de auditoría SEO | Listas de errores frecuentes, sin autoridad. |
+| Antecedente histórico | GS1 SmartSearch (2015) | Solo contexto. |
+| Datos comerciales distribuidos | Merchant Center | Catálogos distribuidos y consistencia transversal. |
+
+2. Un requisito técnico expresa **una sola condición comprobable**.
+3. Cada requisito técnico **cita literalmente** su especificación: fuente, sección y versión congelada ([D-132](../30-governance/decisions.md#d-132)).
+4. **Referencia técnica:** vive en `web-audit/reference/`, como datos y fichas gobernados por el canon, igual que el catálogo de bloques del modelo de demanda. Reúne las fuentes congeladas por versión (fuera de git), una ficha por fuente con citas literales y los requisitos técnicos, con los campos de la regla 7, su perfil y su cita.
+5. Los requisitos técnicos los **deciden los agentes**, siempre con cita; el usuario los revisa si lo pide. Una skill los crea y los mantiene (añadir una fuente, actualizar ante una versión nueva, validar) y no crea conceptos, estados, pesos ni fórmulas: si le falta algo, va al intake ([D-133](../30-governance/decisions.md#d-133)).
+6. La auditoría GSC puede consultar la referencia para **interpretar** el marcado. Eso no convierte los requisitos técnicos en criterios informativos ([D-129](../30-governance/decisions.md#d-129)).
 
 ## Perfil de consumo no interactivo
 
@@ -63,8 +112,44 @@ La comprobación informativa **no reproduce** los controles técnicos. Atiende a
 - La conformidad técnica general **no sustituye** a esta comprobación contextual.
 - Una incidencia técnica **no determina automáticamente** una insuficiencia informativa.
 - Si un factor técnico (formato, marcado, transformación, validación, distribución, mecanismo de acceso) impide consumir la información pertinente, su **consecuencia informativa** se refleja en la disponibilidad efectiva. La **causa** y el incumplimiento se documentan en el expediente técnico.
+- Los datos del [mínimo de representación](commercial-information.md#mínimo-de-representación) se examinan en la técnica, que dice si existen y están bien formados (en Web Schema.org, los de la [lista del mínimo](commercial-information.md#mínimo-de-representación), [D-147](../30-governance/decisions.md#d-147)). Los que llevan un hecho comercial se examinan también en la informativa, por lo que transmiten; los de sostén, solo en la técnica ([D-143](../30-governance/decisions.md#d-143)).
 
 **Ejemplo:** una incidencia de marcado Schema.org puede ser relevante para la conformidad técnica. Si en **Web** la información que exige el RI también se obtiene y se lee en HTML admisible, esa incidencia no demuestra por sí misma falta de disponibilidad ni deficiencia de los criterios informativos de Web. En **Web Schema.org** hay que comprobar por separado qué información pertinente del marcado puede utilizarse.
+
+### Frontera entre la evaluación técnica y la informativa
+
+Se formula para el perfil de Web Schema.org; los perfiles de Web y de Catálogos distribuidos siguen en [OQ-30](../30-governance/open-questions.md#f-evaluación-técnica).
+
+> - **Evaluación técnica:** cómo está construido lo que se publica, más la presencia de lo que el consumidor **exige**.
+> - **Evaluación informativa:** si se publica lo que el consumidor solo **recomienda**, como cualquier otra cuestión del modelo de demanda: disponibilidad efectiva y criterios de aceptación.
+> - **El criterio es la naturaleza que fija la especificación** (obligatoria o recomendada), no un juicio del auditor. Vale igual en el primer nivel y en lo anidado.
+>
+> — INTAKE 2026-10-28-technical-informative-frontier
+
+- **Lo técnico** ([D-145](../30-governance/decisions.md#d-145), [D-148](../30-governance/decisions.md#d-148)) son tres categorías y dos presencias:
+  - sintaxis y vocabulario;
+  - acceso y exposición;
+  - **formación estructural**, que incluye la forma del valor (formatos, códigos, enumeraciones, cardinalidad), también la de lo recomendado;
+  - presencia de los datos exigidos de primer nivel (name, image y offers del Product; precio y moneda de la Offer). Lo exigido incluye lo condicional, con la condición como aplicabilidad del requisito: en la referencia, 169 obligatorios del consumidor, 9 universales y 160 condicionales ([D-147](../30-governance/decisions.md#d-147));
+  - presencia de los datos del mínimo de representación.
+
+> **Formación estructural** (técnica): cuando se publica una estructura,
+> 1. tiene las partes que el consumidor **exige** para ella;
+> 2. tiene las partes sin las que un valor publicado **no se puede interpretar**: la unidad del peso, la escala de una valoración (`bestRating`/`worstRating`), el sistema de tallas, la moneda de un precio unitario;
+> 3. sus partes son **coherentes entre sí**: con `doesNotShip` no hay tarifa; con devolución gratuita no hay importe de devolución.
+>
+> Las partes que solo **añaden otro hecho** (tipo de reembolso, tarifa de reposición, tiempo de preparación de un servicio de envío) son presencia de lo recomendado → informativa.
+>
+> — INTAKE 2026-10-28-minimum-members-structural-formation
+
+- La estructura puede ser opcional y estar incluida: lo que cuenta es que, si se publica, no quede incompleta. Ejemplo con el envío en la oferta:
+  - sin `shippingDetails` (recomendado): no es un defecto técnico; la informativa juzga si el ámbito responde al coste y al plazo del envío;
+  - con `shippingDetails` y sin `deliveryTime`, que Google exige dentro de esa estructura (`ws-consumer/105`): técnico, estructura incompleta; la informativa ve además su efecto en el plazo de entrega (gen/08);
+  - con todas las partes exigidas y sin `handlingTime` (recomendado, `122`): solo informativo, es un hecho más sobre el plazo.
+- Lectura de [D-148](../30-governance/decisions.md#d-148): la coherencia entre partes recoge también las reglas de estructura del marcado de la página, como una sola moneda (`ws-consumer/147`, `174`) o URL distintas por variante (`200`).
+- **Doble lectura, solo en lo exigido.** Si falta el precio, la técnica dice que el consumidor lo exige y falta; la informativa, que la cuestión no tiene respuesta en el ámbito. No es doble cómputo: la incidencia técnica y su efecto sobre la disponibilidad se registran por separado (punto de contacto, arriba).
+- **Mínimo de representación:** mantiene en la técnica los datos del [mínimo](commercial-information.md#mínimo-de-representación) que el consumidor recomienda sin exigir; en Web Schema.org, nueve requisitos ([D-147](../30-governance/decisions.md#d-147)).
+- **Lo recomendado** pasa a ser apoyo del modelo de demanda del ámbito Web Schema.org: ver [demand-model](demand-model.md#relación-con-los-ámbitos-de-evaluación).
 
 ## Complementariedad y coherencia entre representaciones
 
@@ -95,7 +180,8 @@ La comprobación informativa **no reproduce** los controles técnicos. Atiende a
 
 ## Pendiente
 
-- Completar los perfiles de implementación, obligaciones, recomendaciones, métodos y cobertura de los controles técnicos de cada ámbito. Ver [open-questions](../30-governance/open-questions.md).
+- Los requisitos técnicos concretos (en web-audit), el método y la cobertura de cada uno, el sistema cuantitativo técnico y los perfiles de Web (sin marcado) y de Catálogos distribuidos. Ver [OQ-30](../30-governance/open-questions.md#f-evaluación-técnica).
+- Frontera entre la sintaxis técnica y la estructura del dato cuando un perfil de consumidor exige un valor válido (GTIN). ⚠ Ver [I-41](../30-governance/issues.md#i-41).
 
 ## Relacionado
 

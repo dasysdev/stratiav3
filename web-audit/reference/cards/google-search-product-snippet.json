@@ -1,0 +1,166 @@
+{
+ "source": "google-search-product-snippet",
+ "version": "2026-10-27",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "summary": "Propiedades exigidas y recomendadas por Google Search para los fragmentos de producto (Product, Review, Offer, UnitPriceSpecification y AggregateOffer), con sus directrices técnicas.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#structured-data-type-definitions",
+   "text": "You must include the required properties for your content to be eligible for display as a rich result."
+  },
+  {
+   "id": "q02",
+   "section": "#guidelines",
+   "text": "For your Product markup to be eligible for product snippets, you must follow these guidelines: - General structured data guidelines - Search Essentials - Technical guidelines - Content guidelines",
+   "note": "Remisión: incorpora las directrices generales de datos estructurados (google-search-sd-policies) y las directrices técnicas de esta página."
+  },
+  {
+   "id": "q03",
+   "section": "#product-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q04",
+   "section": "#product-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q05",
+   "section": "#product-properties",
+   "text": "name | Text The name of the product."
+  },
+  {
+   "id": "q06",
+   "section": "#product-properties",
+   "text": "Product snippets require either review or aggregateRating or offers | You must include one of the following properties: review aggregateRating offers"
+  },
+  {
+   "id": "q07",
+   "section": "#product-properties",
+   "text": "aggregateRating | AggregateRating A nested aggregateRating of the product. Follow the Review snippet guidelines and the list of required and recommended AggregateRating properties."
+  },
+  {
+   "id": "q08",
+   "section": "#product-properties",
+   "text": "offers | Offer or AggregateOffer A nested Offer or AggregateOffer to sell the product."
+  },
+  {
+   "id": "q09",
+   "section": "#product-properties",
+   "text": "To be eligible for the price drop enhancement, use Offer, not AggregateOffer."
+  },
+  {
+   "id": "q10",
+   "section": "#product-properties",
+   "text": "review | Review A nested Review of the product."
+  },
+  {
+   "id": "q11",
+   "section": "#product-properties",
+   "text": "If you add a review for the product, the reviewer's name must be a valid name for a Person or Team. Not recommended: 50% off on Black Friday Recommended: \"James Smith\" or \"CNET Reviewers\""
+  },
+  {
+   "id": "q12",
+   "section": "#offer-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q13",
+   "section": "#offer-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q14",
+   "section": "#offer-properties",
+   "text": "price or priceSpecification.price | Number The offer price of a product."
+  },
+  {
+   "id": "q15",
+   "section": "#offer-properties",
+   "text": "availability | ItemAvailability Use the single most appropriate product availability option from the following list. https://schema.org/BackOrder: The item is on back order. https://schema.org/Discontinued: The item has been discontinued. https://schema.org/InStock: The item is in stock. https://schema.org/InStoreOnly: The item is only available for purchase in store. https://schema.org/LimitedAvailability: The item has limited availability. https://schema.org/OnlineOnly: The item is available online only. https://schema.org/OutOfStock: The item is currently out of stock. https://schema.org/PreOrder: The item is available for pre-order. https://schema.org/PreSale: The item is available for ordering and delivery before general availability. https://schema.org/SoldOut: The item has been sold out. The short names without the URL prefix are also supported (for example, BackOrder)."
+  },
+  {
+   "id": "q16",
+   "section": "#offer-properties",
+   "text": "priceCurrency or priceSpecification.priceCurrency | Text The currency used to describe the product price, in three-letter ISO 4217 format. This property is currently recommended for product snippets to help Google determine the currency more accurately, but required for merchant listing experiences. It is therefore best to always provide this property."
+  },
+  {
+   "id": "q17",
+   "section": "#offer-properties",
+   "text": "priceValidUntil | Date The date (in ISO 8601 date format) after which the price will no longer be available, if applicable."
+  },
+  {
+   "id": "q18",
+   "section": "#unit-price-specification-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q19",
+   "section": "#unit-price-specification-properties",
+   "text": "price | Number The offer price of a product. See also the price property of Offer."
+  },
+  {
+   "id": "q20",
+   "section": "#unit-price-specification-properties",
+   "text": "priceCurrency | Text The currency used to describe the product price, in three-letter ISO 4217 format. See also the priceCurrency property of Offer. While this property is optional for product snippets, it's strongly recommended because it avoids pricing ambiguities and it's required for merchant listing experiences."
+  },
+  {
+   "id": "q21",
+   "section": "#aggregate-offer-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q22",
+   "section": "#aggregate-offer-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q23",
+   "section": "#aggregate-offer-properties",
+   "text": "lowPrice | Number The lowest price of all offers available. Use a decimal separator (.) when expressing fractions of a currency unit, such as 1.23 for $1.23 US dollars."
+  },
+  {
+   "id": "q24",
+   "section": "#aggregate-offer-properties",
+   "text": "priceCurrency | Text The currency used to describe the product price, in three-letter ISO 4217 format."
+  },
+  {
+   "id": "q25",
+   "section": "#aggregate-offer-properties",
+   "text": "highPrice | Number The highest price of all offers available."
+  },
+  {
+   "id": "q26",
+   "section": "#aggregate-offer-properties",
+   "text": "offerCount | Number The number of offers for the product."
+  },
+  {
+   "id": "q27",
+   "section": "#technical-guidelines",
+   "text": "Currently, product rich results only support pages that focus on a single product (or multiple variants of the same product). For example, \"shoes in our shop\" is not a specific product. This includes product variants where each product variant has a distinct URL. We recommend focusing on adding markup to product pages instead of pages that list products or a category of products."
+  },
+  {
+   "id": "q28",
+   "section": "#technical-guidelines",
+   "text": "When offering products for sale in multiple currencies, have a distinct URL per currency. For example, if a product is available for sale in Canadian and US dollars, use two distinct URLs, one per currency."
+  },
+  {
+   "id": "q29",
+   "section": "#technical-guidelines",
+   "text": "Car isn't supported automatically as a subtype of Product. For now, include both Car and Product types if you want to attach ratings to it and be eligible for the Search feature."
+  },
+  {
+   "id": "q30",
+   "section": "#technical-guidelines",
+   "text": "If you're a merchant optimizing for all types of shopping results, we recommend putting Product structured data in the initial HTML for best results."
+  },
+  {
+   "id": "q31",
+   "section": "#product-properties",
+   "text": "Follow the Review snippet guidelines and the list of required and recommended review properties.",
+   "note": "Remisión de la fila review a google-search-review-snippet."
+  }
+ ]
+}

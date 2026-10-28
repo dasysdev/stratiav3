@@ -3,9 +3,9 @@ id: scoring-systems
 title: Sistemas de valoración
 layer: model
 status: vigente
-version: 1.3
+version: 1.4
 updated: 2026-10-27
-sources: [BASE §6, FUND §8, INTAKE 2026-10-24-prominencia-informativa, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints]
+sources: [BASE §6, FUND §8, INTAKE 2026-10-24-prominencia-informativa, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-web-schema-technical-framework]
 ---
 
 # Sistemas de valoración
@@ -103,6 +103,9 @@ Es un indicador del **alcance de la resolución**. Es distinto del ICI, que tamb
 
 FUND §8.5 añade: **No sustituye al diagnóstico informativo ni demuestra por sí misma la resolución de RI.**
 
+- El **perfil de implementación** (respecto del cual un requisito es pertinente, obligatorio o recomendado) y los **estados del requisito técnico** (satisfecho o no satisfecho; NA; NE como incidencia, que no equivale a «no satisfecho») están en [evaluation-scopes](evaluation-scopes.md#perfil-de-implementación) ([D-130](../30-governance/decisions.md#d-130), [D-131](../30-governance/decisions.md#d-131)).
+- Cómo entran las obligatorias y las recomendadas en la tasa, sus umbrales y su cobertura siguen **sin fijar**. No se presuponen pesos.
+
 ## Lectura integrada, sin confundir unidades
 
 | Nivel | Pregunta de interpretación | Salida |
@@ -114,6 +117,7 @@ FUND §8.5 añade: **No sustituye al diagnóstico informativo ni demuestra por s
 | RI × ámbito (Web) | ¿Qué parte de lo resuelto tiene soporte en zonas prominentes? | **IP (0–100 %)** y **calidad ajustada** (propuesta; NA en Web Schema.org y Catálogos) |
 | Conjunto de RI de un ámbito | ¿Qué calidad informativa ofrece el ámbito respecto de las necesidades relevantes? | **ICI** |
 | Cobertura resolutiva | ¿Qué proporción de cuestiones pertinentes se resuelve suficientemente? | **TRI** |
+| Requisito técnico × ámbito | ¿Se cumple esta condición de su perfil de implementación? | **Satisfecho / no satisfecho**; NA si no corresponde; NE si hay una incidencia. |
 | Controles técnicos por ámbito | ¿Qué proporción de requisitos técnicos pertinentes se cumple? | **Tasa de cumplimiento técnico** |
 
 Los indicadores de **Web** y **Web Schema.org** se interpretan por separado y **no se suman ni se promedian**, porque Web incluye la información de Web Schema.org.

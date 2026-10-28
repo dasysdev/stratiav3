@@ -1,0 +1,24 @@
+{
+ "source": "schemaorg-data-model",
+ "version": "2026-10-27",
+ "class": "especificación aplicable",
+ "level": "vocabulario",
+ "summary": "Modelo de datos de Schema.org (V30.1): tipos con herencia múltiple y propiedades con dominios y rangos esperados, y su visión pragmática de la conformidad. Fija que los valores de una propiedad deberían ser instancias de alguno de sus tipos esperados y que mainEntity señala solo la entidad principal.",
+ "quotes": [
+  {"id": "q01", "section": "Data model",
+   "text": "each property may have one or more types as its domains. The property may be used for instances of any of these types."},
+  {"id": "q02", "section": "Data model",
+   "text": "each property may have one or more types as its ranges. The value(s) of the property should be instances of at least one of these types."},
+  {"id": "q03", "section": "#conformance",
+   "text": "We also expect that often, where we expect a property value of type Person, Place, Organization or some other subClassOf Thing, we will get a text string, even if our schemas don't formally document that expectation. In the spirit of \"some data is better than none\", search engines will often accept this markup and do the best we can. Similarly, some types such as Role and URL can be used with all properties, and we encourage this kind of experimentation amongst data consumers."},
+  {"id": "q04", "section": "#toolmakers",
+   "text": "It is not an error for a schema.org entity description to include properties from several independent types, e.g. something might simultaneously be both a Book and a Product and be usefully described with properties from both types."},
+  {"id": "q05", "section": "#toolmakers",
+   "text": "The type/properties associations of schema.org are closer to \"guidelines\" than to formal rules, and improvements to the guidelines are always welcome."},
+  {"id": "q06", "section": "#mainEntityBackground",
+   "text": "mainEntityOfPage \"Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\""},
+  {"id": "q07", "section": "#mainEntityBackground",
+   "text": "about is similar to mainEntity, with two key differences. First, about can refer to multiple entities/topics, while mainEntity should be used for only the primary one."}
+ ],
+ "note": "q01, q04 y q05 fijan la función: el dominio es permisivo («may») y usar propiedades de otros tipos no es un error, así que no hay requisito de dominio. La frase sobre url («should be reserved to refer to more official or authoritative web pages») exige juzgar qué página es autorizada y no da requisito técnico."
+}

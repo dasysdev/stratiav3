@@ -1,0 +1,62 @@
+{
+  "source": "w3c-rdfa-core",
+  "version": "2026-10-27",
+  "class": "especificación aplicable",
+  "level": "serialización",
+  "summary": "Sintaxis y reglas de procesado de RDFa 1.1 (tercera edición): los atributos (vocab, typeof, property, resource, prefix…), sus tipos de valor (términos, CURIE, IRI) y cómo se resuelven a IRI. Fija pocas condiciones de documento; la conformidad de un documento HTML con RDFa la completa HTML+RDFa.",
+  "note": "La conformidad de documento propia de RDFa Core (4.3) es la de XML+RDFa (text/xml, application/xml) y no aplica a una ficha servida como HTML. La conformidad de procesador (4.1, 7, 8, 10) queda fuera, salvo la recomendación a los autores de 4.1 (q04). La sintaxis de los atributos (sección 5) no lleva término de naturaleza: la recomendación de usarlos conforme a RDFa Core la da HTML+RDFa (w3c-html-rdfa#q02).",
+  "quotes": [
+    {
+      "id": "q01",
+      "section": "#conformance",
+      "text": "The key words MAY, MUST, MUST NOT, RECOMMENDED, SHOULD, and SHOULD NOT are to be interpreted as described in [RFC2119]."
+    },
+    {
+      "id": "q02",
+      "section": "#s_curies",
+      "text": "When expanded, the resulting IRI MUST be a syntactically valid IRI [RFC3987]."
+    },
+    {
+      "id": "q03",
+      "section": "#s_curies",
+      "text": "A document SHOULD NOT define a mapping for the '_' prefix."
+    },
+    {
+      "id": "q04",
+      "section": "#processorconf",
+      "text": "To ensure maximum consistency between processing environments, authors SHOULD remove any unnecessary white space in their plain and XML Literal content."
+    },
+    {
+      "id": "q05",
+      "section": "#white_space",
+      "text": "whitespace ::= (#x20 | #x9 | #xD | #xA)+"
+    },
+    {
+      "id": "q06",
+      "section": "#s_syntax",
+      "text": "prefix\na white space separated list of prefix-name IRI pairs of the form\n\n```\nNCName ':' ' '+ xsd:anyURI\n```"
+    },
+    {
+      "id": "q07",
+      "section": "#s_curies",
+      "text": "prefix      ::=   NCName\n\nreference   ::=   ( ipath-absolute / ipath-rootless / ipath-empty ) \n                     [ \"?\" iquery ] [ \"#\" ifragment ] (as defined in [[!RFC3987]])\n\ncurie       ::=   [ [ prefix ] ':' ] reference\n\nsafe_curie  ::=   '[' [ [ prefix ] ':' ] reference ']'"
+    },
+    {
+      "id": "q08",
+      "section": "#s_curies",
+      "text": "Otherwise, if a CURIE consists of a non-empty prefix and a reference, and if there is an in-scope mapping for prefix (when compared case-insensitively), then the IRI is created by using that mapping, and concatenating it with the reference.\n- Finally, if there is no in-scope mapping for prefix, then the value is not a CURIE."
+    },
+    {
+      "id": "q09",
+      "section": "#s_curieprocessing",
+      "text": "TERMorCURIEorAbsIRI\n- If the value is a term then it is evaluated as a term according to General Use of Terms in Attributes. Note that this step may mean that the value is to be ignored.\n- If the value is a valid CURIE, then the resulting IRI is used.\n- If the value is an absolute IRI, that value is used.\n- Otherwise, the value is ignored.",
+      "note": "Función: cómo se resuelven a IRI los valores de typeof y property; con ello se decide si el marcado RDFa es de Schema.org."
+    },
+    {
+      "id": "q10",
+      "section": "#s_syntax",
+      "text": "In all cases it is possible for these attributes to be used with no value (e.g., @datatype=\"\") or with a value that evaluates to no value after evaluation using the rules for CURIE and IRI Processing (e.g., @datatype=\"[noprefix:foobar]\").",
+      "note": "Por qué no hay requisito de que los valores de typeof, property o resource se resuelvan: un valor que no da IRI está previsto y se ignora."
+    }
+  ]
+}

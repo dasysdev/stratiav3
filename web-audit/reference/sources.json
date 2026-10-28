@@ -1,0 +1,254 @@
+{
+ "sources": [
+  {
+   "id": "schemaorg",
+   "kind": "schemaorg",
+   "title": "Schema.org vocabulary, release files (JSON-LD, CSV and JSON-LD context)",
+   "publisher": "Schema.org",
+   "url": "https://github.com/schemaorg/schemaorg/tree/main/data/releases",
+   "note": "Versión fijada por el canon: 30.1 (D-130)."
+  },
+  {
+   "id": "schemaorg-getting-started",
+   "kind": "document",
+   "title": "Getting Started",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/docs/gs.html",
+   "inventory": "SCH-01"
+  },
+  {
+   "id": "schemaorg-data-model",
+   "kind": "document",
+   "title": "Data model",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/docs/datamodel.html",
+   "inventory": "SCH-02"
+  },
+  {
+   "id": "schemaorg-full-hierarchy",
+   "kind": "document",
+   "title": "Full schema hierarchy",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/docs/full.html",
+   "inventory": "SCH-03"
+  },
+  {
+   "id": "schemaorg-faq",
+   "kind": "document",
+   "title": "FAQ",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/docs/faq.html",
+   "inventory": "SCH-04"
+  },
+  {
+   "id": "schemaorg-product",
+   "kind": "document",
+   "title": "Product - Schema.org Type",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/Product",
+   "inventory": "SCH-05"
+  },
+  {
+   "id": "schemaorg-productgroup",
+   "kind": "document",
+   "title": "ProductGroup - Schema.org Type",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/ProductGroup",
+   "inventory": "SCH-06"
+  },
+  {
+   "id": "schemaorg-offer",
+   "kind": "document",
+   "title": "Offer - Schema.org Type",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/Offer",
+   "inventory": "SCH-07"
+  },
+  {
+   "id": "schemaorg-organization",
+   "kind": "document",
+   "title": "Organization - Schema.org Type",
+   "publisher": "Schema.org",
+   "url": "https://schema.org/Organization",
+   "inventory": "SCH-08"
+  },
+  {
+   "id": "google-search-sd-policies",
+   "kind": "document",
+   "title": "General Structured Data Guidelines",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+   "inventory": "GSC-01"
+  },
+  {
+   "id": "google-search-merchant-listing",
+   "kind": "document",
+   "title": "Merchant listing (Product, Offer) structured data",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/merchant-listing",
+   "inventory": "GSC-02"
+  },
+  {
+   "id": "google-search-product-variants",
+   "kind": "document",
+   "title": "Product Variant Structured Data (ProductGroup, Product)",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/product-variants",
+   "inventory": "GSC-03"
+  },
+  {
+   "id": "google-search-return-policy",
+   "kind": "document",
+   "title": "Merchant Return Policy Structured Data (MerchantReturnPolicy)",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/return-policy",
+   "inventory": "GSC-04"
+  },
+  {
+   "id": "google-search-shipping-policy",
+   "kind": "document",
+   "title": "Merchant Shipping Policy Structured Data (ShippingService)",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/shipping-policy",
+   "inventory": "GSC-05"
+  },
+  {
+   "id": "google-search-organization",
+   "kind": "document",
+   "title": "Organization Schema Markup",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/organization",
+   "inventory": "GSC-06"
+  },
+  {
+   "id": "google-merchant-center-structured-data",
+   "kind": "document",
+   "title": "Set up structured data for Merchant Center",
+   "publisher": "Google Merchant Center Help",
+   "url": "https://support.google.com/merchants/answer/7331077?hl=en",
+   "inventory": "GMC-01"
+  },
+  {
+   "id": "google-merchant-center-product-data-spec",
+   "kind": "document",
+   "title": "Product data specification",
+   "publisher": "Google Merchant Center Help",
+   "url": "https://support.google.com/merchants/answer/7052112?hl=en",
+   "inventory": "GMC-02"
+  },
+  {
+   "id": "w3c-json-ld11",
+   "kind": "document",
+   "title": "JSON-LD 1.1",
+   "publisher": "W3C",
+   "url": "https://www.w3.org/TR/json-ld11/",
+   "inventory": "W3C-01"
+  },
+  {
+   "id": "w3c-dwbp",
+   "kind": "document",
+   "title": "Data on the Web Best Practices",
+   "publisher": "W3C",
+   "url": "https://www.w3.org/TR/dwbp/",
+   "inventory": "W3C-02"
+  },
+  {
+   "id": "w3c-shacl",
+   "kind": "document",
+   "title": "Shapes Constraint Language (SHACL)",
+   "publisher": "W3C",
+   "url": "https://www.w3.org/TR/shacl/",
+   "inventory": "W3C-03"
+  },
+  {
+   "id": "w3c-prov-o",
+   "kind": "document",
+   "title": "PROV-O: The PROV Ontology",
+   "publisher": "W3C",
+   "url": "https://www.w3.org/TR/prov-o/",
+   "inventory": "W3C-04"
+  },
+  {
+   "id": "gs1-web-vocabulary",
+   "kind": "document",
+   "title": "GS1 Web Vocabulary (gs1Voc.jsonld)",
+   "publisher": "GS1",
+   "url": "https://ref.gs1.org/voc/data/gs1Voc.jsonld",
+   "inventory": "GS1-01",
+   "note": "https://ref.gs1.org/voc/ es una aplicación JavaScript sin el contenido en el HTML: se congela el fichero del vocabulario que carga."
+  },
+  {
+   "id": "gs1-smartsearch",
+   "kind": "document",
+   "title": "GS1 SmartSearch Implementation Guideline",
+   "publisher": "GS1",
+   "url": "https://ref.gs1.org/guidelines/smart-search/",
+   "inventory": "GS1-02",
+   "note": "Se publica como PDF; no tiene text.md."
+  },
+  {
+   "id": "gs1-web-vocabulary-standard",
+   "kind": "document",
+   "title": "The GS1 Web Vocabulary",
+   "publisher": "GS1",
+   "url": "https://ref.gs1.org/standards/webvoc/",
+   "inventory": "GS1-03"
+  },
+  {
+   "id": "w3c-json-ld11-api",
+   "kind": "document",
+   "title": "JSON-LD 1.1 Processing Algorithms and API",
+   "publisher": "W3C",
+   "url": "https://www.w3.org/TR/json-ld11-api/",
+   "note": "Hueco del inventario (T-044): el procesado de JSON-LD 1.1 que nombra el perfil (D-130)."
+  },
+  {
+   "id": "whatwg-html-microdata",
+   "kind": "document",
+   "title": "HTML Living Standard — Microdata",
+   "publisher": "WHATWG",
+   "url": "https://html.spec.whatwg.org/multipage/microdata.html",
+   "note": "Hueco del inventario (T-044). Microdata se especifica en el HTML Living Standard; la nota del W3C (HTML Microdata) remite a él."
+  },
+  {
+   "id": "w3c-rdfa-core",
+   "kind": "document",
+   "title": "RDFa Core 1.1 - Third Edition",
+   "publisher": "W3C",
+   "url": "https://www.w3.org/TR/rdfa-core/",
+   "note": "Hueco del inventario (T-044): RDFa 1.1, sintaxis y procesado."
+  },
+  {
+   "id": "w3c-html-rdfa",
+   "kind": "document",
+   "title": "HTML+RDFa 1.1 - Second Edition",
+   "publisher": "W3C",
+   "url": "https://www.w3.org/TR/html-rdfa/",
+   "note": "Hueco del inventario (T-044): RDFa 1.1 en HTML (lenguaje anfitrión)."
+  },
+  {
+   "id": "google-search-product-snippet",
+   "kind": "document",
+   "title": "Product snippet (Product, Review, Offer) structured data",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/product-snippet",
+   "note": "Hueco del inventario (T-044): consumidor del perfil (D-130)."
+  },
+  {
+   "id": "google-search-javascript",
+   "kind": "document",
+   "title": "Generate Structured Data with JavaScript",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/generate-structured-data-with-javascript",
+   "note": "Hueco del inventario (T-044): marcado generado con JavaScript."
+  },
+  {
+   "id": "google-search-review-snippet",
+   "kind": "document",
+   "title": "Review snippet (Review, AggregateRating) structured data",
+   "publisher": "Google Search Central",
+   "url": "https://developers.google.com/search/docs/appearance/structured-data/review-snippet",
+   "note": "Tipos de las fichas reales (T-047): google-search-product-snippet y google-search-merchant-listing remiten a ella para las propiedades de Review y AggregateRating."
+  }
+ ]
+}

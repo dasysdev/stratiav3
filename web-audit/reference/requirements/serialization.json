@@ -1,0 +1,791 @@
+{
+ "level": "serialización",
+ "requirements": [
+  {
+   "id": "ws-serialization/001",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "El contenido de cada bloque JSON-LD de la página es texto JSON válido según RFC 8259.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q03",
+    "w3c-json-ld11#q11",
+    "w3c-json-ld11-api#q04",
+    "w3c-json-ld11-api#q05"
+   ],
+   "method": "Extraer del HTML servido cada elemento script cuyo atributo type vale application/ld+json: cada uno es un bloque JSON-LD. Analizar su contenido de texto (dentro de script no se decodifican entidades HTML) con un analizador JSON estricto conforme a RFC 8259, que rechace comentarios, comas finales, comillas simples, NaN o Infinity, caracteres de control sin escapar en las cadenas y un contenido vacío. Se satisface si todos los bloques se analizan sin error.",
+   "evidence": "Por cada bloque: su posición en el documento (orden y atributo id, si lo tiene), el valor literal de type y el resultado del análisis; si falla, el error, su línea y columna y un extracto.",
+   "applicability": "La página contiene al menos un elemento script con type application/ld+json.",
+   "not_evaluable": [],
+   "rationale": "La conformidad del documento la fija la gramática (§ 9), que exige texto JSON válido. La API define el bloque como script con type application/ld+json y aborta el procesado si su contenido no es JSON válido."
+  },
+  {
+   "id": "ws-serialization/002",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "La raíz de cada bloque JSON-LD es un objeto de nodo, un mapa con solo las entradas @context y/o @graph, o un array de objetos de nodo.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q12",
+    "w3c-json-ld11#q14",
+    "w3c-json-ld11#q15",
+    "w3c-json-ld11#q20",
+    "w3c-json-ld11#q32",
+    "w3c-json-ld11-api#q09",
+    "w3c-json-ld11-api#q19"
+   ],
+   "method": "En cada bloque con JSON válido, clasificar la raíz teniendo en cuenta los alias de palabras clave de su contexto. Cumple si es un mapa con solo @context y/o @graph, un mapa sin @value, @list ni @set (objeto de nodo) o un array cuyos elementos son todos objetos de nodo. Incumple cualquier otra raíz: un escalar o null (la expansión lo descarta), un mapa con @value, @list o @set, o un array con escalares, arrays, objetos de valor, de lista o de conjunto, o con objetos de grafo (elementos con @graph y, además, solo @context, @id o @index).",
+   "evidence": "Por cada bloque: el tipo de la raíz y, si incumple, la ruta, el tipo y las claves de cada elemento que no es un objeto de nodo.",
+   "applicability": "La página contiene al menos un bloque JSON-LD con JSON válido.",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD.",
+    "No se pudo obtener un contexto remoto referenciado por @context, necesario para reconocer alias de palabras clave o expandir claves y valores, y sin él no se puede decidir."
+   ],
+   "rationale": "Un elemento del array raíz con solo @context y @graph no es la raíz del documento sino un objeto de grafo: su contenido queda en un grafo con nombre, que un consumidor que usa el documento como fuente de un grafo ignora (§ 10). Solo la raíz con @graph se funde en el grafo por defecto al expandir."
+  },
+  {
+   "id": "ws-serialization/003",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "Ningún mapa de los bloques JSON-LD repite una clave.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q13"
+   ],
+   "method": "Analizar cada bloque con JSON válido con un analizador que conserve todas las parejas clave-valor de cada objeto (muchos se quedan con la última sin avisar) y buscar, a cualquier profundidad e incluidos los contextos locales, claves idénticas repetidas en un mismo objeto. Dos claves distintas que son alias de la misma palabra clave (@id e id) no cuentan aquí.",
+   "evidence": "Por cada repetición: el bloque, la ruta del objeto (p. ej., $[0].offers), la clave y el valor de cada aparición.",
+   "applicability": "La página contiene al menos un bloque JSON-LD con JSON válido.",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD."
+   ]
+  },
+  {
+   "id": "ws-serialization/004",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "Cada valor de @context de los bloques JSON-LD es null, una referencia IRI, una definición de contexto o un array de ellos.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q28",
+    "w3c-json-ld11-api#q07"
+   ],
+   "method": "Localizar cada entrada @context (no admite alias) a cualquier profundidad, incluidas las de las definiciones de término, y comprobar que su valor es null, una cadena con sintaxis de referencia IRI (RFC 3987: sin espacios ni caracteres no permitidos), un mapa (definición de contexto) o un array cuyos elementos son de esos tipos. Incumplen un número, un booleano, un array anidado o una cadena que no es una referencia IRI. La validez interna de cada definición de contexto y que un contexto remoto se pueda obtener no se examinan aquí.",
+   "evidence": "Por cada @context: el bloque, la ruta y el valor (o su tipo, si es un mapa).",
+   "applicability": "Algún bloque JSON-LD con JSON válido contiene la entrada @context.",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD."
+   ]
+  },
+  {
+   "id": "ws-serialization/005",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "El valor de @language de cada definición de contexto local es una etiqueta de idioma bien formada según BCP 47, o null.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q27",
+    "w3c-json-ld11-api#q03",
+    "w3c-json-ld11-api#q08"
+   ],
+   "method": "En cada definición de contexto escrita en el bloque (un mapa como valor de @context o dentro de su array) que tenga @language, comprobar que el valor es null o una cadena que cumple la sintaxis Language-Tag de BCP 47 (RFC 5646, § 2.1), sin distinguir mayúsculas: es, es-ES y ca valen, es_ES o español no. La expansión solo aborta si el valor no es una cadena: una etiqueta mal formada produce como mucho un aviso, así que hay que validarla aparte.",
+   "evidence": "Por cada definición de contexto con @language: el bloque, la ruta y el valor.",
+   "applicability": "Alguna definición de contexto local de los bloques JSON-LD contiene @language.",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD."
+   ],
+   "rationale": "Los contextos remotos (como el de Schema.org) no forman parte del documento auditado: solo se examinan las definiciones escritas en la página."
+  },
+  {
+   "id": "ws-serialization/006",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "Cada valor de @id de los objetos de nodo es una referencia IRI o una IRI compacta, incluidos los identificadores de nodo en blanco.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q14",
+    "w3c-json-ld11#q15",
+    "w3c-json-ld11#q16",
+    "w3c-json-ld11-api#q03",
+    "w3c-json-ld11-api#q11"
+   ],
+   "method": "Localizar los objetos de nodo (mapas fuera de los contextos sin @value, @list ni @set, incluidas las referencias {\"@id\": …} que son valor de una propiedad) que tienen @id o un alias suyo, y comprobar que el valor es una cadena (si no, la expansión aborta con invalid @id value) con la sintaxis de referencia IRI de RFC 3987: sin espacios ni caracteres no permitidos sin codificar (<, >, \", {, }, |, \\, ^ y la comilla invertida). Las IRI compactas (prefijo:sufijo) y los identificadores de nodo en blanco (_:…) cumplen si su sufijo cumple esa sintaxis. Los procesadores no corrigen las IRI mal formadas.",
+   "evidence": "Por cada objeto de nodo con @id: el bloque, la ruta y el valor; en los que incumplen, el carácter o el tipo que lo impide.",
+   "applicability": "Algún objeto de nodo de los bloques JSON-LD tiene @id o un alias suyo.",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD.",
+    "No se pudo obtener un contexto remoto referenciado por @context, necesario para reconocer alias de palabras clave o expandir claves y valores, y sin él no se puede decidir."
+   ]
+  },
+  {
+   "id": "ws-serialization/007",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "El valor de @type de cada objeto de nodo es una referencia IRI, una IRI compacta, un término del contexto activo que se expande a una IRI, o un array de ellos.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q14",
+    "w3c-json-ld11#q15",
+    "w3c-json-ld11#q18",
+    "w3c-json-ld11-api#q06",
+    "w3c-json-ld11-api#q12"
+   ],
+   "method": "Localizar los objetos de nodo con @type o un alias suyo y comprobar que el valor es una cadena o un array de cadenas (si no, la expansión aborta con invalid type value) y que cada cadena es un término definido en el contexto activo que se expande a una IRI, una IRI compacta, una IRI o una referencia relativa con la sintaxis de RFC 3987 (se resuelve con @vocab). Incumple una cadena con espacios u otros caracteres no permitidos que no es un término definido. Si el tipo existe en Schema.org es cosa del nivel de vocabulario.",
+   "evidence": "Por cada objeto de nodo con @type: el bloque, la ruta y el valor; en los que incumplen, la cadena o el tipo que lo impide.",
+   "applicability": "Algún objeto de nodo de los bloques JSON-LD tiene @type o un alias suyo.",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD.",
+    "No se pudo obtener un contexto remoto referenciado por @context, necesario para reconocer alias de palabras clave o expandir claves y valores, y sin él no se puede decidir."
+   ]
+  },
+  {
+   "id": "ws-serialization/008",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "Cada valor de @graph de los bloques JSON-LD es un objeto de nodo o un array de objetos de nodo.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q14",
+    "w3c-json-ld11#q15",
+    "w3c-json-ld11#q17",
+    "w3c-json-ld11#q20",
+    "w3c-json-ld11-api#q09",
+    "w3c-json-ld11-api#q18"
+   ],
+   "method": "Localizar cada entrada @graph o un alias suyo, incluida la de la raíz, y comprobar que su valor es un objeto de nodo (un mapa sin @value, @list ni @set que no es un objeto de grafo) o un array de objetos de nodo. Incumplen los escalares, los arrays anidados y los objetos de valor, de lista, de conjunto o de grafo: la expansión descarta los valores sueltos.",
+   "evidence": "Por cada @graph: el bloque, la ruta y, de cada elemento que no es un objeto de nodo, su posición y su tipo.",
+   "applicability": "Algún bloque JSON-LD contiene @graph o un alias suyo.",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD.",
+    "No se pudo obtener un contexto remoto referenciado por @context, necesario para reconocer alias de palabras clave o expandir claves y valores, y sin él no se puede decidir."
+   ],
+   "rationale": "§ 9.2 lo fija para @graph en un objeto de nodo y presenta la raíz con solo @context y @graph como forma de definir objetos de nodo, así que se aplica también a ella."
+  },
+  {
+   "id": "ws-serialization/009",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "Ningún valor de una propiedad de un objeto de nodo es un array que contiene arrays.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q19"
+   ],
+   "method": "Por cada clave de un objeto de nodo que no es palabra clave y se expande a una IRI con el contexto activo, comprobar que su valor, si es un array, no contiene ningún array. Cualquier otro valor JSON (escalar, null o mapa) encaja en uno de los tipos de la lista: su validez interna la examinan sus propios requisitos.",
+   "evidence": "Por cada array anidado: el bloque, la ruta y la propiedad.",
+   "applicability": "La página contiene al menos un bloque JSON-LD con JSON válido.",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD.",
+    "No se pudo obtener un contexto remoto referenciado por @context, necesario para reconocer alias de palabras clave o expandir claves y valores, y sin él no se puede decidir."
+   ],
+   "rationale": "La lista de § 9.2 admite escalares, null, objetos de nodo, de grafo, de valor, de lista y de conjunto, mapas de contenedor y arrays de todo ello, pero no arrays de arrays. Sobre el JSON, todo escalar o mapa encaja en alguno de esos tipos, así que lo único que puede quedar fuera es un array anidado."
+  },
+  {
+   "id": "ws-serialization/010",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "Ningún objeto de nodo de primer nivel de los bloques JSON-LD está vacío o contiene solo @id.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q29",
+    "w3c-json-ld11#q30",
+    "w3c-json-ld11#q31",
+    "w3c-json-ld11-api#q10",
+    "w3c-json-ld11-api#q18"
+   ],
+   "method": "Tomar los objetos de nodo no anidados de cada bloque: la raíz, los elementos del array raíz y los de @graph en la raíz. Quitar @context y las claves que no se expanden a una IRI ni a una palabra clave (el procesado las ignora) y comprobar que queda al menos una entrada además de @id o su alias. Incumple un objeto vacío o con solo @id: la expansión lo descarta.",
+   "evidence": "Por cada objeto que incumple: el bloque, la ruta y sus claves.",
+   "applicability": "La página contiene al menos un bloque JSON-LD con JSON válido.",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD.",
+    "No se pudo obtener un contexto remoto referenciado por @context, necesario para reconocer alias de palabras clave o expandir claves y valores, y sin él no se puede decidir."
+   ],
+   "rationale": "La regla está en el modelo de datos (§ 8) y la nota que la acompaña la traduce al documento: prohíbe los objetos de nodo no anidados vacíos o con solo @id. La API los descarta al expandir."
+  },
+  {
+   "id": "ws-serialization/011",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "Ningún objeto de valor contiene a la vez @type y @language o @direction.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q14",
+    "w3c-json-ld11#q21",
+    "w3c-json-ld11-api#q15"
+   ],
+   "method": "Localizar los objetos de valor (mapas fuera de los contextos con @value o un alias suyo) y comprobar que ninguno tiene @type junto con @language o con @direction, o sus alias. La expansión aborta con invalid value object.",
+   "evidence": "Por cada objeto de valor que incumple: el bloque, la ruta y sus claves.",
+   "applicability": "Algún bloque JSON-LD contiene un objeto de valor (un mapa con @value o un alias suyo).",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD.",
+    "No se pudo obtener un contexto remoto referenciado por @context, necesario para reconocer alias de palabras clave o expandir claves y valores, y sin él no se puede decidir."
+   ]
+  },
+  {
+   "id": "ws-serialization/012",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "Ningún objeto de valor contiene claves que se expandan a una IRI o a una palabra clave distintas de @value, @type, @language, @direction, @index y @context.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q14",
+    "w3c-json-ld11#q21",
+    "w3c-json-ld11-api#q15"
+   ],
+   "method": "En cada objeto de valor, expandir cada clave con el contexto activo: incumple si alguna se expande a una IRI (una propiedad junto a @value, p. ej., priceCurrency) o a una palabra clave distinta de @value, @type, @language, @direction, @index y @context. Las claves que no se expanden se ignoran. La expansión aborta con invalid value object.",
+   "evidence": "Por cada objeto de valor que incumple: el bloque, la ruta y las claves no admitidas.",
+   "applicability": "Algún bloque JSON-LD contiene un objeto de valor (un mapa con @value o un alias suyo).",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD.",
+    "No se pudo obtener un contexto remoto referenciado por @context, necesario para reconocer alias de palabras clave o expandir claves y valores, y sin él no se puede decidir."
+   ]
+  },
+  {
+   "id": "ws-serialization/013",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "El valor de @value de cada objeto de valor es una cadena, un número, true, false o null, salvo si su @type es @json.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q14",
+    "w3c-json-ld11#q22",
+    "w3c-json-ld11-api#q13"
+   ],
+   "method": "En cada objeto de valor, mirar el tipo JSON del valor de @value o su alias: incumple si es un array o un mapa y el @type del objeto no es @json. La expansión aborta con invalid value object value.",
+   "evidence": "Por cada objeto de valor que incumple: el bloque, la ruta y el tipo del valor.",
+   "applicability": "Algún bloque JSON-LD contiene un objeto de valor (un mapa con @value o un alias suyo).",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD.",
+    "No se pudo obtener un contexto remoto referenciado por @context, necesario para reconocer alias de palabras clave o expandir claves y valores, y sin él no se puede decidir."
+   ]
+  },
+  {
+   "id": "ws-serialization/014",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "El valor de @type de cada objeto de valor es un término, una IRI, una IRI compacta, una cadena que el vocabulario convierte en IRI, @json o null.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q14",
+    "w3c-json-ld11#q23",
+    "w3c-json-ld11-api#q16"
+   ],
+   "method": "En cada objeto de valor con @type o un alias suyo, comprobar que el valor es null, @json o una cadena que se expande a una IRI absoluta con el contexto activo: un término definido, una IRI compacta, una IRI o una cadena que @vocab convierte en IRI. Incumplen un array, un número o una cadena que no llega a IRI. La expansión aborta con invalid typed value.",
+   "evidence": "Por cada objeto de valor con @type: el bloque, la ruta, el valor y su expansión.",
+   "applicability": "Algún objeto de valor de los bloques JSON-LD tiene @type o un alias suyo.",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD.",
+    "No se pudo obtener un contexto remoto referenciado por @context, necesario para reconocer alias de palabras clave o expandir claves y valores, y sin él no se puede decidir."
+   ]
+  },
+  {
+   "id": "ws-serialization/015",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "El valor de @language de cada objeto de valor es una etiqueta de idioma bien formada según BCP 47, o null.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q14",
+    "w3c-json-ld11#q24",
+    "w3c-json-ld11-api#q03",
+    "w3c-json-ld11-api#q14"
+   ],
+   "method": "En cada objeto de valor con @language o un alias suyo, comprobar que el valor es null o una cadena que cumple la sintaxis Language-Tag de BCP 47 (RFC 5646, § 2.1), sin distinguir mayúsculas: es, es-ES y ca valen, es_ES o español no. Una etiqueta mal formada solo produce un aviso al expandir, así que hay que validarla aparte.",
+   "evidence": "Por cada objeto de valor con @language: el bloque, la ruta y el valor.",
+   "applicability": "Algún objeto de valor de los bloques JSON-LD tiene @language o un alias suyo.",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD.",
+    "No se pudo obtener un contexto remoto referenciado por @context, necesario para reconocer alias de palabras clave o expandir claves y valores, y sin él no se puede decidir."
+   ]
+  },
+  {
+   "id": "ws-serialization/016",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "Ningún objeto de lista contiene claves que se expandan a una IRI o a una palabra clave distintas de @list e @index.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q14",
+    "w3c-json-ld11#q25",
+    "w3c-json-ld11-api#q17"
+   ],
+   "method": "Localizar los objetos de lista (mapas fuera de los contextos con @list o un alias suyo) y expandir sus claves con el contexto activo: incumple si alguna se expande a una IRI o a una palabra clave distinta de @list e @index. @context no cuenta, porque el procesado lo retira antes. La expansión aborta con invalid set or list object.",
+   "evidence": "Por cada objeto de lista que incumple: el bloque, la ruta y las claves no admitidas.",
+   "applicability": "Algún bloque JSON-LD contiene un objeto de lista (un mapa con @list o un alias suyo).",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD.",
+    "No se pudo obtener un contexto remoto referenciado por @context, necesario para reconocer alias de palabras clave o expandir claves y valores, y sin él no se puede decidir."
+   ]
+  },
+  {
+   "id": "ws-serialization/017",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "Ningún objeto de conjunto contiene claves que se expandan a una IRI o a una palabra clave distintas de @set e @index.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q02",
+    "w3c-json-ld11#q14",
+    "w3c-json-ld11#q26",
+    "w3c-json-ld11-api#q17"
+   ],
+   "method": "Localizar los objetos de conjunto (mapas fuera de los contextos con @set o un alias suyo) y expandir sus claves con el contexto activo: incumple si alguna se expande a una IRI o a una palabra clave distinta de @set e @index. @context no cuenta, porque el procesado lo retira antes. La expansión aborta con invalid set or list object.",
+   "evidence": "Por cada objeto de conjunto que incumple: el bloque, la ruta y las claves no admitidas.",
+   "applicability": "Algún bloque JSON-LD contiene un objeto de conjunto (un mapa con @set o un alias suyo).",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD.",
+    "No se pudo obtener un contexto remoto referenciado por @context, necesario para reconocer alias de palabras clave o expandir claves y valores, y sin él no se puede decidir."
+   ]
+  },
+  {
+   "id": "ws-serialization/018",
+   "scope": "Web Schema.org",
+   "spec": "w3c-json-ld11",
+   "condition": "Las referencias IRI del JSON-LD que se resuelven contra la IRI base son IRI absolutas, salvo que una definición de contexto local del bloque fije @base.",
+   "nature": "recomendada",
+   "quotes": [
+    "w3c-json-ld11#q01",
+    "w3c-json-ld11#q05",
+    "w3c-json-ld11#q06",
+    "w3c-json-ld11#q07",
+    "w3c-json-ld11#q08",
+    "w3c-json-ld11#q09",
+    "w3c-json-ld11#q10"
+   ],
+   "method": "En cada bloque con JSON válido, reunir con el contexto activo las cadenas que se resuelven contra la IRI base: los valores de @id o su alias y los de las propiedades cuyo término tiene @type @id en su definición. Se satisface si todas son IRI absolutas (con esquema, p. ej., https:), IRI compactas o identificadores de nodo en blanco (_:…), o si una definición de contexto local del bloque tiene @base (en un contexto remoto se ignora). Los valores de @type y los de las propiedades que se resuelven con el vocabulario no cuentan: no dependen de la base.",
+   "evidence": "Por cada bloque: las referencias relativas encontradas (ruta y valor) y el valor de @base de su contexto local, si lo hay.",
+   "applicability": "La página contiene al menos un bloque JSON-LD con JSON válido.",
+   "not_evaluable": [
+    "Algún bloque JSON-LD no es JSON válido (ws-serialization/001) y en los demás no hay incumplimientos: no se puede examinar todo el JSON-LD.",
+    "No se pudo obtener un contexto remoto referenciado por @context, necesario para reconocer alias de palabras clave o expandir claves y valores, y sin él no se puede decidir."
+   ],
+   "rationale": "§ 7.1 pide a los autores IRI, que en JSON-LD 1.1 son siempre absolutas, o fijar la base de forma explícita con @base (§ 4.1.3), porque la base del documento HTML puede cambiar dinámicamente. Las propiedades y los valores de @type se resuelven con el vocabulario, no con la base."
+  },
+  {
+   "id": "ws-serialization/019",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Cada atributo itemtype del documento tiene al menos un token.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q01"
+   ],
+   "method": "Localizar los elementos con atributo itemtype, partir su valor por espacio en blanco ASCII y comprobar que cada uno da al menos un token. Un itemtype vacío o solo con espacios no cumple.",
+   "evidence": "Por cada itemtype sin tokens: la localización del elemento (selector o línea) y el valor literal del atributo.",
+   "applicability": "La página contiene marcado Microdata con Schema.org (algún token de itemtype que contiene «schema.org»).",
+   "not_evaluable": []
+  },
+  {
+   "id": "ws-serialization/020",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Ningún atributo itemtype del documento repite un token.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q01"
+   ],
+   "method": "Partir el valor de cada itemtype por espacio en blanco ASCII y comprobar que no hay dos tokens idénticos (comparación exacta de cadenas).",
+   "evidence": "Por cada itemtype con tokens repetidos: la localización del elemento y el token repetido.",
+   "applicability": "La página contiene marcado Microdata con Schema.org (algún token de itemtype que contiene «schema.org»).",
+   "not_evaluable": []
+  },
+  {
+   "id": "ws-serialization/021",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Cada token de cada atributo itemtype es una URL absoluta válida.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q01"
+   ],
+   "method": "Partir cada itemtype en tokens y comprobar que cada uno es una cadena de URL válida según el URL Standard del WHATWG y que es absoluta, con esquema: https://schema.org/Product cumple; Product o schema.org/Product no.",
+   "evidence": "Por cada token que no cumple: la localización del elemento y el token.",
+   "applicability": "La página contiene marcado Microdata con Schema.org (algún token de itemtype que contiene «schema.org»).",
+   "not_evaluable": []
+  },
+  {
+   "id": "ws-serialization/022",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Todos los tokens de cada atributo itemtype son tipos de un mismo vocabulario.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q01",
+    "whatwg-html-microdata#q02"
+   ],
+   "method": "En cada itemtype con más de un token, tomar como vocabulario de cada token su URL hasta la última «/» o «#», inclusive, y comprobar que es el mismo en todos. http://schema.org/ y https://schema.org/ se toman como el mismo vocabulario, Schema.org.",
+   "evidence": "Por cada itemtype que mezcla vocabularios: la localización del elemento y sus tokens con el vocabulario de cada uno.",
+   "applicability": "La página contiene marcado Microdata con Schema.org y algún atributo itemtype con más de un token.",
+   "not_evaluable": [],
+   "rationale": "q01 lo exige al valor de itemtype y q02 a los tipos del item: es la misma condición."
+  },
+  {
+   "id": "ws-serialization/023",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Cada token de itemtype del espacio de nombres de Schema.org nombra un tipo definido en Schema.org 30.1.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q02"
+   ],
+   "method": "Para cada token que empieza por http://schema.org/ o https://schema.org/, tomar el nombre que sigue y comprobar que en la release 30.1 de Schema.org congelada en la referencia existe el término schema:NOMBRE y es una clase (rdfs:Class).",
+   "evidence": "Por cada token que no nombra un tipo: la localización del elemento y el token.",
+   "applicability": "La página contiene marcado Microdata con algún token de itemtype que empieza por http://schema.org/ o https://schema.org/.",
+   "not_evaluable": [],
+   "rationale": "Para un item de Schema.org, la especificación que define sus tipos es Schema.org, en la versión que fija el perfil (D-130). Los tokens de otros vocabularios quedan fuera del ámbito Web Schema.org."
+  },
+  {
+   "id": "ws-serialization/024",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Cada elemento con atributo itemtype tiene también el atributo itemscope.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q03"
+   ],
+   "method": "Localizar los elementos con atributo itemtype y comprobar que cada uno tiene el atributo itemscope.",
+   "evidence": "Por cada itemtype sin itemscope: la localización del elemento y el valor de itemtype.",
+   "applicability": "La página contiene marcado Microdata con Schema.org (algún token de itemtype que contiene «schema.org»).",
+   "not_evaluable": []
+  },
+  {
+   "id": "ws-serialization/025",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Cada atributo itemid tiene como valor una URL válida, con espacios alrededor admitidos.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q04"
+   ],
+   "method": "Quitar el espacio en blanco ASCII inicial y final del valor de cada itemid y comprobar que el resto es una cadena de URL válida según el URL Standard del WHATWG, absoluta o relativa.",
+   "evidence": "Por cada itemid que no cumple: la localización del elemento y el valor literal.",
+   "applicability": "La página contiene marcado Microdata con Schema.org y algún atributo itemid.",
+   "not_evaluable": []
+  },
+  {
+   "id": "ws-serialization/026",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Cada elemento con atributo itemid tiene también los atributos itemscope e itemtype.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q05"
+   ],
+   "method": "Localizar los elementos con atributo itemid y comprobar que cada uno tiene itemscope e itemtype.",
+   "evidence": "Por cada itemid que no cumple: la localización del elemento y el atributo que falta.",
+   "applicability": "La página contiene marcado Microdata con Schema.org y algún atributo itemid.",
+   "not_evaluable": [],
+   "rationale": "q05 prohíbe itemid en elementos que no tengan a la vez itemscope e itemtype: una sola exigencia sobre la pareja. Su segunda parte (vocabularios que no admiten identificadores globales) no da requisito en Web Schema.org: Schema.org usa itemid como identificador de sus entidades."
+  },
+  {
+   "id": "ws-serialization/027",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Ningún atributo itemref del documento repite un token.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q06"
+   ],
+   "method": "Partir el valor de cada itemref por espacio en blanco ASCII y comprobar que no hay dos tokens idénticos (comparación exacta de cadenas).",
+   "evidence": "Por cada itemref con tokens repetidos: la localización del elemento y el token repetido.",
+   "applicability": "La página contiene marcado Microdata con Schema.org y algún atributo itemref.",
+   "not_evaluable": []
+  },
+  {
+   "id": "ws-serialization/028",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Cada token de cada atributo itemref es el id de un elemento del mismo documento.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q06"
+   ],
+   "method": "Partir cada itemref en tokens y comprobar que, para cada uno, hay en el árbol del elemento que lleva el itemref (el documento, o el árbol en sombra que lo contenga) un elemento cuyo atributo id es igual al token, con comparación exacta.",
+   "evidence": "Por cada token sin elemento: la localización del elemento con itemref y el token.",
+   "applicability": "La página contiene marcado Microdata con Schema.org y algún atributo itemref.",
+   "not_evaluable": [
+    "El elemento referido se inserta con JavaScript: si no está en el HTML servido, hace falta el DOM renderizado."
+   ]
+  },
+  {
+   "id": "ws-serialization/029",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Cada elemento con atributo itemref tiene también el atributo itemscope.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q07"
+   ],
+   "method": "Localizar los elementos con atributo itemref y comprobar que cada uno tiene el atributo itemscope.",
+   "evidence": "Por cada itemref sin itemscope: la localización del elemento y el valor de itemref.",
+   "applicability": "La página contiene marcado Microdata con Schema.org y algún atributo itemref.",
+   "not_evaluable": []
+  },
+  {
+   "id": "ws-serialization/030",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Cada atributo itemprop del documento tiene al menos un token.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q09"
+   ],
+   "method": "Localizar los elementos con atributo itemprop, partir su valor por espacio en blanco ASCII y comprobar que cada uno da al menos un token. Un itemprop vacío o solo con espacios no cumple.",
+   "evidence": "Por cada itemprop sin tokens: la localización del elemento y el valor literal del atributo.",
+   "applicability": "La página contiene marcado Microdata con Schema.org y algún atributo itemprop.",
+   "not_evaluable": []
+  },
+  {
+   "id": "ws-serialization/031",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Ningún atributo itemprop del documento repite un token.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q09"
+   ],
+   "method": "Partir el valor de cada itemprop por espacio en blanco ASCII y comprobar que no hay dos tokens idénticos (comparación exacta de cadenas).",
+   "evidence": "Por cada itemprop con tokens repetidos: la localización del elemento y el token repetido.",
+   "applicability": "La página contiene marcado Microdata con Schema.org y algún atributo itemprop.",
+   "not_evaluable": []
+  },
+  {
+   "id": "ws-serialization/032",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Cada token de itemprop que añade una propiedad a un item con tipos relevantes de Schema.org es un nombre de propiedad definido en Schema.org 30.1 o una URL absoluta.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q08",
+    "whatwg-html-microdata#q10"
+   ],
+   "method": "Determinar los items y sus propiedades con el algoritmo de 5.2.5 (incluidos los itemref) y los tipos relevantes de cada item (q08). Para cada elemento con itemprop que es propiedad de un item cuyos tipos relevantes son de Schema.org, comprobar que cada token es una URL absoluta válida o que en la release 30.1 de Schema.org existe el término schema:TOKEN y es una propiedad (rdf:Property). Si el elemento añade propiedades a varios items, se comprueba para cada uno.",
+   "evidence": "Por cada token que no cumple: la localización del elemento, el token y los tipos relevantes del item.",
+   "applicability": "La página contiene marcado Microdata con algún item cuyos tipos relevantes son de Schema.org y que tiene propiedades.",
+   "not_evaluable": [],
+   "rationale": "q10 da una sola exigencia con alternativas. En un item tipado caben la primera (nombre definido por la especificación de sus tipos relevantes) y las dos de URL absoluta (definida por un vocabulario o propietaria); la cuarta es solo para items no tipados, que no son marcado de Schema.org. Que la propiedad esté «allowed in this situation» por su dominio (schema:domainIncludes) no se comprueba aquí: es del nivel de vocabulario."
+  },
+  {
+   "id": "ws-serialization/033",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Cada propiedad Microdata cuyo valor es, por su definición en Schema.org 30.1, una URL se marca con un elemento de propiedad URL.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q11",
+    "whatwg-html-microdata#q12"
+   ],
+   "method": "Para cada elemento con itemprop y sin itemscope que añade una propiedad de Schema.org, consultar el término en la release 30.1: si entre sus schema:rangeIncludes está schema:URL y ningún otro tipo de datos (schema:Text, schema:Number, schema:Boolean, schema:Date, schema:DateTime, schema:Time ni sus subtipos), comprobar que el elemento es un elemento de propiedad URL: a, area, audio, embed, iframe, img, link, object, source, track o video.",
+   "evidence": "Por cada propiedad que no cumple: la localización del elemento, su etiqueta, la propiedad y el valor.",
+   "applicability": "La página contiene marcado Microdata con alguna propiedad de Schema.org cuyo rango esperado incluye schema:URL y ningún otro tipo de datos, con un valor que no es un item.",
+   "not_evaluable": [],
+   "rationale": "q11 exige un elemento de propiedad URL cuando la definición de la propiedad da como valor una URL absoluta, y q12 lo limita a las propiedades definidas así. En Schema.org la definición es el rango esperado (schema:rangeIncludes): solo cuando el único tipo de datos admitido es URL (url, image, sameAs) la definición fija que el valor es una URL. Si admite además texto u otro tipo de datos (identifier), no."
+  },
+  {
+   "id": "ws-serialization/034",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Ningún item del documento da errores de microdata al determinar sus propiedades.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q13",
+    "whatwg-html-microdata#q14"
+   ],
+   "method": "Para cada elemento con itemscope, ejecutar el algoritmo de 5.2.5 que encuentra las propiedades de un item (con sus itemref) y registrar si algún elemento se alcanza estando ya en memory, que es un error de microdata (q14). Ocurre cuando un itemref apunta al propio item, a un antecesor suyo o a un elemento que ya se alcanza por el árbol o por otro itemref.",
+   "evidence": "Por cada item con errores: la localización de su elemento, su itemref y el elemento alcanzado dos veces.",
+   "applicability": "La página contiene marcado Microdata con Schema.org y algún atributo itemref.",
+   "not_evaluable": [],
+   "rationale": "Sin itemref el recorrido sigue el árbol del documento y no alcanza dos veces un elemento: por eso la aplicabilidad depende de itemref."
+  },
+  {
+   "id": "ws-serialization/035",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "El grafo de items del documento, con una arista por cada propiedad cuyo valor es otro item, no tiene ciclos.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q15"
+   ],
+   "method": "Construir el grafo con un nodo por item y una arista de cada item a cada item que es valor de una de sus propiedades, determinadas con el algoritmo de 5.2.5 (incluidos los itemref), y comprobar que no tiene ciclos con una búsqueda en profundidad.",
+   "evidence": "Por cada ciclo: los items que lo forman (localización de sus elementos) y los itemref que lo cierran.",
+   "applicability": "La página contiene marcado Microdata con Schema.org y algún atributo itemref.",
+   "not_evaluable": [],
+   "rationale": "Sin itemref las propiedades siguen el árbol del documento y no pueden formar ciclos."
+  },
+  {
+   "id": "ws-serialization/036",
+   "scope": "Web Schema.org",
+   "spec": "whatwg-html-microdata",
+   "condition": "Cada elemento con atributo itemprop es propiedad de algún item del documento.",
+   "nature": "obligatoria",
+   "quotes": [
+    "whatwg-html-microdata#q16"
+   ],
+   "method": "Determinar las propiedades de todos los items del documento con el algoritmo de 5.2.5 (incluidos los itemref) y comprobar que cada elemento con itemprop está entre las propiedades de alguno. Un itemprop sin ningún itemscope antecesor ni itemref que lo alcance no cumple.",
+   "evidence": "Por cada itemprop huérfano: la localización del elemento, sus tokens y su valor.",
+   "applicability": "La página contiene marcado Microdata con Schema.org y algún atributo itemprop.",
+   "not_evaluable": []
+  },
+  {
+   "id": "ws-serialization/037",
+   "scope": "Web Schema.org",
+   "spec": "w3c-rdfa-core",
+   "condition": "Cada CURIE de los atributos RDFa del documento se expande a un IRI sintácticamente válido según RFC 3987.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-rdfa-core#q01",
+    "w3c-rdfa-core#q02",
+    "w3c-rdfa-core#q07",
+    "w3c-rdfa-core#q08",
+    "w3c-html-rdfa#q08"
+   ],
+   "method": "En los atributos que admiten CURIE (about, resource, typeof, property, rel, rev, datatype), tomar los valores que son CURIE: los que llevan un prefijo con correspondencia en ámbito (prefix y xmlns: del elemento o de sus antecesores, y los contextos iniciales de RDFa 1.1 y de HTML+RDFa 1.1) y los safe CURIE entre corchetes. Expandir cada uno concatenando el IRI del prefijo con la referencia (q08) y comprobar que el resultado se ajusta a la gramática IRI de RFC 3987.",
+   "evidence": "Por cada CURIE cuya expansión no es un IRI válido: la localización del elemento, el atributo, el CURIE, la correspondencia usada y el IRI resultante.",
+   "applicability": "La página contiene marcado RDFa con Schema.org (algún typeof o property que se resuelve a un IRI de Schema.org) y algún CURIE.",
+   "not_evaluable": [
+    "El CURIE usa un prefijo que solo definen los contextos iniciales de RDFa 1.1 o de HTML+RDFa 1.1, que no están congelados en la referencia."
+   ]
+  },
+  {
+   "id": "ws-serialization/038",
+   "scope": "Web Schema.org",
+   "spec": "w3c-rdfa-core",
+   "condition": "Ningún atributo prefix ni xmlns: del documento define una correspondencia para el prefijo «_».",
+   "nature": "recomendada",
+   "quotes": [
+    "w3c-rdfa-core#q01",
+    "w3c-rdfa-core#q03"
+   ],
+   "method": "Analizar cada atributo prefix como pares «prefijo: IRI» y localizar los atributos cuyo nombre empieza por xmlns:. Comprobar que ninguno declara el prefijo «_» (un par «_: IRI» en prefix o un atributo xmlns:_).",
+   "evidence": "Por cada declaración del prefijo «_»: la localización del elemento y el atributo con su valor.",
+   "applicability": "La página contiene marcado RDFa con Schema.org (algún typeof o property que se resuelve a un IRI de Schema.org) y algún atributo prefix o xmlns:.",
+   "not_evaluable": []
+  },
+  {
+   "id": "ws-serialization/039",
+   "scope": "Web Schema.org",
+   "spec": "w3c-rdfa-core",
+   "condition": "Los literales del marcado RDFa no tienen espacio en blanco innecesario al principio, al final ni repetido entre palabras.",
+   "nature": "recomendada",
+   "quotes": [
+    "w3c-rdfa-core#q01",
+    "w3c-rdfa-core#q04",
+    "w3c-rdfa-core#q05"
+   ],
+   "method": "Obtener el valor de cada literal que genera un atributo property (de content, de datetime en time o del contenido del elemento, según el procesado de RDFa) y comprobar que no empieza ni termina por espacio en blanco y que no contiene dos o más caracteres de espacio en blanco seguidos. Espacio en blanco es #x20, #x9, #xD o #xA (q05).",
+   "evidence": "Por cada literal que no cumple: la localización del elemento, la propiedad y el valor entre comillas, con el espacio en blanco visible.",
+   "applicability": "La página contiene marcado RDFa con Schema.org (algún typeof o property que se resuelve a un IRI de Schema.org) y algún literal.",
+   "not_evaluable": [],
+   "rationale": "q04 pide a los autores quitar el espacio en blanco innecesario de los literales plain y XML sin definir «innecesario». Se toma por tal el que no separa palabras: el inicial, el final y el que repite un separador."
+  },
+  {
+   "id": "ws-serialization/040",
+   "scope": "Web Schema.org",
+   "spec": "w3c-html-rdfa",
+   "condition": "Cada elemento meta con atributo property tiene el atributo content.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-html-rdfa#q01",
+    "w3c-html-rdfa#q03"
+   ],
+   "method": "Localizar los elementos meta con atributo property y comprobar que cada uno tiene el atributo content, aunque esté vacío.",
+   "evidence": "Por cada meta sin content: la localización del elemento y el valor de property.",
+   "applicability": "La página contiene marcado RDFa con Schema.org (algún typeof o property que se resuelve a un IRI de Schema.org) y algún elemento meta con atributo property.",
+   "not_evaluable": []
+  },
+  {
+   "id": "ws-serialization/041",
+   "scope": "Web Schema.org",
+   "spec": "w3c-html-rdfa",
+   "condition": "Cada atributo cuyo nombre empieza por xmlns: cumple las reglas de producción de la sección 3 de Namespaces in XML 1.1.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-html-rdfa#q01",
+    "w3c-html-rdfa#q05"
+   ],
+   "method": "Localizar los atributos cuyo nombre empieza por «xmlns:», sin distinguir mayúsculas, y comprobar que el nombre se ajusta a la producción PrefixedAttName de Namespaces in XML 1.1, sección 3 (Declaring Namespaces): lo que sigue a «xmlns:» es un NCName, sin «:» y empezando por letra o «_».",
+   "evidence": "Por cada atributo que no cumple: la localización del elemento y el nombre y el valor literales del atributo.",
+   "applicability": "La página contiene marcado RDFa con Schema.org (algún typeof o property que se resuelve a un IRI de Schema.org) y algún atributo cuyo nombre empieza por xmlns:.",
+   "not_evaluable": []
+  },
+  {
+   "id": "ws-serialization/042",
+   "scope": "Web Schema.org",
+   "spec": "w3c-html-rdfa",
+   "condition": "Cada atributo cuyo nombre empieza por xmlns: está escrito solo con minúsculas, prefijo incluido.",
+   "nature": "recomendada",
+   "quotes": [
+    "w3c-html-rdfa#q01",
+    "w3c-html-rdfa#q04"
+   ],
+   "method": "En el HTML servido, no en el DOM (el analizador de HTML pasa a minúsculas los nombres de atributo), localizar los atributos cuyo nombre empieza por «xmlns:» sin distinguir mayúsculas y comprobar que el nombre completo no tiene mayúsculas.",
+   "evidence": "Por cada atributo con mayúsculas: la localización del elemento y el nombre literal del atributo.",
+   "applicability": "La página contiene marcado RDFa con Schema.org (algún typeof o property que se resuelve a un IRI de Schema.org) y algún atributo cuyo nombre empieza por xmlns:.",
+   "not_evaluable": [
+    "El atributo solo está en el DOM renderizado (insertado con JavaScript), donde el nombre ya está en minúsculas."
+   ]
+  },
+  {
+   "id": "ws-serialization/043",
+   "scope": "Web Schema.org",
+   "spec": "w3c-html-rdfa",
+   "condition": "Cada atributo prefix tiene como valor una lista de pares formados por un NCName, «:», uno o más espacios y un IRI.",
+   "nature": "recomendada",
+   "quotes": [
+    "w3c-html-rdfa#q01",
+    "w3c-html-rdfa#q02",
+    "w3c-rdfa-core#q06"
+   ],
+   "method": "Quitar el espacio en blanco inicial y final del valor de cada atributo prefix y analizarlo como una sucesión de pares separados por espacio en blanco: un NCName seguido inmediatamente de «:», uno o más espacios (#x20) y un IRI (xsd:anyURI). No cumple si queda un fragmento que no forma par, si no hay espacio tras «:» o si el prefijo no es un NCName.",
+   "evidence": "Por cada prefix que no cumple: la localización del elemento, el valor literal y el fragmento que no se ajusta.",
+   "applicability": "La página contiene marcado RDFa con Schema.org (algún typeof o property que se resuelve a un IRI de Schema.org) y algún atributo prefix.",
+   "not_evaluable": [],
+   "rationale": "q02 recomienda usar los atributos RDFa conforme a RDFa Core, que fija la sintaxis de prefix en q06."
+  },
+  {
+   "id": "ws-serialization/044",
+   "scope": "Web Schema.org",
+   "spec": "w3c-html-rdfa",
+   "condition": "Cada elemento que tiene los atributos lang y xml:lang tiene el mismo valor en ambos.",
+   "nature": "obligatoria",
+   "quotes": [
+    "w3c-html-rdfa#q01",
+    "w3c-html-rdfa#q06"
+   ],
+   "method": "Localizar los elementos que tienen a la vez lang y xml:lang y comprobar que los dos valores son iguales (comparación exacta de cadenas).",
+   "evidence": "Por cada elemento que no cumple: su localización y los dos valores.",
+   "applicability": "La página contiene marcado RDFa con Schema.org (algún typeof o property que se resuelve a un IRI de Schema.org) y algún elemento con los atributos lang y xml:lang.",
+   "not_evaluable": []
+  }
+ ]
+}

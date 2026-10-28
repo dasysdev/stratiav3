@@ -1,0 +1,190 @@
+{
+ "source": "google-search-review-snippet",
+ "version": "2026-10-27",
+ "class": "especificación aplicable",
+ "level": "consumidor",
+ "summary": "Propiedades exigidas y recomendadas por Google Search para los fragmentos de reseña (Review, AggregateRating y su Rating), con sus directrices técnicas. En el perfil se aplica a las reseñas y valoraciones agregadas que son valor de review o aggregateRating de un Product o ProductGroup.",
+ "quotes": [
+  {
+   "id": "q01",
+   "section": "#structured-data-type-definitions",
+   "text": "You must include the required properties for your structured data to display in search results. You can also include the recommended properties to add more information to your structured data, which could provide a better user experience."
+  },
+  {
+   "id": "q02",
+   "section": "#review-properties",
+   "text": "Required properties"
+  },
+  {
+   "id": "q03",
+   "section": "#review-properties",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q04",
+   "section": "#review-properties",
+   "text": "author | Person or Organization The author of the review."
+  },
+  {
+   "id": "q05",
+   "section": "#review-properties",
+   "text": "The reviewer's name must be a valid name. For example, \"50% off until Saturday\" is not a valid name for a reviewer."
+  },
+  {
+   "id": "q06",
+   "section": "#review-properties",
+   "text": "This field must be shorter than 100 characters. If it's longer than 100 characters, your page won't be eligible for an author-based review snippet."
+  },
+  {
+   "id": "q07",
+   "section": "#review-properties",
+   "text": "itemReviewed (if review is not a Nested Review) | One of the valid types The item that is being reviewed. However, if the review is nested into another schema.org type using the review property, omit the itemReviewed property (we assume the parent item is the reviewed item)."
+  },
+  {
+   "id": "q08",
+   "section": "#review-properties",
+   "text": "itemReviewed.name or parent item name in Nested Review | Text The name of the item that is being reviewed. If the review is nested into another schema.org type using the review property, you still need to provide the name of the thing that is being reviewed."
+  },
+  {
+   "id": "q09",
+   "section": "#review-properties",
+   "text": "reviewRating | Rating The rating given in this review."
+  },
+  {
+   "id": "q10",
+   "section": "#review-properties",
+   "text": "reviewRating.ratingValue | Number or Text A numerical quality rating for the item, either a number, fraction, or percentage (for example, 4, 60%, or 6 / 10)."
+  },
+  {
+   "id": "q11",
+   "section": "#review-properties",
+   "text": "Google understands the scale for fractions and percentages, since the scale is implied in the fraction itself or the percentage. The default scale for numbers is a 5-point scale, where 1 is the lowest value and 5 is the highest value. If another scale is intended, use bestRating and worstRating.",
+   "note": "Fila reviewRating.ratingValue."
+  },
+  {
+   "id": "q12",
+   "section": "#review-properties",
+   "text": "For decimal numbers, use a dot instead of a comma to specify the value (for example 4.4 instead of 4,4). In Microdata and RDFa, you can use content attributes to override the visible content. That way, you can show the user whatever style convention you want, while also satisfying the dot requirement for structured data.",
+   "note": "Fila reviewRating.ratingValue."
+  },
+  {
+   "id": "q13",
+   "section": "#review-properties",
+   "text": "datePublished | Date The date that the review was published, in ISO 8601 date format."
+  },
+  {
+   "id": "q14",
+   "section": "#review-properties",
+   "text": "reviewRating.bestRating | Number The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed."
+  },
+  {
+   "id": "q15",
+   "section": "#review-properties",
+   "text": "reviewRating.worstRating | Number The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed."
+  },
+  {
+   "id": "q16",
+   "section": "#aggregated-rating-type-definition",
+   "text": "Required properties"
+  },
+  {
+   "id": "q17",
+   "section": "#aggregated-rating-type-definition",
+   "text": "Recommended properties"
+  },
+  {
+   "id": "q18",
+   "section": "#aggregated-rating-type-definition",
+   "text": "itemReviewed (if aggregate rating is not a Nested Aggregate Rating) | One of the valid types The item that is being rated. However, if the aggregate rating is nested into another schema.org type using the aggregateRating property, omit the itemReviewed property."
+  },
+  {
+   "id": "q19",
+   "section": "#aggregated-rating-type-definition",
+   "text": "itemReviewed.name or parent item name in Nested Aggregate Rating | Text The name of the item that is being reviewed. If the review is nested into another schema.org type using the aggregateRating property, you still need to provide the name of the thing that is being reviewed."
+  },
+  {
+   "id": "q20",
+   "section": "#aggregated-rating-type-definition",
+   "text": "ratingCount | Number The total number of ratings for the item on your site. At least one of ratingCount or reviewCount is required."
+  },
+  {
+   "id": "q21",
+   "section": "#aggregated-rating-type-definition",
+   "text": "reviewCount | Number Specifies the number of people who provided a review with or without an accompanying rating. At least one of ratingCount or reviewCount is required."
+  },
+  {
+   "id": "q22",
+   "section": "#aggregated-rating-type-definition",
+   "text": "ratingValue | Number or Text The average rating for the item's quality using a numerical rating of either a number, fraction, or percentage (for example, 4, 60%, or 6 / 10)."
+  },
+  {
+   "id": "q23",
+   "section": "#aggregated-rating-type-definition",
+   "text": "Google understands the scale for fractions and percentages, since the scale is implied in the fraction itself or the percentage. The default scale for numbers is a 5-point scale, where 1 is the lowest value and 5 is the highest value. If another scale is intended, use bestRating and worstRating.",
+   "note": "Fila ratingValue de AggregateRating."
+  },
+  {
+   "id": "q24",
+   "section": "#aggregated-rating-type-definition",
+   "text": "For decimal numbers, use a dot instead of a comma to specify the value (for example 4.4 instead of 4,4). In Microdata and RDFa, you can use content attributes to override the visible content. That way, you can show the user whatever style convention you want, while also satisfying the dot requirement for structured data.",
+   "note": "Fila ratingValue de AggregateRating."
+  },
+  {
+   "id": "q25",
+   "section": "#aggregated-rating-type-definition",
+   "text": "bestRating | Number The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed."
+  },
+  {
+   "id": "q26",
+   "section": "#aggregated-rating-type-definition",
+   "text": "worstRating | Number The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed."
+  },
+  {
+   "id": "q27",
+   "section": "#examples",
+   "text": "Add aggregate ratings. You can omit the rating for an individual review if your marked-up content contains both an author and a review date. For aggregate reviews, you must supply the average rating for the rich snippet to display."
+  },
+  {
+   "id": "q28",
+   "section": "#guidelines",
+   "text": "Your content must follow these guidelines to be eligible to appear as a rich result. - Technical guidelines - Search Essentials - General structured data guidelines",
+   "note": "Remisión: incorpora las directrices técnicas de esta página y las directrices generales de datos estructurados (google-search-sd-policies)."
+  },
+  {
+   "id": "q29",
+   "section": "#technical-guidelines",
+   "text": "Make sure to mark up an aggregate evaluation of an item by many people with schema.org/AggregateRating."
+  },
+  {
+   "id": "q30",
+   "section": "#technical-guidelines",
+   "text": "Make sure the review content you mark up are readily available to users from the marked-up page. It must be immediately obvious to users that the page has review content."
+  },
+  {
+   "id": "q31",
+   "section": "#technical-guidelines",
+   "text": "For example, if you marked up reviews, users should be able to see the text of the review and associated rating."
+  },
+  {
+   "id": "q32",
+   "section": "#technical-guidelines",
+   "text": "If you use AggregateRating, users should be able to see that aggregate rating on the page."
+  },
+  {
+   "id": "q33",
+   "section": "#technical-guidelines",
+   "text": "We recommend only accepting ratings that are accompanied by a review comment and author's name. While not required, this approach can help your users see supporting details that explain the rating."
+  },
+  {
+   "id": "q34",
+   "section": "#technical-guidelines",
+   "text": "Provide review information about a specific item, not about a category or a list of items."
+  },
+  {
+   "id": "q35",
+   "section": "#technical-guidelines",
+   "text": "If you include multiple individual reviews, also include an aggregate rating of the individual reviews."
+  }
+ ],
+ "note": "Es especificación aplicable del nivel consumidor por remisión: las filas de Product en google-search-product-snippet y google-search-merchant-listing, y las de ProductGroup en google-search-product-variants, dicen «Follow the Review snippet guidelines and the list of required and recommended AggregateRating properties» (aggregateRating: google-search-product-snippet#q07, google-search-merchant-listing#q11, google-search-product-variants#q15) y «Follow the Review snippet guidelines and the list of required and recommended review properties» (review: google-search-product-variants#q21; en las fichas de product-snippet y merchant-listing la fila review lo dice, pero sus citas q10 y q31 no llegan a esa frase). Por eso solo se aplica a Review, AggregateRating y Rating cuando son valor de review o aggregateRating de un Product o ProductGroup. Lo que la página dedica a otros tipos (Book, Recipe, Movie, LocalBusiness, Organization…), a las reseñas sueltas con itemReviewed y a las reseñas sobre uno mismo («self-serving») queda fuera. Sus directrices que exigen juzgar la veracidad, la procedencia o la independencia de las reseñas (reseñas falsas o incentivadas sin declarar, reseñas agregadas de otros sitios) quedan fuera de los requisitos técnicos (D-129)."
+}

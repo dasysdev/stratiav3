@@ -3,9 +3,9 @@ id: effective-availability
 title: Disponibilidad efectiva
 layer: model
 status: vigente
-version: 1.1
-updated: 2026-10-27
-sources: [BASE §5.1, FUND §5.3, FUND §7.3, FUND §10.1-10.2, INTAKE 2026-10-27-ac-applicability-and-reliability]
+version: 1.2
+updated: 2026-10-28
+sources: [BASE §5.1, FUND §5.3, FUND §7.3, FUND §10.1-10.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-minimum-representation-image]
 ---
 
 # Disponibilidad efectiva
@@ -75,6 +75,24 @@ Lo dictamina esta puerta, en la auditoría, no la valoración de los AC ni el mo
 | GTIN | ¿Marca? | No admitida | Hecho particular tomado de fuera: solo contrasta |
 | «Modelo disponible» | ¿Está la 42? | Pertinente, sin derivación | Misma cuestión con otro alcance; lo juzga Aplicabilidad |
 
+### Imágenes: lo que muestran y lo que expresan
+
+> Lo que la imagen muestra no es información. La información explícita que lleva sí lo es. La imagen muestra, no afirma. — INTAKE 2026-10-28-minimum-representation-image
+
+| Papel | Ejemplo | Tratamiento |
+|---|---|---|
+| **Sostiene la identificación** | Foto del producto | Evaluación técnica: la imagen forma parte del [mínimo de representación](commercial-information.md#mínimo-de-representación) como sostén. |
+| **Expresa información explícita** | Plano acotado, tabla de tallas, etiqueta energética, advertencias de seguridad | Es información como cualquier otra, si el ámbito permite leerla. En Web Schema.org, solo si está en texto en el marcado (`caption`, `embeddedTextCaption` de ImageObject). En Web, depende de las pruebas de legibilidad ([OQ-20](../30-governance/open-questions.md#d-auditoría-informativa-localización-evidencias-gsc)). |
+| **Muestra lo que no afirma** | Color, piezas, aspecto | No es información pertinente: no da disponibilidad, no resuelve ningún RI y no sirve para refutar en [Fiabilidad](acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones). Sí puede crear una necesidad que el texto tiene que resolver: lo que sale en la foto y no se entrega ([descripción de `gen/21`](requirement-description.md)). |
+
+- **Fundamento** ([D-144](../30-governance/decisions.md#d-144)):
+  - lo que una foto muestra no es un dato, una afirmación ni una relación;
+  - leerlo es inferencia visual, y la auditoría no toma como patrón la capacidad máxima de inferencia de un sistema avanzado ([ai-functions](ai-functions.md#fundamento-interpretación-y-utilización-por-sistemas-de-ia));
+  - reconocer el modelo a partir de una foto exige hechos particulares del producto tomados de fuera, que la prueba de derivación no admite;
+  - como el atributo frente a la prestación declarada ([D-119](../30-governance/decisions.md#d-119)), la imagen acompaña a la identificación como contexto, pero no la resuelve.
+- El «plano o imagen acotada» de [resolving-information](resolving-information.md#ejemplo-mínimo) es información explícita.
+- Si la foto es genérica o de otra variante, no se juzga como información. En Catálogos distribuidos es una regla de contenido de Merchant Center, para cuando exista ese perfil. En Web Schema.org no se juzga: el contraste del marcado con la página o con la realidad quedó fuera en el triaje del 2026-10-28.
+
 ## Ejemplo mínimo (hipotético)
 
 **RI:** «¿Cuál es la disponibilidad comercial de cada variante del modelo?».
@@ -89,6 +107,7 @@ Casos completos de calibración: [calibration](../20-methods/audit-gsc/calibrati
 ## Pendiente
 
 - Especificar las pruebas de obtención y legibilidad, los registros de cobertura y el tratamiento de las comprobaciones inconclusas. Ver [open-questions](../30-governance/open-questions.md).
+- Si el texto dentro de una imagen cuenta como legible en Web, leído con reconocimiento de texto: [OQ-20](../30-governance/open-questions.md#d-auditoría-informativa-localización-evidencias-gsc).
 
 ## Relacionado
 

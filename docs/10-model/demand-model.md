@@ -3,9 +3,9 @@ id: demand-model
 title: Modelo de demanda y requisitos informativos
 layer: model
 status: vigente
-version: 3.1
-updated: 2026-10-27
-sources: [BASE §4, FUND §3, FUND §11.1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-block-catalog, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-26-question-formulation, INTAKE 2026-10-26-answer-form, INTAKE 2026-10-26-resolving-information, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-issues, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-26-model-name-full-composition, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-assessment-hints]
+version: 3.6
+updated: 2026-10-28
+sources: [BASE §4, FUND §3, FUND §11.1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-block-catalog, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-26-question-formulation, INTAKE 2026-10-26-answer-form, INTAKE 2026-10-26-resolving-information, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-issues, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-26-model-name-full-composition, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-comparison-mark, INTAKE 2026-10-27-requirement-hints-location, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation]
 ---
 
 # Modelo de demanda y requisitos informativos
@@ -32,7 +32,7 @@ Cada RI se caracteriza por:
 - **Objeto, alcance y aplicabilidad:** entidad o condición sobre la que se pregunta (producto, variante, oferta, vendedor o circunstancia comercial) y situaciones en las que procede evaluarlo.
 - **Importancia relativa:** papel de su resolución en la evaluación general de la clase.
 
-Para documentarlo operativamente, el catálogo puede registrar además: identificador, clase de oferta, formulación exacta, fundamento e **interfaces pertinentes**. Cada requisito lleva además sus [pistas de valoración](assessment-hints.md) y su marca de dimensión de comparación ([D-125](../30-governance/decisions.md#d-125), [D-126](../30-governance/decisions.md#d-126)). Los tipos de información potencialmente resolutiva, en cambio, los registra siempre: son la **[información resolutiva](resolving-information.md)** del requisito, una lista de aportaciones resolutivas ([D-064](../30-governance/decisions.md#d-064)) que sirve para localizar información pertinente y recomendar ([D-062](../30-governance/decisions.md#d-062), [D-063](../30-governance/decisions.md#d-063); aún no se registra en el catálogo). Registra siempre, además, su **[descripción](requirement-description.md)**, que concreta la pregunta ([D-092](../30-governance/decisions.md#d-092); aún no implantada en el catálogo). ⚠ Ver [I-40](../30-governance/issues.md#i-40)
+Para documentarlo operativamente, el catálogo puede registrar además: identificador, clase de oferta, formulación exacta, fundamento e **interfaces pertinentes**. A cada requisito le llegan además sus [pistas de valoración](assessment-hints.md): las de tipo y de fuente, desde el catálogo de pistas y por las etiquetas que ya lleva; las suyas propias las lleva el requisito ([D-125](../30-governance/decisions.md#d-125), [D-134](../30-governance/decisions.md#d-134), [D-140](../30-governance/decisions.md#d-140)). Cada requisito lleva siempre su marca de dimensión de comparación, explícita y con motivo ([D-126](../30-governance/decisions.md#d-126), [D-139](../30-governance/decisions.md#d-139)). Los tipos de información potencialmente resolutiva, en cambio, los registra siempre: son la **[información resolutiva](resolving-information.md)** del requisito, una lista de aportaciones resolutivas ([D-064](../30-governance/decisions.md#d-064)) que sirve para localizar información pertinente y recomendar ([D-062](../30-governance/decisions.md#d-062), [D-063](../30-governance/decisions.md#d-063); aún no se registra en el catálogo). Registra siempre, además, su **[descripción](requirement-description.md)**, que concreta la pregunta ([D-092](../30-governance/decisions.md#d-092); aún no implantada en el catálogo). ⚠ Ver [I-40](../30-governance/issues.md#i-40)
 
 ### Importancia relativa
 
@@ -75,7 +75,7 @@ Pruebas operativas de importancia (propuesta): [requirement-blocks](../20-method
 | Dato comercial | «Membrana impermeable». | Es una afirmación que puede contribuir a la respuesta. |
 | Condición de compra | «Apto para caminar con lluvia intensa». | Expresa una exigencia de un uso o comprador concreto. |
 | Escenario de compra | «Botas talla 42, impermeables, por menos de 120 €». | Combina varias necesidades y valores de un caso particular. |
-| Requisito técnico de interfaz | «El feed debe contener `availability`», si su especificación lo exige. | Es una condición técnica, no una cuestión de conocimiento de la demanda. |
+| Requisito técnico de interfaz | «El feed debe contener `availability`», si su especificación lo exige (o si es un dato del mínimo de representación o una parte de la formación estructural; [frontera](evaluation-scopes.md#frontera-entre-la-evaluación-técnica-y-la-informativa)). | Es una condición técnica, no una cuestión de conocimiento de la demanda. |
 
 ## Clase de estudio
 
@@ -152,6 +152,12 @@ El modelo de cada producto se construye en una **ejecución** automática con la
 
 El catálogo relaciona cada RI con sus [ámbitos pertinentes](evaluation-scopes.md) (Catálogos distribuidos, Web, Web Schema.org). Esa relación determina **dónde** se examina su satisfacción y **qué entidades, condiciones y contenidos** incluye la comprobación.
 
+La presencia de las propiedades que los consumidores del perfil de Web Schema.org **recomiendan sin exigir** es, en general, **apoyo del modelo para ese ámbito**, salvo las partes de la formación estructural ([D-148](../30-governance/decisions.md#d-148)) y los datos del mínimo de representación ([D-147](../30-governance/decisions.md#d-147)) ([D-145](../30-governance/decisions.md#d-145); [frontera entre evaluaciones](evaluation-scopes.md#frontera-entre-la-evaluación-técnica-y-la-informativa)):
+
+- cuenta que la propiedad aparezca en la referencia, no su naturaleza; la importancia la decide el modelo, como con los PTD de Amazon ([D-052](../30-governance/decisions.md#d-052));
+- una propiedad no es un RI por sí misma: apoya un requisito o una aportación existentes, o propone un candidato si ninguno la cubre;
+- cómo entran en el motor de demanda (vía, mapeo, ámbito pertinente, versión de la referencia): [OQ-76](../30-governance/open-questions.md#a-modelo-de-demanda).
+
 ## Núcleo de conocimiento y perfil de resolución y pertinencia
 
 Para localizar la información que puede responder un RI, el catálogo debe caracterizar su **núcleo de conocimiento**:
@@ -204,7 +210,8 @@ Ver [open-questions](../30-governance/open-questions.md):
 - calibración de la importancia relativa (pruebas operativas en propuesta);
 - pendientes del catálogo de la capa general: importancia de la condicionada de suscripción y depósitos, trasposición de la directiva Omnibus sobre opiniones, letra l del art. 97.1 y equivalentes del GPSR en alimentos y piensos ([OQ-45](../30-governance/open-questions.md));
 - forma definitiva del perfil de RI;
-- función de los escenarios de compra.
+- función de los escenarios de compra;
+- cómo entran en el modelo las propiedades que recomiendan los consumidores de datos estructurados ([OQ-76](../30-governance/open-questions.md#a-modelo-de-demanda)).
 
 ## Relacionado
 

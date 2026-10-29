@@ -3,9 +3,9 @@ id: evaluation-scopes
 title: Interfaces, ámbitos de evaluación y requisitos técnicos
 layer: model
 status: vigente
-version: 2.4
-updated: 2026-10-28
-sources: [BASE §3, BASE §3.1, CTX §5, FUND §4, FUND §7.3, FUND §10.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-web-schema-technical-framework, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation, INTAKE 2026-10-28-references-system, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-28-single-consumption-profile, INTAKE 2026-10-28-request-context-and-scripts, INTAKE 2026-10-28-web-implementation-profile, INTAKE 2026-10-28-technical-views-and-sitemaps, INTAKE 2026-10-28-capture-profile-no-js, INTAKE 2026-10-28-technical-rate-pages-web-minimum]
+version: 2.5
+updated: 2026-10-29
+sources: [BASE §3, BASE §3.1, CTX §5, FUND §4, FUND §7.3, FUND §10.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-web-schema-technical-framework, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation, INTAKE 2026-10-28-references-system, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-28-single-consumption-profile, INTAKE 2026-10-28-request-context-and-scripts, INTAKE 2026-10-28-web-implementation-profile, INTAKE 2026-10-28-technical-views-and-sitemaps, INTAKE 2026-10-28-capture-profile-no-js, INTAKE 2026-10-28-technical-rate-pages-web-minimum, INTAKE 2026-10-29-audit-discovery-and-tdm]
 ---
 
 # Interfaces, ámbitos de evaluación y requisitos técnicos
@@ -92,7 +92,7 @@ NE recibe el mismo tratamiento que en la evaluación informativa ([scoring-syste
 > — INTAKE 2026-10-28-technical-views-and-sitemaps
 
 - Cada requisito técnico dice su vista y, si es particular, los tipos de página a los que se aplica ([D-161](../30-governance/decisions.md#d-161)). Valen para Web y Web Schema.org, y para Catálogos distribuidos cuando tenga perfil (el feed frente al artículo).
-- **Páginas de una auditoría** ([D-167](../30-governance/decisions.md#d-167)):
+- **Páginas de una auditoría** ([D-167](../30-governance/decisions.md#d-167); el origen de las fichas lo enmienda [D-170](../30-governance/decisions.md#d-170)):
 
 > - **Fichas de producto:** las del encargo, las mismas URL (y la misma instantánea) que la auditoría informativa. **Portada:** siempre.
 > - **Políticas y contenido:** siempre: envíos, devoluciones, contacto y aviso legal, localizadas desde la portada y su pie. La que no se localiza se registra como no localizada; no se sustituye por otra.
@@ -101,7 +101,22 @@ NE recibe el mismo tratamiento que en la evaluación informativa ([scoring-syste
 >
 > — INTAKE 2026-10-28-technical-rate-pages-web-minimum
 
-- **Descubribilidad** ([D-162](../30-governance/decisions.md#d-162)): «Toda página que se audita debe estar en el sitemaps» es un requisito obligatorio que funda una **condición del proyecto**, porque ninguna especificación lo pide. Sin sitemap, ninguna página está en él. De los sitemaps publicados, su forma la fijan las fuentes. Los enlaces internos no se auditan.
+- **Universo de la auditoría** ([D-170](../30-governance/decisions.md#d-170), que enmienda D-167 en el origen de las fichas):
+
+> - **Universo de la auditoría:** las páginas de una auditoría se descubren por la unión del rastreo del sitio y de sus sitemaps.
+> - **Rastreo:** parte de la portada y sigue los enlaces `<a href>` del documento de la respuesta HTTP sin ejecutar JavaScript. Los enlaces `nofollow` se siguen y se registran.
+> - **Los enlaces solo descubren:** no se valoran ni se auditan los enlaces ni la rastreabilidad.
+> - **Fuera del universo:** lo que no se descubre se considera no rastreable.
+> - **Fichas auditadas:** salen del universo descubierto.
+> - **Un solo proceso:** el rastreo usa el perfil de auditoría y captura cada página en la misma visita que la descubre.
+>
+> — INTAKE 2026-10-29-audit-discovery-and-tdm
+
+- Lecturas de Claude ([D-170](../30-governance/decisions.md#d-170)):
+  - El encargo sigue eligiendo las fichas auditadas, ahora entre las del universo.
+  - «No rastreable» es un hecho registrado, no un estado. Como toda ausencia, exige cobertura (por analogía con [effective-availability](effective-availability.md#reglas-e-invariantes), regla 5): solo se afirma si el rastreo terminó completo. Si quedó incompleto, se registra su cobertura.
+- **Reserva de minería de textos y datos** ([D-171](../30-governance/decisions.md#d-171)): antes de capturar ninguna página de una auditoría, se comprueba si el sitio tiene reserva. Si la hay, no se captura nada: el proceso para y avisa. Los demás procesos de captura siguen [D-042](../30-governance/decisions.md#d-042).
+- **Descubribilidad** ([D-162](../30-governance/decisions.md#d-162)): «Toda página que se audita debe estar en el sitemaps» es un requisito obligatorio que funda una **condición del proyecto**, porque ninguna especificación lo pide. Sin sitemap, ninguna página está en él. De los sitemaps publicados, su forma la fijan las fuentes. Los enlaces internos no se auditan: solo descubren las páginas, y este es el único requisito que se valora del descubrimiento ([D-170](../30-governance/decisions.md#d-170)).
 
 ## Reglas e invariantes
 

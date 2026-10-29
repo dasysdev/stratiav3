@@ -68,7 +68,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-039](#d-039) | Los PTD de Amazon, fuente de requisitos de la categoría | aceptada (precisada por D-044; ampliada por D-052: fuente también de la capa general) | 2026-10-25 |
 | [D-040](#d-040) | Bloques de categoría deterministas y catálogo revisado | aceptada (matizada por D-041; precisada por D-044 y D-045) | 2026-10-25 |
 | [D-041](#d-041) | Entrenamiento y ejecución: la revisión humana no bloquea la ejecución | aceptada (enmendada por D-044) | 2026-10-25 |
-| [D-042](#d-042) | Capa original del MPIR: sin capturas de pantalla y políticas de acceso del motor | aceptada (motor compartido: D-046; renderizado siempre en el método: D-073; excepción del motor PAA: D-096) | 2026-10-25 |
+| [D-042](#d-042) | Capa original del MPIR: sin capturas de pantalla y políticas de acceso del motor | aceptada (motor compartido: D-046; renderizado siempre en el método: D-073; excepción del motor PAA: D-096; reserva TDM en la auditoría: D-171) | 2026-10-25 |
 | [D-043](#d-043) | Criterios de redacción del catálogo de bloques de categoría | aceptada (criterio 5 sustituido por D-044; criterio 1 precisado por D-051 y enmendado por D-055; reglas de formulación añadidas por D-060) | 2026-10-25 |
 | [D-044](#d-044) | Marco humano y reglas inducidas: el usuario define el marco, no revisa reglas ni requisitos | aceptada (operación: D-045; «críticos pocos» retirado del marco por D-059) | 2026-10-25 |
 | [D-045](#d-045) | Operación del entrenamiento, primera versión: rasgos, reglas de importancia por el árbol de Shopify y métricas | aceptada (relevancia inducida por D-050; vocabulario ampliado por D-051 y abierto por D-056; ejecución a escala enmendada por D-054; crítico por requisito y clase por D-055; excepciones por requisito y crítico de cualquier propiedad por D-058; información resolutiva inducida por D-063) | 2026-10-25 |
@@ -176,7 +176,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-147](#d-147) | Datos del mínimo de representación en Web Schema.org | aceptada | 2026-10-28 |
 | [D-148](#d-148) | Formación estructural | aceptada | 2026-10-28 |
 | [D-149](#d-149) | Sistema references: custodia común de las fuentes externas congeladas | aceptada | 2026-10-28 |
-| [D-150](#d-150) | Sistema capture: motor de captura y almacén común de fichas congeladas | aceptada | 2026-10-28 |
+| [D-150](#d-150) | Sistema capture: motor de captura y almacén común de fichas congeladas | aceptada (enmendada por D-171 en la auditoría: la reserva TDM para el proceso) | 2026-10-28 |
 | [D-151](#d-151) | Perfil de consumo base de Web: la respuesta HTTP sin ejecutar JavaScript | aceptada (segundo perfil retirado por D-156) | 2026-10-28 |
 | [D-152](#d-152) | Ámbitos de la V1 de la auditoría informativa: Web y Web Schema.org | aceptada | 2026-10-28 |
 | [D-153](#d-153) | Ejecución del auditor en dos fases: disponibilidad por ficha × ámbito, AC por lotes | propuesta | 2026-10-28 |
@@ -193,9 +193,11 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-164](#d-164) | Las unidades de un conjunto no son partes de la cuestión: las valoran los AC | aceptada | 2026-10-28 |
 | [D-165](#d-165) | Envío y plazos por zona de España en la capa general; impuestos y aduana de Canarias, Ceuta y Melilla | aceptada | 2026-10-28 |
 | [D-166](#d-166) | Tasa de cumplimiento técnico: una sola tasa con desglose por naturaleza y cobertura; agregación por tipo de página | aceptada (enmendada por D-169: la cobertura descuenta los NA) | 2026-10-28 |
-| [D-167](#d-167) | Páginas de una auditoría: fichas del encargo, portada, políticas, categoría inmediata, robots.txt y sitemaps | aceptada | 2026-10-28 |
+| [D-167](#d-167) | Páginas de una auditoría: fichas del encargo, portada, políticas, categoría inmediata, robots.txt y sitemaps | aceptada (enmendada por D-170: las fichas salen del universo descubierto) | 2026-10-28 |
 | [D-168](#d-168) | Mínimo de representación de Web: url, título y URL canónica; Open Graph condicional en el perfil de Web | aceptada | 2026-10-28 |
 | [D-169](#d-169) | Cobertura de la tasa técnica: evaluados / (pertinentes − NA) | aceptada | 2026-10-29 |
+| [D-170](#d-170) | Descubrimiento de las páginas de una auditoría: unión del rastreo y los sitemaps; los enlaces solo descubren | aceptada | 2026-10-29 |
+| [D-171](#d-171) | Reserva de minería de textos y datos en la auditoría: comprobación previa, parada y aviso | aceptada | 2026-10-29 |
 
 ---
 
@@ -792,7 +794,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-042
 
-**Capa original del MPIR: sin capturas de pantalla y políticas de acceso del motor.** · aceptada · 2026-10-25
+**Capa original del MPIR: sin capturas de pantalla y políticas de acceso del motor.** · aceptada (enmendada por [D-171](#d-171) en la auditoría) · 2026-10-25
 
 - **Contexto:** `INTAKE 2026-10-25-mpir-capture-engine`, tareas T-002 y T-013. El usuario pidió empezar el MPIR por la infraestructura y un motor de captura que evite bloqueos sin tardar «una eternidad». Claude propuso conservar también una captura de pantalla por recurso; el usuario respondió: «no hace falta captura de pantalla. Implementa el motor».
 - **Decisión:**
@@ -2466,7 +2468,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-150
 
-**Sistema capture: motor de captura y almacén común de fichas congeladas.** · aceptada · 2026-10-28
+**Sistema capture: motor de captura y almacén común de fichas congeladas.** · aceptada (enmendada por [D-171](#d-171) en la auditoría) · 2026-10-28
 
 - **Contexto:** `INTAKE 2026-10-28-capture-system`, tareas T-063 (estudio) y T-066. El motor de captura ([D-046](#d-046)) y las fichas congeladas vivían en demand-engine. Contexto añadido por Claude: web-audit ([D-129](#d-129)) también los necesita, porque el contraste de los requisitos técnicos lee fichas congeladas y el auditado técnico tendrá que capturar; es el mismo caso que las fuentes externas, que pasaron a un sistema común ([D-149](#d-149)). Usuario, en el estudio T-063: alternativa B. Descartadas: A (el motor y las fichas siguen en demand-engine y web-audit depende de demand-engine), C (solo el motor en común, con capturas duplicadas por sistema) y D (dentro de references: otra ejecución, otra naturaleza, sin versión fijada).
 - **Decisión:**
@@ -2786,7 +2788,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-167
 
-**Páginas de una auditoría: fichas del encargo, portada, políticas, categoría inmediata, robots.txt y sitemaps.** · aceptada · 2026-10-28
+**Páginas de una auditoría: fichas del encargo, portada, políticas, categoría inmediata, robots.txt y sitemaps.** · aceptada (enmendada por [D-170](#d-170)) · 2026-10-28
 
 - **Contexto:** `INTAKE 2026-10-28-technical-rate-pages-web-minimum` §3, tarea T-077. Cierra [OQ-85](open-questions.md#f-evaluación-técnica), abierta por [D-161](#d-161). Claude propuso tres alternativas (encargo y páginas fijas, muestra del sitemap, solo fichas y políticas). Usuario: «Encargo + fijas».
 - **Decisión:**
@@ -2830,3 +2832,47 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - El mismo cálculo en el desglose por naturaleza y en cada vista y tipo de página.
 - **Consecuencias:** [scoring-systems](../10-model/scoring-systems.md#tasa-de-cumplimiento-técnico) 1.7; glosario (tasa de cumplimiento técnico); I-49 resuelta. Fuera de `docs/`: el auditor de web-audit (`web-audit/src/web_audit/audit.py`) y su README calculan y describen la cobertura así.
 - **Relacionado:** D-131, D-166, I-49.
+
+### D-170
+
+**Descubrimiento de las páginas de una auditoría: unión del rastreo y los sitemaps; los enlaces solo descubren.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-audit-discovery-and-tdm` §1, tarea T-080. El usuario quiere descubrir todas las fichas de un sitio, y otras páginas de contenido, sin partir del sitemap: «No me quiero basar en el sitemaps porque eso me impide poder valorar el requisito de que el recurso este presente en el sitemaps». Claude propuso dos alternativas: Screaming Frog SEO Spider como motor (A) o una araña propia en capture, con Screaming Frog como modelo (B). En la conversación señaló que la araña sola no ve lo que no alcanza y que el universo es la unión del rastreo y los sitemaps. Usuario: «ok a B»; «Realmente no busco auditar rastreo profundamente. Solo un motor de descubrimiento de URLS»; «en la auditoria no valoramos cuestiones de los enlaces y su rastreabilidad. Simplemente los usamos como medio de descubrimiento»; «Si es acertado lo que dices que el universo es la union sitemaps con rastreo. lo que queda fuera se considera irrastreable»; «El unico requisito que valoramos es el del sitemaps»; «Aprovecha el mismo proceso para ambas cosas. descubrir + capturar». Procedencia: el rastreo por `<a href>` es una propuesta de Claude («OK»); el único requisito y el origen de las fichas auditadas son lecturas de Claude que el usuario aceptó («ok»).
+- **Decisión:**
+  - **Universo de la auditoría:** las páginas de una auditoría se descubren por la unión del rastreo del sitio y de sus sitemaps.
+  - **Rastreo:** parte de la portada y sigue los enlaces `<a href>` del documento de la respuesta HTTP sin ejecutar JavaScript ([D-156](#d-156)). Los enlaces `nofollow` se siguen y se registran.
+  - **Los enlaces solo descubren:** no se valoran ni se auditan los enlaces ni la rastreabilidad. No contradice [D-162](#d-162), que se mantiene: los enlaces descubren, no se auditan.
+  - **Fuera del universo:** lo que no se descubre se considera no rastreable.
+  - **Único requisito que se valora del descubrimiento:** el de D-162 (la página está en los sitemaps), en cada página auditada.
+  - **Fichas auditadas:** salen del universo descubierto. Enmienda [D-167](#d-167) en el origen de las fichas.
+  - **Un solo proceso:** el rastreo usa el perfil de auditoría y captura cada página en la misma visita que la descubre.
+- **Interpretaciones adoptadas:**
+  - El rastreo es un medio de la auditoría, no una auditoría integral del rastreo: la vista general sigue acotada como fija [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica). El bloque «rastreo del sitio» del triaje de Web (w-document/005, w-consumer/007 y 008) sigue retirado.
+  - Lectura de Claude: el encargo sigue eligiendo las fichas auditadas (D-167), ahora entre las del universo.
+  - Lectura de Claude: «no rastreable» es un hecho registrado, no un estado ni un requisito. Como toda ausencia, exige cobertura (por analogía con la disponibilidad efectiva: [effective-availability](../10-model/effective-availability.md#reglas-e-invariantes), regla 5): solo se afirma si el rastreo terminó completo. Si quedó incompleto (topes, bloqueos, pendientes), se registra su cobertura.
+  - Lectura de Claude: una URL que llega por otra vía (por ejemplo, el encargo la nombra) y no está en el universo se registra como no rastreable. No es una página auditada.
+  - Lectura de Claude: la instantánea de una página auditada es la de la visita del rastreo, y es la misma que lee la auditoría informativa (D-167).
+  - Lectura de Claude: las demás páginas de D-167 (portada, políticas desde el pie, categoría por las migas) se localizan como fija D-167, sobre lo capturado en el rastreo.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.5; glosario (universo de la auditoría). Fuera de `docs/`:
+  - la araña de capture, alternativa B (T-082): 1 página/s como máximo, o el `Crawl-delay` si es mayor; tope de 50.000 URL; sin horario; `audit-es` consulta el origen una vez por ejecución, y el resto del perfil no cambia de momento;
+  - el universo y las páginas de D-167 sobre el rastreo (T-083);
+  - web-audit sobre esa auditoría (T-084);
+  - el piloto, con Screaming Frog como contraste (T-085).
+- **Relacionado:** D-156, D-162, D-163, D-167, D-171.
+
+### D-171
+
+**Reserva de minería de textos y datos en la auditoría: comprobación previa, parada y aviso.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-audit-discovery-and-tdm` §2, tarea T-080. Claude explicó la reserva de minería de textos y datos (art. 67.3 TRLPI: `tdmrep.json`, cabecera y meta `tdm-reservation`). Ante una reserva, el motor no conserva el contenido de esa página ([D-042](#d-042)); hoy la captura de una auditoría sigue con las demás páginas. Comprobación de Claude (2026-10-29): ningún `meta.json` de `capture/var` registra una reserva. Usuario: «analizar si hay reserva antes de empezar cualquier proceso de captura. si lo hay, paramos y el sistema notifica». Claude preguntó si vale para todos los procesos o solo para la auditoría. Usuario: «solo audit».
+- **Decisión:**
+  - Antes de capturar ninguna página de una auditoría, se comprueba si el sitio tiene reserva de minería de textos y datos.
+  - Si la hay, no se captura nada: el proceso para y avisa.
+  - Solo en la auditoría. Los demás procesos de captura siguen D-042: ante una reserva, no se conserva el contenido de esa página.
+  - **Enmienda D-042 en la auditoría**, y también la interpretación de [D-150](#d-150) («se aplican igual a todas las capturas»): la política es la misma; en la auditoría cambia su consecuencia.
+- **Interpretaciones adoptadas** (lecturas de Claude):
+  - La comprobación previa lee los medios que ya lee el motor: `/.well-known/tdmrep.json` y la cabecera y la meta `tdm-reservation` de la portada. La petición de la portada para comprobarlo sigue D-042: si tiene reserva, no se conserva su contenido.
+  - Una reserva que aparece a mitad del proceso (la cabecera o la meta de una página interior) también lo para. La página con la reserva no se conserva; lo capturado antes, sí. La auditoría queda incompleta y lo registra.
+  - «Avisa»: la orden termina con error y un mensaje claro, y el registro de la auditoría guarda la parada con su evidencia.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.5. Fuera de `docs/`: capture comprueba la reserva antes de la auditoría y para (T-081).
+- **Relacionado:** D-042, D-046, D-150, D-167, D-170.

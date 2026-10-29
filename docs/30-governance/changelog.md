@@ -14,6 +14,17 @@ Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módul
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
 
+## 2026-10-29 — Descubrimiento de las páginas de una auditoría y reserva TDM en la auditoría · aplicado
+
+- **canon** — `INTAKE 2026-10-29-audit-discovery-and-tdm` (T-080; el usuario eligió entre alternativas de Claude):
+  - las páginas de una auditoría se descubren por la unión del rastreo (enlaces `<a href>` del documento sin JavaScript, desde la portada) y los sitemaps;
+  - los enlaces solo descubren y no se auditan; lo que queda fuera se considera no rastreable;
+  - el único requisito que se valora del descubrimiento es el de D-162; las fichas auditadas salen del universo;
+  - el rastreo captura cada página en la misma visita. Decisión [D-170](decisions.md#d-170), que enmienda D-167.
+- **canon** — En la auditoría, la reserva de minería de textos y datos se comprueba antes de capturar; si la hay, el proceso para y avisa. Los demás procesos siguen D-042. Decisión [D-171](decisions.md#d-171), que enmienda D-042 en la auditoría.
+- **Módulo:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.5; glosario (universo de la auditoría).
+- **gobernanza** — D-167, D-042 y D-150 anotadas; OQ-85 anotada (fichas: D-170). Fuera de `docs/`: tareas T-081 a T-085 (reserva previa, araña, universo, web-audit y piloto).
+
 ## 2026-10-29 — Pistas de certificaciones aplicadas en el catálogo · aplicado
 
 - **editorial** — Registra la ejecución de [D-154](decisions.md#d-154) en `demand-engine/catalog/hints.json` (T-070): retiradas PV-39 y PV-40; nuevas PV-45 (Aplicabilidad), PV-46 (Fiabilidad) y PV-47 (Precisión). PV-4, PV-5 y PV-6 ya estaban retiradas.

@@ -3,20 +3,23 @@ requirement, with code only (D-134).
 
 The catalog of hints holds the hints that go to a type (trait, entity or both) or to the requirements that cite a
 source (matched by the beginning of the tag, up to a separator: «ley:UE-1007/2011» matches
-«ley:UE-1007/2011-16.1@2011-10-18»). The hints of one requirement live in the requirement itself, in «hints», without
+«ley:UE-1007/2011-16.1@2011-10-18»); «para» holds one destination or a list of destinations of the same key: several
+sources or several types (D-208). The hints of one requirement live in the requirement itself, in «hints», without
 «para» (D-140). The ids PV-n are unique across both places.
 """
 import re
 
-from .catalog import CATALOG, load_blocks, load_gen, load_traits, read_json
+from .catalog import CAT_DIR, CATALOG, ESP_DIR, load_blocks, load_gen, load_traits, read_json, write_json
 
 HINTS = CATALOG / "hints.json"
 FIELDS = ("id", "pista", "propiedad", "ac", "para", "origen")
 OWN_FIELDS = tuple(f for f in FIELDS if f != "para")  # a requirement's own hints (D-140)
+DRAFT_FIELDS = tuple(f for f in OWN_FIELDS if f != "id")  # those of a new block, numbered when compiled (D-201)
+DRAFT_ORIGINS = ("normativa", "referencias", "inferida")
 OPTIONAL = ("retirada", "duda")  # D-136: a hint is retired, never deleted; a contradiction is marked as a doubt
 PROPERTIES = {f"P{n:02d}" for n in range(6, 19)} - {"P15"}  # P15 retired (D-123)
 ACS = ("Concreción", "Precisión", "Aplicabilidad", "Comparabilidad", "Fiabilidad", "Justificación")
-ORIGINS = ("marco", "normativa", "referencias", "paa")
+ORIGINS = ("marco", "normativa", "referencias", "paa", "inferida")  # «inferida»: D-201
 ENTITIES = ("producto", "variante", "oferta", "entrega", "condiciones", "vendedor")
 KEYS = ({"rasgo"}, {"entidad"}, {"rasgo", "entidad"}, {"fuente"})
 ORDER = {"tipo": 0, "fuente": 1, "requisito": 2}
@@ -35,6 +38,46 @@ def requirements() -> list:
     return out + [r for b in load_gen()["blocks"] for r in b["requirements"]]
 
 
+def drafted() -> set:
+    """Requirements of the blocks generated at runtime: their hints go without id until compiled (D-201)."""
+    return {r["id"] for b in load_blocks().values() if b["_where"] == "ejecución" for r in b["requirements"]}
+
+
+def draft_errors(req: dict) -> list:
+    """What is wrong in the hints of a requirement of a new block (D-201, D-211: the code checks the form only)."""
+    errors = []
+    for h in req.get("hints", []):
+        errors += hint_errors(h, DRAFT_FIELDS)
+        if isinstance(h.get("origen"), dict) and h["origen"].get("tipo") in set(ORIGINS) - set(DRAFT_ORIGINS):
+            errors.append(f"pista: origen «{h['origen']['tipo']}» no admitido en un bloque nuevo "
+                          f"({', '.join(DRAFT_ORIGINS)})")
+    return errors
+
+
+def consolidate() -> list:
+    """The training consolidates the hints of the blocks it compiled (D-201): each hint without id gets the next PV-n.
+    Returns the ids given."""
+    files = sorted(CAT_DIR.glob("*.json")) + sorted(ESP_DIR.glob("*.json"))
+    blocks = {path: read_json(path) for path in files}
+    taken = [h.get("id", "") for h in load_hints().get("hints", [])]
+    taken += [h.get("id", "") for b in list(blocks.values()) + load_gen()["blocks"] for r in b.get("requirements", [])
+              for h in r.get("hints", [])]
+    n = max([int(i[3:]) for i in taken if ID.fullmatch(i or "")], default=0)
+    given = []
+    for path, b in blocks.items():
+        changed = False
+        for r in b.get("requirements", []):
+            for i, h in enumerate(r.get("hints", [])):
+                if "id" not in h:
+                    n += 1
+                    r["hints"][i] = {"id": f"PV-{n}", **h}
+                    given.append(f"PV-{n}")
+                    changed = True
+        if changed:
+            write_json(path, b)
+    return given
+
+
 def cites(source: str, tag: str) -> bool:
     """A law is cited with its article and date; an attribute or property, with a value. The hyphen and the dot only
     separate in a law: in a Shopify handle they are part of the name (fabric, fabric-weave)."""
@@ -42,13 +85,20 @@ def cites(source: str, tag: str) -> bool:
     return tag == source or (tag.startswith(source) and tag[len(source)] in separators)
 
 
+def destinations(hint: dict) -> list:
+    """The destinations in «para»: one, or a list of them (D-208)."""
+    to = hint["para"]
+    return to if isinstance(to, list) else [to]
+
+
 def reaches(hint: dict, req: dict) -> str:
     """The key by which a hint of the catalog reaches the requirement («tipo», «fuente») or ''."""
-    to = hint["para"]
-    if "fuente" in to:
-        return "fuente" if any(cites(to["fuente"], s) for s in req.get("sources", [])) else ""
-    if all(to[k] == req.get(f) for k, f in (("rasgo", "trait"), ("entidad", "entity")) if k in to):
-        return "tipo"
+    for to in destinations(hint):
+        if "fuente" in to:
+            if any(cites(to["fuente"], s) for s in req.get("sources", [])):
+                return "fuente"
+        elif all(to[k] == req.get(f) for k, f in (("rasgo", "trait"), ("entidad", "entity")) if k in to):
+            return "tipo"
     return ""
 
 
@@ -58,7 +108,7 @@ def find(req: dict, hints: list) -> list:
     found = [(key, h) for h in hints if (key := reaches(h, req))]
     found += [("requisito", h) for h in req.get("hints", [])]
     found = [(k, h) for k, h in found if "retirada" not in h]
-    return sorted(found, key=lambda kh: (ORDER[kh[0]], int(kh[1]["id"][3:])))
+    return sorted(found, key=lambda kh: (ORDER[kh[0]], int(kh[1].get("id", "PV-0")[3:])))
 
 
 def sentences(text: str) -> int:
@@ -67,14 +117,14 @@ def sentences(text: str) -> int:
 
 def hint_errors(h: dict, fields: tuple) -> list:
     """What is wrong in one hint, wherever it lives: fields, id, length, properties, AC and origin (D-135, D-136)."""
-    hid = h.get("id", "?")
+    hid = h.get("id", "pista")
     missing = [f for f in fields if f not in h]
     extra = [f for f in h if f not in fields + OPTIONAL]
     if missing or extra:
         return [f"{hid}: campos {'que faltan ' + ', '.join(missing) if missing else ''}"
                 f"{' y ' if missing and extra else ''}{'que sobran ' + ', '.join(extra) if extra else ''}"]
     errors = []
-    if not ID.fullmatch(hid):
+    if "id" in fields and not ID.fullmatch(hid):
         errors.append(f"{hid}: id no es PV-n sin ceros delante")
     text = h["pista"].strip()
     if not text or sentences(text) > MAX_SENTENCES or len(text) > MAX_CHARS:
@@ -97,8 +147,9 @@ def same(group: list, where: str) -> list:
             if set(a["propiedad"]) & set(b["propiedad"]) and "duda" not in b]
 
 
-def check(catalog: dict, reqs: list, vocabulary: set) -> tuple:
-    """(errors, warnings) of the hints, in the catalog and in each requirement, and of the comparison marks (D-139)."""
+def check(catalog: dict, reqs: list, vocabulary: set, drafts=frozenset()) -> tuple:
+    """(errors, warnings) of the hints, in the catalog and in each requirement, and of the comparison marks (D-139).
+    `drafts`: requirements of new blocks, whose hints go without id (D-201)."""
     errors, warnings, seen = [], [], set()
     valid = []
     for h in catalog.get("hints", []):
@@ -108,25 +159,31 @@ def check(catalog: dict, reqs: list, vocabulary: set) -> tuple:
         if h["id"] in seen:
             errors.append(f"{h['id']}: id repetido")
         seen.add(h["id"])
-        to = h["para"]
-        if not isinstance(to, dict) or set(to) not in KEYS:
-            errors.append(f"{h['id']}: «para» ha de llevar rasgo y/o entidad, o fuente (las de un requisito viven "
-                          f"en él, D-140): {to}")
+        tos = h["para"] if isinstance(h["para"], list) else [h["para"]]
+        if not tos or any(not isinstance(to, dict) or set(to) not in KEYS for to in tos):
+            errors.append(f"{h['id']}: «para» ha de llevar rasgo y/o entidad, o fuente, o una lista de ellos (las de "
+                          f"un requisito viven en él, D-140): {h['para']}")
             continue
-        if to.get("rasgo") is not None and to["rasgo"] not in vocabulary:
-            errors.append(f"{h['id']}: rasgo «{to['rasgo']}» fuera del vocabulario")
-        if to.get("entidad") is not None and to["entidad"] not in ENTITIES:
-            errors.append(f"{h['id']}: entidad «{to['entidad']}» no válida")
+        if len({"fuente" in to for to in tos}) > 1 or len({repr(to) for to in tos}) < len(tos):
+            errors.append(f"{h['id']}: la lista de «para» mezcla tipos y fuentes o repite un valor (D-208)")
+        for to in tos:
+            if to.get("rasgo") is not None and to["rasgo"] not in vocabulary:
+                errors.append(f"{h['id']}: rasgo «{to['rasgo']}» fuera del vocabulario")
+            if to.get("entidad") is not None and to["entidad"] not in ENTITIES:
+                errors.append(f"{h['id']}: entidad «{to['entidad']}» no válida")
         if "retirada" not in h and not any(reaches(h, r) for r in reqs):
             errors.append(f"{h['id']}: su destino no existe (no llega a ningún requisito): {to}")
         valid.append(h)
     by_dest = {}
     for h in valid:
-        by_dest.setdefault(repr(sorted(h["para"].items())), []).append(h)
+        by_dest.setdefault(repr(sorted(repr(sorted(to.items())) for to in destinations(h))), []).append(h)
     for group in by_dest.values():
         errors += same(group, "")
     for r in reqs:
         own = r.get("hints", [])
+        if r["id"] in drafts:
+            errors += [f"{r['id']}: {e}" for e in draft_errors(r)]
+            continue
         for h in own:
             found = hint_errors(h, OWN_FIELDS)
             errors += [f"{r['id']}: {e}" for e in found]
@@ -137,7 +194,7 @@ def check(catalog: dict, reqs: list, vocabulary: set) -> tuple:
             errors += [f"{r['id']}: {e}" for e in same(own, " (el requisito)")]
     marked = 0
     for r in reqs:
-        if any(not all(f in h for f in OWN_FIELDS) for h in r.get("hints", [])):
+        if any(not all(f in h for f in (DRAFT_FIELDS if r["id"] in drafts else OWN_FIELDS)) for h in r.get("hints", [])):
             continue
         found = find(r, valid)
         for i, (ka, a) in enumerate(found):  # the same check, on what reaches the requirement by different keys
@@ -166,7 +223,7 @@ def check(catalog: dict, reqs: list, vocabulary: set) -> tuple:
 
 def cmd_check() -> None:
     catalog, reqs = load_hints(), requirements()
-    errors, warnings = check(catalog, reqs, set(load_traits()["vocabulary"]))
+    errors, warnings = check(catalog, reqs, set(load_traits()["vocabulary"]), drafted())
     live = [h for h in catalog.get("hints", []) if "retirada" not in h]
     own = [h for r in reqs for h in r.get("hints", []) if "retirada" not in h]
     print(f"pistas {catalog.get('version', '?')}: {len(live)} vigentes en el catálogo y {len(own)} en los requisitos; "

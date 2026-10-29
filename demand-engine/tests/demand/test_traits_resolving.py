@@ -187,3 +187,27 @@ def test_a_proposal_enters_its_block_with_a_new_id_and_origin_references():
     r = block["requirements"][-1]
     assert r["origin"] == "referencias" and r["sources"] == ["a:new"] and r["seed_importance"] == "complementario"
     assert "stores" not in r["resolving_info"][0]
+
+
+def test_a_proposed_synonym_goes_into_the_trait_it_names():
+    from demand_engine.demand.train import trait_synonyms
+    vocabulary = {"material": {"label": "material"}, "uso": {"label": "uso previsto"}}
+    proposed = {"sabor": {"label": "sabor", "proposed_by": ["c1", "c2"]},
+                "sabor-del-alimento": {"label": "sabor del alimento", "proposed_by": ["c3"]},
+                "materiales": {"label": "material", "proposed_by": ["c4"]},
+                "olor": {"label": "olor", "proposed_by": ["c5"]}}
+    assert trait_synonyms(vocabulary, proposed) == {"sabor-del-alimento": "sabor", "materiales": "material"}
+
+
+def test_an_inferred_contribution_seen_in_two_stores_is_accepted():
+    r = {"id": "gen/11", "question": GEN11["question"], "resolving_info": [
+        {"contribution": "reembolso completo", "component": "condiciones", "origin": "inferida"},
+        {"contribution": "plazo de cambio", "component": "plazo", "origin": "inferida"}]}
+    listed = {"contribution": "reembolso completo", "component": "condiciones", "new": False}
+    once = {"contribution": "plazo de cambio", "component": "plazo", "new": False}
+    models = {"a": {"c1": model("https://tienda-a.es/1", listed, once), "c2": model("https://tienda-b.es/2", listed)}}
+    entry = resolving.induce({"gen/11": r}, models)["gen/11"]
+    assert entry["inferred_accepted"] == ["reembolso completo"]        # D-193: two stores
+    out = resolving.for_model(r, {"requirements": {"gen/11": entry}})
+    assert [(c["contribution"], c["status"]) for c in out] == [("reembolso completo", "aceptada"),
+                                                                ("plazo de cambio", "provisional")]

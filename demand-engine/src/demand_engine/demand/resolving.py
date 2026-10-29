@@ -3,7 +3,8 @@
 Four origins (D-063): the framework (general layer, from the law), the references (titles and
 descriptions of the sources, which whoever drafts a block turns into contributions), the real
 pages (a contribution the classifier proposes is accepted when two different stores publish it
-and it contributes to a component of the question) and the inferred ones (provisional). No
+and it contributes to a component of the question) and the inferred ones (provisional until two
+different stores publish them too, D-193). No
 contribution is withdrawn for not being observed: the stores where each one was seen are
 evidence, not a weight.
 """
@@ -141,6 +142,10 @@ def induce(questions: dict, models: dict) -> dict:
             else:
                 entry["proposed"].append(item)
         entry["never_observed"] = [name for name in listed if name not in entry["observed"]]
+        # D-193: an inferred contribution observed in two different stores is no longer provisional
+        entry["inferred_accepted"] = [c["contribution"] for c in r.get("resolving_info", [])
+                                      if c.get("origin") == "inferida"
+                                      and len(entry["observed"].get(c["contribution"], [])) >= MIN_STORES]
         result[req] = entry
     return result
 
@@ -150,7 +155,11 @@ def for_model(r: dict, compiled: dict) -> list:
     pages, each with the stores where it was observed."""
     entry = compiled.get("requirements", {}).get(r["id"], {})
     observed = entry.get("observed", {})
-    out = [{**c, "stores": observed.get(c["contribution"], [])} for c in r.get("resolving_info", [])]
+    confirmed = set(entry.get("inferred_accepted", []))
+    out = [{**c, "stores": observed.get(c["contribution"], []),
+            **({"status": "aceptada"} if c["contribution"] in confirmed else
+               {"status": "provisional"} if c.get("origin") == "inferida" else {})}
+           for c in r.get("resolving_info", [])]
     out += [{"contribution": a["contribution"], "component": a["component"], "origin": "fichas", "support": a["cases"],
              "stores": a["stores"]} for a in entry.get("accepted", [])]
     return out

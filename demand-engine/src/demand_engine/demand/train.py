@@ -22,13 +22,17 @@ Usage:
                                   takes the trait most voted in the runs (a tie keeps the current one),
                                   a proposed trait enters the vocabulary when it wins in a requirement,
                                   and a source keeps its starting trait only if all its requirements
-                                  agree (D-056); if missing, the list of categories without a block
+                                  agree (D-056); a synonym of a trait goes into it, a proposed trait that
+                                  no longer wins leaves the vocabulary with a record and comes back if
+                                  it wins again (D-192); if missing, the list of categories without a block
   train induce [RUN_DIR ...]      induce candidate rules from the catalog and the votes of the models
                                   assembled in the runs: by trait, exceptions by requirement and class,
-                                  relevance (catalog/rules/importance.candidate.json)
-  train compile [RUN_DIR ...]     validate the candidate against the current rules (no metric worse,
-                                  one better) and, if accepted, publish it and compile the catalog,
-                                  including the blocks generated at runtime; compile the resolving
+                                  relevance, and the specializations: synonyms merged, anchor along the
+                                  tree, seed and proposals (D-190) (catalog/rules/importance.candidate.json)
+  train compile [RUN_DIR ...]     validate each family of the candidate against the current rules (no
+                                  metric worse, one better) and, if accepted, publish it and compile the
+                                  catalog, including the blocks generated at runtime and the specializations
+                                  (catalog/esp/); compile the resolving
                                   information observed in the runs (catalog/rules/resolving.json); the
                                   runs go in pairs (A and B of each cycle) for the stability
   train resolving refs SOURCE|BLOCK|REQ ...
@@ -58,10 +62,11 @@ from pathlib import Path
 
 from references.store import pins
 
-from . import resolving
+from . import hints, resolving, specializations
 from .catalog import (CAT_DIR, CATALOG, COMPILED, EMPTY, FIXED, LEVELS, NO_RULE, NOT_RELEVANT, RESOLVING, ROOT,
                       RULES, RUNTIME_DIR, TRAITS, UNCOMPILED, VOTES, blocks_by_node, category_name, chain, depth, floor,
-                      load_blocks, load_empty, load_gen, load_resolving, load_rules, load_traits, majority, parent,
+                      load_blocks, load_empty, load_gen, load_resolving, load_rules, load_specializations, load_traits,
+                      majority, next_requirement_id, parent,
                       protected, rank, read_json, relevance, requirement_trait, resolve, save_block, trait_index,
                       write_json)
 from .text import covers, match_names, stems
@@ -69,6 +74,8 @@ from .text import covers, match_names, stems
 CANDIDATE = CATALOG / "rules" / "importance.candidate.json"
 CASES = ROOT / "cases"
 REPORTS = ROOT / "training" / "reports"  # results of the training: versioned, unlike the runs
+PAA_SETS = ROOT / "var" / "paa" / "sets"  # the classifications of PAA, with their revisions (D-179): disposable
+REVISIONS = ("separar", "sacar", "partir", "reformular")  # what PAA leaves to taxo (D-115, D-213)
 
 
 # Index
@@ -99,6 +106,32 @@ def proposed_traits(models: dict, blocks: dict) -> dict:
     return out
 
 
+def trait_words(name: str, entry: dict) -> set:
+    """Significant words of a trait: its name and its label, without accents."""
+    return stems(specializations.plain(f"{name.replace('-', ' ')} {entry.get('label') or ''}"))
+
+
+def trait_synonyms(vocabulary: dict, proposed: dict) -> dict:
+    """Proposed traits that name the same thing as another (D-192): {alias: trait}. Two traits are synonyms if they
+    share at least half of the significant words of the shorter one. A trait of the vocabulary absorbs its synonyms;
+    among proposed ones, the one with more proposers (a tie, the first in alphabetical order)."""
+    def same(a, b):
+        wa, wb = a[1], b[1]
+        return bool(wa and wb) and 2 * len(wa & wb) >= min(len(wa), len(wb))
+    known = [(n, trait_words(n, e)) for n, e in sorted(vocabulary.items())]
+    rank_ = sorted(proposed, key=lambda n: (-len(proposed[n].get("proposed_by", [])), n))
+    out = {}
+    for name in rank_:
+        mine = (name, trait_words(name, proposed[name]))
+        target = next((n for n, w in known if same(mine, (n, w))), None)
+        earlier = rank_[:rank_.index(name)]  # a proposed trait goes into a better ranked one, never the reverse
+        target = target or next((n for n in earlier if n not in out and same(mine, (n, trait_words(n, proposed[n])))),
+                                None)
+        if target:
+            out[name] = out.get(target, target)
+    return out
+
+
 def choose_trait(votes: Counter, current: str) -> str:
     """The most voted trait; a tie keeps the current one (D-056)."""
     top = max(votes.values())
@@ -115,15 +148,30 @@ def cmd_index(run_dirs: list) -> None:
         if name not in vocabulary:
             entry = proposed.setdefault(name, {"label": p["label"], "definition": p["definition"], "proposed_by": []})
             entry["proposed_by"] = sorted(set(entry["proposed_by"]) | set(p["proposed_by"]))
+    retired = traits.get("retired", {})
+    aliases = trait_synonyms(vocabulary, proposed)
+    for alias, target in aliases.items():  # D-192: the synonym goes into the trait it names
+        entry = vocabulary.get(target) or proposed[target]
+        entry["aliases"] = sorted(set(entry.get("aliases", [])) | {alias})
+        if target in proposed:
+            entry["proposed_by"] = sorted(set(entry["proposed_by"]) | set(proposed[alias]["proposed_by"]))
+        proposed.pop(alias)
     reqs = {r["id"]: r for b in blocks.values() for r in b["requirements"]}
-    chosen, approved, undefined, changed = dict(traits.get("requirements", {})), [], [], []
-    for req, votes in sorted(trait_votes(models).items()):
+    chosen, approved, undefined, changed, returned = dict(traits.get("requirements", {})), [], [], [], []
+    for req, raw in sorted(trait_votes(models).items()):
         if req not in reqs:
             continue
+        votes = Counter()
+        for t, k in raw.items():
+            votes[aliases.get(t, t)] += k
         current, _ = requirement_trait(reqs[req], src, voted)
         winner = choose_trait(votes, current)
         if winner not in vocabulary:
-            if winner in proposed:
+            if winner in retired:  # it wins again: back to the active vocabulary (D-192)
+                vocabulary[winner] = {k: v for k, v in retired.pop(winner).items() if k not in ("retired", "reason")}
+                vocabulary[winner]["returned"] = datetime.date.today().isoformat()
+                returned.append(winner)
+            elif winner in proposed:
                 vocabulary[winner] = {"label": proposed[winner]["label"], "definition": proposed[winner]["definition"],
                                       "origin": "propuesto", "approved": datetime.date.today().isoformat(), "first": req}
                 approved.append(winner)
@@ -134,6 +182,13 @@ def cmd_index(run_dirs: list) -> None:
         if winner != current:
             changed.append(f"{req}: {current} → {winner}")
         chosen[req] = {"trait": winner, "votes": dict(votes)}
+    # D-192: a proposed trait that no longer wins in any requirement leaves the active vocabulary, with a record;
+    # the starting traits (no «origin») are never retired
+    used = {chosen[req]["trait"] if req in chosen else r.get("trait") for req, r in reqs.items()}
+    gone = [n for n, e in vocabulary.items() if e.get("origin") == "propuesto" and n not in used]
+    for name in gone:
+        retired[name] = {**vocabulary.pop(name), "retired": datetime.date.today().isoformat(),
+                         "reason": "no gana en ningún requisito (D-192)"}
     seen = defaultdict(Counter)
     for req, r in reqs.items():
         trait = chosen[req]["trait"] if req in chosen else r.get("trait")
@@ -141,12 +196,19 @@ def cmd_index(run_dirs: list) -> None:
             for s in r.get("sources", []):
                 seen[s][trait] += 1
     traits.update({"sources": {s: c.most_common(1)[0][0] for s, c in sorted(seen.items()) if len(c) == 1},
-                   "requirements": chosen, "proposed": proposed})
+                   "requirements": chosen, "proposed": proposed, "retired": retired})
     write_json(TRAITS, traits)
     ambiguous = {s: dict(c) for s, c in seen.items() if len(c) > 1}
     print(f"índice de rasgos: {len(traits['sources'])} fuentes; {len(ambiguous)} con rasgos distintos según el requisito; "
           f"{len(chosen)} requisitos con votos de rasgo, {len(changed)} cambian; {len(approved)} rasgos aprobados; "
-          f"{len(proposed)} propuestos sin ganar")
+          f"{len(proposed)} propuestos sin ganar; {len(aliases)} sinónimos fusionados; {len(gone)} retirados, "
+          f"{len(returned)} vuelven")
+    for alias, target in sorted(aliases.items()):
+        print(f"  sinónimo: {alias} → {target}")
+    for name in gone:
+        print(f"  retirado: {name}")
+    for name in returned:
+        print(f"  vuelve: {name}")
     for line in changed:
         print(f"  {line}")
     for name in approved:
@@ -384,6 +446,9 @@ def cmd_induce(run_dirs: list) -> dict:
     rel_table, rel_rules, rel_conflicts = induce_relevance(relevance_points(blocks, models), blocks)
     candidate.update({"relevance": rel_table, "relevance_conflicts": rel_conflicts})
     candidate["rules"] += rel_rules
+    esp = specializations.induce(models, load_specializations())
+    candidate.update({"specializations": esp["table"], "specializations_rejected": esp["rejected"]})
+    candidate["rules"] += esp["rules"]
     current = load_rules()
     candidate.update({"version": str(int(current.get("version", "0")) + 1), "induced": datetime.date.today().isoformat(),
                       "points": {"catalog": sum(1 for p in points if p["from"] == "catálogo"),
@@ -397,6 +462,9 @@ def cmd_induce(run_dirs: list) -> dict:
     new = set(candidate["tree"].items()) | set(candidate["requirements"].items())
     added, removed = new - old, old - new
     print(f"  frente a la versión {current.get('version', '0')}: {len(added)} reglas nuevas o cambiadas, {len(removed)} retiradas")
+    merged = sum(len(e["aliases"]) for e in esp["table"].values())
+    print(f"  especializaciones: {len(esp['table'])} ({merged} sinónimos fusionados), {len(esp['rules'])} reglas de anclaje, "
+          f"{len(esp['rejected'])} fuera del marco")
     return candidate
 
 
@@ -485,28 +553,63 @@ def relevance_metrics(models: dict, rules: dict) -> dict:
     return {"incoherence": sum(1 for k in kept_pairs if votes[k]["no"] > votes[k]["sí"]), "coverage_gaps": gaps}
 
 
-def pairs(models: dict) -> list:
-    """Cases run twice: the runs go in pairs, in the order given (A and B of each cycle, e.g. training and control)."""
-    runs = list(models)
+RULEBOOK = ROOT / "classifier" / "rulebook.md"
+
+
+def current_versions() -> tuple:
+    """(rulebook, rules) in force: the version in the heading of the classifier's rulebook («… · v4») and that of
+    the published rules."""
+    first = RULEBOOK.read_text(encoding="utf-8").splitlines()[0]
+    return first.rsplit("·", 1)[-1].strip(), load_rules().get("version", "0")
+
+
+def pairs(models: dict, versions: tuple = None) -> list:
+    """Cases run twice: the runs go in pairs, in the order given (A and B of each cycle, e.g. training and control).
+    The run of an audit (a model with «audit») counts as one of the two only if it used the rulebook and the catalog
+    in force: it pairs with a new run of the same case (D-194). Otherwise the case needs two new runs."""
+    def audit(m):
+        return isinstance(m, dict) and bool(m.get("audit"))
+    fresh = {run: {c: m for c, m in cases.items() if not audit(m)} for run, cases in models.items()}
+    runs = list(fresh)
     out = []
     for ra, rb in zip(runs[0::2], runs[1::2]):
-        a, b = models[ra], models[rb]
+        a, b = fresh[ra], fresh[rb]
         out += [(case, a[case], b[case]) for case in sorted(a.keys() & b.keys())]
+    paired = {case for case, _, _ in out}
+    audits = [(case, m) for cases in models.values() for case, m in sorted(cases.items()) if audit(m)]
+    versions = versions or (current_versions() if audits else None)
+    for case, m in audits:
+        if case in paired or (m["engine"].get("rulebook"), m["engine"].get("rules")) != versions:
+            continue
+        new = next((r[case] for r in fresh.values() if case in r), None)
+        if new:
+            out.append((case, m, new))
+            paired.add(case)
     return out
 
 
 def stability(models: dict, rules: dict, effective: dict = None) -> dict:
+    """The same result in the two runs of a case. A specialization is compared by its id, with the synonyms the rules
+    merged (D-190); «esp_uncompiled» counts the specializations of the models that the rules do not compile."""
     effective = effective or {}
     out = Counter()
+    alias, table = specializations.canonical(rules), rules.get("specializations") or {}
+
+    def key(m):
+        return [f"{alias.get(i, i)}@{v}" if i.startswith("esp.") else f"{i}@{v}"
+                for i, _, v in (k.partition("@") for k in m["key"]["model"])]
+
+    def esp(m):
+        return sorted(alias.get(x["id"], x["id"]) for x in m["blocks"] if x["type"] == "especialización")
+
+    for cases in models.values():
+        out["esp_uncompiled"] += sum(1 for m in cases.values() for i in esp(m) if i not in table)
     for case, a, b in pairs(models):
         out["cases"] += 1
         out["composition"] += (set(a["composition"]["classes"]), set(a["composition"]["aliases"])) == \
                               (set(b["composition"]["classes"]), set(b["composition"]["aliases"]))
-        out["key"] += a["key"] == b["key"]
-        ea = [x["name"] or x["id"] for x in a["blocks"] if x["type"] == "especialización"]
-        eb = [x["name"] or x["id"] for x in b["blocks"] if x["type"] == "especialización"]
-        matched, extra = match_names(ea, eb)
-        out["specializations"] += all(o for _, o in matched) and not extra
+        out["key"] += key(a) == key(b)
+        out["specializations"] += esp(a) == esp(b)
         out["application"] += a["offer"]["application"] == b["offer"]["application"]
         ra = {r["id"]: r for x in a["blocks"] if x["type"] == "categoría" for r in x["requirements"]}
         rb = {r["id"]: r for x in b["blocks"] if x["type"] == "categoría" for r in x["requirements"]}
@@ -524,6 +627,9 @@ def better_or_equal(cur: dict, cand: dict) -> tuple:
             ("coherencia de los modelos", cur["coherence"]["models"], cand["coherence"]["models"], True),
             ("coherencia por requisito", cur["requirement"]["against"], cand["requirement"]["against"], True),
             ("estabilidad de la importancia", cur["stability"].get("same_importance", 0), cand["stability"].get("same_importance", 0), False),
+            ("estabilidad de la clave", cur["stability"].get("key", 0), cand["stability"].get("key", 0), False),
+            ("estabilidad de las especializaciones", cur["stability"].get("specializations", 0), cand["stability"].get("specializations", 0), False),
+            ("especializaciones sin compilar en los modelos", cur["stability"].get("esp_uncompiled", 0), cand["stability"].get("esp_uncompiled", 0), True),
             ("requisitos del catálogo sin regla", cur["coherence"]["catalog_without_rule"], cand["coherence"]["catalog_without_rule"], True),
             ("coherencia de relevancia", cur["relevance"]["incoherence"], cand["relevance"]["incoherence"], True),
             ("hechos declarados sin pregunta", cur["relevance"]["coverage_gaps"], cand["relevance"]["coverage_gaps"], True)):
@@ -541,19 +647,28 @@ def evaluate(rules: dict, blocks: dict, src_traits: dict, models: dict, voted: d
 
 # Compile
 
+FAMILIES = ("importancia", "relevancia", "especializaciones")
+
+
 def family(rules: dict, name: str) -> dict:
-    """The part of a rule set that belongs to one family: importance (by trait and exceptions by requirement) or relevance."""
+    """The part of a rule set that belongs to one family: importance (by trait and exceptions by requirement),
+    relevance or specializations (D-190)."""
     if name == "importancia":
         return {"tree": rules.get("tree", {}), "requirements": rules.get("requirements", {}),
-                "rules": [r for r in rules.get("rules", []) if r["kind"] != "relevancia"]}
+                "rules": [r for r in rules.get("rules", []) if r["kind"] not in ("relevancia", "especialización")]}
+    if name == "especializaciones":
+        return {"specializations": rules.get("specializations") or {},
+                "specializations_rejected": rules.get("specializations_rejected") or [],
+                "rules": [r for r in rules.get("rules", []) if r["kind"] == "especialización"]}
     return {"relevance": rules.get("relevance") or {}, "relevance_conflicts": rules.get("relevance_conflicts") or [],
             "rules": [r for r in rules.get("rules", []) if r["kind"] == "relevancia"]}
 
 
-def combine(importance: dict, relevance: dict) -> dict:
-    out = {k: v for k, v in importance.items() if k != "rules"}
-    out.update({k: v for k, v in relevance.items() if k != "rules"})
-    out["rules"] = importance["rules"] + relevance["rules"]
+def combine(*parts: dict) -> dict:
+    out = {"rules": []}
+    for part in parts:
+        out.update({k: v for k, v in part.items() if k != "rules"})
+        out["rules"] += part["rules"]
     return out
 
 
@@ -568,10 +683,9 @@ def cmd_compile(run_dirs: list) -> None:
     m_cur = evaluate(current, blocks, src_traits, models, voted)
     first = current.get("version", "0") == "0"
     parts, decisions = {}, {}
-    for name in ("importancia", "relevancia"):
+    for name in FAMILIES:
         cur_part, cand_part = family(current, name), family(candidate, name)
-        other = family(current, "relevancia" if name == "importancia" else "importancia")
-        trial = combine(cand_part, other) if name == "importancia" else combine(other, cand_part)
+        trial = combine(*[cand_part if n == name else family(current, n) for n in FAMILIES])
         unchanged = {k: v for k, v in cand_part.items() if k != "rules"} == {k: v for k, v in cur_part.items() if k != "rules"}
         m_trial = evaluate(trial, blocks, src_traits, models, voted)
         worse, better = better_or_equal(m_cur, m_trial)
@@ -590,7 +704,7 @@ def cmd_compile(run_dirs: list) -> None:
         print("ninguna familia se acepta: se compila el catálogo con la versión vigente")
         rules = current
     else:
-        rules = combine(parts["importancia"], parts["relevancia"])
+        rules = combine(*[parts[n] for n in FAMILIES])
         rules.update({"version": candidate["version"], "induced": candidate.get("induced"), "points": candidate.get("points"),
                       "runs": candidate.get("runs"), "refs": candidate.get("refs")})
         rules["accepted"] = {"date": datetime.date.today().isoformat(), "better": candidate["decision"]["better"],
@@ -629,7 +743,52 @@ def cmd_compile(run_dirs: list) -> None:
         data["runtime"] = []
         write_json(EMPTY, data)
     print(f"catálogo compilado: {len(blocks)} bloques, {changed} con versión nueva")
+    specs = load_specializations()
+    renewed = specializations.compile_blocks(specializations.induce(models, specs), rules.get("specializations") or {},
+                                             specs, rules, src_traits, voted)
+    print(f"especializaciones compiladas: {len(rules.get('specializations') or {})}, {len(renewed)} con versión nueva"
+          + (f" ({', '.join(renewed)})" if renewed else ""))
     compile_resolving(blocks, models, rules, run_dirs)
+    numbered = hints.consolidate()
+    print(f"pistas de los bloques redactados, consolidadas (D-201): {len(numbered)}"
+          + (f" ({', '.join(numbered)})" if numbered else ""))
+    current, stale = paa_revisions(blocks)
+    print(f"revisiones de PAA (D-179): {len(current)} sobre requisitos del catálogo, {len(stale)} sin requisito; "
+          "van al informe del ciclo para quien redacta")
+    for r in current:
+        print(f"  {r['action']} {r['target']} ({r['set']})")
+
+
+# Revisions of PAA (D-179, D-213)
+
+def paa_revisions(blocks: dict) -> tuple:
+    """The structural revisions in the classifications of PAA, for whoever drafts the blocks: (those on a requirement
+    of the catalog, those whose target is no longer there). They change no requirement by themselves."""
+    reqs = {r["id"]: b["id"] for b in blocks.values() for r in b["requirements"]}
+    current, stale = [], []
+    for path in sorted(PAA_SETS.glob("*/classified.json")):
+        result = read_json(path)
+        text = {q["n"]: q["q"] for q in result["questions"]}
+        for r in result.get("revisions", []):
+            if r.get("action") not in REVISIONS:
+                continue
+            item = {"set": result["set"], "at": result.get("at"), "target": r["target"], "action": r["action"],
+                    "proposal": r.get("proposal"), "questions": [text[n] for n in r.get("questions", []) if n in text]}
+            (current if r["target"] in reqs else stale).append(item)
+    return current, stale
+
+
+def revisions_section(blocks: dict) -> list:
+    current, stale = paa_revisions(blocks)
+    lines = ["", "## Revisiones de PAA", "",
+             f"Leídas de los classified.json de var/paa/sets/ (D-179): {len(current)} sobre requisitos del catálogo, "
+             f"{len(stale)} sobre requisitos que ya no están. Quien redacta el bloque las aplica o las rechaza."]
+    for r in current:
+        lines.append(f"- **{r['action']} {r['target']}** ({r['set']}): {r['proposal']}"
+                     + (" Preguntas: " + " · ".join(f"«{q}»" for q in r["questions"]) if r["questions"] else ""))
+    if stale:
+        lines += ["", "Sin requisito: " + "; ".join(f"{r['action']} {r['target']} ({r['set']})" for r in stale) + "."]
+    return lines
 
 
 # Proposals to the block (D-088)
@@ -659,9 +818,7 @@ def add_block_proposals(blocks: dict, models: dict) -> list:
     added = []
     for p in block_proposals(models, blocks):
         b, r = blocks[p["block"]], p["requirement"]
-        used = [int(x["id"].rsplit("/", 1)[1]) for x in b["requirements"] + b.get("excluded", [])
-                if str(x.get("id", "")).startswith(b["id"] + "/")]
-        rid = f"{b['id']}/{max(used, default=0) + 1:02d}"
+        rid = next_requirement_id(b)
         b["requirements"].append({
             "id": rid, "question": r["question"], "dimension": r.get("dimension"), "trait": r.get("trait"),
             "entity": r.get("entity"), "origin": "referencias", "sources": sorted(r["sources"]),
@@ -683,11 +840,12 @@ def compile_resolving(blocks: dict, models: dict, rules: dict, run_dirs: list) -
     count = Counter()
     for e in found.values():
         count["observed"] += len(e["observed"])
-        for k in ("accepted", "proposed", "rejected", "never_observed"):
+        for k in ("accepted", "proposed", "rejected", "never_observed", "inferred_accepted"):
             count[k] += len(e[k])
     print(f"información resolutiva: {len(found)} requisitos; {count['observed']} aportaciones de las listas observadas, "
           f"{count['never_observed']} nunca observadas; propuestas desde las fichas: {count['accepted']} aceptadas, "
-          f"{count['proposed']} pendientes (una tienda), {count['rejected']} rechazadas")
+          f"{count['proposed']} pendientes (una tienda), {count['rejected']} rechazadas; inferidas aceptadas por dos "
+          f"tiendas (D-193): {count['inferred_accepted']}")
 
 
 # Resolving information (D-063)
@@ -807,11 +965,12 @@ def resolving_section() -> list:
     count = Counter()
     for e in reqs.values():
         count["observed"] += len(e["observed"])
-        for k in ("accepted", "proposed", "rejected", "never_observed"):
-            count[k] += len(e[k])
+        for k in ("accepted", "proposed", "rejected", "never_observed", "inferred_accepted"):
+            count[k] += len(e.get(k, []))
     lines.append(f"{len(reqs)} requisitos (mínimo de aceptación: {data.get('min_stores')} tiendas distintas). Aportaciones de las "
                  f"listas observadas: {count['observed']} · nunca observadas: {count['never_observed']}. Propuestas desde las "
-                 f"fichas: {count['accepted']} aceptadas, {count['proposed']} pendientes (una tienda), {count['rejected']} rechazadas.")
+                 f"fichas: {count['accepted']} aceptadas, {count['proposed']} pendientes (una tienda), {count['rejected']} rechazadas. "
+                 f"Inferidas aceptadas por dos tiendas (D-193): {count['inferred_accepted']}.")
     for kind, title in (("accepted", "Aceptadas"), ("proposed", "Pendientes"), ("rejected", "Rechazadas")):
         items = [(req, a) for req, e in sorted(reqs.items()) for a in e[kind]]
         if items:
@@ -821,6 +980,27 @@ def resolving_section() -> list:
     never = [(req, name) for req, e in sorted(reqs.items()) for name in e["never_observed"]]
     if never:
         lines += ["", "Nunca observadas: " + "; ".join(f"{req}: {name}" for req, name in never[:40]) + "."]
+    return lines
+
+
+def specializations_section(rules: dict, st: dict) -> list:
+    """The specializations the rules compile (D-190): their anchor rules, the synonyms merged and what the framework
+    does not admit."""
+    table, rejected = rules.get("specializations") or {}, rules.get("specializations_rejected") or []
+    esp_rules = [r for r in rules.get("rules", []) if r["kind"] == "especialización"]
+    lines = ["", "## Especializaciones", "",
+             f"{len(table)} especializaciones compiladas, {len(esp_rules)} reglas de anclaje · en los modelos de estas "
+             f"ejecuciones, {st.get('esp_uncompiled', 0) if st else 0} especializaciones sin compilar."]
+    if esp_rules:
+        lines += ["", "| Regla | Especialización | Clase | Casos | Tipo |", "|---|---|---|---|---|"]
+        for r in sorted(esp_rules, key=lambda r: (r["specialization"], depth(r["node"]), r["node"])):
+            lines.append(f"| `{r['id']}` | {r['specialization']} | {category_name(r['node'])} ({r['node']}) | {r['cases']} | "
+                         + ("sube desde las hijas" if r.get("climbed") else "clase observada") + " |")
+    merged = {sid: e["aliases"] for sid, e in sorted(table.items()) if e.get("aliases")}
+    if merged:
+        lines += ["", "Sinónimos fusionados: " + "; ".join(f"{', '.join(a)} → {sid}" for sid, a in merged.items()) + "."]
+    if rejected:
+        lines += ["", "Fuera del marco (no se compilan): " + "; ".join(f"{r['id']} ({', '.join(r['problems'])})" for r in rejected) + "."]
     return lines
 
 
@@ -883,7 +1063,7 @@ def cmd_report(args: list) -> None:
         lines += ["", "### Estabilidad entre ejecuciones", "", "| Medida | Resultado |", "|---|---|",
                   f"| Composición (categorías y alias) | {st['composition']}/{st['cases']} |",
                   f"| Clave del modelo | {st['key']}/{st['cases']} |",
-                  f"| Especializaciones | {st['specializations']}/{st['cases']} |",
+                  f"| Especializaciones (por su id, con los sinónimos fusionados) | {st['specializations']}/{st['cases']} |",
                   f"| Aplicación de la oferta | {st['application']}/{st['cases']} |",
                   f"| Importancia en los requisitos de categoría comunes | {st['same_importance']}/{st['common']} |"]
     coh = coherence(blocks, src_traits, models, rules, voted)
@@ -931,11 +1111,13 @@ def cmd_report(args: list) -> None:
     lines += framework_votes(models, effective)
     lines += traits_section(models)
     lines += resolving_section()
+    lines += revisions_section(blocks)
     pending = block_proposals(models, blocks)
     lines += ["", "## Propuestas al bloque", "",
               f"Cuestiones inferidas con fuente que su bloque ni pregunta ni excluye (D-088), pendientes de compilar: {len(pending)}."]
     lines += [f"- {p['block']} ← {', '.join(p['requirement']['sources'])}: {p['requirement']['question']} ({p['case']})"
               for p in pending]
+    lines += specializations_section(rules, st)
     lines += ["", "## Relevancia", ""]
     doubtful = sum(len(m["uncompiled"].get("doubtful_relevance", [])) for cases in models.values() for m in cases.values())
     excluded = sum(len(m.get("excluded", [])) for cases in models.values() for m in cases.values())

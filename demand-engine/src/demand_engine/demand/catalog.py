@@ -23,11 +23,14 @@ from .. import ROOT
 CATALOG = ROOT / "catalog"
 CAT_DIR = CATALOG / "cat"
 RUNTIME_DIR = CATALOG / "runtime"
+ESP_DIR = CATALOG / "esp"  # specialization blocks, induced by the training (D-190)
+ESP_RUNTIME_DIR = RUNTIME_DIR / "esp"
 RULES = CATALOG / "rules" / "importance.json"
 TRAITS = CATALOG / "traits.json"
 RESOLVING = CATALOG / "rules" / "resolving.json"
 EMPTY = CATALOG / "empty.json"
 GEN = CATALOG / "gen.json"
+PAA_QUESTIONS = CATALOG / "paa-questions.json"  # literal text of each PAA question the catalog cites (D-178)
 QUEUE = ROOT / "var" / "queue.jsonl"
 
 LEVELS = ("complementario", "principal", "crítico")
@@ -110,6 +113,31 @@ def blocks_by_node(blocks: dict) -> dict:
     return {b["shopify"]: b for b in blocks.values() if b.get("shopify")}
 
 
+def load_specializations() -> dict:
+    """Specialization blocks of the catalog (compiled) and those registered at runtime, by id (D-190)."""
+    specs = {}
+    for where, folder in (("catálogo", ESP_DIR), ("ejecución", ESP_RUNTIME_DIR)):
+        for path in sorted(folder.glob("*.json")):
+            block = read_json(path)
+            block["_path"], block["_where"] = str(path), where
+            specs.setdefault(block["id"], block)
+    return specs
+
+
+def specialization_aliases(specs: dict) -> dict:
+    """The synonyms the training merged into each compiled specialization: {alias: id}."""
+    return {a: b["id"] for b in specs.values() for a in b.get("aliases", [])}
+
+
+def vertical(node: str) -> str:
+    return chain(node)[0] if node else None
+
+
+def applies_to(spec: dict, classes: list) -> bool:
+    """A specialization applies to a class under one of its anchors (D-190)."""
+    return any(under(c, a) for c in classes for a in spec.get("anchors", []))
+
+
 def load_empty() -> dict:
     """Categories known to have no block of their own: {node: 'catálogo' | 'ejecución'}."""
     if not EMPTY.exists():
@@ -146,6 +174,13 @@ def load_rules() -> dict:
 
 def save_block(block: dict) -> None:
     write_json(Path(block["_path"]), {k: v for k, v in block.items() if not k.startswith("_")})
+
+
+def next_requirement_id(block: dict) -> str:
+    """A new id for a requirement of the block, never one the block has used (excluded ones too)."""
+    used = [int(x["id"].rsplit("/", 1)[1]) for x in block["requirements"] + block.get("excluded", [])
+            if str(x.get("id", "")).startswith(block["id"] + "/")]
+    return f"{block['id']}/{max(used, default=0) + 1:02d}"
 
 
 def requirement_trait(req: dict, source_traits: dict, voted: dict = None) -> tuple:

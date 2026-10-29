@@ -2,17 +2,20 @@
 
 Usage:
   model blocks CATEGORY_ID [...]      catalog blocks of the classes and their ancestors, with their
-                                      requirements (id, trait, question), the general layer and the
-                                      categories that have no block yet
+                                      requirements (id, trait, question), the general layer, the
+                                      specializations of their verticals and the categories that have
+                                      no block yet
   model register BLOCK.json [--replace]
-                                      register a block generated at runtime (status «no compilado»);
-                                      a category that already has a runtime block is refused (another
+                                      register a block generated at runtime (status «no compilado»):
+                                      a category block (cat.…) or a specialization (esp.…, anchored in
+                                      the class of its «shopify»); a category that already has a runtime
+                                      block, or a specialization that already exists, is refused (another
                                       case of the batch generated it), unless --replace
   model register --empty CATEGORY_ID  register a category without requirements of its own
   model check OUTPUT.json             assemble in memory and report what is missing (for the classifier)
   model check --catalog               check every block of the catalog and the general layer: ids, traits,
                                       origins and sources, and the resolving information of each requirement
-  model assemble OUTPUT.json          build the demand model from a classifier output (rulebook v2 or v3):
+  model assemble OUTPUT.json          build the demand model from a classifier output (rulebook v2 to v4):
                                       writes <case>.model.json and <case>.model.md next to it and
                                       appends what was used without compiling to the queue
   model show MODEL.json               print the readable version of an assembled model
@@ -27,7 +30,8 @@ Usage:
                                       default: web, web-schema-org): RI × scope units, NA by the rules of the
                                       sheet and localization; writes <case>.<scope>.json and .md next to it
 
-The classifier decides the composition, specializations, inferred questions, application
+The classifier decides the composition, specializations (from rulebook v4, a block of the catalog by
+its id, or a new one it registers: D-190), inferred questions, application
 and votes (importance and, from rulebook v3, trait), and says which contribution of the
 resolving information each declared fact is; everything else is deterministic: blocks come
 from the catalog, importance from the compiled rules (an exception by requirement and class
@@ -44,10 +48,15 @@ from pathlib import Path
 from references.store import pins
 
 from . import citations, hints, resolving, scopes
-from .catalog import (CAT_DIR, COMPILED, ROOT, DOUBTFUL, ESP_ORDER, EMPTY, LEVELS, NO_RULE, NOT_RELEVANT, QUEUE,
-                      RUNTIME_DIR, UNCOMPILED, VOTES, blocks_by_node, category_name, chain, class_nodes_for, depth,
-                      load_blocks, load_empty, load_gen, load_resolving, load_rules, load_traits, protected, read_json,
-                      relevance, requirement_trait, resolve, trait_index, write_json)
+from references.read import shopify_categories
+
+from .catalog import (CAT_DIR, COMPILED, ROOT, DOUBTFUL, ESP_ORDER, ESP_RUNTIME_DIR, EMPTY, LEVELS, NO_RULE,
+                      NOT_RELEVANT, PAA_QUESTIONS, QUEUE, RUNTIME_DIR, UNCOMPILED, VOTES, applies_to, blocks_by_node, category_name,
+                      chain, class_nodes_for, depth, load_blocks, load_empty, load_gen, load_resolving, load_rules,
+                      load_specializations, load_traits, protected, read_json, relevance, requirement_trait, resolve,
+                      specialization_aliases, trait_index, vertical, write_json)
+
+LEGACY_RULEBOOKS = ("v0", "v1", "v2", "v3")  # their specializations were drafted inline, in each run
 
 EXCLUDED_ROLES = ("estético", "promocional", "beneficio reclamado")  # declared facts that need no question (D-045)
 
@@ -60,6 +69,8 @@ def cmd_blocks(ids: list) -> None:
     traits = load_traits()
     print("RASGOS: " + ", ".join(traits["vocabulary"]) + (f" · propuestos: {', '.join(traits.get('proposed', {}))}"
                                                            if traits.get("proposed") else ""))
+    for name, t in {**traits["vocabulary"], **traits.get("proposed", {})}.items():
+        print(f"  {name}: {t.get('definition')}")
     print("\nCAPA GENERAL (fija; no se vota)")
     for b in gen["blocks"]:
         trigger = f" · si {b['trigger']}" if b.get("trigger") else ""
@@ -75,7 +86,7 @@ def cmd_blocks(ids: list) -> None:
             state = {"catálogo": "sin requisitos propios", "ejecución": "sin requisitos propios (ejecución)"}.get(empty.get(node))
             if state is None:
                 missing.append(node)
-                state = "FALTA EL BLOQUE: genéralo (paso 4 del reglamento)"
+                state = "FALTA EL BLOQUE: genéralo (paso 3 del reglamento)"
             print(f"\n{node} {category_name(node)} ({role}) — {state}")
             continue
         print(f"\n{node} {category_name(node)} ({role}) — {b['id']}@{b.get('version')} · {b.get('status')} · {b['_where']}")
@@ -84,8 +95,34 @@ def cmd_blocks(ids: list) -> None:
             excluded, _ = relevance(r["id"], class_nodes_for(node, ids), rules)
             print(f"  {r['id']} [{trait or '?'}] {r['question']}" + ("  [excluido en esta clase: vótalo igualmente]" if excluded else ""))
             print_resolving(r, compiled, "    ")
+    print_specializations(ids, src_traits, voted, rules, compiled)
     if missing:
         print(f"\nCategorías sin bloque: {' '.join(missing)}")
+
+
+def print_specializations(ids: list, src_traits: dict, voted: dict, rules: dict, compiled: dict) -> None:
+    """The specializations of the verticals of the classes, those that apply to them first (D-190); a set of pieces
+    (order «juego») crosses the categories, so it is always shown (D-086)."""
+    verticals = {vertical(c) for c in ids}
+    shown = [s for s in load_specializations().values()
+             if s.get("order") == "juego" or any(vertical(a) in verticals for a in s.get("anchors", []))]
+    print("\nESPECIALIZACIONES (paso 4: si lo declarado dispara una, úsala por su id; si ninguna encaja, registra una nueva)")
+    if not shown:
+        print("  ninguna en esta vertical")
+    for s in sorted(shown, key=lambda s: (not applies_to(s, ids), s["id"])):
+        where = "de esta clase" if applies_to(s, ids) else "de otra rama: úsala si sus cuestiones valen aquí"
+        print(f"\n  {s['id']}@{s.get('version')} {s.get('name')} ({s.get('order')}) — {s.get('status')} · {s['_where']} · "
+              f"ancla {', '.join(s.get('anchors', []))} · {where}")
+        print(f"    disparador: {s.get('trigger')}")
+        if s.get("aliases"):
+            print(f"    sinónimos fusionados: {', '.join(s['aliases'])}")
+        for r in s["requirements"]:
+            trait, _ = requirement_trait(r, src_traits, voted)
+            excluded, _ = relevance(r["id"], ids, rules)
+            cond = r.get("applicability") or "universal"
+            print(f"    {r['id']} [{trait or '?'}] {r['question']}" + ("" if cond == "universal" else f" · {cond}")
+                  + ("  [excluido en esta clase: vótalo igualmente]" if excluded else ""))
+            print_resolving(r, compiled, "      ")
 
 
 def print_resolving(r: dict, compiled: dict, indent: str) -> None:
@@ -133,6 +170,9 @@ def register(args: list, replace: bool) -> None:
             errors.append(f"rasgo propuesto «{name}» sin nombre o sin definición")
     vocabulary = set(traits["vocabulary"]) | set(traits.get("proposed", {})) | set(proposed)
     bid = block.get("id", "")
+    if bid.startswith("esp."):
+        register_specialization(block, replace, errors, vocabulary, src_traits)
+        return
     if not bid.startswith("cat.") or not block.get("shopify"):
         errors.append("el bloque necesita id «cat.<nombre>» y «shopify»")
     if bid in blocks and blocks[bid]["_where"] == "catálogo":
@@ -146,7 +186,22 @@ def register(args: list, replace: bool) -> None:
                       "--replace solo para corregir un bloque que registraste tú")
     if block.get("shopify") in load_empty():
         errors.append(f"la categoría {block.get('shopify')} está registrada sin requisitos propios")
-    overridden = []
+    overridden = draft_requirement_errors(block, errors, vocabulary, src_traits)
+    if errors:
+        sys.exit("model: bloque no registrado:\n  " + "\n  ".join(errors))
+    block.update({"type": "categoría", "status": UNCOMPILED, "version": "0",
+                  "generated": datetime.date.today().isoformat()})
+    path = RUNTIME_DIR / f"{bid.removeprefix('cat.')}.json"
+    write_json(path, block)
+    print(f"{bid}: registrado en {path.relative_to(CAT_DIR.parent.parent)} ({len(block['requirements'])} requisitos, no compilado)")
+    for line in overridden:
+        print(f"  {line}")
+
+
+def draft_requirement_errors(block: dict, errors: list, vocabulary: set, src_traits: dict) -> list:
+    """Check the requirements of a drafted block (category or specialization) and append to `errors`; the trait of
+    their sources prevails over the drafted one. Returns the traits overridden."""
+    bid, overridden = block.get("id", ""), []
     for i, r in enumerate(block.get("requirements", []), 1):
         r.setdefault("id", f"{bid}/{i:02d}")
         if not r["id"].startswith(bid + "/"):
@@ -157,19 +212,52 @@ def register(args: list, replace: bool) -> None:
             errors.append(f"{r['id']}: rasgo «{r.get('trait')}» fuera del vocabulario (propón uno nuevo en «proposed_traits», "
                           "con su definición)")
         errors += [f"{r['id']}: {e}" for e in resolving_errors(r.get("resolving_info", []), ("referencias", "inferida"))]
+        errors += [f"{r['id']}: {e}" for e in hints.draft_errors(r)]
         if r.get("vote") not in VOTES:
             errors.append(f"{r['id']}: voto «{r.get('vote')}» no válido")
         trait, origin = requirement_trait(r, src_traits)
         if origin == "fuente" and trait != r.get("trait"):
             overridden.append(f"{r['id']}: {r.get('trait')} → {trait} (rasgo de sus fuentes)")
             r["trait"] = trait
+    return overridden
+
+
+def register_specialization(block: dict, replace: bool, errors: list, vocabulary: set, src_traits: dict) -> None:
+    """Register a specialization drafted at runtime (D-190): «no compilado», anchored in the class where it is
+    observed (`shopify`); the training merges its synonyms, moves its anchor along the tree and compiles it."""
+    sid = block["id"]
+    specs = load_specializations()
+    alias = specialization_aliases(specs).get(sid)
+    if not sid.removeprefix("esp.") or sid != sid.lower() or " " in sid:
+        errors.append("el id es «esp.<nombre>», en español, con minúsculas y guiones")
+    if alias:
+        errors.append(f"{sid} es un sinónimo de {alias}: úsala por su id (bin/model blocks)")
+    current = specs.get(sid)
+    if current and (current["_where"] == "catálogo" or not replace):
+        errors.append(f"{sid} ya existe ({current['_where']}; quizá la registró otro caso del lote): no la redactes de "
+                      "nuevo; úsala por su id y vota sus requisitos. --replace solo para corregir una que registraste tú")
+    if not block.get("name") or not block.get("trigger"):
+        errors.append("faltan «name» o «trigger»")
+    if block.get("order") not in ESP_ORDER:
+        errors.append(f"orden «{block.get('order')}» no válido ({', '.join(ESP_ORDER)})")
+    if not block.get("support"):
+        errors.append("sin apoyo en las referencias («support», D-024)")
+    if block.get("shopify") not in shopify_categories():
+        errors.append("«shopify»: la categoría de la composición en la que se observa")
+    if not block.get("requirements"):
+        errors.append("sin requisitos")
+    for r in block.get("requirements", []):
+        r.setdefault("origin", "referencias" if r.get("sources") else "inferida")
+    overridden = draft_requirement_errors(block, errors, vocabulary, src_traits)
     if errors:
-        sys.exit("model: bloque no registrado:\n  " + "\n  ".join(errors))
-    block.update({"type": "categoría", "status": UNCOMPILED, "version": "0",
+        sys.exit("model: especialización no registrada:\n  " + "\n  ".join(errors))
+    anchor = block.pop("shopify")
+    block.update({"type": "especialización", "anchors": [anchor], "status": UNCOMPILED, "version": "0",
                   "generated": datetime.date.today().isoformat()})
-    path = RUNTIME_DIR / f"{bid.removeprefix('cat.')}.json"
+    path = ESP_RUNTIME_DIR / f"{sid.removeprefix('esp.')}.json"
     write_json(path, block)
-    print(f"{bid}: registrado en {path.relative_to(CAT_DIR.parent.parent)} ({len(block['requirements'])} requisitos, no compilado)")
+    print(f"{sid}: registrada en {path.relative_to(CAT_DIR.parent.parent)} ({len(block['requirements'])} requisitos, "
+          f"no compilada)")
     for line in overridden:
         print(f"  {line}")
 
@@ -194,6 +282,11 @@ def supported(items: list, sources: list) -> list:
                 errors.append(f"aportación «{c.get('contribution')}»: una inferida no lleva respaldo")
         elif not c.get("support"):
             errors.append(f"aportación «{c.get('contribution')}»: sin respaldo")
+        elif c.get("origin") == "paa":
+            # D-178: a contribution of PAA, to a requirement of any origin, is supported by its questions
+            if not all(s.startswith("paa-q:") for s in c["support"]):
+                errors.append(f"aportación «{c.get('contribution')}»: origen «paa» con respaldo que no son preguntas PAA")
+            continue
         elif set(c["support"]) - set(sources):
             errors.append(f"aportación «{c.get('contribution')}»: respaldo fuera de las fuentes del requisito")
     return errors
@@ -226,8 +319,19 @@ def block_problems(block: dict, vocabulary: set) -> list:
         items = r.get("resolving_info") or []
         if not items:
             errors.append("sin información resolutiva")
-        errors += resolving_errors(items, ("referencias", "inferida")) + supported(items, r.get("sources", []))
+        errors += resolving_errors(items, ("referencias", "inferida", "paa")) + supported(items, r.get("sources", []))
         problems += [f"{rid}: {e}" for e in errors]
+    return problems
+
+
+def paa_question_problems(blocks: list, texts: dict) -> list:
+    """D-178: every PAA question that the catalog cites has its literal text in catalog/paa-questions.json."""
+    problems = []
+    for b in blocks:
+        for r in b["requirements"]:
+            tags = set(r.get("sources", [])) | {s for c in r.get("resolving_info") or [] for s in c.get("support") or []}
+            problems += [f"{r['id']}: la pregunta «{t}» no tiene su texto en paa-questions.json"
+                         for t in sorted(tags) if t.startswith("paa-q:") and not (texts.get(t) or {}).get("q")]
     return problems
 
 
@@ -248,16 +352,20 @@ def cmd_check_catalog() -> None:
     blocks, traits = load_blocks(), load_traits()
     vocabulary = set(traits["vocabulary"]) | set(traits.get("proposed", {}))
     problems, seen = [], {}
-    for b in blocks.values():
+    specs = load_specializations()
+    for b in list(blocks.values()) + list(specs.values()):
         problems += block_problems(b, vocabulary | {p.get("name") for p in b.get("proposed_traits", [])})
         for r in b["requirements"]:
             if r.get("id") in seen:
                 problems.append(f"{r['id']}: repetido en {seen[r['id']]} y {b['id']}")
             seen[r.get("id")] = b["id"]
+    paa_texts = PAA_QUESTIONS.exists() and read_json(PAA_QUESTIONS) or {}
+    problems += paa_question_problems(list(blocks.values()) + list(specs.values()), paa_texts)
     gen = load_gen()
     problems += gen_problems(gen) + scopes.catalog_problems(gen)
-    contributions = sum(len(r.get("resolving_info", [])) for b in blocks.values() for r in b["requirements"])
-    print(f"catálogo: {len(blocks)} bloques, {len(seen)} requisitos, {contributions} aportaciones; capa general, "
+    contributions = sum(len(r.get("resolving_info", [])) for b in list(blocks.values()) + list(specs.values())
+                        for r in b["requirements"])
+    print(f"catálogo: {len(blocks)} bloques y {len(specs)} especializaciones, {len(seen)} requisitos, {contributions} aportaciones; capa general, "
           f"propiedades de Google Search y fichas de ámbito ({', '.join(scopes.scope_names())}) incluidas")
     print("  correcto" if not problems else "  problemas:\n    " + "\n    ".join(problems))
     if problems:
@@ -316,14 +424,33 @@ def assemble(out_path: Path) -> dict:
         model_blocks.append({"id": b["id"], "type": "categoría", "position": "categoría" if node in classes else "sector",
                              "name": b.get("name"), "shopify": node, "version": b.get("version"), "status": b.get("status"),
                              "where": b["_where"], "requirements": kept, "excluded": excluded})
+    # D-190: a specialization is a block of the catalog, used by its id (a merged synonym leads to its block);
+    # up to rulebook v3, the classifier drafted it inline in each run.
+    specs = load_specializations()
+    synonyms, missing_specs = specialization_aliases(specs), []
     for e in out.get("specializations", []):
+        if out.get("rulebook") in LEGACY_RULEBOOKS:
+            reqs = []
+            for i, r in enumerate(e.get("requirements", []), 1):
+                r.setdefault("id", f"{e['id']}/{i:02d}")
+                reqs.append(requirement_entry(r, r.get("trait"), classes, rules, r.get("vote"), r.get("trait"), compiled))
+            model_blocks.append({"id": e["id"], "type": "especialización", "name": e.get("name"), "order": e.get("order"),
+                                 "trigger": e.get("trigger"), "support": e.get("support", []), "version": "0",
+                                 "status": UNCOMPILED, "where": "ejecución", "inline": True, "requirements": reqs})
+            continue
+        spec = specs.get(synonyms.get(e.get("id"), e.get("id")))
+        if spec is None:
+            missing_specs.append(e.get("id"))
+            continue
         reqs = []
-        for i, r in enumerate(e.get("requirements", []), 1):
-            r.setdefault("id", f"{e['id']}/{i:02d}")
-            reqs.append(requirement_entry(r, r.get("trait"), classes, rules, r.get("vote"), r.get("trait"), compiled))
-        model_blocks.append({"id": e["id"], "type": "especialización", "name": e.get("name"), "order": e.get("order"),
-                             "trigger": e.get("trigger"), "support": e.get("support", []), "version": "0",
-                             "status": UNCOMPILED, "where": "ejecución", "requirements": reqs})
+        for r in spec["requirements"]:
+            trait, _ = requirement_trait(r, src_traits, voted)
+            reqs.append(requirement_entry(r, trait, classes, rules, votes.get(r["id"]), trait_votes.get(r["id"]), compiled))
+        kept, excluded = split(reqs)
+        model_blocks.append({"id": spec["id"], "type": "especialización", "name": spec.get("name"), "order": spec.get("order"),
+                             "trigger": e.get("trigger") or spec.get("trigger"), "support": spec.get("support", []),
+                             "anchors": spec.get("anchors", []), "version": spec.get("version"), "status": spec.get("status"),
+                             "where": spec["_where"], "requirements": kept, "excluded": excluded})
     inferred = []
     for i, r in enumerate(out.get("inferred", []), 1):
         r.setdefault("id", f"inf/{i:02d}")
@@ -386,6 +513,10 @@ def assemble(out_path: Path) -> dict:
         + [r["id"] for r in inferred if r["provisional"] and r["rule"] == NO_RULE]
     doubtful = [r["id"] for b in model_blocks for r in b["requirements"] if r["doubtful"]] \
         + [r["id"] for r in inferred if r["doubtful"]]
+    # D-192: a trait proposed by whoever drafts a block is used before it wins a vote: provisional and queued
+    vocabulary = set(load_traits()["vocabulary"])
+    provisional_traits = [r["id"] for b in model_blocks for r in b["requirements"] if r.get("trait") and r["trait"] not in vocabulary] \
+        + [r["id"] for r in inferred if r.get("trait") and r["trait"] not in vocabulary]
     # D-155: the recommended properties of Google Search support category requirements through the Shopify
     # attributes they cite (catalog/google-search.json); those of the general layer are in its sources.
     google = scopes.load_google()
@@ -400,7 +531,8 @@ def assemble(out_path: Path) -> dict:
         "general": general, "blocks": model_blocks, "inferred": inferred,
         "uncompiled": {"blocks": [b["id"] for b in model_blocks if b["status"] != COMPILED],
                        "inferred": [r["id"] for r in inferred], "without_rule": provisional, "doubtful_relevance": doubtful,
-                       "missing_blocks": missing},
+                       "missing_blocks": missing, "missing_specializations": missing_specs,
+                       "provisional_traits": provisional_traits},
         "excluded": [{"id": r["id"], "block": b["id"], "question": r["question"], "rule": r["relevance_rule"]}
                      for b in model_blocks for r in b.get("excluded", [])],
         "coverage": {"declared_counted": len(counted), "answers": [d.get("answers") for d in counted],
@@ -456,6 +588,7 @@ def render(model: dict) -> str:
               f"- Requisitos sin regla (importancia del voto): {', '.join(u['without_rule']) or '—'}",
               f"- Relevancia dudosa (votados «no relevante», sin regla que los excluya): {', '.join(u.get('doubtful_relevance', [])) or '—'}",
               f"- Cuestiones inferidas: {len(u['inferred'])}",
+              f"- Rasgos propuestos aún sin votos (provisionales, D-192): {', '.join(u.get('provisional_traits', [])) or '—'}",
               f"- Categorías sin bloque: {', '.join(u['missing_blocks']) or '—'}"]
     c = model["coverage"]
     lines += ["", "## Cobertura", "", f"Hechos declarados que cuentan: {c['declared_counted']} · sin pregunta en el modelo: {len(c['gaps'])}"]
@@ -496,7 +629,7 @@ def check(path: Path) -> tuple:
         problems += v3_problems(out, model, vocabulary, proposed)
     for b in model["blocks"]:
         for r in b["requirements"]:
-            if b["type"] == "categoría" and r["vote"] is None:
+            if not b.get("inline") and r["vote"] is None:
                 problems.append(f"{r['id']}: sin voto")
             if r["vote"] is not None and r["vote"] not in VOTES:
                 problems.append(f"{r['id']}: voto «{r['vote']}» no válido")
@@ -515,6 +648,9 @@ def check(path: Path) -> tuple:
     if model["uncompiled"]["missing_blocks"]:
         problems.append("categorías sin bloque: " + ", ".join(model["uncompiled"]["missing_blocks"])
                         + " (genera y registra el bloque, o regístrala con --empty)")
+    if model["uncompiled"]["missing_specializations"]:
+        problems.append("especializaciones sin bloque: " + ", ".join(model["uncompiled"]["missing_specializations"])
+                        + " (usa una de «bin/model blocks» por su id, o redacta y registra la nueva)")
     return model, problems
 
 
@@ -548,7 +684,7 @@ def v3_problems(out: dict, model: dict, vocabulary: set, proposed: dict) -> list
     trait_votes = out.get("trait_votes", {})
     for b in model["blocks"]:
         for r in b["requirements"] + b.get("excluded", []):
-            if b["type"] == "categoría" and r["vote"] is not None and r["id"] not in trait_votes:
+            if not b.get("inline") and r["vote"] is not None and r["id"] not in trait_votes:
                 problems.append(f"{r['id']}: sin voto de rasgo")
             if r.get("trait_vote") and r["trait_vote"] not in vocabulary:
                 problems.append(f"{r['id']}: rasgo «{r['trait_vote']}» fuera del vocabulario (propónlo en «proposed_traits», "

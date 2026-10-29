@@ -66,3 +66,11 @@ def test_model_takes_highest_level_across_pieces():
 def test_runs_pair_in_order_given():
     models = {"t-a": {"x": 1, "y": 2}, "t-b": {"x": 3}, "c-a": {"z": 4}, "c-b": {"z": 5}, "odd": {"x": 6}}
     assert pairs(models) == [("x", 1, 3), ("z", 4, 5)]
+
+
+def test_an_audit_run_counts_only_with_the_versions_in_force():
+    def audit(rulebook, rules):
+        return {"audit": "tienda", "engine": {"rulebook": rulebook, "rules": rules}}
+    current, old = audit("v4", "8"), audit("v3", "8")
+    models = {"audit": {"a": current, "b": old}, "new": {"a": 1, "b": 2}}
+    assert pairs(models, ("v4", "8")) == [("a", current, 1)]   # «b» needs two new runs (D-194)

@@ -1,4 +1,4 @@
-# Reglamento operativo del modelo de demanda · v3
+# Reglamento operativo del modelo de demanda · v4
 
 Procedimiento del **clasificador** en la ejecución: a partir de la ficha de un producto, decide lo que el motor no puede decidir solo (composición, especializaciones, cuestiones inferidas, aplicación), vota la importancia y el rasgo, y dice qué aportación de la información resolutiva es cada hecho declarado; los bloques, la importancia compilada, la clave y el nombre los pone el código (`bin/model`). Condensa el canon (`docs/10-model/demand-model.md`, `study-class.md`, `model-training.md`, `resolving-information.md`); cada regla cita la decisión de la que sale. Si el reglamento y el canon discrepan, prevalece el canon y la discrepancia se anota en `doubts`.
 
@@ -9,7 +9,7 @@ El modelo establece **requisitos informativos**: las cuestiones que la informaci
 - **Modelo de demanda (del producto):** bloques de categoría (sector y clase) y de especialización, más los condicionados de la capa general que son del producto (elementos digitales). Su clave y su nombre no dependen de la oferta.
 - **Aplicación (de la oferta):** condiciones de la capa general activas en esta oferta (variantes, unidad no nueva, descuento, cantidad limitada, garantía comercial, asistencia posventa, opiniones publicadas, precio personalizado, suscripción, envío a Canarias, Ceuta o Melilla). Si no hay ninguna, la oferta es **estándar**. Lo que no se da en la oferta queda en gris (NA).
 - **La oferta no aporta requisitos:** solo activa requisitos condicionados. Una cuestión que solo procede con una condición de la oferta (p. ej., la salud de la batería de un smartphone reacondicionado) es una cuestión de la clase condicionada a esa condición (paso 5).
-- **Tú no redactas bloques del catálogo ni decides importancias.** Los bloques de categoría vienen del catálogo compilado; la importancia, de las reglas. Tú das tu **voto** (la importancia que darías con las pruebas del paso 7, y el rasgo); el voto solo cuenta si no hay regla, y alimenta el entrenamiento: si los votos de un requisito en una clase contradicen la regla de su rasgo, el entrenamiento le da su propia regla, que puede ser crítica (D-055, D-058).
+- **Tú no redactas bloques del catálogo ni decides importancias.** Los bloques de categoría y de especialización vienen del catálogo compilado; la importancia, de las reglas. Tú das tu **voto** (la importancia que darías con las pruebas del paso 7, y el rasgo); el voto solo cuenta si no hay regla, y alimenta el entrenamiento: si los votos de un requisito en una clase contradicen la regla de su rasgo, el entrenamiento le da su propia regla, que puede ser crítica (D-055, D-058).
 
 ## 1. Parámetros
 
@@ -18,14 +18,15 @@ El modelo establece **requisitos informativos**: las cuestiones que la informaci
 | P1 | Versiones de las referencias | Las fijadas en `references/var/pins.json` | refs |
 | P2 | Eje de la clase | Shopify Standard Product Taxonomy | D-021 |
 | P3 | Base de una categoría (para decidir especializaciones) | Requisitos de sus bloques y de los de sus madres (`bin/model blocks`) + propiedades y `special_feature` del PTD de Amazon | D-029, D-030, D-039 |
-| P4 | Apoyo de una especialización | Estricto: la dimensión existe en algún componente | D-024 |
+| P4 | Apoyo de una especialización | Estricto: la dimensión existe en algún componente, también como valor de uno de sus atributos (en Botas, `boot-style` = Equitación). El apoyo en una categoría afín es evidencia complementaria y no basta solo | D-024 |
+| P4b | Especializaciones | Del catálogo, por su id (`bin/model blocks`); si ninguna encaja, se redacta y se registra (paso 4) y queda «no compilada». El entrenamiento fusiona los sinónimos y fija su nivel | D-044, D-190 |
 | P5 | Entrada de una categoría | Aporta requisitos al producto o a una pieza, o clasificación objetiva cuando tiene sentido (alias si no aporta) | D-023, D-028, D-033 |
 | P6 | Capa general | Fija (parte del marco); no se vota ni se revisa. Incluye la pregunta universal de promociones (un «no» fundamentado la resuelve) | D-034, D-045, D-049 |
 | P7 | Bloques de categoría | Del catálogo; si falta uno, se genera (paso 3) y queda «no compilado» | D-040, D-044, D-045 |
 | P8 | Cuestiones inferidas | Permitidas, provisionales, fuera de la clave | D-036, D-041 |
 | P9 | Relevancia e importancia | Reglas compiladas (por rasgo y excepciones por requisito y clase); tu voto con la prueba de relevancia y las de D-035 | D-035, D-045, D-050, D-055, D-058 |
 | P10 | Rasgos | Vocabulario abierto: los de `bin/model blocks` (línea RASGOS); si ninguno encaja, propón uno con nombre y definición | D-045, D-056 |
-| P11 | Formulación de las cuestiones que redactas | Las cuatro reglas de D-060 (paso 4, paso 5 y `catalog/DRAFTING.md`) | D-060 |
+| P11 | Formulación de las cuestiones que redactas | Las cuatro reglas de D-060, con la regla 3 de D-196 (paso 4, paso 5 y `catalog/DRAFTING.md`) | D-060, D-196 |
 | P12 | Información resolutiva | Aportaciones de cada requisito (`bin/model blocks`); para cada hecho declarado, la que es o una nueva con su componente | D-062, D-063, D-064 |
 
 ## 2. Herramientas
@@ -34,7 +35,7 @@ Desde `demand-engine/`:
 
 - Ficha congelada: `bin/taxo page facts ID [palabras…]`, `bin/taxo page section ID ENCABEZADO`, `bin/taxo page grep ID REGEX`.
 - Shopify: `bin/taxo shopify REGEX`; `bin/taxo category ID` (madres, hijas, mapeo a Google y atributos); `bin/taxo values REGEX`. Google: `bin/taxo google REGEX`. Amazon: `bin/taxo amazon REGEX`, `bin/taxo ptd TIPO [REGEX]`, `bin/taxo ptd TIPO --enum PROP`.
-- Motor: `bin/model blocks CAT_ID…` (vocabulario de rasgos, capa general y bloques de la clase con sus requisitos, rasgos y aportaciones de su información resolutiva); `bin/blocks plan CAT_ID [--ptd CAT_ID=PTD[:NODO]]`; `bin/train resolving refs FUENTE…` (título, descripción, partes y valores de cada fuente, para redactar las aportaciones de los requisitos que generes); `bin/model register FICHERO` o `bin/model register --empty CAT_ID`; `bin/model check SALIDA.json`.
+- Motor: `bin/model blocks CAT_ID…` (vocabulario de rasgos, capa general y bloques de la clase con sus requisitos, rasgos y aportaciones de su información resolutiva); `bin/blocks plan CAT_ID [--ptd CAT_ID=PTD[:NODO]]`; `bin/train resolving refs FUENTE…` (título, descripción, partes y valores de cada fuente, para redactar las aportaciones de los requisitos que generes); `bin/model register FICHERO` (bloque de categoría o especialización) o `bin/model register --empty CAT_ID`; `bin/model check SALIDA.json`.
 
 En Shopify en español hay nombres repetidos y traducciones engañosas: decide siempre por identificador, nombre inglés y atributos.
 
@@ -48,7 +49,7 @@ Extrae lo **declarado** en el texto y en los datos estructurados: tipo de produc
 
 1. Busca la categoría de Shopify del producto. Si es un **juego** con piezas de categorías distintas, la de **cada pieza**: la clase es la composición de esas categorías, no su ancestro común.
 2. Una categoría **entra** si aporta requisitos al producto o a una pieza, o si el producto entra en ella por **clasificación objetiva** cuando tiene sentido para nombrar lo que es; si entra sin aportar requisitos, es **alias** (nombre, no modelo).
-3. **No entra** si traería requisitos que no aplican, si es una entrada duplicada de otra para el mismo tipo de producto, si el uso que la define depende solo de una variante o si solo hay proximidad temática.
+3. **No entra** si traería requisitos que no aplican, si es una entrada duplicada de otra para el mismo tipo de producto, si el uso que la define depende solo de una variante o si solo hay proximidad temática. Ejemplo de variante: una manta que se vende en medidas de cama y en una de sofá es Mantas, no Mantas decorativas. El nombre que la tienda da al producto («plaid») no cambia la regla (D-028). La prueba de los requisitos que no aplican vale también para un alias: si los atributos propios de la categoría no aplican al producto, no entra, tampoco como alias. Míralos con `bin/taxo category`, aunque la categoría no tenga bloque. Ejemplo: Juegos de cama en un juego de fundas sin relleno, por el nivel de calidez del edredón o la colcha (D-032).
 4. Prefiere la categoría más específica cuya definición cumple el producto. **La hoja más específica entra como categoría aunque herede todos sus requisitos** (aunque esté registrada sin requisitos propios): es la que aporta al producto los de sus madres. **Una hermana que nombra otra característica del producto** (por ejemplo, «de dos plazas» en un sofá cama) **entra como alias**: trae por herencia los mismos requisitos y no añade ninguno. No es una entrada duplicada: duplicada es otra entrada para el mismo tipo de producto (D-057).
 
 ### Paso 3 · Bloques
@@ -75,13 +76,19 @@ Cada característica declarada que la clase no recoge como categoría:
 
 Una candidata es especialización si cumple las cinco condiciones: (1) del producto (no de la oferta), declarada y estable; (2) trae cuestiones propias, concretas y neutrales, que no salen de la base (P3) ni de la capa general (si solo cambia valores esperados o activa cuestiones ya previstas, es valor que condiciona); (3) relevantes para evaluar la clase; (4) con apoyo (P4); (5) fijada en el nivel más general cuyos miembros comparten sus cuestiones. Un conjunto de piezas de categorías distintas es `esp.juego`: qué piezas incluye y cuántas de cada una (si cambian con la medida elegida, va en `applicability`, por variante). Las medidas de cada pieza las preguntan los bloques de su categoría; solo son requisito del juego si ningún bloque de las piezas las pregunta (D-086).
 
-Cada especialización: `id` (`esp.<nombre>`, español, minúsculas y guiones), `name` breve para el nombre del modelo, `order` (juego, uso, material o función), `trigger`, `support` (fuentes) y sus requisitos (pregunta, dimensión, entidad, `trait`, `vote`, fuentes, aplicabilidad, fundamento).
+**Catálogo de especializaciones (D-190).** `bin/model blocks` lista, bajo ESPECIALIZACIONES, las de las verticales de tu clase: las de esta clase primero y después las de otra rama, cada una con su disparador y sus requisitos.
+
+1. Si lo declarado dispara una especialización de la lista, úsala por su `id`. No la redactes de nuevo. Úsala también si es de otra rama y sus cuestiones valen aquí: así el entrenamiento la sube en el árbol.
+2. Si ninguna encaja y la candidata cumple las cinco condiciones, redáctala en un fichero aparte y regístrala con `bin/model register FICHERO`. Antes, comprueba que no es un sinónimo de una de la lista con otro nombre.
+3. Si `register` responde que la especialización ya existe (otro caso del lote la registró), vuelve a `bin/model blocks` y úsala por su `id`.
+
+Una especialización que redactas lleva: `id` (`esp.<nombre>`, español, minúsculas y guiones, sin tildes), `name` breve para el nombre del modelo, `order` (juego, uso, material o función), `trigger` (la característica que la dispara, sin datos de esta ficha), `support` (fuentes), `shopify` (la categoría de la composición donde la observas) y sus requisitos (pregunta, dimensión, entidad, `trait`, `vote`, fuentes, aplicabilidad, fundamento e información resolutiva). Redacta sus preguntas para cualquier producto de la clase con esa característica, no para esta ficha. En la salida, la especialización va solo con su `id` y la evidencia del disparador; sus votos, en `votes` y `trait_votes`, como los de los bloques de categoría.
 
 **Formulación** de las cuestiones que redactas, aquí y en el paso 5 (D-060, reglas 1 a 3):
 
 1. Ninguna condición sobre la existencia de la información («si se indica», «si procede»): un componente forma parte de la necesidad o no. Si la condición corresponde a un hecho del producto o de la oferta, nombra ese hecho y aplica la regla 2.
 2. Una condición sobre un hecho que afecta solo a una parte de la cuestión se convierte en un requisito condicionado propio, con la condición en `applicability`. La pregunta de sí o no seguida del detalle del mismo hecho se mantiene («¿Tiene ruedas? Si las tiene, ¿cuántas y de qué tipo?»): un «no» fundamentado lo resuelve todo. Solo si el detalle toma el mismo rasgo y la misma importancia que la pregunta; si no, la regla 3 prevalece y el detalle pasa a requisitos condicionados al hecho («¿Incluye colchón?» y, si lo incluye, «¿De qué medida es?» y «¿Se puede retirar?»; D-087).
-3. Una necesidad por requisito: divide la cuestión cuando sus partes se responden por separado, cada una sirve por sí sola para comparar y tomarían otro rasgo u otra importancia. Mantén junto lo que solo tiene sentido unido (plazo y condiciones; nombre y dirección).
+3. Una necesidad por requisito: si una cuestión junta necesidades distintas, divídela, aunque las partes compartan rasgo e importancia (D-196). Mantén juntos los componentes de una misma necesidad (plazo y condiciones; nombre y dirección).
 
 Cada requisito que redactes lleva su **información resolutiva** (`resolving_info`): las aportaciones que pueden resolverlo, cada una con su componente, su origen («referencias» si sale de una fuente, «inferida» si no) y su respaldo, como en `catalog/DRAFTING.md`.
 
@@ -95,7 +102,7 @@ Bloques condicionados de la capa general que se activan, con la evidencia declar
 
 ### Paso 7 · Votos
 
-Para **cada requisito de los bloques de categoría** del paso 3 (también los marcados «excluido en esta clase»), y para los de tus especializaciones e inferidas, da tu voto **en esta clase**. Primero la relevancia; después, si es relevante, la importancia:
+Para **cada requisito de los bloques de categoría** del paso 3 y **de las especializaciones** del paso 4 (también los marcados «excluido en esta clase»), y para los de tus inferidas, da tu voto **en esta clase**. Primero la relevancia; después, si es relevante, la importancia:
 
 - **no relevante** si no informa sobre nada que importe para evaluar o comparar ofertas de esta clase (p. ej., el color de un pienso, heredado del sector). No es lo mismo que «no aplica a este producto» (el número de hilos en un tejido que no es de calada): eso es relevante en la clase y la auditoría lo pone en gris. La duda no excluye: si dudas, es relevante. Nunca votes «no relevante» la medida que fija lo vendido ni un requisito de origen normativo;
 
@@ -103,9 +110,9 @@ Para **cada requisito de los bloques de categoría** del paso 3 (también los ma
 - **principal** si es uno de los criterios con los que se comparan y eligen ofertas de la clase;
 - **complementario** si es relevante sin ser indispensable ni central.
 
-La duda no baja la importancia. No votes la capa general. El marco no baja: la medida que fija lo vendido es siempre crítica, y la medida descriptiva y la composición textil no bajan de principal (tus votos pueden hacerlas críticas).
+La duda no baja la importancia. No votes la capa general. El marco no baja: la medida que fija lo vendido es siempre crítica, y la medida descriptiva y la composición textil no bajan de principal (tus votos pueden hacerlas críticas). La medida de detalle (rasgo `medida-detalle`: altura del tacón, largo reclinado) no tiene suelo: vótala como las demás (D-191).
 
-**Rasgo.** Para cada requisito que votas, vota también su **rasgo** (qué resuelve la cuestión) en `trait_votes`: el que muestra `bin/model blocks` si encaja, otro del vocabulario o uno nuevo. Si propones uno nuevo, añádelo a `proposed_traits` con nombre y una frase de definición. En tus especializaciones e inferidas, el rasgo es su `trait` (D-056).
+**Rasgo.** Para cada requisito que votas, vota también su **rasgo** (qué resuelve la cuestión) en `trait_votes`: el que muestra `bin/model blocks` si encaja, otro del vocabulario o uno nuevo. Si propones uno nuevo, añádelo a `proposed_traits` con nombre y una frase de definición. En tus inferidas, el rasgo es su `trait` (D-056).
 
 ### Paso 8 · Cobertura
 
@@ -125,7 +132,7 @@ Un fichero JSON (claves en inglés; valores en español):
 
 ```json
 {
-  "case": "id-del-caso", "rulebook": "v3", "product": "nombre", "url": "…",
+  "case": "id-del-caso", "rulebook": "v4", "product": "nombre", "url": "…",
   "declared": [{"feature": "…", "scope": "producto|oferta|variante", "role": "valor|valor que condiciona|variante|condición de oferta|estético|promocional|beneficio reclamado",
                 "evidence": "cita breve", "answers": "cat.…/NN | gen/NN | esp.…/NN | inf/NN | null",
                 "contribution": "nombre de una aportación del requisito | {\"new\": \"…\", \"component\": \"…\"}"}],
@@ -134,16 +141,12 @@ Un fichero JSON (claves en inglés; valores en español):
     "rejected_categories": [{"shopify": "id", "name": "…", "reason": "…"}]
   },
   "runtime_blocks": ["cat.… generado en esta ejecución"],
-  "specializations": [{"id": "esp.…", "name": "…", "order": "juego|uso|material|función", "trigger": "característica declarada",
-                       "support": ["shopify-attr:…"],
-                       "requirements": [{"id": "esp.…/01", "question": "…", "dimension": "…", "entity": "producto|variante|oferta|entrega|condiciones|vendedor",
-                                         "trait": "…", "vote": "crítico|principal|complementario", "sources": [], "applicability": "…", "rationale": "…",
-                                         "resolving_info": [{"contribution": "…", "component": "…", "origin": "referencias|inferida", "support": []}]}]}],
+  "specializations": [{"id": "esp.… del catálogo o registrada por ti", "trigger": "evidencia declarada que la dispara"}],
   "inferred": [{"id": "inf/01", "block": "cat.…", "question": "…", "dimension": "…", "entity": "…", "trait": "…", "applicability": "universal o condición (p. ej., si la unidad no es nueva)", "vote": "…", "rationale": "…", "sources": [],
                 "resolving_info": [{"contribution": "…", "component": "…", "origin": "inferida", "support": []}]}],
   "application": [{"block": "gen.…", "evidence": "…"}],
-  "votes": {"cat.…/01": "principal", "cat.…/02": "no relevante"},
-  "trait_votes": {"cat.…/01": "material", "cat.…/02": "sabor"},
+  "votes": {"cat.…/01": "principal", "cat.…/02": "no relevante", "esp.…/01": "principal"},
+  "trait_votes": {"cat.…/01": "material", "cat.…/02": "sabor", "esp.…/01": "uso"},
   "proposed_traits": [{"name": "sabor", "definition": "Sabor o variedad que distingue lo que se vende."}],
   "features": [{"feature": "…", "role": "…", "reason": "…"}],
   "doubts": ["regla ambigua o dato que falta, con el paso afectado"]
@@ -151,3 +154,13 @@ Un fichero JSON (claves en inglés; valores en español):
 ```
 
 Anota en `doubts` cada vez que el reglamento no te deje decidir con seguridad.
+
+La especialización que registras (paso 4) va en su propio fichero:
+
+```json
+{"id": "esp.…", "name": "…", "order": "juego|uso|material|función", "trigger": "característica que la dispara",
+ "support": ["shopify-attr:…"], "shopify": "categoría de la composición donde se observa",
+ "requirements": [{"id": "esp.…/01", "question": "…", "dimension": "…", "entity": "producto|variante|oferta|entrega|condiciones|vendedor",
+                   "trait": "…", "vote": "crítico|principal|complementario", "sources": [], "applicability": "…", "rationale": "…",
+                   "resolving_info": [{"contribution": "…", "component": "…", "origin": "referencias|inferida", "support": []}]}]}
+```

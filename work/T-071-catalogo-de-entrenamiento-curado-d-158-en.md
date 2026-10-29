@@ -20,3 +20,5 @@ Implantar el catálogo curado de D-158: registro versionado de casos, admisión 
 - [ ] Pruebas de admisión, topes, duplicados y sustitución en bin/run dev test
 
 ## Notas
+
+- 2026-10-29 D-194 ya está en train.pairs (T-091): un modelo con el campo «audit» cuenta como una de las dos ejecuciones si su engine.rulebook y engine.rules son los vigentes. Al conectar los casos de auditoría, pon «audit» en el modelo.

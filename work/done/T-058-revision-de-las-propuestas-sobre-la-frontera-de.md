@@ -1,10 +1,11 @@
 ---
 id: T-058
 title: Revisión de las propuestas sobre la frontera de D-146 (pies doloridos en pantuflas, montaña en botas)
-status: pendiente
+status: hecha
 depends:
 milestone:
 created: 2026-10-28
+closed: 2026-10-29
 ---
 
 ## Objetivo
@@ -13,9 +14,13 @@ Que el usuario revise y decida las dos propuestas que salieron del control v6 (T
 
 ## Criterios de aceptación
 
-- [ ] Decisión del usuario sobre la prueba propuesta para la madre: si la pregunta pide elegir un producto de la madre para una necesidad, va dentro solo si un producto de la clase es una respuesta natural; lo que la clase comparte (cuidado, material, precio) sigue dentro
-- [ ] Decisión del usuario sobre «¿Cuál es el mejor calzado para andar por la montaña?» en botas: vuelve dentro en el caso (cat.botas/19 cubre el uso montaña) o sigue fuera
-- [ ] Decisiones anotadas en T-057 con su siguiente paso
+- [x] Decisión del usuario sobre la prueba propuesta para la madre: si la pregunta pide elegir un producto de la madre para una necesidad, va dentro solo si un producto de la clase es una respuesta natural; lo que la clase comparte (cuidado, material, precio) sigue dentro
+- [x] Decisión del usuario sobre «¿Cuál es el mejor calzado para andar por la montaña?» en botas: vuelve dentro en el caso (cat.botas/19 cubre el uso montaña) o sigue fuera
+- [x] Decisiones anotadas en T-057 con su siguiente paso
+
+## Resultado
+
+Decididas la prueba de la respuesta natural y la especialización nueva de montaña desde PAA
 
 ## Notas
 

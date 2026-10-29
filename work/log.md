@@ -69,3 +69,15 @@
 - 2026-10-29 T-070 Retirar las pistas de registro de certificados (D-154) — Retiradas PV-39 y PV-40; PV-45 a PV-47 juzgan las certificaciones por lo publicado (D-154)
 - 2026-10-29 T-080 Descubrimiento de las páginas de una auditoría y reserva TDM en el canon — D-170 (universo de la auditoría: rastreo ∪ sitemaps; los enlaces solo descubren) y D-171 (reserva TDM en la auditoría: comprobar, parar y avisar); evaluation-scopes 2.5
 - 2026-10-29 T-081 Reserva TDM previa en la auditoría de capture: parar y avisar — La auditoría de capture comprueba la reserva TDM antes de capturar y para ante cualquier reserva (D-171)
+- 2026-10-29 T-082 Araña de descubrimiento y captura de una auditoría en capture — Araña de auditoría en capture (pages crawl): rastreo sin parámetros, captura audit-es, cobertura y reanudación (D-170, D-173)
+- 2026-10-29 T-088 Prioridad de fichas y paginación en la araña de capture — La araña captura primero las fichas (aprendidas en el rastreo) y sigue la paginación numérica (D-204)
+- 2026-10-29 T-089 Catálogo de demanda: aplicar las decisiones del repaso de OQ — Capa general (D-184, D-185), 19 cuestiones de categoría partidas (D-196), pistas con «inferida», lista en para, bloques nuevos y revisor (D-201, D-208, D-211)
+- 2026-10-29 T-093 Páginas de D-167 primero en la araña de capture — La araña captura primero las políticas y va categoría a categoría (paginación y fichas); todas las categorías (D-215)
+- 2026-10-29 T-083 Universo de la auditoría: cruce con los sitemaps y páginas de D-167 sobre el rastreo — Universo en crawl.json (alcanzada, en sitemaps, tipo) y pages audit sobre el rastreo sin pedir nada (D-217)
+- 2026-10-29 T-084 web-audit sobre una auditoría descubierta por la araña — web-audit evalúa una auditoría de la araña sin cambios; 014 en cada página, prueba nueva
+- 2026-10-29 T-086 Acceso a recursos de una auditoría por lista de URL en capture — pages resources: GET por lista de URL sin cuerpo, robots.txt de cada host nuevo, reservas TDM y 429 (resources.json)
+- 2026-10-29 T-087 Requisitos de acceso a las imágenes del marcado en web-audit — audit images pasa a capture las imágenes del marcado; 004/005/185/186/334/335 leen sus respuestas, 007–010/333/336 NE fuera de V1
+- 2026-10-29 T-090 Entrenamiento: inducir las especializaciones — Especializaciones como bloques del catálogo inducidos por el entrenamiento (D-216): sinónimos, anclaje por el árbol, puerta de métricas; reglamento v4; control sin empeorar
+- 2026-10-29 T-058 Revisión de las propuestas sobre la frontera de D-146 (pies doloridos en pantuflas, montaña en botas) — Decididas la prueba de la respuesta natural y la especialización nueva de montaña desde PAA
+- 2026-10-29 T-057 Frontera de «solo tiene sentido para otro producto» en el reglamento PAA (podólogos, pies doloridos, montaña) — Reglamento PAA v7 con la prueba de la respuesta natural y especializaciones desde PAA (D-218); control sin regresiones
+- 2026-10-29 T-091 Entrenamiento: aplicar D-191 a D-194 y D-201 — bin/train aplica D-191 (rasgo medida-detalle, D-219), D-192, D-193, D-194 y D-201; pasada sin empeorar

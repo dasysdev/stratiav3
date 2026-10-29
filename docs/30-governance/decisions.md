@@ -204,6 +204,16 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-177](#d-177) | El motor compone desde el modelo los campos del perfil del RI que se solapan con el catálogo | aceptada | 2026-10-29 |
 | [D-178](#d-178) | Lo que escribe PAA entra en el catálogo al compilar, si el control no empeora | aceptada | 2026-10-29 |
 | [D-179](#d-179) | La compilación de taxo lee las revisiones de PAA de sus clasificaciones | aceptada | 2026-10-29 |
+| [D-180](#d-180) | Regla de aceptación del entrenamiento de PAA: por apartado, sobre el total de conjuntos | aceptada | 2026-10-29 |
+| [D-181](#d-181) | Prueba de que una categoría aporta requisitos a la composición | aceptada | 2026-10-29 |
+| [D-182](#d-182) | En una dimensión común a la clase, un cambio de alcance o de importancia no forma especialización | aceptada | 2026-10-29 |
+| [D-183](#d-183) | El fundamento de un beneficio reclamado se valora en la Justificación del requisito de la prestación | aceptada | 2026-10-29 |
+| [D-184](#d-184) | Capa general: pendientes del catálogo de OQ-45 | aceptada | 2026-10-29 |
+| [D-185](#d-185) | `gen/26` y `gen/09` declaran su conjunto | aceptada | 2026-10-29 |
+| [D-186](#d-186) | La auditoría es automática; una persona revisa las incidencias antes de entregar | aceptada | 2026-10-29 |
+| [D-187](#d-187) | Selección del catálogo de entrenamiento: se ratifica D-053 y se cierra OQ-48 | aceptada | 2026-10-29 |
+| [D-188](#d-188) | Las fichas de un cliente auditado son candidatas al entrenamiento, salvo oposición del cliente | aceptada | 2026-10-29 |
+| [D-189](#d-189) | Catálogo de entrenamiento curado: se ratifican las lecturas de D-158 | aceptada | 2026-10-29 |
 | [D-190](#d-190) | El entrenamiento induce las especializaciones | aceptada | 2026-10-29 |
 | [D-191](#d-191) | Las dimensiones de detalle se deciden por el árbol, sin suelo de principal | aceptada | 2026-10-29 |
 | [D-192](#d-192) | Rasgos propuestos: sinónimos, retirada y uso provisional | aceptada | 2026-10-29 |

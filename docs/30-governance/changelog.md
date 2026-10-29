@@ -14,6 +14,17 @@ Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módul
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
 
+## 2026-10-29 — Repaso de las incidencias abiertas · aplicado
+
+- **gobernanza** — `INTAKE 2026-10-29-issues-review`: Claude comprobó cada incidencia abierta contra el código y el catálogo y recomendó una salida; el usuario aceptó todas. Resueltas I-40 a I-47, I-50 e I-51; no queda ninguna incidencia abierta.
+- **editorial** — [demand-model](../10-model/demand-model.md) 3.10: el catálogo ya registra la información resolutiva ([D-205](decisions.md#d-205)).
+- **canon** — Frontera con la evaluación técnica: el dígito de control es estructura del dato; si un perfil exige el valor válido, el expediente técnico lo evalúa también, sin contarlo dos veces ([D-206](decisions.md#d-206), precisa D-122). [acceptance-criteria](../10-model/acceptance-criteria.md) 1.9, [evaluation-scopes](../10-model/evaluation-scopes.md) 2.8, [ac-guides](../20-methods/audit-gsc/ac-guides.md) 0.7.
+- **canon** — Pistas de valoración, [assessment-hints](../10-model/assessment-hints.md) 1.11: separador por clase de fuente ([D-207](decisions.md#d-207)); `para` con lista de una misma llave ([D-208](decisions.md#d-208), enmienda D-135); duplicadas también por lo que llega a cada requisito ([D-209](decisions.md#d-209)); origen «marco» en la capa general ([D-210](decisions.md#d-210)); forma por código y criterio por un agente revisor ([D-211](decisions.md#d-211)). Glosario 1.2; [model-training](../10-model/model-training.md) 1.24 (quién rechaza una pista que es una lista).
+- **gobernanza** — GS1 Web Vocabulary sin ficha y sin clase nueva ([D-212](decisions.md#d-212)).
+- **canon** — PAA: «reformular» es una revisión más de D-115 ([D-213](decisions.md#d-213)). [paa-training](../10-model/paa-training.md) 1.6; OQ-63 anotada.
+- **método** — Taxonomía: la capa de clases internas queda superada por D-033 ([D-214](decisions.md#d-214)). [product-taxonomy](../20-methods/product-taxonomy/README.md) 1.10, [data-model-governance](../20-methods/product-taxonomy/data-model-governance.md) 1.4, [integration](../20-methods/product-taxonomy/integration.md) 1.3.
+- **gobernanza** — Fuera de `docs/`: `para` con lista (D-208) y el agente revisor (D-211), en T-089; «reformular» en la compilación de taxo (D-213), en T-092; I-47 en `web-audit/reference/inventory.md`.
+
 ## 2026-10-29 — Repaso de las cuestiones abiertas · aplicado
 
 - **gobernanza** — `INTAKE 2026-10-29-oq-review`: el usuario contestó en un formulario las 80 fichas que preparó Claude (una por OQ abierta o por punto de una OQ compuesta); cuatro puntos se aclararon en un diálogo posterior. Decisión [D-174](decisions.md#d-174): cierres sin objeto (OQ-05, 06, 07, 08, 10, 37, 43), OQ aparcadas (OQ-04, MPIR, OQ-15, OQ-70) y OQ que siguen abiertas; OQ-31 pasa a la sección E.

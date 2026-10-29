@@ -3,9 +3,9 @@ id: audit-gsc-ac-guides
 title: Guías operativas de los seis criterios de aceptación
 layer: method
 status: propuesta
-version: 0.6
+version: 0.7
 updated: 2026-10-29
-sources: [GSC0 §11, GSC0 Anexo B, FUND §6.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review]
+sources: [GSC0 §11, GSC0 Anexo B, FUND §6.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review]
 ---
 
 # Guías operativas de los seis criterios de aceptación
@@ -117,7 +117,7 @@ En todos los AC, antes de asignar 0/1/2: verificar **evidencia suficiente** y **
 - **Conocimiento del modelo:** frena una refutación libremente, pero solo la produce con una regla general citada o una imposibilidad física o lógica. Lo que el auditor sepa de un producto, una marca o un modelo concretos es una sospecha: se anota con su motivo, no gradúa y pasa al informe como «a verificar por el ecommerce» ([D-154](../../30-governance/decisions.md#d-154)).
 - **Certificaciones:** no se validan. Aquí solo cuentan estructura, dominio y consistencia (fecha de validez vencida, sello incompatible con la composición).
 - **Identificador ausente:** si falta el que permitiría verificar un dato (número de certificado), cuenta en Justificación, no aquí.
-- **Sintaxis frente a valor:** una sintaxis inválida es técnica; un valor imposible con sintaxis válida es Fiabilidad. ⚠ Ver [I-41](../../30-governance/issues.md#i-41).
+- **Sintaxis frente a valor:** una sintaxis inválida del marcado es técnica; un valor imposible con sintaxis válida (dígito de control erróneo) es Fiabilidad. Si un perfil exige el valor válido, el expediente técnico lo evalúa también, sin contarlo dos veces ([D-206](../../30-governance/decisions.md#d-206)).
 - **Discrepancia entre ámbitos:** es un hallazgo de [consistencia transversal](../../10-model/evaluation-scopes.md#consistencia-transversal) y no reduce este GSC.
 
 ## Justificación

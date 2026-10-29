@@ -5,7 +5,7 @@ layer: governance
 status: vigente
 version: 1.0
 updated: 2026-10-29
-sources: []
+sources: [INTAKE 2026-10-29-issues-review]
 ---
 
 # Registro de incidencias e incoherencias documentales
@@ -53,18 +53,18 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 | [I-37](#i-37) | Pregunta de sí o no con detalle cuyas partes toman otro rasgo o importancia | Baja | resuelta → [D-087](decisions.md#d-087) |
 | [I-38](#i-38) | Cuestiones con fuente en las referencias que el bloque no recoge | Baja | resuelta → [D-088](decisions.md#d-088) |
 | [I-39](#i-39) | Aportaciones que fija la norma ausentes de las listas de la capa general | Baja | resuelta → [D-089](decisions.md#d-089) |
-| [I-40](#i-40) | Estado de implantación de la información resolutiva en el catálogo | Baja | abierta |
-| [I-41](#i-41) | GTIN inválido: ¿solo Fiabilidad o también requisito técnico de un perfil de consumidor? | Baja | abierta |
-| [I-42](#i-42) | Pistas dirigidas a una fuente: qué separa el comienzo de la etiqueta | Baja | abierta |
-| [I-43](#i-43) | Pistas de un tema repartido en varios rasgos o fuentes: «para» con un solo valor | Media | abierta |
-| [I-44](#i-44) | Duplicadas que llegan al mismo requisito por llaves distintas | Media | abierta |
-| [I-45](#i-45) | Pistas de tipo en la capa general, que no tiene rasgo | Baja | abierta |
-| [I-46](#i-46) | «Es un criterio, no una lista»: qué puede comprobar el código | Baja | abierta |
-| [I-47](#i-47) | GS1 Web Vocabulary no encaja en ninguna clase de fuente | Baja | abierta |
+| [I-40](#i-40) | Estado de implantación de la información resolutiva en el catálogo | Baja | resuelta → [D-205](decisions.md#d-205) |
+| [I-41](#i-41) | GTIN inválido: ¿solo Fiabilidad o también requisito técnico de un perfil de consumidor? | Baja | resuelta → [D-206](decisions.md#d-206) |
+| [I-42](#i-42) | Pistas dirigidas a una fuente: qué separa el comienzo de la etiqueta | Baja | resuelta → [D-207](decisions.md#d-207) |
+| [I-43](#i-43) | Pistas de un tema repartido en varios rasgos o fuentes: «para» con un solo valor | Media | resuelta → [D-208](decisions.md#d-208) |
+| [I-44](#i-44) | Duplicadas que llegan al mismo requisito por llaves distintas | Media | resuelta → [D-209](decisions.md#d-209) |
+| [I-45](#i-45) | Pistas de tipo en la capa general, que no tiene rasgo | Baja | resuelta → [D-210](decisions.md#d-210) |
+| [I-46](#i-46) | «Es un criterio, no una lista»: qué puede comprobar el código | Baja | resuelta → [D-211](decisions.md#d-211) |
+| [I-47](#i-47) | GS1 Web Vocabulary no encaja en ninguna clase de fuente | Baja | resuelta → [D-212](decisions.md#d-212) |
 | [I-48](#i-48) | Alcance de «la categoría madre en general» y de las preguntas sobre el material en el perímetro de PAA | Media | resuelta → D-146 |
 | [I-49](#i-49) | Cobertura de la tasa técnica: ¿los NA cuentan en los pertinentes? | Media | resuelta → D-169 |
-| [I-50](#i-50) | El clasificador PAA propone «reformular» requisitos de referencias, una acción que D-115 no lista | Media | abierta |
-| [I-51](#i-51) | El marco de taxonomía describe una capa de clases internas que D-033 no usa | Baja | abierta |
+| [I-50](#i-50) | El clasificador PAA propone «reformular» requisitos de referencias, una acción que D-115 no lista | Media | resuelta → [D-213](decisions.md#d-213) |
+| [I-51](#i-51) | El marco de taxonomía describe una capa de clases internas que D-033 no usa | Baja | resuelta → [D-214](decisions.md#d-214) |
 
 ---
 
@@ -555,6 +555,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - La detectó el revisor al procesar `INTAKE 2026-10-26-choice-criteria-and-descriptions`; es anterior a ese artefacto.
 - **Afecta a:** [demand-model](../10-model/demand-model.md#requisito-informativo-ri).
 - **Propuesta:** comprobarlo en `demand-engine/catalog/` y, si las listas están registradas, quitar «aún no se registra en el catálogo» de demand-model.
+- **Resolución (2026-10-29):** Claude lo comprobó: los 490 requisitos del catálogo tienen `resolving_info`. Se quita «aún no se registra en el catálogo» de demand-model; la descripción sigue sin implantar. → [D-205](decisions.md#d-205).
 
 ### I-41
 
@@ -567,6 +568,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - **Anotación (T-047):** en la referencia técnica congelada, la página de fichas de comerciante solo pide que el GTIN esté en forma numérica (`ws-consumer/026`, recomendada). El dígito de control lo recomienda el nivel de vocabulario: la definición de `gtin` en Schema.org 30.1 dice «should also have a valid GS1 check digit» (`ws-vocabulary/006`, recomendada). La pregunta sigue en pie, pero el requisito técnico es del vocabulario y no de un consumidor.
 - **Afecta a:** [acceptance-criteria](../10-model/acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones), [ac-guides](../20-methods/audit-gsc/ac-guides.md), [evaluation-scopes](../10-model/evaluation-scopes.md#fuentes-de-los-requisitos-técnicos).
 - **Propuesta:** la «sintaxis» de D-122 es la del marcado (serialización y vocabulario); las reglas internas de un valor, como el dígito de control, son estructura del dato y cuentan en Fiabilidad. Si un perfil de consumidor exige un GTIN válido, ese requisito técnico se evalúa también en el expediente técnico: los dos expedientes son independientes ([execution](../20-methods/audit-gsc/execution.md): «una misma observación puede alimentar ambos expedientes») y en ninguno se cuenta dos veces.
+- **Resolución (2026-10-29):** decisión del usuario, la propuesta: el dígito de control es estructura del dato (Fiabilidad); si un perfil exige el valor válido, el expediente técnico lo evalúa también, sin contarlo dos veces. → [D-206](decisions.md#d-206).
 
 ### I-42
 
@@ -576,6 +578,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - El piloto de T-050 mostró que el comienzo no basta: el guion separa el artículo en una ley (`ley:UE-1007/2011-16.1@2011-10-18`), pero forma parte del nombre de un atributo de Shopify. Una pista dirigida a `shopify-attr:fabric` llegaría también a los requisitos que citan `shopify-attr:fabric-weave`.
 - **Afecta a:** [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) (regla 8).
 - **Propuesta:** el comienzo de la etiqueta encaja solo hasta un separador propio de cada clase de fuente: en una ley, el guion y el punto (artículo y apartado) y la arroba (fecha); en un atributo o una propiedad, el igual (valor) y la arroba. Es lo implementado en el piloto (`demand-engine/src/demand_engine/demand/hints.py`).
+- **Resolución (2026-10-29):** decisión del usuario, la propuesta: separador propio de cada clase de fuente, como implanta `hints.py`. → [D-207](decisions.md#d-207).
 
 ### I-43
 
@@ -586,6 +589,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - En el piloto de T-050 se dirigieron a la fuente `shopify-attr:safety-certifications`, cuyos cuatro requisitos son todos certificaciones. `cat.sabanas/02` y las certificaciones de `certificacion-origen` se quedan sin ellas.
 - **Afecta a:** [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) (reglas 7 y 9).
 - **Propuesta:** que `para` admita una lista de valores de una misma llave (varias fuentes o varios tipos). La pista se sigue escribiendo una vez y la búsqueda sigue siendo por etiquetas exactas.
+- **Resolución (2026-10-29):** decisión del usuario, la propuesta: `para` admite una lista de valores de una misma llave. → [D-208](decisions.md#d-208).
 
 ### I-44
 
@@ -596,6 +600,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - Un aviso sobre lo que llega a cada requisito (misma propiedad y mismo AC por llaves distintas) dio cuatro avisos en los nueve requisitos, y uno de ellos era la duplicada.
 - **Afecta a:** [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) (regla 13).
 - **Propuesta:** hacer la búsqueda también sobre lo que llega a cada requisito, como aviso que un revisor resuelve, además de hacerla por destino.
+- **Resolución (2026-10-29):** decisión del usuario, la propuesta: aviso sobre lo que llega a cada requisito por llaves distintas, como implanta `hints.py`. → [D-209](decisions.md#d-209).
 
 ### I-45
 
@@ -606,6 +611,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - La pista de la entidad variante (cada dato dice a qué variante se refiere) no llega a `gen/03`, cuya entidad es producto.
 - **Afecta a:** [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) (reglas 8 y 9).
 - **Propuesta:** admitir el origen «marco» en las pistas dirigidas a un requisito de la capa general, que es parte del marco ([D-045](decisions.md#d-045)), en vez de dar rasgo a la capa general. Hay que resolver la tensión con la interpretación de D-136, que separa el «marco» de las pistas por tipo del origen «marco» de la capa general en la información resolutiva: la propuesta los acercaría en este caso.
+- **Resolución (2026-10-29):** decisión del usuario, la propuesta: origen «marco» en las pistas de un requisito de la capa general. → [D-210](decisions.md#d-210).
 
 ### I-46
 
@@ -615,6 +621,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - En el piloto de T-050, el código solo pudo comprobar la forma: una o dos frases y como mucho 280 caracteres. Si la pista es un criterio que el auditor aplica razonando, o una lista o frase exacta disfrazada, lo tiene que juzgar quien la lee.
 - **Afecta a:** [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) (reglas 3 y 11).
 - **Propuesta:** la comprobación automática cubre la forma (seis campos, destino, longitud). Lo de «criterio, no lista» lo juzga un agente revisor en el mismo paso que escribe las pistas, sin aprobación del usuario ([D-136](decisions.md#d-136)).
+- **Resolución (2026-10-29):** decisión del usuario, la propuesta: el código comprueba la forma; un agente revisor juzga «criterio, no lista». → [D-211](decisions.md#d-211).
 
 ### I-47
 
@@ -625,6 +632,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - Ninguna de las 45 fichas de producto congeladas usa términos `gs1:`. Las dos fuentes están registradas y congeladas en `web-audit`, pero sin ficha, porque una ficha exige una clase del canon. La planteó Claude en la primera pasada del inventario (T-047).
 - **Afecta a:** [evaluation-scopes](../10-model/evaluation-scopes.md#fuentes-de-los-requisitos-técnicos) (tabla de clases).
 - **Propuesta:** añadir la clase **vocabulario complementario**: vocabularios distintos de Schema.org que el marcado puede usar o a los que remiten sus definiciones, como el GS1 Web Vocabulary. Sirven para interpretar los términos y los identificadores que el marcado tome de ellos, y no fundamentan requisitos mientras no entren en un perfil. La alternativa es dejarlas sin ficha hasta que un perfil las necesite.
+- **Resolución (2026-10-29):** decisión del usuario, la alternativa: las dos fuentes quedan sin ficha hasta que un perfil las necesite; no se añade clase. → [D-212](decisions.md#d-212).
 
 ### I-48
 
@@ -661,6 +669,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - Con [D-179](decisions.md#d-179), la compilación de taxo lee las revisiones de los `classified.json`. No consta si debe leer también las de «reformular».
 - **Afecta a:** [paa-training](../10-model/paa-training.md#un-solo-escritor-por-requisito), el reglamento `demand-engine/classifier/paa.md`.
 - **Propuesta:** añadir «reformular» a las acciones de revisión de D-115, con el mismo tratamiento que las demás: PAA la deja y taxo la reevalúa al compilar. La alternativa es retirarla del reglamento PAA.
+- **Resolución (2026-10-29):** decisión del usuario, la propuesta: «reformular» se añade a las revisiones de D-115. → [D-213](decisions.md#d-213).
 
 ### I-51
 
@@ -670,3 +679,4 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - [D-033](decisions.md#d-033) identifica el modelo de demanda por sus bloques de requisitos, y la herencia sale del árbol de Shopify. El sistema no construye esa capa. [D-174](decisions.md#d-174) cierra OQ-05 por ese motivo. Detectado al preparar el repaso de las OQ (`INTAKE 2026-10-29-oq-review`).
 - **Afecta a:** [product-taxonomy](../20-methods/product-taxonomy/README.md), [data-model-governance](../20-methods/product-taxonomy/data-model-governance.md).
 - **Propuesta:** marcar esa capa como superada por D-033 en los dos módulos y retirar de ellos lo que ya no rige, con una decisión nueva.
+- **Resolución (2026-10-29):** decisión del usuario, la propuesta: la capa queda marcada como superada en los módulos de taxonomía. → [D-214](decisions.md#d-214).

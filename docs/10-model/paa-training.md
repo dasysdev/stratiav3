@@ -3,9 +3,9 @@ id: paa-training
 title: Entrenamiento de PAA
 layer: model
 status: vigente
-version: 1.5
+version: 1.6
 updated: 2026-10-29
-sources: [INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-paa-pilot-classes, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-29-oq-review]
+sources: [INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-paa-pilot-classes, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review]
 ---
 
 # Entrenamiento de PAA
@@ -72,9 +72,9 @@ Lo que D-115 llamaba «reglas de AC» son las pistas de valoración ([D-125](../
 >
 > — INTAKE 2026-10-27-paa-training
 
-Enmendado por [D-179](../30-governance/decisions.md#d-179): no hay un registro propio de revisiones. La compilación de taxo lee las revisiones de los `classified.json` de `demand-engine/var/paa/sets/`. `var/` es desechable: si se limpia antes de compilar, esas revisiones se pierden y hay que volver a clasificar el conjunto. La acción «reformular» que propone el clasificador queda fuera de D-115 (⚠ Ver [I-50](../30-governance/issues.md#i-50)).
+Enmendado por [D-179](../30-governance/decisions.md#d-179): no hay un registro propio de revisiones. La compilación de taxo lee las revisiones de los `classified.json` de `demand-engine/var/paa/sets/`. `var/` es desechable: si se limpia antes de compilar, esas revisiones se pierden y hay que volver a clasificar el conjunto. Ampliado por [D-213](../30-governance/decisions.md#d-213): «reformular» es una revisión más, con el mismo tratamiento que separar, sacar y partir.
 
-- Un requisito que nace de las referencias lo escribe el entrenamiento de taxo; por analogía, también uno de origen «normativa» ([D-115](../30-governance/decisions.md#d-115), interpretación). PAA solo le suma lo aditivo (papeles 2 y 4) y deja en su clasificación (`classified.json`) las revisiones estructurales (separar, sacar, partir), como la separación por dimensión ([D-103](../30-governance/decisions.md#d-103)).
+- Un requisito que nace de las referencias lo escribe el entrenamiento de taxo; por analogía, también uno de origen «normativa» ([D-115](../30-governance/decisions.md#d-115), interpretación). PAA solo le suma lo aditivo (papeles 2 y 4) y deja en su clasificación (`classified.json`) las revisiones estructurales (separar, sacar, partir, reformular), como la separación por dimensión ([D-103](../30-governance/decisions.md#d-103)).
 - Un requisito de origen «paa» lo escribe el entrenamiento de PAA.
 - Las inferidas las propone y compila taxo ([D-036](../30-governance/decisions.md#d-036)). PAA las confirma o revisa (papel 3); al confirmarlas pasan a origen «paa» ([D-097](../30-governance/decisions.md#d-097)).
 

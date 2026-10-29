@@ -3,9 +3,9 @@ id: product-taxonomy-data-model-governance
 title: Taxonomía — modelo de datos, procedimiento y gobierno
 layer: method
 status: propuesta
-version: 1.3
+version: 1.4
 updated: 2026-10-29
-sources: [TAX §8, TAX §9, TAX §10, TAX §11, TAX Anexo A, TAX Anexo B, INTAKE 2026-10-24-define-class, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-29-oq-review]
+sources: [TAX §8, TAX §9, TAX §10, TAX §11, TAX Anexo A, TAX Anexo B, INTAKE 2026-10-24-define-class, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review]
 ---
 
 # Taxonomía — modelo de datos, procedimiento y gobierno
@@ -13,6 +13,8 @@ sources: [TAX §8, TAX §9, TAX §10, TAX §11, TAX Anexo A, TAX Anexo B, INTAKE
 Parte de [Taxonomía de clases de producto](README.md).
 
 ## Modelo de datos de referencia (sin importar árboles completos)
+
+> **Estado: superado en parte** por [D-033](../../30-governance/decisions.md#d-033) ([D-214](../../30-governance/decisions.md#d-214)). El sistema no construye la capa de clases internas: las entidades `product_class`, `class_facet`, `concept_mapping` y `class_requirement`, la etapa 4 del procedimiento y los anexos A y B quedan como línea base de TAX, sin vigencia. El modelo de demanda se identifica por sus bloques de requisitos y la herencia sale del árbol de Shopify.
 
 La implementación mínima necesita separar fuentes, conceptos externos, clases internas, correspondencias, evidencia comercial y requisitos. Los campos siguientes son **orientativos**, no un esquema informático cerrado.
 
@@ -101,8 +103,6 @@ Referencias R1–R16 en [sources.md](sources.md#referencias-externas-consulta-24
 - Adoptar **Shopify v2026-08 como instantánea inicial** y estructura principal de familias.
 - Incorporar **Amazon** como fuente de especializaciones, atributos y requisitos de la categoría ([D-039](../../30-governance/decisions.md#d-039)), cuando el acceso y las evidencias lo permitan.
 - Incorporar **Google** como referencia de clasificación, atributos y reglas comerciales, separando semántica de obligación de interfaz.
-- Mantener **clases internas con IDs propios**, definiciones, facetas y mapeos versionados.
-- Crear subclases solo cuando existan **fronteras positivas y diferencias sustantivas de necesidades de información**.
 - Reutilizar requisitos comunes con reglas explícitas de aplicabilidad; validar la importancia relativa en cada clase.
 
 ## Decisiones pendientes de v0 (cerradas)
@@ -118,6 +118,8 @@ Las decisiones pendientes de TAX §11.3 son OQ-05 a OQ-10 de [cuestiones abierta
 
 ## Anexo A. Ficha de clase propuesta
 
+> **Estado: superado** por D-033 ([D-214](../../30-governance/decisions.md#d-214)).
+
 - **Identidad:** ID interno; nombre canónico ES; otras denominaciones; estado; versión.
 - **Definición:** función principal y alcance; reglas positivas de inclusión; exclusiones; ejemplos positivos y negativos.
 - **Estructura:** padre(s); facetas relevantes; especializaciones; relaciones no jerárquicas.
@@ -126,6 +128,8 @@ Las decisiones pendientes de TAX §11.3 son OQ-05 a OQ-10 de [cuestiones abierta
 - **Evidencia y revisión:** fuentes, ecommerce observados, casos frontera, responsable, fecha y cambios.
 
 ## Anexo B. Ficha de correspondencia propuesta
+
+> **Estado: superado** por D-033 ([D-214](../../30-governance/decisions.md#d-214)). La correspondencia Shopify → PTD de Amazon la propone el clasificador y la valida el entrenamiento ([D-174](../../30-governance/decisions.md#d-174)).
 
 - **Origen:** sistema, versión, marketplace, ID, etiqueta y ruta.
 - **Destino:** clase interna (ID y versión).

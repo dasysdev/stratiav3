@@ -59,7 +59,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-030](#d-030) | Características especiales de un PTD: dimensiones de la base y apoyo | aceptada | 2026-10-25 |
 | [D-031](#d-031) | El material reciclado es especialización, no beneficio reclamado | aceptada | 2026-10-25 |
 | [D-032](#d-032) | Propósito de la clase de estudio: los requisitos informativos | aceptada (precisada por D-033) | 2026-10-25 |
-| [D-033](#d-033) | Identidad del modelo de demanda: composición de bloques de requisitos | aceptada (formato y denominación fijados por D-038; precisada por D-040 y D-057; la aplicación pasa a la oferta por D-047) | 2026-10-25 |
+| [D-033](#d-033) | Identidad del modelo de demanda: composición de bloques de requisitos | aceptada (formato y denominación fijados por D-038; precisada por D-040 y D-057; la aplicación pasa a la oferta por D-047; supera la capa de clases internas, D-214) | 2026-10-25 |
 | [D-034](#d-034) | Capa general de requisitos: universales y condicionados | aceptada (borrador revisado por D-038; importancias fijas por D-045; elementos digitales al modelo por D-047; pregunta universal de promociones por D-049; fabricante, origen y seguridad por D-052; formulación dividida por D-065; bloques condicionados de garantía comercial, posventa y opiniones por D-066; pregunta del precio personalizado retirada por D-067; los cambios en `gen/11` y `gen/26` por D-085) | 2026-10-25 |
 | [D-035](#d-035) | Pruebas operativas de importancia relativa | aceptada (la duda no baja la importancia ni excluye: D-050) | 2026-10-25 |
 | [D-036](#d-036) | Cuestiones inferidas: tercera vía de construcción, provisional | aceptada (régimen: lectura de Claude no objetada; matizada por D-041; enmendada por D-044; con fuente, propuesta al bloque por D-088; confirmación por PAA: D-094) | 2026-10-25 |
@@ -141,28 +141,28 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-112](#d-112) | Sujeción de la bajera: cubierta | aceptada | 2026-10-27 |
 | [D-113](#d-113) | Piel en sábanas: cubierta | aceptada | 2026-10-27 |
 | [D-114](#d-114) | Entrenamiento propio de PAA: qué refina, sus límites y el piloto de medición | aceptada (clases del piloto: D-116; métricas fijadas por D-180) | 2026-10-27 |
-| [D-115](#d-115) | El entrenamiento de PAA escribe en el catálogo: cuatro papeles y un solo escritor por requisito | aceptada (papel 2 precisado por D-125; revisiones enmendadas por D-179) | 2026-10-27 |
+| [D-115](#d-115) | El entrenamiento de PAA escribe en el catálogo: cuatro papeles y un solo escritor por requisito | aceptada (papel 2 precisado por D-125; revisiones enmendadas por D-179 y ampliadas por D-213: «reformular») | 2026-10-27 |
 | [D-116](#d-116) | Clases del piloto de PAA: las de los 14 casos de referencia | aceptada | 2026-10-27 |
 | [D-117](#d-117) | Los criterios de aceptación se aplican siempre; NE es una incidencia | aceptada (NA de Comparabilidad: D-126) | 2026-10-27 |
 | [D-118](#d-118) | Comparabilidad: el contraste se exige cuando la respuesta es una dimensión de comparación de la clase | aceptada | 2026-10-27 |
 | [D-119](#d-119) | La prestación derivada de un atributo se decide en la pertinencia | aceptada | 2026-10-27 |
 | [D-120](#d-120) | Prueba de derivación: conclusión necesaria con reglas generales, descriptivas y citadas | aceptada (el hecho particular tomado de fuera, enmendado por D-154) | 2026-10-27 |
 | [D-121](#d-121) | Fiabilidad: nueva definición y lectura refutadora | aceptada | 2026-10-27 |
-| [D-122](#d-122) | Comprobaciones de corrección: tres familias, límites del conocimiento del dominio e identificador ausente | aceptada (familias y fuente independiente, enmendadas por D-154) | 2026-10-27 |
+| [D-122](#d-122) | Comprobaciones de corrección: tres familias, límites del conocimiento del dominio e identificador ausente | aceptada (familias y fuente independiente, enmendadas por D-154; frontera con la técnica precisada por D-206) | 2026-10-27 |
 | [D-123](#d-123) | Se retira la propiedad P15 · Actualidad | aceptada | 2026-10-27 |
 | [D-124](#d-124) | Consistencia transversal: nueva dimensión de análisis por RI × par de ámbitos | aceptada | 2026-10-27 |
 | [D-125](#d-125) | Pistas de valoración: nombre, tres niveles y alcance | aceptada | 2026-10-27 |
 | [D-126](#d-126) | Marca de dimensión de comparación y NA de Comparabilidad | aceptada (cómo se fija: D-139) | 2026-10-27 |
 | [D-127](#d-127) | Quién escribe las pistas de valoración | aceptada (dónde viven: D-134, D-140) | 2026-10-27 |
-| [D-128](#d-128) | Las pistas de valoración son criterios breves apoyados en las propiedades, no listas | aceptada | 2026-10-27 |
+| [D-128](#d-128) | Las pistas de valoración son criterios breves apoyados en las propiedades, no listas | aceptada (quién juzga «criterio, no lista», precisado por D-211) | 2026-10-27 |
 | [D-129](#d-129) | web-audit: sistema de la evaluación técnica de Web y Web Schema.org | aceptada | 2026-10-27 |
 | [D-130](#d-130) | Perfil de implementación: definición y tres niveles en Web Schema.org | aceptada (nivel del consumidor enmendado por D-145) | 2026-10-27 |
 | [D-131](#d-131) | Estados del requisito técnico | aceptada | 2026-10-27 |
 | [D-132](#d-132) | Solo una especificación aplicable fundamenta un requisito técnico | aceptada | 2026-10-27 |
 | [D-133](#d-133) | Referencia técnica en web-audit: datos gobernados por el canon, decididos por los agentes | aceptada (las fuentes congeladas, en references: D-149) | 2026-10-27 |
-| [D-134](#d-134) | Catálogo de pistas con destinatario; encontrarlas es código | aceptada (enmendada por D-140: las pistas de un requisito viven en él) | 2026-10-27 |
-| [D-135](#d-135) | Campos de una pista de valoración, quién escribe las dirigidas a una fuente y cómo llegan al auditor | aceptada (precisada por D-140: `para`) | 2026-10-27 |
-| [D-136](#d-136) | Gobierno de las pistas de valoración: aceptación, duplicadas, retiradas y orígenes | aceptada (regla 13 enmendada por D-202; origen «inferida» añadido por D-201) | 2026-10-27 |
+| [D-134](#d-134) | Catálogo de pistas con destinatario; encontrarlas es código | aceptada (enmendada por D-140: las pistas de un requisito viven en él; precisada por D-207 y D-208: separador y lista en `para`) | 2026-10-27 |
+| [D-135](#d-135) | Campos de una pista de valoración, quién escribe las dirigidas a una fuente y cómo llegan al auditor | aceptada (precisada por D-140: `para`; `para` con lista, enmendada por D-208) | 2026-10-27 |
+| [D-136](#d-136) | Gobierno de las pistas de valoración: aceptación, duplicadas, retiradas y orígenes | aceptada (regla 13 enmendada por D-202; origen «inferida» añadido por D-201; precisada por D-209, D-210 y D-211) | 2026-10-27 |
 | [D-137](#d-137) | Cuándo se definen las pistas de valoración | aceptada | 2026-10-27 |
 | [D-138](#d-138) | Pistas de valoración: niveles no exclusivos, sin ámbito, trazabilidad y versión | aceptada | 2026-10-27 |
 | [D-139](#d-139) | Cómo se fija la marca de dimensión de comparación | aceptada | 2026-10-27 |
@@ -228,6 +228,16 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-201](#d-201) | Las pistas se escriben al redactar un bloque nuevo, y existe el origen «inferida» | aceptada | 2026-10-29 |
 | [D-202](#d-202) | Una pista se corrige en su sitio mientras nadie la haya usado | aceptada | 2026-10-29 |
 | [D-203](#d-203) | La prominencia informativa sigue activa; sus zonas son title, metadescripción y H1 | aceptada | 2026-10-29 |
+| [D-205](#d-205) | La información resolutiva ya se registra en el catálogo | aceptada | 2026-10-29 |
+| [D-206](#d-206) | El dígito de control es estructura del dato: Fiabilidad, y también requisito técnico si un perfil lo exige | aceptada | 2026-10-29 |
+| [D-207](#d-207) | Una pista dirigida a una fuente encaja hasta un separador propio de cada clase de fuente | aceptada | 2026-10-29 |
+| [D-208](#d-208) | `para` admite una lista de valores de una misma llave | aceptada | 2026-10-29 |
+| [D-209](#d-209) | Las duplicadas se buscan también en lo que llega a cada requisito | aceptada | 2026-10-29 |
+| [D-210](#d-210) | Las pistas propias de un requisito de la capa general pueden tener origen «marco» | aceptada | 2026-10-29 |
+| [D-211](#d-211) | El código comprueba la forma de una pista; un agente revisor juzga si es un criterio | aceptada | 2026-10-29 |
+| [D-212](#d-212) | El GS1 Web Vocabulary queda sin ficha hasta que un perfil lo necesite | aceptada | 2026-10-29 |
+| [D-213](#d-213) | «Reformular» es una revisión de PAA más, que taxo reevalúa al compilar | aceptada | 2026-10-29 |
+| [D-214](#d-214) | La capa de clases internas de la taxonomía queda superada por D-033 | aceptada | 2026-10-29 |
 
 ---
 
@@ -1931,7 +1941,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-115
 
-**El entrenamiento de PAA escribe en el catálogo: cuatro papeles y un solo escritor por requisito.** · aceptada (papel 2 precisado por [D-125](#d-125): las «reglas de AC» son las pistas de valoración) · 2026-10-27
+**El entrenamiento de PAA escribe en el catálogo: cuatro papeles y un solo escritor por requisito.** · aceptada (papel 2 precisado por [D-125](#d-125): las «reglas de AC» son las pistas de valoración; revisiones ampliadas por [D-213](#d-213): «reformular») · 2026-10-27
 
 - **Contexto:** `INTAKE 2026-10-27-paa-training` (segunda nota de T-042, que sustituye a la primera en esto). La propuesta inicial era que PAA no escribiera el catálogo, para mantener un solo escritor. El usuario lo corrigió: PAA ha de «aportar nuevos requisitos, aportar reglas para AC de un requisito constituido y confirmar requisitos inferidos. […] Si es así no habría conflicto».
 - **Decisión:** el entrenamiento de PAA modifica el catálogo con cuatro papeles, todos aditivos o sobre lo que es de PAA:
@@ -2045,7 +2055,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-122
 
-**Comprobaciones de corrección: tres familias, límites del conocimiento del dominio e identificador ausente.** · aceptada · 2026-10-27
+**Comprobaciones de corrección: tres familias, límites del conocimiento del dominio e identificador ausente.** · aceptada (frontera con la técnica precisada por [D-206](#d-206)) · 2026-10-27
 
 - **Contexto:** `INTAKE 2026-10-27-ac-applicability-and-reliability` §4. Usuario: «conocimiento del modelo, estructura del dato, hay que profundizar». Sobre las propuestas de Claude: «2. sí» (límites del conocimiento del dominio) y «3. elige tú» (identificador ausente); la correspondencia de la numeración está en [D-121](#d-121).
 - **Decisión:**
@@ -2142,7 +2152,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-128
 
-**Las pistas de valoración son criterios breves apoyados en las propiedades, no listas.** · aceptada · 2026-10-27
+**Las pistas de valoración son criterios breves apoyados en las propiedades, no listas.** · aceptada (quién juzga «criterio, no lista», precisado por [D-211](#d-211)) · 2026-10-27
 
 - **Contexto:** `INTAKE 2026-10-27-assessment-hints` §5–6. Usuario: «aunque sean matices por requisito debemos intentar siempre trabajar con reglas y/o criterios, no deben ser comparaciones deterministas. Esto no sería una práctica correcta: "una lista de vocabulario admitido"»; «lo único es evitar ser demasiado verboso. Las pistas deben ser breves pero suficientemente claras»; «¿Estás teniendo en cuenta que para valorar los AC lo que se estudia son las propiedades de calidad, verdad?» y «sí» a que cada pista nombre la propiedad y los AC.
 - **Decisión:**
@@ -2228,7 +2238,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-134
 
-**Catálogo de pistas con destinatario; encontrarlas es código.** · aceptada (enmendada por [D-140](#d-140): las pistas de un requisito viven en él) · 2026-10-27
+**Catálogo de pistas con destinatario; encontrarlas es código.** · aceptada (enmendada por [D-140](#d-140): las pistas de un requisito viven en él; precisada por [D-207](#d-207) y [D-208](#d-208): separador y lista en `para`) · 2026-10-27
 
 - **Contexto:** `INTAKE 2026-10-27-hints-catalog`. Usuario: «¿Dónde viven las reglas de pistas? Me interesa montar un sistema eficiente que reduzca al máximo la duplicidad, usando algún sistema de catálogo y referencias.» Claude comparó pistas dentro de cada requisito, un catálogo con destinatario y un catálogo con referencias desde cada requisito, y recomendó el segundo. Usuario: «podría ser» y, sobre encontrarlas solo con código, «Así es».
 - **Decisión:**
@@ -2242,7 +2252,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-135
 
-**Campos de una pista de valoración, quién escribe las dirigidas a una fuente y cómo llegan al auditor.** · aceptada (precisada por [D-140](#d-140): `para`) · 2026-10-27
+**Campos de una pista de valoración, quién escribe las dirigidas a una fuente y cómo llegan al auditor.** · aceptada (precisada por [D-140](#d-140): `para`; `para` con lista, enmendada por [D-208](#d-208)) · 2026-10-27
 
 - **Contexto:** `INTAKE 2026-10-27-hint-fields`; cierra [OQ-68](open-questions.md). Claude propuso seis campos, un escritor por destino y un campo en el perfil del RI. Usuario: «OK», con «ok al id, pero sin 0s delante» y «olvida lo de los índices por ahora».
 - **Decisión:**
@@ -2256,7 +2266,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-136
 
-**Gobierno de las pistas de valoración: aceptación, duplicadas, retiradas y orígenes.** · aceptada (enmendada por [D-201](#d-201) y [D-202](#d-202)) · 2026-10-27
+**Gobierno de las pistas de valoración: aceptación, duplicadas, retiradas y orígenes.** · aceptada (enmendada por [D-201](#d-201) y [D-202](#d-202); precisada por [D-209](#d-209), [D-210](#d-210) y [D-211](#d-211)) · 2026-10-27
 
 - **Contexto:** `INTAKE 2026-10-27-hints-governance` §1, §3–5 y §7. Claude estudió si ya estaba todo lo necesario para definir las pistas y propuso lo que faltaba. Usuario: «te acepto todas las recomendaciones. Lo demás vayamos resolviendo poco a poco».
 - **Decisión:**
@@ -3283,3 +3293,115 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - OQ-33 a OQ-36 quedan abiertas, en espera de la síntesis del IR (OQ-28). Hasta entonces, IP = NA fuera de Web.
 - **Consecuencias:** [informative-prominence](../10-model/informative-prominence.md) (sigue en propuesta). OQ-32 se cierra.
 - **Relacionado:** D-018, D-019, OQ-28, OQ-32.
+
+### D-205
+
+**La información resolutiva ya se registra en el catálogo.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-issues-review`, [I-40](issues.md#i-40). [demand-model](../10-model/demand-model.md#requisito-informativo-ri) decía que la información resolutiva «aún no se registra en el catálogo»; [resolving-information](../10-model/resolving-information.md#pendiente) decía que el catálogo registra las listas. Claude lo comprobó en `demand-engine/catalog/`: los 490 requisitos de `gen.json` y de `cat/*.json` tienen `resolving_info`.
+- **Decisión:** demand-model deja de decir que la información resolutiva no se registra. La descripción del requisito sigue sin implantar en el catálogo (3 de 490 requisitos la tienen).
+- **Consecuencias:** [demand-model](../10-model/demand-model.md#requisito-informativo-ri) 3.10. Resuelve I-40.
+- **Relacionado:** D-062, D-063, D-064, D-092, I-40.
+
+### D-206
+
+**El dígito de control es estructura del dato: Fiabilidad, y también requisito técnico si un perfil lo exige.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-issues-review`, [I-41](issues.md#i-41). [D-122](#d-122) fija la frontera: una sintaxis inválida es técnica; una sintaxis válida con un valor imposible es Fiabilidad. No decía si la «sintaxis» incluye las reglas internas de un valor que un perfil exige. En la referencia técnica congelada, el dígito de control del GTIN lo recomienda el nivel de vocabulario (`ws-vocabulary/006`, Schema.org 30.1), no un consumidor.
+- **Decisión:**
+  - La «sintaxis» de D-122 es la del marcado: serialización y vocabulario.
+  - Las reglas internas de un valor, como el dígito de control, son estructura del dato y cuentan en Fiabilidad.
+  - Si un perfil exige un valor válido (hoy `ws-vocabulary/006`), ese requisito técnico se evalúa también en el expediente técnico.
+  - Los dos expedientes son independientes: una misma observación puede alimentar los dos, y en ninguno se cuenta dos veces.
+- **Consecuencias:** precisa D-122. [acceptance-criteria](../10-model/acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones) 1.9; [evaluation-scopes](../10-model/evaluation-scopes.md#pendiente) 2.8; [ac-guides](../20-methods/audit-gsc/ac-guides.md) 0.7. Resuelve I-41.
+- **Relacionado:** D-122, D-130, D-166, I-41.
+
+### D-207
+
+**Una pista dirigida a una fuente encaja hasta un separador propio de cada clase de fuente.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-issues-review`, [I-42](issues.md#i-42). La regla 8 de [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) comparaba por el comienzo de la etiqueta. El piloto de T-050 mostró que no basta: el guion separa el artículo en una ley, pero forma parte del nombre de un atributo de Shopify (`fabric`, `fabric-weave`).
+- **Decisión:** el comienzo de la etiqueta encaja solo hasta un separador propio de cada clase de fuente:
+  - en una ley, el guion y el punto (artículo y apartado) y la arroba (fecha);
+  - en un atributo o una propiedad, el igual (valor) y la arroba.
+- **Interpretación adoptada:** recoge lo que ya implanta el motor (`demand-engine/src/demand_engine/demand/hints.py`, `cites`).
+- **Consecuencias:** [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) 1.11 (regla 8). Resuelve I-42.
+- **Relacionado:** D-134, D-135, I-42.
+
+### D-208
+
+**`para` admite una lista de valores de una misma llave.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-issues-review`, [I-43](issues.md#i-43). [D-135](#d-135) define `para` con un solo valor. Un tema repartido en varios rasgos o fuentes (las certificaciones: dos rasgos y tres atributos de Shopify) no se alcanza escribiendo la pista una sola vez.
+- **Decisión:** `para` admite una lista de valores de una misma llave: varias fuentes o varios tipos. La pista se escribe una vez y la búsqueda sigue siendo por etiquetas exactas.
+- **Interpretación adoptada:**
+  - Una lista no mezcla llaves: o todo fuentes o todo tipos («una misma llave»).
+  - Lectura de Claude: la revisión de [D-200](#d-200) se hace contra los requisitos a los que llega la pista por cualquiera de sus valores.
+- **Consecuencias:** enmienda D-135 (`para`) y precisa D-134 («una de tres llaves»). [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) 1.11 (reglas 7 y 9); glosario (Pistas de valoración). Fuera de `docs/`: el motor de pistas (T-089). Resuelve I-43.
+- **Relacionado:** D-134, D-135, D-140, D-200, I-43.
+
+### D-209
+
+**Las duplicadas se buscan también en lo que llega a cada requisito.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-issues-review`, [I-44](issues.md#i-44). La regla 13 de [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) busca duplicadas por destino. En el piloto de T-050, la única duplicada real llegaba al mismo requisito por llaves distintas.
+- **Decisión:** además de la búsqueda por destino, el código avisa de las pistas que llegan a un mismo requisito por llaves distintas con la misma propiedad y el mismo AC. Un revisor resuelve cada aviso.
+- **Interpretación adoptada:** recoge lo que ya implanta el motor (`hints.py`, `check`).
+- **Consecuencias:** precisa D-136 (duplicadas). [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) 1.11 (regla 13). Resuelve I-44.
+- **Relacionado:** D-136, D-140, I-44.
+
+### D-210
+
+**Las pistas propias de un requisito de la capa general pueden tener origen «marco».** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-issues-review`, [I-45](issues.md#i-45). La capa general no tiene rasgo, y sus comprobaciones de tipo (longitud y dígito de control del GTIN) se escribieron en el requisito `gen/03` con origen «marco». [D-136](#d-136) reserva «marco» para las pistas por tipo que redacta Claude.
+- **Decisión:** el origen «marco» se admite en las pistas dirigidas a un requisito de la capa general, que es parte del marco ([D-045](#d-045)). No se da rasgo a la capa general.
+- **Interpretación adoptada:** precisa la interpretación de D-136, que separaba el «marco» de las pistas por tipo del origen «marco» de la capa general en la información resolutiva. En las pistas de un requisito de la capa general, los dos coinciden.
+- **Consecuencias:** [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) 1.11 (reglas 8 y 9). Resuelve I-45.
+- **Relacionado:** D-045, D-136, D-140, I-45.
+
+### D-211
+
+**El código comprueba la forma de una pista; un agente revisor juzga si es un criterio.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-issues-review`, [I-46](issues.md#i-46). [D-136](#d-136) pide que una pista pase unas comprobaciones automáticas, entre ellas «es un criterio, no una lista». En el piloto de T-050, el código solo pudo comprobar la forma.
+- **Decisión:**
+  - La comprobación automática cubre la forma: los seis campos, el destino y la longitud.
+  - Si la pista es un criterio y no una lista o una frase exacta, lo juzga un agente revisor en el mismo paso que escribe las pistas.
+  - El revisor no pide aprobación al usuario ([D-136](#d-136)).
+- **Consecuencias:** precisa D-136 y D-128. [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) 1.11 (reglas 3 y 11); [model-training](../10-model/model-training.md) 1.24. Fuera de `docs/`: el paso que escribe las pistas (T-089). Resuelve I-46.
+- **Relacionado:** D-128, D-136, I-46.
+
+### D-212
+
+**El GS1 Web Vocabulary queda sin ficha hasta que un perfil lo necesite.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-issues-review`, [I-47](issues.md#i-47). El GS1 Web Vocabulary (GS1-01 y GS1-03) no encaja en ninguna clase de fuente de [D-132](#d-132). La incidencia proponía la clase «vocabulario complementario» y daba como alternativa dejarlo sin ficha.
+- **Decisión:** se adopta la alternativa. Las dos fuentes siguen registradas y congeladas en `web-audit`, sin ficha. No se añade ninguna clase de fuente. Si un perfil las necesita, se decide su clase entonces.
+- **Interpretación adoptada:** motivo: ninguna de las 45 fichas congeladas usa términos `gs1:`.
+- **Consecuencias:** sin cambio en [evaluation-scopes](../10-model/evaluation-scopes.md#fuentes-de-los-requisitos-técnicos). Fuera de `docs/`: `web-audit/reference/inventory.md`. Resuelve I-47.
+- **Relacionado:** D-130, D-132, D-133, I-47.
+
+### D-213
+
+**«Reformular» es una revisión de PAA más, que taxo reevalúa al compilar.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-issues-review`, [I-50](issues.md#i-50). [D-115](#d-115) lista las revisiones estructurales que PAA deja para taxo: separar, sacar y partir. El clasificador PAA propone también «reformular» requisitos de referencias.
+- **Decisión:** «reformular» se añade a las revisiones de D-115, con el mismo tratamiento que las demás. PAA la deja en su `classified.json` y la compilación de taxo la reevalúa ([D-179](#d-179)).
+- **Consecuencias:** amplía D-115. [paa-training](../10-model/paa-training.md#un-solo-escritor-por-requisito) 1.6; [assessment-hints](../10-model/assessment-hints.md#distinciones) 1.11; glosario (Revisiones de PAA). Fuera de `docs/`: la compilación de taxo lee también «reformular» (T-092). Resuelve I-50.
+- **Relacionado:** D-115, D-179, I-50.
+
+### D-214
+
+**La capa de clases internas de la taxonomía queda superada por D-033.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-issues-review`, [I-51](issues.md#i-51). El marco de taxonomía (TAX) propone la «clase interna con identificador propio» como unidad canónica, con padres, fichas y mapeos versionados. [D-033](#d-033) identifica el modelo de demanda por sus bloques de requisitos, y la herencia sale del árbol de Shopify. El sistema no construye esa capa ([D-174](#d-174), OQ-05).
+- **Decisión:** la capa de clases internas (clase y subclase interna, ficha de clase, ficha de correspondencia y las entidades de datos que dependen de ellas) queda superada por D-033. Los módulos de taxonomía la marcan como superada y retiran lo que ya no rige.
+- **Interpretación adoptada:**
+  - La fila «unidad canónica» de product-taxonomy pasa a decir lo que rige.
+  - El resto del texto de TAX (fichas de los anexos, entidades de datos, capa 2 de la arquitectura) se conserva como superado, con su marca, porque es la línea base v0 y su trazabilidad.
+  - Lectura de Claude: las menciones del MPIR a la clase interna siguen como están, porque el MPIR está aparcado ([D-095](#d-095)).
+  - Lectura de Claude: la marca se extiende a integration (capa 2 y paso 6) y al glosario (Clase interna, Subclase interna y Correspondencia), para que no quede la capa como vigente en otro sitio. La correspondencia Shopify → PTD de Amazon sigue ([D-174](#d-174)), sin clase interna como destino.
+  - Se retiran las orientaciones «mantener clases internas con IDs propios» y «crear subclases solo cuando…» de data-model-governance.
+- **Consecuencias:** [product-taxonomy](../20-methods/product-taxonomy/README.md) 1.10; [data-model-governance](../20-methods/product-taxonomy/data-model-governance.md) 1.4; [integration](../20-methods/product-taxonomy/integration.md) 1.3; glosario (Clase interna, Subclase interna, Correspondencia). Resuelve I-51.
+- **Relacionado:** D-023, D-033, D-095, D-174, I-51.

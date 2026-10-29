@@ -3,9 +3,9 @@ id: acceptance-criteria
 title: Criterios de aceptación
 layer: model
 status: vigente
-version: 1.8
+version: 1.9
 updated: 2026-10-29
-sources: [BASE §5.2, FUND §6, FUND §10.1, GSC0 §6.4, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-shipping-zones, INTAKE 2026-10-29-oq-review]
+sources: [BASE §5.2, FUND §6, FUND §10.1, GSC0 §6.4, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-shipping-zones, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review]
 ---
 
 # Criterios de aceptación (AC)
@@ -83,7 +83,7 @@ Cada criterio se valora con el **GSC** (0/1/2). No hay NA de criterio, salvo el 
 - **Certificaciones:** se juzgan por lo publicado, no se validan. En Fiabilidad, solo estructura, dominio y consistencia (una fecha de validez vencida, un sello incompatible con la composición). Los demás AC miran lo suyo: Justificación, que se publiquen el número y el organismo; Precisión, «OEKO-TEX» sin decir qué norma; Aplicabilidad, que la certificación se atribuya al producto que se vende y no a una materia prima.
 - **Imágenes:** lo que una foto muestra no sirve para refutar un dato; solo cuenta la información explícita que lleve ([effective-availability](effective-availability.md#imágenes-lo-que-muestran-y-lo-que-expresan), [D-144](../30-governance/decisions.md#d-144)).
 - **Identificador ausente:** si el ecommerce no da el identificador que permitiría verificar un dato (p. ej., el número de certificado), cuenta en **Justificación** (P18), no en Fiabilidad. La auditoría no lo verifica, pero es la base que permite a cualquiera verificarlo ([D-154](../30-governance/decisions.md#d-154)).
-- **Frontera con la evaluación técnica:** una propiedad mal escrita o una sintaxis inválida es técnica y solo cuenta por su efecto en la disponibilidad; una sintaxis válida con un valor imposible (GTIN con dígito de control erróneo) es Fiabilidad. ⚠ Ver [I-41](../30-governance/issues.md#i-41).
+- **Frontera con la evaluación técnica:** una propiedad mal escrita o una sintaxis inválida es técnica y solo cuenta por su efecto en la disponibilidad; una sintaxis válida con un valor imposible (GTIN con dígito de control erróneo) es Fiabilidad. La sintaxis es la del marcado (serialización y vocabulario); las reglas internas de un valor, como el dígito de control, son estructura del dato. Si un perfil exige un valor válido, ese requisito técnico se evalúa también en el expediente técnico: los dos expedientes son independientes y en ninguno se cuenta dos veces ([D-206](../30-governance/decisions.md#d-206)).
 - **Consistencia por ámbito:** cuenta en el GSC de Fiabilidad de su ámbito. En Catálogos distribuidos se comprueba dentro del ítem y entre las variantes de un grupo. La consistencia entre ámbitos es otra dimensión de análisis, que no modifica este GSC ([consistencia transversal](evaluation-scopes.md#consistencia-transversal)).
 - **Límite:** Fiabilidad mide la corrección y la coherencia interna de lo publicado, no su veracidad frente al mundo. Un 2 no acredita que una certificación, una clase energética o un GTIN sean válidos ([scope](../00-context/scope.md#límite-de-interpretación)).
 

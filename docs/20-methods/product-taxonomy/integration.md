@@ -3,9 +3,9 @@ id: product-taxonomy-integration
 title: Taxonomía — estrategia de integración y alineación de conceptos
 layer: method
 status: propuesta
-version: 1.2
-updated: 2026-10-24
-sources: [TAX §3, TAX §4, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion]
+version: 1.3
+updated: 2026-10-29
+sources: [TAX §3, TAX §4, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-29-issues-review]
 ---
 
 # Taxonomía — estrategia de integración y alineación de conceptos
@@ -24,9 +24,11 @@ Una coincidencia de etiqueta no acredita identidad conceptual; dos conceptos pue
 |---|---|---|
 | 0. Fuentes congeladas | Versiones de Shopify, Amazon por marketplace, Google y fuentes documentales. | Procedencia reproducible. |
 | 1. Alineación semántica | Conceptos externos, atributos, definiciones y correspondencias con revisión. | Mapa de relaciones, sin perder discrepancias. |
-| 2. Taxonomía propia | Clases, subclases, posibles facetas, inclusiones y exclusiones. | Estructura canónica para delimitar el estudio. |
+| 2. Taxonomía propia | Clases, subclases, posibles facetas, inclusiones y exclusiones. Superada por D-033 (D-214). | Estructura canónica para delimitar el estudio. |
 | 3. Modelos de demanda | Requisitos compartidos y diferenciales, con aplicabilidad e importancia relativa. | Catálogo de preguntas evaluables por clase. |
 | 4. Auditoría por ámbito | Evaluación posterior de la resolución de cada requisito en cada interfaz pertinente. | Diagnóstico de calidad informativa; fuera del objeto de esta taxonomía. |
+
+> **Estado: capa 2 superada** por [D-033](../../30-governance/decisions.md#d-033) ([D-214](../../30-governance/decisions.md#d-214)): el sistema no construye clases internas. El modelo de demanda se identifica por sus bloques de requisitos y la herencia sale del árbol de Shopify.
 
 Esta separación evita que el cambio de un nodo Amazon o un atributo de Google obligue a cambiar de inmediato el significado de una clase interna o a reescribir todos los requisitos del estudio.
 
@@ -58,7 +60,7 @@ Los tipos anteriores son una propuesta interna inspirada en SKOS [R16]. **No deb
 3. **Proponer la relación:** equivalencia, inclusión jerárquica, aproximación, relación o solapamiento; evitar decisiones binarias precipitadas.
 4. **Contrastar con casos:** productos representativos y contraejemplos, información de ecommerce referentes y documentación de las fuentes.
 5. **Registrar evidencia y estado:** fuente concreta, justificación, revisión y si el mapeo es provisional o está validado.
-6. **Comprobar consecuencias:** qué clases internas, facetas y requisitos informativos se verían afectados por utilizar esa correspondencia.
+6. **Comprobar consecuencias:** qué clases internas, facetas y requisitos informativos se verían afectados por utilizar esa correspondencia. (Las clases internas, superadas por D-033: [D-214](../../30-governance/decisions.md#d-214).)
 
 Se admiten relaciones **uno-a-varios y varios-a-varios**. La ausencia de mapeo no obliga a descartar una clase candidata; obliga a identificar correctamente su origen y el grado de incertidumbre.
 

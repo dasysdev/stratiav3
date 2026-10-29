@@ -3,9 +3,9 @@ id: product-taxonomy
 title: Taxonomía de clases de producto — marco metodológico
 layer: method
 status: propuesta
-version: 1.9
+version: 1.10
 updated: 2026-10-29
-sources: [TAX Resumen, TAX §1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-29-oq-review]
+sources: [TAX Resumen, TAX §1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review]
 ---
 
 # Taxonomía de clases de producto — marco metodológico
@@ -22,15 +22,15 @@ La conclusión de la investigación es que **Shopify, Amazon y Google son fuente
 
 > El canon reconoce como vías de construcción del modelo de demanda esta taxonomía, el [MPIR](../mpir/README.md) ([D-009](../../30-governance/decisions.md#d-009); aparcado por [D-095](../../30-governance/decisions.md#d-095)) y People Also Ask ([D-094](../../30-governance/decisions.md#d-094)); se suman, como provisionales, las cuestiones inferidas ([D-036](../../30-governance/decisions.md#d-036)). Ver [construction-routes](../../10-model/construction-routes.md). Amazon y Google son fuentes de apoyo de la taxonomía; los PTD de Amazon pueden además ser fuente de requisitos de la categoría cuando son relevantes para la clase ([D-039](../../30-governance/decisions.md#d-039)).
 
-La estrategia es **conservar las fuentes externas sin modificarlas, construir correspondencias auditables y derivar una capa interna de clases y facetas**. Un siguiente nivel de especialización es deseable allí donde cambien sustancialmente las necesidades informativas, pero no debe imponerse a todas las ramas ni justificarse por la mera existencia de una subcategoría en Amazon.
+La estrategia es **conservar las fuentes externas sin modificarlas, construir correspondencias auditables y derivar una capa interna de clases y facetas**. (La capa interna de clases está superada por [D-033](../../30-governance/decisions.md#d-033): el modelo de demanda se identifica por sus bloques de requisitos y la herencia sale del árbol de Shopify; el sistema no construye clases internas, [D-214](../../30-governance/decisions.md#d-214).) Un siguiente nivel de especialización es deseable allí donde cambien sustancialmente las necesidades informativas, pero no debe imponerse a todas las ramas ni justificarse por la mera existencia de una subcategoría en Amazon.
 
 | Decisión metodológica | Orientación propuesta |
 |---|---|
 | Estructura principal | Shopify Standard Product Taxonomy, fijada por versión como referencia inicial. |
 | Ampliación de granularidad | Amazon Browse Tree, y en su caso atributos de Amazon Product Type Definitions. |
 | Contraste complementario | Google Product Taxonomy, Merchant Center y Manufacturer Center. |
-| Unidad canónica | Clase interna definida por alcance funcional e informativo; identificador propio. |
-| Mecanismo de integración | Correspondencias semánticas versionadas, no unión automática de árboles. |
+| Unidad canónica | Superada por [D-033](../../30-governance/decisions.md#d-033) ([D-214](../../30-governance/decisions.md#d-214)): el modelo de demanda se identifica por su composición de bloques de requisitos, y la herencia sale del árbol de Shopify. No hay clase interna con identificador propio. |
+| Mecanismo de integración | Correspondencias semánticas versionadas, no unión automática de árboles. Sin clase interna como destino ([D-214](../../30-governance/decisions.md#d-214)): la correspondencia Shopify → PTD de Amazon la propone el clasificador y la valida el entrenamiento ([D-174](../../30-governance/decisions.md#d-174)). |
 | Vínculo con demanda | La clase delimita el dominio; los requisitos informativos se infieren y validan por separado. |
 
 ## Propósito
@@ -58,8 +58,8 @@ La taxonomía es transversal a esos ámbitos: **no se diseña una clase distinta
 | Categoría externa | Nodo de una clasificación Shopify, Google o Amazon; responde a fines de la plataforma. |
 | Tipo de producto externo | Noción propia del sistema proveedor; en Amazon, un tipo PTD no equivale necesariamente a un nodo de navegación. |
 | Atributo y valor | Característica y posible valor descriptivo; pueden revelar una especialización, pero no son clases por defecto. |
-| Clase interna | Conjunto de productos u ofertas delimitado por reglas claras y necesidades informativas suficientemente homogéneas. |
-| Subclase interna | Clase más específica cuya delimitación y diferenciación informativa están justificadas. |
+| Clase interna | Conjunto de productos u ofertas delimitado por reglas claras y necesidades informativas suficientemente homogéneas. Superada por D-033 ([D-214](../../30-governance/decisions.md#d-214)): el sistema no construye esta capa. |
+| Subclase interna | Clase más específica cuya delimitación y diferenciación informativa están justificadas. Superada por D-033 ([D-214](../../30-governance/decisions.md#d-214)): no se crean subclases. |
 | Faceta | Dimensión transversal (uso, protección, estilo, material...) que ayuda a segmentar sin exigir una rama exclusiva. |
 | Clase de estudio | Clase objeto del modelo de demanda: clase general más todas las especializaciones aplicables ([definición canónica](../../10-model/study-class.md)). |
 | Modelo de demanda | Catálogo de requisitos informativos pertinentes para la clase ([definición canónica](../../10-model/demand-model.md)). |

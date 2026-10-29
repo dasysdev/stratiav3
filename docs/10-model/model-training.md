@@ -3,9 +3,9 @@ id: model-training
 title: Entrenamiento y ejecución del modelo de demanda
 layer: model
 status: vigente
-version: 1.23
+version: 1.24
 updated: 2026-10-29
-sources: [INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-25-training-catalog-selection, INTAKE 2026-10-25-training-classifier, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-26-color-and-requirement-exceptions, INTAKE 2026-10-26-any-property-precision, INTAKE 2026-10-26-critical-count-not-a-goal, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-formulation, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-capture-system, INTAKE 2026-10-28-curated-training-catalog, INTAKE 2026-10-29-oq-review]
+sources: [INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-25-training-catalog-selection, INTAKE 2026-10-25-training-classifier, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-26-color-and-requirement-exceptions, INTAKE 2026-10-26-any-property-precision, INTAKE 2026-10-26-critical-count-not-a-goal, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-formulation, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-capture-system, INTAKE 2026-10-28-curated-training-catalog, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review]
 ---
 
 # Entrenamiento y ejecución del modelo de demanda
@@ -59,7 +59,7 @@ Lo que antes validaba la persona responsable (las especializaciones, [D-022](../
 
 La compilación lee también las revisiones que PAA deja para los requisitos de referencias o de normativa. No tienen registro propio: están en los `classified.json` de `demand-engine/var/paa/sets/`. Si `var/` se limpia antes de compilar, esas revisiones se pierden y hay que volver a clasificar el conjunto ([D-179](../30-governance/decisions.md#d-179)).
 
-El entrenamiento compila también las [pistas de valoración](assessment-hints.md) dirigidas a un tipo (rasgo × entidad), en el catálogo de pistas ([D-134](../30-governance/decisions.md#d-134)). Quien redacta un bloque nuevo escribe sus pistas, sin compilar, y el entrenamiento las consolida. Una pista de origen «inferida» queda provisional hasta que la valida el entrenamiento ([D-201](../30-governance/decisions.md#d-201)). Rechaza las pistas que sean una lista o una frase exacta, que reformula como criterio ([D-127](../30-governance/decisions.md#d-127), [D-128](../30-governance/decisions.md#d-128)).
+El entrenamiento compila también las [pistas de valoración](assessment-hints.md) dirigidas a un tipo (rasgo × entidad), en el catálogo de pistas ([D-134](../30-governance/decisions.md#d-134)). Quien redacta un bloque nuevo escribe sus pistas, sin compilar, y el entrenamiento las consolida. Una pista de origen «inferida» queda provisional hasta que la valida el entrenamiento ([D-201](../30-governance/decisions.md#d-201)). Si una pista es una lista o una frase exacta, la rechaza el agente revisor del paso que escribe las pistas, y se reformula como criterio; el código solo comprueba la forma ([D-128](../30-governance/decisions.md#d-128), [D-211](../30-governance/decisions.md#d-211)).
 
 ## Ejecución
 

@@ -66,3 +66,4 @@
 - 2026-10-28 T-077 Sistema cuantitativo técnico, mínimo de Web y páginas de la auditoría (OQ-30, OQ-84, OQ-85) — Tasa técnica (D-166), páginas de la auditoría (D-167) y mínimo de Web con Open Graph condicional (D-168) en el canon; 10 requisitos nuevos de Web; T-078 abierta y T-049 a la espera de ella
 - 2026-10-28 T-078 Captura de las páginas de una auditoría (D-167) en capture — capture.audit y pages audit: páginas de una auditoría (D-167) con audit-es en var/audits/AUDIT/; probado con Burrito Blanco; 44 pruebas en verde
 - 2026-10-29 T-049 Sistema de auditado técnico de Web y Web Schema.org — Auditor técnico web-audit/bin/audit + skill /web-audit: 356 comprobaciones, expediente con tasa D-166; probado en 5 sitios reales
+- 2026-10-29 T-070 Retirar las pistas de registro de certificados (D-154) — Retiradas PV-39 y PV-40; PV-45 a PV-47 juzgan las certificaciones por lo publicado (D-154)

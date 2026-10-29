@@ -509,6 +509,10 @@
         "apoyo": [
           "D-122"
         ]
+      },
+      "retirada": {
+        "fecha": "2026-10-29",
+        "motivo": "D-154: la auditoría no consulta registros externos. La Fiabilidad de una certificación se juzga por estructura, dominio y consistencia; la sustituye PV-46."
       }
     },
     {
@@ -528,6 +532,10 @@
         "apoyo": [
           "D-122"
         ]
+      },
+      "retirada": {
+        "fecha": "2026-10-29",
+        "motivo": "La sustituye PV-45: el alcance de la certificación se juzga por lo publicado, no por el certificado (D-154)."
       }
     },
     {
@@ -549,6 +557,63 @@
         "tipo": "marco",
         "apoyo": [
           "D-122"
+        ]
+      }
+    },
+    {
+      "id": "PV-45",
+      "pista": "Lo publicado ha de atribuir la certificación al producto que se vende, no a una materia prima, a otro artículo de la marca ni a otro sector.",
+      "propiedad": [
+        "P12"
+      ],
+      "ac": [
+        "Aplicabilidad"
+      ],
+      "para": {
+        "fuente": "shopify-attr:safety-certifications"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-154"
+        ]
+      }
+    },
+    {
+      "id": "PV-46",
+      "pista": "Una certificación queda refutada si lo publicado la contradice: una fecha de validez ya vencida o un sello incompatible con la composición que declara el propio ámbito.",
+      "propiedad": [
+        "P14"
+      ],
+      "ac": [
+        "Fiabilidad"
+      ],
+      "para": {
+        "fuente": "shopify-attr:safety-certifications"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-154"
+        ]
+      }
+    },
+    {
+      "id": "PV-47",
+      "pista": "Una certificación solo es precisa si nombra la norma o el estándar concreto que certifica, no solo el sello o el organismo: «OEKO-TEX» no dice cuál de sus normas.",
+      "propiedad": [
+        "P09"
+      ],
+      "ac": [
+        "Precisión"
+      ],
+      "para": {
+        "fuente": "shopify-attr:safety-certifications"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-154"
         ]
       }
     }

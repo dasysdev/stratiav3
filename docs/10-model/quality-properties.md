@@ -3,9 +3,9 @@ id: quality-properties
 title: Propiedades de calidad (P06–P18)
 layer: model
 status: vigente
-version: 1.4
-updated: 2026-10-28
-sources: [BASE §5.3, FUND §7, FUND §4.2, GSC0 §9.3, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1]
+version: 1.5
+updated: 2026-10-30
+sources: [BASE §5.3, FUND §7, FUND §4.2, GSC0 §9.3, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Propiedades de calidad (P06–P18)
@@ -18,7 +18,7 @@ FUND §7 precisa que se consideran **desde el propósito informativo de un RI**.
 
 **Numeración:** empieza en P06. Los IDs anteriores correspondían a propiedades técnicas de un modelo previo; están **retirados y no se reutilizan** ([D-007](../30-governance/decisions.md#d-007)).
 
-**P15 · Actualidad está retirada** porque no hay forma de evaluarla; el ID no se reutiliza ([D-123](../30-governance/decisions.md#d-123)), que enmienda BASE §5.3 y FUND §7. Lo detectable sigue cubierto por otras vías: una fecha de validez vencida en la captura es un defecto de estructura del dato; un feed desfasado frente a la web, un hallazgo de [consistencia transversal](evaluation-scopes.md#consistencia-transversal); «Agotado» visible con `InStock` en el marcado, una incoherencia dentro de Web (P16).
+**P15 · Actualidad está retirada** porque no hay forma de evaluarla; el ID no se reutiliza ([D-123](../30-governance/decisions.md#d-123)), que enmienda BASE §5.3 y FUND §7. Lo detectable sigue cubierto por otras vías: una fecha de validez vencida en la captura es un defecto de estructura del dato; un feed desfasado frente a la web, un hallazgo de [consistencia transversal](evaluation-scopes.md#consistencia-transversal); «Agotado» en el contenido con `InStock` en el marcado, otro hallazgo de consistencia transversal, Contenido ↔ Marcado ([D-220](../30-governance/decisions.md#d-220)).
 
 ### Informativas y semánticas
 

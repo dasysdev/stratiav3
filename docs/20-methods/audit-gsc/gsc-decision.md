@@ -3,9 +3,9 @@ id: audit-gsc-gsc-decision
 title: Decisión de GSC, incidencias y control de materialidad
 layer: method
 status: propuesta
-version: 0.6
-updated: 2026-10-29
-sources: [GSC0 §12, GSC0 §14.4, FUND §8.1, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review]
+version: 0.7
+updated: 2026-10-30
+sources: [GSC0 §12, GSC0 §14.4, FUND §8.1, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Decisión de GSC, incidencias y control de materialidad
@@ -108,7 +108,7 @@ Los registros de la auditoría informativa son **JSON validado y versionado**, c
 ```yaml
 caso_id: "AUD-XXX"
 ri_id: "RI-XXX"
-ambito: "Web"
+ambito: "Contenido"
 disponibilidad_efectiva: 1
 valoraciones:
   - criterio: "Aplicabilidad"

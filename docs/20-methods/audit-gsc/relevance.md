@@ -3,9 +3,9 @@ id: audit-gsc-relevance
 title: Pertinencia funcional y conjunto pertinente
 layer: method
 status: propuesta
-version: 0.2
-updated: 2026-10-27
-sources: [GSC0 §6, GSC0 §7, FUND §9.2, FUND §3.6, INTAKE 2026-10-27-ac-applicability-and-reliability]
+version: 0.3
+updated: 2026-10-30
+sources: [GSC0 §6, GSC0 §7, FUND §9.2, FUND §3.6, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Pertinencia funcional y conjunto pertinente
@@ -99,7 +99,7 @@ Cada unidad incluida conserva: **contenido literal o valor original, procedencia
 
 **CT-04 · Preservar condiciones.** Una afirmación sujeta a descuento, localización, fecha, canal o configuración no se generaliza fuera de esas condiciones.
 
-**CT-05 · Relacionar representaciones de forma controlada.** En Web pueden combinarse HTML y Schema.org solo con conexión suficiente de entidad y contexto. Registrar de qué representación procede cada afirmación.
+**CT-05 · Relacionar representaciones de forma controlada.** Dentro de un ámbito, combinar afirmaciones solo con conexión suficiente de entidad y contexto. Contenido y Marcado no se combinan entre sí ([D-220](../../30-governance/decisions.md#d-220)). Registrar de qué parte de la representación procede cada afirmación.
 
 **CT-06 · Distinguir equivalencia y contradicción.** Dos valores aparentemente distintos pueden ser compatibles por unidades, periodo, entidad u otras condiciones. No declarar contradicción sin comprobar comparabilidad de alcance y momento.
 

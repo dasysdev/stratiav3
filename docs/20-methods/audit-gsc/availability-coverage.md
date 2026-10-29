@@ -3,9 +3,9 @@ id: audit-gsc-availability-coverage
 title: Disponibilidad efectiva y cobertura (procedimiento)
 layer: method
 status: propuesta
-version: 0.4
-updated: 2026-10-29
-sources: [GSC0 §8, FUND §5.3, FUND §9.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review]
+version: 0.5
+updated: 2026-10-30
+sources: [GSC0 §8, FUND §5.3, FUND §9.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Disponibilidad efectiva y cobertura
@@ -54,7 +54,7 @@ La cobertura necesaria es **proporcional a la afirmación que debe sostenerse**:
 
 **CO-07.** Distinguir: *no publicado*, *no obtenible/legible bajo el perfil*, *no localizado pese a revisión suficiente* y *no comprobado por cobertura insuficiente*. Son diagnósticos diferentes y no autorizan idénticas conclusiones.
 
-**CO-08.** Conservar prueba de cómo se examinó el contenido y de los límites de esa inspección, especialmente para una ausencia. En la V1, esa prueba la deja la fase 1 de la [ejecución](execution.md#ejecución-en-dos-fases), que mira la página entera del ámbito; un 0 sin ella no pasa el validador ([D-153](../../30-governance/decisions.md#d-153), QA-15).
+**CO-08.** Conservar prueba de cómo se examinó el contenido y de los límites de esa inspección, especialmente para una ausencia. En la V1, esa prueba la deja la fase 1 de la [ejecución](execution.md#ejecución-en-dos-fases), que mira la representación entera del ámbito; un 0 sin ella no pasa el validador ([D-153](../../30-governance/decisions.md#d-153), QA-15).
 
 **CO-09.** Si una comprobación no alcanza cobertura adecuada para su conclusión, ampliar inspección o declarar la decisión inconclusa/NE según la fase y el juicio afectados.
 
@@ -62,8 +62,8 @@ La cobertura necesaria es **proporcional a la afirmación que debe sostenerse**:
 
 - **Fallo puntual de una herramienta:** no se presume automáticamente ausencia de información; comprobar si se trata de una imposibilidad efectiva del perfil o de un fallo de auditoría no concluyente.
 - **Contenido presente solo mediante interacción no admitida:** no es utilizable en ese ámbito/perfil; si no queda ningún otro elemento pertinente y se acredita la condición, disponibilidad efectiva = 0. La conformidad del mecanismo se juzga en el expediente técnico.
-- **Texto que solo está dentro de una imagen (Web, V1):** solo cuenta el texto del documento: el `alt`, el `figcaption` o el texto cercano. Un dato que solo está dentro de una imagen da disponibilidad 0 para ese dato. La lectura con reconocimiento de texto (OCR) es una línea futura ([D-195](../../30-governance/decisions.md#d-195); [imágenes](../../10-model/effective-availability.md#imágenes-lo-que-muestran-y-lo-que-expresan)).
-- **HTML utilizable y Schema.org defectuoso:** en Web puede existir disponibilidad efectiva 1 por HTML; en Web Schema.org hay que examinar aisladamente si su información pertinente es utilizable. No trasladar automáticamente uno de los resultados al otro.
+- **Texto que solo está dentro de una imagen (Contenido, V1):** solo cuenta el texto que da el [filtro Alfa](filter-alfa.md): el `alt`, el `figcaption` o el texto cercano. Un dato que solo está dentro de una imagen da disponibilidad 0 para ese dato. La lectura con reconocimiento de texto (OCR) es una línea futura ([D-195](../../30-governance/decisions.md#d-195); [imágenes](../../10-model/effective-availability.md#imágenes-lo-que-muestran-y-lo-que-expresan)).
+- **Contenido utilizable y marcado defectuoso:** Contenido no lee el marcado, así que un defecto del marcado no le afecta; en Marcado hay que examinar aisladamente si su información pertinente es utilizable. No trasladar uno de los resultados al otro ([D-220](../../30-governance/decisions.md#d-220)).
 - **Resultado positivo parcial:** basta para disponibilidad efectiva 1; no basta por sí mismo para otorgar GSC 2 a ningún AC.
 
 ## Registro de cobertura

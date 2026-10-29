@@ -3,9 +3,9 @@ id: acceptance-criteria
 title: Criterios de aceptación
 layer: model
 status: vigente
-version: 1.9
-updated: 2026-10-29
-sources: [BASE §5.2, FUND §6, FUND §10.1, GSC0 §6.4, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-shipping-zones, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review]
+version: 1.10
+updated: 2026-10-30
+sources: [BASE §5.2, FUND §6, FUND §10.1, GSC0 §6.4, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-shipping-zones, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Criterios de aceptación (AC)
@@ -65,7 +65,7 @@ Cada criterio se valora con el **GSC** (0/1/2). No hay NA de criterio, salvo el 
 |---|---|---|---|
 | **Estructura del dato** | Las reglas que el propio dato lleva consigo | Dígito de control y longitud del GTIN; composición que suma 100 %; precio final = base − descuento; unidad coherente con la magnitud; valor dentro de una enumeración cerrada (clase energética A–G); fecha de validez publicada y ya vencida en la captura | Refutar, con certeza |
 | **Conocimiento del dominio** | Reglas generales: definiciones, denominaciones legales, normas que fijan el significado de un término; imposibilidades físicas o lógicas | «Certificado GOTS» en una sábana 100 % poliéster (GOTS exige al menos un 70 % de fibra natural ecológica); «satén de seda» con composición 100 % poliéster (el Reglamento (UE) 1007/2011 reserva «seda» a esa fibra); un plaid de 130 × 170 cm que pesa 40 kg | Solo refutar |
-| **Consistencia dentro del ámbito** | Que lo publicado en el ámbito no se contradiga | Web: texto, tabla, variantes, y HTML frente a Schema.org. Web Schema.org: dentro del marcado. Entre requisitos del mismo ámbito: una bajera de 90 × 190 en una ficha que dice «cama de 150» | Refutar: la contradicción material es el defecto |
+| **Consistencia dentro del ámbito** | Que lo publicado en el ámbito no se contradiga | Contenido: texto, tabla, variantes. Marcado: dentro del marcado. El contraste entre el contenido y el marcado es consistencia transversal, no de un ámbito ([D-220](../30-governance/decisions.md#d-220)). Entre requisitos del mismo ámbito: una bajera de 90 × 190 en una ficha que dice «cama de 150» | Refutar: la contradicción material es el defecto |
 
 - **Conocimiento del dominio** (el del modelo de IA que audita):
   - solo refuta: no puede confirmar un hecho de la oferta;
@@ -126,7 +126,7 @@ La relación orientativa entre criterios y propiedades que sustentan su análisi
 
 ## Ejemplo mínimo (hipotético)
 
-**RI:** disponibilidad comercial de cada variante. **Ámbito:** Web. Ficha con tallas 41, 42 y 43 y la afirmación «Disponible para compra online» en la cabecera del modelo, sin estado por talla.
+**RI:** disponibilidad comercial de cada variante. **Ámbito:** Contenido. Ficha con tallas 41, 42 y 43 y la afirmación «Disponible para compra online» en la cabecera del modelo, sin estado por talla.
 
 | AC | Valor ilustrativo | Motivo |
 |---|---|---|

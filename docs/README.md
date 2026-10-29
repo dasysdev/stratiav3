@@ -4,7 +4,7 @@ title: Índice de la documentación
 layer: meta
 status: vigente
 version: 1.0
-updated: 2026-10-27
+updated: 2026-10-30
 sources: []
 ---
 
@@ -31,7 +31,8 @@ Orden de lectura recomendado:
 |---|---|---|
 | 1 | [commercial-information](10-model/commercial-information.md) | Información comercial, representación, exposición, calidad y las dos dimensiones. |
 | 2 | [ai-functions](10-model/ai-functions.md) | Las siete funciones informativas de la IA y el fundamento de independencia frente a la IA concreta. |
-| 3 | [evaluation-scopes](10-model/evaluation-scopes.md) | Interfaces, tres ámbitos, requisitos técnicos, punto de contacto técnico–informativo y consistencia transversal. |
+| 3 | [evaluation-scopes](10-model/evaluation-scopes.md) | Interfaces, tres ámbitos (Catálogos distribuidos, Contenido y Marcado), requisitos técnicos, punto de contacto técnico–informativo y consistencia transversal. |
+| 3b | [reading-filters](10-model/reading-filters.md) | Filtros de lectura (nombre y versión), Alfa, el filtro del ámbito Contenido, y alcance de lectura con un panel de lectores fechado. |
 | 4 | [demand-model](10-model/demand-model.md) | Modelo de demanda, RI, importancia relativa, composición por bloques de requisitos, capa general, perfil de resolución y escenarios. |
 | 4b | [study-class](10-model/study-class.md) | Clase de estudio: eje de base, composición, criterio de especialización. Medio para descubrir los bloques del modelo. |
 | 4c | [model-training](10-model/model-training.md) | Entrenamiento (reglas inducidas, catálogo compilado) y ejecución automática del modelo de demanda; el marco que define la persona responsable. |

@@ -3,9 +3,9 @@ id: scoring-systems
 title: Sistemas de valoración
 layer: model
 status: vigente
-version: 1.8
-updated: 2026-10-29
-sources: [BASE §6, FUND §8, INTAKE 2026-10-24-prominencia-informativa, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-web-schema-technical-framework, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-technical-rate-pages-web-minimum, INTAKE 2026-10-29-oq-review]
+version: 1.9
+updated: 2026-10-30
+sources: [BASE §6, FUND §8, INTAKE 2026-10-24-prominencia-informativa, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-web-schema-technical-framework, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-technical-rate-pages-web-minimum, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Sistemas de valoración
@@ -121,13 +121,13 @@ FUND §8.5 añade: **No sustituye al diagnóstico informativo ni demuestra por s
 | Criterio × RI × ámbito | ¿Se satisface este aspecto sobre la información utilizable? | **GSC 0/1/2**; NE si hay una incidencia; NA de Comparabilidad si el requisito no es dimensión de comparación. |
 | RI × par de ámbitos | ¿Afirman los ámbitos lo mismo sobre la misma realidad comercial? | **[Consistencia transversal](evaluation-scopes.md#consistencia-transversal):** hallazgos sin escala; no modifican el GSC ni se agregan. |
 | RI × ámbito | ¿Puede determinarse y fundamentarse suficientemente la respuesta? | **IR (0–10)** y **estado binario 0/1** (propuesta) |
-| RI × ámbito (Web) | ¿Qué parte de lo resuelto tiene soporte en zonas prominentes? | **IP (0–100 %)** y **calidad ajustada** (propuesta; NA en Web Schema.org y Catálogos) |
+| RI × ámbito (Contenido) | ¿Qué parte de lo resuelto tiene soporte en zonas prominentes? | **IP (0–100 %)** y **calidad ajustada** (propuesta; NA en Marcado y Catálogos) |
 | Conjunto de RI de un ámbito | ¿Qué calidad informativa ofrece el ámbito respecto de las necesidades relevantes? | **ICI** |
 | Cobertura resolutiva | ¿Qué proporción de cuestiones pertinentes se resuelve suficientemente? | **TRI** |
 | Requisito técnico × ámbito | ¿Se cumple esta condición de su perfil de implementación? | **Satisfecho / no satisfecho**; NA si no corresponde; NE si hay una incidencia. |
 | Controles técnicos por ámbito y vista (y tipo de página) | ¿Qué proporción de requisitos técnicos evaluados se cumple? | **Tasa de cumplimiento técnico**, con su desglose por naturaleza y su cobertura |
 
-Los indicadores de **Web** y **Web Schema.org** se interpretan por separado y **no se suman ni se promedian**, porque Web incluye la información de Web Schema.org.
+Los indicadores de **Contenido** y **Marcado** se interpretan por separado y **no se suman ni se promedian**: leen representaciones distintas del mismo documento ([D-220](../30-governance/decisions.md#d-220)).
 
 ## Pendiente
 

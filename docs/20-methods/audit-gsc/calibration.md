@@ -3,9 +3,9 @@ id: audit-gsc-calibration
 title: Casos de aplicación, calibración y prueba de aceptación V1
 layer: method
 status: propuesta
-version: 0.4
-updated: 2026-10-28
-sources: [GSC0 §15, GSC0 §17, FUND §10, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-informative-audit-v1]
+version: 0.5
+updated: 2026-10-30
+sources: [GSC0 §15, GSC0 §17, FUND §10, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Casos de aplicación, calibración y prueba de aceptación V1
@@ -14,7 +14,7 @@ Los casos son **hipotéticos y metodológicos**. Ilustran pruebas y límites de 
 
 ## Caso A — información general para una cuestión por variante
 
-**RI:** «¿Cuál es la disponibilidad comercial de cada variante del modelo?» · **Ámbito:** Web.
+**RI:** «¿Cuál es la disponibilidad comercial de cada variante del modelo?» · **Ámbito:** Contenido.
 **Recurso:** ficha de un modelo de calzado; tallas 41, 42 y 43 identificadas; afirmación «Disponible para compra online» en la cabecera del modelo; inspección suficiente sin estados individualizados ni regla que atribuya el estado a cada talla; sin contraste con inventario; el RI no demanda comparación.
 
 **Localización:** listado de tallas = pertinente auxiliar/identificador; afirmación general = pertinente sustantiva parcial. **Disponibilidad efectiva: 1.**
@@ -38,7 +38,7 @@ Propiedades implicadas: P06, P07, P11, P12; las de fiabilidad y fundamentación 
 
 ## Caso B — relación legítima y respuesta derivada
 
-**RI:** disponibilidad de cada variante · **Ámbito:** Web.
+**RI:** disponibilidad de cada variante · **Ámbito:** Contenido.
 Contenido admisible: tallas 41, 42 y 43; `Talla 42 ↔ SKU-420`; `SKU-420 ↔ InStock`; mismo modelo y oferta; canal y momento compatibles.
 
 La ruta `talla → SKU → estado` es **pertinente y puede fundamentar** «la talla 42 está en stock» sin aparecer literalmente en una sola frase. Sirve para reconstruir la evidencia, **no para penalizar el número de pasos**. **No extrapolar** a tallas 41 y 43: la Concreción del RI completo depende de lo que se encuentre sobre esas unidades.
@@ -53,7 +53,7 @@ Análogamente, ante «¿Cuál es el precio final tras el descuento anunciado?»,
 
 ## Caso C — ausencia de información pertinente bajo el perfil
 
-**RI:** disponibilidad por variante · **Ámbito:** Web; perfil sin interacción ni ejecución del mecanismo concreto que incorpora el contenido (JavaScript).
+**RI:** disponibilidad por variante · **Ámbito:** Contenido; perfil sin interacción ni ejecución del mecanismo concreto que incorpora el contenido (JavaScript).
 El HTML obtenido contiene únicamente un contenedor vacío; tras inspección adecuada no hay elementos pertinentes recuperables en las representaciones admitidas.
 
 **Disponibilidad efectiva = 0 → IR = 0 → AC no valorados.**
@@ -84,18 +84,18 @@ Puede satisfacer **Concreción**, **Precisión**, **Aplicabilidad** y aportar ba
 
 Las distintas unidades de masa **no son por sí solas** deficiencia de Comparabilidad si la equivalencia es justificable. Si un precio incluye condiciones distintas no aclaradas, examinar los límites de contexto y aplicabilidad.
 
-## Caso H — HTML y Schema.org discordantes
+## Caso H — Contenido y Marcado discordantes
 
-**RI:** precio de una oferta. En una instantánea comparable, HTML «79 €» y Schema.org «89 €» para la misma oferta, moneda, condiciones y momento.
+**RI:** precio de una oferta. En una instantánea comparable, el contenido dice «79 €» y el marcado «89 €» para la misma oferta, moneda, condiciones y momento.
 
-- **Web:** comparar ambas afirmaciones; si son realmente comparables, registrar la discrepancia y analizar P16/Fiabilidad y demás consecuencias, sin elegir arbitrariamente una como verdadera.
-- **Web Schema.org:** evaluar el valor y soporte del marcado aisladamente; el contraste con HTML sirve como **evidencia diagnóstica de coherencia de Web**, no completa el contenido resolutivo del ámbito Schema.org.
+- **Contenido:** evaluar «79 €» con lo que da el filtro Alfa, sin el marcado.
+- **Marcado:** evaluar «89 €» y su soporte aisladamente; el contenido no completa el contenido resolutivo del marcado.
 - **Prueba necesaria:** identidad, moneda, oferta, canal, fecha y condiciones. Si la divergencia se explica por momentos u ofertas distintos, no declarar incoherencia material.
-- **Transversal:** registrar además el hallazgo de [consistencia transversal](../../10-model/evaluation-scopes.md#consistencia-transversal) HTML ↔ Web Schema.org, el mismo hallazgo reutilizado. El registro transversal no modifica ningún GSC: la incoherencia ya cuenta en la Fiabilidad de Web por la consistencia dentro del ámbito, y Web Schema.org se sigue evaluando aisladamente ([D-124](../../30-governance/decisions.md#d-124)).
+- **Transversal:** registrar la discrepancia como hallazgo de [consistencia transversal](../../10-model/evaluation-scopes.md#consistencia-transversal) Contenido ↔ Marcado. No modifica ningún GSC ([D-124](../../30-governance/decisions.md#d-124)). El contraste ya no es consistencia dentro de un ámbito: ningún ámbito ve los dos precios.
 
-> **Estado: vigente** (FUND §10.4).
+> **Estado: vigente** (FUND §10.4; enmendado por [D-220](../../30-governance/decisions.md#d-220): el contraste entre el contenido y el marcado solo es hallazgo transversal).
 
-Regla general: una limitación en Web Schema.org no implica necesariamente una limitación equivalente en Web, porque el HTML puede aportar información complementaria. Los resultados se documentan por separado, conservando procedencia y discrepancias.
+Regla general: una limitación en Marcado no implica una limitación en Contenido, ni al revés. Los resultados se documentan por separado, conservando procedencia y discrepancias.
 
 ## Caso I — popularidad y pertinencia
 
@@ -131,7 +131,7 @@ Regla general: una limitación en Web Schema.org no implica necesariamente una l
 | AC 0/1/2 | Casos negativos, parciales y suficientes por AC. | Fronteras ambiguas de los anclajes. |
 | NE y NA | Comprobación que no pudo hacerse; requisito marcado como no dimensión de comparación (NA). | Usar NE por falta de corroboración. |
 | Coherencia | Valores distintos con o sin contexto comparable. | Confundir diferencia e incoherencia. |
-| Ámbitos | Web vs Web Schema.org vs catálogo. | Completar un ámbito con contenido de otro. |
+| Ámbitos | Contenido vs Marcado vs catálogo. | Completar un ámbito con contenido de otro. |
 | Consistencia transversal | Feed frente a web en un momento comparable. | Rebajar el GSC de un ámbito por una discrepancia entre ámbitos. |
 | Informe | Hallazgo reconstruible con evidencia. | Puntuación opaca o evidencia ornamental. |
 

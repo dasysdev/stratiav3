@@ -3,9 +3,9 @@ id: demand-model
 title: Modelo de demanda y requisitos informativos
 layer: model
 status: vigente
-version: 3.10
-updated: 2026-10-29
-sources: [BASE §4, FUND §3, FUND §11.1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-block-catalog, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-26-question-formulation, INTAKE 2026-10-26-answer-form, INTAKE 2026-10-26-resolving-information, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-issues, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-26-model-name-full-composition, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-comparison-mark, INTAKE 2026-10-27-requirement-hints-location, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-28-shipping-zones, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review]
+version: 3.11
+updated: 2026-10-30
+sources: [BASE §4, FUND §3, FUND §11.1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-block-catalog, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-26-question-formulation, INTAKE 2026-10-26-answer-form, INTAKE 2026-10-26-resolving-information, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-issues, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-26-model-name-full-composition, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-comparison-mark, INTAKE 2026-10-27-requirement-hints-location, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-28-shipping-zones, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Modelo de demanda y requisitos informativos
@@ -150,7 +150,7 @@ El modelo de cada producto se construye en una **ejecución** automática con la
 
 ## Relación con los ámbitos de evaluación
 
-El catálogo relaciona cada RI con sus [ámbitos pertinentes](evaluation-scopes.md) (Catálogos distribuidos, Web, Web Schema.org). Esa relación determina **dónde** se examina su satisfacción y **qué entidades, condiciones y contenidos** incluye la comprobación. La relación no es un campo del catálogo: es la composición del modelo con la **ficha de cada ámbito** ([D-155](../30-governance/decisions.md#d-155)).
+El catálogo relaciona cada RI con sus [ámbitos pertinentes](evaluation-scopes.md) (Catálogos distribuidos, Contenido, Marcado). Esa relación determina **dónde** se examina su satisfacción y **qué entidades, condiciones y contenidos** incluye la comprobación. La relación no es un campo del catálogo: es la composición del modelo con la **ficha de cada ámbito** ([D-155](../30-governance/decisions.md#d-155)).
 
 ### Ficha de ámbito
 
@@ -163,16 +163,17 @@ El catálogo relaciona cada RI con sus [ámbitos pertinentes](evaluation-scopes.
 >
 > — INTAKE 2026-10-28-scope-sheet
 
+- **La ficha de Contenido ya no incluye la localización de Marcado** ([D-220](../30-governance/decisions.md#d-220)): Contenido no usa el marcado. En la cita, «Web» es el ámbito Contenido.
 - **Las pistas de valoración no dicen ámbito:** lo que cambia por ámbito es localización, no valoración ([assessment-hints](assessment-hints.md)).
 - **La no pertinencia es de RI**, la unidad RI × ámbito: no hay aportaciones no exigibles por ámbito. El NA es el del requisito que no corresponde a un ámbito ([acceptance-criteria](acceptance-criteria.md)), no un estado nuevo.
 - La falta de una propiedad no excluye un RI por la **independencia de un campo o formato** (regla 5) y porque no se mide una IA concreta (invariante 14).
 
-### Propiedades recomendadas de Web Schema.org
+### Propiedades recomendadas de Marcado
 
-Lo que los consumidores del perfil de Web Schema.org **recomiendan sin exigir**, salvo las partes de la formación estructural ([D-148](../30-governance/decisions.md#d-148)) y los datos del mínimo de representación ([D-147](../30-governance/decisions.md#d-147)), sale de la evaluación técnica ([D-145](../30-governance/decisions.md#d-145); [frontera entre evaluaciones](evaluation-scopes.md#frontera-entre-la-evaluación-técnica-y-la-informativa)). Cada propiedad tiene **dos papeles separados** (precisión de [D-155](../30-governance/decisions.md#d-155)):
+Lo que los consumidores del perfil de Marcado **recomiendan sin exigir**, salvo las partes de la formación estructural ([D-148](../30-governance/decisions.md#d-148)) y los datos del mínimo de representación ([D-147](../30-governance/decisions.md#d-147)), sale de la evaluación técnica ([D-145](../30-governance/decisions.md#d-145); [frontera entre evaluaciones](evaluation-scopes.md#frontera-entre-la-evaluación-técnica-y-la-informativa)). Cada propiedad tiene **dos papeles separados** (precisión de [D-155](../30-governance/decisions.md#d-155)):
 
 - **Apoyo de demanda**, sin ámbito: origen «referencias», como los PTD de Amazon ([D-052](../30-governance/decisions.md#d-052), [construction-routes](construction-routes.md)). Cuenta que la propiedad aparezca en la referencia, no su naturaleza; la importancia la decide el modelo. Una propiedad no es un RI por sí misma: apoya un requisito o una aportación existentes, o propone un candidato si ninguno la cubre.
-- **Localizador** en la ficha de Web Schema.org: dónde mirar en el marcado.
+- **Localizador** en la ficha de Marcado: dónde mirar en el marcado.
 
 Las citas nombran la versión fijada compartida en [references](../../references/README.md) ([D-149](../30-governance/decisions.md#d-149)).
 

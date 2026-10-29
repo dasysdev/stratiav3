@@ -3,9 +3,9 @@ id: audit-gsc-dossier
 title: Expediente, informe, diagnóstico y recomendaciones
 layer: method
 status: propuesta
-version: 0.5
-updated: 2026-10-29
-sources: [GSC0 §14.1, GSC0 §14.5, GSC0 §9.6, FUND §9.4, FUND §9.5, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-request-context-and-scripts, INTAKE 2026-10-29-oq-review]
+version: 0.6
+updated: 2026-10-30
+sources: [GSC0 §14.1, GSC0 §14.5, GSC0 §9.6, FUND §9.4, FUND §9.5, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-request-context-and-scripts, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Expediente, informe, diagnóstico y recomendaciones
@@ -24,12 +24,13 @@ El **registro estructurado** conserva observaciones, decisiones y soportes. El *
 |---|---|---|
 | `perfil_ri` | Contrato informativo del RI. | Uno por RI/versión de perfil. |
 | `caso_evaluado` | Recurso, oferta/entidad, ámbito, condiciones, momento y perfil. | Uno por unidad aplicada. |
-| `recurso_obtenido` | Representación efectivamente consumida y soporte preservado. | Uno o varios por caso. |
+| `recurso_obtenido` | Representación efectivamente consumida y soporte preservado: perfil de consumo + filtro de lectura y versión (en Contenido, `audit-es` + `alfa/1`, [D-221](../../30-governance/decisions.md#d-221)). | Uno o varios por caso. |
 | `candidato` | Elemento inicialmente reconocido y decisión de pertinencia. | Cero o varios por caso. |
 | `evidencia` | Observación original individual o prueba identificable. | Cero o varias por recurso/comprobación. |
 | `cobertura` | Alcance de inspección y limitaciones. | Al menos un registro de inspección por decisión que lo requiera. |
 | `hallazgo` | Resultado interpretado con propiedades/RI/AC vinculados. | Cero o varios por caso. |
 | `valoracion_ac` | AC, GSC o NE (incidencia), justificación y evidencias. | Un juicio por AC examinado con disponibilidad 1. |
+| `alcance_lectura` | Lectores del panel que reciben los fragmentos que sostienen la disponibilidad, y la causa si alguno no (hallazgo sin escala, [D-222](../../30-governance/decisions.md#d-222); [filter-alfa](filter-alfa.md#alcance-de-lectura-operativa)). | Uno por RI × Contenido con disponibilidad 1. |
 | `revision` | Cambio justificado de evidencia, selección o juicio. | Si se produce revisión. |
 
 Una evidencia puede sustentar varios hallazgos; un hallazgo puede apoyarse en varias evidencias; y un hallazgo puede tener **consecuencias diferentes para varios AC**. Estas relaciones se registran explícitamente. Plantillas: [ri-profile.md](ri-profile.md), [evidence.md](evidence.md), [gsc-decision.md](gsc-decision.md).
@@ -54,7 +55,7 @@ Plantilla de redacción por regla general:
 
 > **Estado: vigente** (FUND §9.5).
 
-Si un dato existe en un script que no es marcado (estado de la aplicación) pero no en el HTML ni en el marcado, el diagnóstico lo registra como hallazgo («el dato existe en el estado de la aplicación, pero no se publica»), sin efecto en la disponibilidad ni en los GSC ([D-157](../../30-governance/decisions.md#d-157)).
+Si un dato existe en un script que no es marcado (estado de la aplicación) pero no en Contenido ni en Marcado, el diagnóstico lo registra como hallazgo («el dato existe en el estado de la aplicación, pero no se publica»), sin efecto en la disponibilidad ni en los GSC ([D-157](../../30-governance/decisions.md#d-157)).
 
 El diagnóstico distingue **qué información se ha encontrado y podido leer, qué cuestión permite responder, qué limitación subsiste y cuál es su causa observada**. Cuando una incidencia de implementación afecta a un RI, se explica el efecto informativo y se remite el examen de conformidad al control técnico correspondiente.
 

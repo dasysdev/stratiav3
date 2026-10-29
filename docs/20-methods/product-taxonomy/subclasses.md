@@ -3,9 +3,9 @@ id: product-taxonomy-subclasses
 title: Taxonomía — subclases y paso de la clase al modelo de demanda
 layer: method
 status: propuesta
-version: 1.9
-updated: 2026-10-29
-sources: [TAX §5, TAX §6, TAX §7, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-29-oq-review]
+version: 1.10
+updated: 2026-10-30
+sources: [TAX §5, TAX §6, TAX §7, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Taxonomía — subclases y paso de la clase al modelo de demanda
@@ -132,6 +132,6 @@ Hay tres separaciones necesarias:
 
 1. **Clasificación frente a demanda:** la taxonomía describe el dominio; el requisito formula una necesidad de conocimiento.
 2. **Requisito informativo frente a atributo del feed:** el atributo puede contribuir a una respuesta, pero ni define automáticamente el requisito ni su importancia.
-3. **Clases frente a interfaces:** la pregunta pertenece al modelo de demanda; su pertinencia y capacidad de resolución se evalúan posteriormente en Catálogos distribuidos, Web y Web Schema.org, según sus funciones y condiciones ([ámbitos](../../10-model/evaluation-scopes.md)).
+3. **Clases frente a interfaces:** la pregunta pertenece al modelo de demanda; su pertinencia y capacidad de resolución se evalúan posteriormente en Catálogos distribuidos, Contenido y Marcado, según sus funciones y condiciones ([ámbitos](../../10-model/evaluation-scopes.md)).
 
 La [disponibilidad efectiva](../../10-model/effective-availability.md), los [criterios de aceptación](../../10-model/acceptance-criteria.md), las [propiedades P06–P18](../../10-model/quality-properties.md) y la valoración por requisito e interfaz pertenecen al sistema de auditoría posterior. No deben introducirse como criterios técnicos de fusiones taxonómicas ni utilizarse para decidir qué es una clase.

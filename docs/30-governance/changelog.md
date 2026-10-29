@@ -4,7 +4,7 @@ title: Registro de cambios de la documentación
 layer: governance
 status: vigente
 version: 1.0
-updated: 2026-10-29
+updated: 2026-10-30
 sources: []
 ---
 
@@ -13,6 +13,17 @@ sources: []
 Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módulos afectados, el tipo de cambio y la decisión que lo motiva.
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
+
+## 2026-10-30 — Ámbitos Contenido y Marcado, filtro Alfa y alcance de lectura · aplicado
+
+- **canon** — `INTAKE 2026-10-30-content-and-markup-scopes` (T-101; decisiones del usuario tras la prueba de canarios): [D-220](decisions.md#d-220) sustituye Web por **Contenido** y Web Schema.org por **Marcado**; ningún ámbito evalúa el HTML entero. Enmienda D-013 (nombres), D-124 (pares), D-152, D-155 (localización de Contenido), D-156 («todo el documento»), D-157 (frontera del documento), FUND §4.1 y §4.3, el caso H (FUND §10.4) y las invariantes 1 y 2 del `CLAUDE.md` raíz.
+- **canon** — [D-221](decisions.md#d-221): filtros de lectura con nombre del alfabeto radiofónico y versión; **Alfa** (`alfa/1`), el filtro de Contenido, definido por la norma (DOM §4.4, HTML). Precisa D-195 (el `alt` cuenta; el `title` de imagen, no).
+- **canon** — [D-222](decisions.md#d-222): **alcance de lectura**, hallazgos sin escala por RI × Contenido con un panel de lectores fechado (panel 2026-10).
+- **método** — [D-223](decisions.md#d-223) (propuesta): las dos fases de la ejecución leen la representación de su ámbito; enmienda D-153.
+- **estructura** — módulos nuevos: [reading-filters](../10-model/reading-filters.md) 1.0 y [filter-alfa](../20-methods/audit-gsc/filter-alfa.md) 0.1.
+- **Módulos:** [evaluation-scopes](../10-model/evaluation-scopes.md) 3.0, [scope](../00-context/scope.md) 1.3, [evaluation-architecture](../10-model/evaluation-architecture.md) 1.1, [effective-availability](../10-model/effective-availability.md) 1.5, [acceptance-criteria](../10-model/acceptance-criteria.md) 1.10, [quality-properties](../10-model/quality-properties.md), [scoring-systems](../10-model/scoring-systems.md) 1.9, [informative-prominence](../10-model/informative-prominence.md) 1.2, [demand-model](../10-model/demand-model.md) 3.11, [commercial-information](../10-model/commercial-information.md) 1.7, [construction-routes](../10-model/construction-routes.md) 1.11; métodos de audit-gsc (README, inputs-outputs, ri-profile, relevance, availability-coverage, evidence, gsc-decision, execution, dossier, qa, calibration) y de product-taxonomy (README, subclasses); [glossary](../glossary.md) (Ámbito, Contenido, Marcado, Filtro de lectura, Alfa, Alcance de lectura, Panel de lectores, Perfil de consumo y otras).
+- **gobernanza** — OQ nuevas: [OQ-88](open-questions.md#d-auditoría-informativa-localización-evidencias-gsc) (corte de Gemini), [OQ-89](open-questions.md#d-auditoría-informativa-localización-evidencias-gsc) (Perplexity), [OQ-90](open-questions.md#d-auditoría-informativa-localización-evidencias-gsc) (cadencia del panel), [OQ-91](open-questions.md#g-prominencia-informativa-propuesta) (metadescripción y D-203), [OQ-92](open-questions.md#f-evaluación-técnica) (requisitos técnicos de Contenido que miran el documento entero). Anotadas OQ-20, OQ-30 y OQ-36.
+- Fuera de `docs/`: el cambio de nombre en el código y los datos (catálogo de fichas de ámbito, `bin/model scope`, web-audit, skills) y la ficha de Contenido sin la localización de Marcado quedan en una tarea de `bin/pm`. Informes de apoyo: `reports/Lectura de texto de los asistentes.md` y `reports/Estrategia del ámbito Texto.md`.
 
 ## 2026-10-29 — Rasgo «medida de detalle» · aplicado
 

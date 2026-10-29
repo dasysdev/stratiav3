@@ -3,9 +3,9 @@ id: evaluation-architecture
 title: Arquitectura del sistema de evaluación
 layer: model
 status: vigente
-version: 1.0
-updated: 2026-10-24
-sources: [BASE §5, FUND §5.1-5.2, FUND §12]
+version: 1.1
+updated: 2026-10-30
+sources: [BASE §5, FUND §5.1-5.2, FUND §12, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Arquitectura del sistema de evaluación
@@ -39,7 +39,7 @@ sources: [BASE §5, FUND §5.1-5.2, FUND §12]
 ## Reglas e invariantes
 
 1. **La evaluación técnica y la informativa tienen unidades, procedimientos y sistemas de valoración propios.** Una incidencia técnica puede afectar a la disponibilidad efectiva, pero un incumplimiento técnico **no determina por sí mismo** una valoración informativa negativa. El **punto de contacto** es la información utilizable para la finalidad del RI, no el grado general de conformidad.
-2. **La evaluación informativa se realiza en los tres ámbitos**, cada uno con sus RI pertinentes. Web considera HTML y Schema.org conjuntamente; Web Schema.org, solo el marcado. Sus indicadores no se agregan automáticamente.
+2. **La evaluación informativa se realiza en los tres ámbitos**, cada uno con sus RI pertinentes. Contenido lee el contenido textual del documento y Marcado, solo el marcado: ningún ámbito evalúa el HTML entero ([D-220](../30-governance/decisions.md#d-220)). Sus indicadores no se agregan automáticamente.
 3. **Propiedades y criterios se relacionan de muchos a muchos.** Las propiedades **no reciben subpuntuaciones** que se sumen automáticamente.
 4. **Las propiedades pertenecen solo al modelo informativo.** La valoración técnica se fundamenta en los requisitos técnicos generales.
 5. **Los instrumentos operativos no amplían el modelo.** El desarrollo operativo debe dar instrumentos suficientemente precisos y reproducibles para reconocer información pertinente, comprobar la disponibilidad, examinar las propiedades y justificar los criterios sobre evidencias reexaminables. Los perfiles de RI, las pruebas de pertinencia y las rutas de resolución son apoyos al método: **no introducen nuevos RI, AC, propiedades, indicadores ni escalas** (FUND §12).

@@ -3,9 +3,9 @@ id: evaluation-scopes
 title: Interfaces, ámbitos de evaluación y requisitos técnicos
 layer: model
 status: vigente
-version: 2.11
-updated: 2026-10-29
-sources: [BASE §3, BASE §3.1, CTX §5, FUND §4, FUND §7.3, FUND §10.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-web-schema-technical-framework, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation, INTAKE 2026-10-28-references-system, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-28-single-consumption-profile, INTAKE 2026-10-28-request-context-and-scripts, INTAKE 2026-10-28-web-implementation-profile, INTAKE 2026-10-28-technical-views-and-sitemaps, INTAKE 2026-10-28-capture-profile-no-js, INTAKE 2026-10-28-technical-rate-pages-web-minimum, INTAKE 2026-10-29-audit-discovery-and-tdm, INTAKE 2026-10-29-spider-no-query, INTAKE 2026-10-29-spider-products-first, INTAKE 2026-10-29-issues-review, INTAKE 2026-10-29-spider-all-categories, INTAKE 2026-10-29-audit-on-the-crawl, INTAKE 2026-10-29-sitemap-canonical-url]
+version: 3.0
+updated: 2026-10-30
+sources: [BASE §3, BASE §3.1, CTX §5, FUND §4, FUND §7.3, FUND §10.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-web-schema-technical-framework, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation, INTAKE 2026-10-28-references-system, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-28-single-consumption-profile, INTAKE 2026-10-28-request-context-and-scripts, INTAKE 2026-10-28-web-implementation-profile, INTAKE 2026-10-28-technical-views-and-sitemaps, INTAKE 2026-10-28-capture-profile-no-js, INTAKE 2026-10-28-technical-rate-pages-web-minimum, INTAKE 2026-10-29-audit-discovery-and-tdm, INTAKE 2026-10-29-spider-no-query, INTAKE 2026-10-29-spider-products-first, INTAKE 2026-10-29-issues-review, INTAKE 2026-10-29-spider-all-categories, INTAKE 2026-10-29-audit-on-the-crawl, INTAKE 2026-10-29-sitemap-canonical-url, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Interfaces, ámbitos de evaluación y requisitos técnicos
@@ -23,37 +23,46 @@ El sistema establece tres **ámbitos de evaluación**. Cada ámbito determina qu
 | Ámbito | Información comercial examinada | Áreas de comprobación técnica |
 |---|---|---|
 | **Catálogos distribuidos** | Información publicada y distribuida mediante feeds y catálogos destinados a plataformas como Google Merchant Center y Meta Commerce. | Generación, transformación, formato, validación, actualización, entrega, sincronización y distribución. |
-| **Web** | Información del recurso web en su conjunto, incluidos el contenido HTML y el marcado Schema.org. | Publicación, recuperación, lectura efectiva y presencia del marcado Schema.org. |
-| **Web Schema.org** | Información expresada mediante el marcado Schema.org, considerada aisladamente del resto del contenido HTML. | Sintaxis, estructura, vocabularios y conformidad con las especificaciones del marcado. |
+| **Contenido** (`content`) | El contenido textual del documento web, tal como lo da su [filtro de lectura](reading-filters.md) (Alfa): el título y el texto del cuerpo, también el oculto, y el texto alternativo de las imágenes. Sin el marcado. | Publicación, recuperación, lectura efectiva y presencia del marcado Schema.org (⚠ [OQ-92](../30-governance/open-questions.md#f-evaluación-técnica)). |
+| **Marcado** (`markup`) | Información expresada mediante el marcado Schema.org (JSON-LD, microdatos y RDFa) del mismo documento, considerada aisladamente del contenido. | Sintaxis, estructura, vocabularios y conformidad con las especificaciones del marcado. |
+
+> - **Contenido:** el título del documento y el contenido textual de su cuerpo, tal como resultan de analizar la respuesta HTTP con los scripts desactivados, sin el contenido de `<script>` ni `<style>`. Incluye el texto alternativo de las imágenes. No incluye los demás atributos, los metadatos del `<head>` ni lo que solo existe al ejecutar JavaScript.
+> - **Marcado:** el marcado Schema.org (JSON-LD, microdatos y RDFa) de la misma respuesta HTTP, considerado aisladamente del contenido.
+> - **Ningún ámbito evalúa el HTML entero.** Contenido no usa el marcado y Marcado no usa el contenido.
+>
+> — INTAKE 2026-10-30-content-and-markup-scopes
+
+- **Nombres** ([D-220](../30-governance/decisions.md#d-220)): Contenido sustituye a **Web** y Marcado, a **Web Schema.org**. Las citas literales anteriores que dicen «Web» o «Web Schema.org» se conservan y se leen como Contenido y Marcado, salvo donde D-220 cambia su sentido. «Contenido» con mayúscula nombra el ámbito; cuando haga falta, «ámbito Contenido».
+- **Origen común:** la página web es la interfaz de exposición, el medio técnico del que salen Contenido y Marcado. Los dos leen la misma respuesta HTTP, cada uno con su representación ([perfil de consumo](#perfil-de-consumo-no-interactivo)).
 
 ### Requisitos técnicos generales
 
 > Los **requisitos técnicos generales** expresan las condiciones de implementación, publicación, acceso, consumo y distribución aplicables a cada ámbito, según sus especificaciones. — BASE §3.1
 
-- **Web:** se comprueban las condiciones técnicas de recuperación y lectura del recurso, incluida la **implementación de marcado Schema.org como requisito técnico**.
-- **Web Schema.org:** se examinan los requisitos técnicos específicos del marcado (sintaxis, estructura, conformidad).
+- **Contenido:** se comprueban las condiciones técnicas de recuperación y lectura del recurso, incluida la **implementación de marcado Schema.org como requisito técnico** (⚠ [OQ-92](../30-governance/open-questions.md#f-evaluación-técnica)).
+- **Marcado:** se examinan los requisitos técnicos específicos del marcado (sintaxis, estructura, conformidad).
 - **Catálogos distribuidos:** se examinan generación, formato, validación, actualización, entrega y distribución **por perfil**.
 
-Los evalúa el sistema **web-audit** en Web y Web Schema.org, empezando por Web Schema.org. Es solo técnico: no hace la evaluación informativa, que es de la auditoría GSC ([D-129](../30-governance/decisions.md#d-129)).
+Los evalúa el sistema **web-audit** en Contenido y Marcado, empezando por Marcado. Es solo técnico: no hace la evaluación informativa, que es de la auditoría GSC ([D-129](../30-governance/decisions.md#d-129)).
 
 ### Perfil de implementación
 
 > El **perfil de implementación** es el conjunto de especificaciones aplicables respecto del cual se determinan los requisitos técnicos pertinentes de un ámbito y su naturaleza obligatoria o recomendada. — INTAKE 2026-10-27-web-schema-technical-framework
 
 - La naturaleza **obligatoria o recomendada** de un requisito técnico es **relativa al perfil** que la establece. La fija la especificación, nunca el auditor.
-- En **Web Schema.org**, el perfil tiene tres niveles:
+- En **Marcado**, el perfil tiene tres niveles:
 
 | Nivel | Especificaciones | Qué fijan |
 |---|---|---|
 | **Serialización** | JSON-LD 1.1 (con su procesado), Microdata y RDFa 1.1 | Sintaxis y estructura del marcado |
 | **Vocabulario** | Schema.org, versión fijada **30.1** | Tipos, propiedades, dominios, rangos y enumeraciones |
-| **Consumidor** | Google Search: fichas de comerciante (Merchant listing), variantes de producto, políticas de devolución y de envío, organización y fragmentos de producto (Product snippet) | Lo que exige ese consumidor y la forma de lo que se publica. La presencia de lo que solo recomienda es, en general, apoyo del modelo de demanda, sin ámbito, y localizador en la ficha de Web Schema.org ([frontera](#frontera-entre-la-evaluación-técnica-y-la-informativa), [D-155](../30-governance/decisions.md#d-155)) |
+| **Consumidor** | Google Search: fichas de comerciante (Merchant listing), variantes de producto, políticas de devolución y de envío, organización y fragmentos de producto (Product snippet) | Lo que exige ese consumidor y la forma de lo que se publica. La presencia de lo que solo recomienda es, en general, apoyo del modelo de demanda, sin ámbito, y localizador en la ficha de Marcado ([frontera](#frontera-entre-la-evaluación-técnica-y-la-informativa), [D-155](../30-governance/decisions.md#d-155)) |
 
 - Schema.org es permisivo por diseño: los rangos son tipos esperados, admite texto donde espera una entidad y no tiene propiedades obligatorias. Por eso las condiciones de sintaxis salen de la serialización, y las propiedades exigidas y recomendadas, de los consumidores. De las recomendadas, su presencia no es un requisito técnico, salvo las partes de la [formación estructural](#frontera-entre-la-evaluación-técnica-y-la-informativa) y los datos del mínimo de representación ([D-145](../30-governance/decisions.md#d-145), [D-147](../30-governance/decisions.md#d-147), [D-148](../30-governance/decisions.md#d-148)).
 - La versión del vocabulario se fija y queda registrada con cada resultado. Cambiarla obliga a revisar los requisitos que dependen de ella.
-- **Google Merchant Center** pertenece a Catálogos distribuidos. En Web Schema.org solo sirve para la [consistencia transversal](#consistencia-transversal).
-- En Web Schema.org no se añaden otros consumidores por ahora; podrían añadirse como perfil nuevo ([D-130](../30-governance/decisions.md#d-130), interpretación adoptada).
-- En **Web**, el perfil también tiene tres niveles ([D-159](../30-governance/decisions.md#d-159)):
+- **Google Merchant Center** pertenece a Catálogos distribuidos. En Marcado solo sirve para la [consistencia transversal](#consistencia-transversal).
+- En Marcado no se añaden otros consumidores por ahora; podrían añadirse como perfil nuevo ([D-130](../30-governance/decisions.md#d-130), interpretación adoptada).
+- En **Contenido**, el perfil también tiene tres niveles ([D-159](../30-governance/decisions.md#d-159)):
 
 | Nivel | Especificaciones | Qué fijan |
 |---|---|---|
@@ -66,7 +75,7 @@ Los evalúa el sistema **web-audit** en Web y Web Schema.org, empezando por Web 
 >
 > — INTAKE 2026-10-28-web-implementation-profile
 
-- El [perfil de consumo](#perfil-de-consumo-no-interactivo) no da requisitos técnicos propios en Web (D-159): las condiciones de la petición son el perfil ([D-157](../30-governance/decisions.md#d-157)); de lo que solo aparece al ejecutar JavaScript, que no es utilizable ([D-156](../30-governance/decisions.md#d-156)), solo es técnico que el documento de la respuesta tenga contenido indexable; y lo que exige operar la página tiene efecto informativo.
+- El [perfil de consumo](#perfil-de-consumo-no-interactivo) no da requisitos técnicos propios en Contenido (D-159): las condiciones de la petición son el perfil ([D-157](../30-governance/decisions.md#d-157)); de lo que solo aparece al ejecutar JavaScript, que no es utilizable ([D-156](../30-governance/decisions.md#d-156)), solo es técnico que el documento de la respuesta tenga contenido indexable; y lo que exige operar la página tiene efecto informativo.
 - El perfil de Catálogos distribuidos está pendiente.
 
 ### Estados del requisito técnico
@@ -83,15 +92,15 @@ NE recibe el mismo tratamiento que en la evaluación informativa ([scoring-syste
 
 | Vista | Qué evalúa | Ejemplos |
 |---|---|---|
-| **General** | Lo que se evalúa una vez por sitio u origen: sus recursos de sitio y las entidades de nivel de sitio | Robots.txt: estado y forma del fichero, campo `sitemap:` y política por bot. Sitemaps: su forma. En Web Schema.org, la organización y sus políticas (Organization, devoluciones, envíos, logo) |
-| **Particular** | Lo que se evalúa en cada página auditada, según su tipo | Ficha de producto: los requisitos de acceso y lectura de Web y los de Product y Offer de Web Schema.org |
+| **General** | Lo que se evalúa una vez por sitio u origen: sus recursos de sitio y las entidades de nivel de sitio | Robots.txt: estado y forma del fichero, campo `sitemap:` y política por bot. Sitemaps: su forma. En Marcado, la organización y sus políticas (Organization, devoluciones, envíos, logo) |
+| **Particular** | Lo que se evalúa en cada página auditada, según su tipo | Ficha de producto: los requisitos de acceso y lectura de Contenido y los de Product y Offer de Marcado |
 
 > - **Tipos de página:** ficha de producto, categoría o listado, políticas y contenido (envíos, devoluciones, contacto, aviso legal), portada.
 > - La vista general se acota al descubrimiento y al acceso de las páginas que llevan la información comercial. Sigue sin ser «una auditoría integral del rastreo».
 >
 > — INTAKE 2026-10-28-technical-views-and-sitemaps
 
-- Cada requisito técnico dice su vista y, si es particular, los tipos de página a los que se aplica ([D-161](../30-governance/decisions.md#d-161)). Valen para Web y Web Schema.org, y para Catálogos distribuidos cuando tenga perfil (el feed frente al artículo).
+- Cada requisito técnico dice su vista y, si es particular, los tipos de página a los que se aplica ([D-161](../30-governance/decisions.md#d-161)). Valen para Contenido y Marcado, y para Catálogos distribuidos cuando tenga perfil (el feed frente al artículo).
 - **Páginas de una auditoría** ([D-167](../30-governance/decisions.md#d-167); el origen de las fichas lo enmiendan [D-170](../30-governance/decisions.md#d-170) y [D-217](../30-governance/decisions.md#d-217)):
 
 > - **Fichas de producto:** las del encargo, las mismas URL (y la misma instantánea) que la auditoría informativa (enmendada por [D-217](../30-governance/decisions.md#d-217): sin lista del encargo, todas las fichas del universo). **Portada:** siempre.
@@ -159,9 +168,9 @@ NE recibe el mismo tratamiento que en la evaluación informativa ([scoring-syste
 
 ## Reglas e invariantes
 
-1. **Web y Web Schema.org no son independientes** en la información que contienen: Web incluye el marcado Schema.org. Sus resultados se mantienen **diferenciados** y **no se suman ni se promedian automáticamente**.
-2. **Web** examina la capacidad de resolución conjunta del recurso, se exprese la información en HTML o en Schema.org. Las afirmaciones de ambas representaciones pueden combinarse si las relaciones están justificadas.
-3. **Web Schema.org** examina solo la representación estructurada. **No usa el resto del HTML para completar respuestas.**
+1. **Contenido y Marcado leen representaciones distintas** del mismo documento: Contenido no incluye el marcado, y Marcado no incluye el contenido. Sus resultados se mantienen **diferenciados** y **no se suman ni se promedian** ([D-220](../30-governance/decisions.md#d-220)).
+2. **Contenido** examina solo el contenido textual que da su [filtro de lectura](reading-filters.md). **No usa el marcado para completar respuestas.**
+3. **Marcado** examina solo la representación estructurada. **No usa el contenido para completar respuestas.**
 4. Cada ámbito tiene su propio conjunto de requisitos informativos pertinentes, derivados del catálogo del [modelo de demanda](demand-model.md). **Un ámbito no es defectuoso por omitir una cuestión que no le corresponde exponer** según su función y alcance. El conjunto sale de componer el modelo, que es uno, con la [ficha del ámbito](demand-model.md#ficha-de-ámbito): todo RI es pertinente salvo las excepciones fundamentadas en la función del ámbito; la falta de una propiedad o un campo no es motivo ([D-155](../30-governance/decisions.md#d-155)).
 5. La evaluación técnica usa un **sistema cuantitativo propio**, independiente de la evaluación de calidad informativa. Las [propiedades de calidad](quality-properties.md) pertenecen **exclusivamente** al modelo informativo y no son unidades de evaluación técnica.
 6. La revisión de requisitos técnicos **no depende** de haber seleccionado antes una pregunta del catálogo de demanda.
@@ -195,11 +204,11 @@ NE recibe el mismo tratamiento que en la evaluación informativa ([scoring-syste
 
 ## Perfil de consumo no interactivo
 
-En Web, el perfil de consumo no interactivo debe precisar **qué información puede recuperarse y leerse sin operar la página**. Cuando sea relevante, se documenta si la exposición de los datos depende de ejecutar JavaScript. Esa circunstancia **no se convierte en una prohibición técnica universal** desligada de las vías de consumo definidas.
+En Contenido y Marcado, el perfil de consumo no interactivo debe precisar **qué información puede recuperarse y leerse sin operar la página**. Cuando sea relevante, se documenta si la exposición de los datos depende de ejecutar JavaScript. Esa circunstancia **no se convierte en una prohibición técnica universal** desligada de las vías de consumo definidas.
 
-**Perfil de consumo de Web y Web Schema.org** ([D-151](../30-governance/decisions.md#d-151), enmendada por [D-156](../30-governance/decisions.md#d-156)): un solo perfil. La **respuesta HTTP del recurso, sin ejecutar JavaScript** ni operar la página (en [capture](../../capture/README.md), `response.html`), de la que se usa **todo el documento**, no solo el texto visible: el texto del HTML (también el oculto), los atributos y el marcado ([frontera del documento](#perfil-de-consumo-no-interactivo), D-157). Web Schema.org lee el marcado de ese mismo documento.
+**Perfil de consumo de Contenido y Marcado** ([D-151](../30-governance/decisions.md#d-151), enmendada por [D-156](../30-governance/decisions.md#d-156) y [D-220](../30-governance/decisions.md#d-220)): un solo perfil. La **respuesta HTTP del recurso, sin ejecutar JavaScript** ni operar la página (en [capture](../../capture/README.md), `response.html`). Cada ámbito lee de ella su representación: Contenido, la salida del [filtro Alfa](reading-filters.md#alfa-el-filtro-del-ámbito-contenido); Marcado, el marcado Schema.org (JSON-LD, microdatos y RDFa).
 
-> vamos dejar solo un perfil que no ejecuta js y utiliza todo el DOM […]. Nos basamos en que es más compatible y preferible generalmente que la información no dependa de ejecución de javascript (aunque algunos sistemas sí puedan leerla). Es una condición que decidimos adoptar ahora. — INTAKE 2026-10-28-single-consumption-profile
+> vamos dejar solo un perfil que no ejecuta js y utiliza todo el DOM […]. Nos basamos en que es más compatible y preferible generalmente que la información no dependa de ejecución de javascript (aunque algunos sistemas sí puedan leerla). Es una condición que decidimos adoptar ahora. — INTAKE 2026-10-28-single-consumption-profile (enmendada por [D-220](../30-governance/decisions.md#d-220): cada ámbito lee su representación, no todo el documento)
 
 Es una condición adoptada, no una afirmación de que ningún sistema ejecute JavaScript. Lo que solo aparece al ejecutarlo, incluido el marcado inyectado, no es utilizable bajo este perfil, y su efecto se refleja en la disponibilidad efectiva. **Navegador real que no ejecuta JavaScript** ([D-157](../30-governance/decisions.md#d-157)): navegador real, para evitar bloqueos, con este contexto de petición:
 
@@ -212,7 +221,7 @@ Es una condición adoptada, no una afirmación de que ningún sistema ejecute Ja
 | robots.txt | Se registra qué permite a cada bot de IA y de buscador, como hecho técnico; no afecta al GSC. |
 | Sondas | Ninguna: si un cliente vende fuera de España, perfil nuevo. |
 
-**Frontera del documento:** cuentan el texto del HTML (también el oculto), los atributos y el marcado; de los scripts, solo `application/ld+json`. Los datos de los demás scripts (estado de la aplicación en JSON, variables de JavaScript) **no son información**: no dan disponibilidad ni sirven de base a los AC, y solo se registran como hallazgo de diagnóstico si el dato existe ahí pero no se publica. El motor de captura cumple «no ejecuta JavaScript» desactivándolo en el navegador: un desafío que lo exige no se pasa y queda como incidencia ([D-163](../30-governance/decisions.md#d-163)).
+**Representación de cada ámbito** (enmienda la frontera del documento de [D-157](../30-governance/decisions.md#d-157)): en Contenido cuenta lo que da el filtro Alfa; en Marcado, el marcado Schema.org (de los scripts, solo `application/ld+json`). Los datos de los demás scripts (estado de la aplicación en JSON, variables de JavaScript) **no son información**: no dan disponibilidad ni sirven de base a los AC, y solo se registran como hallazgo de diagnóstico si el dato existe ahí pero no se publica. El motor de captura cumple «no ejecuta JavaScript» desactivándolo en el navegador: un desafío que lo exige no se pasa y queda como incidencia ([D-163](../30-governance/decisions.md#d-163)).
 
 Puede revisarse de forma auxiliar la política de acceso para sistemas automatizados y la existencia de bloqueos efectivos, cuando afecten a las vías examinadas. Eso **no** constituye una auditoría integral del rastreo, la infraestructura o la seguridad.
 
@@ -223,13 +232,13 @@ La comprobación informativa **no reproduce** los controles técnicos. Atiende a
 - La conformidad técnica general **no sustituye** a esta comprobación contextual.
 - Una incidencia técnica **no determina automáticamente** una insuficiencia informativa.
 - Si un factor técnico (formato, marcado, transformación, validación, distribución, mecanismo de acceso) impide consumir la información pertinente, su **consecuencia informativa** se refleja en la disponibilidad efectiva. La **causa** y el incumplimiento se documentan en el expediente técnico.
-- Los datos del [mínimo de representación](commercial-information.md#mínimo-de-representación) se examinan en la técnica, que dice si existen y están bien formados (en Web Schema.org, los de la [lista del mínimo](commercial-information.md#mínimo-de-representación), [D-147](../30-governance/decisions.md#d-147)). Los que llevan un hecho comercial se examinan también en la informativa, por lo que transmiten; los de sostén, solo en la técnica ([D-143](../30-governance/decisions.md#d-143)).
+- Los datos del [mínimo de representación](commercial-information.md#mínimo-de-representación) se examinan en la técnica, que dice si existen y están bien formados (en Marcado, los de la [lista del mínimo](commercial-information.md#mínimo-de-representación), [D-147](../30-governance/decisions.md#d-147)). Los que llevan un hecho comercial se examinan también en la informativa, por lo que transmiten; los de sostén, solo en la técnica ([D-143](../30-governance/decisions.md#d-143)).
 
-**Ejemplo:** una incidencia de marcado Schema.org puede ser relevante para la conformidad técnica. Si en **Web** la información que exige el RI también se obtiene y se lee en HTML admisible, esa incidencia no demuestra por sí misma falta de disponibilidad ni deficiencia de los criterios informativos de Web. En **Web Schema.org** hay que comprobar por separado qué información pertinente del marcado puede utilizarse.
+**Ejemplo:** una incidencia de marcado Schema.org puede ser relevante para la conformidad técnica. No afecta a **Contenido**, que no lee el marcado. En **Marcado** hay que comprobar qué información pertinente del marcado puede utilizarse.
 
 ### Frontera entre la evaluación técnica y la informativa
 
-Se formula para el perfil de Web Schema.org; la de Web, [al final de esta sección](#en-web); la de Catálogos distribuidos sigue en [OQ-30](../30-governance/open-questions.md#f-evaluación-técnica).
+Se formula para el perfil de Marcado; la de Contenido, [al final de esta sección](#en-contenido); la de Catálogos distribuidos sigue en [OQ-30](../30-governance/open-questions.md#f-evaluación-técnica).
 
 > - **Evaluación técnica:** cómo está construido lo que se publica, más la presencia de lo que el consumidor **exige**.
 > - **Evaluación informativa:** si se publica lo que el consumidor solo **recomienda**, como cualquier otra cuestión del modelo de demanda: disponibilidad efectiva y criterios de aceptación.
@@ -259,37 +268,37 @@ Se formula para el perfil de Web Schema.org; la de Web, [al final de esta secci�
   - con todas las partes exigidas y sin `handlingTime` (recomendado, `122`): solo informativo, es un hecho más sobre el plazo.
 - Lectura de [D-148](../30-governance/decisions.md#d-148): la coherencia entre partes recoge también las reglas de estructura del marcado de la página, como una sola moneda (`ws-consumer/147`, `174`) o URL distintas por variante (`200`).
 - **Doble lectura, solo en lo exigido.** Si falta el precio, la técnica dice que el consumidor lo exige y falta; la informativa, que la cuestión no tiene respuesta en el ámbito. No es doble cómputo: la incidencia técnica y su efecto sobre la disponibilidad se registran por separado (punto de contacto, arriba).
-- **Mínimo de representación:** mantiene en la técnica los datos del [mínimo](commercial-information.md#mínimo-de-representación) que el consumidor recomienda sin exigir; en Web Schema.org, nueve requisitos ([D-147](../30-governance/decisions.md#d-147)).
-- **Lo recomendado** pasa al modelo de demanda como apoyo «referencias», sin ámbito, y a la ficha de Web Schema.org como localizador ([D-155](../30-governance/decisions.md#d-155)): ver [demand-model](demand-model.md#propiedades-recomendadas-de-web-schemaorg).
+- **Mínimo de representación:** mantiene en la técnica los datos del [mínimo](commercial-information.md#mínimo-de-representación) que el consumidor recomienda sin exigir; en Marcado, nueve requisitos ([D-147](../30-governance/decisions.md#d-147)).
+- **Lo recomendado** pasa al modelo de demanda como apoyo «referencias», sin ámbito, y a la ficha de Marcado como localizador ([D-155](../30-governance/decisions.md#d-155)): ver [demand-model](demand-model.md#propiedades-recomendadas-de-marcado).
 
-#### En Web
+#### En Contenido
 
 > - **Técnico:** el acceso y la recuperación del recurso, la forma de la respuesta y del documento, y la presencia de lo que el consumidor exige para la página (no bloqueado, 200, contenido indexable, marcado). Las recomendaciones del consumidor sobre el acceso y la forma (permitir un bot, enlaces `<a href>`) son técnicas: no añaden un hecho comercial.
 > - **Informativo:** si la información comercial pertinente está en el documento y se puede leer (disponibilidad efectiva y AC).
 >
 > — INTAKE 2026-10-28-web-implementation-profile
 
-- Es la lectura de D-145 en Web ([D-160](../30-governance/decisions.md#d-160)): que haya contenido indexable es técnico; que ese contenido sea la información comercial, no. La «lectura» de las áreas técnicas de Web (tabla de [ámbitos](#ámbitos-de-evaluación)) es la del documento: tipo, codificación y análisis.
-- El [mínimo de representación](commercial-information.md#mínimo-de-representación) de Web: url, título y URL canónica, y la imagen con Open Graph ([D-168](../30-governance/decisions.md#d-168)).
+- Es la lectura de D-145 en Contenido ([D-160](../30-governance/decisions.md#d-160)): que haya contenido indexable es técnico; que ese contenido sea la información comercial, no. La «lectura» de las áreas técnicas de Contenido (tabla de [ámbitos](#ámbitos-de-evaluación)) es la del documento: tipo, codificación y análisis.
+- El [mínimo de representación](commercial-information.md#mínimo-de-representación) de Contenido (⚠ [OQ-92](../30-governance/open-questions.md#f-evaluación-técnica)): url, título y URL canónica, y la imagen con Open Graph ([D-168](../30-governance/decisions.md#d-168)).
 
 ## Complementariedad y coherencia entre representaciones
 
 - La información de distintas representaciones puede ser complementaria. Para interpretarla hay que preservar la **identidad de producto, variante, oferta o vendedor**, el alcance comercial, las condiciones y el momento de cada afirmación.
 - Una discrepancia solo es una **contradicción material** cuando las afirmaciones se refieren a **la misma realidad comercial bajo condiciones y momentos comparables**.
 - **La coincidencia entre representaciones no demuestra por sí sola la exactitud** de lo afirmado.
-- Web y Web Schema.org comparten parte de la información examinada, pero tienen **finalidades evaluativas diferentes**. La evaluación de Web Schema.org identifica las capacidades y limitaciones de la representación estructurada **sin sustituir la evaluación conjunta del recurso web** (FUND §4.1, §4.3).
-- Una limitación observada en Web Schema.org **no implica necesariamente** una limitación equivalente en Web, porque el HTML puede aportar información complementaria. Los resultados se documentan por separado, conservando la procedencia de cada afirmación y las discrepancias entre representaciones.
+- Contenido y Marcado **no comparten información examinada**: leen representaciones distintas del mismo documento y ninguno sustituye al otro. Desaparece la «evaluación conjunta del recurso web» de FUND §4.1 y §4.3 ([D-220](../30-governance/decisions.md#d-220)).
+- Una limitación observada en Marcado **no implica** una limitación en Contenido, ni al revés. Los resultados se documentan por separado, conservando la procedencia de cada afirmación; las discrepancias entre los dos ámbitos son [consistencia transversal](#consistencia-transversal).
 
 ### Consistencia transversal
 
 > La consistencia se puede evaluar para cada ámbito y, a nivel transversal, «adquiere una nueva dimensión de análisis». **Unidad:** RI × par de ámbitos. **Forma:** hallazgos sin escala; por RI y par de ámbitos, hecho, valores, momento, materialidad, y si la diferencia es legítima (p. ej., un precio propio de un canal, declarado). Una diferencia legítima y declarada no es incoherencia. **No modifica el GSC de ningún ámbito ni se agrega.** — INTAKE 2026-10-27-ac-applicability-and-reliability
 
 - **Lo que aporta:** lo que el juicio por ámbito no puede expresar. Ejemplo (hipotético): un marcado coherente consigo mismo a 89 € en una página que dice 79 €; quien solo lee el marcado no puede saberlo. Lo mismo, un feed desfasado.
-- **Por qué no toca el GSC:** no se puede saber cuál de los dos lados está mal, y mezclarlos rompería la separación de Web y Web Schema.org. La consistencia **dentro** de cada ámbito sí cuenta en su Fiabilidad ([acceptance-criteria](acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones)).
+- **Por qué no toca el GSC:** no se puede saber cuál de los dos lados está mal, y mezclarlos rompería la separación de Contenido y Marcado. La consistencia **dentro** de cada ámbito sí cuenta en su Fiabilidad ([acceptance-criteria](acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones)).
 - **Pares:**
-  - Catálogos distribuidos ↔ Web;
-  - Catálogos distribuidos ↔ Web Schema.org;
-  - HTML ↔ Web Schema.org: el mismo hallazgo que ya ve Web, reutilizado;
+  - Catálogos distribuidos ↔ Contenido;
+  - Catálogos distribuidos ↔ Marcado;
+  - Contenido ↔ Marcado: el único par de la V1; el contraste entre el contenido y el marcado ya no es coherencia dentro de un ámbito ([D-220](../30-governance/decisions.md#d-220));
   - entre perfiles de Catálogos distribuidos (Google, Meta).
 - **Condiciones de operación:** captura de los ámbitos en un momento comparable; identidad de la entidad entre ámbitos (GTIN, SKU o `item_group_id` frente a URL y variante); acceso al feed.
 - Es una dimensión de análisis, no un indicador ni una escala ([D-124](../30-governance/decisions.md#d-124)). Un estado cualitativo por RI queda pendiente ([OQ-67](../30-governance/open-questions.md)).
@@ -297,14 +306,17 @@ Se formula para el perfil de Web Schema.org; la de Web, [al final de esta secci�
 ## Distinciones
 
 - **Interfaz** y **ámbito de evaluación**. En la unidad de evaluación (RI × interfaz / RI × ámbito) y en los sistemas de valoración son **sinónimos** ([D-010](../30-governance/decisions.md#d-010)). Fuera de ese contexto, «interfaz de exposición» designa además el medio técnico mediante el que se publica la información. En texto nuevo se prefiere «ámbito» para la unidad evaluada.
+- **Contenido** frente a **texto visible** y frente a **contenido principal**: Contenido incluye lo oculto, la cabecera, el menú y el pie; el texto visible depende de CSS y el contenido principal descarta regiones ([reading-filters](reading-filters.md#distinciones)).
 - **Legibilidad técnica u operativa** frente a **P09 · Claridad** y **P10 · Estructuración semántica**. Ver [quality-properties](quality-properties.md#lectura-efectiva-frente-a-propiedades-semánticas).
 
 ## Pendiente
 
 - El perfil de Catálogos distribuidos. Ver [OQ-30](../30-governance/open-questions.md#f-evaluación-técnica).
+- Los requisitos técnicos del perfil de Contenido que miran el documento entero (presencia del marcado, Open Graph, URL canónica). Ver [OQ-92](../30-governance/open-questions.md#f-evaluación-técnica).
 
 ## Relacionado
 
 - [effective-availability](effective-availability.md)
+- [reading-filters](reading-filters.md)
 - [evaluation-architecture](evaluation-architecture.md)
 - [scoring-systems](scoring-systems.md#tasa-de-cumplimiento-técnico)

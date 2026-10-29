@@ -3,9 +3,9 @@ id: effective-availability
 title: Disponibilidad efectiva
 layer: model
 status: vigente
-version: 1.4
-updated: 2026-10-29
-sources: [BASE §5.1, FUND §5.3, FUND §7.3, FUND §10.1-10.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review]
+version: 1.5
+updated: 2026-10-30
+sources: [BASE §5.1, FUND §5.3, FUND §7.3, FUND §10.1-10.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Disponibilidad efectiva
@@ -83,7 +83,7 @@ Lo dictamina esta puerta, en la auditoría, no la valoración de los AC ni el mo
 | Papel | Ejemplo | Tratamiento |
 |---|---|---|
 | **Sostiene la identificación** | Foto del producto | Evaluación técnica: la imagen forma parte del [mínimo de representación](commercial-information.md#mínimo-de-representación) como sostén. |
-| **Expresa información explícita** | Plano acotado, tabla de tallas, etiqueta energética, advertencias de seguridad | Es información como cualquier otra, si el ámbito permite leerla. En Web Schema.org, solo si está en texto en el marcado (`caption`, `embeddedTextCaption` de ImageObject). En Web, en la V1, solo cuenta el texto del documento (`alt`, `figcaption` o texto cercano): un dato que solo está dentro de una imagen da disponibilidad 0 para ese dato ([D-195](../30-governance/decisions.md#d-195)). |
+| **Expresa información explícita** | Plano acotado, tabla de tallas, etiqueta energética, advertencias de seguridad | Es información como cualquier otra, si el ámbito permite leerla. En Marcado, solo si está en texto en el marcado (`caption`, `embeddedTextCaption` de ImageObject). En Contenido, en la V1, solo cuenta el texto que da el [filtro Alfa](reading-filters.md): el `alt` (HTML §4.8.4.4), el `figcaption` o el texto cercano; el atributo `title` de la imagen no cuenta. Un dato que solo está dentro de una imagen da disponibilidad 0 para ese dato ([D-195](../30-governance/decisions.md#d-195), precisada por [D-221](../30-governance/decisions.md#d-221)). |
 | **Muestra lo que no afirma** | Color, piezas, aspecto | No es información pertinente: no da disponibilidad, no resuelve ningún RI y no sirve para refutar en [Fiabilidad](acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones). Sí puede crear una necesidad que el texto tiene que resolver: lo que sale en la foto y no se entrega ([descripción de `gen/21`](requirement-description.md)). |
 
 - **Fundamento** ([D-144](../30-governance/decisions.md#d-144)):
@@ -92,7 +92,7 @@ Lo dictamina esta puerta, en la auditoría, no la valoración de los AC ni el mo
   - reconocer el modelo a partir de una foto exige hechos particulares del producto tomados de fuera, que la prueba de derivación no admite;
   - como el atributo frente a la prestación declarada ([D-119](../30-governance/decisions.md#d-119)), la imagen acompaña a la identificación como contexto, pero no la resuelve.
 - El «plano o imagen acotada» de [resolving-information](resolving-information.md#ejemplo-mínimo) es información explícita.
-- Si la foto es genérica o de otra variante, no se juzga como información. En Catálogos distribuidos es una regla de contenido de Merchant Center, para cuando exista ese perfil. En Web Schema.org no se juzga: el contraste del marcado con la página o con la realidad quedó fuera en el triaje del 2026-10-28.
+- Si la foto es genérica o de otra variante, no se juzga como información. En Catálogos distribuidos es una regla de contenido de Merchant Center, para cuando exista ese perfil. En Marcado no se juzga: el contraste del marcado con la página o con la realidad quedó fuera en el triaje del 2026-10-28.
 
 ## Ejemplo mínimo (hipotético)
 
@@ -108,7 +108,7 @@ Casos completos de calibración: [calibration](../20-methods/audit-gsc/calibrati
 ## Pendiente
 
 - Especificar las pruebas de obtención y legibilidad, los registros de cobertura y el tratamiento de las comprobaciones inconclusas. Ver [open-questions](../30-governance/open-questions.md).
-- Lectura del texto dentro de una imagen con reconocimiento de texto (OCR) en Web: línea futura, fuera de la V1 ([D-195](../30-governance/decisions.md#d-195)).
+- Lectura del texto dentro de una imagen con reconocimiento de texto (OCR) en Contenido: línea futura, fuera de la V1 ([D-195](../30-governance/decisions.md#d-195)).
 
 ## Relacionado
 

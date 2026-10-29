@@ -3,9 +3,9 @@ id: audit-gsc-qa
 title: Controles de calidad y resolución de incidencias
 layer: method
 status: propuesta
-version: 0.4
-updated: 2026-10-28
-sources: [GSC0 §16, GSC0 Anexo D, FUND §12, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-informative-audit-v1]
+version: 0.5
+updated: 2026-10-30
+sources: [GSC0 §16, GSC0 Anexo D, FUND §12, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Controles de calidad y resolución de incidencias
@@ -48,7 +48,7 @@ El procedimiento debe vigilar especialmente las **falsas ausencias**, la inclusi
 
 **QA-14.** El informe remite a evidencias originales suficientes y distingue hallazgos de hipótesis, limitaciones y recomendaciones.
 
-**QA-15.** *(Propuesta V1, [D-153](../../30-governance/decisions.md#d-153).)* Entre las dos fases de la [ejecución](execution.md#ejecución-en-dos-fases), el código comprueba que cada fragmento citado como evidencia existe literalmente en la representación de su ámbito (en Web Schema.org, en el marcado) y que cada disponibilidad 0 lleva su registro de cobertura. Lo que no lo cumple no pasa a la fase 2.
+**QA-15.** *(Propuesta V1, [D-153](../../30-governance/decisions.md#d-153).)* Entre las dos fases de la [ejecución](execution.md#ejecución-en-dos-fases), el código comprueba que cada fragmento citado como evidencia existe literalmente en la representación de su ámbito (en Contenido, la salida del [filtro Alfa](filter-alfa.md); en Marcado, el marcado: [D-223](../../30-governance/decisions.md#d-223)) y que cada disponibilidad 0 lleva su registro de cobertura. Lo que no lo cumple no pasa a la fase 2.
 
 | QA | Módulo que controla |
 |---|---|

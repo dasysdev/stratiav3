@@ -3,9 +3,9 @@ id: audit-gsc-evidence
 title: Protocolo transversal de evidencias
 layer: method
 status: propuesta
-version: 0.4
-updated: 2026-10-29
-sources: [GSC0 §9, GSC0 §14.3, FUND §9.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review]
+version: 0.5
+updated: 2026-10-30
+sources: [GSC0 §9, GSC0 §14.3, FUND §9.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Protocolo transversal de evidencias
@@ -132,14 +132,14 @@ caso_id: "AUD-XXX"
 fuente:
   ecommerce: "<ecommerce>"
   recurso: "<URL, identificador de feed o artefacto>"
-  ambito: "Web"
-  representacion: "HTML"
+  ambito: "Contenido"
+  representacion: "alfa/1"
   localizador: "<selector, ruta, fila o segmento>"
 contenido_original: "<fragmento o valor observado literalmente>"
 contexto_necesario: "<etiquetas y contexto relevante>"
 entidad_y_alcance: "<sujeto y condiciones conocidas>"
 captura_fecha_hora: "<fecha-hora y zona>"
-perfil_consumo: "<version del perfil>"
+perfil_consumo: "<version del perfil> + <filtro/versión>"
 metodo_comprobacion: "<recuperacion/lectura/contraste>"
 resultado_observado: "<hecho observado, sin valoracion de calidad>"
 soporte_reexaminable: "<referencia a instantanea o extracto>"

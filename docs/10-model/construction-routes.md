@@ -3,9 +3,9 @@ id: construction-routes
 title: Vías de construcción del modelo de demanda
 layer: model
 status: vigente
-version: 1.10
-updated: 2026-10-29
-sources: [INTAKE 2026-10-28-paa-control-review-rules, INTAKE 2026-10-28-paa-parent-and-material, BASE §4.2, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-paa-new-requirements, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-paa-natural-answer-and-specializations]
+version: 1.11
+updated: 2026-10-30
+sources: [INTAKE 2026-10-28-paa-control-review-rules, INTAKE 2026-10-28-paa-parent-and-material, BASE §4.2, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-paa-new-requirements, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-paa-natural-answer-and-specializations, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Vías de construcción del modelo de demanda
@@ -67,7 +67,7 @@ Las fuentes se organizan en **vías de referencia complementarias** (BASE §4.2,
 
 Así, una cuestión que solo recoge un PTD de Amazon y que cuenta como base para decidir una especialización ([D-030](../30-governance/decisions.md#d-030)) puede entrar en el modelo con origen «referencias», si es relevante para la clase ([D-039](../30-governance/decisions.md#d-039)). Si después una regla de relevancia la excluye en una clase, el efecto sobre esa base lo mide la validación automática del entrenamiento: no se acepta una relevancia que deje hechos declarados sin pregunta ([D-050](../30-governance/decisions.md#d-050), [D-072](../30-governance/decisions.md#d-072)).
 
-**Consumidores de datos estructurados como fuente:** las propiedades que los consumidores del perfil de Web Schema.org (Google Search) recomiendan sin exigir son apoyo de demanda con origen «referencias», sin ámbito, como los PTD de Amazon: apoyan un requisito o una aportación existentes, o proponen un candidato si ninguno las cubre. Su otro papel, localizador en el marcado, es de la [ficha de Web Schema.org](demand-model.md#ficha-de-ámbito) ([D-145](../30-governance/decisions.md#d-145), [D-155](../30-governance/decisions.md#d-155)).
+**Consumidores de datos estructurados como fuente:** las propiedades que los consumidores del perfil de Marcado (Google Search) recomiendan sin exigir son apoyo de demanda con origen «referencias», sin ámbito, como los PTD de Amazon: apoyan un requisito o una aportación existentes, o proponen un candidato si ninguno las cubre. Su otro papel, localizador en el marcado, es de la [ficha de Marcado](demand-model.md#ficha-de-ámbito) ([D-145](../30-governance/decisions.md#d-145), [D-155](../30-governance/decisions.md#d-155)).
 
 A ellas se suman las cuestiones inferidas ([D-036](../30-governance/decisions.md#d-036)):
 

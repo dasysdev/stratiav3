@@ -3,9 +3,9 @@ id: informative-prominence
 title: Prominencia informativa, IP y calidad ajustada
 layer: model
 status: propuesta
-version: 1.1
-updated: 2026-10-29
-sources: [INTAKE 2026-10-24-prominencia-informativa, INTAKE 2026-10-29-oq-review]
+version: 1.2
+updated: 2026-10-30
+sources: [INTAKE 2026-10-24-prominencia-informativa, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Prominencia informativa, IP y calidad ajustada
@@ -53,8 +53,8 @@ La fórmula y el peso del modificador están **pendientes**, en espera de la sí
 7. **Registro separado.** Se registran por separado **IR, estado binario, IP y calidad ajustada**.
 8. **Nivel y ámbito** (interpretación de [D-018](../30-governance/decisions.md#d-018)):
    - se calcula por **RI × ámbito**, como el IR;
-   - la clasificación está definida para HTML, es decir, para el ámbito **Web**;
-   - en **Web Schema.org** y **Catálogos distribuidos** el IP es **NA** ([D-203](../30-governance/decisions.md#d-203)). Las reglas específicas, si proceden, esperan a la síntesis del IR ([OQ-36](../30-governance/open-questions.md#g-prominencia-informativa-propuesta)).
+   - la clasificación está definida para HTML, es decir, para el ámbito **Contenido** (antes Web, [D-220](../30-governance/decisions.md#d-220)). La metadescripción no forma parte de Contenido: ⚠ [OQ-91](../30-governance/open-questions.md#g-prominencia-informativa-propuesta);
+   - en **Marcado** y **Catálogos distribuidos** el IP es **NA** ([D-203](../30-governance/decisions.md#d-203)). Las reglas específicas, si proceden, esperan a la síntesis del IR ([OQ-36](../30-governance/open-questions.md#g-prominencia-informativa-propuesta)).
 
 ## Distinciones
 
@@ -81,7 +81,8 @@ Ver [open-questions §G](../30-governance/open-questions.md#g-prominencia-inform
 - OQ-33: identificación de componentes y rutas alternativas;
 - OQ-34: fórmula y peso de la calidad ajustada;
 - OQ-35: duplicidades con los AC;
-- OQ-36: reglas para Web Schema.org y Catálogos distribuidos.
+- OQ-36: reglas para Marcado y Catálogos distribuidos.
+- [OQ-91](../30-governance/open-questions.md#g-prominencia-informativa-propuesta): la metadescripción como zona prominente, fuera del ámbito Contenido.
 
 La regla de normalización binaria del IR (OQ-31) está en [open-questions §E](../30-governance/open-questions.md#e-síntesis-e-indicadores) y se decide con OQ-28 ([D-174](../30-governance/decisions.md#d-174)).
 

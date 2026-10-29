@@ -3,9 +3,9 @@ id: scope
 title: Problema, objeto y alcance del estudio
 layer: context
 status: vigente
-version: 1.2
-updated: 2026-10-28
-sources: [CTX §1-5, FUND §1, FUND §2.1, FUND §12, INTAKE 2026-10-28-informative-audit-v1]
+version: 1.3
+updated: 2026-10-30
+sources: [CTX §1-5, FUND §1, FUND §2.1, FUND §12, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Problema, objeto y alcance del estudio
@@ -47,7 +47,7 @@ Las capacidades informativas se desarrollan como [funciones informativas de la I
 - **Fase examinada:** descubrimiento y decisión de compra.
 - **Modalidad de interacción:** comercio agéntico **sin navegación interactiva**. Se consideran solo las vías de acceso y consumo que no exigen operar interactivamente las páginas o los procesos de compra.
 - **Información examinada:** características de productos y variantes, ofertas, vendedores y condiciones comerciales, según su pertinencia para las cuestiones evaluadas.
-- **Interfaces y ámbitos de evaluación:** **Catálogos distribuidos**, **Web** y **Web Schema.org** ([evaluation-scopes](../10-model/evaluation-scopes.md)). CTX §5 queda enmendado por [D-013](../30-governance/decisions.md#d-013).
+- **Interfaces y ámbitos de evaluación:** **Catálogos distribuidos**, **Contenido** y **Marcado** ([evaluation-scopes](../10-model/evaluation-scopes.md)). CTX §5 queda enmendado por [D-013](../30-governance/decisions.md#d-013); los nombres, por [D-220](../30-governance/decisions.md#d-220) (antes, Web y Web Schema.org).
 - **Ámbito de las comprobaciones:** la información publicada, sus representaciones y las condiciones técnicas de su exposición y distribución. No se auditan las operaciones de preparación, transacción o postcompra ni la infraestructura completa del ecommerce.
 
 ## Finalidad de la auditoría

@@ -39,7 +39,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-010](#d-010) | «Interfaz» y «ámbito» son sinónimos en la unidad de evaluación | aceptada | 2026-10-24 |
 | [D-011](#d-011) | Nombre del proyecto: stratia.cic | aceptada | 2026-10-24 |
 | [D-012](#d-012) | Denominación «Taxonomía de clases de producto» | aceptada | 2026-10-24 |
-| [D-013](#d-013) | Tres ámbitos de evaluación también en CTX | aceptada | 2026-10-24 |
+| [D-013](#d-013) | Tres ámbitos de evaluación también en CTX | aceptada (nombres sustituidos por D-220) | 2026-10-24 |
 | [D-014](#d-014) | P07 en las asociaciones orientativas de Aplicabilidad | aceptada | 2026-10-24 |
 | [D-015](#d-015) | Intake de updates y skill `docs-update` | aceptada (modificada por D-016) | 2026-10-24 |
 | [D-016](#d-016) | El intake prevalece; aplicación sin aprobación previa | aceptada (estado «vigente» precisado por D-070) | 2026-10-24 |
@@ -150,7 +150,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-121](#d-121) | Fiabilidad: nueva definición y lectura refutadora | aceptada | 2026-10-27 |
 | [D-122](#d-122) | Comprobaciones de corrección: tres familias, límites del conocimiento del dominio e identificador ausente | aceptada (familias y fuente independiente, enmendadas por D-154; frontera con la técnica precisada por D-206) | 2026-10-27 |
 | [D-123](#d-123) | Se retira la propiedad P15 · Actualidad | aceptada | 2026-10-27 |
-| [D-124](#d-124) | Consistencia transversal: nueva dimensión de análisis por RI × par de ámbitos | aceptada | 2026-10-27 |
+| [D-124](#d-124) | Consistencia transversal: nueva dimensión de análisis por RI × par de ámbitos | aceptada (pares enmendados por D-220) | 2026-10-27 |
 | [D-125](#d-125) | Pistas de valoración: nombre, tres niveles y alcance | aceptada | 2026-10-27 |
 | [D-126](#d-126) | Marca de dimensión de comparación y NA de Comparabilidad | aceptada (cómo se fija: D-139) | 2026-10-27 |
 | [D-127](#d-127) | Quién escribe las pistas de valoración | aceptada (dónde viven: D-134, D-140) | 2026-10-27 |
@@ -178,12 +178,12 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-149](#d-149) | Sistema references: custodia común de las fuentes externas congeladas | aceptada | 2026-10-28 |
 | [D-150](#d-150) | Sistema capture: motor de captura y almacén común de fichas congeladas | aceptada (enmendada por D-171 en la auditoría: la reserva TDM para el proceso) | 2026-10-28 |
 | [D-151](#d-151) | Perfil de consumo base de Web: la respuesta HTTP sin ejecutar JavaScript | aceptada (segundo perfil retirado por D-156) | 2026-10-28 |
-| [D-152](#d-152) | Ámbitos de la V1 de la auditoría informativa: Web y Web Schema.org | aceptada | 2026-10-28 |
-| [D-153](#d-153) | Ejecución del auditor en dos fases: disponibilidad por ficha × ámbito, AC por lotes | propuesta | 2026-10-28 |
+| [D-152](#d-152) | Ámbitos de la V1 de la auditoría informativa: Web y Web Schema.org | aceptada (Contenido y Marcado desde D-220) | 2026-10-28 |
+| [D-153](#d-153) | Ejecución del auditor en dos fases: disponibilidad por ficha × ámbito, AC por lotes | propuesta (representación por ámbito: D-223) | 2026-10-28 |
 | [D-154](#d-154) | Fiabilidad sin fuentes externas y conocimiento del modelo como regla asimétrica | aceptada | 2026-10-28 |
-| [D-155](#d-155) | Un modelo de demanda y una ficha por ámbito: pertinencia por excepción y localización | aceptada | 2026-10-28 |
-| [D-156](#d-156) | Un solo perfil de consumo: sin JavaScript y con todo el documento | aceptada | 2026-10-28 |
-| [D-157](#d-157) | Contexto de la petición del perfil de consumo y datos en scripts que no son marcado | aceptada (estado limpio precisado por D-163) | 2026-10-28 |
+| [D-155](#d-155) | Un modelo de demanda y una ficha por ámbito: pertinencia por excepción y localización | aceptada (localización de Contenido enmendada por D-220) | 2026-10-28 |
+| [D-156](#d-156) | Un solo perfil de consumo: sin JavaScript y con todo el documento | aceptada («todo el documento» enmendado por D-220) | 2026-10-28 |
+| [D-157](#d-157) | Contexto de la petición del perfil de consumo y datos en scripts que no son marcado | aceptada (estado limpio precisado por D-163; frontera del documento enmendada por D-220) | 2026-10-28 |
 | [D-158](#d-158) | Catálogo de entrenamiento curado: candidatos, filtros, motivos de admisión, topes y casos manuales | aceptada (lecturas ratificadas por D-189) | 2026-10-28 |
 | [D-159](#d-159) | Perfil de implementación de Web: protocolo, documento y consumidor (Google Search y operadores de IA) | aceptada (enmendada por D-168: Open Graph en el nivel de documento) | 2026-10-28 |
 | [D-160](#d-160) | Frontera entre la evaluación técnica y la informativa en Web | aceptada | 2026-10-28 |
@@ -221,7 +221,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-192](#d-192) | Rasgos propuestos: sinónimos, retirada y uso provisional | aceptada | 2026-10-29 |
 | [D-193](#d-193) | Una aportación inferida deja de ser provisional al observarse en dos tiendas | aceptada | 2026-10-29 |
 | [D-194](#d-194) | La ejecución de una auditoría cuenta en el entrenamiento solo con las versiones vigentes | aceptada | 2026-10-29 |
-| [D-195](#d-195) | En la V1, el texto que solo está dentro de una imagen no cuenta como legible en Web | aceptada | 2026-10-29 |
+| [D-195](#d-195) | En la V1, el texto que solo está dentro de una imagen no cuenta como legible en Web | aceptada (precisada por D-221) | 2026-10-29 |
 | [D-196](#d-196) | En los bloques de categoría se dividen las necesidades distintas | aceptada | 2026-10-29 |
 | [D-197](#d-197) | Concreción de un conjunto cubierto en parte, y ejemplos abiertos frente a conjuntos declarados | aceptada | 2026-10-29 |
 | [D-198](#d-198) | En la V1, las propiedades se citan en la valoración del AC | aceptada | 2026-10-29 |
@@ -229,7 +229,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-200](#d-200) | Cada pista dirigida a un tipo se revisa contra los requisitos a los que llega | aceptada | 2026-10-29 |
 | [D-201](#d-201) | Las pistas se escriben al redactar un bloque nuevo, y existe el origen «inferida» | aceptada | 2026-10-29 |
 | [D-202](#d-202) | Una pista se corrige en su sitio mientras nadie la haya usado | aceptada | 2026-10-29 |
-| [D-203](#d-203) | La prominencia informativa sigue activa; sus zonas son title, metadescripción y H1 | aceptada | 2026-10-29 |
+| [D-203](#d-203) | La prominencia informativa sigue activa; sus zonas son title, metadescripción y H1 | aceptada (metadescripción fuera de Contenido: D-220, OQ-91) | 2026-10-29 |
 | [D-204](#d-204) | La araña de la auditoría captura primero las fichas y sigue la paginación | aceptada (enmendada por D-215: categoría a categoría) | 2026-10-29 |
 | [D-205](#d-205) | La información resolutiva ya se registra en el catálogo | aceptada | 2026-10-29 |
 | [D-206](#d-206) | El dígito de control es estructura del dato: Fiabilidad, y también requisito técnico si un perfil lo exige | aceptada | 2026-10-29 |
@@ -246,6 +246,10 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-217](#d-217) | La auditoría se elige sobre el resultado del rastreo; sin lista, todas las fichas del universo | aceptada | 2026-10-29 |
 | [D-218](#d-218) | Perímetro de PAA: prueba de la respuesta natural y especializaciones propuestas desde PAA | aceptada | 2026-10-29 |
 | [D-219](#d-219) | Rasgo «medida de detalle» para las dimensiones de detalle | aceptada | 2026-10-29 |
+| [D-220](#d-220) | Ámbitos Contenido y Marcado: ningún ámbito evalúa el HTML entero | aceptada | 2026-10-30 |
+| [D-221](#d-221) | Filtros de lectura con nombre y versión; Alfa, el filtro de Contenido | aceptada | 2026-10-30 |
+| [D-222](#d-222) | Alcance de lectura: hallazgos sin escala con un panel de lectores fechado | aceptada | 2026-10-30 |
+| [D-223](#d-223) | Ejecución en dos fases sobre la representación de cada ámbito | propuesta | 2026-10-30 |
 
 ---
 
@@ -3550,3 +3554,78 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - Los requisitos de detalle del catálogo pasan a él por votos, no a mano.
 - **Consecuencias:** [model-training](../10-model/model-training.md#rasgos) 1.27; [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md) 1.37; glosario (Rasgo). Fuera de `docs/`: `demand-engine/catalog/traits.json`, el reglamento del clasificador (v4) y `bin/model blocks` (T-091).
 - **Relacionado:** D-051, D-055, D-056, D-191, D-192.
+
+### D-220
+
+**Ámbitos Contenido y Marcado: ningún ámbito evalúa el HTML entero.** · aceptada · 2026-10-30
+
+- **Contexto:** `INTAKE 2026-10-30-content-and-markup-scopes` (T-101). La prueba de canarios midió qué reciben cuatro lectores en vivo (ChatGPT, Claude.ai, Claude Code y Gemini Flash): todos reciben el contenido textual del cuerpo, también casi todo el oculto (el atributo `hidden`, 3 de 4), y ninguno recibe el JSON-LD ni los `<meta itemprop content>`; Gemini recibe los atributos de microdatos del cuerpo. Usuario: «tendriamos 2 ambitos bien definidos: web textual y marcado / en ningn caso tiene sentido evalaur ambos juntos como un html entero»; después, «lo vmaos a denominar "Contenido"» y «schema.org pasa a llamrsa "marcado"».
+- **Decisión:**
+  - **Contenido** (`content`) sustituye a **Web**: el título del documento y el contenido textual de su cuerpo, tal como resultan de analizar la respuesta HTTP con los scripts desactivados, sin `<script>` ni `<style>`. Incluye el texto alternativo de las imágenes. Lo lee el filtro Alfa ([D-221](#d-221)).
+  - **Marcado** (`markup`) sustituye a **Web Schema.org**: el marcado Schema.org (JSON-LD, microdatos y RDFa) de la misma respuesta, aislado del contenido.
+  - **Catálogos distribuidos** no cambia.
+  - **Ningún ámbito evalúa el HTML entero.** Contenido no usa el marcado y Marcado no usa el contenido.
+  - El perfil de consumo sigue siendo uno ([D-156](#d-156)). Cada ámbito lee de la respuesta su representación con su filtro de lectura.
+- **Sustituye y enmienda:**
+  - [D-013](#d-013): los nombres de los ámbitos.
+  - [D-156](#d-156): desaparece «de la que se usa todo el documento».
+  - [D-157](#d-157): la frontera del documento («el texto del HTML (también el oculto), los atributos y el marcado») pasa a ser la representación de cada ámbito. Sigue que los datos de los scripts que no son marcado no son información.
+  - [D-155](#d-155): la ficha de Contenido no incluye la localización de Marcado.
+  - [D-124](#d-124): los pares de la consistencia transversal pasan a ser Catálogos distribuidos ↔ Contenido, Catálogos distribuidos ↔ Marcado y Contenido ↔ Marcado. El contraste entre el contenido y el marcado deja de ser evidencia de la coherencia dentro de un ámbito: solo es hallazgo transversal.
+  - [D-152](#d-152): los ámbitos de la V1 son Contenido y Marcado.
+  - FUND §4.1 y §4.3: desaparece la «evaluación conjunta del recurso web».
+  - Invariantes 1 y 2 del `CLAUDE.md` raíz.
+- **Interpretaciones adoptadas:**
+  - **El cambio de nombre alcanza a la evaluación técnica.** Un ámbito es uno para las dos evaluaciones. Los requisitos técnicos de Web pasan a ser los de Contenido y los de Web Schema.org, los de Marcado, sin cambiar ninguno ([D-129](#d-129)). Si los requisitos del perfil de Contenido que miran el documento entero (presencia del marcado, Open Graph, URL canónica) deben pasar a Marcado o salir, queda abierto en [OQ-92](open-questions.md#f-evaluación-técnica).
+  - **La página web es la interfaz de exposición** (el medio técnico) de la que salen los dos ámbitos. [D-010](#d-010) no cambia: en la unidad de evaluación, «ámbito» e «interfaz» siguen siendo sinónimos.
+  - **«Contenido» ya tiene otros usos en el canon** (el tipo de página «políticas y contenido», el rasgo «contenido» del vocabulario de requisitos, el «contenido original» de una evidencia). El nombre del ámbito se escribe con mayúscula y, cuando haga falta, como «ámbito Contenido».
+  - **Las citas literales anteriores** que dicen «Web» o «Web Schema.org» se conservan; se leen como Contenido y Marcado salvo donde esta decisión cambia su sentido.
+  - **D-203:** la metadescripción, zona prominente en HTML, no forma parte del ámbito Contenido. Qué hacer con ella queda en [OQ-91](open-questions.md#g-prominencia-informativa-propuesta).
+  - **Lecturas de Claude, derivadas de «ningún ámbito evalúa el HTML entero» y de los nombres nuevos:** las enmiendas a D-124 (pares), D-152, FUND §4.1 y §4.3 y el caso H (FUND §10.4), y el cambio de nombre en la evaluación técnica. El artefacto no las enumera.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md) 3.0; [scope](../00-context/scope.md); [evaluation-architecture](../10-model/evaluation-architecture.md); los módulos que nombran los ámbitos; glosario; `CLAUDE.md` raíz. Fuera de `docs/`: el cambio de nombre en el código y los datos (`demand-engine/catalog/scopes/`, `bin/model scope`, la referencia y el expediente de web-audit, las skills) queda en una tarea de `bin/pm`.
+- **Relacionado:** D-010, D-013, D-124, D-129, D-152, D-155, D-156, D-157, D-203, D-221, D-222.
+
+### D-221
+
+**Filtros de lectura con nombre y versión; Alfa, el filtro de Contenido.** · aceptada · 2026-10-30
+
+- **Contexto:** `INTAKE 2026-10-30-content-and-markup-scopes` (T-101). Los lectores medidos divergen en 18 construcciones y cambian sin aviso: Claude.ai y Claude Code, del mismo proveedor, difieren en tres. Usuario: «prevelo como un filtro con nombre y version»; «Queiro algo mas omenos estable y con fundamenteo. basado en als pruebas peor que tenga unc rierio adecuado»; «lo vamos a denominar por el alfabeto radiofonico. Empezando por la A». Antes, entre el texto completo (A) y el contenido principal (B), el usuario eligió: «1,2. A. Intenta ser lo mas fiel a como lo hacen». Claude comparó la unión, la intersección y la mayoría de los lectores con una definición normativa más un alcance medido aparte, como hacen WCAG («accessibility supported») y Baseline. El usuario aceptó la definición normativa.
+- **Decisión:**
+  - Un **filtro de lectura** obtiene de la respuesta HTTP la representación que lee un ámbito.
+  - **Nombre y versión:** los filtros se nombran con el alfabeto radiofónico, empezando por la A (Alfa, Bravo, Charlie…), con un número de versión (`alfa/1`).
+  - Cada expediente registra su representación como perfil de consumo + filtro y versión: `audit-es` + `alfa/1`.
+  - **Criterio normativo:** el filtro se define por la norma (DOM Standard y HTML Living Standard), no por la unión, la intersección ni la mayoría de los lectores. Solo cambia de versión si cambia su definición o su lectura de la norma. Un cambio de un lector no lo cambia.
+  - **Alfa** es el filtro del ámbito Contenido. Base: DOM §4.4 (*descendant text content*, que no depende de mostrarse), HTML con los scripts desactivados (`<noscript>` es contenido; `<template>` no) y HTML §4.8.4.4 (el `alt` sustituye a la imagen). Sin corte.
+- **Precisa [D-195](#d-195):** el `alt` cuenta en Contenido por HTML §4.8.4.4. El atributo `title` de la imagen no cuenta.
+- **Interpretaciones adoptadas:**
+  - La letra nombra el filtro y el número, su versión. Una corrección de Alfa es `alfa/2`. Otro planteamiento (p. ej. el contenido principal) es un filtro nuevo, Bravo.
+  - Las reglas del filtro y su base van al canon ([reading-filters](../10-model/reading-filters.md)). La especificación operativa (estructura, anotaciones y formato) va al método, como propuesta V1 ([filter-alfa](../20-methods/audit-gsc/filter-alfa.md)).
+  - La regla de «Marcado» sigue la de web-audit: sus analizadores de JSON-LD, microdatos y RDFa. No se le da nombre de filtro mientras el intake no lo pida.
+- **Consecuencias:** [reading-filters](../10-model/reading-filters.md) 1.0 (nuevo); [filter-alfa](../20-methods/audit-gsc/filter-alfa.md) 0.1 (nuevo); [effective-availability](../10-model/effective-availability.md); [availability-coverage](../20-methods/audit-gsc/availability-coverage.md); glosario (Filtro de lectura, Alfa).
+- **Relacionado:** D-156, D-195, D-220, D-222.
+
+### D-222
+
+**Alcance de lectura: hallazgos sin escala con un panel de lectores fechado.** · aceptada · 2026-10-30
+
+- **Contexto:** `INTAKE 2026-10-30-content-and-markup-scopes` (T-101). Con la definición normativa ([D-221](#d-221)), lo que mide la prueba de canarios no decide la disponibilidad. La propuesta de Claude, aceptada por el usuario, lo conserva como soporte medido, con el patrón de la consistencia transversal ([D-124](#d-124)).
+- **Decisión:**
+  - El **alcance de lectura** es una dimensión de análisis aparte: **hallazgos sin escala**. No modifica la disponibilidad efectiva ni el GSC, y no se agrega.
+  - **Unidad:** RI × Contenido con disponibilidad 1. Registra qué lectores del panel reciben los fragmentos que sostienen la disponibilidad y, si alguno no los recibe, por qué: la construcción o la posición respecto al corte medido de ese lector.
+  - **Panel de lectores:** un conjunto fijo, publicado y fechado de lectores en vivo. Panel 2026-10: ChatGPT sin sesión, Claude.ai, Claude Code y Gemini Flash. Cada pasada de la batería de canarios da una matriz fechada.
+  - **Corte:** la posición de cada fragmento es un dato medido; el corte es del lector. El 0/1 no depende de ninguno de los dos.
+- **Interpretación adoptada:** el alcance es de Contenido. En Marcado, ningún lector del panel recibe el JSON-LD ni los `<meta itemprop content>`; de los microdatos del cuerpo, solo Gemini recibe los atributos. El alcance de Marcado no se mide con este panel.
+- **Consecuencias:** [reading-filters](../10-model/reading-filters.md#alcance-de-lectura); [filter-alfa](../20-methods/audit-gsc/filter-alfa.md#alcance-de-lectura-operativa); [dossier](../20-methods/audit-gsc/dossier.md). Nuevas [OQ-88](open-questions.md#d-auditoría-informativa-localización-evidencias-gsc) (corte de Gemini), [OQ-89](open-questions.md#d-auditoría-informativa-localización-evidencias-gsc) (Perplexity) y [OQ-90](open-questions.md#d-auditoría-informativa-localización-evidencias-gsc) (cadencia del panel).
+- **Relacionado:** D-124, D-220, D-221.
+
+### D-223
+
+**Ejecución en dos fases sobre la representación de cada ámbito.** · propuesta · 2026-10-30
+
+- **Contexto:** `INTAKE 2026-10-30-content-and-markup-scopes` §5. [D-153](#d-153) daba a la fase 2 de Web el HTML y el Schema.org juntos. Con [D-220](#d-220), ningún ámbito los ve juntos.
+- **Decisión (propuesta V1):**
+  - Cada agente recibe la representación de su ámbito: en Contenido, la salida de Alfa; en Marcado, el marcado.
+  - Entre las dos fases, el código comprueba que cada fragmento citado existe literalmente en esa representación.
+  - Desaparece «en Web ve juntos el HTML y el Schema.org».
+- **Consecuencias:** [execution](../20-methods/audit-gsc/execution.md#ejecución-en-dos-fases); [qa](../20-methods/audit-gsc/qa.md) (QA-15).
+- **Relacionado:** D-153, D-220, D-221.

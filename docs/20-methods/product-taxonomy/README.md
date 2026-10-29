@@ -3,9 +3,9 @@ id: product-taxonomy
 title: Taxonomía de clases de producto — marco metodológico
 layer: method
 status: propuesta
-version: 1.10
-updated: 2026-10-29
-sources: [TAX Resumen, TAX §1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review]
+version: 1.11
+updated: 2026-10-30
+sources: [TAX Resumen, TAX §1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review, INTAKE 2026-10-30-content-and-markup-scopes]
 ---
 
 # Taxonomía de clases de producto — marco metodológico
@@ -47,7 +47,7 @@ La taxonomía **no** pretende resolver por sí misma los requisitos de demanda, 
 
 ## Alcance que debe respetarse
 
-Se mantiene el perímetro del estudio ([alcance](../../00-context/scope.md)): descubrimiento y decisión de compra, España desde octubre de 2026 con horizonte al menos hasta el primer trimestre de 2027; productos, variantes, ofertas, vendedores y condiciones comerciales; ámbitos Catálogos distribuidos, Web y Web Schema.org ([ámbitos](../../10-model/evaluation-scopes.md)).
+Se mantiene el perímetro del estudio ([alcance](../../00-context/scope.md)): descubrimiento y decisión de compra, España desde octubre de 2026 con horizonte al menos hasta el primer trimestre de 2027; productos, variantes, ofertas, vendedores y condiciones comerciales; ámbitos Catálogos distribuidos, Contenido y Marcado ([ámbitos](../../10-model/evaluation-scopes.md)).
 
 La taxonomía es transversal a esos ámbitos: **no se diseña una clase distinta porque una interfaz tenga o no tenga cierto campo**. El vínculo con interfaces se determina posteriormente al definir qué requisitos resultan pertinentes para cada ámbito.
 

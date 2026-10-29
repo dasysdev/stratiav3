@@ -14,6 +14,11 @@ Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módul
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
 
+## 2026-10-29 — Pistas de certificaciones aplicadas en el catálogo · aplicado
+
+- **editorial** — Registra la ejecución de [D-154](decisions.md#d-154) en `demand-engine/catalog/hints.json` (T-070): retiradas PV-39 y PV-40; nuevas PV-45 (Aplicabilidad), PV-46 (Fiabilidad) y PV-47 (Precisión). PV-4, PV-5 y PV-6 ya estaban retiradas.
+  - Módulo: [assessment-hints](../10-model/assessment-hints.md) 1.9; nota de ejecución en D-154.
+
 ## 2026-10-29 — Cobertura de la tasa técnica sin los NA · aplicado
 
 - **canon** — Resuelve [I-49](issues.md#i-49) (decisión del usuario sobre la propuesta de Claude): la cobertura de la tasa de cumplimiento técnico es evaluados / (pertinentes − NA), de modo que solo la bajan las NE; evaluados y la tasa no cambian. Enmienda D-166. Decisión [D-169](decisions.md#d-169).

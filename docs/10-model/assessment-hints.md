@@ -3,8 +3,8 @@ id: assessment-hints
 title: Pistas de valoración
 layer: model
 status: vigente
-version: 1.8
-updated: 2026-10-28
+version: 1.9
+updated: 2026-10-29
 sources: [INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-27-comparison-mark, INTAKE 2026-10-27-requirement-hints-location, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-scope-sheet]
 ---
 
@@ -120,7 +120,13 @@ La prueba con nueve requisitos del catálogo que aplican a unas sábanas (`cat.r
 
 — INTAKE 2026-10-27-assessment-hints; fila de Fiabilidad enmendada por [D-154](../30-governance/decisions.md#d-154) (sin consulta a registros de GS1 ni de certificados; el dígito de control sigue siendo una regla citable)
 
-- **Pistas de certificaciones** ([D-154](../30-governance/decisions.md#d-154)): las que piden que el número exista en el registro del emisor (PV-5, PV-39) se retiran; las del alcance de la certificación (PV-6, PV-40) se retiran y se reescriben como pistas de Aplicabilidad, con número nuevo (regla 13). Las del número de certificado y su organismo (PV-4, PV-38, Justificación) se mantienen. Cambio del catálogo de pistas, pendiente.
+- **Pistas de certificaciones** ([D-154](../30-governance/decisions.md#d-154)): van dirigidas a la fuente `shopify-attr:safety-certifications` y juzgan solo lo publicado (regla 13).
+  - Retirada y sustituida: PV-39, que pedía que el número existiera en el registro del emisor, por PV-46.
+  - Retirada y sustituida: PV-40 por PV-45 (Aplicabilidad: la certificación se atribuye al producto que se vende).
+  - PV-46 (Fiabilidad): fecha de validez vencida o sello incompatible con la composición.
+  - Nueva: PV-47 (Precisión: la norma concreta).
+  - Se mantiene: PV-38 (número de certificado y organismo, Justificación).
+  - PV-4, PV-5 y PV-6 se retiraron antes, al pasar del rasgo «seguridad» a la fuente.
 - La prueba mostró además una comprobación de **consistencia entre requisitos del mismo ámbito** (una bajera de 90 × 190 en una ficha que dice «cama de 150»). Es consistencia por ámbito (P16) y sale del tipo.
 - Requisitos de la prueba que **no son dimensiones de comparación**: tamaño de cama (es un filtro: primero se elige el tamaño y luego se compara), variantes disponibles, garantía legal (es la misma para todos) e identificadores (sirven para emparejar ofertas, no para compararlas). Valorar Comparabilidad en ellos daría un 2 automático o repetiría lo que ya mira Precisión.
 

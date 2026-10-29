@@ -8,16 +8,19 @@ is kept only when the page is not a challenge, an error or under a TDM reservati
   dom.html.gz        rendered DOM after reading the page (shadow roots serialised); the roots
                      of hidden subtrees (closed details, collapsed accordions, display:none)
                      carry data-capture-hidden="1"
-  page.mhtml.gz      the page with its resources (MHTML, frames included)
+
+No MHTML (D-172) and no screenshots (D-042): nothing reads the page's resources.
 
 With a pacer (batch captures) the page is read at a reader's pace; without one (a single
 page) it is only scrolled through, so that lazy content loads. A pacing without scroll keeps
 the first load: no scrolling and no dwell (the training catalog, D-053), and so does a profile
-without scroll (audit-es). No screenshots (D-042).
+without scroll (audit-es).
 
 The window's capture profile (capture.profiles) is recorded in meta.json. Without JavaScript a
 challenge cannot resolve by itself, so it is not waited for. A profile that keeps evidence also
-records the request context: Accept-Language as sent and the origin (IP, country, ASN).
+records the request context: Accept-Language as sent and the origin (IP, country, ASN). A caller
+that visits many pages consults the origin once per run and gives it (`origin`); without it,
+each visit consults it.
 """
 from __future__ import annotations
 
@@ -123,15 +126,16 @@ def load(page: Page, url: str, challenge_wait: float) -> dict:
 
 
 def visit(page: Page, url: str, folder: Path, pacer: Pacer | None = None, tdm_entries=(),
-          browser_info: dict | None = None, stop: threading.Event | None = None, meta: dict | None = None) -> dict:
+          browser_info: dict | None = None, stop: threading.Event | None = None, meta: dict | None = None,
+          origin: dict | None = None) -> dict:
     """Visit `url`, write its snapshot in `folder` and return {'outcome', 'detail', 'elapsed_s', 'meta'}.
-    `meta` holds the caller's fields, written first in meta.json."""
+    `meta` holds the caller's fields, written first in meta.json; `origin`, the origin of the run."""
     started, t0 = now(), time.monotonic()
     meta = {**(meta or {}), "url_requested": url, "method": "chrome-cdp", "profile": page.profile.name,
             "browser": browser_info or {}, "started_at": started}
     files = {}
     try:
-        outcome, detail = _visit(page, url, pacer, tdm_entries, stop, meta, folder, files, t0)
+        outcome, detail = _visit(page, url, pacer, tdm_entries, stop, meta, folder, files, t0, origin)
     except CdpError as exc:
         outcome, detail = "failed", f"error CDP: {exc}"
     meta.update({"outcome": outcome, "detail": detail, "files": files, "finished_at": now()})
@@ -148,7 +152,7 @@ def _body(page: Page, request_id: str, meta: dict) -> bytes:
     return raw if raw is not None else page.response_body(request_id)
 
 
-def _visit(page, url, pacer, tdm_entries, stop, meta, folder, files, t0) -> tuple[str, str]:
+def _visit(page, url, pacer, tdm_entries, stop, meta, folder, files, t0, origin) -> tuple[str, str]:
     wait = pacer.pacing.challenge_wait_s if pacer else DEFAULTS["challenge_wait_s"]
     loaded = load(page, url, wait if page.profile.javascript else 0)
     if "error" in loaded:
@@ -168,7 +172,8 @@ def _visit(page, url, pacer, tdm_entries, stop, meta, folder, files, t0) -> tupl
         if page.profile.evidence:
             sent = {k.lower(): v for k, v in page.request_headers(event["requestId"]).items()}
             meta["request_context"] = {"accept_language": sent.get("accept-language"),
-                                       "user_agent": sent.get("user-agent"), "origin": profiles.origin()}
+                                       "user_agent": sent.get("user-agent"),
+                                       "origin": origin if origin is not None else profiles.origin()}
         signals = page.eval(META) or {}
         meta["page_meta"] = signals
         if loaded["challenge"]:
@@ -202,7 +207,6 @@ def _visit(page, url, pacer, tdm_entries, stop, meta, folder, files, t0) -> tupl
                 page.eval(UNMARK_HIDDEN)
             files["response.html"] = write_evidence(folder, "response.html", _body(page, event["requestId"], meta))
             files["dom.html"] = write_evidence(folder, "dom.html", dom["html"].encode("utf-8"))
-            files["page.mhtml"] = write_evidence(folder, "page.mhtml", page.mhtml())
             meta["dom"] = {"title": dom["title"], "charset": dom["charset"], "elements": dom["elements"],
                            "shadow_roots": dom["shadow_roots"], "hidden_roots": hidden}
             meta["actions"] = actions

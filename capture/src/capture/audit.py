@@ -1,33 +1,26 @@
-"""Capture of the pages of an audit of a site (D-167), all under the audit profile (audit-es).
+"""The pages of an audit of a site (D-167), chosen on its crawl (capture.spider, D-170).
 
-One audit is one directory, var/audits/<audit>/, never replaced, with everything in it:
+One audit is one directory, var/audits/<audit>/, never replaced. The crawl captures every page
+under the audit profile (audit-es) and writes crawl.json, with the universe of the audit. The
+audit only chooses among what the crawl captured, with the snapshot of the crawl's visit, and
+asks for nothing (D-170):
 
-  audit.json          the manifest: every page with its type (product, home, policy, category),
-                      what was located and what was not, and whether each product page is in
-                      the sitemaps
-  sites/<host>/       robots.txt and tdmrep.json of each origin visited
-  sitemaps/           the sitemaps as they came (indexes and gzip included), numbered
-  pages/<page>/<at>/  the snapshot of each page (capture.visit)
+  audit.json          the manifest: every page chosen with its type (product, home, policy,
+                      category), what was located and what was not, and whether each product
+                      page is in the sitemaps
 
-The pages: the product pages of the engagement (the list given); the home page; the shipping,
-returns, contact and legal notice pages, located from the links of the home page (its footer
-first); and the immediate category of each product page, by its breadcrumbs. A policy that is
-not located, or a product page without breadcrumbs, is recorded as such and never replaced by
-another page. Two product pages that share their category capture it once.
+The pages: the product pages of the engagement (the list given) or, with no list, every product
+page of the universe; the home page; the shipping, returns, contact and legal notice pages,
+located from the links of the home page (its footer first); and the categories: every category
+of the universe and the immediate category of each product page, by its breadcrumbs (D-215). A
+policy that is not located, a page the crawl did not capture or a product page without
+breadcrumbs is recorded as such and never replaced by another page. A product page of the list
+that is not in the universe is not audited: it is recorded, as not reached only if the crawl was
+complete. A crawl stopped by a TDM reservation (D-171) is not audited.
 
-The sitemaps are those declared in robots.txt or, if none, /sitemap.xml, read up to a budget.
-Whether a product page is in them, by its URL, its final URL or the canonical URL it declares,
-is yes, no, or undetermined when sitemaps were left unread or failed: an absence needs the whole
-coverage.
-
-Each page gets a fresh window and context of its own (audit-es), with a short pause between
-pages (or the Crawl-delay, if larger). A block stops the audit; the rest is recorded as pending.
-
-A TDM reservation stops it too (D-171). Before capturing anything the audit reads the tdmrep.json
-of the site: any entry that reserves stops it with nothing captured. The home page is the first
-page visited, and its header and meta are the rest of that check. A reservation that appears
-later (a page, or the tdmrep.json of another origin) stops it there: that page is not kept, the
-pages before it are. The manifest records the stop and its evidence (`reservation`).
+This module also holds what the crawl shares: the links and breadcrumbs of a document, the
+policies of a home page, robots.txt and tdmrep.json of each origin and the reading of the
+sitemaps (those declared in robots.txt or, if none, /sitemap.xml, up to a budget).
 Reading an audit and the links of its pages needs neither Chrome nor websockets (on the host).
 """
 from __future__ import annotations
@@ -37,15 +30,14 @@ import gzip
 import json
 import random
 import re
-import time
 import unicodedata
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urldefrag, urljoin, urlsplit
 
-from . import ROOT, profile, profiles, tdm
-from .files import now, read_json, sha256, unique_dir, write_json
+from . import ROOT, tdm
+from .files import now, read_json, sha256, write_json
 from .pages import ID, PageError, _response_text, json_ld, walk
 
 AUDITS = ROOT / "var/audits"
@@ -80,15 +72,18 @@ class AuditError(LookupError):
 
 # ------------------------------------------------------------------ reading an audit
 def manifest(audit_id: str) -> dict:
-    data = read_json(AUDITS / audit_id / "audit.json")
+    """The manifest of an audit (audit.json) or, until its pages are chosen, of its crawl."""
+    data = read_json(AUDITS / audit_id / "audit.json") or read_json(AUDITS / audit_id / "crawl.json")
     if data is None:
         raise AuditError(f"no hay auditoría {audit_id}")
     return data
 
 
 def read(audit_id: str, page_id: str) -> str:
-    """The document of a captured page of an audit (the HTTP response, in UTF-8)."""
-    page = next((p for p in manifest(audit_id)["pages"] if p["id"] == page_id), None)
+    """The document of a captured page of an audit or of its crawl (the HTTP response, in UTF-8)."""
+    folder = AUDITS / audit_id
+    data = read_json(folder / "crawl.json") or manifest(audit_id)
+    page = next((p for p in data["pages"] if p["id"] == page_id), None)
     if page is None or page.get("outcome") != "captured":
         raise AuditError(f"{audit_id}: no hay página capturada {page_id}")
     folder = AUDITS / audit_id / page["snapshot"]
@@ -106,8 +101,9 @@ def _clean(url: str) -> str:
 
 
 class _Links(HTMLParser):
-    """The links of a document, each with its text, whether it is in the footer and the
-    breadcrumb trail it belongs to (if any)."""
+    """The links of a document, each with its text, whether it is in the footer, the
+    breadcrumb trail it belongs to (if any) and whether it is nofollow. The first <base href>
+    sets the base of relative links."""
 
     def __init__(self, base: str) -> None:
         super().__init__(convert_charrefs=True)
@@ -116,12 +112,15 @@ class _Links(HTMLParser):
         self.links: list[dict] = []
         self.trails = 0
         self._open: dict | None = None
+        self._based = False
 
     def _state(self) -> tuple[bool, int | None]:
         return self.stack[-1][1:] if self.stack else (False, None)
 
     def handle_starttag(self, tag, attrs):
         a = {k: v or "" for k, v in attrs}
+        if tag == "base" and a.get("href", "").strip() and not self._based:
+            self.base, self._based = urljoin(self.base, a["href"].strip()), True
         footer, trail = self._state()
         footer = footer or tag == "footer" or a.get("role") == "contentinfo"
         marks = " ".join((a.get("class", ""), a.get("id", ""), a.get("aria-label", ""))).lower()
@@ -133,7 +132,7 @@ class _Links(HTMLParser):
             self._close()
         if tag == "a" and a.get("href"):
             self._open = {"href": a["href"], "text": " ".join(filter(None, (a.get("title"), a.get("aria-label")))),
-                          "footer": footer, "trail": trail}
+                          "footer": footer, "trail": trail, "nofollow": "nofollow" in a.get("rel", "").lower().split()}
         if tag not in VOID:
             self.stack.append((tag, footer, trail))
 
@@ -267,7 +266,9 @@ class _Sites:
 
 
 def read_sitemaps(page, sites: _Sites, base: str, folder: Path, files: int, max_bytes: int,
-                  pause_s=PAUSE_S) -> dict:
+                  pause_s=PAUSE_S, root: Path | None = None) -> dict:
+    """The sitemaps of the site, kept as they came in `folder`; each file named relative to
+    `root` (the audit; by default the parent of `folder`)."""
     from .legitimacy import robots_of
 
     robots = sites.of(page, base)[0]
@@ -308,7 +309,7 @@ def read_sitemaps(page, sites: _Sites, base: str, folder: Path, files: int, max_
         name = f"{len(report):03d}-" + (re.sub(r"[^A-Za-z0-9._-]+", "_", urlsplit(url).path.rsplit("/", 1)[-1])
                                         or "sitemap")
         (folder / name).write_bytes(data)
-        entry.update({"file": f"sitemaps/{name}", "bytes": len(data), "sha256": sha256(data),
+        entry.update({"file": str((folder / name).relative_to(root or folder.parent)), "bytes": len(data), "sha256": sha256(data),
                       "content_type": got.get("type"), "gzip": data[:2] == b"\x1f\x8b"})
         try:
             parsed = _parse_sitemap(data)
@@ -347,17 +348,15 @@ def canonicals(doc: str, base: str) -> list[str]:
     return list(dict.fromkeys(_clean(urljoin(base, href)) for href in parser.found))
 
 
-def in_sitemaps(sitemaps: dict, url: str, url_final: str | None, canonical=()) -> dict:
-    """Whether a product page is in the sitemaps by its URL as requested, its final URL or the
-    canonical URL it declares, in that order; `by` says which one matched."""
-    candidates = [("url", url), ("url_final", url_final)] + [("canonical", c) for c in canonical]
-    for by, candidate in candidates:
-        if candidate and _clean(candidate) in sitemaps["urls"]:
-            return {"value": "yes", "match": _clean(candidate), "by": by}
-    return {"value": "no" if sitemaps["complete"] else "undetermined"}
-
-
 # ------------------------------------------------------------------ the audit
+class Reserved(AuditError):
+    """A crawl stopped by a TDM reservation (D-171): nothing of it is audited."""
+
+    def __init__(self, reservation: dict) -> None:
+        super().__init__("rastreo parado por una reserva TDM (D-171): no se audita")
+        self.reservation = reservation
+
+
 def check_new(audit_id: str) -> Path:
     if not ID.fullmatch(audit_id):
         raise AuditError(f"ID no válido: {audit_id!r} (minúsculas, dígitos y guiones)")
@@ -367,155 +366,106 @@ def check_new(audit_id: str) -> Path:
     return folder
 
 
-def run(audit_id: str, products: list[str], browser=None, pause_s=PAUSE_S,
-        sitemap_files: int = SITEMAP_FILES, sitemap_mb: int = SITEMAP_MB, out=print) -> dict:
-    """Capture the pages of an audit of the site of `products` (its product pages) and return
-    its manifest, written in var/audits/<audit>/audit.json."""
-    from .browser import Browser
-    from .once import _refused
-    from .visit import visit
+def run(audit_id: str, products: list[str] | None = None) -> dict:
+    """Choose the pages of the audit (D-167) on the crawl of var/audits/<audit>/ (capture.spider)
+    and return its manifest, written in audit.json: the product pages given, or every product
+    page of the universe; the home page, the policies and the categories. Nothing is asked for:
+    a page the crawl did not capture is recorded, not audited."""
+    from .spider import MANIFEST, url_key
 
-    folder = check_new(audit_id)
-    if not products:
-        raise AuditError("sin fichas del encargo")
-    origins = {"{0.scheme}://{0.netloc}".format(urlsplit(u)) for u in products}
-    if len(origins) != 1:
-        raise AuditError(f"las fichas de una auditoría son de un solo sitio: {', '.join(sorted(origins))}")
-    base = origins.pop()
-    folder.mkdir(parents=True)
-    chosen = profiles.AUDIT_ES
-    record = {"audit": audit_id, "site": base, "profile": chosen.name, "started_at": now(),
-              "products": [{"url": u} for u in products], "pages": []}
-    own = browser is None
-    if own:
-        browser = Browser(profile())
-        browser.start()
-    tool = browser.new_window(chosen)
-    sites = _Sites(folder / "sites")
-    by_url: dict[str, dict] = {}
-    state = {"stopped": None, "visited": 0, "reservation": None}
-
-    def stop_reserved(where: str, url: str, evidence: dict) -> None:
-        """A TDM reservation stops the audit (D-171): what is left stays pending."""
-        nothing = not any(p.get("outcome") == "captured" for p in record["pages"])
-        state["reservation"] = {"where": where, "url": url, **evidence}
-        state["stopped"] = (f"auditoría parada: reserva TDM en {where} ({evidence['source']}); "
-                            + ("no se captura nada" if nothing else "lo pendiente no se captura"))
-
-    def origin_file(url: str) -> str:
-        return str((sites.folder / urlsplit(url).netloc.replace(":", "_") / "tdmrep.json").relative_to(folder))
-
-    def capture(page_id: str, kind: str, url: str) -> dict:
-        key = _clean(url)
-        if key in by_url:
-            return by_url[key]
-        entry = {"id": page_id, "type": kind, "url": url}
-        record["pages"].append(entry)
-        by_url[key] = entry
-        if state["stopped"]:
-            entry.update({"outcome": "pending", "detail": state["stopped"]})
-            return entry
-        robots, entries, summary = sites.of(tool, url)
-        snap = unique_dir(folder / "pages" / page_id)
-        meta = {"profile": chosen.name, "legitimacy": summary, "audit": audit_id, "page_type": kind,
-                "robots_bots": robots.by_bot(url, profiles.BOTS)}
-        if state["visited"]:
-            time.sleep(max(random.uniform(*pause_s), robots.crawl_delay() or 0))
-        state["visited"] += 1
-        if tdm.reserving(entries):   # the tdmrep.json of another origin
-            result = _refused(snap, url, meta, "reserved", "reserva TDM (tdmrep.json): no se conserva el contenido")
-        elif not robots.allowed(url):
-            result = _refused(snap, url, meta, "disallowed",
-                              "robots.txt inaccesible" if robots.mode == "unreachable" else "robots.txt")
-        else:
-            window = browser.new_window(chosen)
-            try:
-                result = visit(window, url, snap, None, entries, browser.info, meta=meta)
-            finally:
-                browser.close_window(window)
-        m = result["meta"]
-        entry.update({"outcome": result["outcome"], "detail": result["detail"],
-                      "snapshot": str(snap.relative_to(folder)), "url_final": m.get("url_final"),
-                      "http_status": (m.get("http") or {}).get("status")})
-        out(f"{page_id}: {result['outcome']} ({result['detail']})")
-        if result["outcome"] == "blocked":
-            state["stopped"] = f"auditoría parada: bloqueo en {page_id}"
-        elif result["outcome"] == "reserved":
-            if tdm.reserving(entries):
-                evidence = {"source": "tdmrep.json", "file": origin_file(url), "entries": tdm.reserving(entries)}
-            else:
-                found = tdm.signals((m.get("http") or {}).get("headers"), m.get("page_meta"))
-                source = "cabecera tdm-reservation" if found["header"] == "1" else "meta tdm-reservation"
-                evidence = {"source": source, **found}
-            stop_reserved(page_id, url, {**evidence, "snapshot": entry["snapshot"]})
-        return entry
+    folder = AUDITS / audit_id
+    crawl = read_json(folder / MANIFEST)
+    if crawl is None:
+        raise AuditError(f"no hay rastreo {audit_id}: primero, pages crawl {audit_id} URL")
+    if (folder / "audit.json").exists():
+        raise AuditError(f"la auditoría {audit_id} ya eligió sus páginas y no se sustituye")
+    if crawl.get("reservation"):
+        raise Reserved(crawl["reservation"])
+    hosts = set(crawl["crawl"]["hosts"])
+    others = sorted({urlsplit(u).netloc for u in products or []} - hosts)
+    if others:
+        raise AuditError(f"fichas de otro sitio que el rastreo ({', '.join(hosts)}): {', '.join(others)}")
+    entries = {e["id"]: e for e in crawl["pages"]}
+    rows = {r["url"]: r for r in crawl.get("universe", [])}
+    alias: dict[str, str] = {}   # URL, final URL and canonical URL of a page → the page
+    for e in sorted(entries.values(), key=lambda e: (e.get("source") == "sitemaps", e["id"])):
+        if e.get("same_as"):
+            continue
+        for u in [e["url"], e.get("url_final"), *e.get("canonical", [])]:
+            if u:
+                alias.setdefault(url_key(u), e["id"])
 
     def document(entry: dict) -> str | None:
-        if entry.get("outcome") != "captured":
+        if entry.get("outcome") != "captured" or entry.get("not_html"):
             return None
         snap = folder / entry["snapshot"]
         return _response_text(snap, read_json(snap / "meta.json")).decode("utf-8")
 
-    try:
-        # The check before capturing (D-171): tdmrep.json, then the header and meta of the home
-        # page, which is the first page visited
-        robots, entries, summary = sites.of(tool, base)
-        record["legitimacy"] = summary
-        if robots.mode == "unreachable":
-            state["stopped"] = "robots.txt inaccesible: no se captura nada"
-        elif tdm.reserving(entries):
-            stop_reserved("tdmrep.json", base + "/.well-known/tdmrep.json",
-                          {"source": "tdmrep.json", "file": origin_file(base), "entries": tdm.reserving(entries)})
-        home = capture("home", "home", base + "/")
-        home_doc = document(home)
+    chosen: dict[str, str] = {}   # page ID → type, in the order of D-167
 
-        if not state["stopped"]:
-            tool.idle(random.uniform(*pause_s))
-            sitemaps = read_sitemaps(tool, sites, base, folder / "sitemaps",
-                                     sitemap_files, sitemap_mb * 1_000_000, pause_s)
-            record["sitemaps"] = {k: v for k, v in sitemaps.items() if k not in ("urls", "reserved")}
-            record["sitemaps"]["urls"] = len(sitemaps["urls"])
-            out(f"sitemaps: {len(sitemaps['read'])} leídos, {len(sitemaps['pending'])} pendientes, "
-                f"{len(sitemaps['urls'])} URL")
-            if sitemaps["reserved"]:
-                stop_reserved("sitemaps", sitemaps["reserved"]["url"],
-                              {"source": "tdmrep.json", "file": origin_file(sitemaps["reserved"]["url"]),
-                               "entries": sitemaps["reserved"]["entries"]})
-        policies = locate_policies(home_doc, home.get("url_final") or base + "/") if home_doc else \
-            {k: {"status": "home_not_captured"} for k in POLICIES}
+    def choose(page_id: str, kind: str) -> str:
+        chosen.setdefault(page_id, kind)
+        return page_id
 
-        for n, product in enumerate(record["products"], 1):
-            entry = capture(f"product-{n:02d}", "product", product["url"])
-            product["page"] = entry["id"]
-            doc = document(entry)
-            if doc:
-                product["canonical"] = canonicals(doc, entry.get("url_final") or product["url"])
-            if "sitemaps" in record:
-                product["in_sitemaps"] = in_sitemaps(sitemaps, product["url"], entry.get("url_final"),
-                                                     product.get("canonical") or ())
-            product["breadcrumbs"] = breadcrumbs(doc, product["url"], entry.get("url_final")) if doc \
-                else {"status": "not_captured"}
+    home = next((e for e in entries.values() if e["depth"] == 0), None)
+    home_doc = document(home) if home else None
+    if home:
+        choose(home["id"], "home")
+    policies = locate_policies(home_doc, home.get("url_final") or home["url"]) if home_doc else \
+        {k: {"status": "home_not_captured"} for k in POLICIES}
+    for policy in policies.values():
+        if policy["status"] == "located":
+            page = alias.get(url_key(policy["url"]))
+            if page:
+                policy["page"] = choose(page, "policy")
+            else:
+                policy["status"] = "not_captured"
 
-        for kind, policy in policies.items():
-            if policy["status"] == "located":
-                policy["page"] = capture(f"policy-{kind}", "policy", policy["url"])["id"]
-        record["policies"] = policies
+    complete = crawl["crawl"]["coverage"].get("crawl_complete", False)
+    if products:
+        given = []
+        for url in products:
+            page = alias.get(url_key(url))
+            row = rows.get(url_key(url))
+            given.append({"url": url, "page": page} if page else
+                         {"url": url, "in_universe": "yes" if row else "no" if complete else "undetermined"})
+    else:
+        given = [{"url": r["url"], "page": r["page"]} for r in rows.values()
+                 if r["type"] == "product" and r["page"] and not r.get("same_as")]
+    categories = []
+    for product in given:
+        if not product.get("page"):
+            continue
+        entry = entries[product["page"]]
+        row = rows.get(url_key(entry["url"]), {})
+        product["type_in_universe"] = row.get("type")
+        product["canonical"] = entry.get("canonical", [])
+        found = row.get("in_sitemaps", "undetermined")
+        product["in_sitemaps"] = {"value": found, **({"by": row.get("sitemaps_by", "url")} if found == "yes" else {})}
+        doc = document(entry)
+        product["breadcrumbs"] = breadcrumbs(doc, entry["url"], entry.get("url_final")) if doc else {"status": "not_captured"}
+        choose(entry["id"], "product")
+        category = product["breadcrumbs"].get("category")
+        if category:
+            product["category_page"] = alias.get(url_key(category))
+            if product["category_page"]:
+                categories.append(product["category_page"])
+    categories += [r["page"] for r in rows.values() if r["type"] == "category" and r["page"]
+                   and not urlsplit(r["url"]).query and not r.get("same_as")]
+    for page in categories:
+        choose(page, "category")
 
-        categories = 0
-        for product in record["products"]:
-            category = product["breadcrumbs"].get("category")
-            if category:
-                if _clean(category) not in by_url:
-                    categories += 1
-                product["category_page"] = capture(f"category-{categories:02d}", "category", category)["id"]
-    finally:
-        browser.close_window(tool)
-        if own:
-            browser.stop()
-        record["stopped"] = state["stopped"]
-        record["reservation"] = state["reservation"]
-        record["finished_at"] = now()
-        write_json(folder / "audit.json", record)
+    fields = ("outcome", "detail", "snapshot", "url_final", "http_status")
+    first = crawl["runs"][0]
+    record = {"audit": audit_id, "site": crawl["site"], "profile": crawl["profile"], "started_at": now(),
+              "origin": first.get("origin"), "legitimacy": crawl.get("legitimacy"),
+              "crawl": {"manifest": MANIFEST, "coverage": crawl["crawl"]["coverage"],
+                        "universe": crawl["crawl"].get("universe")},
+              "sitemaps": crawl.get("sitemaps"), "products": given, "policies": policies,
+              "pages": [{"id": page, "type": kind, "url": entries[page]["url"],
+                         **{k: entries[page].get(k) for k in fields}} for page, kind in chosen.items()],
+              "stopped": None, "reservation": None, "finished_at": now()}
+    write_json(folder / "audit.json", record)
     return record
 
 

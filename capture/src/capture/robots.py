@@ -101,20 +101,25 @@ class Robots:
         return own or [g for g in self.groups if "*" in g.agents]
 
     def allowed(self, url: str, token: str = TOKEN) -> bool:
+        return self.decision(url, token)[0]
+
+    def decision(self, url: str, token: str = TOKEN) -> tuple[bool, str | None]:
+        """Whether `token` may fetch `url` and the rule that decides it ("Disallow: /x"), or None
+        when no rule matches or the file does not apply (unavailable, unreachable)."""
         parts = urllib.parse.urlsplit(url)
         path = (parts.path or "/") + (f"?{parts.query}" if parts.query else "")
         if parts.path == "/robots.txt" or self.mode == "unavailable":
-            return True
+            return True, None
         if self.mode == "unreachable":
-            return False
-        best_len, best_allow = -1, True
+            return False, None
+        best_len, best = -1, (True, None)
         for group in self._chosen(token):
             for allow, pattern in group.rules:
                 if matches(pattern, path):
                     length = len(_normalize(pattern))
                     if length > best_len or (length == best_len and allow):
-                        best_len, best_allow = length, allow
-        return best_allow
+                        best_len, best = length, (allow, f"{'Allow' if allow else 'Disallow'}: {pattern}")
+        return best
 
     def crawl_delay(self, token: str = TOKEN) -> float | None:
         delays = [g.crawl_delay for g in self._chosen(token) if g.crawl_delay is not None]

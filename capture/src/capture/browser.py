@@ -350,12 +350,57 @@ class Page:
             return base64.b64decode(body["body"])
         return body.get("body", "").encode("utf-8")
 
+    def heads(self, url: str, timeout: float = 60) -> dict:
+        """GET `url` as a navigation and cut every response after its headers: Chrome follows
+        the redirects and the last response is aborted before any byte of its body is read.
+        Returns {'chain': [{'url', 'status', 'headers'}, ...], 'error'}: the responses in order,
+        the redirects first (the headers repeated in one line each are joined by a newline, as
+        the Network domain does). The window's Fetch interception is replaced: use the window
+        for this request only."""
+        chain, state = [], {"final": False, "answered": False}
+
+        def paused(p: dict) -> None:
+            status = p.get("responseStatusCode")
+            try:
+                if status is None:   # a network error at the response stage, or a request stage
+                    if p.get("responseErrorReason"):
+                        state["final"] = True
+                        self.cdp.send("Fetch.failRequest", {"requestId": p["requestId"], "errorReason": "Aborted"})
+                    else:
+                        self.cdp.send("Fetch.continueRequest", {"requestId": p["requestId"]})
+                    return
+                headers: dict[str, str] = {}
+                for h in p.get("responseHeaders") or []:
+                    headers[h["name"]] = headers[h["name"]] + "\n" + h["value"] if h["name"] in headers else h["value"]
+                chain.append({"url": p["request"]["url"], "status": status, "headers": headers})
+                if 300 <= status < 400 and any(k.lower() == "location" for k in headers):
+                    self.cdp.send("Fetch.continueRequest", {"requestId": p["requestId"]})
+                else:
+                    state["final"] = state["answered"] = True
+                    self.cdp.send("Fetch.failRequest", {"requestId": p["requestId"], "errorReason": "Aborted"})
+            except CdpError:
+                state["final"] = True
+
+        self.cdp.handlers["Fetch.requestPaused"] = paused
+        self.cdp.send("Fetch.enable", {"patterns": [{"urlPattern": "*", "requestStage": "Response"}]})
+        try:
+            nav = self.navigate(url)
+        except CdpError as exc:
+            return {"chain": chain, "error": str(exc)}
+        deadline = time.monotonic() + timeout
+        while not state["final"] and not nav.get("errorText") and time.monotonic() < deadline:
+            failure = next((ev["params"].get("errorText") for ev in self.cdp.events
+                            if ev.get("method") == "Network.loadingFailed"), None)
+            if failure:
+                return {"chain": chain, "error": failure}
+            self.cdp.pump(0.2)
+        if state["answered"]:
+            return {"chain": chain, "error": None}
+        return {"chain": chain, "error": nav.get("errorText") or "sin respuesta"}
+
     def cookie_names(self, url: str) -> list[str]:
         cookies = self.cdp.send("Network.getCookies", {"urls": [url]}).get("cookies", [])
         return sorted({c["name"] for c in cookies})
-
-    def mhtml(self) -> bytes:
-        return self.cdp.send("Page.captureSnapshot", {"format": "mhtml"}, timeout=180)["data"].encode("utf-8")
 
 
 SIGNALS = """(() => {

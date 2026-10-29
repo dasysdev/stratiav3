@@ -1,13 +1,16 @@
 import argparse
 import gzip
 import json
+import shutil
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import pytest
 
-from capture import audit, cli, pages, profiles
+from capture import audit, cli, pages, profiles, spider
 from capture.audit import AuditError
+
+OG = '<meta property="og:type" content="product">'
 
 HOME = """<!doctype html><html><head><meta charset=utf-8><title>Tienda</title></head><body>
 <header><a href="/promo-envios">Envíos gratis</a><a href="/c/cojines">Cojines</a></header>
@@ -16,12 +19,12 @@ HOME = """<!doctype html><html><head><meta charset=utf-8><title>Tienda</title></
 <li><a href="/contacto"><span>Contacto</span></a></li><li><a href="mailto:x@x.es">Escríbenos</a></li></ul></footer>
 </body></html>"""
 
-PRODUCT_HTML = """<!doctype html><html><head><meta charset=utf-8><title>Uno</title></head><body>
+PRODUCT_HTML = """<!doctype html><html><head><meta charset=utf-8><title>Uno</title>%s</head><body>
 <nav aria-label="Breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/c/cojines">Cojines</a></li>
-<li><a href="/p/uno">Cojín uno</a></li></ol></nav><p>Composición: 100 % algodón</p></body></html>"""
+<li><a href="/p/uno">Cojín uno</a></li></ol></nav><p>Composición: 100 %% algodón</p></body></html>""" % OG
 
 PRODUCT_LD = """<!doctype html><html><head><meta charset=utf-8><title>Dos</title>
-<link rel="canonical" href="/p/dos-c#x">
+<link rel="canonical" href="/p/dos-c#x"><meta property="og:type" content="product">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList",
 "itemListElement": [{"@type": "ListItem", "position": 3, "name": "Cojín dos"},
 {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "/"},
@@ -66,25 +69,23 @@ def test_sitemaps_and_coverage():
     assert parsed == {"kind": "urlset", "urls": ["https://x.es/p/uno"]}
     index = b'<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc> https://x.es/a.xml </loc></sitemap></sitemapindex>'
     assert audit._parse_sitemap(index) == {"kind": "index", "sitemaps": ["https://x.es/a.xml"]}
-    complete = {"urls": {"https://x.es/p/uno"}, "complete": True}
-    assert audit.in_sitemaps(complete, "https://x.es/p/uno#medidas", None) == \
-        {"value": "yes", "match": "https://x.es/p/uno", "by": "url"}
-    assert audit.in_sitemaps(complete, "https://x.es/p/x", "https://x.es/p/uno")["by"] == "url_final"
-    assert audit.in_sitemaps(complete, "https://x.es/p/x-1", None, ["https://x.es/p/uno"])["by"] == "canonical"
     assert audit.canonicals(PRODUCT_LD, "https://x.es/p/dos") == ["https://x.es/p/dos-c"]
     assert audit.canonicals(PRODUCT_BARE, "https://x.es/p/tres") == []
-    assert audit.in_sitemaps(complete, "https://x.es/p/dos", None) == {"value": "no"}
-    assert audit.in_sitemaps({**complete, "complete": False}, "https://x.es/p/dos", None) == {"value": "undetermined"}
 
 
-def test_an_audit_is_never_replaced(tmp_path, monkeypatch):
+def test_the_audit_is_chosen_on_its_crawl(tmp_path, monkeypatch):
     monkeypatch.setattr(audit, "AUDITS", tmp_path)
+    with pytest.raises(AuditError, match="primero, pages crawl"):
+        audit.run("nueva", ["https://x.es/p/uno"])
     (tmp_path / "hecha").mkdir()
-    with pytest.raises(AuditError, match="ya existe y no se sustituye"):
-        audit.run("hecha", ["https://x.es/p/uno"], object())
-    with pytest.raises(AuditError, match="de un solo sitio"):
-        audit.run("nueva", ["https://x.es/p/uno", "https://y.es/p/dos"], object())
-    assert not (tmp_path / "nueva").exists()
+    crawl = {"site": "https://x.es", "profile": "audit-es", "runs": [{}], "pages": [], "reservation": None,
+             "crawl": {"hosts": ["x.es"], "coverage": {"crawl_complete": True}}}
+    (tmp_path / "hecha/crawl.json").write_text(json.dumps(crawl))
+    with pytest.raises(AuditError, match="de otro sitio"):
+        audit.run("hecha", ["https://y.es/p/dos"])
+    (tmp_path / "hecha/audit.json").write_text("{}")
+    with pytest.raises(AuditError, match="no se sustituye"):
+        audit.run("hecha", ["https://x.es/p/uno"])
 
 
 class Site:
@@ -125,17 +126,24 @@ class Site:
                                    f'<sitemap><loc>{base}/sitemap-p.xml.gz</loc></sitemap>'
                                    f'<sitemap><loc>{base}/sitemap-gone.xml</loc></sitemap></sitemapindex>'.encode(),
                                    "application/xml"),
-            "/sitemap-p.xml.gz": (gzip.compress(urlset(f"{base}/p/uno", f"{base}/p/dos-c")), "application/gzip"),
+            "/sitemap-p.xml.gz": (gzip.compress(urlset(f"{base}/p/uno", f"{base}/p/dos-c", f"{base}/p/cuatro",
+                                                       f"{base}/c/cojines?orden=precio", "https://otra.es/p/x")),
+                                  "application/gzip"),
             "/": (HOME.encode(), kind), "/p/uno": (PRODUCT_HTML.encode(), kind),
             "/p/dos": (PRODUCT_LD.encode(), kind), "/p/tres": (PRODUCT_BARE.encode(), kind),
+            "/p/cuatro": (PRODUCT_HTML.replace("Uno", "Cuatro").replace("/p/uno", "/p/cuatro").encode(), kind),
+            "/c/cojines": ('<!doctype html><title>Cojines</title><a href="/p/uno">Uno</a><a href="/p/dos">Dos</a>'.encode(), kind),
         }
-        for path in ("/c/cojines", "/ayuda/envios", "/ayuda/cambios", "/contacto"):
+        for path in ("/c/cojines?orden=precio", "/ayuda/envios", "/ayuda/cambios", "/contacto"):
             routes[path] = (f"<!doctype html><title>{path}</title><p>{path}</p>".encode(), kind)
         routes = {path: (*route, {}) for path, route in routes.items()}
         return {**routes, **self.extra}
 
     def products(self) -> list[str]:
         return [f"{self.base}/p/uno", f"{self.base}/p/dos", f"{self.base}/p/tres"]
+
+    def crawl(self, audit_id: str, engine) -> dict:
+        return spider.run(audit_id, self.base + "/", browser=engine, min_interval_s=0, out=lambda *_: None)
 
 
 @pytest.fixture(scope="module")
@@ -152,112 +160,115 @@ def engine(tmp_path_factory):
 def site(engine, tmp_path, monkeypatch):
     shop = Site()
     monkeypatch.setattr(audit, "AUDITS", tmp_path / "audits")
+    monkeypatch.setattr(spider, "AUDITS", tmp_path / "audits")
     monkeypatch.setattr(profiles, "origin", lambda: {"ip": "192.0.2.1", "source": "RIPEstat"})
-    shop.run = lambda audit_id: audit.run(audit_id, shop.products(), engine, pause_s=(0, 0), out=lambda *_: None)
+    shop.run = lambda audit_id: shop.crawl(audit_id, engine)
     yield shop
     shop.httpd.shutdown()
 
 
+chrome = pytest.mark.skipif(not pages.engine_available(), reason="sin Chrome ni websockets (se ejecuta en el contenedor)")
+
+
 @pytest.mark.chrome
-@pytest.mark.skipif(not pages.engine_available(), reason="sin Chrome ni websockets (se ejecuta en el contenedor)")
-def test_audit_with_the_capture_engine(site, tmp_path):
-    record, base, sent = site.run("prueba"), site.base, site.sent
+@chrome
+def test_audit_on_the_crawl(site, tmp_path):
+    crawled, base, sent = site.run("prueba"), site.base, site.sent
     folder = tmp_path / "audits/prueba"
+    asked = dict(sent)
+    record = audit.run("prueba")                                    # every product page of the universe
+    assert sent == asked                                            # nothing asked for
     assert json.loads((folder / "audit.json").read_text(encoding="utf-8")) == json.loads(json.dumps(record))
-    kinds = {p["id"]: (p["type"], p["outcome"]) for p in record["pages"]}
-    assert kinds == {"home": ("home", "captured"), "product-01": ("product", "captured"),
-                     "product-02": ("product", "captured"), "product-03": ("product", "captured"),
-                     "policy-shipping": ("policy", "captured"), "policy-returns": ("policy", "captured"),
-                     "policy-contact": ("policy", "captured"), "category-01": ("category", "captured")}
+    url = {p["id"]: p["url"].removeprefix(base) for p in crawled["pages"]}
+    kinds = {url[p["id"]]: p["type"] for p in record["pages"]}
+    assert kinds == {"/": "home", "/ayuda/envios": "policy", "/ayuda/cambios": "policy", "/contacto": "policy",
+                     "/p/uno": "product", "/p/dos": "product", "/p/cuatro": "product", "/c/cojines": "category"}
+    assert all(p["outcome"] == "captured" for p in record["pages"])
     assert record["policies"]["legal"] == {"status": "not_located"}
-    assert record["stopped"] is None and record["reservation"] is None
     assert record["policies"]["shipping"]["url"] == f"{base}/ayuda/envios"
-    one, two, three = record["products"]
-    assert one["category_page"] == two["category_page"] == "category-01"      # a shared category, once
+    one, two, four = record["products"]
+    assert one["category_page"] == two["category_page"] == four["category_page"]          # a shared category, once
     assert (one["breadcrumbs"]["source"], two["breadcrumbs"]["source"]) == ("html", "json-ld")
-    assert three["breadcrumbs"] == {"status": "none"} and "category_page" not in three
-    assert [p["in_sitemaps"].get("by", p["in_sitemaps"]["value"]) for p in record["products"]] == \
-        ["url", "canonical", "no"]                                         # /p/dos is listed by its canonical
-    assert two["canonical"] == [f"{base}/p/dos-c"] and three["canonical"] == []
-
-    sitemaps = record["sitemaps"]
-    assert sitemaps["declared"] and sitemaps["complete"] and sitemaps["urls"] == 2 and not sitemaps["pending"]
-    gz = next(e for e in sitemaps["read"] if e["url"].endswith(".gz"))
+    assert [p["in_sitemaps"] for p in record["products"]] == [
+        {"value": "yes", "by": "url"}, {"value": "yes", "by": "canonical"}, {"value": "yes", "by": "url"}]
+    assert two["canonical"] == [f"{base}/p/dos-c"]
+    assert record["sitemaps"]["complete"] and record["sitemaps"]["urls"] == 5
+    gz = next(e for e in record["sitemaps"]["read"] if e["url"].endswith(".gz"))
     assert gz["gzip"] and (folder / gz["file"]).read_bytes() == sent["/sitemap-p.xml.gz"]   # as it came
-    assert next(e for e in sitemaps["read"] if e["url"].endswith("gone.xml"))["status"] == 404
-    host = site.host
-    assert (folder / "sites" / host / "robots.txt").read_text().startswith("User-agent: *")
+    assert next(e for e in record["sitemaps"]["read"] if e["url"].endswith("gone.xml"))["status"] == 404
+    assert (folder / "sites" / site.host / "robots.txt").read_text().startswith("User-agent: *")
+    assert "100 % algodón" in audit.read("prueba", one["page"])
+    meta = json.loads((folder / one_snapshot(record, one["page"]) / "meta.json").read_text(encoding="utf-8"))
+    assert meta["profile"] == "audit-es" and meta["response_body"] == "original"
+    assert set(meta["files"]) == {"response.html", "dom.html"}                # no MHTML (D-172)
+    with pytest.raises(AuditError, match="no se reanuda"):
+        spider.run("prueba", resume=True)
 
-    assert "100 % algodón" in audit.read("prueba", "product-01")
-    meta = json.loads((folder / one_snapshot(record, "product-01") / "meta.json").read_text(encoding="utf-8"))
-    assert meta["profile"] == "audit-es" and meta["page_type"] == "product" and meta["response_body"] == "original"
-    assert set(meta["robots_bots"]) == set(profiles.BOTS)
+    shutil.copytree(folder, tmp_path / "audits/encargo", ignore=shutil.ignore_patterns("audit.json"))
+    given = audit.run("encargo", site.products())                    # the product pages of the engagement
+    assert [(p["url"].removeprefix(base), p.get("page") and url[p["page"]], p.get("in_universe"))
+            for p in given["products"]] == [("/p/uno", "/p/uno", None), ("/p/dos", "/p/dos", None),
+                                            ("/p/tres", None, "no")]                # not reached: not audited
+    assert sorted(kinds.get(url[p["id"]]) for p in given["pages"]) == sorted(
+        ["home", "policy", "policy", "policy", "product", "product", "category"])
 
 
 def test_a_reservation_ends_the_command_with_an_error(tmp_path, monkeypatch, capsys):
     monkeypatch.setattr(audit, "AUDITS", tmp_path)
-    monkeypatch.setattr(pages, "engine_available", lambda: True)
-    stopped = {"pages": [{"outcome": "pending"}], "policies": {}, "stopped": "auditoría parada: reserva TDM",
-               "reservation": {"where": "tdmrep.json", "source": "tdmrep.json", "url": "https://x.es/.well-known/tdmrep.json"}}
-    monkeypatch.setattr(audit, "run", lambda *a, **k: stopped)
-    args = argparse.Namespace(audit="nueva", urls=["https://x.es/p/uno"], from_file=None, sitemap_files=1, sitemap_mb=1)
+    reservation = {"where": "tdmrep.json", "source": "tdmrep.json", "url": "https://x.es/.well-known/tdmrep.json"}
+    (tmp_path / "parada").mkdir()
+    (tmp_path / "parada/crawl.json").write_text(json.dumps({"reservation": reservation}))
     with pytest.raises(SystemExit) as stop:
-        cli.cmd_audit(args)
+        cli.cmd_audit(argparse.Namespace(audit="parada", urls=[], from_file=None))
     assert stop.value.code == cli.RESERVED
     err = capsys.readouterr().err
     assert "reserva la minería de textos y datos" in err and "https://x.es/.well-known/tdmrep.json" in err
+    assert not (tmp_path / "parada/audit.json").exists()
 
 
 @pytest.mark.chrome
-@pytest.mark.skipif(not pages.engine_available(), reason="sin Chrome ni websockets (se ejecuta en el contenedor)")
-def test_a_reservation_in_tdmrep_stops_the_audit_before_capturing(site, tmp_path):
+@chrome
+def test_a_reservation_in_tdmrep_stops_the_crawl_before_capturing(site, tmp_path):
     site.extra["/.well-known/tdmrep.json"] = (b'[{"location": "/blog/*", "tdm-reservation": 1}]', "application/json", {})
     record = site.run("tdmrep")
     folder = tmp_path / "audits/tdmrep"
-    assert [(p["id"], p["outcome"]) for p in record["pages"]] == \
-        [("home", "pending"), ("product-01", "pending"), ("product-02", "pending"), ("product-03", "pending")]
-    assert not (folder / "pages").exists() and not (folder / "sitemaps").exists() and "sitemaps" not in record
+    assert record["pages"] == [] and not (folder / "pages").exists() and not (folder / "sitemaps").exists()
     assert not set(site.sent) - {"/robots.txt", "/.well-known/tdmrep.json", "/favicon.ico"}   # nothing else asked
     assert record["reservation"] == {
         "where": "tdmrep.json", "url": f"{site.base}/.well-known/tdmrep.json", "source": "tdmrep.json",
         "file": f"sites/{site.host}/tdmrep.json", "entries": [{"location": "/blog/*", "reservation": 1, "policy": None}]}
-    assert (folder / record["reservation"]["file"]).is_file()
     assert record["stopped"].endswith("no se captura nada")
-    assert json.loads((folder / "audit.json").read_text(encoding="utf-8"))["reservation"]["where"] == "tdmrep.json"
+    with pytest.raises(audit.Reserved):
+        audit.run("tdmrep")
 
 
 @pytest.mark.chrome
-@pytest.mark.skipif(not pages.engine_available(), reason="sin Chrome ni websockets (se ejecuta en el contenedor)")
-def test_a_reservation_in_the_home_page_stops_the_audit(site, tmp_path):
+@chrome
+def test_a_reservation_in_the_home_page_stops_the_crawl(site, tmp_path):
     site.extra["/"] = (HOME.encode(), "text/html; charset=utf-8",
                        {"tdm-reservation": "1", "tdm-policy": "https://x.es/tdm-policy.json"})
     record = site.run("portada")
-    home = record["pages"][0]
-    assert (home["id"], home["outcome"]) == ("home", "reserved")
-    assert [p["outcome"] for p in record["pages"][1:]] == ["pending"] * 3
+    home, = record["pages"]
+    assert home["outcome"] == "reserved"
     snap = tmp_path / "audits/portada" / home["snapshot"]
     assert [f.name for f in snap.iterdir()] == ["meta.json"]          # the visit is recorded, its content is not kept
-    assert "/sitemap_index.xml" not in site.sent and "sitemaps" not in record
-    assert record["reservation"] == {"where": "home", "url": f"{site.base}/", "source": "cabecera tdm-reservation",
+    assert "/sitemap_index.xml" not in site.sent and record["sitemaps"] is None
+    assert record["reservation"] == {"where": home["id"], "url": f"{site.base}/", "source": "cabecera tdm-reservation",
                                      "header": "1", "meta": None, "policy": "https://x.es/tdm-policy.json",
                                      "snapshot": home["snapshot"]}
     assert record["stopped"].endswith("no se captura nada")
 
 
 @pytest.mark.chrome
-@pytest.mark.skipif(not pages.engine_available(), reason="sin Chrome ni websockets (se ejecuta en el contenedor)")
-def test_a_reservation_in_an_inner_page_stops_the_audit_there(site, tmp_path):
+@chrome
+def test_a_reservation_in_an_inner_page_stops_the_crawl_there(site, tmp_path):
     reserved = PRODUCT_LD.replace("<title>", '<meta name="tdm-reservation" content="1"><title>')
     site.extra["/p/dos"] = (reserved.encode(), "text/html; charset=utf-8", {})
     record = site.run("interior")
-    assert {p["id"]: p["outcome"] for p in record["pages"]} == {
-        "home": "captured", "product-01": "captured", "product-02": "reserved", "product-03": "pending",
-        "policy-shipping": "pending", "policy-returns": "pending", "policy-contact": "pending",
-        "category-01": "pending"}
-    assert "100 % algodón" in audit.read("interior", "product-01")   # what came before is kept
-    two = next(p for p in record["pages"] if p["id"] == "product-02")
+    two = next(p for p in record["pages"] if p["url"].endswith("/p/dos"))
+    assert two["outcome"] == "reserved" and record["pages"][-1] is two
     assert [f.name for f in (tmp_path / "audits/interior" / two["snapshot"]).iterdir()] == ["meta.json"]
-    assert record["reservation"] == {"where": "product-02", "url": f"{site.base}/p/dos", "source": "meta tdm-reservation",
+    assert record["reservation"] == {"where": two["id"], "url": f"{site.base}/p/dos", "source": "meta tdm-reservation",
                                      "header": None, "meta": "1", "policy": None, "snapshot": two["snapshot"]}
     assert record["sitemaps"]["complete"] and record["stopped"].endswith("lo pendiente no se captura")
 

@@ -3,7 +3,7 @@ DOM) and <id>.json, and the readers of a page (text lines, JSON-LD).
 
 `fetch` captures with the engine: legitimacy of the site, a real Chrome, no reader's pace for a
 single page, and the full snapshot of every fetch in var/pages/<id>/<at>/ (meta.json, response,
-DOM, MHTML, robots.txt). It needs Chrome and websockets, so on the host bin/pages runs it in
+DOM, robots.txt). It needs Chrome and websockets, so on the host bin/pages runs it in
 the container. Reading needs neither. The capture profile (capture.profiles) is the caller's:
 `reader` by default (the rendered DOM becomes the page); under `audit-es` the page is the
 document of the HTTP response without JavaScript (D-156), decoded with the charset the browser

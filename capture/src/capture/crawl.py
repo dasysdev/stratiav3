@@ -4,7 +4,8 @@ Each site sees one reader at a time; the total speeds up with the number of site
 (the MPIR, the training of the demand model) owns the inventory: it gives the items of each
 site, where each snapshot goes and what to do with each result. The capture profile is the
 caller's (`reader` by default); one with a fresh context opens a window per page, so that no
-page inherits the state of the one before.
+page inherits the state of the one before. One that keeps evidence consults the origin of the
+requests once per run.
 """
 from __future__ import annotations
 
@@ -51,11 +52,12 @@ def run_parallel(jobs: dict, stop: threading.Event) -> None:
 def crawl(runs: list[SiteRun], browser: Browser, pacing: Pacing, out, stop: threading.Event,
           max_per_site: int | None = None, ignore_hours: bool = False, profile: str | Profile | None = None) -> None:
     chosen = profiles.get(profile)
-    run_parallel({run.key: _job(run, browser, pacing, out, stop, max_per_site, ignore_hours, chosen)
+    origin = profiles.origin() if chosen.evidence else None
+    run_parallel({run.key: _job(run, browser, pacing, out, stop, max_per_site, ignore_hours, chosen, origin)
                   for run in runs}, stop)
 
 
-def _job(run: SiteRun, browser, pacing, out, stop, max_per_site, ignore_hours, profile):
+def _job(run: SiteRun, browser, pacing, out, stop, max_per_site, ignore_hours, profile, origin):
     def work():
         pacer = Pacer(pacing, crawl_delay=run.robots.crawl_delay())
         page = browser.new_window(profile)
@@ -82,7 +84,7 @@ def _job(run: SiteRun, browser, pacing, out, stop, max_per_site, ignore_hours, p
                 if profile.fresh_context and done:
                     browser.close_window(page)
                     page = browser.new_window(profile)
-                result = visit(page, item["url"], folder, pacer, run.tdm_entries, browser.info, stop, meta)
+                result = visit(page, item["url"], folder, pacer, run.tdm_entries, browser.info, stop, meta, origin)
                 done += 1
                 run.on_result(item, {**result, "folder": folder})
                 if result["outcome"] == "blocked":

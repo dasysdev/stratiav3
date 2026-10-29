@@ -10,7 +10,7 @@ from __future__ import annotations
 import codecs
 import functools
 import re
-from urllib.parse import quote, unquote, urljoin, urlsplit, urlunsplit
+from urllib.parse import quote, unquote, urldefrag, urljoin, urlsplit, urlunsplit
 
 from capture.robots import _normalize, matches, parse as parse_robots
 
@@ -666,13 +666,22 @@ def _in_sitemap(case: Case) -> Result:
     final = page.url_final
     ev = {"sitemaps": [f"{s.url} ({s.status})" for s in site.sitemaps], "URL pedida": page.url, "URL final": final,
           "URL en los sitemaps": len(urls)}
-    found = urls.get(normalize_url(final))
+    # The canonical URL the page declares (user's decision, 2026-10-29); without one, its final URL.
+    declared = {normalize_url(urldefrag(u)[0]): urldefrag(u)[0] for u, _ in canonicals(page)}
+    if len(declared) > 1:
+        ev["canónicas"] = sorted(declared.values())
+        return Result(NE, ev, "La página declara varias URL canónicas distintas: no hay una URL que buscar.")
+    sought = next(iter(declared.values()), final)
+    ev["URL buscada"] = sought
+    ev["origen"] = "canónica" if declared else "URL final (la página no declara canónica)"
+    found = urls.get(normalize_url(sought))
     if found:
         ev["sitemap"] = found
         return Result(SAT, ev)
-    if urls.get(normalize_url(page.url)):
-        ev["está la URL pedida"] = urls[normalize_url(page.url)]
-    outside = site.memo.get("sitemap_invalid", {}).get(normalize_url(final))
+    for label, url in (("está la URL final", final), ("está la URL pedida", page.url)):
+        if not same_url(url, sought) and urls.get(normalize_url(url)):
+            ev[label] = urls[normalize_url(url)]
+    outside = site.memo.get("sitemap_invalid", {}).get(normalize_url(sought))
     if outside:
         ev["aparece en un sitemap de otro host que no lo declara su robots.txt"] = outside
     if not site.sitemaps_complete:

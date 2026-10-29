@@ -274,6 +274,21 @@ def test_crawl_audit_evaluates_sitemap_on_every_page(tmp_path, monkeypatch):
     assert states == {"page-00001": SAT, "page-00002": SAT, "page-00003": UNSAT}
 
 
+def test_sitemap_seeks_the_canonical_url(tmp_path):
+    """w-consumer/014 seeks the canonical URL the page declares (user's decision, 2026-10-29): a
+    variant whose canonical is in the sitemap satisfies it; two distinct canonicals leave it NE."""
+    xml = (b'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+           b'<url><loc>https://shop.example/cojin</loc></url></urlset>')
+    two = PRODUCT.replace('<link rel="canonical" href="https://shop.example/cojin">',
+                          '<link rel="canonical" href="/cojin"><link rel="canonical" href="/manta">')
+    site = make_audit(tmp_path, {"page-00001": ("product", f"{SITE}/cojin-azul-964", PRODUCT, None),
+                                 "page-00002": ("product", f"{SITE}/cojin-rojo-965", two, None)},
+                      sitemaps=[(f"{SITE}/sitemap.xml", 200, xml)])
+    sat = load_all()["w-consumer/014"](case(site, "page-00001", "w-consumer/014"))
+    assert sat.state == SAT and sat.evidence["URL buscada"] == f"{SITE}/cojin"
+    assert load_all()["w-consumer/014"](case(site, "page-00002", "w-consumer/014")).state == NE
+
+
 def test_sitemap_in_subdirectory_counts_for_its_host(tmp_path):
     """Google's reading (method common to Web, point 5): a submitted sitemap is valid for its whole
     host; the protocol's strict location is w-protocol/009."""

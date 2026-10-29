@@ -67,3 +67,4 @@
 - 2026-10-28 T-078 Captura de las páginas de una auditoría (D-167) en capture — capture.audit y pages audit: páginas de una auditoría (D-167) con audit-es en var/audits/AUDIT/; probado con Burrito Blanco; 44 pruebas en verde
 - 2026-10-29 T-049 Sistema de auditado técnico de Web y Web Schema.org — Auditor técnico web-audit/bin/audit + skill /web-audit: 356 comprobaciones, expediente con tasa D-166; probado en 5 sitios reales
 - 2026-10-29 T-070 Retirar las pistas de registro de certificados (D-154) — Retiradas PV-39 y PV-40; PV-45 a PV-47 juzgan las certificaciones por lo publicado (D-154)
+- 2026-10-29 T-080 Descubrimiento de las páginas de una auditoría y reserva TDM en el canon — D-170 (universo de la auditoría: rastreo ∪ sitemaps; los enlaces solo descubren) y D-171 (reserva TDM en la auditoría: comprobar, parar y avisar); evaluation-scopes 2.5

@@ -247,6 +247,33 @@ def test_end_to_end(tmp_path, monkeypatch):
     assert (tmp_path / "out" / "aud" / "report.md").read_text().startswith("# Expediente técnico")
 
 
+def test_crawl_audit_evaluates_sitemap_on_every_page(tmp_path, monkeypatch):
+    """An audit of the spider (D-170, D-217): audit.json beside crawl.json, with pages found only by
+    the crawl. The method does not change: w-consumer/014 is evaluated on each audited page."""
+    xml = (b'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+           b'<url><loc>https://shop.example/</loc></url><url><loc>https://shop.example/cojin</loc></url></urlset>')
+    home = "<html><head><title>Tienda</title></head><body>Hola</body></html>"
+    site = make_audit(tmp_path, {"page-00001": ("home", f"{SITE}/", home, None),
+                                 "page-00002": ("product", f"{SITE}/cojin", PRODUCT, None),
+                                 "page-00003": ("product", f"{SITE}/manta", PRODUCT.replace("cojin", "manta"), None)},
+                      sitemaps=[(f"{SITE}/sitemap.xml", 200, xml)])
+    manifest = json.loads((site.folder / "audit.json").read_text())
+    manifest["crawl"] = {"manifest": "crawl.json", "coverage": {"complete": True}}
+    for depth, rec in enumerate(manifest["pages"]):
+        rec.update({"depth": depth, "found_from": None if depth == 0 else "page-00001"})
+    (site.folder / "audit.json").write_text(json.dumps(manifest))
+    (site.folder / "crawl.json").write_text(json.dumps({"universe": [
+        {"url": f"{SITE}/", "page": "page-00001", "reached": "yes", "in_sitemaps": "yes", "type": "home"},
+        {"url": f"{SITE}/cojin", "page": "page-00002", "reached": "yes", "in_sitemaps": "yes", "type": "product"},
+        {"url": f"{SITE}/manta", "page": "page-00003", "reached": "yes", "in_sitemaps": "no", "type": "product"}]}))
+    site = Site("aud", site.folder)
+    monkeypatch.setattr(audit, "OUT", tmp_path / "out")
+    monkeypatch.setattr(audit, "Site", lambda audit_id: site)
+    cases, _ = audit.run("aud")
+    states = {c["page"]: c["state"] for c in cases if c["req"] == "w-consumer/014"}
+    assert states == {"page-00001": SAT, "page-00002": SAT, "page-00003": UNSAT}
+
+
 def test_sitemap_in_subdirectory_counts_for_its_host(tmp_path):
     """Google's reading (method common to Web, point 5): a submitted sitemap is valid for its whole
     host; the protocol's strict location is w-protocol/009."""

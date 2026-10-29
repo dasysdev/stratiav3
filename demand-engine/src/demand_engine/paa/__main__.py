@@ -14,8 +14,12 @@ Usage:
                                     and against an earlier one of the set
   paa classify usage SET TRANSCRIPT tokens of the agent (its output file), in classify/usage.json and the report
   paa control [SET ...]             the classification of each set against its control case (cases/paa; all of
-                                    them by default), by content; report in var/paa/control/<date>/
-  (classify and control run on the host: standard library only)
+                                    them by default), by content, and the decision against the last accepted pass
+                                    (D-180, only over all the sets); report in var/paa/control/<date>/
+  paa compile [SET ...]             the PAA pass (D-178): if the control accepts it, the candidates, the confirmed
+                                    inferred questions and the contributions of each classified set (all by default)
+                                    enter the catalog with origin «paa», as a new version of each block
+  (classify, control and compile run on the host: standard library only)
 
 Seed sets are demand-engine/paa/<SET>.json; manual: src/demand_engine/paa/README.md
 """
@@ -29,7 +33,7 @@ from pathlib import Path
 
 from capture.files import read_json, write_json
 
-from . import classify, control, store
+from . import classify, compile as paa_compile, control, store
 from .store import STATUS, SeedSet, StoreError, var_root
 from .text import norm
 
@@ -149,6 +153,28 @@ def cmd_control(args) -> None:
         f"{control.NAMES[k].lower()} {t[k]['found']}/{t[k]['expected']} (coinciden {t[k]['agree']}, "
         f"regresiones {t[k]['regressions']}, nuevos {t[k]['new']})" for k in control.SECTIONS))
     print(f"informe: {shown(out / 'report.md')}")
+    d = data["decision"]
+    if d is None:
+        print("decisión (D-180): ninguna; la regla se aplica sobre todos los conjuntos de control")
+    elif d["accepted"]:
+        print("decisión (D-180): se acepta" + (f" frente a la pasada del {d['against']}" if d["against"] else " (primera pasada)"))
+    else:
+        print(f"decisión (D-180): se rechaza frente a la pasada del {d['against']}: " + "; ".join(d["worse"]))
+
+
+def cmd_compile(args) -> None:
+    passed = paa_compile.run(args.sets or paa_compile.classified_ids())
+    d = passed["decision"]
+    if not d["accepted"]:
+        fail(f"el control empeora frente a la pasada del {d['against']}; no entra nada: " + "; ".join(d["worse"]))
+    for set_id, x in passed["sets"].items():
+        print(f"{set_id}: {len(x['added'])} entradas")
+        for line in x["added"]:
+            print(f"  + {line}")
+        for line in x["skipped"]:
+            print(f"  - {line}")
+    print(f"bloques con versión nueva: {', '.join(passed['touched']) or 'ninguno'}")
+    print(f"pasada aceptada: {shown(paa_compile.control.ACCEPTED)}")
 
 
 def main(argv=None) -> None:
@@ -166,6 +192,7 @@ def main(argv=None) -> None:
     p.add_argument("--compare", help="manual classification ([{q, code}]) for the contrast")
     p.add_argument("--previous", help="an earlier classified.json of the set"); p.set_defaults(func=cmd_classify)
     p = sub.add_parser("control"); p.add_argument("sets", nargs="*"); p.set_defaults(func=cmd_control)
+    p = sub.add_parser("compile"); p.add_argument("sets", nargs="*"); p.set_defaults(func=cmd_compile)
     args = ap.parse_args(argv)
     try:
         args.func(args)

@@ -12,7 +12,7 @@ Lo esperado de la clasificación PAA de cada conjunto de semillas. Es el conjunt
   5. el encogimiento en mantas es una aportación.
 
   El detalle está en T-042.
-- **Enmiendas:** el 2026-10-28 (T-053), D-146 corrigió el paso 1 en pantuflas, botas y sofás cama: la pregunta sobre la categoría madre va dentro cuando trata de algo que la clase hereda, y la del material, si la clase lo tiene o lo hereda. Cada fichero afectado lo registra en `amended`.
+- **Enmiendas:** el 2026-10-28 (T-053), D-146 corrigió el paso 1 en pantuflas, botas y sofás cama: la pregunta sobre la categoría madre va dentro cuando trata de algo que la clase hereda, y la del material, si la clase lo tiene o lo hereda. El 2026-10-29 (T-058), D-218 llevó las preguntas de montaña de botas a una especialización nueva que propone PAA. Cada fichero afectado lo registra en `amended`.
 
 ## Formato
 
@@ -28,8 +28,9 @@ Lo esperado de la clasificación PAA de cada conjunto de semillas. Es el conjunt
 | `candidates[]` | `question`, `blocks`, `trait` y las `questions` que lo apoyan |
 | `revisions[]` | `target`, `action` y `summary` |
 | `contributions[]` | `target`, `contribution` y `kind` (precisión o sustento) |
+| `specializations[]` | Especializaciones nuevas que propone PAA (D-218): `name` y las `questions` que van a ella; se emparejan por las preguntas |
 
-En los cuatro últimos, cada elemento lleva `expected`:
+En los cinco últimos, cada elemento lleva `expected`:
 
 - `true`: debe aparecer.
 - `false`: no debe aparecer. Sirve para que el control detecte que vuelve un error ya corregido.

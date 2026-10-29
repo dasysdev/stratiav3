@@ -29,7 +29,6 @@
   },
   "perimeter": {
     "out": [
-      "¿Cuál es el mejor calzado para andar por la montaña?",
       "¿Cuál es la marca de zapatos más vendida en el mundo?",
       "¿Cuáles son las tendencias de moda para el otoño-invierno 2026-2027?",
       "¿Cómo puedo recuperar la polipiel pelada?",
@@ -40,11 +39,9 @@
     ],
     "expected": true,
     "added": [
-      "¿Cuál es el mejor calzado para andar por la montaña?",
       "¿Qué calzado recomiendan los podólogos?"
     ],
     "why": {
-      "¿Cuál es el mejor calzado para andar por la montaña?": "solo tiene sentido para otro producto (calzado de montaña en general): fuera (D-146; T-053)",
       "¿Qué calzado recomiendan los podólogos?": "solo tiene sentido para otro producto (recomendaciones de un podólogo): fuera (D-146; T-053)"
     }
   },
@@ -137,6 +134,17 @@
       "expected": true
     }
   ],
+  "specializations": [
+    {
+      "name": "de montaña",
+      "expected": true,
+      "questions": [
+        "¿Cuál es el mejor calzado para andar por la montaña?",
+        "¿Cuáles son las 10 mejores marcas de botas de montaña?"
+      ],
+      "why": "especialización nueva que propone PAA: las preguntas de montaña no van a esp.equitacion ni a cat.botas (D-218; T-058)"
+    }
+  ],
   "amended": [
     {
       "at": "2026-10-28",
@@ -148,6 +156,15 @@
         "D-146"
       ],
       "summary": "«¿Se estira el calzado de cuero?» vuelve dentro y su candidato pasa a esperado; el calzado para la montaña y los podólogos quedan fuera; las demás preguntas sobre zapatos o calzado siguen dentro."
+    },
+    {
+      "at": "2026-10-29",
+      "by": "usuario",
+      "task": "T-058",
+      "decisions": [
+        "D-218"
+      ],
+      "summary": "«¿Cuál es el mejor calzado para andar por la montaña?» vuelve dentro; con «¿Cuáles son las 10 mejores marcas de botas de montaña?», va a una especialización nueva de montaña que propone PAA."
     }
   ]
 }

@@ -173,11 +173,11 @@ demand-engine/bin/paa classify report sabanas --compare var/paa/probe-20261026T2
 
 Para comparar dos reglamentos, guarda antes la ejecución anterior (`classify/v1/`, por ejemplo) y pásala con `--previous`.
 
-Los candidatos **no entran solos en el catálogo**: se deciden en el entrenamiento.
+Los candidatos **no entran solos en el catálogo**: entran con la pasada de PAA ([Entrada al catálogo](#entrada-al-catálogo)), si el control no empeora.
 
 ## Control contra los casos de PAA
 
-`bin/paa control [CONJUNTO…]` (en el host; sin conjuntos, todos los de `cases/paa/`) compara el `classified.json` de cada conjunto con su caso de control, `cases/paa/<conjunto>.json` ([formato](../../../cases/paa/README.md)). Es la medida del entrenamiento de PAA ([D-114](../../../../docs/30-governance/decisions.md#d-114); las métricas siguen abiertas en OQ-64).
+`bin/paa control [CONJUNTO…]` (en el host; sin conjuntos, todos los de `cases/paa/`) compara el `classified.json` de cada conjunto con su caso de control, `cases/paa/<conjunto>.json` ([formato](../../../cases/paa/README.md)). Es la medida del entrenamiento de PAA ([D-114](../../../../docs/30-governance/decisions.md#d-114), [D-180](../../../../docs/30-governance/decisions.md#d-180)).
 
 Los ids (`N1`, `R2`, los de criterio) cambian en cada ejecución, así que compara **por contenido**:
 
@@ -191,6 +191,32 @@ Los ids (`N1`, `R2`, los de criterio) cambian en cada ejecución, así que compa
 
 Por cada apartado cuenta lo esperado que encuentra, lo que coincide sin diferencias, las **regresiones** (elementos marcados `expected: false` que vuelven) y lo **nuevo** (lo que la clasificación tiene y el caso no; los criterios cubiertos no cuentan, porque el caso no los recoge). Lo nuevo no es un error: el caso se revisó con otro reglamento. El informe queda en `var/paa/control/<fecha>/` (`report.md` y `control.json`).
 
+**Decisión** ([D-180](../../../../docs/30-governance/decisions.md#d-180)): sobre el total de los conjuntos de control, frente a la última pasada aceptada (`training/reports/paa/accepted.json`, en git).
+
+- Si ningún apartado baja en esperados encontrados ni sube en regresiones, se acepta.
+- Si no hay pasada aceptada, la primera se acepta.
+- Lo nuevo y la eficiencia se informan, pero no deciden.
+- Con una parte de los conjuntos, el control informa y no decide.
+
+## Entrada al catálogo
+
+`bin/paa compile [CONJUNTO…]` (en el host; sin conjuntos, todos los clasificados) es la pasada de PAA ([D-178](../../../../docs/30-governance/decisions.md#d-178)). Primero ejecuta el control de todos los conjuntos. Si el control rechaza, no entra nada y el comando termina con error. Si acepta, entra lo de cada `classified.json`, con origen «paa»:
+
+| Qué | Dónde | Fuentes |
+|---|---|---|
+| Candidatos | un requisito nuevo en cada uno de sus bloques | las preguntas que lo apoyan |
+| Inferidas confirmadas | un requisito nuevo en su bloque, salvo que un candidato la revise (`mirrors`) | las preguntas que la responden ([D-097](../../../../docs/30-governance/decisions.md#d-097)) |
+| Aportaciones | la información resolutiva del requisito destino | sus preguntas |
+
+- Cada bloque que cambia sube de versión.
+- Un rasgo fuera del vocabulario entra con su propuesta en el bloque (`proposed_traits`).
+- Lo que ya está (la misma pregunta o la misma aportación) no entra dos veces.
+- Un destino que no está en un bloque del catálogo (la capa general, un bloque ausente) queda fuera y se informa.
+- El texto literal de cada pregunta citada queda en `catalog/paa-questions.json`, porque `var/` es desechable. `bin/model check` comprueba que cada etiqueta `paa-q:` del catálogo tiene su texto.
+- La pasada aceptada queda en `training/reports/paa/accepted.json` (resumen del control y lo que entró), que es la línea base de la siguiente. El detalle, en `var/paa/compile/<fecha>.json`.
+
+Las revisiones (separar, sacar, partir, reformular) no las escribe PAA: `bin/train compile` las lee de los `classified.json` y las lista en su salida y en el informe del ciclo, para quien redacta el bloque ([D-179](../../../../docs/30-governance/decisions.md#d-179), [D-213](../../../../docs/30-governance/decisions.md#d-213)). Si `var/` se limpia antes, se pierden.
+
 ## Pruebas
 
-`tests/paa/`: semillas, estado, bloqueos, consolidación, clasificación (entrada, comprobación, resultado y contraste) y control contra los casos. Con Chrome (`test_e2e.py`), una imitación local de la página de resultados que hace, como Google, una llamada con las preguntas y otras con la respuesta. Cubre consentimiento, eco de la búsqueda, despliegue por clics, aprendizaje y bloqueo de las respuestas, parada temprana, pestaña sobrante, bloqueo y página que deja de responder.
+`tests/paa/`: semillas, estado, bloqueos, consolidación, clasificación (entrada, comprobación, resultado y contraste), control contra los casos, su decisión y la entrada al catálogo. Con Chrome (`test_e2e.py`), una imitación local de la página de resultados que hace, como Google, una llamada con las preguntas y otras con la respuesta. Cubre consentimiento, eco de la búsqueda, despliegue por clics, aprendizaje y bloqueo de las respuestas, parada temprana, pestaña sobrante, bloqueo y página que deja de responder.

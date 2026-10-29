@@ -22,9 +22,17 @@ CURRENT = {"cat.ropa-de-casa/01": {
     "cat.ropa-de-cama/02": {"hints": [], "comparison": {"mark": "sí", "reason": "dudoso"}}}
 
 
+SPECS = {"esp.juego": {"id": "esp.juego", "name": "juego", "order": "juego", "trigger": "varias piezas",
+                        "status": "compilado", "anchors": [], "requirements": [
+                            {"id": "esp.juego/01", "question": "¿Qué piezas incluye?", "trait": "contenido"}]},
+         "esp.otra": {"id": "esp.otra", "name": "de otra rama", "order": "uso", "trigger": "t", "status": "compilado",
+                      "anchors": ["zz-1"], "requirements": []}}
+
+
 @pytest.fixture
 def seedset(paa_dirs, monkeypatch):
     monkeypatch.setattr(classify, "current", lambda: CURRENT)      # what the catalog has today, not the real one
+    monkeypatch.setattr(classify.demand_catalog, "load_specializations", lambda: SPECS)
     model = {"key": {"model": ["gen@0.5", "cat.ropa-de-cama@2", "cat.sabanas@2"]},
              "general": [{"id": "gen", "requirements": [{"id": "gen/01", "question": "¿Qué es el producto?",
                                                          "applicability": "universal", "origin": "normativa"}]}],
@@ -105,7 +113,8 @@ def test_prepare_takes_the_catalog_of_the_class_from_the_model(seedset):
     assert [q["n"] for q in spec["questions"]] == list(range(1, 9))
     assert spec["questions"][1]["seeds"] == ["sábanas de lino"]
     assert {r["id"] for r in spec["catalog"]} == {"gen/01", "cat.ropa-de-cama/02", "cat.ropa-de-casa/01",
-                                                  "cat.fundas-de-almohada/06", "inf/01"}
+                                                  "cat.fundas-de-almohada/06", "inf/01", "esp.juego/01"}
+    assert [x["id"] for x in spec["specializations"]] == ["esp.juego"]   # not one of another branch
     assert "prestacion" in spec["traits"]
     md = (out / "input.md").read_text(encoding="utf-8")
     assert "### cat.fundas-de-almohada" in md and "| 2 | ¿Se arruga mucho el lino? | sábanas de lino |" in md
@@ -277,6 +286,46 @@ def test_report_gives_sources_and_contrasts(seedset, paa_dirs):
     assert "4 preguntas; 3 comunes" in md
     assert "| arrugas | 2 | 0 | 1 | 0 | 0 | 1 | N1 (1); criterio arrugas → N1 (1) |" in md
     assert "| OTRA | 1 | 1 | 0 | 0 | 0 | 0 | fuera (1) |" in md
+
+
+def with_specialization(out):
+    """Question 2 is about a specialization the catalog lacks (D-218); question 1, about one it has."""
+    out["specializations"] = [{"id": "S1", "name": "de lino lavado", "order": "material", "trigger": "lino lavado"}]
+    out["questions"][1]["specialization"] = "S1"
+    out["questions"][0]["specialization"] = "esp.juego"
+    out["candidates"][0]["blocks"] = ["S1"]
+    return out
+
+
+def test_a_question_goes_to_a_specialization_of_the_catalog_or_a_proposed_one(seedset):
+    classify.prepare(seedset)
+    write_output(seedset, with_specialization(good_output()))
+    assert classify.check(*classify.load(seedset)) == []
+    result = classify.finish(seedset)
+    assert result["specializations"] == [{"id": "S1", "name": "de lino lavado", "order": "material",
+                                          "trigger": "lino lavado", "status": "no compilada", "origin": "paa",
+                                          "questions": [2]}]
+    assert result["questions"][1]["specialization"] == "S1"
+    md = (seedset.dir / "report.md").read_text(encoding="utf-8")
+    assert "### S1 · de lino lavado (material)" in md and "«¿Se arruga mucho el lino?»" in md
+
+
+def test_check_of_specializations(seedset):
+    classify.prepare(seedset)
+    out = with_specialization(good_output())
+    out["specializations"] += [{"id": "esp.juego", "name": "juego", "order": "forma", "trigger": ""},
+                               {"id": "S2", "name": "sin preguntas", "order": "uso", "trigger": "t"}]
+    out["questions"][4]["specialization"] = "S9"                 # out of the perimeter, and unknown
+    write_output(seedset, out)
+    problems = classify.check(*classify.load(seedset))
+    for expected in ("pregunta 5: la especialización «S9» no es del catálogo",
+                     "pregunta 5: una pregunta de una especialización va dentro",
+                     "especialización «esp.juego»: el id de una especialización propuesta es S1",
+                     "especialización «esp.juego»: ya está en el catálogo; usa su id",
+                     "especialización «esp.juego»: falta «trigger»",
+                     "especialización «esp.juego»: orden «forma» no válido",
+                     "especialización «S2»: ninguna pregunta la lleva"):
+        assert any(p.startswith(expected) for p in problems), expected
 
 
 def test_report_refuses_an_output_with_problems(seedset):

@@ -113,3 +113,20 @@ def test_control_needs_the_case_and_the_classification(cases):
         control.run(["s"])
     with pytest.raises(StoreError):
         control.run(["otro"])
+
+
+def test_a_proposed_specialization_is_matched_by_its_questions(cases):
+    case = dict(CASE, specializations=[{"name": "de lana", "expected": True, "questions": [QUESTIONS[4]]}])
+    (control.CASES / "s.json").write_text(json.dumps(case), encoding="utf-8")
+    write(result())
+    s = control.run(["s"])[1]["sets"]["s"]["summary"]["specializations"]
+    assert (s["expected"], s["found"]) == (1, 0)
+    write(result(specializations=[{"id": "S1", "name": "con lana", "questions": [5]}]))
+    s = control.run(["s"])[1]["sets"]["s"]["summary"]["specializations"]
+    assert (s["expected"], s["found"], s["agree"], s["new"]) == (1, 1, 1, 0)
+
+
+def test_an_accepted_pass_without_specializations_still_decides(cases):
+    base = {"at": "antes", "total": {"out_found": 0, **{k: {"found": 0, "regressions": 0}
+                                                       for k in control.SECTIONS if k != "specializations"}}}
+    assert control.decide(base, control.add({}, control.summary(control.compare(CASE, result()))))["accepted"]

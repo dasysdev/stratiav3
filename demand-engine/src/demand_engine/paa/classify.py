@@ -23,6 +23,7 @@ from references.read import shopify_categories
 from references.store import RefsError
 
 from .. import ROOT
+from ..demand import catalog as demand_catalog
 from ..demand import hints as catalog_hints
 from ..demand.hints import ACS, CASES, MARKS, MAX_CHARS, MAX_SENTENCES, PROPERTIES
 from .store import SeedSet, StoreError, slug
@@ -37,6 +38,7 @@ CONDITIONS = ("C1", "C2", "C3", "C4")
 VOTES = ("crítico", "principal", "complementario")
 ACTIONS = ("separar", "sacar", "partir-por-tema", "reformular", "mover")
 KINDS = ("precisión", "sustento")
+ORDERS = demand_catalog.ESP_ORDER
 
 
 def rulebook_version() -> str:
@@ -95,6 +97,15 @@ def catalog(model: dict) -> list[dict]:
     return out
 
 
+def specializations(model: dict) -> list[dict]:
+    """The specializations of the catalog that apply to the class and are not in its key (D-216, D-218): a question
+    about one of them goes to it."""
+    in_key = {b["id"] for b in model.get("blocks", [])}
+    classes = [b["shopify"] for b in model.get("blocks", []) if b.get("shopify")]
+    return [s for s in demand_catalog.load_specializations().values()
+            if s["id"] not in in_key and (s.get("order") == "juego" or demand_catalog.applies_to(s, classes))]
+
+
 def daughters(shopify_id: str | None) -> list[str] | None:
     """Names of the daughters of a category in the pinned Shopify taxonomy (D-043, criterion 4), or None."""
     if not shopify_id:
@@ -117,12 +128,16 @@ def prepare(seedset: SeedSet) -> Path:
     vocabulary = read_json(TRAITS, {}).get("vocabulary", {})
     questions = [{"n": i, "q": q["q"], "seeds": sorted({s["query"] for s in q["seeds"]})}
                  for i, q in enumerate(data["questions"], 1)]
+    specs = specializations(model)
     reqs, now_has = catalog(model), current()
+    reqs += [requirement(r, s["id"]) for s in specs for r in s.get("requirements", [])]
     for r in reqs:
         r.update(now_has.get(r["id"], {"hints": [], "comparison": None}))
     spec = {"set": seedset.id, "class": seedset.definition().get("class"), "at": now(),
             "questions_at": data.get("at"), "model": seedset.definition()["model"],
-            "key": model.get("key"), "blocks": blocks, "catalog": reqs, "traits": sorted(vocabulary),
+            "key": model.get("key"), "blocks": blocks,
+            "specializations": [{k: s.get(k) for k in ("id", "name", "order", "trigger", "status")} for s in specs],
+            "catalog": reqs, "traits": sorted(vocabulary),
             "questions": questions}
     out = folder(seedset)
     write_json(out / "input.json", spec)
@@ -146,6 +161,12 @@ def render_input(spec: dict, vocabulary: dict) -> str:
     for b in spec["blocks"]:
         kids = "—" if b["daughters"] is None else (", ".join(b["daughters"]) or "ninguna")
         lines.append(f"| `{b['id']}` | {cell(b['name'])} | {cell(kids)} |")
+    lines += ["", "## Otras especializaciones de la clase", "",
+              "Del catálogo, fuera de la clave del caso (D-218): una pregunta sobre una de ellas va a ella. Sus requisitos "
+              "están en el catálogo de la clase.", ""]
+    specs = spec.get("specializations") or []
+    lines += [f"- `{s['id']}` {cell(s['name'])} ({s['order']}; {s['status']}): {cell(s['trigger'])}" for s in specs] \
+        or ["Ninguna."]
     lines += ["", "## Catálogo de la clase"]
     current = None
     for r in spec["catalog"]:
@@ -202,7 +223,9 @@ def check(spec: dict, output: dict) -> list[str]:
     """What is missing or wrong in the agent's output (classifier/paa.md, §4)."""
     problems = []
     req_ids = {r["id"] for r in spec["catalog"]}
-    block_ids = {b["id"] for b in spec["blocks"]}
+    known = {s["id"] for s in spec.get("specializations") or []}
+    proposed = {s.get("id"): s for s in output.get("specializations") or []}
+    block_ids = {b["id"] for b in spec["blocks"]} | known | set(proposed)
     expected = {q["n"] for q in spec["questions"]}
     criteria = {c.get("id"): c for c in output.get("criteria", [])}
     candidates = {c.get("id"): c for c in output.get("candidates", [])}
@@ -227,9 +250,16 @@ def check(spec: dict, output: dict) -> list[str]:
     problems += [f"pregunta {n}: repetida" for n, k in seen.items() if k > 1]
     problems += [f"pregunta {n}: no existe" for n in seen if n not in expected]
 
-    used_criteria, used_candidates = set(), set()
+    used_criteria, used_candidates, used_specs = set(), set(), set()
     for e in entries:
         where = f"pregunta {e.get('n')}"
+        if e.get("specialization"):
+            used_specs.add(e["specialization"])
+            if e["specialization"] not in known | set(proposed):
+                problems.append(f"{where}: la especialización «{e['specialization']}» no es del catálogo de la clase "
+                                "ni está en «specializations»")
+            if e.get("perimeter") != "dentro":
+                problems.append(f"{where}: una pregunta de una especialización va dentro (D-218)")
         answered = e.get("answered_by") or []
         crit, cand, fails, obj = e.get("criterion"), e.get("candidate"), e.get("fails"), e.get("object")
         problems += [f"{where}: «{r}» no está en el catálogo de la clase" for r in answered if r not in req_ids]
@@ -260,6 +290,22 @@ def check(spec: dict, output: dict) -> list[str]:
                 problems.append(f"{where}: una pregunta de {obj} no propone requisitos (D-099)")
         elif sum((bool(answered), bool(cand), bool(fails))) != 1:
             problems.append(f"{where}: una pregunta de clase lleva exactamente uno de «answered_by», «candidate» o «fails»")
+
+    if len(proposed) != len(output.get("specializations") or []):
+        problems.append("especializaciones con el id repetido")
+    for sid, s in proposed.items():
+        where = f"especialización «{sid}»"
+        if not str(sid or "").startswith("S"):
+            problems.append(f"{where}: el id de una especialización propuesta es S1, S2…")
+        if sid in known:
+            problems.append(f"{where}: ya está en el catálogo; usa su id")
+        for k in ("name", "trigger"):
+            if not (s.get(k) or "").strip():
+                problems.append(f"{where}: falta «{k}»")
+        if s.get("order") not in ORDERS:
+            problems.append(f"{where}: orden «{s.get('order')}» no válido ({', '.join(ORDERS)})")
+        if sid not in used_specs:
+            problems.append(f"{where}: ninguna pregunta la lleva en «specialization»")
 
     for cid, c in criteria.items():
         where = f"criterio «{cid}»"
@@ -331,7 +377,7 @@ def check(spec: dict, output: dict) -> list[str]:
         blocks = c.get("blocks") or []
         if not blocks:
             problems.append(f"{where}: faltan «blocks»")
-        problems += [f"{where}: el bloque «{b}» no es de la clave ({', '.join(sorted(block_ids))})"
+        problems += [f"{where}: el bloque «{b}» no es de la clave ni una especialización ({', '.join(sorted(block_ids))})"
                      for b in blocks if b not in block_ids]
         if c.get("mirrors") and c["mirrors"] not in req_ids:
             problems.append(f"{where}: «mirrors» ({c['mirrors']}) no es un requisito del catálogo (D-109)")
@@ -499,17 +545,21 @@ def build(seedset: SeedSet, spec: dict, output: dict) -> dict:
     for q in spec["questions"]:
         e = by_n[q["n"]]
         questions.append({"n": q["n"], "q": q["q"], "source": source(seedset.id, q["q"]),
-                          **{k: e.get(k) for k in ("perimeter", "object", "answered_by", "criterion", "candidate",
-                                                   "fails", "note")},
+                          **{k: e.get(k) for k in ("perimeter", "object", "specialization", "answered_by", "criterion",
+                                                   "candidate", "fails", "note")},
                           "seeds": raw.get(norm(q["q"]), {}).get("seeds", [])})
     candidates = []
     for c in output.get("candidates", []):
         support = sources_of(c["id"], output)
         candidates.append({**c, "origin": "paa", "support": support,
                            "sources": [source(seedset.id, spec["questions"][n - 1]["q"]) for n in support]})
+    specs = [{**s, "status": "no compilada", "origin": "paa",
+              "questions": [e["n"] for e in output["questions"] if e.get("specialization") == s["id"]]}
+             for s in output.get("specializations") or []]
     return {"set": seedset.id, "class": spec["class"], "model": spec["model"], "at": now(),
             "rulebook": str(RULEBOOK.relative_to(ROOT)), "rulebook_version": rulebook_version(),
             "questions_at": spec["questions_at"], "questions": questions, "criteria": output.get("criteria", []), "candidates": candidates,
+            "specializations": specs,
             "hints": hints_result(seedset.id, spec, output), "marks": marks_result(seedset.id, spec, output),
             **{k: output.get(k, []) for k in ("revisions", "contributions", "proposed_traits", "doubts")}}
 
@@ -565,6 +615,13 @@ def report(result: dict, spec: dict, manual: list | None = None, manual_name: st
         lines += [f"- Motivo: {c.get('rationale', '')}",
                   "- Información resolutiva: " + "; ".join(f"{i['contribution']} [{i['component']}]" for i in c["resolving_info"]),
                   f"- Apoyo ({len(c['support'])}): " + quoted(c["support"], by_n), ""]
+
+    if result.get("specializations"):
+        lines += ["## Especializaciones propuestas", "",
+                  "No compiladas: las admite el entrenamiento con el criterio de especialización (D-218, OQ-87).", ""]
+        for x in result["specializations"]:
+            lines += [f"### {x['id']} · {x['name']} ({x['order']})", "", f"- Disparador: {x['trigger']}",
+                      f"- Preguntas ({len(x['questions'])}): " + quoted(x["questions"], by_n), ""]
 
     if result["revisions"]:
         lines += ["## Revisiones de requisitos existentes", ""]

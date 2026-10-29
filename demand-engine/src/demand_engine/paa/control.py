@@ -1,4 +1,4 @@
-"""A PAA classification against its control case (T-052; D-114, OQ-64): cases/paa/<set>.json.
+"""A PAA classification against its control case (T-052; D-114, D-180): cases/paa/<set>.json.
 
 The ids (N1, R2, the criterion ids) change from one run to another, so the comparison is by content:
   perimeter       the questions the case puts out, against those the classification puts out
@@ -7,8 +7,12 @@ The ids (N1, R2, the criterion ids) change from one run to another, so the compa
   candidates      by the questions that support them; failing that, by the words of their question
   revisions       by target and action
   contributions   by target and kind; among several, the closest wording
+  specializations the new specializations PAA proposes (D-218), by the questions that go to them
 An element with «expected: false» must not come back: if it does, it is a regression. What the classification
 has and the case does not is reported as new: the case was reviewed against another rulebook and may lack it.
+The decision (D-180), over the total of all the control sets, against the last accepted pass
+(training/reports/paa/accepted.json): accepted if no section finds fewer expected elements nor has more regressions.
+New elements and efficiency are reported, but do not decide. Without an accepted pass, the first one is accepted.
 Standard library only: it runs on the host.
 """
 from __future__ import annotations
@@ -23,8 +27,10 @@ from .store import SeedSet, StoreError, var_root
 from .text import norm
 
 CASES = ROOT / "cases/paa"
-SECTIONS = ("criteria", "candidates", "revisions", "contributions")
-NAMES = {"criteria": "Criterios", "candidates": "Candidatos", "revisions": "Revisiones", "contributions": "Aportaciones"}
+ACCEPTED = ROOT / "training/reports/paa/accepted.json"  # the last accepted pass: versioned, unlike var/
+SECTIONS = ("criteria", "candidates", "revisions", "contributions", "specializations")
+NAMES = {"criteria": "Criterios", "candidates": "Candidatos", "revisions": "Revisiones", "contributions": "Aportaciones",
+         "specializations": "Especializaciones"}
 STOP = set("de del la las el los un una unos unas y o a en con por para que se es su sus al lo le les qué cuál "
            "cuáles cómo tiene tienen declara ofrece".split())
 SIMILAR = 0.5  # share of the words of the shorter question for a candidate matched by its wording
@@ -59,12 +65,14 @@ def result_items(result: dict) -> dict:
         "revisions": [{"id": r["id"], "target": r["target"], "action": r["action"]} for r in result["revisions"]],
         "contributions": [{"id": f"A{i}", "target": c["target"], "kind": c["kind"], "contribution": c["contribution"]}
                           for i, c in enumerate(result["contributions"], 1)],
+        "specializations": [{"id": x["id"], "name": x["name"], "qs": {text[n] for n in x.get("questions", [])}}
+                            for x in result.get("specializations") or []],
     }
 
 
 def score(section: str, want: dict, got: dict) -> float:
     """How well an element of the classification matches one of the case (0: not at all)."""
-    if section == "criteria":
+    if section in ("criteria", "specializations"):
         return overlap({norm(q) for q in want.get("questions", [])}, got["qs"])
     if section == "candidates":
         by_questions = overlap({norm(q) for q in want.get("questions", [])}, got["qs"])
@@ -137,7 +145,7 @@ def compare(case: dict, result: dict) -> dict:
 
 
 def label(section: str, x: dict) -> str:
-    if section == "criteria":
+    if section in ("criteria", "specializations"):
         return x["name"]
     if section == "candidates":
         return x["question"]
@@ -174,6 +182,23 @@ def pct(a: int, b: int) -> str:
     return f"{a}/{b} ({round(100 * a / b)} %)" if b else "—"
 
 
+def decide(base: dict | None, total: dict) -> dict:
+    """D-180: no section may find fewer expected elements nor have more regressions than the accepted pass."""
+    if not base:
+        return {"accepted": True, "against": None, "worse": []}
+    was, worse = base["total"], []
+    if total["out_found"] < was["out_found"]:
+        worse.append(f"perímetro: fuera {total['out_found']} (antes {was['out_found']})")
+    for section in SECTIONS:
+        # a section the accepted pass did not have yet (specializations, D-218) starts from zero
+        now_, before = total[section], was.get(section, {"found": 0, "regressions": 0})
+        if now_["found"] < before["found"]:
+            worse.append(f"{NAMES[section].lower()}: esperados encontrados {now_['found']} (antes {before['found']})")
+        if now_["regressions"] > before["regressions"]:
+            worse.append(f"{NAMES[section].lower()}: regresiones {now_['regressions']} (antes {before['regressions']})")
+    return {"accepted": not worse, "against": base["at"], "worse": worse}
+
+
 def run(set_ids: list[str]) -> tuple[Path, dict]:
     sets, total = {}, {}
     for set_id in set_ids:
@@ -190,6 +215,8 @@ def run(set_ids: list[str]) -> tuple[Path, dict]:
         add(total, s)
     out = var_root() / "control" / now().replace(":", "")[:17]
     data = {"at": now(), "sets": sets, "total": total}
+    # the rule is over the total of the control sets: a subset is reported, but does not decide
+    data["decision"] = decide(read_json(ACCEPTED), total) if sorted(set_ids) == case_ids() else None
     write_json(out / "control.json", data)
     (out / "report.md").write_text(report(data), encoding="utf-8")
     return out, data
@@ -209,9 +236,18 @@ def report(data: dict) -> str:
         x = t[section]
         lines.append(f"| {NAMES[section]} | {pct(x['found'], x['expected'])} | {pct(x['agree'], x['expected'])} "
                      f"| {x['regressions']}/{x['not_expected']} | {x['new']} |")
+    d = data.get("decision")
+    lines += ["", "## Decisión (D-180)", ""]
+    if d is None:
+        lines.append("Sin decisión: la regla se aplica sobre el total de los conjuntos de control, no sobre una parte.")
+    elif d["accepted"]:
+        lines.append("Se acepta: " + (f"ningún apartado empeora frente a la pasada aceptada del {d['against']}."
+                                      if d["against"] else "no hay pasada aceptada; es la primera."))
+    else:
+        lines += [f"Se rechaza frente a la pasada aceptada del {d['against']}:", ""] + [f"- {w}" for w in d["worse"]]
     lines += ["", "## Por conjunto", "",
-              "| Conjunto | Reglamento | Fuera | Criterios | Candidatos | Revisiones | Aportaciones | Regresiones |",
-              "|---|---|---|---|---|---|---|---|"]
+              "| Conjunto | Reglamento | Fuera | " + " | ".join(NAMES[k] for k in SECTIONS) + " | Regresiones |",
+              "|---|---|---|" + "---|" * len(SECTIONS) + "---|"]
     for set_id, x in data["sets"].items():
         s = x["summary"]
         cells = " | ".join(f"{s[k]['found']}/{s[k]['expected']} (+{s[k]['new']})" for k in SECTIONS)

@@ -3,9 +3,9 @@ id: audit-gsc-evidence
 title: Protocolo transversal de evidencias
 layer: method
 status: propuesta
-version: 0.3
-updated: 2026-10-28
-sources: [GSC0 §9, GSC0 §14.3, FUND §9.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1]
+version: 0.4
+updated: 2026-10-29
+sources: [GSC0 §9, GSC0 §14.3, FUND §9.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review]
 ---
 
 # Protocolo transversal de evidencias
@@ -123,6 +123,8 @@ La vinculación funcional (`ri_id`, `componente`, `funcion`) y la evaluativa (`h
 Si alguna respuesta es negativa y compromete **materialmente** el juicio, ampliar las comprobaciones. Si una comprobación no puede hacerse, registrar **NE** como incidencia del AC, con la comprobación fallida, o **comprobación de disponibilidad inconclusa** si el problema está en la puerta previa; no asignar un 0 sin fundamento.
 
 ## Plantilla de registro de evidencia (YAML ilustrativo)
+
+Los registros de la auditoría informativa son **JSON validado y versionado**, con el mismo patrón que web-audit ([D-199](../../30-governance/decisions.md#d-199)). Los campos exactos se fijan al implementar el auditor; hasta entonces, esta plantilla es solo ilustrativa.
 
 ```yaml
 evidencia_id: "E-XXX"

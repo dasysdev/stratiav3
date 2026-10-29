@@ -3,9 +3,9 @@ id: scoring-systems
 title: Sistemas de valoración
 layer: model
 status: vigente
-version: 1.7
+version: 1.8
 updated: 2026-10-29
-sources: [BASE §6, FUND §8, INTAKE 2026-10-24-prominencia-informativa, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-web-schema-technical-framework, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-technical-rate-pages-web-minimum]
+sources: [BASE §6, FUND §8, INTAKE 2026-10-24-prominencia-informativa, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-web-schema-technical-framework, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-technical-rate-pages-web-minimum, INTAKE 2026-10-29-oq-review]
 ---
 
 # Sistemas de valoración
@@ -68,7 +68,7 @@ Considera, por tanto:
 
 > **Normalización binaria del IR (0/1):** distingue resolución suficiente e insuficiente; la regla de normalización está pendiente de definir. — INTAKE 2026-10-24-prominencia-informativa
 
-Es la noción de RI **«suficientemente resuelto»** que usa la [TRI](#tasa-de-resolución-informativa-tri) ([D-019](../30-governance/decisions.md#d-019)). La regla para pasar del IR (0–10) al estado 0/1 está pendiente ([OQ-31](../30-governance/open-questions.md#g-prominencia-informativa-propuesta)).
+Es la noción de RI **«suficientemente resuelto»** que usa la [TRI](#tasa-de-resolución-informativa-tri) ([D-019](../30-governance/decisions.md#d-019)). La regla para pasar del IR (0–10) al estado 0/1 está pendiente ([OQ-31](../30-governance/open-questions.md#e-síntesis-e-indicadores)). Se decide junto con la síntesis del IR (OQ-28): van juntos ([D-174](../30-governance/decisions.md#d-174)).
 
 ### IP y calidad ajustada
 
@@ -133,8 +133,9 @@ Los indicadores de **Web** y **Web Schema.org** se interpretan por separado y **
 
 Ver [open-questions](../30-governance/open-questions.md):
 
-- reglas de síntesis del IR (impacto relativo, aspectos indispensables, aplicabilidad, cobertura) en su escala 0–10;
-- regla de normalización binaria del IR, y fórmula y peso de la calidad ajustada (§G);
+- reglas de síntesis del IR (impacto relativo, aspectos indispensables, aplicabilidad, cobertura) en su escala 0–10; se abordan tras la calibración de la V1, con GSC reales ([OQ-28](../30-governance/open-questions.md#e-síntesis-e-indicadores), [D-174](../30-governance/decisions.md#d-174));
+- regla de normalización binaria del IR, junto con la síntesis ([OQ-31](../30-governance/open-questions.md#e-síntesis-e-indicadores));
+- fórmula y peso de la calidad ajustada (§G);
 - universo, importancia, umbrales y estados del ICI y la TRI;
 - perfil técnico de Catálogos distribuidos (la tasa técnica está fijada, [D-166](../30-governance/decisions.md#d-166)).
 

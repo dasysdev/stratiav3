@@ -4,7 +4,7 @@ title: Registro de incidencias e incoherencias documentales
 layer: governance
 status: vigente
 version: 1.0
-updated: 2026-10-28
+updated: 2026-10-29
 sources: []
 ---
 
@@ -63,6 +63,8 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 | [I-47](#i-47) | GS1 Web Vocabulary no encaja en ninguna clase de fuente | Baja | abierta |
 | [I-48](#i-48) | Alcance de «la categoría madre en general» y de las preguntas sobre el material en el perímetro de PAA | Media | resuelta → D-146 |
 | [I-49](#i-49) | Cobertura de la tasa técnica: ¿los NA cuentan en los pertinentes? | Media | resuelta → D-169 |
+| [I-50](#i-50) | El clasificador PAA propone «reformular» requisitos de referencias, una acción que D-115 no lista | Media | abierta |
+| [I-51](#i-51) | El marco de taxonomía describe una capa de clases internas que D-033 no usa | Baja | abierta |
 
 ---
 
@@ -649,3 +651,22 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - **Afecta a:** [scoring-systems](../10-model/scoring-systems.md#tasa-de-cumplimiento-técnico), [evaluation-scopes](../10-model/evaluation-scopes.md#estados-del-requisito-técnico) y el cálculo de `web-audit/src/web_audit/audit.py`.
 - **Propuesta:** cobertura = evaluados / (pertinentes − NA): la proporción de los casos aplicables que se pudieron comprobar, de modo que solo la bajan las NE. La fórmula de evaluados no cambia. La alternativa es mantener la literal y añadir, aparte, el número de NA.
 - **Resolución (2026-10-29):** decisión del usuario, la propuesta: cobertura = evaluados / (pertinentes − NA); la fórmula de evaluados y la tasa no cambian. → [D-169](decisions.md#d-169).
+
+### I-50
+
+**El clasificador PAA propone «reformular» requisitos de referencias, una acción que D-115 no lista.**
+
+- [D-115](decisions.md#d-115) fija que PAA no cambia la estructura de un requisito de referencias o de normativa: deja la revisión (separar, sacar, partir) para el entrenamiento de taxo.
+- El clasificador PAA (`demand-engine/classifier/paa.md`) propone también «reformular» requisitos de referencias, por ejemplo `cat.sofas/08`, `cat.calzado/23` y `cat.juguetes-para-perros/12`. Detectado al preparar el repaso de las OQ (`INTAKE 2026-10-29-oq-review`).
+- Con [D-179](decisions.md#d-179), la compilación de taxo lee las revisiones de los `classified.json`. No consta si debe leer también las de «reformular».
+- **Afecta a:** [paa-training](../10-model/paa-training.md#un-solo-escritor-por-requisito), el reglamento `demand-engine/classifier/paa.md`.
+- **Propuesta:** añadir «reformular» a las acciones de revisión de D-115, con el mismo tratamiento que las demás: PAA la deja y taxo la reevalúa al compilar. La alternativa es retirarla del reglamento PAA.
+
+### I-51
+
+**El marco de taxonomía describe una capa de clases internas que D-033 no usa.**
+
+- [product-taxonomy](../20-methods/product-taxonomy/README.md) y [data-model-governance](../20-methods/product-taxonomy/data-model-governance.md) proponen la «clase interna con identificador propio» como unidad canónica, con padres, fichas y mapeos versionados.
+- [D-033](decisions.md#d-033) identifica el modelo de demanda por sus bloques de requisitos, y la herencia sale del árbol de Shopify. El sistema no construye esa capa. [D-174](decisions.md#d-174) cierra OQ-05 por ese motivo. Detectado al preparar el repaso de las OQ (`INTAKE 2026-10-29-oq-review`).
+- **Afecta a:** [product-taxonomy](../20-methods/product-taxonomy/README.md), [data-model-governance](../20-methods/product-taxonomy/data-model-governance.md).
+- **Propuesta:** marcar esa capa como superada por D-033 en los dos módulos y retirar de ellos lo que ya no rige, con una decisión nueva.

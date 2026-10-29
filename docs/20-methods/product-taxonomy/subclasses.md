@@ -3,9 +3,9 @@ id: product-taxonomy-subclasses
 title: Taxonomía — subclases y paso de la clase al modelo de demanda
 layer: method
 status: propuesta
-version: 1.8
-updated: 2026-10-26
-sources: [TAX §5, TAX §6, TAX §7, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-26-open-issues-resolution]
+version: 1.9
+updated: 2026-10-29
+sources: [TAX §5, TAX §6, TAX §7, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-29-oq-review]
 ---
 
 # Taxonomía — subclases y paso de la clase al modelo de demanda
@@ -38,7 +38,13 @@ Esta prueba rige la creación de subclases o niveles jerárquicos de la taxonom�
 - **Crear una faceta transversal:** una dimensión (uso, estilo, protección) segmenta productos de diversas clases.
 - **Crear una subclase con modelo propio:** cambia de forma estable un conjunto importante de cuestiones, con una definición clara y evidencias suficientes.
 
-Cómo se representan estas salidas al componer una [clase de estudio](../../10-model/study-class.md) está pendiente ([OQ-37](../../30-governance/open-questions.md)). Para las distinciones que no cumplen la condición 4 del criterio, [D-024](../../30-governance/decisions.md#d-024) ya usa la salida «conservar la clase y condicionar requisitos».
+Al componer una [clase de estudio](../../10-model/study-class.md), estas salidas se representan así ([D-174](../../30-governance/decisions.md#d-174), que cierra OQ-37):
+
+- No se registran clases ni subclases: se registran los modelos, como composiciones de bloques de requisitos ([D-033](../../30-governance/decisions.md#d-033)).
+- Las distinciones que no cumplen la condición 4 del criterio usan la salida «conservar la clase y condicionar requisitos» ([D-024](../../30-governance/decisions.md#d-024)).
+- No hay especializaciones de oferta: la «clase de oferta» es el modelo de un producto más la aplicación de la oferta ([D-048](../../30-governance/decisions.md#d-048)).
+
+La parte del MPIR queda suspendida con él y se revisa si se retoma.
 
 Cuando hay herencia de requisitos, la clase hija puede **reutilizar preguntas compartidas**, pero la aplicabilidad y la importancia relativa se revisan expresamente. No se hereda automáticamente la criticidad ni se asignan pesos numéricos universales ([importancia relativa](../../10-model/demand-model.md)).
 

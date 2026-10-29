@@ -1,14 +1,14 @@
 ---
 id: product-taxonomy-data-model-governance
-title: Taxonomía — modelo de datos, procedimiento, gobierno y decisiones pendientes
+title: Taxonomía — modelo de datos, procedimiento y gobierno
 layer: method
 status: propuesta
-version: 1.2
-updated: 2026-10-25
-sources: [TAX §8, TAX §9, TAX §10, TAX §11, TAX Anexo A, TAX Anexo B, INTAKE 2026-10-24-define-class, INTAKE 2026-10-25-amazon-source-blocks]
+version: 1.3
+updated: 2026-10-29
+sources: [TAX §8, TAX §9, TAX §10, TAX §11, TAX Anexo A, TAX Anexo B, INTAKE 2026-10-24-define-class, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-29-oq-review]
 ---
 
-# Taxonomía — modelo de datos, procedimiento, gobierno y decisiones pendientes
+# Taxonomía — modelo de datos, procedimiento y gobierno
 
 Parte de [Taxonomía de clases de producto](README.md).
 
@@ -61,7 +61,7 @@ El éxito no se mide por el número de nodos creados, sino por la **claridad de 
 - Los mapeos deben revisarse al cambiar un origen externo o aparecer evidencia que altere fronteras conceptuales.
 - Cambios de etiqueta o traducción no deben modificar por sí mismos la identidad de clase.
 - Los cambios de clase deben acompañarse de un **análisis de impacto** sobre requisitos informativos, aplicabilidad e importancia relativa; no se reescriben automáticamente.
-- La consulta y reutilización de datos Amazon queda supeditada a permisos y condiciones de uso aplicables; la taxonomía propia no debe prometer una descarga pública completa de Amazon.
+- La consulta y reutilización de datos Amazon queda supeditada a permisos y condiciones de uso aplicables; la taxonomía propia no debe prometer una descarga pública completa de Amazon. Para el proyecto basta el uso interno: los datos en bruto de SP-API no salen de `references/var/` ([D-174](../../30-governance/decisions.md#d-174)).
 
 ### Riesgos y medidas preventivas
 
@@ -105,17 +105,16 @@ Referencias R1–R16 en [sources.md](sources.md#referencias-externas-consulta-24
 - Crear subclases solo cuando existan **fronteras positivas y diferencias sustantivas de necesidades de información**.
 - Reutilizar requisitos comunes con reglas explícitas de aplicabilidad; validar la importancia relativa en cada clase.
 
-## Decisiones pendientes
+## Decisiones pendientes de v0 (cerradas)
 
-> **Estado: pendiente.** Consolidadas también en [cuestiones abiertas](../../30-governance/open-questions.md).
+Las decisiones pendientes de TAX §11.3 son OQ-05 a OQ-10 de [cuestiones abiertas](../../30-governance/open-questions.md). Todas están cerradas:
 
-- Si las clases internas admiten varios padres o si habrá un padre principal más facetas y relaciones adicionales.
-- Los criterios operativos y la evidencia mínima para aprobar equivalencias y nuevas subclases.
-- La disponibilidad de acceso SP-API para obtener el árbol vigente de Amazon.es y las restricciones de reutilización de esos datos.
-- La selección de ecommerce referentes y casos frontera para el piloto de botas.
-- El mecanismo de gobierno, revisión y calendario de actualización de fuentes externas.
-
-El grado de especialización que reduce la ambigüedad sin fragmentar innecesariamente los modelos de demanda quedó resuelto en el canon ([D-020](../../30-governance/decisions.md#d-020)): tantas especializaciones como sean relevantes, buscando la especificidad informativa necesaria ([clase de estudio](../../10-model/study-class.md)).
+- **Varios padres o un padre principal con facetas** (OQ-05): sin objeto. La multipertenencia se resuelve por composición de categorías y bloques ([D-023](../../30-governance/decisions.md#d-023), [D-033](../../30-governance/decisions.md#d-033)); no hay jerarquía propia que gobernar ([D-174](../../30-governance/decisions.md#d-174)).
+- **Criterios y evidencia para equivalencias y subclases** (OQ-06): no se crean subclases (D-033). La correspondencia Shopify → PTD de Amazon la propone el clasificador y la valida el entrenamiento, igual que los bloques ([D-044](../../30-governance/decisions.md#d-044), [D-174](../../30-governance/decisions.md#d-174)).
+- **Acceso a SP-API y reutilización** (OQ-07): el acceso funciona ([D-149](../../30-governance/decisions.md#d-149)). Para la reutilización basta el uso interno ([D-174](../../30-governance/decisions.md#d-174)).
+- **Referentes y casos frontera del piloto de botas** (OQ-08): superada por [D-053](../../30-governance/decisions.md#d-053) y [D-158](../../30-governance/decisions.md#d-158). La parte de referentes sigue en OQ-11, aparcada con el MPIR ([D-174](../../30-governance/decisions.md#d-174)).
+- **Grado de especialización** (OQ-09): resuelto en el canon ([D-020](../../30-governance/decisions.md#d-020)): tantas especializaciones como sean relevantes, buscando la especificidad informativa necesaria ([clase de estudio](../../10-model/study-class.md)).
+- **Gobierno y calendario de las fuentes externas** (OQ-10): las custodia [references](../../../references/README.md) (D-149). No hay calendario: las fuentes externas se revisan a petición ([D-174](../../30-governance/decisions.md#d-174)).
 
 ## Anexo A. Ficha de clase propuesta
 

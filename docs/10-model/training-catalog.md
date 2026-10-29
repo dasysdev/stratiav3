@@ -3,9 +3,9 @@ id: training-catalog
 title: Catálogo de entrenamiento
 layer: model
 status: vigente
-version: 1.0
-updated: 2026-10-28
-sources: [INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-training-catalog-selection, INTAKE 2026-10-28-curated-training-catalog]
+version: 1.1
+updated: 2026-10-29
+sources: [INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-training-catalog-selection, INTAKE 2026-10-28-curated-training-catalog, INTAKE 2026-10-29-oq-review]
 ---
 
 # Catálogo de entrenamiento
@@ -33,7 +33,7 @@ Parte del [entrenamiento del modelo de demanda](model-training.md). Define los c
 >
 > — INTAKE 2026-10-28-curated-training-catalog
 
-Todo candidato cumple los cuatro. Un caso manual cumple F1 y F2 y no tiene topes. Si cumple también F3 no está decidido: el artefacto dice «salvo el último» en los filtros y «pasan F1 y F2» en los casos manuales ([OQ-83](../30-governance/open-questions.md#b-taxonomía-de-clases-de-producto)).
+Todo candidato cumple los cuatro. Un caso manual cumple F1, F2 y F3 y no tiene topes. Si un manual tiene la misma tienda y clave que otro caso, se rechaza ([D-189](../30-governance/decisions.md#d-189)).
 
 ### Motivos de admisión
 
@@ -49,7 +49,10 @@ Todo candidato cumple los cuatro. Un caso manual cumple F1 y F2 y no tiene topes
 Un candidato que pasa los filtros entra si aporta al menos un motivo.
 
 - **Clase en su tope.** Solo entra lo que aporta A2 o A3, sustituyendo a un caso que no aporte nada de eso. El caso sustituido se retira con registro; no se borra.
-- **Casos manuales.** Llevan origen «manual» y un motivo. Añadir un caso es dar material al entrenamiento, no revisar reglas, así que encaja en el [marco](model-training.md#marco). El usuario puede retirar a mano un caso manual.
+- **Casos manuales.** Llevan origen «manual» y un motivo. Añadir un caso es dar material al entrenamiento, no revisar reglas, así que encaja en el [marco](model-training.md#marco).
+- **Retirada a mano.** El usuario puede retirar a mano cualquier caso, manual o admitido por el sistema, con registro y motivo. El caso sale del catálogo sin borrarse y deja de aportar votos desde el ciclo siguiente ([D-189](../30-governance/decisions.md#d-189)).
+- **Fichas de un cliente auditado.** Pueden entrar como candidatas, con las reglas de admisión de siempre. El encargo lleva una cláusula: si el cliente se opone, sus fichas no son candidatas y las ya admitidas se retiran ([D-188](../30-governance/decisions.md#d-188)).
+- **Caso que viene de una auditoría.** Su ejecución cuenta en el paso 2 del [entrenamiento](model-training.md#entrenamiento) solo si se hizo con el reglamento y el catálogo vigentes ([D-194](../30-governance/decisions.md#d-194)).
 - **Registro de cada caso:** origen, motivo de admisión, fecha, tienda, la clave con la que entró y la versión del reglamento.
 - **Conservación.** Las fichas congeladas de los casos del catálogo se conservan: un caso cuya ficha se pierde ya no se puede reclasificar. El resto del almacén de fichas sigue siendo desechable.
 
@@ -72,14 +75,14 @@ Un candidato que pasa los filtros entra si aporta al menos un motivo.
 >
 > — INTAKE 2026-10-28-curated-training-catalog (revisión de Claude)
 
-La admisión la decide el sistema: el usuario no admite candidatos, solo añade y retira casos manuales.
+La admisión la decide el sistema: el usuario no admite candidatos, solo añade casos manuales y retira casos.
 
-> **Estado: propuesta** (lecturas de Claude, no confirmadas por el usuario; [OQ-83](../30-governance/open-questions.md#b-taxonomía-de-clases-de-producto))
->
-> - **Clase de los topes:** cada categoría de Shopify de la composición del caso; un juego cuenta en cada una.
-> - **Cuándo se admite:** al reunir los casos, en el paso 1 del [entrenamiento](model-training.md#entrenamiento). Un caso que sale del catálogo deja de aportar votos.
-> - **Sustitución:** entre los casos que no aportan A2 ni A3, el más antiguo; un caso manual nunca se sustituye; si ninguno se puede sustituir, el candidato no entra.
-> - **Selección inicial y topes:** la selección de D-053 entra tal cual y los topes rigen para los candidatos; aunque tiene 3 fichas por tipo de una misma tienda, no está sujeta al tope de 1 por tienda y clase.
+Lecturas de Claude que el usuario ratificó ([D-189](../30-governance/decisions.md#d-189)):
+
+- **Clase de los topes:** cada categoría de Shopify de la composición del caso. Un juego de dos piezas cuenta en las dos categorías.
+- **Cuándo se admite:** al reunir los casos, en el paso 1 del [entrenamiento](model-training.md#entrenamiento). Los motivos A2 y A3 se miden contra las reglas vigentes de ese ciclo.
+- **Sustitución:** con la clase en su tope, sale el caso más antiguo sin A2 ni A3. Un caso manual nunca se sustituye. Si no hay ninguno que sustituir, el candidato no entra.
+- **Selección inicial y topes:** la selección de D-053 entra tal cual, fuera de los topes, que rigen para los candidatos. Aunque tiene 3 fichas por tipo de una misma tienda, no está sujeta al tope de 1 por tienda y clase.
 
 - **Selección inicial.** La selección de El Corte Inglés ([D-053](../30-governance/decisions.md#d-053)) es la primera vía de entrada al catálogo:
 
@@ -87,23 +90,21 @@ La admisión la decide el sistema: el usuario no admite candidatos, solo añade 
   >
   > — INTAKE 2026-10-25-training-catalog-selection (palabras del usuario)
 
-  Tiene 3 fichas por tipo de producto y 100 tipos (300 fichas), con un piloto previo de 30. El tipo es una aproximación conocida antes de capturar, y la clase la da el clasificador. Se captura sin desplazamiento, porque basta el HTML de la primera carga.
+  Tiene 3 fichas por tipo de producto y 100 tipos (300 fichas), con un piloto previo de 30. El tipo es una aproximación conocida antes de capturar, y la clase la da el clasificador. Se captura sin desplazamiento, porque basta el HTML de la primera carga. El usuario ratificó las lecturas de D-053: «categoría» como tipo de producto; sorteo determinista por departamentos, una ficha por producto y reservas; exclusión de entradas, tarifas y tarjetas regalo ([D-187](../30-governance/decisions.md#d-187)).
+- **Otras tiendas.** No hay otra selección inicial. Las demás tiendas llegan como candidatas (auditorías y `/demand-model`) y como casos manuales. No hace falta una relación fija con el panel del MPIR: si el MPIR vuelve, sus tiendas entran por esas mismas vías ([D-187](../30-governance/decisions.md#d-187)).
 
 ## Ejemplo mínimo
 
 Ejemplo hipotético. Una auditoría evalúa 2.000 camisetas de una tienda. La clase Camisetas ya tiene 3 casos de otras tres tiendas, todos admitidos por A1.
 
-- Una camiseta con un bloque generado en la ejecución (A2) entra y sustituye a uno de esos 3 (el más antiguo, según la lectura propuesta). Como es el primer caso de esta tienda en la clase, el tope de 1 por tienda y clase no la frena.
+- Una camiseta con un bloque generado en la ejecución (A2) entra y sustituye a uno de esos 3 (el más antiguo sin A2 ni A3). Como es el primer caso de esta tienda en la clase, el tope de 1 por tienda y clase no la frena.
 - Las demás camisetas de la tienda quedan fuera por el tope de tienda y clase (F4) o por tener la misma clave que esa camiseta (F3).
 
 ## Pendiente
 
 Ver [open-questions](../30-governance/open-questions.md):
 
-- entrenar con la ejecución ya hecha de un caso que viene de una auditoría y control por vertical nueva ([OQ-81](../30-governance/open-questions.md#b-taxonomía-de-clases-de-producto), puntos 2 y 3);
-- uso para el entrenamiento de las fichas de una tienda auditada ([OQ-82](../30-governance/open-questions.md#b-taxonomía-de-clases-de-producto));
-- lecturas propuestas, F3 en los casos manuales y retirada a mano de los casos que admitió el sistema ([OQ-83](../30-governance/open-questions.md#b-taxonomía-de-clases-de-producto));
-- otras tiendas de la selección inicial y relación con el panel del MPIR ([OQ-48](../30-governance/open-questions.md)).
+- casos de control por vertical nueva, que se deciden al auditar la primera vertical que el control no cubra, y conexión de código de la auditoría con el entrenamiento, T-071 ([OQ-81](../30-governance/open-questions.md#b-taxonomía-de-clases-de-producto)).
 
 ## Relacionado
 

@@ -4,7 +4,7 @@ title: Registro de cambios de la documentación
 layer: governance
 status: vigente
 version: 1.0
-updated: 2026-10-28
+updated: 2026-10-29
 sources: []
 ---
 
@@ -13,6 +13,20 @@ sources: []
 Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módulos afectados, el tipo de cambio y la decisión que lo motiva.
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
+
+## 2026-10-29 — Repaso de las cuestiones abiertas · aplicado
+
+- **gobernanza** — `INTAKE 2026-10-29-oq-review`: el usuario contestó en un formulario las 80 fichas que preparó Claude (una por OQ abierta o por punto de una OQ compuesta); cuatro puntos se aclararon en un diálogo posterior. Decisión [D-174](decisions.md#d-174): cierres sin objeto (OQ-05, 06, 07, 08, 10, 37, 43), OQ aparcadas (OQ-04, MPIR, OQ-15, OQ-70) y OQ que siguen abiertas; OQ-31 pasa a la sección E.
+- **canon** — Modelo de demanda y PAA: contraste empírico de la V1 con PAA ([D-175](decisions.md#d-175)); el entrenamiento es la calibración de la importancia ([D-176](decisions.md#d-176)); el motor compone el perfil del RI desde el modelo ([D-177](decisions.md#d-177)); entrada de lo que escribe PAA, revisiones leídas de los `classified.json` y regla de aceptación ([D-178](decisions.md#d-178), [D-179](decisions.md#d-179), [D-180](decisions.md#d-180)).
+- **canon** — Clase de estudio: prueba de aporte de una categoría ([D-181](decisions.md#d-181)), dimensiones comunes sin especialización ([D-182](decisions.md#d-182)) y fundamento de un beneficio reclamado en la Justificación ([D-183](decisions.md#d-183)).
+- **canon** — Catálogo: pendientes de la capa general ([D-184](decisions.md#d-184)), conjuntos de `gen/26` y `gen/09` ([D-185](decisions.md#d-185)) y división de necesidades distintas en los bloques de categoría ([D-196](decisions.md#d-196), enmienda D-060).
+- **canon** — Entrenamiento: selección y catálogo curado ratificados ([D-187](decisions.md#d-187), [D-189](decisions.md#d-189)); fichas de clientes como candidatas salvo oposición ([D-188](decisions.md#d-188)); inducción de especializaciones ([D-190](decisions.md#d-190)); dimensiones de detalle sin suelo ([D-191](decisions.md#d-191), enmienda D-055); rasgos propuestos ([D-192](decisions.md#d-192)); aportación inferida por dos tiendas ([D-193](decisions.md#d-193)); ejecución de auditoría en el paso 2 ([D-194](decisions.md#d-194)).
+- **método** — Auditoría: automática con revisión humana de las incidencias ([D-186](decisions.md#d-186), extiende D-041); texto en imagen fuera en la V1 ([D-195](decisions.md#d-195)); Concreción de un conjunto cubierto en parte y RI-07 ([D-197](decisions.md#d-197)); propiedades en la valoración del AC ([D-198](decisions.md#d-198)); registros en JSON ([D-199](decisions.md#d-199)).
+- **canon** — Pistas de valoración: revisión por alcance ([D-200](decisions.md#d-200)), escritura al redactar un bloque y origen «inferida» ([D-201](decisions.md#d-201)), corrección en su sitio sin uso ([D-202](decisions.md#d-202), enmienda D-136). Prominencia: sigue activa; zonas `title`, metadescripción y `H1` ([D-203](decisions.md#d-203)).
+- **gobernanza** — OQ cerradas: 01, 02, 05–08, 10, 32, 37, 39–41, 43, 45, 48, 51, 52, 55, 62–64, 66, 71, 73, 82, 83 y 86. Incidencias nuevas: [I-50](issues.md#i-50) («reformular» en PAA) e [I-51](issues.md#i-51) (capa de clases internas frente a D-033).
+- **Módulos (10-model):** [acceptance-criteria](../10-model/acceptance-criteria.md) 1.8, [assessment-hints](../10-model/assessment-hints.md) 1.10, [choice-criteria](../10-model/choice-criteria.md) 1.12, [construction-routes](../10-model/construction-routes.md) 1.9, [demand-model](../10-model/demand-model.md) 3.9, [effective-availability](../10-model/effective-availability.md) 1.4, [informative-prominence](../10-model/informative-prominence.md) 1.1, [model-training](../10-model/model-training.md) 1.23, [paa-training](../10-model/paa-training.md) 1.5, [requirement-description](../10-model/requirement-description.md) 1.2, [resolving-information](../10-model/resolving-information.md) 1.10, [scoring-systems](../10-model/scoring-systems.md) 1.8, [study-class](../10-model/study-class.md) 1.7, [training-catalog](../10-model/training-catalog.md) 1.1; glosario 1.1 («Registro de revisiones de PAA» pasa a «Revisiones de PAA»).
+- **Módulos (20-methods):** audit-gsc: [README](../20-methods/audit-gsc/README.md) 0.5, [ac-guides](../20-methods/audit-gsc/ac-guides.md) 0.6, [availability-coverage](../20-methods/audit-gsc/availability-coverage.md) 0.4, [dossier](../20-methods/audit-gsc/dossier.md) 0.5, [evidence](../20-methods/audit-gsc/evidence.md) 0.4, [gsc-decision](../20-methods/audit-gsc/gsc-decision.md) 0.6, [property-checks](../20-methods/audit-gsc/property-checks.md) 0.4, [ri-profile](../20-methods/audit-gsc/ri-profile.md) 0.4; product-taxonomy: [README](../20-methods/product-taxonomy/README.md) 1.9, [data-model-governance](../20-methods/product-taxonomy/data-model-governance.md) 1.3, [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md) 1.35, [subclasses](../20-methods/product-taxonomy/subclasses.md) 1.9.
+- Fuera de `docs/`: tareas T-089 (catálogo), T-090 (inducción de especializaciones), T-091 (entrenamiento) y T-092 (PAA); nota en T-029.
 
 ## 2026-10-29 — Descubrimiento de las páginas de una auditoría y reserva TDM en la auditoría · aplicado
 

@@ -3,9 +3,9 @@ id: audit-gsc-availability-coverage
 title: Disponibilidad efectiva y cobertura (procedimiento)
 layer: method
 status: propuesta
-version: 0.3
-updated: 2026-10-28
-sources: [GSC0 §8, FUND §5.3, FUND §9.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1]
+version: 0.4
+updated: 2026-10-29
+sources: [GSC0 §8, FUND §5.3, FUND §9.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review]
 ---
 
 # Disponibilidad efectiva y cobertura
@@ -62,6 +62,7 @@ La cobertura necesaria es **proporcional a la afirmación que debe sostenerse**:
 
 - **Fallo puntual de una herramienta:** no se presume automáticamente ausencia de información; comprobar si se trata de una imposibilidad efectiva del perfil o de un fallo de auditoría no concluyente.
 - **Contenido presente solo mediante interacción no admitida:** no es utilizable en ese ámbito/perfil; si no queda ningún otro elemento pertinente y se acredita la condición, disponibilidad efectiva = 0. La conformidad del mecanismo se juzga en el expediente técnico.
+- **Texto que solo está dentro de una imagen (Web, V1):** solo cuenta el texto del documento: el `alt`, el `figcaption` o el texto cercano. Un dato que solo está dentro de una imagen da disponibilidad 0 para ese dato. La lectura con reconocimiento de texto (OCR) es una línea futura ([D-195](../../30-governance/decisions.md#d-195); [imágenes](../../10-model/effective-availability.md#imágenes-lo-que-muestran-y-lo-que-expresan)).
 - **HTML utilizable y Schema.org defectuoso:** en Web puede existir disponibilidad efectiva 1 por HTML; en Web Schema.org hay que examinar aisladamente si su información pertinente es utilizable. No trasladar automáticamente uno de los resultados al otro.
 - **Resultado positivo parcial:** basta para disponibilidad efectiva 1; no basta por sí mismo para otorgar GSC 2 a ningún AC.
 

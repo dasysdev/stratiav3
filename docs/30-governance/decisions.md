@@ -4,7 +4,7 @@ title: Registro de decisiones
 layer: governance
 status: vigente
 version: 1.0
-updated: 2026-10-28
+updated: 2026-10-29
 sources: [GSC0 §18.4]
 ---
 
@@ -67,7 +67,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-038](#d-038) | Catálogo de bloques: capa general contrastada, identificadores propios y denominación | aceptada (precisada por D-040; matizada por D-041; estados y clave enmendados por D-045; clave y nombre sin aplicación por D-047; sectores en el nombre por D-077) | 2026-10-25 |
 | [D-039](#d-039) | Los PTD de Amazon, fuente de requisitos de la categoría | aceptada (precisada por D-044; ampliada por D-052: fuente también de la capa general) | 2026-10-25 |
 | [D-040](#d-040) | Bloques de categoría deterministas y catálogo revisado | aceptada (matizada por D-041; precisada por D-044 y D-045) | 2026-10-25 |
-| [D-041](#d-041) | Entrenamiento y ejecución: la revisión humana no bloquea la ejecución | aceptada (enmendada por D-044) | 2026-10-25 |
+| [D-041](#d-041) | Entrenamiento y ejecución: la revisión humana no bloquea la ejecución | aceptada (enmendada por D-044; extendida a la auditoría por D-186) | 2026-10-25 |
 | [D-042](#d-042) | Capa original del MPIR: sin capturas de pantalla y políticas de acceso del motor | aceptada (motor compartido: D-046; renderizado siempre en el método: D-073; excepción del motor PAA: D-096; reserva TDM en la auditoría: D-171) | 2026-10-25 |
 | [D-043](#d-043) | Criterios de redacción del catálogo de bloques de categoría | aceptada (criterio 5 sustituido por D-044; criterio 1 precisado por D-051 y enmendado por D-055; reglas de formulación añadidas por D-060) | 2026-10-25 |
 | [D-044](#d-044) | Marco humano y reglas inducidas: el usuario define el marco, no revisa reglas ni requisitos | aceptada (operación: D-045; «críticos pocos» retirado del marco por D-059) | 2026-10-25 |
@@ -79,14 +79,14 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-050](#d-050) | Filtro de relevancia aprendido: lo no relevante sale del modelo de la clase | aceptada | 2026-10-25 |
 | [D-051](#d-051) | Peso, grosor y gramaje: rasgo «magnitud física», fuera de la regla de las medidas | aceptada (vocabulario abierto por D-056) | 2026-10-25 |
 | [D-052](#d-052) | Fabricante, país de fabricación y seguridad en la capa general, según su origen | aceptada (ampliada a hechos de la oferta por D-065; ampliación sin efecto por D-066; fabricante con marca propia por D-080; la imagen, por D-144) | 2026-10-25 |
-| [D-053](#d-053) | Catálogo de entrenamiento, primera selección: El Corte Inglés, amplitud de tipos y piloto | aceptada (primera vía de entrada del catálogo curado por D-158) | 2026-10-25 |
+| [D-053](#d-053) | Catálogo de entrenamiento, primera selección: El Corte Inglés, amplitud de tipos y piloto | aceptada (primera vía de entrada del catálogo curado por D-158; lecturas ratificadas por D-187) | 2026-10-25 |
 | [D-054](#d-054) | El entrenamiento a escala clasifica con agentes de Claude Code, no con la API | aceptada | 2026-10-25 |
-| [D-055](#d-055) | Crítico por requisito y clase; la medida descriptiva puede ser crítica | aceptada (generalizada por D-058) | 2026-10-26 |
+| [D-055](#d-055) | Crítico por requisito y clase; la medida descriptiva puede ser crítica | aceptada (generalizada por D-058; dimensiones de detalle sin suelo de principal por D-191) | 2026-10-26 |
 | [D-056](#d-056) | Vocabulario de rasgos abierto: rasgos propuestos y votados por los agentes | aceptada (criterio de crítico sustituido por D-058) | 2026-10-26 |
 | [D-057](#d-057) | Composición y aplicación: hoja más específica, hermana como alias y unidad de exposición | aceptada (unidad de exposición precisada por D-079) | 2026-10-26 |
 | [D-058](#d-058) | Excepciones de importancia por requisito y clase en cualquier propiedad, también para el crítico | aceptada | 2026-10-26 |
 | [D-059](#d-059) | «Críticos pocos» no es un objetivo del marco | aceptada | 2026-10-26 |
-| [D-060](#d-060) | Formulación de las cuestiones del catálogo: condiciones, una necesidad por requisito y componentes con fuente | aceptada (aplicada a la capa general por D-065; la regla 3 prevalece sobre la forma de sí o no por D-087) | 2026-10-26 |
+| [D-060](#d-060) | Formulación de las cuestiones del catálogo: condiciones, una necesidad por requisito y componentes con fuente | aceptada (aplicada a la capa general por D-065; la regla 3 prevalece sobre la forma de sí o no por D-087; división de necesidades distintas en los bloques de categoría por D-196) | 2026-10-26 |
 | [D-061](#d-061) | Tipos de información potencialmente resolutiva: forma de la respuesta, con vocabulario cerrado | sustituida por D-062 | 2026-10-26 |
 | [D-062](#d-062) | Información resolutiva: los tipos de información que pueden resolver cada requisito, para localizar y recomendar | aceptada (reglas del motor: D-063; entradas renombradas «aportación resolutiva» por D-064) | 2026-10-26 |
 | [D-063](#d-063) | Información resolutiva: cuatro orígenes compilados por el entrenamiento y aceptación en dos tiendas distintas | aceptada (entradas renombradas «aportación resolutiva» por D-064; en la capa general, las que se redactan sin apoyo en la ley son inferidas por D-065; la norma de un requisito de categoría da referencias por D-068; listas de la capa general sin aprobación del usuario por D-084) | 2026-10-26 |
@@ -140,8 +140,8 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-111](#d-111) | Sujeción de la bajera, candidato PAA | sustituida por D-112 | 2026-10-27 |
 | [D-112](#d-112) | Sujeción de la bajera: cubierta | aceptada | 2026-10-27 |
 | [D-113](#d-113) | Piel en sábanas: cubierta | aceptada | 2026-10-27 |
-| [D-114](#d-114) | Entrenamiento propio de PAA: qué refina, sus límites y el piloto de medición | aceptada (clases del piloto: D-116) | 2026-10-27 |
-| [D-115](#d-115) | El entrenamiento de PAA escribe en el catálogo: cuatro papeles y un solo escritor por requisito | aceptada (papel 2 precisado por D-125) | 2026-10-27 |
+| [D-114](#d-114) | Entrenamiento propio de PAA: qué refina, sus límites y el piloto de medición | aceptada (clases del piloto: D-116; métricas fijadas por D-180) | 2026-10-27 |
+| [D-115](#d-115) | El entrenamiento de PAA escribe en el catálogo: cuatro papeles y un solo escritor por requisito | aceptada (papel 2 precisado por D-125; revisiones enmendadas por D-179) | 2026-10-27 |
 | [D-116](#d-116) | Clases del piloto de PAA: las de los 14 casos de referencia | aceptada | 2026-10-27 |
 | [D-117](#d-117) | Los criterios de aceptación se aplican siempre; NE es una incidencia | aceptada (NA de Comparabilidad: D-126) | 2026-10-27 |
 | [D-118](#d-118) | Comparabilidad: el contraste se exige cuando la respuesta es una dimensión de comparación de la clase | aceptada | 2026-10-27 |
@@ -162,7 +162,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-133](#d-133) | Referencia técnica en web-audit: datos gobernados por el canon, decididos por los agentes | aceptada (las fuentes congeladas, en references: D-149) | 2026-10-27 |
 | [D-134](#d-134) | Catálogo de pistas con destinatario; encontrarlas es código | aceptada (enmendada por D-140: las pistas de un requisito viven en él) | 2026-10-27 |
 | [D-135](#d-135) | Campos de una pista de valoración, quién escribe las dirigidas a una fuente y cómo llegan al auditor | aceptada (precisada por D-140: `para`) | 2026-10-27 |
-| [D-136](#d-136) | Gobierno de las pistas de valoración: aceptación, duplicadas, retiradas y orígenes | aceptada | 2026-10-27 |
+| [D-136](#d-136) | Gobierno de las pistas de valoración: aceptación, duplicadas, retiradas y orígenes | aceptada (regla 13 enmendada por D-202; origen «inferida» añadido por D-201) | 2026-10-27 |
 | [D-137](#d-137) | Cuándo se definen las pistas de valoración | aceptada | 2026-10-27 |
 | [D-138](#d-138) | Pistas de valoración: niveles no exclusivos, sin ámbito, trazabilidad y versión | aceptada | 2026-10-27 |
 | [D-139](#d-139) | Cómo se fija la marca de dimensión de comparación | aceptada | 2026-10-27 |
@@ -170,7 +170,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-141](#d-141) | Productos vecinos fuera del perímetro de PAA, antes de la lectura sobre la oferta | aceptada (madre y material: D-146) | 2026-10-28 |
 | [D-142](#d-142) | Moda, popularidad, preferencia general y alternativa de producto en PAA | aceptada | 2026-10-28 |
 | [D-143](#d-143) | Mínimo de representación de la oferta | aceptada (papel del mínimo precisado por D-145; datos en Web Schema.org, D-147) | 2026-10-28 |
-| [D-144](#d-144) | La imagen: sostén del mínimo de representación; lo que muestra no es información | aceptada | 2026-10-28 |
+| [D-144](#d-144) | La imagen: sostén del mínimo de representación; lo que muestra no es información | aceptada (texto en imagen en Web, V1: D-195) | 2026-10-28 |
 | [D-145](#d-145) | Frontera entre la evaluación técnica y la informativa: decide la naturaleza que fija la especificación | aceptada (mínimo fijado por D-147; completitud y excepción precisadas por D-148; destino de lo recomendado precisado por D-155) | 2026-10-28 |
 | [D-146](#d-146) | La categoría madre y el material en el perímetro de PAA | aceptada | 2026-10-28 |
 | [D-147](#d-147) | Datos del mínimo de representación en Web Schema.org | aceptada | 2026-10-28 |
@@ -184,7 +184,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-155](#d-155) | Un modelo de demanda y una ficha por ámbito: pertinencia por excepción y localización | aceptada | 2026-10-28 |
 | [D-156](#d-156) | Un solo perfil de consumo: sin JavaScript y con todo el documento | aceptada | 2026-10-28 |
 | [D-157](#d-157) | Contexto de la petición del perfil de consumo y datos en scripts que no son marcado | aceptada (estado limpio precisado por D-163) | 2026-10-28 |
-| [D-158](#d-158) | Catálogo de entrenamiento curado: candidatos, filtros, motivos de admisión, topes y casos manuales | aceptada | 2026-10-28 |
+| [D-158](#d-158) | Catálogo de entrenamiento curado: candidatos, filtros, motivos de admisión, topes y casos manuales | aceptada (lecturas ratificadas por D-189) | 2026-10-28 |
 | [D-159](#d-159) | Perfil de implementación de Web: protocolo, documento y consumidor (Google Search y operadores de IA) | aceptada (enmendada por D-168: Open Graph en el nivel de documento) | 2026-10-28 |
 | [D-160](#d-160) | Frontera entre la evaluación técnica y la informativa en Web | aceptada | 2026-10-28 |
 | [D-161](#d-161) | Vistas general y particular de la evaluación técnica; tipos de página | aceptada | 2026-10-28 |
@@ -198,6 +198,26 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-169](#d-169) | Cobertura de la tasa técnica: evaluados / (pertinentes − NA) | aceptada | 2026-10-29 |
 | [D-170](#d-170) | Descubrimiento de las páginas de una auditoría: unión del rastreo y los sitemaps; los enlaces solo descubren | aceptada | 2026-10-29 |
 | [D-171](#d-171) | Reserva de minería de textos y datos en la auditoría: comprobación previa, parada y aviso | aceptada | 2026-10-29 |
+| [D-174](#d-174) | Repaso de las OQ del 2026-10-29: cierres sin objeto y estado de las que siguen | aceptada | 2026-10-29 |
+| [D-175](#d-175) | El contraste empírico del modelo de demanda en la V1 es PAA | aceptada | 2026-10-29 |
+| [D-176](#d-176) | La calibración de la importancia relativa es el entrenamiento | aceptada | 2026-10-29 |
+| [D-177](#d-177) | El motor compone desde el modelo los campos del perfil del RI que se solapan con el catálogo | aceptada | 2026-10-29 |
+| [D-178](#d-178) | Lo que escribe PAA entra en el catálogo al compilar, si el control no empeora | aceptada | 2026-10-29 |
+| [D-179](#d-179) | La compilación de taxo lee las revisiones de PAA de sus clasificaciones | aceptada | 2026-10-29 |
+| [D-190](#d-190) | El entrenamiento induce las especializaciones | aceptada | 2026-10-29 |
+| [D-191](#d-191) | Las dimensiones de detalle se deciden por el árbol, sin suelo de principal | aceptada | 2026-10-29 |
+| [D-192](#d-192) | Rasgos propuestos: sinónimos, retirada y uso provisional | aceptada | 2026-10-29 |
+| [D-193](#d-193) | Una aportación inferida deja de ser provisional al observarse en dos tiendas | aceptada | 2026-10-29 |
+| [D-194](#d-194) | La ejecución de una auditoría cuenta en el entrenamiento solo con las versiones vigentes | aceptada | 2026-10-29 |
+| [D-195](#d-195) | En la V1, el texto que solo está dentro de una imagen no cuenta como legible en Web | aceptada | 2026-10-29 |
+| [D-196](#d-196) | En los bloques de categoría se dividen las necesidades distintas | aceptada | 2026-10-29 |
+| [D-197](#d-197) | Concreción de un conjunto cubierto en parte, y ejemplos abiertos frente a conjuntos declarados | aceptada | 2026-10-29 |
+| [D-198](#d-198) | En la V1, las propiedades se citan en la valoración del AC | aceptada | 2026-10-29 |
+| [D-199](#d-199) | Los registros de la auditoría informativa son JSON validado y versionado | aceptada | 2026-10-29 |
+| [D-200](#d-200) | Cada pista dirigida a un tipo se revisa contra los requisitos a los que llega | aceptada | 2026-10-29 |
+| [D-201](#d-201) | Las pistas se escriben al redactar un bloque nuevo, y existe el origen «inferida» | aceptada | 2026-10-29 |
+| [D-202](#d-202) | Una pista se corrige en su sitio mientras nadie la haya usado | aceptada | 2026-10-29 |
+| [D-203](#d-203) | La prominencia informativa sigue activa; sus zonas son title, metadescripción y H1 | aceptada | 2026-10-29 |
 
 ---
 
@@ -776,7 +796,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-041
 
-**Entrenamiento y ejecución: la revisión humana no bloquea la ejecución.** · aceptada · 2026-10-25
+**Entrenamiento y ejecución: la revisión humana no bloquea la ejecución.** · aceptada (extendida a la auditoría por [D-186](#d-186)) · 2026-10-25
 
 - **Contexto:** `INTAKE 2026-10-25-training-runtime`, tarea T-016. Palabras del usuario: «la revisión humana solo debe ser en tiempo de entrenamiento, en tiempo de ejecución debe ser automático». El canon podía leerse como bloqueante en dos puntos: una categoría que aún no está en el catálogo ([D-040](#d-040)) y la validación de las cuestiones inferidas críticas ([D-036](#d-036)). La incidencia [I-16](issues.md#i-16) señalaba además que las inferidas dentro de un bloque de categoría hacían variar su contenido.
 - **Decisión (aceptada: «si»):**
@@ -1018,7 +1038,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-053
 
-**Catálogo de entrenamiento, primera selección: El Corte Inglés, amplitud de tipos y piloto.** · aceptada · 2026-10-25
+**Catálogo de entrenamiento, primera selección: El Corte Inglés, amplitud de tipos y piloto.** · aceptada (lecturas ratificadas por [D-187](#d-187)) · 2026-10-25
 
 - **Contexto:** `INTAKE 2026-10-25-training-catalog-selection`, tareas T-020 y T-024. [OQ-48](open-questions.md) dejaba abierta la selección del catálogo de entrenamiento ([D-045](#d-045), [D-046](#d-046)). El usuario pidió «una lista representativa de productos para entrenamiento. utiliza un grupo pequeño de productos de cada categoría, pero quiero suficiente variedad de categorías», a partir del sitemap de variantes de El Corte Inglés, y fijó «3 fichas», 300 fichas en una misma jornada de captura y un piloto: «empecemos con 30 para validar el sistema de entrenamiento». Para la captura eligió un ritmo moderado y «no apliques la técnica del scroll. entra y descarga el html de primera carga».
 - **Decisión:**
@@ -1047,7 +1067,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-055
 
-**Crítico por requisito y clase; la medida descriptiva puede ser crítica.** · aceptada · 2026-10-26
+**Crítico por requisito y clase; la medida descriptiva puede ser crítica.** · aceptada (enmendada por [D-191](#d-191) en las dimensiones de detalle) · 2026-10-26
 
 - **Contexto:** `INTAKE 2026-10-26-training-v4-review`, apartados 1 y 2, tras el ciclo de entrenamiento de reglas 4 (T-028, informe `demand-engine/training/reports/2026-10-26-v4-report.md`). Con la lectura de [D-045](#d-045), una regla global por rasgo decide si la identidad y el contenido son críticos; como casi todas las cuestiones de identidad no lo son, la regla da «no crítico» en todo el catálogo y ninguna clase puede tener una identidad crítica (el artista de un CD queda principal, como el género musical). Los votos ven críticas, entre otras, qué piezas incluye un juego, el formato de una grabación, el artista de un CD o LP, el tipo de joya para piercing y el tipo de sofá. La medida descriptiva, fija en principal ([D-043](#d-043), criterio 1), recibe votos «crítico» donde la medida en centímetros es la variante que se vende (manta 140×200, cojín 50×50). Hay requisitos compartidos por varias clases: la medida en centímetros del sector Ropa de cama es crítica en los votos de mantas y plaids, y principal en los de sábanas, fundas y protectores.
 - **Decisión:**
@@ -1135,7 +1155,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-060
 
-**Formulación de las cuestiones del catálogo: condiciones, una necesidad por requisito y componentes con fuente.** · aceptada · 2026-10-26
+**Formulación de las cuestiones del catálogo: condiciones, una necesidad por requisito y componentes con fuente.** · aceptada (enmendada por [D-196](#d-196) en los bloques de categoría) · 2026-10-26
 
 - **Contexto:** `INTAKE 2026-10-26-question-formulation`, antes del escalado del entrenamiento (T-029). Palabras del usuario: «Veo que los requisitos se están construyendo con unas preguntas muy extensas, abarcando demasiado análisis en cada uno. También veo que muchas de estas preguntas contienen subpreguntas condicionales»; pidió estudiar si convenía ya una regla o esperar a trabajar más a fondo la valoración de los AC. En el catálogo (409 requisitos), unas 104 cuestiones hacen dos o más preguntas y 19 llevan una condición dentro. Con una parte basta para que la disponibilidad efectiva sea 1, y la ausencia de las demás baja a Concreción 1; cada GSC juzga varios hechos con un solo valor; las partes secundarias heredan el rasgo y la importancia de la cabeza (2 de los 5 rasgos mal etiquetados de [I-20](issues.md#i-20) son cuestiones compuestas). Dividir después del escalado invalidaría los votos, los rasgos y las reglas por requisito ligados a su identificador. Una muestra con el modelo `sofa-cama-luna` (v4-b) confirmó el enfoque; tras ella, la regla de dividir se estrechó.
 - **Decisión** (opción C, regla estrecha ahora y granularidad después; «Aplícalo así»):
@@ -2226,7 +2246,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-136
 
-**Gobierno de las pistas de valoración: aceptación, duplicadas, retiradas y orígenes.** · aceptada · 2026-10-27
+**Gobierno de las pistas de valoración: aceptación, duplicadas, retiradas y orígenes.** · aceptada (enmendada por [D-201](#d-201) y [D-202](#d-202)) · 2026-10-27
 
 - **Contexto:** `INTAKE 2026-10-27-hints-governance` §1, §3–5 y §7. Claude estudió si ya estaba todo lo necesario para definir las pistas y propuso lo que faltaba. Usuario: «te acepto todas las recomendaciones. Lo demás vayamos resolviendo poco a poco».
 - **Decisión:**
@@ -2620,7 +2640,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-158
 
-**Catálogo de entrenamiento curado: candidatos, filtros, motivos de admisión, topes y casos manuales.** · aceptada · 2026-10-28
+**Catálogo de entrenamiento curado: candidatos, filtros, motivos de admisión, topes y casos manuales.** · aceptada (lecturas ratificadas por [D-189](#d-189)) · 2026-10-28
 
 - **Contexto:** `INTAKE 2026-10-28-curated-training-catalog`. Tras la idea de entrenar con los modelos de una auditoría completa ([OQ-81](open-questions.md#b-taxonomía-de-clases-de-producto)), el usuario propuso «mantener un catálogo de casos relevantes para entrenamiento», al que cada caso evaluado puede entrar como candidato si el sistema lo considera y al que él puede añadir casos a mano, para «basarnos en un catálogo curado, no en cualquier ficha que hayamos auditado». Claude lo revisó y propuso criterios. Ante la pregunta de si lo llevaba al canon y las tres confirmaciones (topes de partida de 3 y 1, conservar las fichas del catálogo y poder retirar a mano los casos manuales), el usuario respondió «sí».
 - **Decisión:**
@@ -2876,3 +2896,380 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - «Avisa»: la orden termina con error y un mensaje claro, y el registro de la auditoría guarda la parada con su evidencia.
 - **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.5. Fuera de `docs/`: capture comprueba la reserva antes de la auditoría y para (T-081).
 - **Relacionado:** D-042, D-046, D-150, D-167, D-170.
+
+### D-174
+
+**Repaso de las OQ del 2026-10-29: cierres sin objeto y estado de las que siguen.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`. Claude preparó una ficha por OQ abierta (contexto, pregunta, opciones y recomendación) en un formulario; el usuario contestó las 80 fichas. Esta decisión recoge los cierres sin cambio de canon y el estado de las OQ que siguen abiertas. Los cambios de canon van en D-175 a D-203.
+- **Decisión:**
+  - **Se cierran sin objeto o superadas:**
+    - OQ-05: la multipertenencia queda resuelta por composición de categorías y bloques ([D-023](#d-023), [D-033](#d-033)); no hay jerarquía propia que gobernar.
+    - OQ-06: no se crean subclases (D-033). La correspondencia Shopify → PTD de Amazon la propone el clasificador y la valida el entrenamiento, igual que los bloques ([D-044](#d-044)).
+    - OQ-07: el acceso a SP-API funciona (T-004, [D-149](#d-149)). Para la reutilización basta el uso interno: los datos en bruto no salen de `references/var/`. Usuario: «Cerrar entera: uso interno basta» (Claude recomendaba dejar abierta la revisión de las condiciones de uso).
+    - OQ-08: superada por [D-053](#d-053) y [D-158](#d-158). La parte de referentes sigue en OQ-11, aparcada con el MPIR.
+    - OQ-10: se cierra con D-149. Sin calendario: la revisión de las fuentes externas se hace a petición (Claude recomendaba `refs check` al empezar cada auditoría y cada ciclo de entrenamiento).
+    - OQ-37: resuelta por [D-024](#d-024), D-033 y [D-048](#d-048). La parte del MPIR queda suspendida con él y se revisa si se retoma.
+    - OQ-43: basta el reglamento del clasificador (paso 2). Un error en la entrada por clasificación objetiva solo cambia el nombre (alias), no los bloques; el entrenamiento mide la divergencia de alias.
+  - **Aparcadas** (siguen en el registro, no se trabajan; retomarlas es una decisión nueva):
+    - OQ-04 (escenarios de compra), como el MPIR (Claude recomendaba cerrarla como no adoptada).
+    - OQ-11 a OQ-18 y la parte del MPIR de OQ-46, con el MPIR ([D-095](#d-095)).
+    - OQ-15, entera: la configuración de Chrome sigue a la espera de T-014 (Claude recomendaba partirla y pasar la configuración a capture).
+    - OQ-70 (índice de pistas), aplazada como dijo el usuario en [D-135](#d-135).
+  - **Siguen abiertas, sin cambio:**
+    - OQ-19, OQ-20 (resto), OQ-21, OQ-24 y OQ-27: la propuesta V1 se mantiene y se calibra con la primera auditoría.
+    - OQ-67 y OQ-72: se deciden con el primer informe y los primeros registros del GSC.
+    - OQ-28: se aborda tras la calibración de la V1, con los expedientes de los casos de calibración y GSC reales.
+    - OQ-29: después de OQ-28 y OQ-31.
+    - OQ-30: se mantiene tal cual, con sus anotaciones, hasta tener el perfil de Catálogos distribuidos (Claude recomendaba cerrarla y abrir una OQ breve).
+  - **OQ-31** pasa a la sección E (síntesis e indicadores) y se decide junto con OQ-28: la síntesis del IR y su estado binario van juntos.
+  - **OQ-60** sigue abierta hasta diseñar el informe (Claude recomendaba cerrarla). Nota del usuario: «la idea es que se establezca para la instancia del modelo de demanda que se usa».
+- **Interpretaciones adoptadas:**
+  - Lectura de Claude de la nota de OQ-60: la descripción de un requisito repetido se adaptaría a la pieza al instanciar el modelo de demanda de un producto, no en el catálogo. Queda como orientación de la OQ, no como regla.
+  - «Uso interno» (OQ-07): el catálogo, en git, deriva de las propiedades de los PTD y se usa en las auditorías; lo que no sale del sistema son los datos en bruto de SP-API.
+- **Consecuencias:** [open-questions](open-questions.md): estados y anotaciones. [data-model-governance](../20-methods/product-taxonomy/data-model-governance.md): la sección de decisiones pendientes remite a este cierre.
+- **Relacionado:** D-023, D-033, D-044, D-053, D-095, D-149, D-158.
+
+### D-175
+
+**El contraste empírico del modelo de demanda en la V1 es PAA.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-01. Faltaba contrastar los RI inferidos con fuentes empíricas (consultas reales, investigación de usuarios). PAA ya lo avanza con preguntas de compradores filtradas por Google ([D-094](#d-094)). Hoy no hay ninguna fuente de consultas reales. Usuario: «Cerrar: PAA basta para la V1» (Claude recomendaba mantenerla abierta).
+- **Decisión:**
+  - El contraste empírico de la V1 es PAA.
+  - El contraste con consultas reales sin filtrar o con investigación de usuarios pasa a una línea futura.
+  - OQ-01 se cierra.
+- **Consecuencias:** [demand-model](../10-model/demand-model.md), [construction-routes](../10-model/construction-routes.md).
+- **Relacionado:** D-036, D-094, OQ-01.
+
+### D-176
+
+**La calibración de la importancia relativa es el entrenamiento.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-02. Crítico, Principal y Complementario tienen las pruebas operativas de [D-035](#d-035), en propuesta. Desde [D-044](#d-044), la importancia de cada requisito la deciden reglas inducidas en el entrenamiento, dentro de esas pruebas. Usuario: «Cerrar: el entrenamiento es la calibración» (Claude recomendaba esperar al entrenamiento a escala).
+- **Decisión:**
+  - Las reglas inducidas del entrenamiento calibran la importancia de forma continua.
+  - OQ-02 se cierra: no hay una calibración aparte.
+- **Consecuencias:** [demand-model](../10-model/demand-model.md#importancia-relativa), [model-training](../10-model/model-training.md#reglas-de-importancia).
+- **Relacionado:** D-035, D-044, D-045, OQ-02.
+
+### D-177
+
+**El motor compone desde el modelo los campos del perfil del RI que se solapan con el catálogo.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-03. El perfil de resolución y pertinencia orienta al auditor ([ri-profile](../20-methods/audit-gsc/ri-profile.md), propuesta V1). `pistas_valoracion` ya sale del modelo ([D-135](#d-135)) y `expresiones_ejemplo` incluye la localización de la ficha de ámbito ([D-155](#d-155)). Faltaba la relación de otros campos con el catálogo. El usuario aceptó la recomendación de Claude.
+- **Decisión:**
+  - El motor de demanda compone el perfil del RI desde el modelo.
+  - `componentes_respuesta` y sus aportaciones salen de la [información resolutiva](../10-model/resolving-information.md).
+  - `objeto`, `alcance` y `casos_frontera` salen de la [descripción](../10-model/requirement-description.md) del requisito (partes 1 y 3).
+  - El auditor no rellena esos campos: solo registra hipótesis (RI-09).
+- **Consecuencias:** [ri-profile](../20-methods/audit-gsc/ri-profile.md); OQ-03 queda en propuesta V1 para el resto (mínimos, validación).
+- **Relacionado:** D-063, D-093, D-135, D-155, OQ-03.
+
+### D-178
+
+**Lo que escribe PAA entra en el catálogo al compilar, si el control no empeora.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-62. El entrenamiento de PAA escribe requisitos «paa», pistas, inferidas revisadas y aportaciones ([D-115](#d-115)). Las pistas ya tienen su regla ([D-136](#d-136)). Faltaba el paso, el estado y la cita de la pregunta como fuente. El clasificador cita hoy `paa-q:<conjunto>:<slug>`, que apunta a `var/`, sin copia. El usuario aceptó la recomendación de Claude.
+- **Decisión:**
+  - Los requisitos «paa», las inferidas confirmadas o revisadas y las aportaciones de PAA entran de forma automática al compilar la pasada de PAA, si el control no empeora ([D-114](#d-114), D-180).
+  - Entran como versión nueva del bloque, con origen «paa».
+  - La fuente guarda el texto literal de la pregunta PAA, no solo su referencia.
+- **Consecuencias:** [paa-training](../10-model/paa-training.md#lo-que-escribe-en-el-catálogo), [construction-routes](../10-model/construction-routes.md), [choice-criteria](../10-model/choice-criteria.md). Fuera de `docs/`: la compilación de PAA y el formato de la fuente en el catálogo (T-092).
+- **Relacionado:** D-097, D-099, D-108, D-114, D-115, D-136, OQ-62.
+
+### D-179
+
+**La compilación de taxo lee las revisiones de PAA de sus clasificaciones.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-63. PAA no cambia la estructura de un requisito de referencias o de normativa: deja la revisión para el entrenamiento de taxo ([D-115](#d-115)). El clasificador ya escribe las revisiones en `classified.json`, en `demand-engine/var/paa/sets/`. Usuario: «Leerlas de los classified.json» (Claude recomendaba un fichero propio en el catálogo, en git).
+- **Decisión:**
+  - No hay un registro propio de revisiones.
+  - La compilación de taxo lee las revisiones de los `classified.json` de `var/paa/sets/`.
+- **Interpretación adoptada:** el usuario eligió la opción sabiendo que `var/` es desechable (lo decía la opción). Si `var/` se limpia antes de compilar, esas revisiones se pierden y hay que volver a clasificar el conjunto.
+- **Consecuencias:** [paa-training](../10-model/paa-training.md), [model-training](../10-model/model-training.md), glosario. La acción «reformular» que propone el clasificador queda fuera de D-115 ([I-50](issues.md#i-50)).
+- **Relacionado:** D-103, D-115, I-50, OQ-63.
+
+### D-180
+
+**Regla de aceptación del entrenamiento de PAA: por apartado, sobre el total de conjuntos.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-64. [D-114](#d-114) fija que nada se acepta si empeora una métrica frente al control, sin decir cuáles. El comparador `bin/paa control` ya cuenta, por apartado (perímetro, criterios, candidatos, revisiones, aportaciones), los esperados encontrados, las coincidencias, las regresiones y lo nuevo. El usuario aceptó la recomendación de Claude.
+- **Decisión:**
+  - Un ajuste de semillas, vocabulario o parámetros se acepta si ningún apartado baja en esperados encontrados ni sube en regresiones, sobre el total de los conjuntos de control.
+  - El informe muestra cada conjunto.
+  - Lo nuevo y la eficiencia se informan, pero no deciden.
+- **Consecuencias:** [paa-training](../10-model/paa-training.md). Sin umbrales numéricos.
+- **Relacionado:** D-114, D-116, OQ-64.
+
+### D-181
+
+**Prueba de que una categoría aporta requisitos a la composición.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-39. Una categoría de Shopify entra en la composición si aporta requisitos al producto o a una pieza ([D-023](#d-023)); faltaba la prueba operativa. El reglamento v3 ya aplica la regla de [D-057](#d-057); el control v6 acierta la composición en 44 de 44 casos. El usuario aceptó la recomendación de Claude.
+- **Decisión:** una categoría aporta requisitos si su base añade un requisito que ningún otro componente aporta ya a esa entidad (producto o pieza). La base incluye los atributos de sus madres ([D-029](#d-029)).
+- **Consecuencias:** [study-class](../10-model/study-class.md#composición-de-la-clase). OQ-39 se cierra.
+- **Relacionado:** D-023, D-028, D-029, D-057, OQ-39.
+
+### D-182
+
+**En una dimensión común a la clase, un cambio de alcance o de importancia no forma especialización.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-41. La condición 2 del criterio de especialización admite cuatro efectos. Para una dimensión que todo producto de la clase tiene, [D-026](#d-026) exige cuestiones propias, y no decía nada de los efectos «cambia el alcance o la desagregación» y «cambia la importancia relativa». El usuario aceptó la recomendación de Claude.
+- **Decisión:**
+  - Solo las cuestiones propias forman especialización.
+  - Un cambio de alcance, de desagregación o de importancia sin cuestión propia es un valor que condiciona.
+  - La importancia la ajusta el entrenamiento por requisito y clase ([D-055](#d-055), [D-058](#d-058)).
+- **Consecuencias:** [study-class](../10-model/study-class.md#criterio-de-especialización). OQ-41 se cierra.
+- **Relacionado:** D-022, D-026, D-033, D-037, OQ-41.
+
+### D-183
+
+**El fundamento de un beneficio reclamado se valora en la Justificación del requisito de la prestación.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-40. Un beneficio reclamado («favorece la higiene dental») no es especialización ([D-025](#d-025)); su fundamento «se evalúa en la auditoría», sin decir cómo llega a ella. La auditoría solo valora unidades RI × ámbito. El usuario pidió ayuda; tras la explicación de Claude eligió esta opción (Claude recomendaba un requisito condicionado de la capa general).
+- **Decisión:**
+  - El fundamento de un beneficio reclamado se valora en el AC Justificación del requisito de esa prestación, si el modelo lo tiene.
+  - Si el modelo no tiene ese requisito, el fundamento no se audita.
+  - No hay un requisito propio para el fundamento de un beneficio.
+- **Consecuencias:** [study-class](../10-model/study-class.md), [acceptance-criteria](../10-model/acceptance-criteria.md) (Justificación), [ac-guides](../20-methods/audit-gsc/ac-guides.md). OQ-40 se cierra.
+- **Relacionado:** D-025, D-119, OQ-40.
+
+### D-184
+
+**Capa general: pendientes del catálogo de OQ-45.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, fichas OQ-45a a OQ-45d. Quedaban cuatro pendientes de la capa general ([D-038](#d-038), [D-052](#d-052), [D-065](#d-065)). La importancia de la capa general es marco: la fija el usuario ([D-045](#d-045)). El usuario aceptó las cuatro recomendaciones de Claude.
+- **Decisión:**
+  - **`gen.suscripcion`** (art. 97.1 TRLGDCU): la duración del contrato y su resolución (p) y la duración mínima de las obligaciones (q) son **críticas**; los depósitos o garantías financieras (r), **principal**.
+  - **`gen.opiniones/01`:** pasa a origen normativa, con fuente el art. 20.4 del TRLGDCU (versión congelada 2026-02-28), que traspone la obligación de Omnibus. La pregunta no cambia. «Cómo se procesan las reseñas» entra como aportación resolutiva de origen marco.
+  - **Letra l del art. 97.1** (gastos de un servicio iniciado antes de desistir): queda fuera de la capa, como las letras g, i, o y u, porque no se aplica a bienes.
+  - **Alimentos y piensos:** la cuestión del fabricante cita como fuente el Reglamento 1169/2011, art. 9.1.h, y el 767/2009, art. 15.b. La cuestión de advertencias sigue solo con el GPSR.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general), [demand-model](../10-model/demand-model.md). Fuera de `docs/`: `demand-engine/catalog/gen.json` y `cat/alimentos.json` (T-089). Nota de la fuente: la letra l remite al art. 108.3, pero el importe proporcional está en el 108.4 del texto congelado. OQ-45 se cierra.
+- **Relacionado:** D-038, D-052, D-060, D-065, D-066, D-076, D-080, OQ-45.
+
+### D-185
+
+**`gen/26` y `gen/09` declaran su conjunto.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, fichas OQ-86a y OQ-86b. Por [D-164](#d-164), las unidades de un conjunto no se dividen en requisitos: el requisito las declara y los AC valoran la cobertura (Concreción) y la atribución (Aplicabilidad). `gen/25` y `gen/08` ya declaran el suyo ([D-165](#d-165)). Usuario: en `gen/26`, «Zonas y modalidad de devolución» (Claude recomendaba lo mismo); en `gen/09`, «Sí, las cuatro zonas».
+- **Decisión:**
+  - **`gen/26`** (coste de la devolución o el cambio) declara como conjunto las zonas de España y la modalidad de devolución (tienda, punto de recogida, mensajero), como `gen/08` con la entrega.
+  - **`gen/09`** (modalidades de entrega o recogida) declara como conjunto las cuatro zonas de España. Concreción mira si consta qué modalidades hay en cada zona; Aplicabilidad, que cada una se atribuya bien.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general). Fuera de `docs/`: las descripciones de `gen/26` y `gen/09` en `gen.json` (T-089). OQ-86 se cierra.
+- **Relacionado:** D-085, D-164, D-165, OQ-86.
+
+### D-186
+
+**La auditoría es automática; una persona revisa las incidencias antes de entregar.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-46a. [D-041](#d-041) fija que la revisión humana va solo en el entrenamiento y que la ejecución es automática. El método de auditoría preveía revisión humana durante la operación. Usuario: «Automática salvo incidencias» (Claude recomendaba «Sí, auditoría automática»).
+- **Decisión:**
+  - Se extiende D-041 a la auditoría: la ejecución es automática.
+  - Antes de entregar, una persona revisa solo las NE y las comprobaciones inconclusas.
+  - La revisión humana del MPIR queda aparcada con él (D-174).
+- **Consecuencias:** [dossier](../20-methods/audit-gsc/dossier.md#criterio-de-revisión-humana), [audit-gsc](../20-methods/audit-gsc/README.md), [model-training](../10-model/model-training.md). OQ-46 queda abierta solo para el MPIR, aparcada.
+- **Relacionado:** D-041, D-044, D-153, OQ-46.
+
+### D-187
+
+**Selección del catálogo de entrenamiento: se ratifica D-053 y se cierra OQ-48.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, fichas OQ-48a a OQ-48c. [D-053](#d-053) recogía lecturas de Claude pendientes de revisión por el usuario. Con [D-158](#d-158) el catálogo es curado. El usuario aceptó las tres recomendaciones de Claude.
+- **Decisión:**
+  - **Otras tiendas:** llegan como candidatas (auditorías, `/demand-model`) y como casos manuales (D-158), sin otra selección inicial.
+  - **Panel del MPIR:** no hace falta una relación fija. Si el MPIR vuelve, sus tiendas pueden entrar como candidatas o como casos manuales.
+  - **Lecturas de D-053:** se ratifican tal cual («categoría» como tipo de producto; sorteo determinista por departamentos, una ficha por producto y reservas; exclusiones de entradas, tarifas y tarjetas regalo).
+- **Consecuencias:** [training-catalog](../10-model/training-catalog.md), [model-training](../10-model/model-training.md). OQ-48 se cierra.
+- **Relacionado:** D-046, D-053, D-095, D-158, OQ-48.
+
+### D-188
+
+**Las fichas de un cliente auditado son candidatas al entrenamiento, salvo oposición del cliente.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-82. Decisión de negocio del usuario. Las fichas de un cliente son públicas y se capturan con robots.txt y reservas TDM comprobados ([D-042](#d-042), [D-171](#d-171)). El usuario aceptó la recomendación de Claude. Nota del usuario: «Recuerda que el entrenamiento lo hacemos a partir de un catalogo curado. Ya nosotros controlamos lo que se incluye».
+- **Decisión:**
+  - Las fichas de una tienda auditada pueden entrar como candidatas al [catálogo de entrenamiento](../10-model/training-catalog.md).
+  - El encargo lleva una cláusula: si el cliente se opone, sus fichas no son candidatas, y las ya admitidas se retiran (D-189).
+  - La admisión sigue las reglas del catálogo curado ([D-158](#d-158)).
+- **Consecuencias:** [training-catalog](../10-model/training-catalog.md). OQ-82 se cierra.
+- **Relacionado:** D-042, D-046, D-158, D-189, OQ-82.
+
+### D-189
+
+**Catálogo de entrenamiento curado: se ratifican las lecturas de D-158.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, fichas OQ-83a a OQ-83f. [D-158](#d-158) dejó lecturas de Claude en propuesta y dos puntos sin decidir. El usuario aceptó las seis recomendaciones.
+- **Decisión:**
+  - **Clase de los topes:** cada categoría de Shopify de la composición. Un juego de dos piezas cuenta en las dos categorías.
+  - **Momento de la admisión:** al reunir los casos (paso 1 del entrenamiento). Los motivos A2 y A3 se miden contra las reglas vigentes de ese ciclo.
+  - **Sustitución:** con la clase en su tope, sale el caso más antiguo sin A2 ni A3; nunca un caso manual. Si no hay ninguno, el candidato no entra.
+  - **Selección de D-053:** entra tal cual, fuera de los topes. Los topes rigen para los candidatos.
+  - **Casos manuales:** cumplen también F3 (sin duplicados). Un manual con la misma tienda y clave que otro caso se rechaza.
+  - **Retirada:** el usuario puede retirar a mano un caso que admitió el sistema, con registro y motivo. Sale del catálogo sin borrarse y deja de aportar votos desde el ciclo siguiente.
+- **Consecuencias:** [training-catalog](../10-model/training-catalog.md#interpretación): las lecturas dejan de ser propuesta. OQ-83 se cierra.
+- **Relacionado:** D-044, D-053, D-158, D-188, OQ-83.
+
+### D-190
+
+**El entrenamiento induce las especializaciones.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-49. La primera versión del entrenamiento induce la importancia y la relevancia por clase ([D-045](#d-045), [D-050](#d-050)). La composición, las especializaciones, las propiedades de Amazon de un bloque y las inferidas las decide el clasificador o quien redacta, y el entrenamiento solo mide sus divergencias. El piloto mostró una clave inestable por el nombre de la especialización. Usuario: «Inducir ya las especializaciones», con la nota «lo revisamos»; después, «Abrir la tarea ya» (Claude recomendaba esperar a T-029).
+- **Decisión:**
+  - Se abre una tarea para que el entrenamiento induzca las especializaciones.
+  - La tarea se revisa con el usuario al empezarla.
+  - La composición, las propiedades de Amazon y las inferidas siguen como hoy: solo se miden.
+- **Consecuencias:** [model-training](../10-model/model-training.md). OQ-49 sigue abierta para la composición, las propiedades de Amazon y las inferidas. Fuera de `docs/`: T-090.
+- **Relacionado:** D-045, D-050, D-072, OQ-49.
+
+### D-191
+
+**Las dimensiones de detalle se deciden por el árbol, sin suelo de principal.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-51. [D-055](#d-055) fija que la medida descriptiva es principal salvo que los votos de su clase la hagan crítica. Los votos ven complementarias las dimensiones de detalle (altura de tacón, largo reclinado, longitud de cadena): 38 de 125 votos en el ciclo 4. Usuario: «Decidir ya: al árbol, sin suelo» (Claude recomendaba esperar a los datos de T-029).
+- **Decisión:**
+  - Las dimensiones de detalle se tratan como la magnitud física: sin regla fija, la inducción decide por clase por el árbol de Shopify.
+  - Para ellas no rige el suelo de principal de D-055.
+  - Enmienda D-055 en las dimensiones de detalle. El resto de D-055 no cambia.
+- **Consecuencias:** [model-training](../10-model/model-training.md). Fuera de `docs/`: la inducción de reglas del entrenamiento (T-091) y la nota de T-029 (anotada). OQ-51 se cierra.
+- **Relacionado:** D-043, D-051, D-055, OQ-51.
+
+### D-192
+
+**Rasgos propuestos: sinónimos, retirada y uso provisional.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, fichas OQ-52a a OQ-52c. Desde [D-056](#d-056) los agentes proponen rasgos nuevos, que entran al ganar en algún requisito. D-056 no decía qué hacer con los sinónimos, con un rasgo que deja de ganar ni con un rasgo propuesto sin votos. El usuario aceptó las tres recomendaciones de Claude.
+- **Decisión:**
+  - **Sinónimos:** quien redacta reutiliza los rasgos ya propuestos; el entrenamiento fusiona los sinónimos que se escapen.
+  - **Retirada:** un rasgo propuesto que ya no gana en ningún requisito sale del vocabulario activo, con registro y sin borrarse. Vuelve si gana otra vez. Los 13 rasgos de partida no se retiran.
+  - **Sin votos:** un rasgo propuesto por quien redacta un bloque se usa como provisional, marcado y encolado, como las inferidas en ejecución ([D-041](#d-041)).
+- **Consecuencias:** [model-training](../10-model/model-training.md#rasgos). Fuera de `docs/`: el entrenamiento (T-091). OQ-52 se cierra.
+- **Relacionado:** D-041, D-045, D-056, OQ-52.
+
+### D-193
+
+**Una aportación inferida deja de ser provisional al observarse en dos tiendas.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-55. La información resolutiva tiene cuatro orígenes ([D-063](#d-063)). Una aportación de las fichas entra cuando se observa en dos tiendas distintas. Una inferida queda provisional, sin salida definida. El usuario aceptó la recomendación de Claude.
+- **Decisión:** una aportación inferida pasa a aceptada cuando se observa en dos tiendas distintas, con la misma regla que las aportaciones de las fichas.
+- **Consecuencias:** [resolving-information](../10-model/resolving-information.md). Fuera de `docs/`: el entrenamiento (T-091). OQ-55 se cierra.
+- **Relacionado:** D-063, D-064, D-065, OQ-55.
+
+### D-194
+
+**La ejecución de una auditoría cuenta en el entrenamiento solo con las versiones vigentes.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, fichas OQ-81a y OQ-81b. El paso 2 del entrenamiento aplica las reglas vigentes dos veces por caso para medir la estabilidad. Un caso que viene de una auditoría ya tiene una ejecución hecha. Usuario: «Reutilizar solo con la versión vigente» (Claude recomendaba lo mismo); para los casos de control por vertical nueva, «Decidir con la primera vertical nueva» (Claude recomendaba no añadirlos).
+- **Decisión:**
+  - La ejecución de la auditoría cuenta como una de las dos del paso 2 si se hizo con el reglamento y el catálogo vigentes.
+  - Si no, el caso lleva dos ejecuciones nuevas.
+  - Los casos de control por vertical nueva se deciden al auditar la primera vertical que el control no cubra.
+- **Consecuencias:** [model-training](../10-model/model-training.md#entrenamiento), [training-catalog](../10-model/training-catalog.md). OQ-81 queda abierta para los casos de control por vertical nueva y la conexión de código (T-071).
+- **Relacionado:** D-044, D-045, D-158, OQ-81.
+
+### D-195
+
+**En la V1, el texto que solo está dentro de una imagen no cuenta como legible en Web.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-20a. [D-144](#d-144) deja a las pruebas de legibilidad si el texto dentro de una imagen cuenta en Web, leído con reconocimiento de texto. [D-157](#d-157) fija la frontera del documento; la captura `audit-es` no guarda las imágenes. El usuario aceptó la recomendación de Claude. Nota del usuario: «para V1 no hay lectura de imágenes, luego incluiremos OCR».
+- **Decisión:**
+  - En la V1, en Web, solo cuenta el texto del documento: el `alt`, el `figcaption` o el texto cercano.
+  - Un dato que solo está dentro de una imagen da disponibilidad 0 para ese dato.
+  - La lectura con reconocimiento de texto (OCR) es una línea futura.
+- **Consecuencias:** [availability-coverage](../20-methods/audit-gsc/availability-coverage.md), [effective-availability](../10-model/effective-availability.md). OQ-20 sigue en propuesta V1 para el resto.
+- **Relacionado:** D-144, D-156, D-157, OQ-20.
+
+### D-196
+
+**En los bloques de categoría se dividen las necesidades distintas.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-22a. [D-060](#d-060) fijó una regla estrecha para los bloques de categoría: solo se divide si las partes tomarían otro rasgo u otra importancia. La capa general usa una regla más amplia ([D-065](#d-065)). Par de muestra: `cat.sofas/13` (tipo de asiento y cojines) y `cat.sofas/05` (seis medidas de uso). Usuario: «Sí, dividir necesidades distintas» (Claude recomendaba lo mismo).
+- **Decisión:**
+  - En los bloques de categoría, una cuestión que junta necesidades distintas se divide, aunque las partes compartan rasgo e importancia.
+  - Los componentes de una misma necesidad quedan juntos.
+  - Ejemplos: `cat.sofas/13` se parte en asiento y cojines; `cat.sofas/05` queda junta.
+  - Las unidades de un conjunto no se dividen ([D-164](#d-164)).
+  - Enmienda D-060 en los bloques de categoría.
+- **Consecuencias:** [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formulación-de-las-cuestiones). Fuera de `docs/`: revisar el catálogo de categorías antes de T-029 y partir `cat.sofas/13` (T-089).
+- **Relacionado:** D-060, D-065, D-164, OQ-22.
+
+### D-197
+
+**Concreción de un conjunto cubierto en parte, y ejemplos abiertos frente a conjuntos declarados.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, fichas OQ-22b y OQ-22c. Por [D-164](#d-164), el silencio sobre una unidad de un conjunto es cobertura parcial y la valora la Concreción. Faltaba la frontera 0/1 y ratificar la RI-07 sobre los ejemplos entre paréntesis. El usuario aceptó las dos recomendaciones de Claude.
+- **Decisión:**
+  - **Frontera 0/1:** si al menos una unidad del conjunto está cubierta, la Concreción es 1 como mínimo. El 0 queda para cuando lo presente no cubre ninguna unidad (solo información general o auxiliar).
+  - **Ejemplos abiertos:** se ratifica la RI-07. Una lista con «p. ej.» o «…» orienta y no forma componentes. Solo un conjunto declarado cuenta para la Concreción.
+- **Interpretación adoptada:** la opción decía «declarado en la descripción». Lectura de Claude: lo que la opción distingue es el conjunto declarado frente a la lista de ejemplos abierta, no el lugar. El conjunto se declara en la pregunta o en la descripción, como fija [D-164](#d-164).
+- **Consecuencias:** [acceptance-criteria](../10-model/acceptance-criteria.md#unidades-de-un-conjunto), [ac-guides](../20-methods/audit-gsc/ac-guides.md#concreción), [ri-profile](../20-methods/audit-gsc/ri-profile.md). OQ-22 sigue en propuesta V1 para la prueba de materialidad.
+- **Relacionado:** D-060, D-164, D-165, OQ-22.
+
+### D-198
+
+**En la V1, las propiedades se citan en la valoración del AC.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-23. El método V1 ([property-checks](../20-methods/audit-gsc/property-checks.md)) pide una ficha breve por propiedad relevante. La plantilla del GSC ([gsc-decision](../20-methods/audit-gsc/gsc-decision.md)) solo lista las propiedades consideradas y su efecto en la justificación. Con unos 55 RI y hasta 660 juicios por ficha ([D-153](#d-153)), la ficha por propiedad multiplica el registro. Usuario: «Citarlas en la valoración del AC» (Claude recomendaba lo mismo).
+- **Decisión:**
+  - La valoración del AC lista las propiedades consideradas y su efecto en la justificación, como la plantilla del GSC.
+  - Una propiedad tiene ficha propia solo ante un defecto.
+- **Consecuencias:** [property-checks](../20-methods/audit-gsc/property-checks.md), [gsc-decision](../20-methods/audit-gsc/gsc-decision.md). Resuelve la diferencia entre los dos métodos. OQ-23 sigue en propuesta V1 para qué observar en cada propiedad.
+- **Relacionado:** D-153, OQ-23.
+
+### D-199
+
+**Los registros de la auditoría informativa son JSON validado y versionado.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-26. Las plantillas del perfil del RI, de la evidencia y del GSC están en YAML ilustrativo. El resto del proyecto usa JSON validado por código (el modelo de demanda, las pistas, el expediente técnico de web-audit). El usuario aceptó la recomendación de Claude.
+- **Decisión:**
+  - Los registros de la auditoría informativa son JSON validado y versionado, con el mismo patrón que web-audit.
+  - Los campos exactos se fijan al implementar el auditor.
+- **Consecuencias:** [ri-profile](../20-methods/audit-gsc/ri-profile.md), [evidence](../20-methods/audit-gsc/evidence.md), [gsc-decision](../20-methods/audit-gsc/gsc-decision.md). OQ-26 sigue en propuesta V1 para los campos.
+- **Relacionado:** D-135, D-166, OQ-26.
+
+### D-200
+
+**Cada pista dirigida a un tipo se revisa contra los requisitos a los que llega.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-66. Las comprobaciones de Fiabilidad por tipo de dato son el contenido de las pistas dirigidas a un tipo ([D-127](#d-127)), y el primer lote lo redacta Claude ([D-137](#d-137)). El piloto de T-050 mostró el riesgo: una pista por tipo llega a todas las clases del rasgo («un gramaje en g/m²» no vale para un vinilo; [I-43](issues.md#i-43)). El usuario aceptó la recomendación de Claude.
+- **Decisión:**
+  - Cada pista dirigida a un tipo se revisa contra la lista de requisitos a los que llega, que da el código.
+  - Si la pista no vale en todos, se reescribe más general o pasa a ser una pista dirigida a una fuente o a un requisito.
+  - El contenido de las comprobaciones por tipo es trabajo de redacción (D-137) con esta revisión.
+- **Consecuencias:** [assessment-hints](../10-model/assessment-hints.md), [acceptance-criteria](../10-model/acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones). OQ-66 se cierra.
+- **Relacionado:** D-122, D-127, D-134, D-137, D-154, I-43, OQ-66.
+
+### D-201
+
+**Las pistas se escriben al redactar un bloque nuevo, y existe el origen «inferida».** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, fichas OQ-71a y OQ-71b. PAA ya escribe las pistas de cada requisito con origen «paa». Faltaba el paso al crear un modelo y en el entrenamiento de taxo. Los orígenes de una pista ([D-136](#d-136)) no cubrían una pista sin apoyo directo en una fuente; en el piloto de T-050 se usó «referencias». El usuario aceptó las dos recomendaciones de Claude.
+- **Decisión:**
+  - Quien redacta un bloque nuevo escribe sus pistas, sin compilar. El entrenamiento las consolida.
+  - Se añade el origen «inferida» para una pista sin apoyo directo en una fuente (la justificación del requisito, una aportación inferida). La pista queda provisional hasta que la valida el entrenamiento, como en la información resolutiva.
+- **Consecuencias:** [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes), [model-training](../10-model/model-training.md). Fuera de `docs/`: el esquema de las pistas y el clasificador (T-089). OQ-71 se cierra.
+- **Relacionado:** D-045, D-136, D-137, I-45, OQ-71.
+
+### D-202
+
+**Una pista se corrige en su sitio mientras nadie la haya usado.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, ficha OQ-73. Corregir una pista era retirarla y crear otra ([D-136](#d-136); regla 13 de assessment-hints). La retirada protege lo que citan los modelos ([D-138](#d-138)) y los registros del GSC. Desde [D-140](#d-140), las pistas de un requisito van con la versión de su bloque. El usuario aceptó la recomendación de Claude.
+- **Decisión:**
+  - Una pista se corrige en su sitio, sin retirarla, si ninguna versión que la contiene la ha usado un modelo ni un registro del GSC.
+  - Cuando un modelo o un registro del GSC usa esa versión, corregirla es retirarla, como fija D-136.
+  - Enmienda D-136 (regla 13) en ese caso.
+- **Consecuencias:** [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes). OQ-73 se cierra.
+- **Relacionado:** D-136, D-138, D-140, OQ-73.
+
+### D-203
+
+**La prominencia informativa sigue activa; sus zonas son title, metadescripción y H1.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-oq-review`, fichas G-00 y OQ-32 a OQ-36. La prominencia es propuesta ([D-018](#d-018)) y necesita la síntesis del IR, que no tiene regla. Usuario: en G-00, «Mantenerla activa» (Claude recomendaba aparcarla); en OQ-32, «Fijar solo zonas con etiqueta». En OQ-33 a OQ-36 eligió «aparcarla con la prominencia», que contradecía G-00. En el diálogo posterior aclaró: «Activa; 33–36 en espera».
+- **Decisión:**
+  - La prominencia informativa sigue activa como propuesta y se trabaja después de la síntesis del IR.
+  - **Zonas prominentes en HTML:** solo `title`, metadescripción y `H1`. La «descripción inicial o síntesis destacada» sale de la lista.
+  - OQ-33 a OQ-36 quedan abiertas, en espera de la síntesis del IR (OQ-28). Hasta entonces, IP = NA fuera de Web.
+- **Consecuencias:** [informative-prominence](../10-model/informative-prominence.md) (sigue en propuesta). OQ-32 se cierra.
+- **Relacionado:** D-018, D-019, OQ-28, OQ-32.

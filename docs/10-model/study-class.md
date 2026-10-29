@@ -3,9 +3,9 @@ id: study-class
 title: Clase de estudio
 layer: model
 status: vigente
-version: 1.6
-updated: 2026-10-27
-sources: [INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-27-paa-construction-route]
+version: 1.7
+updated: 2026-10-29
+sources: [INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-29-oq-review]
 ---
 
 # Clase de estudio
@@ -59,7 +59,11 @@ La versión fijada es la adoptada como referencia de Shopify: hoy, v2026-08 ([so
 
 > **Clasificación objetiva:** una categoría candidata en la que el producto entra por clasificación objetiva forma parte de la composición aunque no aporte requisitos propios. **Base de una categoría de Shopify:** sus atributos propios más los de sus categorías madre (una categoría hija es un tipo de su madre). — INTAKE 2026-10-25-objective-classification
 
-Una categoría aporta requisitos a una pieza aunque sean del mismo tipo que los de otra, porque recaen sobre otra entidad ([D-023](../30-governance/decisions.md#d-023)). Por clasificación objetiva, una categoría entra solo cuando tiene sentido: no entra por denominación una categoría que traería requisitos que no aplican ([D-032](../30-governance/decisions.md#d-032)). La que entra sin aportar requisitos es un **alias**: «el objetivo de esto es puramente de etiquetado, denominación» (INTAKE 2026-10-25-requirement-blocks); no forma parte de la identidad del modelo ([D-033](../30-governance/decisions.md#d-033)). La base de Shopify se aplica a la composición, a la condición 4 y a la regla de las cuestiones propias ([D-029](../30-governance/decisions.md#d-029)). Lo que se registra son los modelos, como composiciones de bloques ([D-033](../30-governance/decisions.md#d-033)). Siguen pendientes, en parte resueltas por [D-057](../30-governance/decisions.md#d-057), la prueba operativa de «aportar requisitos» ([OQ-39](../30-governance/open-questions.md)) y la de la clasificación objetiva ([OQ-43](../30-governance/open-questions.md)).
+Una categoría aporta requisitos a una pieza aunque sean del mismo tipo que los de otra, porque recaen sobre otra entidad ([D-023](../30-governance/decisions.md#d-023)). Por clasificación objetiva, una categoría entra solo cuando tiene sentido: no entra por denominación una categoría que traería requisitos que no aplican ([D-032](../30-governance/decisions.md#d-032)). La que entra sin aportar requisitos es un **alias**: «el objetivo de esto es puramente de etiquetado, denominación» (INTAKE 2026-10-25-requirement-blocks); no forma parte de la identidad del modelo ([D-033](../30-governance/decisions.md#d-033)). La base de Shopify se aplica a la composición, a la condición 4 y a la regla de las cuestiones propias ([D-029](../30-governance/decisions.md#d-029)). Lo que se registra son los modelos, como composiciones de bloques ([D-033](../30-governance/decisions.md#d-033)).
+
+**Prueba de que una categoría aporta requisitos** ([D-181](../30-governance/decisions.md#d-181)): una categoría aporta requisitos si su base añade un requisito que ningún otro componente aporta ya a esa entidad (producto o pieza). La base incluye los atributos de sus madres ([D-029](../30-governance/decisions.md#d-029)).
+
+**Prueba de la clasificación objetiva** ([D-174](../30-governance/decisions.md#d-174)): basta el reglamento del clasificador (paso 2). Un error en la entrada por clasificación objetiva solo cambia el nombre (alias), no los bloques. El entrenamiento mide la divergencia de alias.
 
 La hoja más específica que cumple el producto entra como categoría aunque herede todos sus requisitos de las madres: es el componente por el que entran en el producto. Una hermana que nombra otra característica del producto (Sofás de dos plazas en un sofá cama) trae por herencia esos mismos requisitos, ya aportados, y entra como alias por clasificación objetiva; no es una entrada duplicada ([D-057](../30-governance/decisions.md#d-057)):
 
@@ -85,6 +89,12 @@ La condición 1 solo admite características del producto: lo de la oferta activ
 
 > **Cuestiones propias:** para una dimensión que todo producto de la clase tiene, un valor es especialización solo si trae cuestiones propias, que no salen de las dimensiones de la clase general. Si solo cambia los valores, o solo hace que algunas cuestiones dejen de aplicarse, es un valor que condiciona (como en D-024). — INTAKE 2026-10-25-own-questions-offer
 
+Los otros efectos de la condición 2, en una dimensión común a la clase ([D-182](../30-governance/decisions.md#d-182)):
+
+- Solo las cuestiones propias forman especialización.
+- Un cambio de alcance, de desagregación o de importancia sin cuestión propia es un valor que condiciona.
+- La importancia la ajusta el entrenamiento por requisito y clase ([D-055](../30-governance/decisions.md#d-055), [D-058](../30-governance/decisions.md#d-058)).
+
 > Confirmado por el usuario: la condición de la unidad es un requisito general. Por tanto, outlet, liquidación, exposición o reacondicionado son valores de la oferta que condicionan cuestiones generales, no especializaciones, en cualquier producto.
 >
 > Extensión simétrica de D-026: un valor que **activa** cuestiones condicionadas ya previstas en la base también es un valor que condiciona. Solo es especialización si trae cuestiones que la base no prevé. […]
@@ -102,6 +112,12 @@ Validación precisada por [D-041](../30-governance/decisions.md#d-041) y [D-044]
 > **Condición 4, lectura estricta:** la dimensión debe existir en algún componente de la clase de estudio, en cualquiera de las tres referencias: atributos de la categoría de Shopify, nodo o PTD de Amazon, o categoría de Google. El apoyo en una categoría afín se anota en la ficha como evidencia complementaria, pero no basta por sí solo. Una distinción que no cumple la condición no se pierde: sus cuestiones quedan en la clase general como requisitos condicionados (la salida «conservar la clase y condicionar requisitos»). — INTAKE 2026-10-25-class-composition
 
 > **Beneficios reclamados:** un beneficio que el producto reclama (por ejemplo, «favorece la higiene dental») no es especialización, salvo que las referencias tengan un tipo de producto definido por él. Su fundamento se evalúa en la auditoría, no en la clase. — INTAKE 2026-10-25-class-composition
+
+Cómo llega a la auditoría ese fundamento ([D-183](../30-governance/decisions.md#d-183)):
+
+- El fundamento de un beneficio reclamado se valora en el AC Justificación del requisito de esa prestación, si el modelo lo tiene ([acceptance-criteria](acceptance-criteria.md)).
+- Si el modelo no tiene ese requisito, el fundamento no se audita.
+- No hay un requisito propio para el fundamento de un beneficio.
 
 > **Características especiales de un PTD:** los valores de la propiedad «Características especiales» (`special_feature`) de un PTD de Amazon cuentan como dimensiones de la base de la clase (regla de las cuestiones propias) y como apoyo (condición 4). — INTAKE 2026-10-25-objective-classification
 

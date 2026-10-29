@@ -3,9 +3,9 @@ id: audit-gsc-property-checks
 title: Comprobación operativa de propiedades P06–P18
 layer: method
 status: propuesta
-version: 0.3
-updated: 2026-10-28
-sources: [GSC0 §10, FUND §7, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1]
+version: 0.4
+updated: 2026-10-29
+sources: [GSC0 §10, FUND §7, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review]
 ---
 
 # Comprobación operativa de propiedades P06–P18
@@ -16,7 +16,7 @@ Las definiciones de las propiedades y sus asociaciones orientativas con los AC s
 
 Las propiedades **describen características observables de información pertinente**. Se comprueban según el RI, ámbito y hallazgo. **No se valoran individualmente con GSC, 0/1/2 ni con pesos**.
 
-Para cada propiedad relevante, producir una ficha breve con: **pregunta de comprobación, elementos examinados, método aplicado, resultado observado, evidencia, limitación o condición favorable y efecto específico para el AC**.
+**Registro** ([D-198](../../30-governance/decisions.md#d-198)): la valoración del AC lista las propiedades consideradas y su efecto en la justificación, como la [plantilla del GSC](gsc-decision.md#plantilla-de-valoración-por-ac-yaml-ilustrativo). Si una propiedad muestra un defecto, produce para ella una ficha propia con: **pregunta de comprobación, elementos examinados, método aplicado, resultado observado, evidencia, limitación y efecto específico para el AC**.
 
 **PR-01.** Seleccionar propiedades a partir de las necesidades del AC y de los hallazgos, no mediante una lista obligatoria e idéntica para todos los RI.
 

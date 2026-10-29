@@ -3,9 +3,9 @@ id: demand-model
 title: Modelo de demanda y requisitos informativos
 layer: model
 status: vigente
-version: 3.8
-updated: 2026-10-28
-sources: [BASE §4, FUND §3, FUND §11.1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-block-catalog, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-26-question-formulation, INTAKE 2026-10-26-answer-form, INTAKE 2026-10-26-resolving-information, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-issues, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-26-model-name-full-composition, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-comparison-mark, INTAKE 2026-10-27-requirement-hints-location, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-28-shipping-zones]
+version: 3.9
+updated: 2026-10-29
+sources: [BASE §4, FUND §3, FUND §11.1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-block-catalog, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-26-question-formulation, INTAKE 2026-10-26-answer-form, INTAKE 2026-10-26-resolving-information, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-issues, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-26-model-name-full-composition, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-comparison-mark, INTAKE 2026-10-27-requirement-hints-location, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-28-shipping-zones, INTAKE 2026-10-29-oq-review]
 ---
 
 # Modelo de demanda y requisitos informativos
@@ -65,7 +65,7 @@ Desarrollo de FUND §3.3:
 
 > **Confianza e importancia:** la confianza en un requisito es independiente de su importancia: un requisito dudoso no se baja de nivel por dudoso. — INTAKE 2026-10-25-requirement-blocks
 
-Pruebas operativas de importancia (propuesta): [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#pruebas-de-importancia) ([D-035](../30-governance/decisions.md#d-035)). Reglas de formulación de las cuestiones del catálogo (propuesta): [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formulación-de-las-cuestiones) ([D-060](../30-governance/decisions.md#d-060)).
+Pruebas operativas de importancia (propuesta): [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#pruebas-de-importancia) ([D-035](../30-governance/decisions.md#d-035)). Las reglas inducidas del entrenamiento calibran la importancia de forma continua, dentro de esas pruebas; no hay una calibración aparte ([D-176](../30-governance/decisions.md#d-176)). Reglas de formulación de las cuestiones del catálogo (propuesta): [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formulación-de-las-cuestiones) ([D-060](../30-governance/decisions.md#d-060)).
 
 ## Distinciones
 
@@ -138,11 +138,11 @@ Los identificadores de bloque son propios y no dependen de las referencias, que 
 >
 > — INTAKE 2026-10-25-requirement-blocks; enmendada por [D-045](../30-governance/decisions.md#d-045): las importancias de la capa general quedan fijas como parte del marco y ninguna regla las revisa por clase
 
-Catálogo inicial (propuesta, se irá afinando): [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) ([D-034](../30-governance/decisions.md#d-034)), contrastado con la información precontractual obligatoria de la venta a distancia en España ([D-038](../30-governance/decisions.md#d-038)) y con el art. 19 del Reglamento (UE) 2023/988; el origen de cada cuestión sigue su fuente ([D-052](../30-governance/decisions.md#d-052)).
+Catálogo inicial (propuesta, se irá afinando): [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#capa-general) ([D-034](../30-governance/decisions.md#d-034)), contrastado con la información precontractual obligatoria de la venta a distancia en España ([D-038](../30-governance/decisions.md#d-038)) y con el art. 19 del Reglamento (UE) 2023/988; el origen de cada cuestión sigue su fuente ([D-052](../30-governance/decisions.md#d-052)). Los pendientes del catálogo de la capa general están cerrados ([D-184](../30-governance/decisions.md#d-184)). Entre ellos, la obligación de la directiva Omnibus sobre las opiniones: la traspone el art. 20.4 del TRLGDCU.
 
 ## Sistema de construcción vigente
 
-El catálogo se construye por inferencia a partir de fuentes de referencia, organizadas en vías complementarias: la taxonomía de clases de producto, el MPIR (aparcado) y People Also Ask (PAA), a las que se suman las cuestiones inferidas. Cada requisito lleva su origen: «referencias», «normativa», «inferida» o «paa». Ver [construction-routes](construction-routes.md) ([D-098](../30-governance/decisions.md#d-098)).
+El catálogo se construye por inferencia a partir de fuentes de referencia, organizadas en vías complementarias: la taxonomía de clases de producto, el MPIR (aparcado) y People Also Ask (PAA), a las que se suman las cuestiones inferidas. Cada requisito lleva su origen: «referencias», «normativa», «inferida» o «paa». Ver [construction-routes](construction-routes.md) ([D-098](../30-governance/decisions.md#d-098)). En la V1, el contraste empírico del catálogo es PAA; el contraste con consultas reales sin filtrar o con investigación de usuarios es una línea futura ([D-175](../30-governance/decisions.md#d-175)).
 
 ### Entrenamiento y ejecución
 
@@ -206,7 +206,12 @@ Como instrumento auxiliar, cada RI puede tener un **perfil de resolución y pert
 - alterar su importancia relativa;
 - aceptar asociaciones basadas en hechos comerciales supuestos.
 
-Operativización (propuesta V1): [ri-profile](../20-methods/audit-gsc/ri-profile.md).
+Operativización (propuesta V1): [ri-profile](../20-methods/audit-gsc/ri-profile.md). El motor de demanda compone desde el modelo los campos del perfil que se solapan con el catálogo ([D-177](../30-governance/decisions.md#d-177)):
+
+- `componentes_respuesta` y sus aportaciones salen de la [información resolutiva](resolving-information.md);
+- `objeto`, `alcance` y `casos_frontera` salen de la [descripción](requirement-description.md) del requisito (partes 1 y 3).
+
+El auditor no rellena esos campos: solo registra hipótesis.
 
 ## Escenarios de compra (posible extensión, no unidad de valoración)
 
@@ -219,16 +224,14 @@ Un **escenario de compra** concreta las necesidades, preferencias, restricciones
 - **Resolver informativamente una cuestión no implica que la oferta satisfaga una restricción de compra.** Concluir con fundamento que la oferta no cumple una fecha de entrega es una respuesta válida.
 - **No hay un método vigente de agregación por escenario.** Un eventual motor de escenarios necesitará reglas propias y no puede diluir condiciones excluyentes en promedios.
 
+La función de los escenarios está aparcada, como el MPIR: sigue en el registro y no se trabaja ([OQ-04](../30-governance/open-questions.md), [D-174](../30-governance/decisions.md#d-174)).
+
 ## Pendiente
 
 Ver [open-questions](../30-governance/open-questions.md):
 
-- contraste empírico del catálogo (PAA lo avanza con preguntas de compradores filtradas por Google);
-- representación de la clase de estudio en la taxonomía (en parte resuelta: se registran los modelos como composiciones de bloques);
-- calibración de la importancia relativa (pruebas operativas en propuesta);
-- pendientes del catálogo de la capa general: importancia de la condicionada de suscripción y depósitos, trasposición de la directiva Omnibus sobre opiniones, letra l del art. 97.1 y equivalentes del GPSR en alimentos y piensos ([OQ-45](../30-governance/open-questions.md));
-- forma definitiva del perfil de RI;
-- función de los escenarios de compra.
+- forma definitiva del perfil de RI: mínimos y validación ([OQ-03](../30-governance/open-questions.md), propuesta V1);
+- función de los escenarios de compra ([OQ-04](../30-governance/open-questions.md), aparcada).
 
 ## Relacionado
 

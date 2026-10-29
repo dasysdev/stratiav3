@@ -3,9 +3,9 @@ id: choice-criteria
 title: Criterios de elección
 layer: model
 status: vigente
-version: 1.11
-updated: 2026-10-28
-sources: [INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-paa-new-requirements, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-classification-criteria-2, INTAKE 2026-10-27-paa-bottom-sheet-hold, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-28-paa-control-review-rules, INTAKE 2026-10-28-paa-parent-and-material]
+version: 1.12
+updated: 2026-10-29
+sources: [INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-paa-new-requirements, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-classification-criteria-2, INTAKE 2026-10-27-paa-bottom-sheet-hold, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-28-paa-control-review-rules, INTAKE 2026-10-28-paa-parent-and-material, INTAKE 2026-10-29-oq-review]
 ---
 
 # Criterios de elección
@@ -85,6 +85,7 @@ Reglas decididas por el usuario al resolver las dudas de las dos primeras clasif
   > Antes de aplicar C2 a una pregunta de clase, se relee sobre la oferta: «¿… esta oferta?». Si un hecho que la oferta puede declarar la responde, la pregunta confirma ese requisito o propone un candidato. C2 solo se aplica cuando ningún hecho de la oferta la responde: hábitos («¿cada cuánto se lavan?»), saber doméstico («¿cómo se dobla?»).
 
 - **Apoyo mínimo** ([D-102](../30-governance/decisions.md#d-102)): basta una pregunta para que un candidato que cumple C1–C4 entre como tal. Este apoyo es para que el requisito exista; para separarlo hace falta la [separación por dimensión](../20-methods/product-taxonomy/requirement-blocks.md#separación-por-dimensión) ([D-103](../30-governance/decisions.md#d-103)).
+- **Entrada en el catálogo** ([D-178](../30-governance/decisions.md#d-178)): un requisito candidato entra de forma automática al compilar la pasada del [entrenamiento de PAA](paa-training.md), si el control no empeora ([D-180](../30-governance/decisions.md#d-180)). Entra como versión nueva del bloque, con origen «paa». Su fuente guarda el texto literal de la pregunta PAA, no solo su referencia. El clasificador de preguntas PAA aplica estas reglas con el reglamento de su agente (`demand-engine/classifier/paa.md`).
 - **Criterios intermedios** ([D-104](../30-governance/decisions.md#d-104)): un criterio como el «material» o la «calidad» queda cubierto y se descompone en las prestaciones. El «material» lo cubre la composición en cuanto a qué material es (funciones Comprender y Comparar); en cuanto a si es mejor, se descompone en las prestaciones (función Evaluar): nivel térmico, arrugas, duración y resistencia, humedad, tacto y piel, en sábanas. Deducir esas prestaciones del material es lo que D-090 no admite. Una pregunta genérica («¿es bueno el lino?») no nombra ninguna prestación: apoya la composición, no a una prestación concreta.
 - **Preguntas de grado** ([D-110](../30-governance/decisions.md#d-110)): una pregunta de grado («tan suaves», «las más frescas», «cuál se arruga menos») indica el aspecto; C2 se juzga sobre el requisito, formulado por tipo o por declaración. Si la oferta puede declarar el tipo, la pregunta de grado apoya ese requisito. No genera cuando el aspecto solo admite más o menos y ninguna categoría declarable lo resuelve (la marca, C4).
 - **Tacto** ([D-105](../30-governance/decisions.md#d-105)): aplicación de la regla anterior. Cumple C2 si se formula por el tipo de tacto (sedoso o liso, crujiente, afelpado, fresco al tacto), no por el grado de suavidad, que solo admite más o menos.
@@ -115,7 +116,7 @@ Reglas decididas por el usuario al resolver las dudas de las dos primeras clasif
 
 ## Ejemplo mínimo
 
-Clase de sábanas: sondas de PAA del 2026-10-26 (`INTAKE 2026-10-26-choice-criteria-and-descriptions`) y clasificaciones con un agente, con las decisiones de [D-108](../30-governance/decisions.md#d-108), [D-110](../30-governance/decisions.md#d-110) y [D-112](../30-governance/decisions.md#d-112) (`INTAKE 2026-10-27-paa-classification-criteria`, `INTAKE 2026-10-27-paa-classification-criteria-2` e `INTAKE 2026-10-27-paa-bottom-sheet-hold`). Los requisitos que se generan son candidatos: aún no están en el catálogo de la clase.
+Clase de sábanas: sondas de PAA del 2026-10-26 (`INTAKE 2026-10-26-choice-criteria-and-descriptions`) y clasificaciones con un agente, con las decisiones de [D-108](../30-governance/decisions.md#d-108), [D-110](../30-governance/decisions.md#d-110) y [D-112](../30-governance/decisions.md#d-112) (`INTAKE 2026-10-27-paa-classification-criteria`, `INTAKE 2026-10-27-paa-classification-criteria-2` e `INTAKE 2026-10-27-paa-bottom-sheet-hold`). Los requisitos que se generan son candidatos: aún no están en el catálogo de la clase. Los escribe el entrenamiento de PAA ([D-115](../30-governance/decisions.md#d-115)) y entran al compilar su pasada ([D-178](../30-governance/decisions.md#d-178)).
 
 | Criterio de elección | Preguntas PAA que lo apoyan | ¿Genera requisito? |
 |---|---|---|
@@ -127,10 +128,6 @@ Clase de sábanas: sondas de PAA del 2026-10-26 (`INTAKE 2026-10-26-choice-crite
 | Calidad en general | «¿Cuáles son las sábanas de mejor calidad?» | No: criterio intermedio, se descompone en los anteriores (C1). |
 | Material | «¿Qué es mejor, lino o algodón?», «¿Son malas las de microfibra?» | No: criterio intermedio, cubierto por la composición y descompuesto en las prestaciones ([D-104](../30-governance/decisions.md#d-104)). |
 | Marca | «¿Cuál es la mejor marca de sábanas en España?» | No (C4). |
-
-## Pendiente
-
-- Entrada en el catálogo de los requisitos candidatos de la clase de sábanas ([D-108](../30-governance/decisions.md#d-108)): la hace el [entrenamiento de PAA](paa-training.md) ([D-115](../30-governance/decisions.md#d-115)); paso de aceptación y estado, en [OQ-62](../30-governance/open-questions.md). La aplicación en el clasificador de preguntas PAA está en el reglamento de su agente (`demand-engine/classifier/paa.md`).
 
 ## Relacionado
 

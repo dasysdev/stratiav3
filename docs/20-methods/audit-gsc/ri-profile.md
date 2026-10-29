@@ -3,9 +3,9 @@ id: audit-gsc-ri-profile
 title: Estructuración operativa universal del RI
 layer: method
 status: propuesta
-version: 0.3
-updated: 2026-10-28
-sources: [GSC0 §4, GSC0 §14.2, FUND §3.6, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-28-scope-sheet]
+version: 0.4
+updated: 2026-10-29
+sources: [GSC0 §4, GSC0 §14.2, FUND §3.6, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-29-oq-review]
 ---
 
 # Estructuración operativa universal del RI
@@ -20,26 +20,30 @@ Transformar un RI, ya definido en el modelo de demanda, en una **especificación
 
 ## Campos del perfil operativo
 
+El motor de demanda compone el perfil del RI desde el modelo ([D-177](../../30-governance/decisions.md#d-177)). El auditor no rellena los campos que salen del modelo: solo registra hipótesis (RI-09).
+
 | Campo | Regla general | Exigencia en V1 |
 |---|---|---|
 | `ri_id`, `pregunta` | Conservar identificación y texto exacto. | Obligatorio. |
 | `dimension`, `clase_oferta` | Preservar el marco temático; sin inventar nuevas dimensiones. | Obligatorio si figura en el catálogo. |
-| `objeto` | Identificar entidad o conjunto sobre el que se pregunta. | Obligatorio. |
+| `objeto` | Identificar entidad o conjunto sobre el que se pregunta. Sale de la [descripción](../../10-model/requirement-description.md) del requisito (partes 1 y 3). | Automático ([D-177](../../30-governance/decisions.md#d-177)). |
 | `hecho_relacion_solicitado` | Expresar qué se debe determinar/fundamentar. | Obligatorio. |
-| `componentes_respuesta` | Enumerar conocimientos constitutivos de una respuesta, no campos técnicos. | Obligatorio. |
+| `componentes_respuesta` | Enumerar conocimientos constitutivos de una respuesta, no campos técnicos. Los componentes y sus aportaciones salen de la [información resolutiva](../../10-model/resolving-information.md). | Automático ([D-177](../../30-governance/decisions.md#d-177)). |
 | `desagregacion` | Definir si se responde por producto, variante, oferta, vendedor, condición o combinación. | Obligatorio cuando lo exige el RI. |
-| `alcance` | Delimitar el conjunto y sus fronteras. | Obligatorio. |
+| `alcance` | Delimitar el conjunto y sus fronteras. Sale de la descripción del requisito (partes 1 y 3). | Automático ([D-177](../../30-governance/decisions.md#d-177)). |
 | `condiciones` | Mercado, canal, ubicación, tiempo u otras restricciones que modifiquen la respuesta. | Cuando procedan; especificar «no determinada» si es necesario aclarar. |
 | `aplicabilidad` | Precisar cuándo corresponde examinar este RI. | Obligatorio. |
 | `relaciones_resolutivas` | Describir relaciones lógicas necesarias y posibles composiciones/derivaciones. | Recomendado; obligatorio si la respuesta es relacional. |
 | `funciones_informativas` | Identificar cómo un elemento puede describir, identificar, relacionar, contextualizar, sustentar o contrastar. | Obligatorio como referencia de búsqueda, ampliable. |
 | `expresiones_ejemplo` | Ejemplos de sinónimos, campos y representaciones. Incluye, por ámbito, la localización de la [ficha del ámbito](../../10-model/demand-model.md#ficha-de-ámbito) (en Web Schema.org, las propiedades relacionadas con las aportaciones del RI) ([D-155](../../30-governance/decisions.md#d-155)). | Opcional, nunca excluyente: orienta, no cierra la búsqueda ni decide la pertinencia. |
-| `casos_frontera` | Ejemplos de pertinencia parcial, conexión dudosa o proximidad solo temática. | Recomendado para calibración. |
+| `casos_frontera` | Ejemplos de pertinencia parcial, conexión dudosa o proximidad solo temática. Sale de la descripción del requisito (partes 1 y 3). | Automático ([D-177](../../30-governance/decisions.md#d-177)). |
 | `ambitos_pertinentes` | Interfaces en las que el RI debe evaluarse: todas, salvo las excepciones de la ficha de cada ámbito, con su fundamento ([D-155](../../30-governance/decisions.md#d-155)). | Obligatorio. |
 | `pistas_valoracion` | Pistas de valoración del requisito, ya resueltas en el modelo ([assessment-hints](../../10-model/assessment-hints.md#reglas-e-invariantes)). Se rellena solo desde el modelo; el auditor no lo escribe. | Automático ([D-135](../../30-governance/decisions.md#d-135)). |
 | `fundamento_perfil` | Justificar inclusiones, límites y decisiones no explícitas en el RI. | Obligatorio cuando hay interpretación. |
 
 ## Procedimiento de elaboración (RI-01 a RI-09)
+
+Si un campo sale del modelo, el auditor no lo reescribe: RI-01 a RI-08 guían cómo lo lee y RI-09 dice qué registra ([D-177](../../30-governance/decisions.md#d-177)).
 
 **RI-01.** Leer literalmente la cuestión; fijar el **hecho o relación solicitados** antes de proponer datos candidatos.
 
@@ -53,7 +57,7 @@ Transformar un RI, ya definido en el modelo de demanda, en una **especificación
 
 **RI-06.** Admitir **representaciones alternativas** si aportan la misma contribución justificable; no condicionar pertinencia a coincidencias de etiquetas ni a un vocabulario único.
 
-**RI-07.** Incorporar ejemplos positivos, parciales y negativos **solo como ayudas de interpretación**; nunca como enumeración exhaustiva.
+**RI-07.** Incorporar ejemplos positivos, parciales y negativos **solo como ayudas de interpretación**; nunca como enumeración exhaustiva. Una lista con «p. ej.» o «…» orienta y no forma componentes. Solo un conjunto declarado (en la pregunta o en la descripción) cuenta para la [Concreción](ac-guides.md#concreción) (regla ratificada por [D-197](../../30-governance/decisions.md#d-197)).
 
 **RI-08.** Separar los casos **no aplicables** de los casos **aplicables pero sin información**. La ausencia de característica no implica ausencia de necesidad de conocimiento si una respuesta negativa puede resolverla.
 
@@ -119,7 +123,7 @@ fundamento_perfil: "<justificacion de decisiones interpretativas>"
 pendientes_de_definicion: []
 ```
 
-El YAML es un **ejemplo de estructura de intercambio**, no un formato técnico obligatorio ni una lista cerrada de funciones. Validación, versionado y vocabularios de campos se precisarán en implementación. El perfil se versiona cuando cambian objeto, componentes sustantivos, desagregación, condiciones o aplicabilidad.
+Los registros de la auditoría informativa son **JSON validado y versionado**, con el mismo patrón que web-audit ([D-199](../../30-governance/decisions.md#d-199)). Los campos exactos se fijan al implementar el auditor. Hasta entonces, este YAML es solo ilustrativo y no es una lista cerrada de funciones. El perfil se versiona cuando cambian objeto, componentes sustantivos, desagregación, condiciones o aplicabilidad.
 
 ## Relacionado
 

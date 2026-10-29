@@ -3,9 +3,9 @@ id: requirement-description
 title: Descripción de un requisito
 layer: model
 status: vigente
-version: 1.1
-updated: 2026-10-27
-sources: [INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-classification-criteria]
+version: 1.2
+updated: 2026-10-29
+sources: [INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-29-oq-review]
 ---
 
 # Descripción de un requisito
@@ -34,7 +34,7 @@ La descripción concreta el título, que es la pregunta del [requisito informati
 |---|---|
 | Descripción frente a **pregunta** | La pregunta es la cuestión evaluable; la descripción la concreta sin sustituirla. |
 | Descripción frente a **información resolutiva** | La descripción es prosa; la información resolutiva, la lista de aportaciones, cada una con su componente, su origen y respaldo y las tiendas en que se ha observado. |
-| Descripción frente a **perfil del RI** | El [perfil de resolución y pertinencia](demand-model.md#núcleo-de-conocimiento-y-perfil-de-resolución-y-pertinencia) es un instrumento auxiliar de la auditoría, en propuesta; su relación con las partes 1 y 3 está pendiente ([OQ-03](../30-governance/open-questions.md)). |
+| Descripción frente a **perfil del RI** | El [perfil de resolución y pertinencia](demand-model.md#núcleo-de-conocimiento-y-perfil-de-resolución-y-pertinencia) es un instrumento auxiliar de la auditoría, en propuesta. El motor de demanda compone sus campos `objeto`, `alcance` y `casos_frontera` desde las partes 1 y 3 de la descripción; el auditor no los rellena ([D-177](../30-governance/decisions.md#d-177)). |
 
 ## Ejemplos
 
@@ -51,9 +51,8 @@ El segundo ejemplo aplica la regla de la [prestación derivada de un atributo](c
 
 ## Pendiente
 
-- Relación de las partes 1 y 3 con los componentes, las expresiones de ejemplo y los casos fronterizos del perfil del RI ([OQ-03](../30-governance/open-questions.md)).
 - Registro en el catálogo y en la redacción de los bloques.
-- Presentación de un requisito repetido en bloques hermanos según la pieza: la pregunta y la descripción son las mismas ([D-107](../30-governance/decisions.md#d-107), [OQ-60](../30-governance/open-questions.md)).
+- Presentación de un requisito repetido en bloques hermanos según la pieza: la pregunta y la descripción son las mismas ([D-107](../30-governance/decisions.md#d-107), [OQ-60](../30-governance/open-questions.md)). Sigue abierta hasta diseñar el informe. Orientación del usuario, no regla: adaptarla en la instancia del modelo de demanda que se usa ([D-174](../30-governance/decisions.md#d-174)).
 
 ## Relacionado
 

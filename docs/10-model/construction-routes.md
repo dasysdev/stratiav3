@@ -3,9 +3,9 @@ id: construction-routes
 title: Vías de construcción del modelo de demanda
 layer: model
 status: vigente
-version: 1.8
-updated: 2026-10-28
-sources: [INTAKE 2026-10-28-paa-control-review-rules, INTAKE 2026-10-28-paa-parent-and-material, BASE §4.2, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-paa-new-requirements, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-28-scope-sheet]
+version: 1.9
+updated: 2026-10-29
+sources: [INTAKE 2026-10-28-paa-control-review-rules, INTAKE 2026-10-28-paa-parent-and-material, BASE §4.2, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-paa-new-requirements, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-29-oq-review]
 ---
 
 # Vías de construcción del modelo de demanda
@@ -61,7 +61,7 @@ Las fuentes se organizan en **vías de referencia complementarias** (BASE §4.2,
 
    - **Criterios de elección** y candidatos: reglas de lectura en [choice-criteria](choice-criteria.md#lectura-de-las-preguntas-de-paa) ([D-100](../30-governance/decisions.md#d-100) a [D-106](../30-governance/decisions.md#d-106)).
 
-   La estrategia de semillas es operativa y vive en el [README del motor PAA](../../demand-engine/src/demand_engine/paa/README.md#estrategia-de-semillas). PAA tiene un [entrenamiento propio](paa-training.md), que refina las semillas, el vocabulario de criterios y los parámetros de las reglas de lectura, y escribe en el catálogo lo que es de PAA ([D-114](../30-governance/decisions.md#d-114), [D-115](../30-governance/decisions.md#d-115)). **Legitimidad:** el motor PAA no aplica el robots.txt de Google, por una excepción a [D-042](../30-governance/decisions.md#d-042) para investigación y uso interno, con sus límites de ejecución ([D-096](../30-governance/decisions.md#d-096)).
+   La estrategia de semillas es operativa y vive en el [README del motor PAA](../../demand-engine/src/demand_engine/paa/README.md#estrategia-de-semillas). PAA tiene un [entrenamiento propio](paa-training.md), que refina las semillas, el vocabulario de criterios y los parámetros de las reglas de lectura, y escribe en el catálogo lo que es de PAA ([D-114](../30-governance/decisions.md#d-114), [D-115](../30-governance/decisions.md#d-115)). Lo que escribe entra de forma automática al compilar la pasada de PAA, si el control no empeora: versión nueva del bloque, origen «paa» y el texto literal de la pregunta como fuente ([D-178](../30-governance/decisions.md#d-178), [D-180](../30-governance/decisions.md#d-180)). La compilación de taxo lee las revisiones estructurales de PAA en sus `classified.json` ([D-179](../30-governance/decisions.md#d-179)). Las preguntas las clasifica un agente con su reglamento (`demand-engine/classifier/paa.md`). **Legitimidad:** el motor PAA no aplica el robots.txt de Google, por una excepción a [D-042](../30-governance/decisions.md#d-042) para investigación y uso interno, con sus límites de ejecución ([D-096](../30-governance/decisions.md#d-096)).
 
 > **Amazon como fuente:** […] que las propiedades de los PTD de Amazon, incluidos los valores de special_feature, puedan ser fuente de requisitos de la categoría cuando son relevantes para la clase, con origen «referencias». — INTAKE 2026-10-25-amazon-source-blocks
 
@@ -96,15 +96,13 @@ A ellas se suman las cuestiones inferidas ([D-036](../30-governance/decisions.md
 3. Formular y normalizar los requisitos.
 4. Justificar su inclusión e importancia relativa.
 
-Las fuentes permiten una selección razonada, pero **no prueban por sí solas la frecuencia real en la demanda** ni convierten los atributos de una taxonomía en obligaciones universales. Contrastar después con consultas reales o con investigación de usuarios puede mejorar el catálogo.
+Las fuentes permiten una selección razonada, pero **no prueban por sí solas la frecuencia real en la demanda** ni convierten los atributos de una taxonomía en obligaciones universales. Contrastar después con consultas reales o con investigación de usuarios puede mejorar el catálogo. En la V1, el contraste empírico del catálogo es PAA. El contraste con consultas reales sin filtrar o con investigación de usuarios es una línea futura ([D-175](../30-governance/decisions.md#d-175)).
 
 Métodos operativos (propuesta): [product-taxonomy](../20-methods/product-taxonomy/README.md) y [mpir](../20-methods/mpir/README.md) (aparcado). Motor operativo de PAA: [README](../../demand-engine/src/demand_engine/paa/README.md).
 
 ## Pendiente
 
-- Contraste empírico del catálogo: PAA lo avanza, pero no lo cierra ([OQ-01](../30-governance/open-questions.md)).
 - Regla de semillas de PAA calibrada con una sola clase (sábanas): la revisa con datos de otras el [entrenamiento de PAA](paa-training.md), que empieza por un piloto de medición ([D-114](../30-governance/decisions.md#d-114)).
-- Lo que escribe PAA en el catálogo, incluidas las [pistas de valoración](assessment-hints.md): paso de aceptación, estado, formatos y registro para taxo ([D-115](../30-governance/decisions.md#d-115); [OQ-62](../30-governance/open-questions.md), [OQ-63](../30-governance/open-questions.md)). La clasificación de las preguntas la hace un agente con su reglamento (`demand-engine/classifier/paa.md`).
 
 ## Relacionado
 

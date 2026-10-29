@@ -3,9 +3,9 @@ id: paa-training
 title: Entrenamiento de PAA
 layer: model
 status: vigente
-version: 1.4
-updated: 2026-10-27
-sources: [INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-paa-pilot-classes, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields]
+version: 1.5
+updated: 2026-10-29
+sources: [INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-paa-pilot-classes, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-29-oq-review]
 ---
 
 # Entrenamiento de PAA
@@ -44,6 +44,7 @@ People Also Ask (PAA) es una [vía de construcción](construction-routes.md) del
 
 - **Crear o retirar reglas** de lectura de las preguntas ([D-100](../30-governance/decisions.md#d-100) a [D-113](../30-governance/decisions.md#d-113)) sigue siendo **decisión del usuario**. El entrenamiento solo ajusta sus parámetros.
 - **Nada se acepta si empeora una métrica frente al control.**
+- **Regla de aceptación** ([D-180](../30-governance/decisions.md#d-180)): un ajuste de semillas, vocabulario o parámetros se acepta si ningún apartado baja en esperados encontrados ni sube en regresiones. Se cuenta sobre el total de los conjuntos de control. Los apartados son los del comparador `bin/paa control`: perímetro, criterios, candidatos, revisiones y aportaciones. El informe muestra cada conjunto. Lo nuevo y la eficiencia se informan, pero no deciden. No hay umbrales numéricos.
 - **El número de candidatos no es objetivo**, como no lo es el de críticos ([D-059](../30-governance/decisions.md#d-059)).
 
 ### Lo que escribe en el catálogo
@@ -57,6 +58,12 @@ El entrenamiento de PAA **sí modifica el catálogo**. Tiene cuatro papeles, tod
 | 3 | **Confirmar o revisar cuestiones inferidas** ([D-094](../30-governance/decisions.md#d-094)); p. ej. `inf/01`, reformulado con los dos polos de la dimensión térmica ([D-108](../30-governance/decisions.md#d-108)) | Requisitos de origen «inferida» |
 | 4 | **Aportaciones aditivas** de precisión y de sustento ([D-101](../30-governance/decisions.md#d-101)) | Requisitos existentes, de cualquier origen |
 
+**Entrada en el catálogo** ([D-178](../30-governance/decisions.md#d-178)):
+
+- Los requisitos «paa», las inferidas confirmadas o revisadas y las aportaciones de PAA entran de forma automática al compilar la pasada de PAA, si el control no empeora (regla de aceptación de D-180).
+- Entran como versión nueva del bloque, con origen «paa».
+- La fuente guarda el texto literal de la pregunta PAA, no solo su referencia.
+
 Lo que D-115 llamaba «reglas de AC» son las pistas de valoración ([D-125](../30-governance/decisions.md#d-125)): dicen qué mirar, no puntúan ni ponderan. PAA las escribe junto con taxo, cada una con su origen, y solo se suman, salvo retirada ([D-136](../30-governance/decisions.md#d-136); [D-127](../30-governance/decisions.md#d-127)). Sus campos los fija [D-135](../30-governance/decisions.md#d-135) ([assessment-hints](assessment-hints.md#reglas-e-invariantes)).
 
 ### Un solo escritor por requisito
@@ -65,7 +72,9 @@ Lo que D-115 llamaba «reglas de AC» son las pistas de valoración ([D-125](../
 >
 > — INTAKE 2026-10-27-paa-training
 
-- Un requisito que nace de las referencias lo escribe el entrenamiento de taxo; por analogía, también uno de origen «normativa» ([D-115](../30-governance/decisions.md#d-115), interpretación). PAA solo le suma lo aditivo (papeles 2 y 4) y deja en el registro las revisiones estructurales (separar, sacar, partir), como la separación por dimensión ([D-103](../30-governance/decisions.md#d-103)).
+Enmendado por [D-179](../30-governance/decisions.md#d-179): no hay un registro propio de revisiones. La compilación de taxo lee las revisiones de los `classified.json` de `demand-engine/var/paa/sets/`. `var/` es desechable: si se limpia antes de compilar, esas revisiones se pierden y hay que volver a clasificar el conjunto. La acción «reformular» que propone el clasificador queda fuera de D-115 (⚠ Ver [I-50](../30-governance/issues.md#i-50)).
+
+- Un requisito que nace de las referencias lo escribe el entrenamiento de taxo; por analogía, también uno de origen «normativa» ([D-115](../30-governance/decisions.md#d-115), interpretación). PAA solo le suma lo aditivo (papeles 2 y 4) y deja en su clasificación (`classified.json`) las revisiones estructurales (separar, sacar, partir), como la separación por dimensión ([D-103](../30-governance/decisions.md#d-103)).
 - Un requisito de origen «paa» lo escribe el entrenamiento de PAA.
 - Las inferidas las propone y compila taxo ([D-036](../30-governance/decisions.md#d-036)). PAA las confirma o revisa (papel 3); al confirmarlas pasan a origen «paa» ([D-097](../30-governance/decisions.md#d-097)).
 
@@ -75,7 +84,7 @@ Lo que D-115 llamaba «reglas de AC» son las pistas de valoración ([D-125](../
 |---|---|---|
 | Casos | Fichas del catálogo de entrenamiento y conjunto de control de 14 casos | Conjuntos de semillas por clase y casos de control de PAA |
 | Refina | Reglas inducidas: importancia, relevancia, rasgos | Semillas, vocabulario de criterios, parámetros de las reglas de lectura |
-| Escribe | Bloques compilados, requisitos de las referencias e inferidas propuestas | Requisitos «paa», pistas de valoración, confirmación o revisión de inferidas y aportaciones aditivas; registro para taxo |
+| Escribe | Bloques compilados, requisitos de las referencias e inferidas propuestas | Requisitos «paa», pistas de valoración, confirmación o revisión de inferidas y aportaciones aditivas; revisiones para taxo, en sus `classified.json` |
 | Importancia | La deciden sus reglas | No la decide: PAA no prueba la importancia ([D-094](../30-governance/decisions.md#d-094)) |
 
 ## Piloto de medición
@@ -109,10 +118,7 @@ Con 12 clases el volumen de búsquedas, y con él el riesgo de bloqueo, es mayor
 
 Ver [open-questions](../30-governance/open-questions.md):
 
-- índice generado de pistas de valoración por requisito, aplazado ([OQ-70](../30-governance/open-questions.md));
-- paso del entrenamiento de PAA en que se acepta lo que escribe, su estado y el formato de una pregunta como fuente ([OQ-62](../30-governance/open-questions.md));
-- formato del registro de revisiones estructurales y cómo lo lee la compilación de taxo ([OQ-63](../30-governance/open-questions.md));
-- métricas del entrenamiento de PAA frente a sus casos de control ([OQ-64](../30-governance/open-questions.md)).
+- índice generado de pistas de valoración por requisito, aplazado ([OQ-70](../30-governance/open-questions.md)).
 
 ## Relacionado
 

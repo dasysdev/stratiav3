@@ -3,9 +3,9 @@ id: effective-availability
 title: Disponibilidad efectiva
 layer: model
 status: vigente
-version: 1.3
-updated: 2026-10-28
-sources: [BASE §5.1, FUND §5.3, FUND §7.3, FUND §10.1-10.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-informative-audit-v1]
+version: 1.4
+updated: 2026-10-29
+sources: [BASE §5.1, FUND §5.3, FUND §7.3, FUND §10.1-10.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review]
 ---
 
 # Disponibilidad efectiva
@@ -83,7 +83,7 @@ Lo dictamina esta puerta, en la auditoría, no la valoración de los AC ni el mo
 | Papel | Ejemplo | Tratamiento |
 |---|---|---|
 | **Sostiene la identificación** | Foto del producto | Evaluación técnica: la imagen forma parte del [mínimo de representación](commercial-information.md#mínimo-de-representación) como sostén. |
-| **Expresa información explícita** | Plano acotado, tabla de tallas, etiqueta energética, advertencias de seguridad | Es información como cualquier otra, si el ámbito permite leerla. En Web Schema.org, solo si está en texto en el marcado (`caption`, `embeddedTextCaption` de ImageObject). En Web, depende de las pruebas de legibilidad ([OQ-20](../30-governance/open-questions.md#d-auditoría-informativa-localización-evidencias-gsc)). |
+| **Expresa información explícita** | Plano acotado, tabla de tallas, etiqueta energética, advertencias de seguridad | Es información como cualquier otra, si el ámbito permite leerla. En Web Schema.org, solo si está en texto en el marcado (`caption`, `embeddedTextCaption` de ImageObject). En Web, en la V1, solo cuenta el texto del documento (`alt`, `figcaption` o texto cercano): un dato que solo está dentro de una imagen da disponibilidad 0 para ese dato ([D-195](../30-governance/decisions.md#d-195)). |
 | **Muestra lo que no afirma** | Color, piezas, aspecto | No es información pertinente: no da disponibilidad, no resuelve ningún RI y no sirve para refutar en [Fiabilidad](acceptance-criteria.md#fiabilidad-lectura-refutadora-y-comprobaciones). Sí puede crear una necesidad que el texto tiene que resolver: lo que sale en la foto y no se entrega ([descripción de `gen/21`](requirement-description.md)). |
 
 - **Fundamento** ([D-144](../30-governance/decisions.md#d-144)):
@@ -108,7 +108,7 @@ Casos completos de calibración: [calibration](../20-methods/audit-gsc/calibrati
 ## Pendiente
 
 - Especificar las pruebas de obtención y legibilidad, los registros de cobertura y el tratamiento de las comprobaciones inconclusas. Ver [open-questions](../30-governance/open-questions.md).
-- Si el texto dentro de una imagen cuenta como legible en Web, leído con reconocimiento de texto: [OQ-20](../30-governance/open-questions.md#d-auditoría-informativa-localización-evidencias-gsc).
+- Lectura del texto dentro de una imagen con reconocimiento de texto (OCR) en Web: línea futura, fuera de la V1 ([D-195](../30-governance/decisions.md#d-195)).
 
 ## Relacionado
 

@@ -3,9 +3,9 @@ id: assessment-hints
 title: Pistas de valoración
 layer: model
 status: vigente
-version: 1.9
+version: 1.10
 updated: 2026-10-29
-sources: [INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-27-comparison-mark, INTAKE 2026-10-27-requirement-hints-location, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-scope-sheet]
+sources: [INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-27-comparison-mark, INTAKE 2026-10-27-requirement-hints-location, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-29-oq-review]
 ---
 
 # Pistas de valoración
@@ -49,7 +49,8 @@ Sustituyen a lo que [D-115](../30-governance/decisions.md#d-115) llamaba «regla
    - **pistas dirigidas a un tipo:** las compila el entrenamiento;
    - **pistas dirigidas a una fuente:** las escribe taxo ([D-135](../30-governance/decisions.md#d-135));
    - **pistas de un requisito:** taxo, desde las referencias, la normativa que es fuente del requisito y la justificación del requisito; y PAA, desde sus preguntas. Las escriben en el propio requisito ([D-140](../30-governance/decisions.md#d-140));
-   - cada pista lleva su **origen**; las pistas **se suman y nunca se quitan** entre escritores; corregir una es retirarla (regla 13).
+   - quien redacta un bloque nuevo escribe sus pistas, sin compilar ([D-201](../30-governance/decisions.md#d-201), regla 12);
+   - cada pista lleva su **origen**; las pistas **se suman y nunca se quitan** entre escritores; las correcciones siguen la regla 13.
 7. **Dónde viven** ([D-134](../30-governance/decisions.md#d-134), enmendada por [D-140](../30-governance/decisions.md#d-140)). ⚠ Ver [I-43](../30-governance/issues.md#i-43)
 
    > Las pistas viven en **un catálogo propio** del motor de demanda, junto al índice de rasgos y a las reglas. Cada pista se escribe **una sola vez** y lleva **a quién va dirigida**, con una de tres llaves: **un tipo de requisito** (rasgo × entidad, o solo uno de los dos) […]; **los requisitos que citan una misma fuente** (una norma, un atributo de Shopify o una propiedad de Amazon) […]. — INTAKE 2026-10-27-hints-catalog, enmendada por D-140
@@ -74,9 +75,9 @@ Sustituyen a lo que [D-115](../30-governance/decisions.md#d-115) llamaba «regla
    | `propiedad` | Qué propiedades hay que observar. |
    | `ac` | A qué criterios afecta. |
    | `para` | A quién va dirigida: un tipo (rasgo, entidad o ambos) o una fuente. Las pistas de un requisito no lo llevan: su destino es el requisito que las contiene ([D-140](../30-governance/decisions.md#d-140)). |
-   | `origen` | Quién la escribió y en qué se apoya (ley, referencia, preguntas de PAA), como en la información resolutiva. Valores: «marco» (las pistas por tipo que redacta Claude), «normativa», «referencias» y «paa» ([D-136](../30-governance/decisions.md#d-136)). |
+   | `origen` | Quién la escribió y en qué se apoya (ley, referencia, preguntas de PAA), como en la información resolutiva. Valores: «marco» (las pistas por tipo que redacta Claude), «normativa», «referencias», «paa» ([D-136](../30-governance/decisions.md#d-136)) e «inferida»: una pista sin apoyo directo en una fuente (la justificación del requisito, una aportación inferida), provisional hasta que la valida el entrenamiento ([D-201](../30-governance/decisions.md#d-201)). |
 
-   — INTAKE 2026-10-27-hint-fields, enmendada por D-140 (`para`)
+   — INTAKE 2026-10-27-hint-fields, enmendada por D-140 (`para`) y D-201 (`origen` «inferida»)
 
    ⚠ Ver [I-43](../30-governance/issues.md#i-43) (`para` con un solo valor)
 
@@ -88,22 +89,27 @@ Sustituyen a lo que [D-115](../30-governance/decisions.md#d-115) llamaba «regla
 11. **Cómo nace y se acepta una pista** ([D-136](../30-governance/decisions.md#d-136)).
     - Las redactan los agentes **sin aprobación del usuario**, como la información resolutiva; el usuario las revisa cuando quiere.
     - Una pista **entra** si pasa unas comprobaciones automáticas: tiene los seis campos, su destino existe y es un criterio, no una lista. ⚠ Ver [I-46](../30-governance/issues.md#i-46)
+    - **Revisión de las pistas dirigidas a un tipo** ([D-200](../30-governance/decisions.md#d-200)). Cada una se revisa contra la lista de requisitos a los que llega, que da el código. Si la pista no vale en todos, se reescribe más general o pasa a ser una pista dirigida a una fuente o a un requisito. Ejemplo: «un gramaje en g/m²» no vale para un vinilo.
     - Por ahora **no hay métrica de calidad** de las pistas, porque aún no hay auditorías con las que medirla.
 12. **Cuándo se definen** ([D-137](../30-governance/decisions.md#d-137)).
 
     > Mediante una pasada manual de Claude podemos construir pistas. Pero luego las pistas se irán definiendo al crear modelos de demanda, incluso cuando se realizan entrenamientos. — INTAKE 2026-10-27-hints-governance
 
-    - **Arranque:** una pasada manual de Claude construye un primer lote. Sus pistas por tipo las redacta Claude por rasgo × entidad, a partir de la guía de los AC y de las tres familias de comprobación; el entrenamiento las guarda y las coloca.
+    - **Arranque:** una pasada manual de Claude construye un primer lote. Sus pistas por tipo las redacta Claude por rasgo × entidad, a partir de la guía de los AC y de las tres familias de comprobación; el entrenamiento las guarda y las coloca. El contenido de las comprobaciones por tipo es este trabajo de redacción, con la revisión de la regla 11 ([D-200](../30-governance/decisions.md#d-200)).
     - **Después** se van definiendo al crear modelos de demanda y en los entrenamientos.
-    - *Interpretación de Claude, que el usuario puede corregir* ([D-137](../30-governance/decisions.md#d-137)): encaja en el mecanismo de los bloques nuevos. Al crear un modelo, el motor escribiría también las pistas de los bloques o requisitos nuevos, marcadas «sin compilar» y encoladas; los entrenamientos de taxo y de PAA añadirían pistas y consolidarían las encoladas. En qué paso y con qué material, y qué `origen` llevan, está pendiente ([OQ-71](../30-governance/open-questions.md)).
+    - **Bloque nuevo** ([D-201](../30-governance/decisions.md#d-201)): quien redacta un bloque nuevo escribe sus pistas, sin compilar. El entrenamiento las consolida.
+    - Una pista sin apoyo directo en una fuente lleva origen «inferida» (regla 9) y queda provisional hasta que la valida el entrenamiento, como en la [información resolutiva](resolving-information.md).
 13. **Duplicadas, contradictorias y retiradas** ([D-136](../30-governance/decisions.md#d-136)).
     - Antes de añadir una pista se busca si ya hay otra con el mismo destino y la misma propiedad. Si dice lo mismo, no se añade. Si la contradice, se marca como **duda** y no se suma en silencio. ⚠ Ver [I-44](../30-governance/issues.md#i-44)
     - Una pista no se borra: se **retira**. Queda marcada como retirada y su número no se reutiliza. «Nunca se quitan» vale entre escritores, no para corregir.
+    - **Corregir una pista** ([D-202](../30-governance/decisions.md#d-202), que enmienda D-136):
+      - si ninguna versión que la contiene la ha usado un modelo ni un registro del GSC, se corrige en su sitio, sin retirarla;
+      - si un modelo o un registro del GSC ya usó esa versión, corregirla es retirarla y crear otra. La retirada protege lo que citan los modelos y los registros del GSC ([D-138](../30-governance/decisions.md#d-138)).
 
 ## Distinciones
 
 - **Pista de valoración frente a lista de vocabulario.** «Un recuento de hilos solo es claro si dice sobre qué superficie se cuenta y si cuenta hilos simples o de varios cabos» sirve también para «300 TC» o para cualquier forma nueva; «términos ambiguos: microfibra, 144 hilos, Queen» no.
-- **Pista de valoración frente a «un solo escritor por requisito»** ([D-115](../30-governance/decisions.md#d-115)). Esa regla protege la estructura del requisito (separar, partir, sacar). Las pistas, como las aportaciones de la información resolutiva, admiten varios orígenes y solo se suman (corregir una es retirarla, regla 13).
+- **Pista de valoración frente a «un solo escritor por requisito»** ([D-115](../30-governance/decisions.md#d-115)). Esa regla protege la estructura del requisito (separar, partir, sacar). Las pistas, como las aportaciones de la información resolutiva, admiten varios orígenes y solo se suman (las correcciones siguen la regla 13).
 
 ## Interpretación
 
@@ -143,11 +149,8 @@ La prueba con nueve requisitos del catálogo que aplican a unas sábanas (`cat.r
 
 Ver [open-questions](../30-governance/open-questions.md):
 
-- en qué paso de la creación de modelos y de los entrenamientos se escriben las pistas, y con qué material ([OQ-71](../30-governance/open-questions.md));
 - métrica de calidad de las pistas, cuando haya auditorías ([OQ-72](../30-governance/open-questions.md));
-- un índice generado de pistas por requisito, aplazado ([OQ-70](../30-governance/open-questions.md));
-- contenido de las pistas dirigidas a un tipo para las comprobaciones de corrección ([OQ-66](../30-governance/open-questions.md));
-- si una pista puede corregirse en su sitio mientras ninguna versión del catálogo que la contiene se haya usado ([OQ-73](../30-governance/open-questions.md)).
+- un índice generado de pistas por requisito, aplazado ([OQ-70](../30-governance/open-questions.md), [D-174](../30-governance/decisions.md#d-174)).
 
 ## Relacionado
 

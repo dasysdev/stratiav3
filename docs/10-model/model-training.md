@@ -3,9 +3,9 @@ id: model-training
 title: Entrenamiento y ejecución del modelo de demanda
 layer: model
 status: vigente
-version: 1.22
-updated: 2026-10-28
-sources: [INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-25-training-catalog-selection, INTAKE 2026-10-25-training-classifier, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-26-color-and-requirement-exceptions, INTAKE 2026-10-26-any-property-precision, INTAKE 2026-10-26-critical-count-not-a-goal, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-formulation, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-capture-system, INTAKE 2026-10-28-curated-training-catalog]
+version: 1.23
+updated: 2026-10-29
+sources: [INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-25-training-catalog-selection, INTAKE 2026-10-25-training-classifier, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-26-color-and-requirement-exceptions, INTAKE 2026-10-26-any-property-precision, INTAKE 2026-10-26-critical-count-not-a-goal, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-formulation, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-capture-system, INTAKE 2026-10-28-curated-training-catalog, INTAKE 2026-10-29-oq-review]
 ---
 
 # Entrenamiento y ejecución del modelo de demanda
@@ -35,7 +35,7 @@ Parte del [modelo de demanda](demand-model.md). Define cómo se produce el model
 >
 > — INTAKE 2026-10-26-critical-count-not-a-goal (palabras del usuario, sobre «críticos pocos»)
 
-Es la única intervención humana. Las decisiones ya aceptadas del canon forman parte del marco, en particular las pruebas de importancia ([D-035](../30-governance/decisions.md#d-035)), los criterios del catálogo ([D-043](../30-governance/decisions.md#d-043)) y la capa general ([D-034](../30-governance/decisions.md#d-034), [D-038](../30-governance/decisions.md#d-038)): las reglas inducidas operan dentro de ellas y no pueden modificarlas. Si el entrenamiento encuentra que alguna perjudica a los criterios de éxito, lo dice en el informe agregado; no la cambia ([D-044](../30-governance/decisions.md#d-044)).
+Es la única intervención humana. Las decisiones ya aceptadas del canon forman parte del marco, en particular las pruebas de importancia ([D-035](../30-governance/decisions.md#d-035)), los criterios del catálogo ([D-043](../30-governance/decisions.md#d-043)) y la capa general ([D-034](../30-governance/decisions.md#d-034), [D-038](../30-governance/decisions.md#d-038)): las reglas inducidas operan dentro de ellas y no pueden modificarlas. Si el entrenamiento encuentra que alguna perjudica a los criterios de éxito, lo dice en el informe agregado; no la cambia ([D-044](../30-governance/decisions.md#d-044)). El principio se extiende a la auditoría: su ejecución es automática, y antes de entregar una persona revisa solo las NE y las comprobaciones inconclusas ([D-186](../30-governance/decisions.md#d-186); [criterio de revisión humana](../20-methods/audit-gsc/dossier.md#criterio-de-revisión-humana)). En el MPIR queda aparcado con él.
 
 ## Entrenamiento
 
@@ -55,9 +55,11 @@ Es la única intervención humana. Las decisiones ya aceptadas del canon forman 
 >
 > — INTAKE 2026-10-25-induced-rules; el paso 1 reúne los casos del [catálogo de entrenamiento](training-catalog.md), un catálogo curado: lo evaluado, también lo que está en la cola, es candidato y solo entra lo que el sistema admite o lo que añade el usuario (enmendado por [D-158](../30-governance/decisions.md#d-158))
 
-Lo que antes validaba la persona responsable (las especializaciones, [D-022](../30-governance/decisions.md#d-022); las cuestiones inferidas, [D-036](../30-governance/decisions.md#d-036); la relevancia de las propiedades de Amazon, [D-039](../30-governance/decisions.md#d-039); los bloques del catálogo, [D-040](../30-governance/decisions.md#d-040); las importancias, [D-041](../30-governance/decisions.md#d-041)) lo valida ahora el entrenamiento contra el marco ([D-044](../30-governance/decisions.md#d-044)). Una cuestión con fuente que su bloque ni pregunta ni excluye es una propuesta al bloque: la compilación la incorpora al catálogo ([D-088](../30-governance/decisions.md#d-088)). El vocabulario de rasgos, las reglas de importancia, las métricas y los casos se fijan en la [operación de la primera versión](#operación-de-la-primera-versión) ([D-045](../30-governance/decisions.md#d-045)).
+Lo que antes validaba la persona responsable (las especializaciones, [D-022](../30-governance/decisions.md#d-022); las cuestiones inferidas, [D-036](../30-governance/decisions.md#d-036); la relevancia de las propiedades de Amazon, [D-039](../30-governance/decisions.md#d-039); los bloques del catálogo, [D-040](../30-governance/decisions.md#d-040); las importancias, [D-041](../30-governance/decisions.md#d-041)) lo valida ahora el entrenamiento contra el marco ([D-044](../30-governance/decisions.md#d-044)). Una cuestión con fuente que su bloque ni pregunta ni excluye es una propuesta al bloque: la compilación la incorpora al catálogo ([D-088](../30-governance/decisions.md#d-088)). El vocabulario de rasgos, las reglas de importancia, las métricas y los casos se fijan en la [operación de la primera versión](#operación-de-la-primera-versión) ([D-045](../30-governance/decisions.md#d-045)). Un caso que viene de una auditoría ya tiene una ejecución. Esa ejecución cuenta como una de las dos del paso 2 si se hizo con el reglamento y el catálogo vigentes. Si no, el caso lleva dos ejecuciones nuevas ([D-194](../30-governance/decisions.md#d-194)).
 
-El entrenamiento compila también las [pistas de valoración](assessment-hints.md) dirigidas a un tipo (rasgo × entidad), en el catálogo de pistas ([D-134](../30-governance/decisions.md#d-134)), Según la interpretación de [D-137](../30-governance/decisions.md#d-137), pendiente de [OQ-71](../30-governance/open-questions.md), consolidaría además las pistas que se encolen al crear modelos. Rechaza las pistas que sean una lista o una frase exacta, que reformula como criterio ([D-127](../30-governance/decisions.md#d-127), [D-128](../30-governance/decisions.md#d-128)).
+La compilación lee también las revisiones que PAA deja para los requisitos de referencias o de normativa. No tienen registro propio: están en los `classified.json` de `demand-engine/var/paa/sets/`. Si `var/` se limpia antes de compilar, esas revisiones se pierden y hay que volver a clasificar el conjunto ([D-179](../30-governance/decisions.md#d-179)).
+
+El entrenamiento compila también las [pistas de valoración](assessment-hints.md) dirigidas a un tipo (rasgo × entidad), en el catálogo de pistas ([D-134](../30-governance/decisions.md#d-134)). Quien redacta un bloque nuevo escribe sus pistas, sin compilar, y el entrenamiento las consolida. Una pista de origen «inferida» queda provisional hasta que la valida el entrenamiento ([D-201](../30-governance/decisions.md#d-201)). Rechaza las pistas que sean una lista o una frase exacta, que reformula como criterio ([D-127](../30-governance/decisions.md#d-127), [D-128](../30-governance/decisions.md#d-128)).
 
 ## Ejecución
 
@@ -122,7 +124,10 @@ Lectura operativa ([D-056](../30-governance/decisions.md#d-056)):
 - **Proponer.** Un agente que redacta un bloque o vota un requisito puede proponer un rasgo nuevo cuando ninguno encaja, con nombre y una frase de definición.
 - **Votar.** Cada agente que vota un requisito vota también su rasgo: mantiene el actual o propone otro, de la lista o nuevo.
 - **Aprobarse solo.** Cada requisito toma el rasgo más votado; en un empate se queda el actual. Un rasgo nuevo entra en el vocabulario en cuanto gana en algún requisito; las reglas que salen de él pasan la validación de siempre. Una fuente toma el rasgo de sus requisitos cuando todos coinciden; si no, sale del índice.
-- Sin regla en su clase, un requisito de un rasgo nuevo recibe la importancia del voto, provisional y encolada. Pendiente: nombres distintos para un mismo rasgo, retirada de rasgos y estado de un rasgo propuesto que nadie ha votado ([OQ-52](../30-governance/open-questions.md)).
+- Sin regla en su clase, un requisito de un rasgo nuevo recibe la importancia del voto, provisional y encolada.
+- **Sinónimos.** Quien redacta reutiliza los rasgos ya propuestos. El entrenamiento fusiona los sinónimos que se escapen ([D-192](../30-governance/decisions.md#d-192)).
+- **Retirada.** Un rasgo propuesto que ya no gana en ningún requisito sale del vocabulario activo, con registro y sin borrarse. Vuelve si gana otra vez. Los 13 rasgos de partida no se retiran ([D-192](../30-governance/decisions.md#d-192)).
+- **Sin votos.** Un rasgo propuesto por quien redacta un bloque se usa como provisional, marcado y encolado, como las inferidas en ejecución ([D-192](../30-governance/decisions.md#d-192), [D-041](../30-governance/decisions.md#d-041)).
 
 ### Reglas de importancia
 
@@ -139,6 +144,7 @@ Lectura operativa ([D-056](../30-governance/decisions.md#d-056)):
 
 Lectura operativa ([D-045](../30-governance/decisions.md#d-045)):
 
+- **Calibración.** Las reglas inducidas calibran la importancia de forma continua. No hay una calibración aparte de las pruebas de importancia ([D-176](../30-governance/decisions.md#d-176)).
 - **Subir a la madre.** Una regla sube a la madre cuando al menos dos hijas con datos de ese rasgo la comparten y ninguna la contradice (mínimo estructural, la lectura de D-043, criterio 4). Las hijas sin datos heredan la regla de la madre. Las reglas no suben por encima de las verticales de Shopify.
 - **Regla de una clase.** Dentro de una clase, la regla es la importancia mayoritaria; en un empate se elige la más alta (elección de Claude, por analogía con [D-035](../30-governance/decisions.md#d-035): la duda no baja la importancia).
 - **Excepción por requisito.** La regla por rasgo es la general; un requisito cuyos votos la contradicen en una clase tiene su propia regla ([D-058](../30-governance/decisions.md#d-058)):
@@ -157,10 +163,10 @@ Lectura operativa ([D-045](../30-governance/decisions.md#d-045)):
 
   > «Por requisito: misma prueba para todas las clases, aplicada a cada pregunta.» […] «La medida descriptiva es principal salvo que los votos de su clase la hagan crítica.»
   >
-  > — INTAKE 2026-10-26-training-v4-review (opciones elegidas)
+  > — INTAKE 2026-10-26-training-v4-review (opciones elegidas); el suelo de principal no rige para las dimensiones de detalle ([D-191](../30-governance/decisions.md#d-191))
 
   - Cualquier requisito puede ser crítico si sus votos en la clase lo hacen crítico: es su excepción, que vale para cualquier propiedad. La regla por rasgo decide entre principal y complementario y no da crítico; en ella, un voto crítico cuenta como principal.
-  - La medida que fija lo vendido es siempre crítica ([D-043](../30-governance/decisions.md#d-043), criterio 1). Las excepciones no bajan lo que fija el marco: la medida descriptiva (dimensiones y tallas) no baja de principal, ni la composición textil, principal por su origen normativo (lectura de D-043 que hace [D-058](../30-governance/decisions.md#d-058)). La magnitud física la decide el árbol ([D-051](../30-governance/decisions.md#d-051)). Las dimensiones de detalle siguen pendientes ([OQ-51](../30-governance/open-questions.md)).
+  - La medida que fija lo vendido es siempre crítica ([D-043](../30-governance/decisions.md#d-043), criterio 1). Las excepciones no bajan lo que fija el marco: la medida descriptiva (dimensiones y tallas) no baja de principal, ni la composición textil, principal por su origen normativo (lectura de D-043 que hace [D-058](../30-governance/decisions.md#d-058)). La magnitud física la decide el árbol ([D-051](../30-governance/decisions.md#d-051)). Las dimensiones de detalle (altura de tacón, largo reclinado, longitud de cadena) se tratan igual: sin regla fija y sin suelo de principal, la inducción decide por clase por el árbol ([D-191](../30-governance/decisions.md#d-191)).
 - **Capa general.** Queda fija: ninguna regla la revisa por clase, y no tiene estado de compilación. Las aportaciones de su información resolutiva de origen «marco» salen de la ley y no requieren aprobación del usuario ([D-084](../30-governance/decisions.md#d-084)), y las que se redactan sin apoyo en la ley son inferidas ([D-065](../30-governance/decisions.md#d-065)); el entrenamiento solo le añade aportaciones resolutivas observadas en las fichas, sin tocar sus preguntas ni sus importancias ([D-063](../30-governance/decisions.md#d-063)).
 
 ### Relevancia
@@ -211,7 +217,7 @@ La primera parte de la cobertura se mide en el conjunto de control y la segunda 
 > - **I-19:** La clave del modelo lleva la versión de cada bloque. Un bloque generado en ejecución lleva el estado «no compilado» hasta que el entrenamiento lo compila.
 > - **Ejecución:** para probar productos reales ahora, un comando de Claude Code; […]
 >
-> — INTAKE 2026-10-25-training-operation; desde [D-050](../30-governance/decisions.md#d-050) también se induce la relevancia; el resto del punto «Ejecución», sobre el entrenamiento con miles de fichas, enmendado por [D-054](../30-governance/decisions.md#d-054); el «catálogo grande capturado por el motor» es un [catálogo curado](training-catalog.md), enmendado por [D-158](../30-governance/decisions.md#d-158)
+> — INTAKE 2026-10-25-training-operation; desde [D-050](../30-governance/decisions.md#d-050) también se induce la relevancia; el resto del punto «Ejecución», sobre el entrenamiento con miles de fichas, enmendado por [D-054](../30-governance/decisions.md#d-054); el «catálogo grande capturado por el motor» es un [catálogo curado](training-catalog.md), enmendado por [D-158](../30-governance/decisions.md#d-158); la inducción de las especializaciones tiene una tarea abierta, que se revisa con el usuario al empezarla ([D-190](../30-governance/decisions.md#d-190))
 
 - **Motor de captura.** Es el motor de captura compartido con el MPIR ([D-046](../30-governance/decisions.md#d-046)). Vive, con el almacén común de fichas congeladas, en el sistema `capture/`, que comparten demand-engine, web-audit y la futura auditoría para evaluar la misma instantánea de una ficha; nunca se sustituye una ficha congelada: la captura nueva lleva otro ID ([D-150](../30-governance/decisions.md#d-150)).
 - **Catálogo de entrenamiento.** Es un catálogo curado: entra lo que el sistema admite de lo evaluado, con filtros, motivos y topes, y lo que añade el usuario; la primera vía de entrada es la selección de El Corte Inglés ([D-053](../30-governance/decisions.md#d-053)). Está en [training-catalog](training-catalog.md) ([D-158](../30-governance/decisions.md#d-158)).
@@ -223,18 +229,16 @@ La primera parte de la cobertura se mide en el conjunto de control y la segunda 
   > — INTAKE 2026-10-25-training-classifier (palabras del usuario)
 
   El catálogo de entrenamiento se clasifica con agentes de Claude Code, igual que la ejecución, y no con la API ([D-054](../30-governance/decisions.md#d-054)).
-- **Quién decide en la primera versión.** La importancia, las reglas por rasgo y sus excepciones por requisito y clase, que deciden también el crítico (o el voto, sin regla: [D-055](../30-governance/decisions.md#d-055), [D-058](../30-governance/decisions.md#d-058)); el rasgo, los votos de los agentes ([D-056](../30-governance/decisions.md#d-056)); la relevancia, las reglas de relevancia (sin regla, el requisito se queda: [D-050](../30-governance/decisions.md#d-050)); la composición, las especializaciones, las inferidas y la aplicación, el clasificador, con especializaciones e inferidas siempre provisionales; la relevancia de Amazon, la redacción automática del bloque generado ([OQ-49](../30-governance/open-questions.md)); la [información resolutiva](resolving-information.md), quien redacta (referencias e inferidas), el usuario (marco) y la regla de las dos tiendas para las aportaciones resolutivas observadas en las fichas, que amplía el alcance de esta versión más allá de la importancia, como ya hizo la relevancia ([D-063](../30-governance/decisions.md#d-063)).
+- **Quién decide en la primera versión.** La importancia, las reglas por rasgo y sus excepciones por requisito y clase, que deciden también el crítico (o el voto, sin regla: [D-055](../30-governance/decisions.md#d-055), [D-058](../30-governance/decisions.md#d-058)); el rasgo, los votos de los agentes ([D-056](../30-governance/decisions.md#d-056)); la relevancia, las reglas de relevancia (sin regla, el requisito se queda: [D-050](../30-governance/decisions.md#d-050)); la composición, las especializaciones, las inferidas y la aplicación, el clasificador, con especializaciones e inferidas siempre provisionales (las especializaciones pasarán a inducirse: [D-190](../30-governance/decisions.md#d-190)); la relevancia de Amazon, la redacción automática del bloque generado ([OQ-49](../30-governance/open-questions.md)); la [información resolutiva](resolving-information.md), quien redacta (referencias e inferidas), el usuario (marco) y la regla de las dos tiendas para las aportaciones resolutivas observadas en las fichas, que amplía el alcance de esta versión más allá de la importancia, como ya hizo la relevancia ([D-063](../30-governance/decisions.md#d-063)).
 - **Estados del bloque.** Pasan a ser «no compilado» o «compilado», y cada bloque se escribe en la clave como `<bloque>@<versión>` ([D-045](../30-governance/decisions.md#d-045)).
 
 ## Pendiente
 
 Ver [open-questions](../30-governance/open-questions.md):
 
-- otras tiendas del catálogo de entrenamiento y su relación con el panel del MPIR ([OQ-48](../30-governance/open-questions.md)); lo pendiente del catálogo curado, en [training-catalog](training-catalog.md#pendiente);
-- inducción de las reglas de composición, especializaciones, relevancia de Amazon e inferidas ([OQ-49](../30-governance/open-questions.md));
-- importancia de las dimensiones de detalle ([OQ-51](../30-governance/open-questions.md));
-- rasgos propuestos con nombres distintos para lo mismo y retirada de rasgos ([OQ-52](../30-governance/open-questions.md));
-- extensión del principio al MPIR y a la auditoría ([OQ-46](../30-governance/open-questions.md)).
+- lo pendiente del catálogo curado, en [training-catalog](training-catalog.md#pendiente);
+- inducción de las reglas de composición, relevancia de Amazon e inferidas ([OQ-49](../30-governance/open-questions.md)); la de especializaciones, en su tarea ([D-190](../30-governance/decisions.md#d-190));
+- extensión del principio al MPIR, aparcada con él ([OQ-46](../30-governance/open-questions.md)).
 
 ## Relacionado
 

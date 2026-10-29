@@ -3,9 +3,9 @@ id: audit-gsc-gsc-decision
 title: Decisión de GSC, incidencias y control de materialidad
 layer: method
 status: propuesta
-version: 0.5
-updated: 2026-10-28
-sources: [GSC0 §12, GSC0 §14.4, FUND §8.1, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-informative-audit-v1]
+version: 0.6
+updated: 2026-10-29
+sources: [GSC0 §12, GSC0 §14.4, FUND §8.1, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review]
 ---
 
 # Decisión de GSC, incidencias y control de materialidad
@@ -100,6 +100,10 @@ La **falta de pruebas para verificar un hecho** y la **ausencia de base expuesta
 Cada criterio mantiene su juicio propio. **No se calcula un GSC global ni una media de seis AC.** La síntesis del RI (IR) y del ámbito (ICI y otros indicadores) requiere reglas de agregación que **no forman parte de esta V1**, salvo el efecto vigente de disponibilidad 0 sobre IR.
 
 ## Plantilla de valoración por AC (YAML ilustrativo)
+
+Los registros de la auditoría informativa son **JSON validado y versionado**, con el mismo patrón que web-audit ([D-199](../../30-governance/decisions.md#d-199)). Los campos exactos se fijan al implementar el auditor; hasta entonces, esta plantilla es solo ilustrativa.
+
+`propiedades_consideradas` y `justificacion` registran las propiedades citadas y su efecto en el juicio. Una propiedad tiene ficha propia solo ante un defecto ([D-198](../../30-governance/decisions.md#d-198), [property-checks](property-checks.md#método-común-pr-01-a-pr-09)).
 
 ```yaml
 caso_id: "AUD-XXX"

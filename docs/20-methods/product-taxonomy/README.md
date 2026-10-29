@@ -3,9 +3,9 @@ id: product-taxonomy
 title: Taxonomía de clases de producto — marco metodológico
 layer: method
 status: propuesta
-version: 1.8
-updated: 2026-10-27
-sources: [TAX Resumen, TAX §1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-27-paa-construction-route]
+version: 1.9
+updated: 2026-10-29
+sources: [TAX Resumen, TAX §1, INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-29-oq-review]
 ---
 
 # Taxonomía de clases de producto — marco metodológico
@@ -76,6 +76,6 @@ La taxonomía es transversal a esos ámbitos: **no se diseña una clase distinta
 | [subclasses.md](subclasses.md) | Cuándo crear una subclase, prueba de especialización, ejemplo de botas, caso de trabajo de las sábanas de coralina, de la clase al modelo de demanda. | TAX §5–7 |
 | [cases.md](cases.md) | Casos de evaluación de la clase de estudio: toallas, sofá cama, juguete de cuerda, bota de equitación, sofá reclinable de exposición, funda nórdica, pienso, manta, plaid, zapatillas de baño, protector de colchón, cojín y funda nórdica bordada. | — |
 | [requirement-blocks.md](requirement-blocks.md) | Bloques de requisitos, capa general con importancias por defecto, pruebas de importancia, formato del catálogo, denominación y cuestiones inferidas (propuesta). | — |
-| [data-model-governance.md](data-model-governance.md) | Modelo de datos, procedimiento, piloto, gobierno, riesgos, indicadores de salud, conclusiones, decisiones pendientes y fichas (Anexos A–B). | TAX §8–11, Anexos |
+| [data-model-governance.md](data-model-governance.md) | Modelo de datos, procedimiento, piloto, gobierno, riesgos, indicadores de salud, conclusiones, cierre de las decisiones pendientes de v0 y fichas (Anexos A–B). | TAX §8–11, Anexos |
 
 **Nota sobre evidencia:** este marco registra conclusiones de documentación externa y decisiones metodológicas propuestas. No constituye una extracción del árbol completo de Amazon.es ni certifica mapeos específicos entre hojas de las tres plataformas. La aprobación de clases requiere la comprobación indicada en el método.

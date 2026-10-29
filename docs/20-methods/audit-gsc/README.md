@@ -3,9 +3,9 @@ id: audit-gsc
 title: Marco operativo de valoración GSC de los criterios de aceptación
 layer: method
 status: propuesta
-version: 0.4
-updated: 2026-10-28
-sources: [GSC0 §1, GSC0 §2, GSC0 §13.4, GSC0 Anexo D, FUND §9, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-single-consumption-profile]
+version: 0.5
+updated: 2026-10-29
+sources: [GSC0 §1, GSC0 §2, GSC0 §13.4, GSC0 Anexo D, FUND §9, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-single-consumption-profile, INTAKE 2026-10-29-oq-review]
 ---
 
 # Marco operativo de valoración GSC
@@ -15,6 +15,8 @@ Procedimiento general y reutilizable para que un **agente auditor** examine info
 Aplica a cualquier modelo de demanda construido conforme a los fundamentos del proyecto ([canon](../../README.md#10-model--canon-conceptual-vigente)) y a los ámbitos **Catálogos distribuidos**, **Web** y **Web Schema.org** ([ámbitos](../../10-model/evaluation-scopes.md)), con sus perfiles de consumo admitidos.
 
 **Ámbitos de la V1** ([D-152](../../30-governance/decisions.md#d-152)): Web y Web Schema.org, con el único perfil de consumo de Web y Web Schema.org (la respuesta HTTP sin ejecutar JavaScript, de la que se usa todo el documento, [D-156](../../30-governance/decisions.md#d-156)). Catálogos distribuidos queda aplazado; mientras tanto, la consistencia transversal solo examina el par Web ↔ Web Schema.org.
+
+**Ejecución automática** ([D-186](../../30-governance/decisions.md#d-186)): el agente auditor ejecuta la auditoría sin intervención humana. Antes de entregar, una persona revisa solo las NE y las comprobaciones inconclusas ([criterio de revisión humana](dossier.md#criterio-de-revisión-humana)).
 
 > **Estado: propuesta V1 para pilotaje.** Consolida los principios acordados y desarrolla reglas prácticas, pero **los anclajes, umbrales de suficiencia y protocolos no están empíricamente validados**. Deben probarse y aprobarse mediante casos de calibración ([calibration.md](calibration.md)). No modifica el marco conceptual ni añade criterios, propiedades, escalas o indicadores de calidad. Las reglas se convierten en instrucciones de Skill **solo después de probarlas** con expedientes reproducibles. Este marco es un **procedimiento general**: los perfiles concretos de RI pertenecen al catálogo de demanda y los resultados de cada ecommerce, al expediente (GSC0 Anexo D.1).
 
@@ -76,7 +78,7 @@ No construye automáticamente el catálogo de demanda, no determina prioridades 
 | **Perfil de evaluación** | Entidad/oferta, recurso, ámbito, momento, condiciones y vía de consumo admisible. | Cambiar el contenido informativo exigido por el RI. |
 | **Marco operativo general** | Procedimientos, reglas y evidencias válidos para cualquier RI. | Imponer atributos específicos de una categoría. |
 | **Agente auditor** | Obtención, localización, comprobación, interpretación, registros y GSC. | Completar hechos ausentes con conocimiento propio o redefinir el RI. |
-| **Revisión/calibración** | Comprobar consistencia de reglas, coberturas y anclajes. | Sustituir sin trazabilidad la evidencia del caso original. |
+| **Revisión/calibración** | Comprobar consistencia de reglas, coberturas y anclajes. En la operación, la revisión humana mira solo las NE y las comprobaciones inconclusas (D-186). | Sustituir sin trazabilidad la evidencia del caso original. |
 
 ## Cadena de decisión
 

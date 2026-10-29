@@ -3,14 +3,14 @@ id: informative-prominence
 title: Prominencia informativa, IP y calidad ajustada
 layer: model
 status: propuesta
-version: 1.0
-updated: 2026-10-24
-sources: [INTAKE 2026-10-24-prominencia-informativa]
+version: 1.1
+updated: 2026-10-29
+sources: [INTAKE 2026-10-24-prominencia-informativa, INTAKE 2026-10-29-oq-review]
 ---
 
 # Prominencia informativa, IP y calidad ajustada
 
-> **Estado: propuesta.** Es una propuesta metodológica provisional, incorporada desde el intake ([D-018](../30-governance/decisions.md#d-018)). Fórmula y peso de la calidad ajustada, zonas prominentes exactas y reglas fuera de HTML están pendientes.
+> **Estado: propuesta.** Es una propuesta metodológica provisional, incorporada desde el intake ([D-018](../30-governance/decisions.md#d-018)). Sigue activa, con las zonas prominentes fijadas, y se trabaja después de la síntesis del IR ([D-203](../30-governance/decisions.md#d-203)). Fórmula y peso de la calidad ajustada, identificación de componentes, duplicidades con los AC y reglas fuera de HTML están pendientes, en espera de la síntesis del IR.
 
 ## Definición
 
@@ -18,10 +18,12 @@ sources: [INTAKE 2026-10-24-prominencia-informativa]
 
 ### Clasificación binaria de prominencia (HTML)
 
-| Valor | Condición | Ubicaciones orientativas |
+| Valor | Condición | Zonas |
 |---|---|---|
-| **1 — Prominente** | La información que sustenta el componente aparece en una zona de alta prominencia. | `<title>` (metatítulo), metadescripción, H1, descripción inicial o síntesis destacada. |
-| **0 — No prominente** | No existe soporte suficiente para ese componente en una de esas zonas. | Resto del contenido, incluidas descripciones extensas, tablas, especificaciones y secciones secundarias. |
+| **1 — Prominente** | La información que sustenta el componente aparece en una zona de alta prominencia. | Solo `<title>` (metatítulo), metadescripción y `H1`. |
+| **0 — No prominente** | No existe soporte suficiente para ese componente en una de esas zonas. | Resto del contenido, incluidas la descripción inicial, las descripciones extensas, las tablas, las especificaciones y las secciones secundarias. |
+
+Zonas prominentes enmendadas por [D-203](../30-governance/decisions.md#d-203): la «descripción inicial o síntesis destacada» del intake sale de la lista.
 
 > La clasificación se aplica **a cada componente informativo**, no al RI completo. Una simple mención en una zona prominente no basta: debe aportar el contenido necesario para sustentar el componente. — INTAKE
 
@@ -38,7 +40,7 @@ sources: [INTAKE 2026-10-24-prominencia-informativa]
 
 > **Calidad ajustada:** utiliza el IP como modificador secundario, sin cambiar el IR original ni su clasificación binaria. — INTAKE
 
-La fórmula y el peso del modificador están **pendientes** ([OQ-34](../30-governance/open-questions.md#g-prominencia-informativa-propuesta)). No se calcula mientras no se definan.
+La fórmula y el peso del modificador están **pendientes**, en espera de la síntesis del IR ([OQ-34](../30-governance/open-questions.md#g-prominencia-informativa-propuesta)). No se calcula mientras no se definan.
 
 ## Reglas e invariantes
 
@@ -47,12 +49,12 @@ La fórmula y el peso del modificador están **pendientes** ([OQ-34](../30-gover
 3. **Sin compensación.** Una mayor prominencia no convierte un RI insuficientemente resuelto en suficiente ni compensa carencias informativas.
 4. **Recuento.** Cada componente se cuenta una sola vez, aunque aparezca repetido. No se fragmenta artificialmente la información para aumentar el número de componentes.
 5. **N = 0 → IP no aplicable** (NA).
-6. **La prominencia no presupone suficiencia.** La delimitación de las zonas prominentes es provisional y no presupone que los contenidos no prominentes tengan menor suficiencia o precisión.
+6. **La prominencia no presupone suficiencia.** La lista de zonas prominentes ([D-203](../30-governance/decisions.md#d-203)) no presupone que los contenidos no prominentes tengan menor suficiencia o precisión.
 7. **Registro separado.** Se registran por separado **IR, estado binario, IP y calidad ajustada**.
 8. **Nivel y ámbito** (interpretación de [D-018](../30-governance/decisions.md#d-018)):
    - se calcula por **RI × ámbito**, como el IR;
    - la clasificación está definida para HTML, es decir, para el ámbito **Web**;
-   - en **Web Schema.org** y **Catálogos distribuidos** el IP es **NA** hasta que se definan reglas específicas, si procede ([OQ-36](../30-governance/open-questions.md#g-prominencia-informativa-propuesta)).
+   - en **Web Schema.org** y **Catálogos distribuidos** el IP es **NA** ([D-203](../30-governance/decisions.md#d-203)). Las reglas específicas, si proceden, esperan a la síntesis del IR ([OQ-36](../30-governance/open-questions.md#g-prominencia-informativa-propuesta)).
 
 ## Distinciones
 
@@ -74,14 +76,14 @@ De cuatro componentes resueltos, dos están sustentados en zonas prominentes: **
 
 ## Pendiente
 
-Ver [open-questions §G](../30-governance/open-questions.md#g-prominencia-informativa-propuesta):
+Ver [open-questions §G](../30-governance/open-questions.md#g-prominencia-informativa-propuesta). OQ-33 a OQ-36 esperan a la síntesis del IR (OQ-28, [D-203](../30-governance/decisions.md#d-203)):
 
-- OQ-31: regla de normalización binaria del IR;
-- OQ-32: ubicación exacta de las zonas prominentes;
 - OQ-33: identificación de componentes y rutas alternativas;
 - OQ-34: fórmula y peso de la calidad ajustada;
 - OQ-35: duplicidades con los AC;
 - OQ-36: reglas para Web Schema.org y Catálogos distribuidos.
+
+La regla de normalización binaria del IR (OQ-31) está en [open-questions §E](../30-governance/open-questions.md#e-síntesis-e-indicadores) y se decide con OQ-28 ([D-174](../30-governance/decisions.md#d-174)).
 
 ## Relacionado
 

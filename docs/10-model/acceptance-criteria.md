@@ -3,9 +3,9 @@ id: acceptance-criteria
 title: Criterios de aceptación
 layer: model
 status: vigente
-version: 1.7
-updated: 2026-10-28
-sources: [BASE §5.2, FUND §6, FUND §10.1, GSC0 §6.4, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-shipping-zones]
+version: 1.8
+updated: 2026-10-29
+sources: [BASE §5.2, FUND §6, FUND §10.1, GSC0 §6.4, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-shipping-zones, INTAKE 2026-10-29-oq-review]
 ---
 
 # Criterios de aceptación (AC)
@@ -77,6 +77,7 @@ Cada criterio se valora con el **GSC** (0/1/2). No hay NA de criterio, salvo el 
   > El conocimiento del modelo puede **frenar** una refutación libremente, pero solo puede **producirla** con una regla general citada o con una imposibilidad física o lógica. Lo que el modelo sepa de un producto, una marca o un modelo concretos es una **sospecha**: se anota con su motivo, no gradúa y pasa al informe como «a verificar por el ecommerce». — INTAKE 2026-10-28-informative-audit-v1
 
   Lo que el modelo sabe de un caso concreto no es reexaminable, puede estar desfasado o confundir variantes, haría depender el resultado del auditor y trataría distinto a marcas conocidas y desconocidas. Usarlo como contrafuente solo evita penalizar ([D-154](../30-governance/decisions.md#d-154)).
+- **Comprobaciones por tipo de dato:** son el contenido de las pistas dirigidas a un tipo ([D-127](../30-governance/decisions.md#d-127)), que redacta Claude ([D-137](../30-governance/decisions.md#d-137)). Cada pista dirigida a un tipo se revisa contra la lista de requisitos a los que llega, que da el código. Si la pista no vale en todos, se reescribe más general o pasa a ser una pista dirigida a una fuente o a un requisito ([D-200](../30-governance/decisions.md#d-200), [assessment-hints](assessment-hints.md)).
 - **Registro:** dice qué familias se aplicaron: «sin defectos detectados en estructura, dominio y consistencia del ámbito; sin contraste externo». Si a un dato solo le toca la consistencia, también es 2, y el registro lo dice.
 - **NE** queda casi limitado a no poder leer una representación que pide la comprobación de consistencia.
 - **Certificaciones:** se juzgan por lo publicado, no se validan. En Fiabilidad, solo estructura, dominio y consistencia (una fecha de validez vencida, un sello incompatible con la composición). Los demás AC miran lo suyo: Justificación, que se publiquen el número y el organismo; Precisión, «OEKO-TEX» sin decir qué norma; Aplicabilidad, que la certificación se atribuya al producto que se vende y no a una materia prima.
@@ -91,8 +92,16 @@ Cada criterio se valora con el **GSC** (0/1/2). No hay NA de criterio, salvo el 
 > Las unidades de un conjunto (destinos, modalidades de entrega, variantes, momentos del pedido) no son partes de la cuestión y no se divide por ellas. Las cubre la **Concreción** (cobertura de las unidades), la **Aplicabilidad** (atribución de cada valor a su unidad) y la **Precisión** (significado de lo expresado: «nacional», «24/48 h»). — INTAKE 2026-10-28-shipping-zones
 
 - El requisito declara su conjunto, en la pregunta o en la descripción ([D-164](../30-governance/decisions.md#d-164)). Es el tratamiento de las variantes del [ejemplo mínimo](#ejemplo-mínimo-hipotético).
-- El silencio sobre una unidad es cobertura parcial (Concreción), no disponibilidad 0 del requisito, y no equivale a un «no»: una ausencia exige prueba de cobertura. La frontera 0/1 depende de la prueba de materialidad ([OQ-22](../30-governance/open-questions.md)).
+- El silencio sobre una unidad es cobertura parcial (Concreción), no disponibilidad 0 del requisito, y no equivale a un «no»: una ausencia exige prueba de cobertura.
+- **Frontera 0/1:** si al menos una unidad del conjunto está cubierta, la Concreción es 1 como mínimo. El 0 queda para cuando lo presente no cubre ninguna unidad (solo información general o auxiliar) ([D-197](../30-governance/decisions.md#d-197)).
+- **Ejemplos abiertos:** una lista con «p. ej.» o «…» orienta y no forma componentes. Solo un conjunto declarado cuenta para la Concreción ([D-197](../30-governance/decisions.md#d-197), que ratifica la [RI-07](../20-methods/audit-gsc/ri-profile.md#procedimiento-de-elaboración-ri-01-a-ri-09)).
 - Ejemplos (hipotéticos) en el envío, cuyo conjunto son las zonas de España ([D-165](../30-governance/decisions.md#d-165)): solo «envío a Península 4,95 €» afecta a la Concreción; «envío 4,95 €» sin zona, a la Aplicabilidad; «envío nacional», a la Precisión si admite dos lecturas materiales; «envíos a toda España 4,95 €» da Concreción 2 en el coste, porque cubre las zonas por derivación; «no enviamos a Canarias, Ceuta ni Melilla», con las tarifas de la Península y Baleares, da Concreción 2, porque el «no» resuelve; una ficha que dice «gratis a toda España» con una página de envíos que excluye Canarias, a la Fiabilidad (contradicción dentro del ámbito).
+
+### Fundamento de un beneficio reclamado
+
+- El fundamento de un beneficio que el producto reclama («favorece la higiene dental», [D-025](../30-governance/decisions.md#d-025)) se valora en la **Justificación** del requisito de esa prestación, si el modelo lo tiene ([D-183](../30-governance/decisions.md#d-183)).
+- Si el modelo no tiene ese requisito, el fundamento no se audita.
+- No hay un requisito propio para el fundamento de un beneficio.
 
 ## Distinciones
 
@@ -133,7 +142,6 @@ Los valores son ilustrativos, no una auditoría real.
 ## Pendiente
 
 - Guías por criterio con pruebas, evidencias, reglas interpretativas y anclajes 0/1/2. Hay propuesta V1 en [ac-guides](../20-methods/audit-gsc/ac-guides.md), pendiente de calibración. Ver [open-questions](../30-governance/open-questions.md).
-- Qué comprobaciones de estructura, dominio y consistencia tocan a cada tipo de dato y qué reglas del dominio guarda el modelo de demanda ([OQ-66](../30-governance/open-questions.md)).
 
 ## Relacionado
 

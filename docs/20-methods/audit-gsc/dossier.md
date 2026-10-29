@@ -3,9 +3,9 @@ id: audit-gsc-dossier
 title: Expediente, informe, diagnóstico y recomendaciones
 layer: method
 status: propuesta
-version: 0.4
-updated: 2026-10-28
-sources: [GSC0 §14.1, GSC0 §14.5, GSC0 §9.6, FUND §9.4, FUND §9.5, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-request-context-and-scripts]
+version: 0.5
+updated: 2026-10-29
+sources: [GSC0 §14.1, GSC0 §14.5, GSC0 §9.6, FUND §9.4, FUND §9.5, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-request-context-and-scripts, INTAKE 2026-10-29-oq-review]
 ---
 
 # Expediente, informe, diagnóstico y recomendaciones
@@ -40,7 +40,7 @@ El informe tiene dos niveles conectados:
 
 **A. Ficha de resultado accesible:** unidad evaluada; disponibilidad; tabla de AC y GSC (o NE por incidencia); síntesis de hallazgos que explican los resultados; limitaciones y recomendaciones condicionadas; sospechas de Fiabilidad, como «a verificar por el ecommerce».
 
-**B. Expediente reexaminable:** detalles de observación, recursos originales, contexto, método de obtención, cobertura, candidatos decisivos, rutas de relación, pruebas por propiedad, hallazgos, juicios y revisiones.
+**B. Expediente reexaminable:** detalles de observación, recursos originales, contexto, método de obtención, cobertura, candidatos decisivos, rutas de relación, propiedades citadas en cada valoración de AC, fichas de las propiedades con defecto ([D-198](../../30-governance/decisions.md#d-198)), hallazgos, juicios y revisiones.
 
 ### Contenido mínimo de un hallazgo reportable
 
@@ -74,6 +74,8 @@ Las recomendaciones deben:
 Un mismo hallazgo puede afectar a diversos AC o RI, pero cada consecuencia se justifica de manera diferenciada. **No se multiplica el defecto por el número de criterios relacionados**, ni se degrada un criterio solo porque exista una incidencia técnica cuya repercusión informativa no está acreditada.
 
 ## Criterio de revisión humana
+
+La ejecución de la auditoría es automática ([D-186](../../30-governance/decisions.md#d-186), que extiende [D-041](../../30-governance/decisions.md#d-041)). Antes de entregar, una persona revisa solo las NE y las comprobaciones inconclusas.
 
 Un segundo evaluador debe poder responder desde el expediente: **qué preguntaba el RI, qué información se obtuvo, por qué se consideró pertinente, qué se comprobó, qué propiedad explicó el hallazgo, qué condición del AC quedó satisfecha o limitada y qué justifica el GSC**. Si no puede reconstruirlo, el registro es insuficiente aunque la cifra pueda parecer razonable.
 

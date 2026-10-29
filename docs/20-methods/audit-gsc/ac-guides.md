@@ -3,9 +3,9 @@ id: audit-gsc-ac-guides
 title: Guías operativas de los seis criterios de aceptación
 layer: method
 status: propuesta
-version: 0.5
-updated: 2026-10-28
-sources: [GSC0 §11, GSC0 Anexo B, FUND §6.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-informative-audit-v1]
+version: 0.6
+updated: 2026-10-29
+sources: [GSC0 §11, GSC0 Anexo B, FUND §6.2, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review]
 ---
 
 # Guías operativas de los seis criterios de aceptación
@@ -28,13 +28,13 @@ En todos los AC, antes de asignar 0/1/2: verificar **evidencia suficiente** y **
 
 | GSC | Anclaje provisional |
 |---|---|
-| **0** | La cobertura sustantiva de la cuestión **no queda satisfecha**: los elementos presentes, aunque pertinentes o auxiliares, no proporcionan una contribución suficiente a los componentes centrales del RI; insuficiencia acreditada mediante cobertura apropiada. |
-| **1** | Existe **cobertura sustantiva parcial**: se aporta información relevante sobre parte de lo solicitado, pero faltan componentes, unidades del conjunto, desagregación o condiciones materialmente necesarias. |
+| **0** | La cobertura sustantiva de la cuestión **no queda satisfecha**: los elementos presentes, aunque pertinentes o auxiliares, no proporcionan una contribución suficiente a los componentes centrales del RI; insuficiencia acreditada mediante cobertura apropiada. En un conjunto de unidades, lo presente no cubre ninguna unidad. |
+| **1** | Existe **cobertura sustantiva parcial**: se aporta información relevante sobre parte de lo solicitado, pero faltan componentes, unidades del conjunto, desagregación o condiciones materialmente necesarias. En un conjunto de unidades, basta una unidad cubierta ([D-197](../../30-governance/decisions.md#d-197)). |
 | **2** | Los componentes, alcance y desagregación requeridos están **suficientemente cubiertos**, por afirmaciones directas o derivaciones justificadas. |
 
 **Evidencias mínimas:** matriz componente del RI ↔ soporte; población/unidades del alcance cuando proceda; pruebas de ausencias; contexto y rutas de derivación.
 
-**Fronteras:** disponibilidad efectiva 1 puede coexistir con GSC 0 en Concreción si solo se dispone, por ejemplo, de una identificación auxiliar sin el hecho solicitado. La diferencia 0/1 en cobertura parcial necesita calibración con RI que exijan múltiples componentes o variantes; no adoptar un porcentaje universal.
+**Fronteras:** disponibilidad efectiva 1 puede coexistir con GSC 0 en Concreción si solo se dispone, por ejemplo, de una identificación auxiliar sin el hecho solicitado. En un conjunto de unidades, si al menos una unidad está cubierta, la Concreción es 1 como mínimo; el 0 queda para cuando lo presente no cubre ninguna unidad (solo información general o auxiliar) ([D-197](../../30-governance/decisions.md#d-197)). Solo un conjunto declarado (en la pregunta o en la descripción) cuenta: una lista con «p. ej.» o «…» orienta y no forma componentes ([RI-07](ri-profile.md#procedimiento-de-elaboración-ri-01-a-ri-09)). La prueba de materialidad en RI multiatributo sigue en propuesta V1 ([OQ-22](../../30-governance/open-questions.md)); no adoptar un porcentaje universal.
 
 ## Precisión
 
@@ -137,6 +137,8 @@ En todos los AC, antes de asignar 0/1/2: verificar **evidencia suficiente** y **
 **Evidencias:** afirmaciones de origen, relaciones, referencias de procedencia/contraste pertinentes, conclusiones derivadas diferenciadas de los datos originales.
 
 **Fronteras:** justificar una respuesta **no equivale** a demostrar la corrección de cada afirmación (Fiabilidad). La falta del identificador que permitiría verificar un dato (número de certificado) cuenta aquí, no en Fiabilidad ([D-122](../../30-governance/decisions.md#d-122)). Un auditor puede conservar una captura de un dato y aun así hallar insuficiencia de trazabilidad o de relaciones ofrecidas por la información comercial. Las derivaciones fundadas no se penalizan por su número.
+
+**Beneficio reclamado** ([D-183](../../30-governance/decisions.md#d-183)): el fundamento de un beneficio que el producto reclama («favorece la higiene dental») se valora aquí, en el requisito de esa prestación, si el modelo lo tiene. Si el modelo no tiene ese requisito, el fundamento no se audita. No hay un requisito propio para el fundamento de un beneficio.
 
 ## Separación de juicios sobre una misma observación
 

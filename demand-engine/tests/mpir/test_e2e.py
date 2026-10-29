@@ -120,7 +120,7 @@ def test_check_discover_and_capture(server, browser):
     assert dom.count('data-capture-hidden="1"') == 3       # details, display:none, collapsed accordion
     assert meta["dom"]["hidden_roots"] == 3
     assert 'style="display: contents" data-capture-hidden' not in dom
-    assert read_gz(folder / "page.mhtml.gz").startswith("From: <Saved by Blink>")
+    assert not (folder / "page.mhtml.gz").exists()                 # no MHTML (D-172)
 
     reserved = study.dir / res["local-003"]["snapshots"][0]
     assert sorted(p.name for p in reserved.iterdir()) == ["meta.json"]   # nothing kept

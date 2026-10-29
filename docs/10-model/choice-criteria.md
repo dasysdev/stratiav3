@@ -3,9 +3,9 @@ id: choice-criteria
 title: Criterios de elección
 layer: model
 status: vigente
-version: 1.12
+version: 1.13
 updated: 2026-10-29
-sources: [INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-paa-new-requirements, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-classification-criteria-2, INTAKE 2026-10-27-paa-bottom-sheet-hold, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-28-paa-control-review-rules, INTAKE 2026-10-28-paa-parent-and-material, INTAKE 2026-10-29-oq-review]
+sources: [INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-paa-new-requirements, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-classification-criteria-2, INTAKE 2026-10-27-paa-bottom-sheet-hold, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-28-paa-control-review-rules, INTAKE 2026-10-28-paa-parent-and-material, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-paa-natural-answer-and-specializations]
 ---
 
 # Criterios de elección
@@ -75,6 +75,16 @@ Reglas decididas por el usuario al resolver las dudas de las dos primeras clasif
   > Una pregunta sobre la categoría madre va DENTRO cuando pregunta por algo que la clase hereda de su bloque (cuidado del ante → cat.calzado/13 en botas; firmeza → cat.sofas/12 en sofás cama; «¿Qué sofá me compro?» → preferencia general). Va FUERA si solo tiene sentido para otro producto (calzado para la montaña, podólogos) o si es un hermano. — INTAKE 2026-10-28-paa-parent-and-material
 
   Interpretación adoptada ([D-146](../30-governance/decisions.md#d-146)): lo que la clase hereda se lee como un requisito o una aportación de un bloque heredado, o un criterio de elección que vale igual para el producto de la clase. Las semillas no cambian: «sofás» sigue en el núcleo de sofás cama.
+- **Prueba de la respuesta natural** ([D-218](../30-governance/decisions.md#d-218)), que precisa «solo tiene sentido para otro producto»:
+
+  > Si la pregunta pide elegir un producto de la madre para una necesidad, va dentro solo si un producto de la clase es una respuesta natural. Lo que la clase comparte (cuidado, material, precio) sigue dentro. — INTAKE 2026-10-29-paa-natural-answer-and-specializations
+
+  En pantuflas, «¿Qué calzado recomiendan los podólogos?» y «¿Qué zapatos debo usar para que no me duelan los pies?» quedan fuera; en botas, «¿Cómo cuidar los zapatos de ante?» queda dentro. «Calzado para la montaña», el ejemplo de fuera de D-146, vale en pantuflas. En botas, el usuario lleva esa pregunta a una especialización nueva (abajo).
+- **Especializaciones desde PAA** ([D-218](../30-governance/decisions.md#d-218)):
+
+  > En este caso esas preguntas no irían a la especialización de botas de equitación y no irían a las de botas en general sino a una nueva especialización: botas de montaña. Es decir PAA puede generar especializaciones. — INTAKE 2026-10-29-paa-natural-answer-and-specializations
+
+  Una pregunta sobre una especialización de la clase que el catálogo no tiene va a una especialización nueva que propone PAA, no a la del caso ni a la categoría. En propuesta (lectura de Claude, [D-218](../30-governance/decisions.md#d-218)): si el catálogo ya la tiene, PAA usa su id; la propuesta entra «no compilada» y encolada, como la del clasificador en ejecución, y la admite el entrenamiento con el [criterio de especialización](study-class.md#criterio-de-especialización) ([D-216](../30-governance/decisions.md#d-216)). Cómo entra en el catálogo queda abierto ([OQ-87](../30-governance/open-questions.md)).
 - **Material** ([D-146](../30-governance/decisions.md#d-146)):
 
   > Una pregunta sobre el material va DENTRO si la clase tiene o hereda ese material (como la seda en sábanas). «Zapatillas» sin señal de deporte o calle se lee como la clase. — INTAKE 2026-10-28-paa-parent-and-material

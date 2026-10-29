@@ -14,6 +14,19 @@ Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módul
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
 
+## 2026-10-29 — Rasgo «medida de detalle» · aplicado
+
+- **canon** — `INTAKE 2026-10-29-detail-measure-trait` (T-091; decisión del usuario): [D-219](decisions.md#d-219) suma al vocabulario el rasgo «medida de detalle», sin regla fija ni suelo, para aplicar [D-191](decisions.md#d-191).
+- **Módulos:** [model-training](../10-model/model-training.md#rasgos) 1.27, [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md) 1.37, [glossary](../glossary.md) 1.6.
+- Fuera de `docs/`: `demand-engine/catalog/traits.json`, reglamento del clasificador v4 y `bin/model blocks` (T-091).
+
+## 2026-10-29 — Perímetro de PAA: respuesta natural y especializaciones desde PAA · aplicado
+
+- **canon** — `INTAKE 2026-10-29-paa-natural-answer-and-specializations` (T-058; decisiones del usuario): [D-218](decisions.md#d-218) precisa [D-146](decisions.md#d-146) con la prueba de la respuesta natural y deja que PAA proponga especializaciones (botas de montaña, caso de prueba).
+- **Módulos:** [choice-criteria](../10-model/choice-criteria.md#lectura-de-las-preguntas-de-paa) 1.13, [construction-routes](../10-model/construction-routes.md) 1.10, [model-training](../10-model/model-training.md#especializaciones) 1.26, [glossary](../glossary.md) 1.5.
+- **gobernanza** — OQ-87 abierta (entrada en el catálogo de una especialización propuesta por PAA). D-146 anotada.
+- Fuera de `docs/`: reglamento PAA v7 y casos de pantuflas y botas (T-057).
+
 ## 2026-10-29 — Descubribilidad: se busca en los sitemaps la URL canónica · aplicado
 
 - **canon** — `INTAKE 2026-10-29-sitemap-canonical-url` (T-084; decisión del usuario): la URL que se busca en los sitemaps es la canónica que declara la página; sin canónica, su URL final; con varias distintas, NE. Interpretación adoptada de [D-162](decisions.md#d-162).

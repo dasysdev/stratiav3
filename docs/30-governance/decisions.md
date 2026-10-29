@@ -172,7 +172,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-143](#d-143) | Mínimo de representación de la oferta | aceptada (papel del mínimo precisado por D-145; datos en Web Schema.org, D-147) | 2026-10-28 |
 | [D-144](#d-144) | La imagen: sostén del mínimo de representación; lo que muestra no es información | aceptada (texto en imagen en Web, V1: D-195) | 2026-10-28 |
 | [D-145](#d-145) | Frontera entre la evaluación técnica y la informativa: decide la naturaleza que fija la especificación | aceptada (mínimo fijado por D-147; completitud y excepción precisadas por D-148; destino de lo recomendado precisado por D-155) | 2026-10-28 |
-| [D-146](#d-146) | La categoría madre y el material en el perímetro de PAA | aceptada | 2026-10-28 |
+| [D-146](#d-146) | La categoría madre y el material en el perímetro de PAA | aceptada (prueba de la respuesta natural y especializaciones desde PAA: D-218) | 2026-10-28 |
 | [D-147](#d-147) | Datos del mínimo de representación en Web Schema.org | aceptada | 2026-10-28 |
 | [D-148](#d-148) | Formación estructural | aceptada | 2026-10-28 |
 | [D-149](#d-149) | Sistema references: custodia común de las fuentes externas congeladas | aceptada | 2026-10-28 |
@@ -244,6 +244,8 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-215](#d-215) | La auditoría busca todas las categorías; la araña va categoría a categoría | aceptada | 2026-10-29 |
 | [D-216](#d-216) | Las especializaciones son bloques del catálogo que induce el entrenamiento | aceptada | 2026-10-29 |
 | [D-217](#d-217) | La auditoría se elige sobre el resultado del rastreo; sin lista, todas las fichas del universo | aceptada | 2026-10-29 |
+| [D-218](#d-218) | Perímetro de PAA: prueba de la respuesta natural y especializaciones propuestas desde PAA | aceptada | 2026-10-29 |
+| [D-219](#d-219) | Rasgo «medida de detalle» para las dimensiones de detalle | aceptada | 2026-10-29 |
 
 ---
 
@@ -2460,7 +2462,8 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - La lectura de «zapatillas» es un ejemplo del artefacto para pantuflas, no una regla de denominaciones para otras clases: una denominación ambigua se lee como la clase cuando no hay señal del vecino.
   - En pantuflas se corrige la revisión del 2026-10-27 (`INTAKE 2026-10-28-paa-control-review-rules`, paso 2): «¿Cómo saber si unas zapatillas son de piel?», «¿Cómo saber si es 100% cuero?» y «¿Cuáles son los 3 tipos de cuero?» vuelven dentro y sus tres aportaciones de cuero pasan a esperadas. El resto del efecto de aquel paso en pantuflas y botas (N1 y el criterio de salud del pie) no lo toca el artefacto.
 - **Consecuencias:** enmienda D-141; resuelve I-48. [choice-criteria](../10-model/choice-criteria.md) 1.11; [construction-routes](../10-model/construction-routes.md) 1.7 (perímetro); glosario (Producto vecino). Fuera de `docs/`: reglamento del agente (`demand-engine/classifier/paa.md`, v6) y casos de control de PAA (`demand-engine/cases/paa/`), en T-053.
-- **Relacionado:** D-100, D-104, D-114, D-141, D-142.
+- **Precisión ([D-218](#d-218)):** «solo tiene sentido para otro producto» se decide con la prueba de la respuesta natural; la pregunta sobre una especialización que el catálogo no tiene va a una especialización nueva que propone PAA.
+- **Relacionado:** D-100, D-104, D-114, D-141, D-142, D-218.
 
 ### D-147
 
@@ -3517,3 +3520,33 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 - **Medida:** burritoblanco, 40 URL: 6 sitemaps leídos completos, 791 URL; universo de 957 URL; 1 portada, 3 políticas, 29 fichas, 6 categorías (una y su paginación) y 1 otra; `pages audit` eligió 34 páginas.
 - **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.10; glosario (universo de la auditoría). Fuera de `docs/`: capture (`crawl.json` con el universo; `audit.json` con las páginas elegidas, T-083) y web-audit sobre esa auditoría (T-084).
 - **Relacionado:** D-162, D-167, D-170, D-171, D-215.
+
+### D-218
+
+**Perímetro de PAA: prueba de la respuesta natural y especializaciones propuestas desde PAA.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-paa-natural-answer-and-specializations` (T-058). En el control PAA v6 (T-053), el agente dejó dentro 10 preguntas de podólogos y pies doloridos en pantuflas: [D-146](#d-146) las pone fuera, pero el reglamento no daba una prueba operativa. En botas, el producto de control es una bota de equitación: el caso ponía fuera «¿Cuál es el mejor calzado para andar por la montaña?» y el agente leía el uso montaña de «¿Cuáles son las 10 mejores marcas de botas de montaña?» como confirmación de `cat.botas/19`.
+- **Decisión:**
+  - **Prueba de la respuesta natural** (precisa «solo tiene sentido para otro producto» de D-146): si la pregunta pide elegir un producto de la madre para una necesidad, va dentro solo si un producto de la clase es una respuesta natural. Lo que la clase comparte (cuidado, material, precio) sigue dentro. En pantuflas, los podólogos y los pies doloridos quedan fuera; en botas, «¿Cómo cuidar los zapatos de ante?» queda dentro.
+  - **PAA puede generar especializaciones.** Una pregunta sobre una especialización de la clase que el catálogo no tiene no va a la especialización del caso ni a la categoría: va a una especialización nueva que propone PAA. En botas, con el caso de equitación, las preguntas de montaña van a una especialización nueva, botas de montaña. El usuario: «Este ejemplo es la prueba».
+- **Interpretaciones adoptadas:**
+  - Lecturas de Claude, en propuesta (no las dio el usuario; las ratifica o corrige OQ-87):
+    - La especialización propuesta por PAA entra como la que registra el clasificador en ejecución ([D-216](#d-216)): «no compilada» y encolada. La admite el entrenamiento con el [criterio de especialización](../10-model/study-class.md#criterio-de-especialización) y la puerta de métricas. PAA no aplica el criterio: lo propone.
+    - Si el catálogo ya tiene la especialización, PAA usa su id. Sus candidatos, confirmaciones y aportaciones van al bloque de esa especialización.
+    - «En general el estilo o tipo suele ser especialización» se lee como una observación del usuario, no como una regla: un tipo o un estilo de la clase nombrado en PAA es candidato a especialización, y el criterio decide.
+  - «Esas preguntas» del usuario son las dos de la pregunta de Claude: «¿Cuál es el mejor calzado para andar por la montaña?» y «¿Cuáles son las 10 mejores marcas de botas de montaña?». La primera pasa así la prueba de la respuesta natural en botas. El ejemplo de D-146 «calzado para la montaña, fuera» sigue valiendo en pantuflas.
+  - Cómo entra en el catálogo una especialización propuesta por PAA, y qué se hace con una que no trae cuestiones propias, queda abierto ([OQ-87](open-questions.md)).
+- **Consecuencias:** precisa D-146. [choice-criteria](../10-model/choice-criteria.md#lectura-de-las-preguntas-de-paa) 1.13; [construction-routes](../10-model/construction-routes.md) 1.10 (perímetro); [model-training](../10-model/model-training.md#especializaciones) 1.26; glosario (Producto vecino, Especialización); OQ-87. Fuera de `docs/`: reglamento PAA v7 (`demand-engine/classifier/paa.md`) y casos de control de pantuflas y botas (`demand-engine/cases/paa/`), en T-057.
+- **Relacionado:** D-141, D-142, D-146, D-178, D-216.
+
+### D-219
+
+**Rasgo «medida de detalle» para las dimensiones de detalle.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-detail-measure-trait` (T-091). [D-191](#d-191) quita el suelo de principal a las dimensiones de detalle, pero todas tenían el rasgo «medida descriptiva», que lleva el suelo.
+- **Decisión** (opción 1 de Claude, elegida por el usuario): el vocabulario suma el rasgo **medida de detalle** (`medida-detalle`), sin regla fija, como la magnitud física ([D-051](#d-051)). Los agentes lo votan y el índice de rasgos lo fija. La medida descriptiva conserva su suelo.
+- **Interpretaciones adoptadas:**
+  - Es un rasgo de partida, no propuesto: la retirada de [D-192](#d-192) no lo alcanza.
+  - Los requisitos de detalle del catálogo pasan a él por votos, no a mano.
+- **Consecuencias:** [model-training](../10-model/model-training.md#rasgos) 1.27; [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md) 1.37; glosario (Rasgo). Fuera de `docs/`: `demand-engine/catalog/traits.json`, el reglamento del clasificador (v4) y `bin/model blocks` (T-091).
+- **Relacionado:** D-051, D-055, D-056, D-191, D-192.

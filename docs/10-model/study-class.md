@@ -3,9 +3,9 @@ id: study-class
 title: Clase de estudio
 layer: model
 status: vigente
-version: 1.7
+version: 1.8
 updated: 2026-10-29
-sources: [INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-29-oq-review]
+sources: [INTAKE 2026-10-24-define-class, INTAKE 2026-10-24-specialization-criterion, INTAKE 2026-10-25-class-composition, INTAKE 2026-10-25-own-questions-offer, INTAKE 2026-10-25-objective-classification, INTAKE 2026-10-25-requirements-purpose, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-offer-application, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-specialization-induction]
 ---
 
 # Clase de estudio
@@ -107,7 +107,7 @@ El disparador es el estado declarado de la unidad: la unidad de exposición que 
 
 El MPIR está aparcado ([D-095](../30-governance/decisions.md#d-095)): ese contraste queda suspendido y no se encarga a People Also Ask ([D-094](../30-governance/decisions.md#d-094)).
 
-Validación precisada por [D-041](../30-governance/decisions.md#d-041) y [D-044](../30-governance/decisions.md#d-044): la hace el entrenamiento contra el marco que define la persona responsable, sin bloquear la ejecución; entretanto, la especialización se usa como provisional y se encola ([model-training](model-training.md)).
+Validación precisada por [D-041](../30-governance/decisions.md#d-041) y [D-044](../30-governance/decisions.md#d-044): la hace el entrenamiento contra el marco que define la persona responsable, sin bloquear la ejecución; entretanto, la especialización se usa como provisional y se encola ([model-training](model-training.md)). El entrenamiento la compila como bloque del catálogo, fusiona sus sinónimos y decide su nivel (condición 5) por el árbol de Shopify ([D-216](../30-governance/decisions.md#d-216); [especializaciones](model-training.md#especializaciones)).
 
 > **Condición 4, lectura estricta:** la dimensión debe existir en algún componente de la clase de estudio, en cualquiera de las tres referencias: atributos de la categoría de Shopify, nodo o PTD de Amazon, o categoría de Google. El apoyo en una categoría afín se anota en la ficha como evidencia complementaria, pero no basta por sí solo. Una distinción que no cumple la condición no se pierde: sus cuestiones quedan en la clase general como requisitos condicionados (la salida «conservar la clase y condicionar requisitos»). — INTAKE 2026-10-25-class-composition
 

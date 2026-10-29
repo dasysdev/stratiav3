@@ -3,9 +3,9 @@ id: mpir-sampling-capture
 title: MPIR — diseño de la muestra y estrategia de captura
 layer: method
 status: propuesta
-version: 1.5
-updated: 2026-10-28
-sources: [MPIR §4, MPIR §5, INTAKE 2026-10-25-mpir-capture-engine, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-28-capture-system]
+version: 1.6
+updated: 2026-10-29
+sources: [MPIR §4, MPIR §5, INTAKE 2026-10-25-mpir-capture-engine, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-28-capture-system, INTAKE 2026-10-29-capture-no-mhtml]
 ---
 
 # MPIR — diseño de la muestra y estrategia de captura
@@ -85,7 +85,7 @@ No se utilizará una única conversión a texto plano si destruye relaciones. Pa
 
 ### Contenido dinámico e interacción selectiva
 
-Cada recurso se abre con un navegador real: el [motor de captura](../../../capture/README.md) guarda en una sola visita el HTML de la respuesta, el DOM renderizado y el MHTML. Cuando resulte pertinente, se abren desplegables, selectores o comparadores; se registra qué acciones se realizaron y qué estado del recurso quedó observado.
+Cada recurso se abre con un navegador real: el [motor de captura](../../../capture/README.md) guarda en una sola visita el HTML de la respuesta y el DOM renderizado; no guarda el MHTML ([D-172](../../30-governance/decisions.md#d-172)). Cuando resulte pertinente, se abren desplegables, selectores o comparadores; se registra qué acciones se realizaron y qué estado del recurso quedó observado.
 
 El renderizado se aplica **siempre**, no selectivamente: la incoherencia entre capas (peticiones con el user-agent de un navegador, navegadores sin interfaz) es lo que más bloqueos provoca, y con el volumen del piloto el coste es despreciable (`INTAKE 2026-10-25-mpir-capture-engine`, [D-042](../../30-governance/decisions.md#d-042), [D-073](../../30-governance/decisions.md#d-073)). La presencia de JavaScript, por sí misma, no debe confundirse con una limitación metodológica ni con un incumplimiento técnico del ecommerce.
 

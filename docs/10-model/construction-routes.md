@@ -3,9 +3,9 @@ id: construction-routes
 title: Vías de construcción del modelo de demanda
 layer: model
 status: vigente
-version: 1.9
+version: 1.10
 updated: 2026-10-29
-sources: [INTAKE 2026-10-28-paa-control-review-rules, INTAKE 2026-10-28-paa-parent-and-material, BASE §4.2, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-paa-new-requirements, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-29-oq-review]
+sources: [INTAKE 2026-10-28-paa-control-review-rules, INTAKE 2026-10-28-paa-parent-and-material, BASE §4.2, INTAKE 2026-10-25-requirement-blocks, INTAKE 2026-10-25-amazon-source-blocks, INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-26-choice-criteria-and-descriptions, INTAKE 2026-10-27-paa-construction-route, INTAKE 2026-10-27-paa-new-requirements, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-paa-natural-answer-and-specializations]
 ---
 
 # Vías de construcción del modelo de demanda
@@ -51,7 +51,7 @@ Las fuentes se organizan en **vías de referencia complementarias** (BASE §4.2,
 
    **Lectura de las preguntas** (`INTAKE 2026-10-27-paa-classification-criteria`):
 
-   - **Perímetro:** la confección casera (coser, hacer o arreglar la pieza) queda fuera, porque no hay compra ([D-100](../30-governance/decisions.md#d-100)). Las preguntas sobre otro producto (un hermano, o lo que solo tiene sentido para otro producto) quedan fuera siempre; las de la categoría madre van dentro cuando preguntan por algo que la clase hereda de su bloque, y las del material, cuando la clase tiene o hereda ese material. El perímetro va antes de la [lectura sobre la oferta](choice-criteria.md#lectura-de-las-preguntas-de-paa), que no lo decide ([D-141](../30-governance/decisions.md#d-141), `INTAKE 2026-10-28-paa-control-review-rules`; [D-146](../30-governance/decisions.md#d-146), `INTAKE 2026-10-28-paa-parent-and-material`).
+   - **Perímetro:** la confección casera (coser, hacer o arreglar la pieza) queda fuera, porque no hay compra ([D-100](../30-governance/decisions.md#d-100)). Las preguntas sobre otro producto (un hermano, o lo que solo tiene sentido para otro producto) quedan fuera siempre; las de la categoría madre van dentro cuando preguntan por algo que la clase hereda de su bloque, y las del material, cuando la clase tiene o hereda ese material. Una pregunta que pide elegir un producto de la madre para una necesidad va dentro solo si un producto de la clase es una respuesta natural; la de una especialización que el catálogo no tiene va a una especialización nueva que propone PAA ([D-218](../30-governance/decisions.md#d-218), `INTAKE 2026-10-29-paa-natural-answer-and-specializations`). El perímetro va antes de la [lectura sobre la oferta](choice-criteria.md#lectura-de-las-preguntas-de-paa), que no lo decide ([D-141](../30-governance/decisions.md#d-141), `INTAKE 2026-10-28-paa-control-review-rules`; [D-146](../30-governance/decisions.md#d-146), `INTAKE 2026-10-28-paa-parent-and-material`).
    - **Confirmaciones y aportaciones de precisión** ([D-101](../30-governance/decisions.md#d-101)):
 
      - Una pregunta por el significado de un término («¿La microfibra es plástico?», «¿Qué significa 144 hilos?») confirma el requisito del atributo y propone aportaciones de precisión para él (la denominación de la fibra según el Reglamento (UE) 1007/2011, la unidad del recuento de hilos, la equivalencia en cm de una denominación de talla). No genera requisitos nuevos.

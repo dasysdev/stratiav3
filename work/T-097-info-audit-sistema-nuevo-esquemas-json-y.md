@@ -20,3 +20,5 @@ Crear el sistema info-audit (directorio de primer nivel, miembro del workspace d
 - [ ] Fila de info-audit en el CLAUDE.md raíz
 
 ## Notas
+
+- 2026-10-30 Decisión del usuario (2026-10-30): los esquemas no llevan campo de causa técnica que cite web-audit, e info-audit no depende de web-audit en el piloto.

@@ -9,7 +9,7 @@ created: 2026-10-29
 
 ## Objetivo
 
-Agentes por lote de RI con disponibilidad 1 valoran los seis AC con sus pistas (OP-08…10) y info-audit ensambla el expediente y un borrador de informe de las 2 fichas, con los hallazgos de consistencia Web ↔ Web Schema.org (D-124).
+Agentes por lote de RI con disponibilidad 1 valoran los seis AC con sus pistas (OP-08…10) y info-audit ensambla el expediente y un borrador de informe de las 2 fichas, con los hallazgos de consistencia Contenido ↔ Marcado (D-124, D-220) y de alcance de lectura (D-222).
 
 ## Criterios de aceptación
 

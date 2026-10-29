@@ -9,7 +9,7 @@ created: 2026-10-29
 
 ## Objetivo
 
-demand-engine construye el modelo de demanda de las 2 fichas del piloto y lo compone por ámbito (D-155): unidades RI × ámbito de Web y Web Schema.org.
+demand-engine construye el modelo de demanda de las 2 fichas del piloto y lo compone por ámbito (D-155): unidades RI × ámbito de Contenido y Marcado (D-220; los ficheros siguen con los nombres del código hasta su tarea de cambio de nombre).
 
 ## Criterios de aceptación
 

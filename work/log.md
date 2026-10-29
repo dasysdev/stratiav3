@@ -81,3 +81,4 @@
 - 2026-10-29 T-058 Revisión de las propuestas sobre la frontera de D-146 (pies doloridos en pantuflas, montaña en botas) — Decididas la prueba de la respuesta natural y la especialización nueva de montaña desde PAA
 - 2026-10-29 T-057 Frontera de «solo tiene sentido para otro producto» en el reglamento PAA (podólogos, pies doloridos, montaña) — Reglamento PAA v7 con la prueba de la respuesta natural y especializaciones desde PAA (D-218); control sin regresiones
 - 2026-10-29 T-091 Entrenamiento: aplicar D-191 a D-194 y D-201 — bin/train aplica D-191 (rasgo medida-detalle, D-219), D-192, D-193, D-194 y D-201; pasada sin empeorar
+- 2026-10-30 T-101 Prueba de canarios: qué texto reciben los asistentes de IA al leer una página — Canarios con 4 lectores en vivo; ámbitos Contenido y Marcado, filtro Alfa y alcance de lectura al canon (D-220 a D-223)

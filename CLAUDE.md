@@ -75,6 +75,32 @@ Decisiones explícitamente no adoptadas: [D-006](docs/30-governance/decisions.md
 - El proyecto **usa git** (rama `main`; T-003): diffs y marcha atrás del código y de la documentación. La trazabilidad del canon sigue en `changelog.md` y en el archivo v0.
 - **Qué entra en git:** lo que gobierna el sistema y los resultados del entrenamiento. `demand-engine/var/`, `capture/var/` y `references/var/` son desechables y no tienen copia; git no es una copia de seguridad. Detalle en [demand-engine/README.md](demand-engine/README.md#qué-entra-en-git), [capture/README.md](capture/README.md#qué-entra-en-git), [references/README.md](references/README.md#qué-entra-en-git) y [web-audit/README.md](web-audit/README.md#qué-entra-en-git).
 
+## Estilo de redacción
+
+Para el texto que dice **qué hacer** o **cómo es algo**, se siguen las reglas de redacción de ASD-STE100 (Issue 9) adaptadas al español, sin su diccionario, y UNE-ISO 24495-1:2024.
+
+- **Se aplica a:** las respuestas en la conversación (resultados, pasos, lo pendiente), los procedimientos y los README operativos, los reglamentos y los prompts de agentes, los criterios y las notas de `bin/pm`, los mensajes de commit, los mensajes y las ayudas de la CLI, y los enunciados normativos nuevos del canon.
+- **No se aplica a:** la comparación de alternativas, el debate metodológico, la justificación de una decisión, las citas literales y el código. Las definiciones normativas en vigor son literales ([docs/CLAUDE.md](docs/CLAUDE.md#reglas-de-redacción)): no se reescriben por estilo.
+
+Reglas:
+
+1. **Frases cortas:** 20 palabras como máximo en una instrucción y 25 en una descripción. Un párrafo trata un tema y tiene 6 frases como máximo.
+2. **Una instrucción por frase,** en imperativo. La condición va antes de la acción: «Si la ficha ya existe, usa otro ID.»
+3. **Voz activa y sujeto explícito** cuando hay más de un agente (tú, yo, el agente, el motor). La pasiva con «se», solo si el agente no importa.
+4. **Verbos, no sustantivos derivados:** «comprobar», no «realizar la comprobación de». Sin cadenas de «de».
+5. **Un término, un significado:** el del [glosario](docs/glossary.md), siempre el mismo. Sin sinónimos por estilo.
+6. **Tiempos simples.** Sin gerundios encadenados ni condicionales apilados.
+7. **La incertidumbre, con una palabra y una vez:** «Causa probable: …».
+8. **Listas** para los pasos y las alternativas.
+
+### Commits
+
+- **Una sola línea:** `ruta: intención`. La intención del commit, no la lista de lo que cambia. Sin cuerpo.
+- **Intención:** en presente («añade», «corrige», «retira»), con 72 caracteres como máximo y sin punto final.
+- **Ruta:** el módulo afectado, con la precisión que haga falta, como migas de pan desde el sistema: `demand-engine/paa/classify`, `web-audit/reference/cards`, `docs/10-model/scoring-systems`. Si no hay un módulo más preciso, solo el sistema (`capture`, `references`, `docs`). Un sistema es un directorio de primer nivel.
+- **Varios sistemas:** un commit por sistema. Si un cambio no se puede partir, nombra los sistemas separados por coma: `docs, web-audit: …`.
+- **Sin coautoría:** sin líneas `Co-Authored-By` ni de atribución.
+
 ## Gestión del trabajo
 
 El trabajo del entorno y del código se gestiona con `bin/pm`: una tarea es un fichero en `work/`. Al arrancar cada sesión, un hook inyecta `bin/pm ready`. No leas `work/` entero ni `work/log.md`: consulta con `bin/pm show ID`.

@@ -7,7 +7,8 @@
   pages audit AUDIT [URL ...] [--from FILE] [--sitemap-files N] [--sitemap-mb N]
                         capture the pages of an audit (D-167) in var/audits/AUDIT/ under audit-es:
                         the product pages given, the home page, the policies, the immediate
-                        category of each product page, robots.txt and the sitemaps (capture.audit)
+                        category of each product page, robots.txt and the sitemaps (capture.audit);
+                        a TDM reservation stops it and the command ends with exit code 3 (D-171)
 """
 import argparse
 import subprocess
@@ -18,6 +19,8 @@ from pathlib import Path
 from . import ROOT, audit, pages, profiles
 from .audit import AuditError
 from .pages import PageError
+
+RESERVED = 3  # exit code of an audit stopped by a TDM reservation (D-171)
 
 
 def cmd_fetch(args) -> None:
@@ -44,7 +47,7 @@ def cmd_audit(args) -> None:
         code = subprocess.call([str(ROOT.parent / "bin/run"), "dev", "exec", "python", "-m", "capture.cli",
                                 "audit", args.audit, *urls, "--sitemap-files", str(args.sitemap_files),
                                 "--sitemap-mb", str(args.sitemap_mb)])
-        if code:
+        if code and code != RESERVED:
             print("pages: audit se ejecuta en el contenedor; si no está levantado: bin/run dev up", file=sys.stderr)
         sys.exit(code)
     record = audit.run(args.audit, urls, sitemap_files=args.sitemap_files, sitemap_mb=args.sitemap_mb)
@@ -54,6 +57,13 @@ def cmd_audit(args) -> None:
           + (f"; políticas no localizadas: {', '.join(missing)}" if missing else "")
           + (f"; {record['stopped']}" if record["stopped"] else "")
           + f"; manifiesto en var/audits/{args.audit}/audit.json")
+    reservation = record.get("reservation")
+    if reservation:
+        print(f"pages: {args.audit}: el sitio reserva la minería de textos y datos (art. 67.3 TRLPI)."
+              f" Dónde: {reservation['where']} ({reservation['source']}, {reservation['url']})."
+              f" La auditoría está parada e incompleta. Evidencia: campo reservation de audit.json.",
+              file=sys.stderr)
+        sys.exit(RESERVED)
 
 
 def main() -> None:

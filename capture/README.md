@@ -64,6 +64,7 @@ Un perfil fija **cómo se lee la página**. Quien pide la captura lo elige; si n
    - Si responde 4xx, todo está permitido. Si responde 5xx o 429, o no responde, no se captura nada.
    - Que excluya a bots de IA (GPTBot, ClaudeBot…) se avisa para que lo revises, pero no nos aplica.
 2. **Reserva TDM:** `/.well-known/tdmrep.json`, la cabecera `tdm-reservation` y la meta `tdm-reservation`. Si hay reserva, no se conserva ningún contenido.
+   - En una auditoría, una reserva además para el proceso ([D-171](../docs/30-governance/decisions.md#d-171)). Ver *Páginas de una auditoría*.
 3. **Portada** (solo en `check_site`, y si robots.txt la permite): desafío, antibot detectado y `noai` en la meta robots.
 
 `access` hace el paso 1 y el `tdmrep.json` del paso 2, que es lo que necesita cualquier captura; una captura suelta solo hace eso. `check_site` hace los tres pasos y da un veredicto:
@@ -157,10 +158,16 @@ Solo se guarda contenido si la página no es un desafío, un error o una reserva
 - **Si la ficha está en los sitemaps** (`in_sitemaps`), por su URL pedida, su URL final o la canónica que declara (`link rel=canonical`, que se registra en `canonical`), en ese orden, sin fragmento y literal; `by` dice cuál coincidió: `yes`, `no`, o `undetermined` si quedaron sitemaps sin leer o fallidos (una ausencia exige la cobertura completa). Un 4xx de un sitemap es que no existe, no un fallo.
 - **Ritmo:** cada página, en una ventana y un contexto nuevos; 3–8 s entre páginas, o el `Crawl-delay` si es mayor. Un bloqueo para la auditoría y lo que falta queda `pending`.
 - **Legitimidad:** la de cualquier captura, por origen (robots.txt para `stratia-cic` y reserva TDM); cada instantánea registra además robots.txt por bot.
+- **Reserva TDM: la auditoría para y avisa** ([D-171](../docs/30-governance/decisions.md#d-171)). Solo en la auditoría; las demás capturas no cambian.
+  1. Antes de capturar nada, el motor lee robots.txt y `tdmrep.json` del sitio. Si una entrada de `tdmrep.json` reserva alguna ruta, no se captura nada.
+  2. La portada es la primera página que se visita, antes de los sitemaps. Su cabecera y su meta `tdm-reservation` completan la comprobación. Si la portada tiene reserva, no se conserva su contenido y no se captura nada más.
+  3. Si después aparece una reserva (la cabecera o la meta de una página, o el `tdmrep.json` de otro origen), la auditoría para allí. Esa página no se conserva; las anteriores, sí.
+  - Lo que falta queda `pending`. `stopped` dice dónde paró y `reservation` guarda la evidencia: `where` (`tdmrep.json`, `sitemaps` o el ID de la página), `url`, `source` y el fichero de `tdmrep.json` o la instantánea con la cabecera, la meta y `tdm-policy`.
+  - `pages audit` termina con el código 3 y un mensaje en stderr.
 
 | Fichero | Contenido |
 |---|---|
-| `audit.json` | El manifiesto: sitio, perfil, legitimidad, sitemaps (leídos, pendientes, si la lectura es completa, número de URL), `pages` (cada página con su `id`, `type`, URL, resultado, URL final, estado HTTP e instantánea), `products` (página, `canonical`, `in_sitemaps`, migas y `category_page`), `policies` y `stopped` |
+| `audit.json` | El manifiesto: sitio, perfil, legitimidad, sitemaps (leídos, pendientes, si la lectura es completa, número de URL), `pages` (cada página con su `id`, `type`, URL, resultado, URL final, estado HTTP e instantánea), `products` (página, `canonical`, `in_sitemaps`, migas y `category_page`), `policies`, `stopped` y `reservation` |
 | `pages/PÁGINA/<instante>/` | La instantánea de cada página (ver *Qué se conserva*); su `meta.json` lleva `audit` y `page_type` |
 | `sites/HOST/` | robots.txt y `tdmrep.json` de cada origen |
 | `sitemaps/NNN-nombre` | Cada sitemap tal como llegó |

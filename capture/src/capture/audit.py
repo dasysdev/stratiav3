@@ -22,6 +22,12 @@ coverage.
 
 Each page gets a fresh window and context of its own (audit-es), with a short pause between
 pages (or the Crawl-delay, if larger). A block stops the audit; the rest is recorded as pending.
+
+A TDM reservation stops it too (D-171). Before capturing anything the audit reads the tdmrep.json
+of the site: any entry that reserves stops it with nothing captured. The home page is the first
+page visited, and its header and meta are the rest of that check. A reservation that appears
+later (a page, or the tdmrep.json of another origin) stops it there: that page is not kept, the
+pages before it are. The manifest records the stop and its evidence (`reservation`).
 Reading an audit and the links of its pages needs neither Chrome nor websockets (on the host).
 """
 from __future__ import annotations
@@ -38,10 +44,9 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urldefrag, urljoin, urlsplit
 
-from . import ROOT, profile, profiles
+from . import ROOT, profile, profiles, tdm
 from .files import now, read_json, sha256, unique_dir, write_json
 from .pages import ID, PageError, _response_text, json_ld, walk
-from .tdm import reserved_by_entries
 
 AUDITS = ROOT / "var/audits"
 PAUSE_S = (3, 8)
@@ -269,7 +274,7 @@ def read_sitemaps(page, sites: _Sites, base: str, folder: Path, files: int, max_
     queue = list(dict.fromkeys(robots.sitemaps)) or [base + "/sitemap.xml"]
     declared = bool(robots.sitemaps)
     folder.mkdir(parents=True, exist_ok=True)
-    report, urls, seen, used, at = [], set(), set(), 0, None
+    report, urls, seen, used, at, reserved = [], set(), set(), 0, None, None
     while queue and len(seen) < files and used < max_bytes:
         url = queue.pop(0)
         if url in seen:
@@ -277,7 +282,11 @@ def read_sitemaps(page, sites: _Sites, base: str, folder: Path, files: int, max_
         seen.add(url)
         entry = {"url": url}
         report.append(entry)
-        site, _, _ = sites.of(page, url)
+        site, entries, _ = sites.of(page, url)
+        if tdm.reserving(entries):   # a sitemap on another origin with a reservation stops the audit
+            entry["error"] = "reserva TDM (tdmrep.json): no se lee"
+            reserved = {"url": url, "entries": tdm.reserving(entries)}
+            break
         if not site.allowed(url):
             entry["error"] = "excluido por robots.txt"
             continue
@@ -316,7 +325,7 @@ def read_sitemaps(page, sites: _Sites, base: str, folder: Path, files: int, max_
         page.idle(random.uniform(*pause_s))
     complete = not queue and not any("error" in e for e in report)
     return {"declared": declared, "budget": {"files": files, "mb": max_bytes // 1_000_000},
-            "read": report, "pending": queue, "complete": complete, "urls": urls}
+            "read": report, "pending": queue, "complete": complete, "urls": urls, "reserved": reserved}
 
 
 class _Canonicals(HTMLParser):
@@ -384,7 +393,17 @@ def run(audit_id: str, products: list[str], browser=None, pause_s=PAUSE_S,
     tool = browser.new_window(chosen)
     sites = _Sites(folder / "sites")
     by_url: dict[str, dict] = {}
-    state = {"stopped": None, "visited": 0}
+    state = {"stopped": None, "visited": 0, "reservation": None}
+
+    def stop_reserved(where: str, url: str, evidence: dict) -> None:
+        """A TDM reservation stops the audit (D-171): what is left stays pending."""
+        nothing = not any(p.get("outcome") == "captured" for p in record["pages"])
+        state["reservation"] = {"where": where, "url": url, **evidence}
+        state["stopped"] = (f"auditoría parada: reserva TDM en {where} ({evidence['source']}); "
+                            + ("no se captura nada" if nothing else "lo pendiente no se captura"))
+
+    def origin_file(url: str) -> str:
+        return str((sites.folder / urlsplit(url).netloc.replace(":", "_") / "tdmrep.json").relative_to(folder))
 
     def capture(page_id: str, kind: str, url: str) -> dict:
         key = _clean(url)
@@ -403,11 +422,11 @@ def run(audit_id: str, products: list[str], browser=None, pause_s=PAUSE_S,
         if state["visited"]:
             time.sleep(max(random.uniform(*pause_s), robots.crawl_delay() or 0))
         state["visited"] += 1
-        if not robots.allowed(url):
+        if tdm.reserving(entries):   # the tdmrep.json of another origin
+            result = _refused(snap, url, meta, "reserved", "reserva TDM (tdmrep.json): no se conserva el contenido")
+        elif not robots.allowed(url):
             result = _refused(snap, url, meta, "disallowed",
                               "robots.txt inaccesible" if robots.mode == "unreachable" else "robots.txt")
-        elif reserved_by_entries(entries, url):
-            result = _refused(snap, url, meta, "reserved", "reserva TDM (tdmrep.json): no se conserva el contenido")
         else:
             window = browser.new_window(chosen)
             try:
@@ -418,9 +437,17 @@ def run(audit_id: str, products: list[str], browser=None, pause_s=PAUSE_S,
         entry.update({"outcome": result["outcome"], "detail": result["detail"],
                       "snapshot": str(snap.relative_to(folder)), "url_final": m.get("url_final"),
                       "http_status": (m.get("http") or {}).get("status")})
+        out(f"{page_id}: {result['outcome']} ({result['detail']})")
         if result["outcome"] == "blocked":
             state["stopped"] = f"auditoría parada: bloqueo en {page_id}"
-        out(f"{page_id}: {result['outcome']} ({result['detail']})")
+        elif result["outcome"] == "reserved":
+            if tdm.reserving(entries):
+                evidence = {"source": "tdmrep.json", "file": origin_file(url), "entries": tdm.reserving(entries)}
+            else:
+                found = tdm.signals((m.get("http") or {}).get("headers"), m.get("page_meta"))
+                source = "cabecera tdm-reservation" if found["header"] == "1" else "meta tdm-reservation"
+                evidence = {"source": source, **found}
+            stop_reserved(page_id, url, {**evidence, "snapshot": entry["snapshot"]})
         return entry
 
     def document(entry: dict) -> str | None:
@@ -430,20 +457,30 @@ def run(audit_id: str, products: list[str], browser=None, pause_s=PAUSE_S,
         return _response_text(snap, read_json(snap / "meta.json")).decode("utf-8")
 
     try:
-        robots, _, summary = sites.of(tool, base)
+        # The check before capturing (D-171): tdmrep.json, then the header and meta of the home
+        # page, which is the first page visited
+        robots, entries, summary = sites.of(tool, base)
         record["legitimacy"] = summary
         if robots.mode == "unreachable":
             state["stopped"] = "robots.txt inaccesible: no se captura nada"
-        else:
+        elif tdm.reserving(entries):
+            stop_reserved("tdmrep.json", base + "/.well-known/tdmrep.json",
+                          {"source": "tdmrep.json", "file": origin_file(base), "entries": tdm.reserving(entries)})
+        home = capture("home", "home", base + "/")
+        home_doc = document(home)
+
+        if not state["stopped"]:
+            tool.idle(random.uniform(*pause_s))
             sitemaps = read_sitemaps(tool, sites, base, folder / "sitemaps",
                                      sitemap_files, sitemap_mb * 1_000_000, pause_s)
-            record["sitemaps"] = {k: v for k, v in sitemaps.items() if k != "urls"}
+            record["sitemaps"] = {k: v for k, v in sitemaps.items() if k not in ("urls", "reserved")}
             record["sitemaps"]["urls"] = len(sitemaps["urls"])
             out(f"sitemaps: {len(sitemaps['read'])} leídos, {len(sitemaps['pending'])} pendientes, "
                 f"{len(sitemaps['urls'])} URL")
-
-        home = capture("home", "home", base + "/")
-        home_doc = document(home)
+            if sitemaps["reserved"]:
+                stop_reserved("sitemaps", sitemaps["reserved"]["url"],
+                              {"source": "tdmrep.json", "file": origin_file(sitemaps["reserved"]["url"]),
+                               "entries": sitemaps["reserved"]["entries"]})
         policies = locate_policies(home_doc, home.get("url_final") or base + "/") if home_doc else \
             {k: {"status": "home_not_captured"} for k in POLICIES}
 
@@ -476,6 +513,7 @@ def run(audit_id: str, products: list[str], browser=None, pause_s=PAUSE_S,
         if own:
             browser.stop()
         record["stopped"] = state["stopped"]
+        record["reservation"] = state["reservation"]
         record["finished_at"] = now()
         write_json(folder / "audit.json", record)
     return record

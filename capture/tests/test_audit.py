@@ -1,3 +1,4 @@
+import argparse
 import gzip
 import json
 import threading
@@ -5,7 +6,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import pytest
 
-from capture import audit, pages, profiles
+from capture import audit, cli, pages, profiles
 from capture.audit import AuditError
 
 HOME = """<!doctype html><html><head><meta charset=utf-8><title>Tienda</title></head><body>
@@ -86,54 +87,81 @@ def test_an_audit_is_never_replaced(tmp_path, monkeypatch):
     assert not (tmp_path / "nueva").exists()
 
 
-@pytest.mark.chrome
-@pytest.mark.skipif(not pages.engine_available(), reason="sin Chrome ni websockets (se ejecuta en el contenedor)")
-def test_audit_with_the_capture_engine(tmp_path, monkeypatch):
+class Site:
+    """A local shop: the routes of the audit test, and what each test changes (`extra`: path →
+    (body, content type, headers))."""
+
+    def __init__(self) -> None:
+        self.sent: dict[str, bytes] = {}
+        self.extra: dict[str, tuple] = {}
+        site = self
+
+        class Handler(BaseHTTPRequestHandler):
+            def log_message(self, *args):
+                pass
+
+            def do_GET(self):
+                routes = site.routes()
+                body, kind, headers = routes.get(self.path, (b"no", "text/plain", {}))
+                site.sent[self.path] = body
+                self.send_response(200 if self.path in routes else 404)
+                self.send_header("Content-Type", kind)
+                self.send_header("Content-Length", str(len(body)))
+                for name, value in headers.items():
+                    self.send_header(name, value)
+                self.end_headers()
+                self.wfile.write(body)
+
+        self.httpd = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+        self.base = f"http://127.0.0.1:{self.httpd.server_address[1]}"
+        self.host = f"127.0.0.1_{self.httpd.server_address[1]}"
+        threading.Thread(target=self.httpd.serve_forever, daemon=True).start()
+
+    def routes(self) -> dict:
+        base, kind = self.base, "text/html; charset=utf-8"
+        routes = {
+            "/robots.txt": (f"User-agent: *\nDisallow: /privado\nSitemap: {base}/sitemap_index.xml\n".encode(), "text/plain"),
+            "/sitemap_index.xml": (f'<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+                                   f'<sitemap><loc>{base}/sitemap-p.xml.gz</loc></sitemap>'
+                                   f'<sitemap><loc>{base}/sitemap-gone.xml</loc></sitemap></sitemapindex>'.encode(),
+                                   "application/xml"),
+            "/sitemap-p.xml.gz": (gzip.compress(urlset(f"{base}/p/uno", f"{base}/p/dos-c")), "application/gzip"),
+            "/": (HOME.encode(), kind), "/p/uno": (PRODUCT_HTML.encode(), kind),
+            "/p/dos": (PRODUCT_LD.encode(), kind), "/p/tres": (PRODUCT_BARE.encode(), kind),
+        }
+        for path in ("/c/cojines", "/ayuda/envios", "/ayuda/cambios", "/contacto"):
+            routes[path] = (f"<!doctype html><title>{path}</title><p>{path}</p>".encode(), kind)
+        routes = {path: (*route, {}) for path, route in routes.items()}
+        return {**routes, **self.extra}
+
+    def products(self) -> list[str]:
+        return [f"{self.base}/p/uno", f"{self.base}/p/dos", f"{self.base}/p/tres"]
+
+
+@pytest.fixture(scope="module")
+def engine(tmp_path_factory):
     from capture.browser import Browser
 
-    sent = {}
+    browser = Browser(tmp_path_factory.mktemp("chrome") / "chrome-profile", port=9296)
+    browser.start()
+    yield browser
+    browser.stop()
 
-    class Handler(BaseHTTPRequestHandler):
-        def log_message(self, *args):
-            pass
 
-        def do_GET(self):
-            base = f"http://127.0.0.1:{self.server.server_address[1]}"
-            kind = "text/html; charset=utf-8"
-            routes = {
-                "/robots.txt": (f"User-agent: *\nDisallow: /privado\nSitemap: {base}/sitemap_index.xml\n".encode(), "text/plain"),
-                "/sitemap_index.xml": (f'<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-                                       f'<sitemap><loc>{base}/sitemap-p.xml.gz</loc></sitemap>'
-                                       f'<sitemap><loc>{base}/sitemap-gone.xml</loc></sitemap></sitemapindex>'.encode(),
-                                       "application/xml"),
-                "/sitemap-p.xml.gz": (gzip.compress(urlset(f"{base}/p/uno", f"{base}/p/dos-c")), "application/gzip"),
-                "/": (HOME.encode(), kind), "/p/uno": (PRODUCT_HTML.encode(), kind),
-                "/p/dos": (PRODUCT_LD.encode(), kind), "/p/tres": (PRODUCT_BARE.encode(), kind),
-            }
-            for path in ("/c/cojines", "/ayuda/envios", "/ayuda/cambios", "/contacto"):
-                routes[path] = (f"<!doctype html><title>{path}</title><p>{path}</p>".encode(), kind)
-            body, kind = routes.get(self.path, (b"no", "text/plain"))
-            sent[self.path] = body
-            self.send_response(200 if self.path in routes else 404)
-            self.send_header("Content-Type", kind)
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
-
-    httpd = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
-    threading.Thread(target=httpd.serve_forever, daemon=True).start()
-    base = f"http://127.0.0.1:{httpd.server_address[1]}"
+@pytest.fixture
+def site(engine, tmp_path, monkeypatch):
+    shop = Site()
     monkeypatch.setattr(audit, "AUDITS", tmp_path / "audits")
     monkeypatch.setattr(profiles, "origin", lambda: {"ip": "192.0.2.1", "source": "RIPEstat"})
-    browser = Browser(tmp_path / "chrome-profile", port=9296)
-    browser.start()
-    try:
-        record = audit.run("prueba", [f"{base}/p/uno", f"{base}/p/dos", f"{base}/p/tres"], browser,
-                           pause_s=(0, 0), out=lambda *_: None)
-    finally:
-        browser.stop()
-        httpd.shutdown()
+    shop.run = lambda audit_id: audit.run(audit_id, shop.products(), engine, pause_s=(0, 0), out=lambda *_: None)
+    yield shop
+    shop.httpd.shutdown()
 
+
+@pytest.mark.chrome
+@pytest.mark.skipif(not pages.engine_available(), reason="sin Chrome ni websockets (se ejecuta en el contenedor)")
+def test_audit_with_the_capture_engine(site, tmp_path):
+    record, base, sent = site.run("prueba"), site.base, site.sent
     folder = tmp_path / "audits/prueba"
     assert json.loads((folder / "audit.json").read_text(encoding="utf-8")) == json.loads(json.dumps(record))
     kinds = {p["id"]: (p["type"], p["outcome"]) for p in record["pages"]}
@@ -141,7 +169,8 @@ def test_audit_with_the_capture_engine(tmp_path, monkeypatch):
                      "product-02": ("product", "captured"), "product-03": ("product", "captured"),
                      "policy-shipping": ("policy", "captured"), "policy-returns": ("policy", "captured"),
                      "policy-contact": ("policy", "captured"), "category-01": ("category", "captured")}
-    assert record["policies"]["legal"] == {"status": "not_located"} and record["stopped"] is None
+    assert record["policies"]["legal"] == {"status": "not_located"}
+    assert record["stopped"] is None and record["reservation"] is None
     assert record["policies"]["shipping"]["url"] == f"{base}/ayuda/envios"
     one, two, three = record["products"]
     assert one["category_page"] == two["category_page"] == "category-01"      # a shared category, once
@@ -156,13 +185,81 @@ def test_audit_with_the_capture_engine(tmp_path, monkeypatch):
     gz = next(e for e in sitemaps["read"] if e["url"].endswith(".gz"))
     assert gz["gzip"] and (folder / gz["file"]).read_bytes() == sent["/sitemap-p.xml.gz"]   # as it came
     assert next(e for e in sitemaps["read"] if e["url"].endswith("gone.xml"))["status"] == 404
-    host = f"127.0.0.1_{httpd.server_address[1]}"
+    host = site.host
     assert (folder / "sites" / host / "robots.txt").read_text().startswith("User-agent: *")
 
     assert "100 % algodón" in audit.read("prueba", "product-01")
     meta = json.loads((folder / one_snapshot(record, "product-01") / "meta.json").read_text(encoding="utf-8"))
     assert meta["profile"] == "audit-es" and meta["page_type"] == "product" and meta["response_body"] == "original"
     assert set(meta["robots_bots"]) == set(profiles.BOTS)
+
+
+def test_a_reservation_ends_the_command_with_an_error(tmp_path, monkeypatch, capsys):
+    monkeypatch.setattr(audit, "AUDITS", tmp_path)
+    monkeypatch.setattr(pages, "engine_available", lambda: True)
+    stopped = {"pages": [{"outcome": "pending"}], "policies": {}, "stopped": "auditoría parada: reserva TDM",
+               "reservation": {"where": "tdmrep.json", "source": "tdmrep.json", "url": "https://x.es/.well-known/tdmrep.json"}}
+    monkeypatch.setattr(audit, "run", lambda *a, **k: stopped)
+    args = argparse.Namespace(audit="nueva", urls=["https://x.es/p/uno"], from_file=None, sitemap_files=1, sitemap_mb=1)
+    with pytest.raises(SystemExit) as stop:
+        cli.cmd_audit(args)
+    assert stop.value.code == cli.RESERVED
+    err = capsys.readouterr().err
+    assert "reserva la minería de textos y datos" in err and "https://x.es/.well-known/tdmrep.json" in err
+
+
+@pytest.mark.chrome
+@pytest.mark.skipif(not pages.engine_available(), reason="sin Chrome ni websockets (se ejecuta en el contenedor)")
+def test_a_reservation_in_tdmrep_stops_the_audit_before_capturing(site, tmp_path):
+    site.extra["/.well-known/tdmrep.json"] = (b'[{"location": "/blog/*", "tdm-reservation": 1}]', "application/json", {})
+    record = site.run("tdmrep")
+    folder = tmp_path / "audits/tdmrep"
+    assert [(p["id"], p["outcome"]) for p in record["pages"]] == \
+        [("home", "pending"), ("product-01", "pending"), ("product-02", "pending"), ("product-03", "pending")]
+    assert not (folder / "pages").exists() and not (folder / "sitemaps").exists() and "sitemaps" not in record
+    assert not set(site.sent) - {"/robots.txt", "/.well-known/tdmrep.json", "/favicon.ico"}   # nothing else asked
+    assert record["reservation"] == {
+        "where": "tdmrep.json", "url": f"{site.base}/.well-known/tdmrep.json", "source": "tdmrep.json",
+        "file": f"sites/{site.host}/tdmrep.json", "entries": [{"location": "/blog/*", "reservation": 1, "policy": None}]}
+    assert (folder / record["reservation"]["file"]).is_file()
+    assert record["stopped"].endswith("no se captura nada")
+    assert json.loads((folder / "audit.json").read_text(encoding="utf-8"))["reservation"]["where"] == "tdmrep.json"
+
+
+@pytest.mark.chrome
+@pytest.mark.skipif(not pages.engine_available(), reason="sin Chrome ni websockets (se ejecuta en el contenedor)")
+def test_a_reservation_in_the_home_page_stops_the_audit(site, tmp_path):
+    site.extra["/"] = (HOME.encode(), "text/html; charset=utf-8",
+                       {"tdm-reservation": "1", "tdm-policy": "https://x.es/tdm-policy.json"})
+    record = site.run("portada")
+    home = record["pages"][0]
+    assert (home["id"], home["outcome"]) == ("home", "reserved")
+    assert [p["outcome"] for p in record["pages"][1:]] == ["pending"] * 3
+    snap = tmp_path / "audits/portada" / home["snapshot"]
+    assert [f.name for f in snap.iterdir()] == ["meta.json"]          # the visit is recorded, its content is not kept
+    assert "/sitemap_index.xml" not in site.sent and "sitemaps" not in record
+    assert record["reservation"] == {"where": "home", "url": f"{site.base}/", "source": "cabecera tdm-reservation",
+                                     "header": "1", "meta": None, "policy": "https://x.es/tdm-policy.json",
+                                     "snapshot": home["snapshot"]}
+    assert record["stopped"].endswith("no se captura nada")
+
+
+@pytest.mark.chrome
+@pytest.mark.skipif(not pages.engine_available(), reason="sin Chrome ni websockets (se ejecuta en el contenedor)")
+def test_a_reservation_in_an_inner_page_stops_the_audit_there(site, tmp_path):
+    reserved = PRODUCT_LD.replace("<title>", '<meta name="tdm-reservation" content="1"><title>')
+    site.extra["/p/dos"] = (reserved.encode(), "text/html; charset=utf-8", {})
+    record = site.run("interior")
+    assert {p["id"]: p["outcome"] for p in record["pages"]} == {
+        "home": "captured", "product-01": "captured", "product-02": "reserved", "product-03": "pending",
+        "policy-shipping": "pending", "policy-returns": "pending", "policy-contact": "pending",
+        "category-01": "pending"}
+    assert "100 % algodón" in audit.read("interior", "product-01")   # what came before is kept
+    two = next(p for p in record["pages"] if p["id"] == "product-02")
+    assert [f.name for f in (tmp_path / "audits/interior" / two["snapshot"]).iterdir()] == ["meta.json"]
+    assert record["reservation"] == {"where": "product-02", "url": f"{site.base}/p/dos", "source": "meta tdm-reservation",
+                                     "header": None, "meta": "1", "policy": None, "snapshot": two["snapshot"]}
+    assert record["sitemaps"]["complete"] and record["stopped"].endswith("lo pendiente no se captura")
 
 
 def one_snapshot(record, page_id):

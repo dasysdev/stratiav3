@@ -43,3 +43,11 @@ def test_reservation_in_header_or_meta():
     assert tdm.reserved_by_response({"TDM-Reservation": "1"}, None)
     assert tdm.reserved_by_response({}, {"tdm": "1"})
     assert not tdm.reserved_by_response({"tdm-reservation": "0"}, {"tdm": None})
+
+
+def test_reserving_entries_and_signals():
+    items = tdm.entries('[{"location": "/", "tdm-reservation": 0}, {"location": "/blog/*", "tdm-reservation": 1}]', 200)
+    assert tdm.reserving(items) == [{"location": "/blog/*", "reservation": 1, "policy": None}]
+    assert tdm.reserving(tdm.entries('[{"location": "/", "tdm-reservation": 0}]', 200)) == []
+    assert tdm.signals({"TDM-Reservation": " 1 ", "tdm-policy": "https://x.es/p.json"}, {"tdm": None}) == \
+        {"header": "1", "meta": None, "policy": "https://x.es/p.json"}

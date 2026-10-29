@@ -41,6 +41,20 @@ def reserved_by_entries(items: list[dict], url: str) -> bool:
     return best[1] == 1
 
 
-def reserved_by_response(headers: dict, meta: dict | None) -> bool:
+def reserving(items: list[dict]) -> list[dict]:
+    """The entries of a tdmrep.json that reserve some location. In an audit any of them is a
+    reservation of the site (D-171)."""
+    return [item for item in items if item["reservation"] == 1]
+
+
+def signals(headers: dict, meta: dict | None) -> dict:
+    """The reservation signals of a response: header and meta tdm-reservation, and tdm-policy."""
     h = {k.lower(): str(v).strip() for k, v in (headers or {}).items()}
-    return h.get("tdm-reservation") == "1" or str((meta or {}).get("tdm") or "").strip() == "1"
+    meta = meta or {}
+    return {"header": h.get("tdm-reservation"), "meta": meta.get("tdm"),
+            "policy": h.get("tdm-policy") or meta.get("tdm_policy")}
+
+
+def reserved_by_response(headers: dict, meta: dict | None) -> bool:
+    found = signals(headers, meta)
+    return found["header"] == "1" or str(found["meta"] or "").strip() == "1"

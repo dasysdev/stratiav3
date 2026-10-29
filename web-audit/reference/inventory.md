@@ -108,7 +108,7 @@ Schema.org es permisivo por diseño: todos los requisitos de este nivel son reco
 
 ## Sin clase en el canon
 
-`gs1-web-vocabulary` (GS1-01) y `gs1-web-vocabulary-standard` (GS1-03) están registradas y congeladas, pero sin ficha. El GS1 Web Vocabulary es un vocabulario distinto de Schema.org y no encaja en ninguna clase de fuente: [I-47](../../docs/30-governance/issues.md#i-47), que propone la clase «vocabulario complementario». Ninguna ficha real usa términos `gs1:`.
+`gs1-web-vocabulary` (GS1-01) y `gs1-web-vocabulary-standard` (GS1-03) están registradas y congeladas, pero sin ficha. El GS1 Web Vocabulary es un vocabulario distinto de Schema.org y no encaja en ninguna clase de fuente. Por [D-212](../../docs/30-governance/decisions.md#d-212), las dos fuentes quedan sin ficha y sin clase nueva hasta que un perfil las necesite. Ninguna ficha real usa términos `gs1:`.
 
 ## Fuera del registro
 
@@ -125,7 +125,7 @@ Schema.org es permisivo por diseño: todos los requisitos de este nivel son reco
 | Free listings guidelines, Member program | Fichas de comerciante, Organization | Fuera: Merchant Center (Catálogos distribuidos). |
 | Local business, Breadcrumb y otros tipos de Google | Organization; fichas reales | Fuera del perfil (D-130). |
 | Namespaces in XML 1.1 y contextos iniciales de RDFa | RDFa | Sin prisa: ninguna ficha real usa RDFa. |
-| GS1 Digital Link y reglas generales del GTIN | `schema:gtin`, `schema:hasGS1DigitalLink` | Con I-47. |
+| GS1 Digital Link y reglas generales del GTIN | `schema:gtin`, `schema:hasGS1DigitalLink` | Sin ficha hasta que un perfil lo necesite (D-212). |
 
 ## Tipos de las fichas reales
 

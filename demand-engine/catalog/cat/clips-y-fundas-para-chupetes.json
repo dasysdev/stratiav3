@@ -158,7 +158,7 @@
     },
     {
       "id": "cat.clips-y-fundas-para-chupetes/05",
-      "question": "¿Qué normas de seguridad cumple (marcado CE, norma de soportes de chupete) y qué sustancias declara no contener?",
+      "question": "¿Qué normas de seguridad cumple (marcado CE, norma de soportes de chupete)?",
       "dimension": "cumplimiento de seguridad",
       "entity": "producto",
       "trait": "seguridad",
@@ -166,13 +166,10 @@
       "origin": "referencias",
       "sources": [
         "shopify-attr:product-certifications-standards=Certificado CE",
-        "shopify-attr:product-certifications-standards=Certificado Made Safe",
-        "shopify-attr:product-certifications-standards=DBP",
-        "shopify-attr:product-certifications-standards=Cumple con la restricción de sustancias peligrosas (RoHS)",
         "shopify-attr:product-certifications-standards=ISO"
       ],
       "applicability": "universal",
-      "rationale": "Producto de puericultura que está al alcance del bebé: el cumplimiento de seguridad es criterio de elección.",
+      "rationale": "Producto de puericultura que está al alcance del bebé: el cumplimiento de seguridad es criterio de elección. Separado por D-196: ¿Qué sustancias nocivas declara no contener? pasa a cat.clips-y-fundas-para-chupetes/10.",
       "seed_importance": "principal",
       "importance": "principal",
       "rule": "imp:seguridad@bt-3-3",
@@ -194,6 +191,33 @@
           ]
         },
         {
+          "contribution": "indicación de cumplimiento de la norma de soportes de chupete",
+          "component": "normas de seguridad",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.clips-y-fundas-para-chupetes/10",
+      "question": "¿Qué sustancias nocivas declara no contener?",
+      "dimension": "cumplimiento de seguridad",
+      "entity": "producto",
+      "trait": "seguridad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:product-certifications-standards=Certificado Made Safe",
+        "shopify-attr:product-certifications-standards=DBP",
+        "shopify-attr:product-certifications-standards=Cumple con la restricción de sustancias peligrosas (RoHS)"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.clips-y-fundas-para-chupetes/05 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. Producto de puericultura que está al alcance del bebé: el cumplimiento de seguridad es criterio de elección.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:seguridad@bt-3-3",
+      "resolving_info": [
+        {
           "contribution": "declaración de ausencia de sustancias nocivas",
           "component": "sustancias que declara no contener",
           "origin": "referencias",
@@ -202,12 +226,6 @@
             "shopify-attr:product-certifications-standards=Cumple con la restricción de sustancias peligrosas (RoHS)",
             "shopify-attr:product-certifications-standards=Certificado Made Safe"
           ]
-        },
-        {
-          "contribution": "indicación de cumplimiento de la norma de soportes de chupete",
-          "component": "normas de seguridad",
-          "origin": "inferida",
-          "support": []
         }
       ]
     },
@@ -446,5 +464,5 @@
   "status": "compilado",
   "version": "2",
   "generated": "2026-10-26",
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

@@ -10,7 +10,7 @@
     "amazon-ptd:BOOT@2026-10-24",
     "amazon-btg:2008195031@2026-10-24"
   ],
-  "version": "4",
+  "version": "6",
   "status": "compilado",
   "requirements": [
     {
@@ -197,7 +197,7 @@
       "applicability": "universal",
       "rationale": "Completa la altura del tacón (cat.calzado/05) con su forma y la plataforma, relevantes en botas de moda. No sube a Calzado aunque heel también está en SLIPPER (criterio 4 y D-040): Tacones tiene heel-shape como atributo propio de Shopify. Redacción con D-060 (T-031, reglas 2 y 3): la plataforma es un hecho que solo afecta a una parte, y su altura es una medida (otro rasgo).",
       "seed_importance": "complementario",
-      "rule": "imp:cat.botas/05@aa-8-3",
+      "rule": "imp:construccion@aa-8",
       "resolving_info": [
         {
           "contribution": "tipo de tacón",
@@ -394,7 +394,7 @@
       "dimension": "piel con pelo",
       "trait": "material",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:BOOT.fur"
@@ -402,7 +402,7 @@
       "applicability": "si lleva piel con pelo",
       "rationale": "Parte de cat.botas/04 separada por la regla 2 de D-060 (T-031): la piel con pelo es un hecho que solo afecta a una parte: requisito condicionado propio.",
       "seed_importance": "principal",
-      "rule": "imp:material@aa-8-3",
+      "rule": "imp:cat.botas/20@aa-8-3",
       "vote": "principal",
       "resolving_info": [
         {
@@ -456,7 +456,7 @@
       "dimension": "plantilla extraíble",
       "trait": "construccion",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:BOOT.special_feature=Plantilla extraíble"
@@ -464,7 +464,7 @@
       "applicability": "universal",
       "rationale": "Parte de cat.botas/06 separada por la regla 3 de D-060 (T-031): el material (material) y que sea extraíble (construcción) toman otro rasgo.",
       "seed_importance": "complementario",
-      "rule": "imp:construccion@aa-8-3",
+      "rule": "imp:construccion@aa-8",
       "vote": "complementario",
       "resolving_info": [
         {
@@ -532,6 +532,40 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cat.botas/25",
+      "question": "¿Está hecha a mano y en qué grado (hecha a mano, diseñada a mano, modificada a mano…)?",
+      "dimension": "elaboración a mano",
+      "trait": "construccion",
+      "entity": "producto",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOOT.handmade_classification"
+      ],
+      "applicability": "universal",
+      "rationale": "El PTD BOOT de Amazon recoge handmade_classification y cat.botas ni la pregunta ni la excluye (D-088): omisión del bloque. La elaboración a mano distingue ofertas de botas de gama alta y condiciona su precio. Propuesta al bloque (D-088) desde bota-polo-e (2026-10-29-v7-b).",
+      "seed_importance": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si está hecho a mano",
+          "component": "hecha a mano",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.handmade_classification"
+          ]
+        },
+        {
+          "contribution": "grado de elaboración a mano (hecho, diseñado o modificado a mano)",
+          "component": "en qué grado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BOOT.handmade_classification"
+          ]
+        }
+      ],
+      "importance": "complementario",
+      "rule": "imp:construccion@aa-8"
     }
   ],
   "excluded": [
@@ -724,5 +758,5 @@
       "reason": "Umbral aduanero de gramaje del corte textil (200 g/m²); no es un criterio para comparar botas."
     }
   ],
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

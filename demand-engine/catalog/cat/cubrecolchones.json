@@ -10,7 +10,7 @@
     "amazon-ptd:MATTRESS_COVER@2026-10-24",
     "amazon-btg:27003778031@2026-10-24"
   ],
-  "version": "2",
+  "version": "3",
   "status": "compilado",
   "requirements": [
     {
@@ -53,7 +53,7 @@
       "dimension": "acolchado",
       "trait": "prestacion",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:MATTRESS_COVER.item_firmness_description",
@@ -63,7 +63,7 @@
       "applicability": "universal",
       "rationale": "Candidatos de MATTRESS_COVER (PTD asignado a la madre) trasladados aquí: solo se aplican a protectores acolchados, que son esta categoría; en un protector fino no tienen sentido. Amazon usa MATTRESS_COVER también en su nodo «Almohadillas de colchón» (27003778031). Redacción con D-060 (T-031, regla 3): el grosor (magnitud) y la firmeza (prestación) toman otro rasgo y otra importancia.",
       "seed_importance": "principal",
-      "rule": "imp:prestacion@hg-15-1-6",
+      "rule": "imp:cat.cubrecolchones/02@hg-15-1-6-2",
       "resolving_info": [
         {
           "contribution": "nivel de firmeza del acolchado",
@@ -157,7 +157,7 @@
       "dimension": "grosor",
       "trait": "magnitud",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:MATTRESS_COVER.item_thickness"
@@ -165,7 +165,7 @@
       "applicability": "universal",
       "rationale": "Parte de cat.cubrecolchones/02 separada por la regla 3 de D-060 (T-031): el grosor (magnitud) y la firmeza (prestación) toman otro rasgo y otra importancia.",
       "seed_importance": "principal",
-      "rule": "imp:magnitud@hg-15-1-6-2",
+      "rule": "imp:magnitud@hg-15",
       "vote": "principal",
       "resolving_info": [
         {
@@ -276,5 +276,5 @@
       "reason": "Lo cubre cat.ropa-de-casa/02 (cuidado)."
     }
   ],
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

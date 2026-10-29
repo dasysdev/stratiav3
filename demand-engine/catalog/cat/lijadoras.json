@@ -443,7 +443,7 @@
     },
     {
       "id": "cat.lijadoras/13",
-      "question": "¿Qué niveles de vibración y de ruido emite (m/s², dB(A))?",
+      "question": "¿Qué nivel de vibración emite (m/s²)?",
       "dimension": "emisiones de vibración y ruido",
       "entity": "producto",
       "trait": "seguridad",
@@ -451,7 +451,7 @@
       "origin": "inferida",
       "sources": [],
       "applicability": "universal",
-      "rationale": "Las lijadoras son máquinas portátiles cuyos valores de vibración mano-brazo y de ruido figuran en sus instrucciones y afectan a la exposición del usuario. Ninguna referencia de la cadena lo recoge; posible apoyo normativo en la regulación de máquinas, sin verificar aquí.",
+      "rationale": "Las lijadoras son máquinas portátiles cuyos valores de vibración mano-brazo y de ruido figuran en sus instrucciones y afectan a la exposición del usuario. Ninguna referencia de la cadena lo recoge; posible apoyo normativo en la regulación de máquinas, sin verificar aquí. Separado por D-196: ¿Qué nivel de ruido emite (dB(A))? pasa a cat.lijadoras/15.",
       "seed_importance": "complementario",
       "importance": "complementario",
       "rule": "imp:seguridad@ha-15-59",
@@ -461,7 +461,24 @@
           "component": "vibración",
           "origin": "inferida",
           "support": []
-        },
+        }
+      ]
+    },
+    {
+      "id": "cat.lijadoras/15",
+      "question": "¿Qué nivel de ruido emite (dB(A))?",
+      "dimension": "emisiones de vibración y ruido",
+      "entity": "producto",
+      "trait": "seguridad",
+      "vote": "complementario",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Parte de cat.lijadoras/13 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. Las lijadoras son máquinas portátiles cuyos valores de vibración mano-brazo y de ruido figuran en sus instrucciones y afectan a la exposición del usuario. Ninguna referencia de la cadena lo recoge; posible apoyo normativo en la regulación de máquinas, sin verificar aquí.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:seguridad@ha-15-59",
+      "resolving_info": [
         {
           "contribution": "nivel de presión acústica ponderado A",
           "component": "ruido",
@@ -533,5 +550,5 @@
   "status": "compilado",
   "version": "2",
   "generated": "2026-10-26",
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

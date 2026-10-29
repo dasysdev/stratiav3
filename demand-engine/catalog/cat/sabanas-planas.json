@@ -72,5 +72,5 @@
       "reason": "Requisito retirado: movido a cat.sabanas/03 (criterio 4: thread está en FITTED_SHEET y FLAT_SHEET y vale para las dos hijas de Sábanas), con su fuente amazon-ptd-prop:FLAT_SHEET.thread."
     }
   ],
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

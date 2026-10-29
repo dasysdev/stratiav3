@@ -11,14 +11,14 @@
     "amazon-btg:2844244031@2026-10-24",
     "ley:UE-1007/2011-16.1@2018-02-15"
   ],
-  "version": "4",
+  "version": "6",
   "status": "compilado",
   "requirements": [
     {
       "id": "cat.cojines-decorativos/01",
       "question": "¿Qué medidas tiene (largo y ancho)?",
       "dimension": "dimensiones físicas",
-      "trait": "medida",
+      "trait": "medida-que-fija",
       "entity": "producto",
       "importance": "crítico",
       "origin": "referencias",
@@ -28,7 +28,7 @@
       "applicability": "universal",
       "rationale": "La medida es un criterio con el que se eligen y comparan los cojines (encaje en el sofá, proporción, compatibilidad con fundas). Ningún atributo de Shopify de la cadena la recoge. D-087 (I-37): la regla 3 prevalece sobre la forma de sí o no con detalle cuando el detalle toma otro rasgo o importancia. El grosor es magnitud (D-051) y pasa a /14.",
       "seed_importance": "principal",
-      "rule": "imp:cat.cojines-decorativos/01@hg-3-64",
+      "rule": "marco:D-043.1/medida-que-fija",
       "resolving_info": [
         {
           "contribution": "largo del cojín",
@@ -92,7 +92,7 @@
         }
       ],
       "importance": "complementario",
-      "rule": "sin-regla:voto"
+      "rule": "imp:magnitud@hg-3-64"
     },
     {
       "id": "cat.cojines-decorativos/02",
@@ -211,7 +211,7 @@
       "dimension": "confort",
       "trait": "prestacion",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "referencias",
       "sources": [
         "shopify-attr:filler-support"
@@ -219,7 +219,7 @@
       "applicability": "si incluye relleno",
       "rationale": "Shopify lo llama «compatibilidad del relleno»: firmeza o tipo de soporte (blando, medio, firme…). En un cojín decorativo, la firmeza importa menos que en una almohada de cama: amplía el conocimiento sin ser un criterio central.",
       "seed_importance": "complementario",
-      "rule": "imp:prestacion@hg-3-64",
+      "rule": "imp:cat.cojines-decorativos/05@hg-3-64",
       "resolving_info": [
         {
           "contribution": "nivel de firmeza del relleno",
@@ -282,18 +282,17 @@
     },
     {
       "id": "cat.cojines-decorativos/07",
-      "question": "¿Cómo está hecho el diseño de la funda (bordado, estampado, impreso…) y es igual por las dos caras o reversible?",
+      "question": "¿Cómo está hecho el diseño de la funda (bordado, estampado, impreso…)?",
       "dimension": "aspecto",
       "trait": "estetica",
       "entity": "producto",
       "importance": "complementario",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:PILLOW.merch_manufacturing_method",
-        "amazon-ptd-prop:PILLOW.special_feature=Reversible"
+        "amazon-ptd-prop:PILLOW.merch_manufacturing_method"
       ],
       "applicability": "universal",
-      "rationale": "Completa el aspecto, que ya preguntan cat.casa-y-jardin/01 y /02: la técnica (bordado frente a impreso) y si el reverso es liso, igual o distinto. Es relevante en un producto decorativo sin ser un criterio central.",
+      "rationale": "Completa el aspecto, que ya preguntan cat.casa-y-jardin/01 y /02: la técnica (bordado frente a impreso) y si el reverso es liso, igual o distinto. Es relevante en un producto decorativo sin ser un criterio central. Separado por D-196: ¿Es la funda igual por las dos caras o reversible? pasa a cat.cojines-decorativos/15.",
       "seed_importance": "complementario",
       "rule": "imp:cat.cojines-decorativos/07@hg-3-64",
       "resolving_info": [
@@ -304,7 +303,25 @@
           "support": [
             "amazon-ptd-prop:PILLOW.merch_manufacturing_method"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "cat.cojines-decorativos/15",
+      "question": "¿Es la funda igual por las dos caras o reversible?",
+      "dimension": "aspecto",
+      "trait": "estetica",
+      "entity": "producto",
+      "importance": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOW.special_feature=Reversible"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.cojines-decorativos/07 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. Completa el aspecto, que ya preguntan cat.casa-y-jardin/01 y /02: la técnica (bordado frente a impreso) y si el reverso es liso, igual o distinto. Es relevante en un producto decorativo sin ser un criterio central.",
+      "seed_importance": "complementario",
+      "rule": "imp:estetica@hg",
+      "resolving_info": [
         {
           "contribution": "indicación de si es reversible",
           "component": "igual por las dos caras o reversible",
@@ -411,7 +428,7 @@
       "dimension": "uso",
       "trait": "uso",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:PILLOW.indoor_outdoor_usage"
@@ -823,5 +840,5 @@
       "reason": "Tipo de relleno a efectos de cumplimiento: lo cubre /04 (shopify-attr:filler-material)."
     }
   ],
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

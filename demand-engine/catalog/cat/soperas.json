@@ -149,18 +149,17 @@
     },
     {
       "id": "cat.soperas/04",
-      "question": "¿Se puede usar en el horno o en el congelador?",
+      "question": "¿Se puede usar en el horno?",
       "dimension": "usos térmicos",
       "entity": "producto",
       "trait": "uso",
       "vote": "principal",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Apto para horno",
-        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Apto para congelador"
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Apto para horno"
       ],
       "applicability": "universal",
-      "rationale": "Una sopera sirve alimentos calientes; si admite horno (para gratinar o mantener caliente) o congelador es criterio para elegir entre soperas. Redacción con D-060 (T-031, regla 3): conservar el calor (prestación) toma otro rasgo que los usos térmicos (uso).",
+      "rationale": "Una sopera sirve alimentos calientes; si admite horno (para gratinar o mantener caliente) o congelador es criterio para elegir entre soperas. Redacción con D-060 (T-031, regla 3): conservar el calor (prestación) toma otro rasgo que los usos térmicos (uso). Separado por D-196: ¿Se puede usar en el congelador? pasa a cat.soperas/11.",
       "seed_importance": "principal",
       "importance": "complementario",
       "rule": "imp:uso@hg-11-10-7-11",
@@ -174,6 +173,37 @@
           ]
         },
         {
+          "contribution": "temperatura máxima de uso en el horno",
+          "component": "horno",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "resistencia al choque térmico",
+          "component": "horno",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.soperas/11",
+      "question": "¿Se puede usar en el congelador?",
+      "dimension": "usos térmicos",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DISHWARE_BOWL.special_feature=Apto para congelador"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.soperas/04 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. Una sopera sirve alimentos calientes; si admite horno (para gratinar o mantener caliente) o congelador es criterio para elegir entre soperas. Redacción con D-060 (T-031, regla 3): conservar el calor (prestación) toma otro rasgo que los usos térmicos (uso).",
+      "seed_importance": "principal",
+      "importance": "complementario",
+      "rule": "imp:uso@hg-11-10-7-11",
+      "resolving_info": [
+        {
           "contribution": "indicación de si es apta para congelador",
           "component": "congelador",
           "origin": "referencias",
@@ -182,14 +212,8 @@
           ]
         },
         {
-          "contribution": "temperatura máxima de uso en el horno",
-          "component": "horno",
-          "origin": "inferida",
-          "support": []
-        },
-        {
           "contribution": "resistencia al choque térmico",
-          "component": "horno o congelador",
+          "component": "congelador",
           "origin": "inferida",
           "support": []
         }
@@ -574,5 +598,5 @@
   "status": "compilado",
   "version": "2",
   "generated": "2026-10-25",
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

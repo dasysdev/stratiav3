@@ -305,7 +305,7 @@
     },
     {
       "id": "cat.camas-para-mascotas/08",
-      "question": "¿Qué resistencia tiene a mordidas, arañazos y desgarros, a la decoloración y a las manchas?",
+      "question": "¿Qué resistencia tiene a mordidas, arañazos y desgarros?",
       "dimension": "resistencia y durabilidad",
       "entity": "producto",
       "trait": "prestacion",
@@ -314,12 +314,10 @@
       "sources": [
         "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a las mordidas",
         "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a los arañazos",
-        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente al desgarro",
-        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a la decoloración",
-        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistenter a las manchas"
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente al desgarro"
       ],
       "applicability": "universal",
-      "rationale": "Criterio 2: los valores de special_feature sobre la durabilidad mecánica se agrupan en una cuestión. La resistencia a mordidas y uñas es un criterio con que se comparan camas para mascotas. Redacción con D-060 (T-031, regla 3): recibe la resistencia a las manchas de /11, del mismo rasgo.",
+      "rationale": "Criterio 2: los valores de special_feature sobre la durabilidad mecánica se agrupan en una cuestión. La resistencia a mordidas y uñas es un criterio con que se comparan camas para mascotas. Redacción con D-060 (T-031, regla 3): recibe la resistencia a las manchas de /11, del mismo rasgo. Separado por D-196: ¿Qué resistencia tiene a la decoloración y a las manchas? pasa a cat.camas-para-mascotas/16.",
       "seed_importance": "principal",
       "importance": "principal",
       "rule": "imp:prestacion@ap-2-9",
@@ -335,6 +333,32 @@
           ]
         },
         {
+          "contribution": "resultado de un ensayo de resistencia al desgarro del tejido",
+          "component": "mordidas, arañazos y desgarros",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.camas-para-mascotas/16",
+      "question": "¿Qué resistencia tiene a la decoloración y a las manchas?",
+      "dimension": "resistencia y durabilidad",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistente a la decoloración",
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistenter a las manchas"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.camas-para-mascotas/08 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. Criterio 2: los valores de special_feature sobre la durabilidad mecánica se agrupan en una cuestión. La resistencia a mordidas y uñas es un criterio con que se comparan camas para mascotas. Redacción con D-060 (T-031, regla 3): recibe la resistencia a las manchas de /11, del mismo rasgo.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:prestacion@ap-2-9",
+      "resolving_info": [
+        {
           "contribution": "declaración de resistencia a la decoloración",
           "component": "decoloración",
           "origin": "referencias",
@@ -349,12 +373,6 @@
           "support": [
             "amazon-ptd-prop:PET_BED_MAT.special_feature=Resistenter a las manchas"
           ]
-        },
-        {
-          "contribution": "resultado de un ensayo de resistencia al desgarro del tejido",
-          "component": "mordidas, arañazos y desgarros",
-          "origin": "inferida",
-          "support": []
         }
       ]
     },
@@ -411,33 +429,24 @@
     },
     {
       "id": "cat.camas-para-mascotas/10",
-      "question": "¿Qué propiedades higiénicas y de confort tiene la superficie (transpirable, absorbente, antimicrobiana, control de olores, hipoalergénica)?",
+      "question": "¿Qué propiedades higiénicas tiene la superficie (absorbente, antimicrobiana, control de olores, hipoalergénica)?",
       "dimension": "higiene y confort de la superficie",
       "entity": "producto",
       "trait": "prestacion",
       "vote": "complementario",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:PET_BED_MAT.special_feature=Transpirable",
         "amazon-ptd-prop:PET_BED_MAT.special_feature=Absorbente",
         "amazon-ptd-prop:PET_BED_MAT.special_feature=Antimicrobiana",
         "amazon-ptd-prop:PET_BED_MAT.special_feature=Control de Olores",
         "amazon-ptd-prop:PET_BED_MAT.special_feature=Hipoalergénica"
       ],
       "applicability": "universal",
-      "rationale": "Criterio 2: los valores de special_feature sobre higiene y transpirabilidad se agrupan. Relevantes (animales con alergias, incontinencia u olores) sin ser centrales.",
+      "rationale": "Criterio 2: los valores de special_feature sobre higiene y transpirabilidad se agrupan. Relevantes (animales con alergias, incontinencia u olores) sin ser centrales. Separado por D-196: ¿Es transpirable la superficie? pasa a cat.camas-para-mascotas/17.",
       "seed_importance": "complementario",
       "importance": "principal",
       "rule": "imp:prestacion@ap-2-9",
       "resolving_info": [
-        {
-          "contribution": "declaración de transpirabilidad",
-          "component": "propiedades de confort",
-          "origin": "referencias",
-          "support": [
-            "amazon-ptd-prop:PET_BED_MAT.special_feature=Transpirable"
-          ]
-        },
         {
           "contribution": "capacidad de absorción",
           "component": "propiedades higiénicas",
@@ -461,6 +470,33 @@
           "origin": "referencias",
           "support": [
             "amazon-ptd-prop:PET_BED_MAT.special_feature=Hipoalergénica"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.camas-para-mascotas/17",
+      "question": "¿Es transpirable la superficie?",
+      "dimension": "higiene y confort de la superficie",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PET_BED_MAT.special_feature=Transpirable"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.camas-para-mascotas/10 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. Criterio 2: los valores de special_feature sobre higiene y transpirabilidad se agrupan. Relevantes (animales con alergias, incontinencia u olores) sin ser centrales.",
+      "seed_importance": "complementario",
+      "importance": "principal",
+      "rule": "imp:prestacion@ap-2-9",
+      "resolving_info": [
+        {
+          "contribution": "declaración de transpirabilidad",
+          "component": "propiedades de confort",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:PET_BED_MAT.special_feature=Transpirable"
           ]
         }
       ]
@@ -726,5 +762,5 @@
   "status": "compilado",
   "version": "2",
   "generated": "2026-10-25",
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

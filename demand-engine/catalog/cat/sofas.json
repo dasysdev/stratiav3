@@ -10,7 +10,7 @@
     "amazon-ptd:SOFA@2026-10-24",
     "amazon-btg:2822922031@2026-10-24"
   ],
-  "version": "3",
+  "version": "4",
   "status": "compilado",
   "requirements": [
     {
@@ -119,7 +119,7 @@
       "dimension": "capacidad",
       "trait": "medida",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "crítico",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.seating_capacity"
@@ -127,7 +127,7 @@
       "applicability": "universal",
       "rationale": "Es un criterio básico para elegir y comparar sofás. Responde también a la categoría Sofás de dos plazas (fr-22-4), que no tiene requisitos propios.",
       "seed_importance": "principal",
-      "rule": "marco:D-043.1/medida-descriptiva",
+      "rule": "imp:cat.sofas/03@fr-22",
       "resolving_info": [
         {
           "contribution": "número de plazas",
@@ -145,7 +145,7 @@
       "dimension": "dimensiones físicas",
       "trait": "medida",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "crítico",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.item_depth_width_height",
@@ -158,7 +158,7 @@
       "applicability": "universal",
       "rationale": "Las medidas deciden si el sofá cabe en la estancia: es uno de los primeros criterios para elegir. «Ahorro de espacio» y «Compacto» son afirmaciones que se resuelven con las medidas. Criterio 1: principal, porque describe el producto; no fija la variante que se vende.",
       "seed_importance": "principal",
-      "rule": "marco:D-043.1/medida-descriptiva",
+      "rule": "imp:cat.sofas/04@fr-22",
       "resolving_info": [
         {
           "contribution": "ancho total de lado a lado",
@@ -385,7 +385,7 @@
       "dimension": "durabilidad",
       "trait": "prestacion",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.upholstery.rub_count",
@@ -399,7 +399,7 @@
       "applicability": "universal",
       "rationale": "La resistencia a la abrasión de la tapicería es una cuestión clave de la clase: es la que se perdió en el experimento del sofá cama (T-012) y la recoge el caso de cases.md. Toma de SOFA.upholstery los campos rub_count y double_rub_count, y de sofa-features el valor «Apto para mascotas». «Resistente a las perforaciones» se aplica sobre todo a los sofás hinchables. Criterio 2: se citan los valores de sofa-features (extensión de chair-sofa-features) que cubre.",
       "seed_importance": "principal",
-      "rule": "imp:prestacion@fr-22",
+      "rule": "imp:cat.sofas/08@fr-22",
       "resolving_info": [
         {
           "contribution": "número de ciclos Martindale que resiste la tela",
@@ -450,7 +450,7 @@
       "dimension": "durabilidad",
       "trait": "prestacion",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.special_feature=Resistente a las manchas",
@@ -463,7 +463,7 @@
       "applicability": "universal",
       "rationale": "El antimanchas es una cuestión clave de la clase (perdida en T-012; cases.md) y un criterio de comparación habitual. Se agrupa con la repelencia a líquidos y la resistencia a la luz, que tratan de cómo conserva la tapicería su aspecto. De sofa-features toma «Resistente a las manchas» e «Impermeable». Criterio 2: se citan los valores de sofa-features (extensión de chair-sofa-features) que cubre.",
       "seed_importance": "principal",
-      "rule": "imp:prestacion@fr-22",
+      "rule": "imp:cat.sofas/09@fr-22",
       "resolving_info": [
         {
           "contribution": "declaración de resistencia a las manchas",
@@ -512,7 +512,7 @@
       "dimension": "mantenimiento",
       "trait": "cuidado",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.special_feature=Funda extraíble",
@@ -522,7 +522,7 @@
       "applicability": "universal",
       "rationale": "En España, «desenfundable» es un criterio con el que se comparan sofás, y cases.md lo recoge como requisito de la base. De SOFA.seat_cushion toma has_removable_cover, y de sofa-features, «Cubierta extraíble». Cómo se lavan las fundas lo pregunta cat.mobiliario/03. Criterio 2: se citan los valores de sofa-features (extensión de chair-sofa-features) que cubre.",
       "seed_importance": "principal",
-      "rule": "imp:cuidado@fr",
+      "rule": "imp:cuidado@fr-22",
       "resolving_info": [
         {
           "contribution": "indicación de si las fundas son extraíbles",
@@ -642,7 +642,7 @@
     },
     {
       "id": "cat.sofas/13",
-      "question": "¿Cómo son el asiento y los cojines: tipo de asiento, cuántos cojines lleva y si son fijos o sueltos, extraíbles o reversibles?",
+      "question": "¿Qué tipo de asiento tiene (tapizado, acolchado, de malla…)?",
       "dimension": "construcción",
       "trait": "construccion",
       "entity": "producto",
@@ -650,19 +650,12 @@
       "origin": "referencias",
       "sources": [
         "shopify-attr:seat-type",
-        "shopify-attr:sofa-features=Cojines extraíbles",
         "shopify-attr:sofa-features=Tapizado",
-        "amazon-ptd-prop:SOFA.seat_cushion.quantity",
-        "amazon-ptd-prop:SOFA.seat_cushion.removability",
-        "amazon-ptd-prop:SOFA.back_cushion",
-        "amazon-ptd-prop:SOFA.seat_cushion_configuration",
         "amazon-ptd-prop:SOFA.special_feature=Asiento acolchado",
-        "amazon-ptd-prop:SOFA.special_feature=Cojín acolchado",
-        "amazon-ptd-prop:SOFA.special_feature=Cojín extraíble",
-        "amazon-ptd-prop:SOFA.special_feature=Cojín reversible"
+        "amazon-ptd-prop:SOFA.special_feature=Cojín acolchado"
       ],
       "applicability": "universal",
-      "rationale": "seat-type es un atributo genérico de asientos (tapizado, acolchado, malla…); en sofás se completa con la configuración de los cojines. Influye en el mantenimiento y en el aspecto con el uso, pero no es tan central como el relleno o la firmeza. De sofa-features toma «Cojines extraíbles» y «Tapizado»; de seat_cushion, quantity y removability; de back_cushion, removability y thickness. Criterio 2: se citan los valores de sofa-features (extensión de chair-sofa-features) que cubre.",
+      "rationale": "seat-type es un atributo genérico de asientos (tapizado, acolchado, malla…); de sofa-features toma «Tapizado». Influye en el mantenimiento y en el aspecto con el uso, pero no es tan central como el relleno o la firmeza. Separado de los cojines (cat.sofas/35) por D-196: son necesidades distintas aunque compartan rasgo e importancia.",
       "seed_importance": "complementario",
       "rule": "imp:construccion@fr-22",
       "resolving_info": [
@@ -676,7 +669,31 @@
             "amazon-ptd-prop:SOFA.special_feature=Asiento acolchado",
             "amazon-ptd-prop:SOFA.special_feature=Cojín acolchado"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "cat.sofas/35",
+      "question": "¿Cuántos cojines lleva y si son fijos o sueltos, extraíbles o reversibles?",
+      "dimension": "construcción",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:sofa-features=Cojines extraíbles",
+        "amazon-ptd-prop:SOFA.seat_cushion.quantity",
+        "amazon-ptd-prop:SOFA.seat_cushion.removability",
+        "amazon-ptd-prop:SOFA.back_cushion",
+        "amazon-ptd-prop:SOFA.seat_cushion_configuration",
+        "amazon-ptd-prop:SOFA.special_feature=Cojín extraíble",
+        "amazon-ptd-prop:SOFA.special_feature=Cojín reversible"
+      ],
+      "applicability": "universal",
+      "rationale": "La configuración de los cojines (cuántos, fijos o sueltos, extraíbles o reversibles) influye en el mantenimiento y en el aspecto con el uso. De sofa-features toma «Cojines extraíbles»; de seat_cushion, quantity y removability; de back_cushion, removability y thickness. Parte de cat.sofas/13, separada por D-196: el tipo de asiento es otra necesidad.",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@fr-22",
+      "resolving_info": [
         {
           "contribution": "configuración del asiento en uno o varios cojines",
           "component": "cuántos cojines lleva",
@@ -722,7 +739,7 @@
     },
     {
       "id": "cat.sofas/14",
-      "question": "¿Qué diseño tienen los brazos y el respaldo, y qué acabados decorativos lleva (capitoné, botones, tachuelas, tallas, borde de los cojines)?",
+      "question": "¿Qué diseño tienen los brazos y el respaldo?",
       "dimension": "aspecto",
       "trait": "estetica",
       "entity": "producto",
@@ -731,17 +748,12 @@
       "sources": [
         "amazon-ptd-prop:SOFA.arm.style",
         "amazon-ptd-prop:SOFA.back",
-        "amazon-ptd-prop:SOFA.cushion_style",
         "amazon-ptd-prop:SOFA.special_feature=Brazo curvo",
         "amazon-ptd-prop:SOFA.special_feature=Brazo enrollado",
-        "amazon-ptd-prop:SOFA.special_feature=Reposabrazos",
-        "amazon-ptd-prop:SOFA.special_feature=Cabeza de clavo",
-        "amazon-ptd-prop:SOFA.special_feature=Tapizado con botones",
-        "amazon-ptd-prop:SOFA.special_feature=Copetudo con línea cosida",
-        "amazon-ptd-prop:SOFA.special_feature=Tallado en madera"
+        "amazon-ptd-prop:SOFA.special_feature=Reposabrazos"
       ],
       "applicability": "universal",
-      "rationale": "Agrupa los rasgos de estilo: de SOFA.arm, style (sin brazos, de pista, enrollado…); de SOFA.back, style; de cushion_style, el borde de caja o de cuchillo; y las características especiales decorativas. Completan el aspecto sin ser un criterio central.",
+      "rationale": "Agrupa los rasgos de estilo: de SOFA.arm, style (sin brazos, de pista, enrollado…); de SOFA.back, style; de cushion_style, el borde de caja o de cuchillo; y las características especiales decorativas. Completan el aspecto sin ser un criterio central. Separado por D-196: ¿Qué acabados decorativos lleva (capitoné, botones, tachuelas, tallas, borde de los cojines)? pasa a cat.sofas/36.",
       "seed_importance": "complementario",
       "rule": "imp:estetica@fr-22",
       "resolving_info": [
@@ -763,7 +775,29 @@
           "support": [
             "amazon-ptd-prop:SOFA.back"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "cat.sofas/36",
+      "question": "¿Qué acabados decorativos lleva (capitoné, botones, tachuelas, tallas, borde de los cojines)?",
+      "dimension": "aspecto",
+      "trait": "estetica",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SOFA.cushion_style",
+        "amazon-ptd-prop:SOFA.special_feature=Cabeza de clavo",
+        "amazon-ptd-prop:SOFA.special_feature=Tapizado con botones",
+        "amazon-ptd-prop:SOFA.special_feature=Copetudo con línea cosida",
+        "amazon-ptd-prop:SOFA.special_feature=Tallado en madera"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.sofas/14 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. Agrupa los rasgos de estilo: de SOFA.arm, style (sin brazos, de pista, enrollado…); de SOFA.back, style; de cushion_style, el borde de caja o de cuchillo; y las características especiales decorativas. Completan el aspecto sin ser un criterio central.",
+      "seed_importance": "complementario",
+      "rule": "imp:estetica@fr-22",
+      "resolving_info": [
         {
           "contribution": "acabado decorativo de la tapicería",
           "component": "acabados decorativos",
@@ -1174,7 +1208,7 @@
       "dimension": "montaje",
       "trait": "uso",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "referencias",
       "sources": [
         "shopify-attr:assembly-required",
@@ -1193,7 +1227,7 @@
       "applicability": "universal",
       "rationale": "Es relevante para la compra (esfuerzo, acceso por puertas y escaleras), pero no es un criterio central. Si el vendedor ofrece montaje o subida a domicilio, es una modalidad de entrega (gen/09). «Compresible» se refiere al sofá que llega comprimido y se expande. SOFA.is_assembly_required repite la dimensión de assembly-required y se excluye.",
       "seed_importance": "complementario",
-      "rule": "imp:uso@fr-22",
+      "rule": "imp:cat.sofas/21@fr-22",
       "resolving_info": [
         {
           "contribution": "indicación de si requiere montaje y de su grado o dificultad",
@@ -1531,7 +1565,7 @@
       "dimension": "construcción de los cojines",
       "trait": "construccion",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.cushion_construction",
@@ -1541,7 +1575,7 @@
       "applicability": "universal",
       "rationale": "Parte de cat.sofas/11 separada por la regla 3 de D-060 (T-031): el relleno (material) y la construcción de los cojines (construcción) toman otro rasgo y otra importancia.",
       "seed_importance": "principal",
-      "rule": "imp:construccion@fr-22",
+      "rule": "imp:cat.sofas/29@fr-22",
       "vote": "principal",
       "resolving_info": [
         {
@@ -1575,7 +1609,7 @@
       "dimension": "material de las patas",
       "trait": "material",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "complementario",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.base",
@@ -1584,7 +1618,7 @@
       "applicability": "universal",
       "rationale": "Parte de cat.sofas/15 separada por la regla 3 de D-060 (T-031): el material (material) y la altura de las patas (medida) toman otro rasgo y otra importancia que su aspecto (estética); SOFA.furniture_leg se cita por sus partes.",
       "seed_importance": "complementario",
-      "rule": "imp:material@fr-22",
+      "rule": "imp:cat.sofas/30@fr-22",
       "vote": "complementario",
       "resolving_info": [
         {
@@ -1644,7 +1678,7 @@
       "dimension": "plazas y posiciones reclinables",
       "trait": "construccion",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SOFA.reclining_seat_count",
@@ -1653,7 +1687,7 @@
       "applicability": "si es reclinable",
       "rationale": "Parte de cat.sofas/16 separada por la reglas 2 y 3 de D-060 (T-031): «si reclina» es un hecho que solo afecta a una parte: requisito condicionado propio, como /17 (ejemplo de D-060).",
       "seed_importance": "principal",
-      "rule": "imp:construccion@fr-22",
+      "rule": "imp:cat.sofas/32@fr-22",
       "vote": "principal",
       "resolving_info": [
         {
@@ -1873,5 +1907,5 @@
       "reason": "La capacidad mínima de peso no informa sobre la clase; la cuestión es el peso máximo (/22)."
     }
   ],
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

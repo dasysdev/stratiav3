@@ -320,7 +320,7 @@
       "rationale": "Determina la compatibilidad con el tocadiscos del comprador (velocidades admitidas) y el tipo de disco.",
       "seed_importance": "principal",
       "importance": "principal",
-      "rule": "imp:uso@me-3-4",
+      "rule": "imp:uso@me-3",
       "resolving_info": [
         {
           "contribution": "diámetro del disco",
@@ -733,7 +733,7 @@
     }
   ],
   "status": "compilado",
-  "version": "3",
+  "version": "4",
   "generated": "2026-10-25",
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

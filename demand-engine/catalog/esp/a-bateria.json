@@ -1,0 +1,140 @@
+{
+  "id": "esp.a-bateria",
+  "name": "a batería",
+  "order": "función",
+  "trigger": "aparato que funciona con batería recargable",
+  "support": [
+    "shopify-attr:power-source",
+    "amazon-ptd-prop:SANDER.batteries_included",
+    "amazon-ptd-prop:SANDER.battery",
+    "amazon-ptd-prop:SANDER.lithium_battery"
+  ],
+  "requirements": [
+    {
+      "id": "esp.a-bateria/01",
+      "question": "¿Incluye la batería? Si la incluye, ¿cuántas baterías incluye?",
+      "dimension": "batería incluida",
+      "entity": "producto",
+      "trait": "contenido",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SANDER.batteries_included"
+      ],
+      "applicability": "universal",
+      "rationale": "Un aparato de batería se vende con batería o sin ella («solo»): sin saberlo no se sabe qué se vende ni si funciona al recibirlo, y el precio de una oferta sin batería no se compara con el de un kit. No se aplica a los aparatos de cable ni a los neumáticos. Amazon lo recoge en batteries_included.",
+      "seed_importance": "crítico",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si incluye la batería",
+          "component": "si incluye la batería",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.batteries_included"
+          ]
+        },
+        {
+          "contribution": "número de baterías incluidas",
+          "component": "cuántas baterías incluye",
+          "origin": "inferida",
+          "support": []
+        }
+      ],
+      "importance": "crítico",
+      "rule": "sin-regla:voto"
+    },
+    {
+      "id": "esp.a-bateria/02",
+      "question": "¿Incluye el cargador de la batería?",
+      "dimension": "cargador incluido",
+      "entity": "producto",
+      "trait": "contenido",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Sin cargador el comprador no puede cargar la batería y tiene que comprarlo aparte: es una necesidad distinta de la batería (D-196), porque hay ofertas con batería y sin cargador. No se aplica a los aparatos de cable.",
+      "seed_importance": "crítico",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si incluye el cargador o el adaptador de corriente",
+          "component": "si incluye el cargador",
+          "origin": "inferida",
+          "support": []
+        }
+      ],
+      "importance": "crítico",
+      "rule": "sin-regla:voto"
+    },
+    {
+      "id": "esp.a-bateria/03",
+      "question": "¿Qué tipo de batería usa (iones de litio, níquel-cadmio, níquel-metal hidruro)?",
+      "dimension": "química de la batería",
+      "entity": "producto",
+      "trait": "identidad",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SANDER.battery"
+      ],
+      "applicability": "universal",
+      "rationale": "La química de la batería condiciona su peso, su autodescarga y su vida útil; Amazon la recoge en la composición de la pila (battery.cell_composition). Solo existe en los aparatos de batería.",
+      "seed_importance": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "composición química de la batería",
+          "component": "tipo de batería",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.battery"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "imp:identidad@ha-15"
+    },
+    {
+      "id": "esp.a-bateria/04",
+      "question": "¿Qué capacidad tiene la batería incluida (Ah o Wh)?",
+      "dimension": "capacidad de la batería",
+      "entity": "producto",
+      "trait": "prestacion",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:SANDER.lithium_battery"
+      ],
+      "applicability": "si la oferta incluye la batería",
+      "rationale": "La capacidad fija la autonomía del aparato y es uno de los datos con los que se comparan los kits de batería. Solo procede si la batería va incluida: si no, la decide la batería que el comprador ya tiene. Amazon recoge la energía de la batería de litio (lithium_battery.energy_content).",
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "capacidad de la batería en amperios hora",
+          "component": "capacidad de la batería",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "energía de la batería en vatios hora",
+          "component": "capacidad de la batería",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:SANDER.lithium_battery"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "imp:prestacion@ha-15"
+    }
+  ],
+  "type": "especialización",
+  "anchors": [
+    "ha-15-59-3"
+  ],
+  "status": "compilado",
+  "version": "1",
+  "generated": "2026-10-29",
+  "aliases": [
+    "esp.bateria"
+  ],
+  "rules": [
+    "esp:esp.a-bateria@ha-15-59-3"
+  ],
+  "compiled_by": "reglas 8"
+}

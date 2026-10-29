@@ -667,7 +667,7 @@
     },
     {
       "id": "cat.calzado/17",
-      "question": "¿Es transpirable o lleva tratamiento antimicrobiano o antiolor?",
+      "question": "¿Es transpirable?",
       "dimension": "transpirabilidad e higiene",
       "trait": "prestacion",
       "entity": "producto",
@@ -675,14 +675,11 @@
       "origin": "referencias",
       "sources": [
         "shopify-attr:shoe-features=Diseño transpirable",
-        "shopify-attr:shoe-features=Antimicrobiano",
-        "amazon-ptd-prop:BOOT.special_feature=Antimicrobiano",
         "amazon-ptd-prop:BOOT.special_feature=Transpirable",
-        "amazon-ptd-prop:SLIPPER.special_feature=Antimicrobiano",
         "amazon-ptd-prop:SLIPPER.special_feature=Transpirable"
       ],
       "applicability": "universal",
-      "rationale": "Tema del atributo «Características del zapato»: gestión de la humedad y del olor. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4).",
+      "rationale": "Tema del atributo «Características del zapato»: gestión de la humedad y del olor. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4). Separado por D-196: ¿Lleva tratamiento antimicrobiano o antiolor? pasa a cat.calzado/27.",
       "seed_importance": "complementario",
       "rule": "imp:prestacion@aa-8",
       "resolving_info": [
@@ -697,6 +694,32 @@
           ]
         },
         {
+          "contribution": "resultado de un ensayo de permeabilidad al vapor de agua",
+          "component": "transpirable",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.calzado/27",
+      "question": "¿Lleva tratamiento antimicrobiano o antiolor?",
+      "dimension": "transpirabilidad e higiene",
+      "trait": "prestacion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:shoe-features=Antimicrobiano",
+        "amazon-ptd-prop:BOOT.special_feature=Antimicrobiano",
+        "amazon-ptd-prop:SLIPPER.special_feature=Antimicrobiano"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.calzado/17 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. Tema del atributo «Características del zapato»: gestión de la humedad y del olor. Suben aquí las propiedades equivalentes de los PTD BOOT y SLIPPER, comunes a Botas y Pantuflas y válidas para todo el calzado (criterio 4).",
+      "seed_importance": "complementario",
+      "rule": "imp:prestacion@aa-8",
+      "resolving_info": [
+        {
           "contribution": "declaración de tratamiento antimicrobiano o antiolor",
           "component": "tratamiento antimicrobiano o antiolor",
           "origin": "referencias",
@@ -705,12 +728,6 @@
             "amazon-ptd-prop:BOOT.special_feature=Antimicrobiano",
             "amazon-ptd-prop:SLIPPER.special_feature=Antimicrobiano"
           ]
-        },
-        {
-          "contribution": "resultado de un ensayo de permeabilidad al vapor de agua",
-          "component": "transpirable",
-          "origin": "inferida",
-          "support": []
         }
       ]
     },
@@ -769,18 +786,17 @@
     },
     {
       "id": "cat.calzado/19",
-      "question": "¿Lleva materiales reciclados o de origen animal, o es vegano?",
+      "question": "¿Lleva materiales reciclados?",
       "dimension": "composición sostenible",
       "trait": "material",
       "entity": "producto",
       "importance": "complementario",
       "origin": "referencias",
       "sources": [
-        "shopify-attr:shoe-features=Materiales reciclados",
-        "shopify-attr:shoe-features=Producto vegano"
+        "shopify-attr:shoe-features=Materiales reciclados"
       ],
       "applicability": "universal",
-      "rationale": "Tema del atributo «Características del zapato». El material reciclado y la ausencia de materiales animales son composición verificable (D-031); «ecológico» y «sostenible» son beneficios reclamados cuyo fundamento se evalúa en la auditoría (D-025). Redacción con D-060 (T-031, regla 3): los materiales (material) y los atributos ambientales declarados (certificación u origen) toman otro rasgo.",
+      "rationale": "Tema del atributo «Características del zapato». El material reciclado y la ausencia de materiales animales son composición verificable (D-031); «ecológico» y «sostenible» son beneficios reclamados cuyo fundamento se evalúa en la auditoría (D-025). Redacción con D-060 (T-031, regla 3): los materiales (material) y los atributos ambientales declarados (certificación u origen) toman otro rasgo. Separado por D-196: ¿Lleva materiales de origen animal o es vegano? pasa a cat.calzado/28.",
       "seed_importance": "complementario",
       "rule": "imp:material@aa-8",
       "resolving_info": [
@@ -793,18 +809,36 @@
           ]
         },
         {
+          "contribution": "proporción de material reciclado",
+          "component": "materiales reciclados",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.calzado/28",
+      "question": "¿Lleva materiales de origen animal o es vegano?",
+      "dimension": "composición sostenible",
+      "trait": "material",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:shoe-features=Producto vegano"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.calzado/19 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. Tema del atributo «Características del zapato». El material reciclado y la ausencia de materiales animales son composición verificable (D-031); «ecológico» y «sostenible» son beneficios reclamados cuyo fundamento se evalúa en la auditoría (D-025). Redacción con D-060 (T-031, regla 3): los materiales (material) y los atributos ambientales declarados (certificación u origen) toman otro rasgo.",
+      "seed_importance": "complementario",
+      "rule": "imp:material@aa-8",
+      "resolving_info": [
+        {
           "contribution": "declaración de producto vegano",
           "component": "de origen animal o vegano",
           "origin": "referencias",
           "support": [
             "shopify-attr:shoe-features=Producto vegano"
           ]
-        },
-        {
-          "contribution": "proporción de material reciclado",
-          "component": "materiales reciclados",
-          "origin": "inferida",
-          "support": []
         },
         {
           "contribution": "certificación vegana de un tercero",
@@ -1026,5 +1060,5 @@
       "reason": "Requisito retirado: la plantilla no sube a Calzado (criterio 4 y D-040): Zapatos planos tiene insole-material como atributo propio de Shopify. Vuelve a cat.botas/06 y cat.pantuflas/04 con sus fuentes."
     }
   ],
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

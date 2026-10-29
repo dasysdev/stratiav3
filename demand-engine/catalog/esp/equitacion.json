@@ -1,0 +1,51 @@
+{
+  "id": "esp.equitacion",
+  "name": "de equitación",
+  "order": "uso",
+  "trigger": "calzado pensado para montar a caballo (bota o botín de equitación)",
+  "support": [
+    "shopify-attr:equestrian-discipline",
+    "shopify-value:boot-style=Equitación",
+    "amazon-ptd-prop:BOOT.boot_form_type=Botas de equitación"
+  ],
+  "requirements": [
+    {
+      "id": "esp.equitacion/01",
+      "question": "¿Para qué disciplina ecuestre está pensado (doma clásica, salto, concurso completo, polo, paseo, monta vaquera…)?",
+      "dimension": "disciplina ecuestre",
+      "entity": "producto",
+      "trait": "uso",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:equestrian-discipline"
+      ],
+      "applicability": "universal en el calzado de equitación",
+      "rationale": "El calzado de montar se diseña para una disciplina (caña, rigidez, cierre y tacón cambian entre doma, salto o polo), y el jinete compara las ofertas dentro de su disciplina. El calzado que no es de equitación no tiene esta cuestión; cat.botas/19 solo pregunta el uso o la actividad (equitación) y no la disciplina. Shopify recoge la dimensión como atributo equestrian-discipline en la rama de equitación.",
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "disciplina ecuestre a la que se destina",
+          "component": "disciplina ecuestre",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:equestrian-discipline"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "imp:uso@aa"
+    }
+  ],
+  "type": "especialización",
+  "anchors": [
+    "aa-8-3"
+  ],
+  "status": "compilado",
+  "version": "1",
+  "generated": "2026-10-29",
+  "aliases": [],
+  "rules": [
+    "esp:esp.equitacion@aa-8-3"
+  ],
+  "compiled_by": "reglas 8"
+}

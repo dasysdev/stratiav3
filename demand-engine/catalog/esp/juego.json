@@ -1,0 +1,120 @@
+{
+  "id": "esp.juego",
+  "type": "especialización",
+  "name": "juego",
+  "order": "juego",
+  "trigger": "juego",
+  "support": [
+    "shopify-attr:bedding-pieces-included",
+    "amazon-ptd-prop:DUVET_COVER.number_of_pieces",
+    "amazon-ptd-prop:FITTED_SHEET.number_of_pieces"
+  ],
+  "generated": "2026-10-29",
+  "seed": "funda-nordica-bordada-401 (2026-10-26-v6-a)",
+  "requirements": [
+    {
+      "id": "esp.juego/01",
+      "question": "¿Qué piezas componen el juego y cuántas unidades de cada una?",
+      "dimension": "composición del juego",
+      "entity": "producto",
+      "trait": "contenido",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:bedding-pieces-included",
+        "amazon-ptd-prop:DUVET_COVER.number_of_pieces",
+        "amazon-ptd-prop:FITTED_SHEET.number_of_pieces"
+      ],
+      "applicability": "universal; por variante cuando la composición cambia con la medida de cama",
+      "rationale": "Sin saber qué piezas incluye el juego y cuántas de cada una no se sabe qué se vende. Los bloques de la clase retiraron las piezas incluidas (bedding-pieces-included, number_of_pieces) para que las cubra esp.juego; las medidas de cada pieza ya las pregunta cat.ropa-de-cama/02, que vale para todas las piezas, y por eso no se repiten aquí.",
+      "seed_importance": "crítico",
+      "resolving_info": [
+        {
+          "contribution": "relación de piezas que componen el juego",
+          "component": "qué piezas",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:bedding-pieces-included"
+          ]
+        },
+        {
+          "contribution": "número de unidades de cada pieza",
+          "component": "cuántas unidades de cada una",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUVET_COVER.number_of_pieces",
+            "amazon-ptd-prop:FITTED_SHEET.number_of_pieces"
+          ]
+        },
+        {
+          "contribution": "número total de piezas del juego",
+          "component": "cuántas unidades de cada una",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DUVET_COVER.number_of_pieces",
+            "amazon-ptd-prop:FITTED_SHEET.number_of_pieces"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "imp:contenido@bt-3-3"
+    },
+    {
+      "id": "esp.juego/02",
+      "question": "¿Qué medidas tiene cada pieza del juego?",
+      "dimension": "medidas de cada pieza",
+      "entity": "producto",
+      "trait": "medida",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BED_LINEN_SET.flat_sheet_dimensions",
+        "amazon-ptd-prop:BED_LINEN_SET.pillowcase_width",
+        "amazon-ptd-prop:BED_LINEN_SET.pillowcase_length"
+      ],
+      "applicability": "universal; por variante cuando las medidas cambian con el tamaño del juego",
+      "rationale": "En un juego cada pieza tiene sus propias medidas (la encimera, la bajera y cada funda) y cambian con el tamaño de cama; hay que darlas pieza a pieza para saber si cada una sirve a la cama y a la almohada del comprador. Es medida descriptiva: la medida que fija lo vendido es el tamaño de cama (cat.ropa-de-cama/01). Amazon recoge por separado las medidas de la encimera y de las fundas del juego (flat_sheet_dimensions, pillowcase_width, pillowcase_length). Propuesta al bloque (D-190, como D-088) desde sabanas-coralina-999 (2026-10-26-v6-a).",
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "medidas de cada pieza del juego",
+          "component": "medidas de cada pieza",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BED_LINEN_SET.flat_sheet_dimensions",
+            "amazon-ptd-prop:BED_LINEN_SET.pillowcase_width",
+            "amazon-ptd-prop:BED_LINEN_SET.pillowcase_length"
+          ]
+        },
+        {
+          "contribution": "tabla de piezas y medidas por tamaño del juego",
+          "component": "medidas de cada pieza",
+          "origin": "inferida",
+          "support": []
+        }
+      ],
+      "importance": "principal",
+      "rule": "marco:D-043.1/medida-descriptiva"
+    }
+  ],
+  "anchors": [
+    "bt-3-3",
+    "hg-15-1-2",
+    "hg-15-1-5",
+    "hg-15-1-8-2",
+    "hg-15-4-1-1",
+    "hg-15-4-5",
+    "lb-1-12"
+  ],
+  "aliases": [],
+  "rules": [
+    "esp:esp.juego@bt-3-3",
+    "esp:esp.juego@hg-15-1-2",
+    "esp:esp.juego@hg-15-1-5",
+    "esp:esp.juego@hg-15-1-8-2",
+    "esp:esp.juego@hg-15-4-1-1",
+    "esp:esp.juego@hg-15-4-5",
+    "esp:esp.juego@lb-1-12"
+  ],
+  "status": "compilado",
+  "version": "1",
+  "compiled_by": "reglas 8"
+}

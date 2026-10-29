@@ -1,0 +1,117 @@
+{
+  "id": "esp.luces",
+  "name": "con luces",
+  "order": "función",
+  "trigger": "calzado con luces o elementos luminosos integrados",
+  "support": [
+    "amazon-ptd-prop:SHOES.special_feature=Se ilumina",
+    "shopify-attr:battery-type"
+  ],
+  "requirements": [
+    {
+      "id": "esp.luces/01",
+      "question": "¿Con qué se alimentan las luces (pila integrada, batería recargable, sin pila…)?",
+      "dimension": "alimentación de las luces",
+      "entity": "producto",
+      "trait": "prestacion",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:battery-type",
+        "amazon-ptd-prop:SHOES.special_feature=Se ilumina"
+      ],
+      "applicability": "universal en el calzado con luces",
+      "rationale": "Las luces integradas necesitan una fuente de energía, y de ella depende cuánto funcionan y qué hacer cuando se agotan. El calzado sin luces no tiene esta cuestión, y ningún bloque de la clase la pregunta: cat.zapatillas-para-bebes-y-ninos/07 solo pregunta si lleva luces.",
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "tipo de pila o batería de las luces",
+          "component": "con qué se alimentan",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:battery-type"
+          ]
+        },
+        {
+          "contribution": "indicación de si las luces funcionan sin pila",
+          "component": "con qué se alimentan",
+          "origin": "inferida",
+          "support": []
+        }
+      ],
+      "importance": "complementario",
+      "rule": "imp:prestacion@aa-8"
+    },
+    {
+      "id": "esp.luces/02",
+      "question": "¿Se puede sustituir o recargar la pila o la batería de las luces?",
+      "dimension": "sustitución o recarga de la pila de las luces",
+      "entity": "producto",
+      "trait": "construccion",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:battery-type"
+      ],
+      "applicability": "si las luces se alimentan con pila o batería",
+      "rationale": "Decide si las luces dejan de funcionar para siempre cuando se agota la pila. Es una necesidad distinta de saber qué las alimenta (D-196) y solo procede si hay pila o batería (D-060, regla 2).",
+      "seed_importance": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si la pila o la batería se puede sustituir",
+          "component": "se puede sustituir",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "indicación de si la batería es recargable y forma de recarga",
+          "component": "recargar",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:battery-type"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "imp:construccion@aa-8-11-5"
+    },
+    {
+      "id": "esp.luces/03",
+      "question": "¿Cómo se encienden y se apagan las luces (al pisar, con un interruptor…)?",
+      "dimension": "encendido de las luces",
+      "entity": "producto",
+      "trait": "uso",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal en el calzado con luces",
+      "rationale": "Indica si el usuario controla las luces o si se encienden solas con cada paso, lo que condiciona dónde se puede llevar el calzado. No aplica al calzado sin luces.",
+      "seed_importance": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "forma de encender las luces",
+          "component": "cómo se encienden",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "indicación de si las luces se pueden apagar",
+          "component": "se apagan",
+          "origin": "inferida",
+          "support": []
+        }
+      ],
+      "importance": "complementario",
+      "rule": "imp:uso@aa-8-11-5"
+    }
+  ],
+  "type": "especialización",
+  "anchors": [
+    "aa-8-11-5"
+  ],
+  "status": "compilado",
+  "version": "1",
+  "generated": "2026-10-29",
+  "aliases": [],
+  "rules": [
+    "esp:esp.luces@aa-8-11-5"
+  ],
+  "compiled_by": "reglas 8"
+}

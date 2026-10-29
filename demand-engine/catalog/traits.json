@@ -15,7 +15,11 @@
     },
     "medida": {
       "label": "medida descriptiva",
-      "definition": "Dimensiones o talla que describen el producto sin fijar qué variante se vende (medidas de un sofá, de un cojín, de la cama abierta). El peso, el grosor y el gramaje son magnitud física (D-051)."
+      "definition": "Dimensiones o talla que describen el producto sin fijar qué variante se vende (medidas de un sofá, de un cojín, de la cama abierta). El peso, el grosor y el gramaje son magnitud física (D-051); la dimensión de una parte o de un detalle, medida de detalle (D-191)."
+    },
+    "medida-detalle": {
+      "label": "medida de detalle",
+      "definition": "Dimensión de una parte o de un detalle del producto que no da su tamaño (altura del tacón o de la plataforma, largo reclinado, longitud de la cadena) (D-191). Sin regla fija ni suelo de principal: su importancia la decide el árbol por clase."
     },
     "magnitud": {
       "label": "magnitud física",
@@ -163,6 +167,7 @@
     "amazon-ptd-prop:BACKPACK.special_feature=Transpirable": "construccion",
     "amazon-ptd-prop:BACKPACK.storage_volume": "medida",
     "amazon-ptd-prop:BACKPACK.strap_type": "construccion",
+    "amazon-ptd-prop:BED_LINEN_SET.seasons": "prestacion",
     "amazon-ptd-prop:BLANKET.blanket_form": "identidad",
     "amazon-ptd-prop:BLANKET.compliance_fabric_type": "construccion",
     "amazon-ptd-prop:BLANKET.compliance_fabric_weight": "magnitud",
@@ -211,6 +216,7 @@
     "amazon-ptd-prop:BOOT.footwear_size.to_size": "medida-que-fija",
     "amazon-ptd-prop:BOOT.footwear_size.width": "uso",
     "amazon-ptd-prop:BOOT.fur": "material",
+    "amazon-ptd-prop:BOOT.handmade_classification": "construccion",
     "amazon-ptd-prop:BOOT.heel": "construccion",
     "amazon-ptd-prop:BOOT.height_map": "medida",
     "amazon-ptd-prop:BOOT.insole": "material",
@@ -518,7 +524,7 @@
     "amazon-ptd-prop:PIERCING_JEWELRY.total_gem_weight": "magnitud",
     "amazon-ptd-prop:PILLOW.fabric_type": "material",
     "amazon-ptd-prop:PILLOW.indoor_outdoor_usage": "uso",
-    "amazon-ptd-prop:PILLOW.item_length_width": "medida",
+    "amazon-ptd-prop:PILLOW.item_length_width": "medida-que-fija",
     "amazon-ptd-prop:PILLOW.item_thickness": "magnitud",
     "amazon-ptd-prop:PILLOW.material_feature=Biodegradable": "material",
     "amazon-ptd-prop:PILLOW.material_feature=Duradero": "prestacion",
@@ -1079,6 +1085,1817 @@
     "shopify-attr:viscosity": "prestacion",
     "shopify-attr:warmth-rating": "prestacion"
   },
-  "requirements": {},
-  "proposed": {}
+  "requirements": {
+    "cat.bolsas-de-viaje-y-deporte/01": {
+      "trait": "medida-que-fija",
+      "votes": {
+        "medida-que-fija": 2
+      }
+    },
+    "cat.bolsas-de-viaje-y-deporte/02": {
+      "trait": "medida",
+      "votes": {
+        "medida": 2
+      }
+    },
+    "cat.bolsas-de-viaje-y-deporte/03": {
+      "trait": "medida",
+      "votes": {
+        "medida": 2
+      }
+    },
+    "cat.bolsas-de-viaje-y-deporte/04": {
+      "trait": "magnitud",
+      "votes": {
+        "magnitud": 2
+      }
+    },
+    "cat.bolsas-de-viaje-y-deporte/05": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.bolsas-de-viaje-y-deporte/06": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.bolsas-de-viaje-y-deporte/07": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.bolsas-de-viaje-y-deporte/08": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.bolsas-de-viaje-y-deporte/09": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.bolsas-de-viaje-y-deporte/10": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.bolsas-de-viaje-y-deporte/11": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.bolsas-de-viaje-y-deporte/12": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.bolsas-de-viaje-y-deporte/13": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.bolsas-de-viaje-y-deporte/14": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.botas/01": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 2
+      }
+    },
+    "cat.botas/02": {
+      "trait": "medida",
+      "votes": {
+        "medida": 2
+      }
+    },
+    "cat.botas/03": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.botas/04": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.botas/05": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.botas/06": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.botas/07": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.botas/08": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.botas/19": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.botas/20": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.botas/21": {
+      "trait": "medida",
+      "votes": {
+        "medida": 2
+      }
+    },
+    "cat.botas/22": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.botas/23": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.botas/24": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.bricolaje/01": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 4
+      }
+    },
+    "cat.bricolaje/02": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 4
+      }
+    },
+    "cat.calzado/01": {
+      "trait": "medida-que-fija",
+      "votes": {
+        "medida-que-fija": 6
+      }
+    },
+    "cat.calzado/02": {
+      "trait": "uso",
+      "votes": {
+        "uso": 6
+      }
+    },
+    "cat.calzado/03": {
+      "trait": "uso",
+      "votes": {
+        "uso": 6
+      }
+    },
+    "cat.calzado/04": {
+      "trait": "material",
+      "votes": {
+        "material": 6
+      }
+    },
+    "cat.calzado/05": {
+      "trait": "medida",
+      "votes": {
+        "medida": 6
+      }
+    },
+    "cat.calzado/06": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 6
+      }
+    },
+    "cat.calzado/07": {
+      "trait": "material",
+      "votes": {
+        "material": 6
+      }
+    },
+    "cat.calzado/08": {
+      "trait": "material",
+      "votes": {
+        "material": 6
+      }
+    },
+    "cat.calzado/09": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 6
+      }
+    },
+    "cat.calzado/10": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 6
+      }
+    },
+    "cat.calzado/11": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 6
+      }
+    },
+    "cat.calzado/12": {
+      "trait": "uso",
+      "votes": {
+        "uso": 6
+      }
+    },
+    "cat.calzado/13": {
+      "trait": "cuidado",
+      "votes": {
+        "cuidado": 6
+      }
+    },
+    "cat.calzado/14": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 6
+      }
+    },
+    "cat.calzado/15": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 6
+      }
+    },
+    "cat.calzado/16": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 6
+      }
+    },
+    "cat.calzado/17": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 6
+      }
+    },
+    "cat.calzado/18": {
+      "trait": "magnitud",
+      "votes": {
+        "magnitud": 6
+      }
+    },
+    "cat.calzado/19": {
+      "trait": "material",
+      "votes": {
+        "material": 6
+      }
+    },
+    "cat.calzado/22": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 6
+      }
+    },
+    "cat.calzado/23": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 6
+      }
+    },
+    "cat.calzado/24": {
+      "trait": "uso",
+      "votes": {
+        "uso": 6
+      }
+    },
+    "cat.calzado/25": {
+      "trait": "uso",
+      "votes": {
+        "uso": 6
+      }
+    },
+    "cat.calzado/26": {
+      "trait": "certificacion-origen",
+      "votes": {
+        "certificacion-origen": 6
+      }
+    },
+    "cat.calzado/27": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 6
+      }
+    },
+    "cat.calzado/28": {
+      "trait": "material",
+      "votes": {
+        "material": 6
+      }
+    },
+    "cat.casa-y-jardin/01": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 16
+      }
+    },
+    "cat.casa-y-jardin/02": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 16
+      }
+    },
+    "cat.casa-y-jardin/03": {
+      "trait": "certificacion-origen",
+      "votes": {
+        "certificacion-origen": 16
+      }
+    },
+    "cat.clips-y-fundas-para-chupetes/01": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.clips-y-fundas-para-chupetes/02": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.clips-y-fundas-para-chupetes/03": {
+      "trait": "medida",
+      "votes": {
+        "medida": 2
+      }
+    },
+    "cat.clips-y-fundas-para-chupetes/04": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.clips-y-fundas-para-chupetes/05": {
+      "trait": "seguridad",
+      "votes": {
+        "seguridad": 2
+      }
+    },
+    "cat.clips-y-fundas-para-chupetes/06": {
+      "trait": "certificacion-origen",
+      "votes": {
+        "certificacion-origen": 2
+      }
+    },
+    "cat.clips-y-fundas-para-chupetes/07": {
+      "trait": "cuidado",
+      "votes": {
+        "cuidado": 2
+      }
+    },
+    "cat.clips-y-fundas-para-chupetes/08": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 2
+      }
+    },
+    "cat.clips-y-fundas-para-chupetes/09": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 2
+      }
+    },
+    "cat.clips-y-fundas-para-chupetes/10": {
+      "trait": "seguridad",
+      "votes": {
+        "seguridad": 2
+      }
+    },
+    "cat.cojines-decorativos/01": {
+      "trait": "medida-que-fija",
+      "votes": {
+        "medida-que-fija": 2
+      }
+    },
+    "cat.cojines-decorativos/02": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 2
+      }
+    },
+    "cat.cojines-decorativos/03": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.cojines-decorativos/04": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.cojines-decorativos/05": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.cojines-decorativos/06": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.cojines-decorativos/07": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 2
+      }
+    },
+    "cat.cojines-decorativos/08": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.cojines-decorativos/09": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.cojines-decorativos/10": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.cojines-decorativos/11": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.cojines-decorativos/12": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.cojines-decorativos/13": {
+      "trait": "seguridad",
+      "votes": {
+        "seguridad": 2
+      }
+    },
+    "cat.cojines-decorativos/14": {
+      "trait": "magnitud",
+      "votes": {
+        "magnitud": 2
+      }
+    },
+    "cat.cojines-decorativos/15": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 2
+      }
+    },
+    "cat.comida-para-perros/01": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.comida-para-perros/02": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 2
+      }
+    },
+    "cat.comida-para-perros/03": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.comida-para-perros/04": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.comida-para-perros/05": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.comida-para-perros/06": {
+      "trait": "contenido",
+      "votes": {
+        "contenido": 2
+      }
+    },
+    "cat.comida-para-perros/07": {
+      "trait": "medida-que-fija",
+      "votes": {
+        "medida-que-fija": 2
+      }
+    },
+    "cat.comida-para-perros/08": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.comida-para-perros/09": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.comida-para-perros/10": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 2
+      }
+    },
+    "cat.comida-para-perros/11": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.comida-para-perros/12": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.comida-para-perros/13": {
+      "trait": "cuidado",
+      "votes": {
+        "cuidado": 2
+      }
+    },
+    "cat.comida-para-perros/14": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 2
+      }
+    },
+    "cat.comida-para-perros/15": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.comida-para-perros/16": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.comida-para-perros/17": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.comida-para-perros/18": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.cubrecolchones/01": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.cubrecolchones/02": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.cubrecolchones/03": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.cubrecolchones/04": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.cubrecolchones/05": {
+      "trait": "magnitud",
+      "votes": {
+        "magnitud": 2
+      }
+    },
+    "cat.cubrecolchones/06": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.decoracion/01": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.decoracion/02": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.decoracion/03": {
+      "trait": "cuidado",
+      "votes": {
+        "cuidado": 2
+      }
+    },
+    "cat.fundas-de-almohada-y-cojines/01": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 6
+      }
+    },
+    "cat.fundas-de-almohada/01": {
+      "trait": "contenido",
+      "votes": {
+        "contenido": 6
+      }
+    },
+    "cat.fundas-de-almohada/03": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 6
+      }
+    },
+    "cat.fundas-de-almohada/04": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 6
+      }
+    },
+    "cat.fundas-de-almohada/05": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 6
+      }
+    },
+    "cat.fundas-de-almohada/06": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 6
+      }
+    },
+    "cat.fundas-de-almohada/07": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 6
+      }
+    },
+    "cat.fundas-de-almohada/08": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 6
+      }
+    },
+    "cat.fundas-de-almohada/09": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 6
+      }
+    },
+    "cat.fundas-de-nordico/02": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 4
+      }
+    },
+    "cat.fundas-de-nordico/03": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 4
+      }
+    },
+    "cat.fundas-de-nordico/05": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 4
+      }
+    },
+    "cat.juguetes-para-perros/01": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 2
+      }
+    },
+    "cat.juguetes-para-perros/02": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.juguetes-para-perros/03": {
+      "trait": "medida",
+      "votes": {
+        "medida": 2
+      }
+    },
+    "cat.juguetes-para-perros/04": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.juguetes-para-perros/05": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.juguetes-para-perros/06": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.juguetes-para-perros/07": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.juguetes-para-perros/08": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.juguetes-para-perros/09": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.juguetes-para-perros/10": {
+      "trait": "cuidado",
+      "votes": {
+        "cuidado": 2
+      }
+    },
+    "cat.juguetes-para-perros/11": {
+      "trait": "seguridad",
+      "votes": {
+        "seguridad": 2
+      }
+    },
+    "cat.juguetes-para-perros/12": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.juguetes-para-perros/13": {
+      "trait": "magnitud",
+      "votes": {
+        "magnitud": 2
+      }
+    },
+    "cat.juguetes-para-perros/14": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.juguetes-para-perros/15": {
+      "trait": "cuidado",
+      "votes": {
+        "cuidado": 2
+      }
+    },
+    "cat.juguetes-para-perros/16": {
+      "trait": "contenido",
+      "votes": {
+        "contenido": 2
+      }
+    },
+    "cat.juguetes-para-perros/17": {
+      "trait": "seguridad",
+      "votes": {
+        "seguridad": 2
+      }
+    },
+    "cat.juguetes-para-perros/18": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.lijadoras-orbitales/01": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 4
+      }
+    },
+    "cat.lijadoras-orbitales/02": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 4
+      }
+    },
+    "cat.lijadoras-orbitales/03": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 4
+      }
+    },
+    "cat.lijadoras/01": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 4
+      }
+    },
+    "cat.lijadoras/02": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 4
+      }
+    },
+    "cat.lijadoras/03": {
+      "trait": "uso",
+      "votes": {
+        "uso": 4
+      }
+    },
+    "cat.lijadoras/04": {
+      "trait": "uso",
+      "votes": {
+        "uso": 4
+      }
+    },
+    "cat.lijadoras/05": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 4
+      }
+    },
+    "cat.lijadoras/06": {
+      "trait": "medida",
+      "votes": {
+        "medida": 4
+      }
+    },
+    "cat.lijadoras/07": {
+      "trait": "uso",
+      "votes": {
+        "uso": 4
+      }
+    },
+    "cat.lijadoras/08": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 4
+      }
+    },
+    "cat.lijadoras/09": {
+      "trait": "uso",
+      "votes": {
+        "uso": 4
+      }
+    },
+    "cat.lijadoras/10": {
+      "trait": "material",
+      "votes": {
+        "material": 4
+      }
+    },
+    "cat.lijadoras/11": {
+      "trait": "magnitud",
+      "votes": {
+        "magnitud": 4
+      }
+    },
+    "cat.lijadoras/12": {
+      "trait": "medida",
+      "votes": {
+        "medida": 4
+      }
+    },
+    "cat.lijadoras/13": {
+      "trait": "seguridad",
+      "votes": {
+        "seguridad": 4
+      }
+    },
+    "cat.lijadoras/14": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 4
+      }
+    },
+    "cat.lijadoras/15": {
+      "trait": "seguridad",
+      "votes": {
+        "seguridad": 4
+      }
+    },
+    "cat.maletas-y-bolsos-de-viaje/01": {
+      "trait": "uso",
+      "votes": {
+        "uso": 4
+      }
+    },
+    "cat.maletas-y-bolsos-de-viaje/02": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 4
+      }
+    },
+    "cat.maletas-y-bolsos-de-viaje/03": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 4
+      }
+    },
+    "cat.maletas-y-bolsos-de-viaje/04": {
+      "trait": "cuidado",
+      "votes": {
+        "cuidado": 4
+      }
+    },
+    "cat.maletas-y-bolsos-de-viaje/05": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 4
+      }
+    },
+    "cat.mantas/01": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 4
+      }
+    },
+    "cat.mantas/02": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 4
+      }
+    },
+    "cat.mantas/03": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 4
+      }
+    },
+    "cat.mantas/05": {
+      "trait": "magnitud",
+      "votes": {
+        "magnitud": 4
+      }
+    },
+    "cat.mantas/06": {
+      "trait": "material",
+      "votes": {
+        "material": 4
+      }
+    },
+    "cat.mantas/07": {
+      "trait": "uso",
+      "votes": {
+        "uso": 4
+      }
+    },
+    "cat.mantas/08": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 4
+      }
+    },
+    "cat.mantas/09": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 4
+      }
+    },
+    "cat.mantas/10": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 4
+      }
+    },
+    "cat.mantas/11": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 4
+      }
+    },
+    "cat.mantas/12": {
+      "trait": "uso",
+      "votes": {
+        "uso": 4
+      }
+    },
+    "cat.mantas/13": {
+      "trait": "seguridad",
+      "votes": {
+        "seguridad": 4
+      }
+    },
+    "cat.mantas/15": {
+      "trait": "magnitud",
+      "votes": {
+        "magnitud": 4
+      }
+    },
+    "cat.mobiliario/01": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 4
+      }
+    },
+    "cat.mobiliario/02": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 4
+      }
+    },
+    "cat.mobiliario/03": {
+      "trait": "cuidado",
+      "votes": {
+        "cuidado": 4
+      }
+    },
+    "cat.mochilas-escolares/01": {
+      "trait": "medida",
+      "votes": {
+        "medida": 2
+      }
+    },
+    "cat.mochilas-escolares/02": {
+      "trait": "medida",
+      "votes": {
+        "medida": 2
+      }
+    },
+    "cat.mochilas-escolares/03": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.mochilas-escolares/04": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.mochilas-escolares/05": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.mochilas-escolares/06": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.mochilas-escolares/07": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.mochilas-escolares/08": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.mochilas-escolares/09": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.mochilas/01": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.mochilas/02": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.mochilas/03": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.mochilas/04": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.mochilas/05": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.mochilas/06": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.mochilas/07": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.mochilas/08": {
+      "trait": "magnitud",
+      "votes": {
+        "magnitud": 2
+      }
+    },
+    "cat.mochilas/09": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.mochilas/10": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.mochilas/11": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.mochilas/12": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.mochilas/13": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.mochilas/14": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.mochilas/15": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.mochilas/16": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.pantuflas/01": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 2
+      }
+    },
+    "cat.pantuflas/02": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.pantuflas/03": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.pantuflas/04": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.pantuflas/06": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.pantuflas/17": {
+      "trait": "medida",
+      "votes": {
+        "medida": 2
+      }
+    },
+    "cat.pantuflas/18": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.productos-para-mascotas/01": {
+      "trait": "uso",
+      "votes": {
+        "uso": 4
+      }
+    },
+    "cat.productos-para-mascotas/02": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 4
+      }
+    },
+    "cat.productos-para-mascotas/03": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 4
+      }
+    },
+    "cat.productos-para-perros/01": {
+      "trait": "material",
+      "votes": {
+        "material": 4
+      }
+    },
+    "cat.protectores-de-colchon/01": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.protectores-de-colchon/02": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.protectores-de-colchon/03": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.protectores-de-colchon/04": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.protectores-de-colchon/05": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.protectores-de-colchon/06": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.protectores-de-colchon/07": {
+      "trait": "cuidado",
+      "votes": {
+        "cuidado": 2
+      }
+    },
+    "cat.protectores-de-colchon/08": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.ropa-de-cama/01": {
+      "trait": "medida-que-fija",
+      "votes": {
+        "medida-que-fija": 10,
+        "uso": 2
+      }
+    },
+    "cat.ropa-de-cama/02": {
+      "trait": "medida",
+      "votes": {
+        "medida": 9,
+        "medida-que-fija": 3
+      }
+    },
+    "cat.ropa-de-casa/01": {
+      "trait": "material",
+      "votes": {
+        "material": 14
+      }
+    },
+    "cat.ropa-de-casa/02": {
+      "trait": "cuidado",
+      "votes": {
+        "cuidado": 14
+      }
+    },
+    "cat.ropa-de-casa/03": {
+      "trait": "seguridad",
+      "votes": {
+        "seguridad": 14
+      }
+    },
+    "cat.ropa-de-casa/05": {
+      "trait": "magnitud",
+      "votes": {
+        "magnitud": 14
+      }
+    },
+    "cat.ropa-y-accesorios/01": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 6
+      }
+    },
+    "cat.ropa-y-accesorios/02": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 6
+      }
+    },
+    "cat.ropa-y-accesorios/03": {
+      "trait": "uso",
+      "votes": {
+        "uso": 6
+      }
+    },
+    "cat.sabanas-ajustables/01": {
+      "trait": "uso",
+      "votes": {
+        "uso": 6
+      }
+    },
+    "cat.sabanas-ajustables/04": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 6
+      }
+    },
+    "cat.sabanas-planas/03": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.sabanas/02": {
+      "trait": "certificacion-origen",
+      "votes": {
+        "certificacion-origen": 6
+      }
+    },
+    "cat.sabanas/03": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 6
+      }
+    },
+    "cat.salud-del-bebe/01": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.sofas-cama/01": {
+      "trait": "medida",
+      "votes": {
+        "medida": 2
+      }
+    },
+    "cat.sofas-cama/02": {
+      "trait": "contenido",
+      "votes": {
+        "contenido": 2
+      }
+    },
+    "cat.sofas-cama/03": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.sofas-cama/04": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.sofas-cama/16": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.sofas-cama/17": {
+      "trait": "magnitud",
+      "votes": {
+        "magnitud": 2
+      }
+    },
+    "cat.sofas-cama/18": {
+      "trait": "medida",
+      "votes": {
+        "medida": 2
+      }
+    },
+    "cat.sofas-cama/19": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.sofas/01": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 4
+      }
+    },
+    "cat.sofas/02": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 4
+      }
+    },
+    "cat.sofas/03": {
+      "trait": "medida",
+      "votes": {
+        "medida": 3,
+        "medida-que-fija": 1
+      }
+    },
+    "cat.sofas/04": {
+      "trait": "medida",
+      "votes": {
+        "medida": 4
+      }
+    },
+    "cat.sofas/05": {
+      "trait": "medida",
+      "votes": {
+        "medida": 4
+      }
+    },
+    "cat.sofas/06": {
+      "trait": "material",
+      "votes": {
+        "material": 4
+      }
+    },
+    "cat.sofas/07": {
+      "trait": "material",
+      "votes": {
+        "material": 4
+      }
+    },
+    "cat.sofas/08": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 4
+      }
+    },
+    "cat.sofas/09": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 4
+      }
+    },
+    "cat.sofas/10": {
+      "trait": "cuidado",
+      "votes": {
+        "cuidado": 4
+      }
+    },
+    "cat.sofas/11": {
+      "trait": "material",
+      "votes": {
+        "material": 4
+      }
+    },
+    "cat.sofas/12": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 4
+      }
+    },
+    "cat.sofas/13": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 4
+      }
+    },
+    "cat.sofas/14": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 4
+      }
+    },
+    "cat.sofas/15": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 4
+      }
+    },
+    "cat.sofas/16": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 4
+      }
+    },
+    "cat.sofas/17": {
+      "trait": "medida",
+      "votes": {
+        "medida": 4
+      }
+    },
+    "cat.sofas/18": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 4
+      }
+    },
+    "cat.sofas/19": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 4
+      }
+    },
+    "cat.sofas/20": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 4
+      }
+    },
+    "cat.sofas/21": {
+      "trait": "uso",
+      "votes": {
+        "uso": 4
+      }
+    },
+    "cat.sofas/22": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 4
+      }
+    },
+    "cat.sofas/23": {
+      "trait": "seguridad",
+      "votes": {
+        "seguridad": 4
+      }
+    },
+    "cat.sofas/24": {
+      "trait": "material",
+      "votes": {
+        "material": 4
+      }
+    },
+    "cat.sofas/25": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 4
+      }
+    },
+    "cat.sofas/26": {
+      "trait": "seguridad",
+      "votes": {
+        "seguridad": 4
+      }
+    },
+    "cat.sofas/27": {
+      "trait": "contenido",
+      "votes": {
+        "contenido": 4
+      }
+    },
+    "cat.sofas/28": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 4
+      }
+    },
+    "cat.sofas/29": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 4
+      }
+    },
+    "cat.sofas/30": {
+      "trait": "material",
+      "votes": {
+        "material": 4
+      }
+    },
+    "cat.sofas/31": {
+      "trait": "medida",
+      "votes": {
+        "medida": 4
+      }
+    },
+    "cat.sofas/32": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 4
+      }
+    },
+    "cat.sofas/33": {
+      "trait": "uso",
+      "votes": {
+        "uso": 4
+      }
+    },
+    "cat.sofas/34": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 4
+      }
+    },
+    "cat.sofas/35": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 4
+      }
+    },
+    "cat.sofas/36": {
+      "trait": "estetica",
+      "votes": {
+        "estetica": 4
+      }
+    },
+    "cat.toallas/01": {
+      "trait": "medida-que-fija",
+      "votes": {
+        "medida-que-fija": 2
+      }
+    },
+    "cat.toallas/03": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.toallas/04": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.toallas/05": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.toallas/06": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.toallas/07": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.toallas/08": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.toallas/09": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 2
+      }
+    },
+    "cat.zapatillas-para-bebes-y-ninos/01": {
+      "trait": "identidad",
+      "votes": {
+        "identidad": 2
+      }
+    },
+    "cat.zapatillas-para-bebes-y-ninos/02": {
+      "trait": "medida",
+      "votes": {
+        "medida": 2
+      }
+    },
+    "cat.zapatillas-para-bebes-y-ninos/03": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.zapatillas-para-bebes-y-ninos/04": {
+      "trait": "material",
+      "votes": {
+        "material": 2
+      }
+    },
+    "cat.zapatillas-para-bebes-y-ninos/05": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.zapatillas-para-bebes-y-ninos/06": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.zapatillas-para-bebes-y-ninos/07": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    },
+    "cat.zapatillas-para-bebes-y-ninos/08": {
+      "trait": "uso",
+      "votes": {
+        "uso": 2
+      }
+    },
+    "cat.zapatillas-para-bebes-y-ninos/09": {
+      "trait": "construccion",
+      "votes": {
+        "construccion": 2
+      }
+    },
+    "cat.zapatillas-para-bebes-y-ninos/10": {
+      "trait": "prestacion",
+      "votes": {
+        "prestacion": 2
+      }
+    }
+  },
+  "proposed": {},
+  "retired": {}
 }

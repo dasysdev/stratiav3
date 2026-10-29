@@ -10,7 +10,7 @@
     "amazon-ptd:PILLOWCASE@2026-10-24",
     "amazon-btg:3250027031@2026-10-24"
   ],
-  "version": "3",
+  "version": "4",
   "status": "compilado",
   "requirements": [
     {
@@ -19,7 +19,7 @@
       "dimension": "unidades incluidas",
       "trait": "contenido",
       "entity": "producto",
-      "importance": "principal",
+      "importance": "crítico",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:PILLOWCASE.number_of_pieces",
@@ -28,7 +28,7 @@
       "applicability": "universal",
       "rationale": "Las fundas de almohada se venden sueltas, por pares o en packs; sin saberlo no se puede comparar el precio. Une número de piezas y número de juegos. Concreta para la clase la cuestión general gen/01. Se mantiene (criterio 3): son unidades de la misma pieza (sueltas, por pares o en packs), no piezas distintas de un juego; concreta gen/01 con algo propio de la clase, como la cantidad neta del pienso.",
       "seed_importance": "principal",
-      "rule": "imp:contenido@hg-15-1-8-2",
+      "rule": "imp:cat.fundas-de-almohada/01@hg-15-1-8-2",
       "resolving_info": [
         {
           "contribution": "número de piezas incluidas",
@@ -295,18 +295,17 @@
     },
     {
       "id": "cat.fundas-de-almohada/07",
-      "question": "¿Es reversible o tiene ajuste elástico?",
+      "question": "¿Es reversible?",
       "dimension": "diseño y confección",
       "trait": "construccion",
       "entity": "producto",
       "importance": "complementario",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:PILLOWCASE.special_feature=Reversible",
-        "amazon-ptd-prop:PILLOWCASE.special_feature=Elástico"
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Reversible"
       ],
       "applicability": "universal",
-      "rationale": "Valores de special_feature que cambian el uso de la funda (dos caras utilizables, ajuste a la almohada).",
+      "rationale": "Valores de special_feature que cambian el uso de la funda (dos caras utilizables, ajuste a la almohada). Separado por D-196: ¿Tiene ajuste elástico? pasa a cat.fundas-de-almohada/09.",
       "seed_importance": "complementario",
       "rule": "imp:construccion@hg-15-1-8",
       "resolving_info": [
@@ -317,7 +316,25 @@
           "support": [
             "amazon-ptd-prop:PILLOWCASE.special_feature=Reversible"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "cat.fundas-de-almohada/09",
+      "question": "¿Tiene ajuste elástico?",
+      "dimension": "diseño y confección",
+      "trait": "construccion",
+      "entity": "producto",
+      "importance": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:PILLOWCASE.special_feature=Elástico"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.fundas-de-almohada/07 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. Valores de special_feature que cambian el uso de la funda (dos caras utilizables, ajuste a la almohada).",
+      "seed_importance": "complementario",
+      "rule": "imp:construccion@hg-15-1-8",
+      "resolving_info": [
         {
           "contribution": "indicación de si tiene ajuste elástico",
           "component": "ajuste elástico",
@@ -399,5 +416,5 @@
       "reason": "Requisito retirado: movido a cat.ropa-de-cama/02 (criterio 4: item_length_width se repite en los PTD de ropa de cama y las medidas valen para todas sus hijas), con sus fuentes amazon-ptd-prop:PILLOWCASE.item_length_width, .item_width e .item_length."
     }
   ],
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

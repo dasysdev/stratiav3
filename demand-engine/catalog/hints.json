@@ -1,6 +1,6 @@
 {
   "catalog": "pistas de valoración",
-  "version": "0.2",
+  "version": "0.3",
   "decisions": [
     "D-125",
     "D-126",
@@ -11,9 +11,16 @@
     "D-136",
     "D-137",
     "D-138",
-    "D-140"
+    "D-140",
+    "D-200",
+    "D-201",
+    "D-202",
+    "D-208",
+    "D-209",
+    "D-210",
+    "D-211"
   ],
-  "note": "Catálogo de pistas de valoración dirigidas a un tipo o a una fuente (D-134): cada pista se escribe una vez y va dirigida, en «para», a un tipo de requisito (rasgo, entidad o ambos) o a los requisitos que citan una fuente (comienzo de la etiqueta hasta un separador). Las pistas de un requisito viven en el propio requisito, en «hints», sin «para» (D-140). Los id PV-n son únicos en todo el sistema. Las encuentra el código («bin/model hints find»). Una pista no se borra: se retira con «retirada» y su número no se reutiliza (D-136). Primer lote: piloto manual de Claude con los nueve requisitos de sábanas (T-050).",
+  "note": "Catálogo de pistas de valoración dirigidas a un tipo o a una fuente (D-134): cada pista se escribe una vez y va dirigida, en «para», a un tipo de requisito (rasgo, entidad o ambos) o a los requisitos que citan una fuente (comienzo de la etiqueta hasta un separador); o a una lista de tipos o de fuentes, sin mezclarlos (D-208). Las pistas de un requisito viven en el propio requisito, en «hints», sin «para» (D-140). Los id PV-n son únicos en todo el sistema. Las encuentra el código («bin/model hints find»). Una pista no se borra: se retira con «retirada» y su número no se reutiliza (D-136). Primer lote: piloto manual de Claude con los nueve requisitos de sábanas (T-050). Cada pista dirigida a un tipo o a una fuente se revisa contra los requisitos a los que llega (D-200). Las pistas de certificaciones van a los tres atributos de Shopify que las recogen (D-208, T-089).",
   "hints": [
     {
       "id": "PV-1",
@@ -482,9 +489,17 @@
       "ac": [
         "Justificación"
       ],
-      "para": {
-        "fuente": "shopify-attr:safety-certifications"
-      },
+      "para": [
+        {
+          "fuente": "shopify-attr:safety-certifications"
+        },
+        {
+          "fuente": "shopify-attr:product-certifications-standards"
+        },
+        {
+          "fuente": "shopify-attr:organic-certification"
+        }
+      ],
       "origen": {
         "tipo": "marco",
         "apoyo": [
@@ -569,9 +584,17 @@
       "ac": [
         "Aplicabilidad"
       ],
-      "para": {
-        "fuente": "shopify-attr:safety-certifications"
-      },
+      "para": [
+        {
+          "fuente": "shopify-attr:safety-certifications"
+        },
+        {
+          "fuente": "shopify-attr:product-certifications-standards"
+        },
+        {
+          "fuente": "shopify-attr:organic-certification"
+        }
+      ],
       "origen": {
         "tipo": "marco",
         "apoyo": [
@@ -588,9 +611,17 @@
       "ac": [
         "Fiabilidad"
       ],
-      "para": {
-        "fuente": "shopify-attr:safety-certifications"
-      },
+      "para": [
+        {
+          "fuente": "shopify-attr:safety-certifications"
+        },
+        {
+          "fuente": "shopify-attr:product-certifications-standards"
+        },
+        {
+          "fuente": "shopify-attr:organic-certification"
+        }
+      ],
       "origen": {
         "tipo": "marco",
         "apoyo": [
@@ -607,9 +638,17 @@
       "ac": [
         "Precisión"
       ],
-      "para": {
-        "fuente": "shopify-attr:safety-certifications"
-      },
+      "para": [
+        {
+          "fuente": "shopify-attr:safety-certifications"
+        },
+        {
+          "fuente": "shopify-attr:product-certifications-standards"
+        },
+        {
+          "fuente": "shopify-attr:organic-certification"
+        }
+      ],
       "origen": {
         "tipo": "marco",
         "apoyo": [

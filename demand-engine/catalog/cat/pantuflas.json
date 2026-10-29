@@ -10,7 +10,7 @@
     "amazon-ptd:SLIPPER@2026-10-24",
     "amazon-btg:2008202031@2026-10-24"
   ],
-  "version": "4",
+  "version": "5",
   "status": "compilado",
   "requirements": [
     {
@@ -127,7 +127,7 @@
       "dimension": "plantilla",
       "trait": "material",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "referencias",
       "sources": [
         "amazon-ptd-prop:SLIPPER.insole",
@@ -136,7 +136,7 @@
       "applicability": "universal",
       "rationale": "Influye en el confort, que en esta clase se valora mucho; amplía cat.calzado/16. Se suma la propiedad de cumplimiento sobre la plantilla. No sube a Calzado aunque insole también está en BOOT (criterio 4 y D-040): Zapatos planos tiene insole-material como atributo propio de Shopify.",
       "seed_importance": "complementario",
-      "rule": "imp:material@aa-8",
+      "rule": "imp:material@aa-8-7",
       "resolving_info": [
         {
           "contribution": "material de la plantilla",
@@ -170,7 +170,7 @@
       "applicability": "si el exterior o el forro es de cuero o piel",
       "rationale": "Desagrega el material cuando es cuero o piel. En zapatillas de casa es secundario frente al tipo y al abrigo (en botas se propone principal). Se suma fur (piel con pelo), candidato nuevo. No sube a Calzado aunque leather_type y fur también están en BOOT (criterio 4 y D-040): Zapatillas tiene upper-material (Cuero, Gamuza, Nobuk) como atributo propio de Shopify. Redacción con D-060 (T-031, regla 2): la piel con pelo es un hecho que solo afecta a una parte: requisito condicionado propio.",
       "seed_importance": "complementario",
-      "rule": "imp:material@aa-8",
+      "rule": "imp:cat.pantuflas/06@aa-8-7",
       "resolving_info": [
         {
           "contribution": "tipo de cuero o acabado de la piel",
@@ -246,7 +246,7 @@
       "applicability": "si lleva piel con pelo",
       "rationale": "Parte de cat.pantuflas/06 separada por la regla 2 de D-060 (T-031): la piel con pelo es un hecho que solo afecta a una parte: requisito condicionado propio.",
       "seed_importance": "complementario",
-      "rule": "imp:material@aa-8",
+      "rule": "imp:cat.pantuflas/18@aa-8-7",
       "vote": "complementario",
       "resolving_info": [
         {
@@ -394,5 +394,5 @@
       "reason": "Movida a cat.calzado/08 (criterio 4): propiedad común a BOOT y SLIPPER, válida para todo el calzado."
     }
   ],
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

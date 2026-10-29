@@ -12,7 +12,7 @@
   "requirements": [
     {
       "id": "cat.joyas-para-piercings/01",
-      "question": "¿Qué tipo de joya para piercing es y para qué perforación está pensada (nariz, ombligo, ceja, labio, lengua, cartílago, trago, industrial…), y qué forma tiene (barra recta, curva, aro, labret, dilatador…)?",
+      "question": "¿Qué tipo de joya para piercing es y qué forma tiene (barra recta, curva, aro, labret, dilatador…)?",
       "dimension": "tipo y zona de perforación",
       "entity": "producto",
       "trait": "identidad",
@@ -24,7 +24,7 @@
         "amazon-ptd-prop:PIERCING_JEWELRY.pendant_description"
       ],
       "applicability": "universal",
-      "rationale": "La zona de perforación y la forma deciden si la joya sirve para el piercing del comprador; es el primer criterio de búsqueda y comparación en la clase.",
+      "rationale": "La zona de perforación y la forma deciden si la joya sirve para el piercing del comprador; es el primer criterio de búsqueda y comparación en la clase. Separado por D-196: ¿Para qué perforación está pensada (nariz, ombligo, ceja, labio, lengua, cartílago, trago, industrial…)? pasa a cat.joyas-para-piercings/12.",
       "seed_importance": "principal",
       "importance": "crítico",
       "rule": "imp:cat.joyas-para-piercings/01@aa-6-2",
@@ -32,14 +32,6 @@
         {
           "contribution": "tipo de joya corporal",
           "component": "tipo de joya para piercing",
-          "origin": "referencias",
-          "support": [
-            "shopify-attr:body-jewelry-type"
-          ]
-        },
-        {
-          "contribution": "zona de perforación a la que se destina",
-          "component": "para qué perforación",
           "origin": "referencias",
           "support": [
             "shopify-attr:body-jewelry-type"
@@ -60,6 +52,33 @@
           "origin": "referencias",
           "support": [
             "amazon-ptd-prop:PIERCING_JEWELRY.pendant_description"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.joyas-para-piercings/12",
+      "question": "¿Para qué perforación está pensada (nariz, ombligo, ceja, labio, lengua, cartílago, trago, industrial…)?",
+      "dimension": "tipo y zona de perforación",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:body-jewelry-type"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.joyas-para-piercings/01 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. La zona de perforación y la forma deciden si la joya sirve para el piercing del comprador; es el primer criterio de búsqueda y comparación en la clase.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:identidad@aa-6",
+      "resolving_info": [
+        {
+          "contribution": "zona de perforación a la que se destina",
+          "component": "para qué perforación",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:body-jewelry-type"
           ]
         }
       ]
@@ -580,7 +599,7 @@
     }
   ],
   "status": "compilado",
-  "version": "3",
+  "version": "4",
   "generated": "2026-10-25",
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

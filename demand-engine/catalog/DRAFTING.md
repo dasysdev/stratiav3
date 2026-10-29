@@ -12,7 +12,7 @@ Instrucciones para redactar un bloque `cat.` a partir del plan de `bin/blocks pl
 8. **Formulación de las cuestiones** (D-060; forman parte del marco):
    1. Ninguna condición sobre la existencia de la información («si se indica», «si procede»): un componente forma parte de la necesidad o no. Si la condición corresponde a un hecho del producto o de la oferta, nombra ese hecho y aplica la regla 2.
    2. Una condición sobre un hecho que afecta solo a una parte de la cuestión se convierte en un requisito condicionado propio, con la condición en `applicability` (como `cat.sofas/17`, «si es reclinable»). La pregunta de sí o no seguida del detalle del mismo hecho se mantiene: un «no» fundamentado lo resuelve todo. Solo si el detalle toma el mismo rasgo y la misma importancia que la pregunta; si no, la regla 3 prevalece y el detalle pasa a requisitos condicionados al hecho («¿Incluye colchón?» y, si lo incluye, «¿De qué medida es?» y «¿Se puede retirar?»; D-087).
-   3. Una necesidad por requisito: divide la cuestión cuando sus partes se responden por separado, cada una sirve por sí sola para comparar y tomarían otro rasgo u otra importancia (tipo de sofá y número de módulos; material del armazón y uniones). Mantén junto lo que solo tiene sentido unido (plazo y condiciones; nombre y dirección), y no dividas por esta regla lo que comparte rasgo e importancia.
+   3. Una necesidad por requisito (D-196, que enmienda D-060): si una cuestión junta necesidades distintas, divídela, aunque las partes compartan rasgo e importancia (tipo de asiento y cojines, `cat.sofas/13` y `/35`; tipo de sofá y número de módulos). Mantén juntos los componentes de una misma necesidad (plazo y condiciones; nombre y dirección; las seis medidas de uso de `cat.sofas/05`). No dividas las unidades de un conjunto (D-164) ni los ejemplos entre paréntesis, que no forman componentes (D-197).
    4. Cada componente de la cuestión tiene fuente en `sources` (un atributo, una propiedad o un valor, o la norma si el origen es «normativa»). Un componente sin fuente sale de la cuestión y se propone como cuestión inferida (por ejemplo, el material y el grosor del colchón de un sofá cama, que `SOFA.mattress` no recoge).
 9. **Información resolutiva** (D-062 a D-064): cada requisito lleva en `resolving_info` sus **aportaciones resolutivas**, las clases de información que pueden contribuir a resolverlo, cada una con el componente de la pregunta al que aporta:
    - Las de origen «referencias» salen de sus fuentes: `bin/train resolving refs FUENTE…` muestra el título, la descripción, las partes y los valores de cada atributo o propiedad (por ejemplo, `SOFA.sleeping_area_dimensions` trae largo, ancho y altura desde el suelo del área para dormir). Indica en `support` la fuente.
@@ -21,6 +21,12 @@ Instrucciones para redactar un bloque `cat.` a partir del plan de `bin/blocks pl
    - Una cita de una norma nombra su código, el artículo y el apartado o la letra, y la versión fijada en references (`ley:TRLGDCU-97.1.e@2026-02-28`; códigos y versiones en `references/bin/refs status`). `references/bin/refs law CITA` muestra el pasaje citado: lo que no está en él no se apoya en la norma.
    - Una aportación es una clase de información («plazo para desistir o devolver»), no un valor («30 días»). La lista es orientativa y no exhaustiva: no impone formato ni ubicación, ni son valores esperados. Las aportaciones que publican las fichas reales las añade el entrenamiento cuando aparecen en dos tiendas distintas.
    - Todo requisito lleva al menos una aportación; las de origen «referencias», solo con fuentes del propio requisito en `support`, y las inferidas, con `support` vacío. `bin/model check --catalog` lo comprueba en todos los bloques y en la capa general.
+10. **Pistas de valoración** (D-201, D-211): escribe las pistas de cada requisito en su campo `hints`, sin compilar. El entrenamiento las numera y las consolida.
+    - Cada pista lleva `pista`, `propiedad`, `ac` y `origen` (`{"tipo": …, "apoyo": […]}`). No lleva `id` ni `para`: su destino es el requisito.
+    - Escribe la pista como en `classifier/paa.md`, paso 8: un criterio breve con su porqué, la propiedad que se observa (P06–P18, sin P15) y los AC a los que afecta.
+    - Escríbelas sobre todo para Precisión y Comparabilidad. Aplicabilidad y Fiabilidad van por tipo de requisito: escríbelas solo si el requisito tiene algo propio.
+    - Origen: «normativa» o «referencias» si una fuente del requisito la apoya (en `apoyo`, esa fuente); si no, «inferida», que queda provisional hasta que la valida el entrenamiento.
+    - `bin/model register` comprueba la forma. Después, un agente revisor juzga si cada pista es un criterio y no una lista (`classifier/hint-review.md`). Si rechaza una, reescríbela con su propuesta y registra de nuevo con `--replace`.
 
 Formato:
 
@@ -31,7 +37,8 @@ Formato:
   "requirements": [{"id": "cat.<nombre>/01", "question": "…", "dimension": "…", "entity": "producto|variante|oferta|entrega|condiciones|vendedor",
                     "trait": "…", "vote": "crítico|principal|complementario", "origin": "referencias", "sources": ["shopify-attr:…"],
                     "applicability": "universal o condición", "rationale": "…",
-                    "resolving_info": [{"contribution": "…", "component": "…", "origin": "referencias|inferida", "support": ["shopify-attr:…"]}]}],
+                    "resolving_info": [{"contribution": "…", "component": "…", "origin": "referencias|inferida", "support": ["shopify-attr:…"]}],
+                    "hints": [{"pista": "…", "propiedad": ["P13"], "ac": ["Comparabilidad"], "origen": {"tipo": "referencias|normativa|inferida", "apoyo": ["shopify-attr:…"]}}]}],
   "proposed_traits": [{"name": "…", "definition": "…"}],
   "excluded": [{"source": "…", "reason": "…"}]
 }

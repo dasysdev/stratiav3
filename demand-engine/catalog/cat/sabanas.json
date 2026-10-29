@@ -10,7 +10,7 @@
     "amazon-ptd:FITTED_SHEET@2026-10-24",
     "amazon-ptd:FLAT_SHEET@2026-10-24"
   ],
-  "version": "2",
+  "version": "3",
   "status": "compilado",
   "requirements": [
     {
@@ -150,6 +150,38 @@
           }
         }
       ]
+    },
+    {
+      "id": "cat.sabanas/04",
+      "question": "¿Para qué temporada está pensado el tejido (de abrigo para invierno, fresco para verano o para todo el año)?",
+      "dimension": "temporada o carácter térmico del tejido",
+      "trait": "prestacion",
+      "entity": "producto",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BED_LINEN_SET.seasons"
+      ],
+      "applicability": "universal",
+      "rationale": "Todas las sábanas tienen un carácter térmico que decide su elección por temporada (coralina, franela o tejidos frescos); el PTD BED_LINEN_SET de Amazon lo recoge en seasons y los bloques de sábanas no lo preguntan ni lo excluyen. Propuesta al bloque (D-088) desde sabanas-coralina-999 (2026-10-29-v7-b).",
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "temporada para la que está pensado el tejido",
+          "component": "para qué temporada",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BED_LINEN_SET.seasons"
+          ]
+        },
+        {
+          "contribution": "declaración de abrigo o de frescor del tejido",
+          "component": "de abrigo o fresco",
+          "origin": "inferida",
+          "support": []
+        }
+      ],
+      "importance": "principal",
+      "rule": "imp:prestacion@hg-15-1-2"
     }
   ],
   "excluded": [
@@ -162,5 +194,5 @@
       "reason": "Piezas incluidas en un juego: las cubre esp.juego (criterio 3)."
     }
   ],
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

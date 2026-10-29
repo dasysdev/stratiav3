@@ -286,18 +286,17 @@
     },
     {
       "id": "cat.botellas-de-agua/07",
-      "question": "¿Para qué bebidas y actividades está pensada (agua, bebidas calientes, deporte, escuela, oficina, senderismo…)?",
+      "question": "¿Para qué bebidas está pensada (agua, bebidas calientes, con gas…)?",
       "dimension": "uso previsto",
       "entity": "producto",
       "trait": "uso",
       "vote": "complementario",
       "origin": "referencias",
       "sources": [
-        "amazon-ptd-prop:BOTTLE.specific_uses_for_product",
-        "amazon-ptd-prop:BOTTLE.recommended_uses_for_product"
+        "amazon-ptd-prop:BOTTLE.specific_uses_for_product"
       ],
       "applicability": "universal",
-      "rationale": "Orienta la elección según la actividad; relevante sin ser central.",
+      "rationale": "Orienta la elección según la actividad; relevante sin ser central. Separado por D-196: ¿Para qué actividades o entornos está pensada (deporte, escuela, oficina, senderismo…)? pasa a cat.botellas-de-agua/14.",
       "seed_importance": "complementario",
       "importance": "complementario",
       "rule": "imp:uso@hg-11-3-11",
@@ -311,18 +310,37 @@
           ]
         },
         {
+          "contribution": "aptitud para bebidas calientes o con gas",
+          "component": "bebidas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.botellas-de-agua/14",
+      "question": "¿Para qué actividades o entornos está pensada (deporte, escuela, oficina, senderismo…)?",
+      "dimension": "uso previsto",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BOTTLE.recommended_uses_for_product"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.botellas-de-agua/07 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. Orienta la elección según la actividad; relevante sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:uso@hg-11-3-11",
+      "resolving_info": [
+        {
           "contribution": "actividades o entornos de uso recomendados",
           "component": "actividades",
           "origin": "referencias",
           "support": [
             "amazon-ptd-prop:BOTTLE.recommended_uses_for_product"
           ]
-        },
-        {
-          "contribution": "aptitud para bebidas calientes o con gas",
-          "component": "bebidas",
-          "origin": "inferida",
-          "support": []
         }
       ]
     },
@@ -677,5 +695,5 @@
   "status": "compilado",
   "version": "3",
   "generated": "2026-10-25",
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

@@ -1,5 +1,5 @@
 {
-  "note": "Correspondencia Shopify → PTD de Amazon para el catálogo de bloques de categoría (D-039, D-040). Las propiedades de un PTD van al bloque de la categoría más general de la cadena que lo tiene asignado. Estado: propuesta, pendiente de revisión.",
+  "note": "Correspondencia Shopify → PTD de Amazon para el catálogo de bloques de categoría (D-039, D-040). Las propiedades de un PTD van al bloque de la categoría más general de la cadena que lo tiene asignado. Sin revisión humana: la propone el clasificador y la valida el entrenamiento, como los bloques (D-044, D-174).",
   "map": {
     "hg-15-1-4": {
       "ptd": "BLANKET",

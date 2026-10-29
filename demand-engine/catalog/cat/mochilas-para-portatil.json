@@ -205,7 +205,7 @@
     },
     {
       "id": "cat.mochilas-para-portatil/04",
-      "question": "¿Es de estructura blanda, rígida o híbrida, con base reforzada, y cómo se abre o se carga (por arriba, por delante, apertura completa)?",
+      "question": "¿Es de estructura blanda, rígida o híbrida, con base reforzada?",
       "dimension": "estructura",
       "entity": "producto",
       "trait": "construccion",
@@ -215,12 +215,10 @@
         "amazon-ptd-prop:BACKPACK.shell_type",
         "amazon-ptd-prop:BACKPACK.compliance_shell_type",
         "amazon-ptd-prop:BACKPACK.backpack_design",
-        "amazon-ptd-prop:BACKPACK.special_feature=Fondo inferior",
-        "amazon-ptd-prop:BACKPACK.special_feature=Carga frontal",
-        "amazon-ptd-prop:BACKPACK.special_feature=Carga superior"
+        "amazon-ptd-prop:BACKPACK.special_feature=Fondo inferior"
       ],
       "applicability": "universal",
-      "rationale": "La estructura condiciona la protección del equipo y el acceso; relevante sin ser central.",
+      "rationale": "La estructura condiciona la protección del equipo y el acceso; relevante sin ser central. Separado por D-196: ¿Cómo se abre o se carga (por arriba, por delante, apertura completa)? pasa a cat.mochilas-para-portatil/11.",
       "seed_importance": "complementario",
       "importance": "complementario",
       "rule": "imp:construccion@lb",
@@ -242,7 +240,27 @@
           "support": [
             "amazon-ptd-prop:BACKPACK.special_feature=Fondo inferior"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas-para-portatil/11",
+      "question": "¿Cómo se abre o se carga (por arriba, por delante, apertura completa)?",
+      "dimension": "estructura",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BACKPACK.special_feature=Carga frontal",
+        "amazon-ptd-prop:BACKPACK.special_feature=Carga superior"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.mochilas-para-portatil/04 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. La estructura condiciona la protección del equipo y el acceso; relevante sin ser central.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@lb",
+      "resolving_info": [
         {
           "contribution": "forma de carga o apertura",
           "component": "cómo se abre o se carga",
@@ -783,5 +801,5 @@
   "status": "compilado",
   "version": "3",
   "generated": "2026-10-26",
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

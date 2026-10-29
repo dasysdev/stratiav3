@@ -310,7 +310,7 @@
     },
     {
       "id": "cat.cd-de-musica/07",
-      "question": "¿Qué tipo de disco es y con qué reproductores es compatible (CD de audio estándar, SACD híbrido o solo SACD, CD mejorado o CD-ROM, CD oro), y lleva sistema anticopia?",
+      "question": "¿Qué tipo de disco es y con qué reproductores es compatible (CD de audio estándar, SACD híbrido o solo SACD, CD mejorado o CD-ROM, CD oro)?",
       "dimension": "tipo de disco y compatibilidad de reproducción",
       "entity": "producto",
       "trait": "uso",
@@ -322,14 +322,13 @@
         "amazon-ptd-prop:ABIS_MUSIC.format=Mejorado",
         "amazon-ptd-prop:ABIS_MUSIC.format=CD-ROM",
         "amazon-ptd-prop:ABIS_MUSIC.format=CD oro",
-        "amazon-ptd-prop:ABIS_MUSIC.format=CD contenido/sistema anticopia",
         "amazon-ptd-prop:ABIS_MUSIC.format=DVD-ROM"
       ],
       "applicability": "universal",
-      "rationale": "Un SACD no híbrido o un disco con sistema anticopia no se reproduce en todos los equipos; la compatibilidad decide si el disco sirve al comprador. Redacción con D-060 (T-031, reglas 2 y 4): el código de región del DVD depende de un hecho (que incluya DVD) y no tiene fuente: sale como inferida condicionada.",
+      "rationale": "Un SACD no híbrido o un disco con sistema anticopia no se reproduce en todos los equipos; la compatibilidad decide si el disco sirve al comprador. Redacción con D-060 (T-031, reglas 2 y 4): el código de región del DVD depende de un hecho (que incluya DVD) y no tiene fuente: sale como inferida condicionada. Separado por D-196: ¿Lleva sistema anticopia? pasa a cat.cd-de-musica/16.",
       "seed_importance": "principal",
       "importance": "principal",
-      "rule": "imp:cat.cd-de-musica/07@me-3-3",
+      "rule": "imp:uso@me-3",
       "resolving_info": [
         {
           "contribution": "variante de super audio CD del disco",
@@ -371,18 +370,37 @@
           ]
         },
         {
+          "contribution": "norma de formato de disco que cumple",
+          "component": "tipo de disco",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.cd-de-musica/16",
+      "question": "¿Lleva sistema anticopia?",
+      "dimension": "tipo de disco y compatibilidad de reproducción",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:ABIS_MUSIC.format=CD contenido/sistema anticopia"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.cd-de-musica/07 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. Un SACD no híbrido o un disco con sistema anticopia no se reproduce en todos los equipos; la compatibilidad decide si el disco sirve al comprador. Redacción con D-060 (T-031, reglas 2 y 4): el código de región del DVD depende de un hecho (que incluya DVD) y no tiene fuente: sale como inferida condicionada.",
+      "seed_importance": "principal",
+      "importance": "principal",
+      "rule": "imp:uso@me-3",
+      "resolving_info": [
+        {
           "contribution": "indicación de sistema anticopia",
           "component": "sistema anticopia",
           "origin": "referencias",
           "support": [
             "amazon-ptd-prop:ABIS_MUSIC.format=CD contenido/sistema anticopia"
           ]
-        },
-        {
-          "contribution": "norma de formato de disco que cumple",
-          "component": "tipo de disco",
-          "origin": "inferida",
-          "support": []
         }
       ]
     },
@@ -473,7 +491,7 @@
       "rationale": "Informa sobre el contenido sin ser criterio central de elección.",
       "seed_importance": "complementario",
       "importance": "complementario",
-      "rule": "imp:uso@me-3-3",
+      "rule": "imp:cat.cd-de-musica/10@me-3-3",
       "resolving_info": [
         {
           "contribution": "idioma de la grabación",
@@ -567,13 +585,13 @@
       "dimension": "código de región",
       "trait": "uso",
       "entity": "producto",
-      "importance": "complementario",
+      "importance": "principal",
       "origin": "inferida",
       "sources": [],
       "applicability": "si incluye un DVD o un Blu-ray",
       "rationale": "Cuestión inferida (D-036) que sale de cat.cd-de-musica/07 por la reglas 2 y 4 de D-060 (T-031): el código de región del DVD depende de un hecho (que incluya DVD) y no tiene fuente: sale como inferida condicionada. Provisional hasta que la valide el entrenamiento.",
       "seed_importance": "complementario",
-      "rule": "imp:uso@me-3-3",
+      "rule": "imp:uso@me-3",
       "vote": "complementario",
       "resolving_info": [
         {
@@ -711,7 +729,7 @@
     }
   ],
   "status": "compilado",
-  "version": "3",
+  "version": "4",
   "generated": "2026-10-26",
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

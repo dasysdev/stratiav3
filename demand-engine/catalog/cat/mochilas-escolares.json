@@ -201,7 +201,7 @@
     },
     {
       "id": "cat.mochilas-escolares/04",
-      "question": "¿Es de estructura blanda, rígida o híbrida, con base reforzada, y cómo se carga (por arriba o por delante)?",
+      "question": "¿Es de estructura blanda, rígida o híbrida, con base reforzada?",
       "dimension": "estructura",
       "entity": "producto",
       "trait": "construccion",
@@ -211,12 +211,10 @@
         "amazon-ptd-prop:BACKPACK.shell_type",
         "amazon-ptd-prop:BACKPACK.compliance_shell_type",
         "amazon-ptd-prop:BACKPACK.backpack_design",
-        "amazon-ptd-prop:BACKPACK.special_feature=Fondo inferior",
-        "amazon-ptd-prop:BACKPACK.special_feature=Carga frontal",
-        "amazon-ptd-prop:BACKPACK.special_feature=Carga superior"
+        "amazon-ptd-prop:BACKPACK.special_feature=Fondo inferior"
       ],
       "applicability": "universal",
-      "rationale": "La estructura condiciona la protección de libros y la forma; relevante sin ser central. Redacción (T-031, editorial): «rígida o reforzada, con base reforzada» repetía «reforzada»; BACKPACK.shell_type distingue blanda, rígida e híbrida, como en cat.mochilas-para-portatil/04.",
+      "rationale": "La estructura condiciona la protección de libros y la forma; relevante sin ser central. Redacción (T-031, editorial): «rígida o reforzada, con base reforzada» repetía «reforzada»; BACKPACK.shell_type distingue blanda, rígida e híbrida, como en cat.mochilas-para-portatil/04. Separado por D-196: ¿Cómo se carga (por arriba o por delante)? pasa a cat.mochilas-escolares/09.",
       "seed_importance": "complementario",
       "importance": "complementario",
       "rule": "imp:construccion@lb",
@@ -238,7 +236,27 @@
           "support": [
             "amazon-ptd-prop:BACKPACK.special_feature=Fondo inferior"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "cat.mochilas-escolares/09",
+      "question": "¿Cómo se carga (por arriba o por delante)?",
+      "dimension": "estructura",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BACKPACK.special_feature=Carga frontal",
+        "amazon-ptd-prop:BACKPACK.special_feature=Carga superior"
+      ],
+      "applicability": "universal",
+      "rationale": "Parte de cat.mochilas-escolares/04 separada por D-196 (T-089): es otra necesidad, con el mismo rasgo y la misma importancia. La estructura condiciona la protección de libros y la forma; relevante sin ser central. Redacción (T-031, editorial): «rígida o reforzada, con base reforzada» repetía «reforzada»; BACKPACK.shell_type distingue blanda, rígida e híbrida, como en cat.mochilas-para-portatil/04.",
+      "seed_importance": "complementario",
+      "importance": "complementario",
+      "rule": "imp:construccion@lb",
+      "resolving_info": [
         {
           "contribution": "forma de carga o apertura",
           "component": "cómo se carga",
@@ -736,5 +754,5 @@
   "status": "compilado",
   "version": "3",
   "generated": "2026-10-25",
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

@@ -50,5 +50,5 @@
       "reason": "Requisito retirado: el tamaño del perro no sube a Productos para perros (criterio 4 y D-040): Juguetes y Cintas de caminar tienen suitable-for-breed-size como atributo propio de Shopify. Vuelve a cat.juguetes-para-perros/02 y a cat.comida-para-perros/16 con sus fuentes."
     }
   ],
-  "compiled_by": "reglas 6"
+  "compiled_by": "reglas 8"
 }

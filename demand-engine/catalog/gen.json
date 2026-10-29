@@ -1,6 +1,6 @@
 {
   "catalog": "capa general",
-  "version": "0.9",
+  "version": "0.10",
   "source": "docs/20-methods/product-taxonomy/requirement-blocks.md#capa-general",
   "decisions": [
     "D-034",
@@ -19,7 +19,9 @@
     "D-145",
     "D-155",
     "D-164",
-    "D-165"
+    "D-165",
+    "D-184",
+    "D-185"
   ],
   "blocks": [
     {
@@ -27,7 +29,7 @@
       "type": "general universal",
       "name": "Capa general",
       "trigger": null,
-      "version": "0.9",
+      "version": "0.10",
       "status": "marco",
       "refs": [
         "amazon-ptd:todos@2026-10-24",
@@ -46,7 +48,9 @@
         "ley:UE-2023/988-19.c@2026-05-29",
         "ley:UE-2023/988-19.d@2026-05-29",
         "ley:UE-2023/988-3.8@2026-05-29",
-        "ley:RD-3423/2000-3.2@2000-12-28"
+        "ley:RD-3423/2000-3.2@2000-12-28",
+        "ley:CE-767/2009-15.b@2018-12-26",
+        "ley:UE-1169/2011-9.1.h@2025-04-01"
       ],
       "requirements": [
         {
@@ -696,7 +700,7 @@
             "google-search-shipping-policy:ShippingService.description@2026-10-27"
           ],
           "applicability": "universal",
-          "validated_by": "D-038",
+          "validated_by": "D-038, D-185",
           "resolving_info": [
             {
               "contribution": "modalidades de entrega o recogida disponibles",
@@ -718,7 +722,8 @@
                 "google-search-shipping-policy:ShippingService.description@2026-10-27"
               ]
             }
-          ]
+          ],
+          "description": "Qué modalidades de entrega o recogida ofrece la tienda (entrega a domicilio estándar o exprés, punto de recogida, recogida en tienda…). El conjunto son las cuatro zonas de España: Península, Baleares, Canarias, y Ceuta y Melilla. Lo responden las modalidades disponibles en cada zona, o una declaración que las cubra todas. No lo responden el plazo de cada modalidad (gen/08) ni su coste (gen/25)."
         },
         {
           "id": "gen/10",
@@ -890,7 +895,7 @@
             "google-search-return-policy:MerchantReturnPolicy.restockingFee@2026-10-27"
           ],
           "applicability": "universal",
-          "validated_by": "D-065, D-085",
+          "validated_by": "D-065, D-085, D-185",
           "resolving_info": [
             {
               "contribution": "indicación de si el comprador asume el coste de la devolución",
@@ -933,7 +938,8 @@
                 "google-search-return-policy:MerchantReturnPolicy.restockingFee@2026-10-27"
               ]
             }
-          ]
+          ],
+          "description": "Qué coste asume el comprador al devolver o cambiar el producto. El conjunto son las cuatro zonas de España (Península, Baleares, Canarias, y Ceuta y Melilla) y la modalidad de devolución (en tienda, en un punto de recogida o con mensajero), como gen/08 con la entrega. Lo responde el coste o la gratuidad para cada zona y modalidad, o una declaración que las cubra todas. No lo responden el plazo ni las condiciones de la devolución o el cambio, que son otro requisito (gen/11)."
         },
         {
           "id": "gen/27",
@@ -1265,17 +1271,21 @@
           "origin": "normativa",
           "sources": [
             "ley:UE-2023/988-19.a@2026-05-29",
-            "ley:UE-2023/988-3.8@2026-05-29"
+            "ley:UE-2023/988-3.8@2026-05-29",
+            "ley:UE-1169/2011-9.1.h@2025-04-01",
+            "ley:CE-767/2009-15.b@2018-12-26"
           ],
-          "applicability": "universal (apoyo normativo del GPSR en su ámbito; fuera de él, por comprobar: OQ-45)",
-          "validated_by": "D-052, D-080",
+          "applicability": "universal (apoyo normativo del GPSR en su ámbito; en alimentos, Reglamento (UE) 1169/2011; en piensos, Reglamento (CE) 767/2009)",
+          "validated_by": "D-052, D-080, D-184",
           "resolving_info": [
             {
               "contribution": "nombre, nombre comercial registrado o marca del fabricante",
               "component": "quién es el fabricante",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.a@2026-05-29"
+                "ley:UE-2023/988-19.a@2026-05-29",
+                "ley:UE-1169/2011-9.1.h@2025-04-01",
+                "ley:CE-767/2009-15.b@2018-12-26"
               ]
             },
             {
@@ -1283,7 +1293,9 @@
               "component": "dirección postal",
               "origin": "marco",
               "support": [
-                "ley:UE-2023/988-19.a@2026-05-29"
+                "ley:UE-2023/988-19.a@2026-05-29",
+                "ley:UE-1169/2011-9.1.h@2025-04-01",
+                "ley:CE-767/2009-15.b@2018-12-26"
               ]
             },
             {
@@ -1819,9 +1831,11 @@
       "type": "general condicionado",
       "name": "Con opiniones publicadas",
       "trigger": "publica opiniones de compradores",
-      "version": "0.1",
+      "version": "0.2",
       "status": "marco",
-      "refs": [],
+      "refs": [
+        "ley:TRLGDCU-20.4@2026-02-28"
+      ],
       "scope": "oferta",
       "requirements": [
         {
@@ -1829,16 +1843,28 @@
           "question": "¿Cómo garantiza que las opiniones publicadas proceden de compradores reales?",
           "entity": "oferta",
           "importance": "complementario",
-          "origin": "inferida",
-          "sources": [],
+          "origin": "normativa",
+          "sources": [
+            "ley:TRLGDCU-20.4@2026-02-28"
+          ],
           "applicability": "si publica opiniones de compradores",
-          "validated_by": "D-065, D-066",
+          "validated_by": "D-065, D-066, D-184",
           "resolving_info": [
             {
               "contribution": "procedimiento para comprobar que las opiniones proceden de compradores reales",
               "component": "cómo garantiza que proceden de compradores reales",
-              "origin": "inferida",
-              "support": []
+              "origin": "marco",
+              "support": [
+                "ley:TRLGDCU-20.4@2026-02-28"
+              ]
+            },
+            {
+              "contribution": "información sobre cómo se procesan las opiniones",
+              "component": "cómo garantiza que proceden de compradores reales",
+              "origin": "marco",
+              "support": [
+                "ley:TRLGDCU-20.4@2026-02-28"
+              ]
             }
           ]
         }
@@ -1984,7 +2010,7 @@
       "type": "general condicionado",
       "name": "Suscripción o depósito",
       "trigger": "es una suscripción o hay depósito",
-      "version": "0.2",
+      "version": "0.3",
       "status": "marco",
       "refs": [
         "ley:TRLGDCU-97.1.p@2026-02-28",
@@ -1996,14 +2022,13 @@
           "id": "gen.suscripcion/01",
           "question": "¿Qué duración tiene el contrato o, si es indefinido o se prorroga automáticamente, en qué condiciones se resuelve?",
           "entity": "oferta",
-          "importance": null,
+          "importance": "crítico",
           "origin": "normativa",
           "sources": [
             "ley:TRLGDCU-97.1.p@2026-02-28"
           ],
           "applicability": "si es una suscripción o hay depósito",
-          "note": "importancia por fijar (OQ-45)",
-          "validated_by": "D-038, D-065",
+          "validated_by": "D-038, D-065, D-184",
           "resolving_info": [
             {
               "contribution": "duración del contrato",
@@ -2033,16 +2058,15 @@
         },
         {
           "entity": "oferta",
-          "importance": null,
+          "importance": "crítico",
           "origin": "normativa",
           "applicability": "si es una suscripción o hay depósito",
-          "note": "importancia por fijar (OQ-45)",
           "id": "gen.suscripcion/02",
           "question": "¿Qué duración mínima tienen las obligaciones del comprador?",
           "sources": [
             "ley:TRLGDCU-97.1.q@2026-02-28"
           ],
-          "validated_by": "D-065",
+          "validated_by": "D-065, D-184",
           "resolving_info": [
             {
               "contribution": "duración mínima de las obligaciones del comprador",
@@ -2056,16 +2080,15 @@
         },
         {
           "entity": "oferta",
-          "importance": null,
+          "importance": "principal",
           "origin": "normativa",
           "applicability": "si es una suscripción o hay depósito",
-          "note": "importancia por fijar (OQ-45)",
           "id": "gen.suscripcion/03",
           "question": "¿Qué depósitos u otras garantías financieras exige y en qué condiciones?",
           "sources": [
             "ley:TRLGDCU-97.1.r@2026-02-28"
           ],
-          "validated_by": "D-065",
+          "validated_by": "D-065, D-184",
           "resolving_info": [
             {
               "contribution": "depósitos u otras garantías financieras que exige",

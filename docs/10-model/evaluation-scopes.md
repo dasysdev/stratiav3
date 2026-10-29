@@ -3,9 +3,9 @@ id: evaluation-scopes
 title: Interfaces, ámbitos de evaluación y requisitos técnicos
 layer: model
 status: vigente
-version: 2.8
+version: 2.11
 updated: 2026-10-29
-sources: [BASE §3, BASE §3.1, CTX §5, FUND §4, FUND §7.3, FUND §10.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-web-schema-technical-framework, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation, INTAKE 2026-10-28-references-system, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-28-single-consumption-profile, INTAKE 2026-10-28-request-context-and-scripts, INTAKE 2026-10-28-web-implementation-profile, INTAKE 2026-10-28-technical-views-and-sitemaps, INTAKE 2026-10-28-capture-profile-no-js, INTAKE 2026-10-28-technical-rate-pages-web-minimum, INTAKE 2026-10-29-audit-discovery-and-tdm, INTAKE 2026-10-29-issues-review]
+sources: [BASE §3, BASE §3.1, CTX §5, FUND §4, FUND §7.3, FUND §10.4, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-web-schema-technical-framework, INTAKE 2026-10-28-minimum-representation-image, INTAKE 2026-10-28-technical-informative-frontier, INTAKE 2026-10-28-minimum-members-structural-formation, INTAKE 2026-10-28-references-system, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-28-single-consumption-profile, INTAKE 2026-10-28-request-context-and-scripts, INTAKE 2026-10-28-web-implementation-profile, INTAKE 2026-10-28-technical-views-and-sitemaps, INTAKE 2026-10-28-capture-profile-no-js, INTAKE 2026-10-28-technical-rate-pages-web-minimum, INTAKE 2026-10-29-audit-discovery-and-tdm, INTAKE 2026-10-29-spider-no-query, INTAKE 2026-10-29-spider-products-first, INTAKE 2026-10-29-issues-review, INTAKE 2026-10-29-spider-all-categories, INTAKE 2026-10-29-audit-on-the-crawl, INTAKE 2026-10-29-sitemap-canonical-url]
 ---
 
 # Interfaces, ámbitos de evaluación y requisitos técnicos
@@ -92,11 +92,11 @@ NE recibe el mismo tratamiento que en la evaluación informativa ([scoring-syste
 > — INTAKE 2026-10-28-technical-views-and-sitemaps
 
 - Cada requisito técnico dice su vista y, si es particular, los tipos de página a los que se aplica ([D-161](../30-governance/decisions.md#d-161)). Valen para Web y Web Schema.org, y para Catálogos distribuidos cuando tenga perfil (el feed frente al artículo).
-- **Páginas de una auditoría** ([D-167](../30-governance/decisions.md#d-167); el origen de las fichas lo enmienda [D-170](../30-governance/decisions.md#d-170)):
+- **Páginas de una auditoría** ([D-167](../30-governance/decisions.md#d-167); el origen de las fichas lo enmiendan [D-170](../30-governance/decisions.md#d-170) y [D-217](../30-governance/decisions.md#d-217)):
 
-> - **Fichas de producto:** las del encargo, las mismas URL (y la misma instantánea) que la auditoría informativa. **Portada:** siempre.
+> - **Fichas de producto:** las del encargo, las mismas URL (y la misma instantánea) que la auditoría informativa (enmendada por [D-217](../30-governance/decisions.md#d-217): sin lista del encargo, todas las fichas del universo). **Portada:** siempre.
 > - **Políticas y contenido:** siempre: envíos, devoluciones, contacto y aviso legal, localizadas desde la portada y su pie. La que no se localiza se registra como no localizada; no se sustituye por otra.
-> - **Categoría o listado:** la inmediata de cada ficha, por sus migas de pan. Si la ficha no tiene migas, se registra.
+> - **Categoría o listado:** la inmediata de cada ficha, por sus migas de pan (enmendada por [D-215](../30-governance/decisions.md#d-215): todas las categorías del sitio). Si la ficha no tiene migas, se registra.
 > - **Recursos de la vista general:** robots.txt y los sitemaps (los declarados en robots.txt o, si no hay ninguno, `/sitemap.xml`; con sus índices y gzip). Todo se captura con el perfil de auditoría.
 >
 > — INTAKE 2026-10-28-technical-rate-pages-web-minimum
@@ -104,7 +104,7 @@ NE recibe el mismo tratamiento que en la evaluación informativa ([scoring-syste
 - **Universo de la auditoría** ([D-170](../30-governance/decisions.md#d-170), que enmienda D-167 en el origen de las fichas):
 
 > - **Universo de la auditoría:** las páginas de una auditoría se descubren por la unión del rastreo del sitio y de sus sitemaps.
-> - **Rastreo:** parte de la portada y sigue los enlaces `<a href>` del documento de la respuesta HTTP sin ejecutar JavaScript. Los enlaces `nofollow` se siguen y se registran.
+> - **Rastreo:** parte de la portada y sigue los enlaces `<a href>` del documento de la respuesta HTTP sin ejecutar JavaScript (enmendada por [D-173](../30-governance/decisions.md#d-173) y [D-204](../30-governance/decisions.md#d-204): solo las URL sin parámetros, salvo la paginación). Los enlaces `nofollow` se siguen y se registran.
 > - **Los enlaces solo descubren:** no se valoran ni se auditan los enlaces ni la rastreabilidad.
 > - **Fuera del universo:** lo que no se descubre se considera no rastreable.
 > - **Fichas auditadas:** salen del universo descubierto.
@@ -112,11 +112,50 @@ NE recibe el mismo tratamiento que en la evaluación informativa ([scoring-syste
 >
 > — INTAKE 2026-10-29-audit-discovery-and-tdm
 
+- **URL con parámetros** ([D-173](../30-governance/decisions.md#d-173)):
+
+> - **Rastreo:** la araña solo rastrea URL sin parámetros (query) (enmendada por [D-204](../30-governance/decisions.md#d-204): salvo la paginación). Los enlaces con parámetros no se siguen; se cuentan.
+>
+> — INTAKE 2026-10-29-spider-no-query
+
+- **Paginación y fichas primero** ([D-204](../30-governance/decisions.md#d-204); el orden lo enmienda [D-215](../30-governance/decisions.md#d-215): categoría a categoría):
+
+> 1. **Prioridad de fichas, aprendida en el rastreo** (sin configuración por sitio). La araña confirma una ficha por las señales de su documento: `og:type` `product`, o `Product` en JSON-LD o microdatos. Da prioridad a las URL con la forma de URL de las fichas confirmadas. Después visita los listados que más fichas descubren. Sustituye la lectura «recorrido en anchura» de D-173.
+> 2. **Paginación:** «admitir solo paginación». La araña sigue una URL cuyo único parámetro es de paginación y tiene valor numérico (`page`, `p`, `pag`, `pagina`, `pg`). Las facetas (`?q=`, filtros) siguen fuera. Enmienda D-173.
+>
+> — INTAKE 2026-10-29-spider-products-first
+
+- El orden solo importa si el rastreo se corta: uno completo alcanza las mismas páginas. Las señales de ficha de la araña ordenan; no clasifican el tipo de página del universo.
+- **Todas las categorías; categoría a categoría** ([D-215](../30-governance/decisions.md#d-215)):
+
+> 1. **Categorías de la auditoría:** todas las categorías del sitio, no solo la inmediata de cada ficha. Enmienda D-167 (ítem «Categoría o listado»).
+> 2. **Orden de la araña:** primero las políticas de D-167, localizadas desde la portada. Después, categoría a categoría: la categoría, toda su paginación y las fichas que listan sus páginas; luego, la siguiente categoría. Enmienda D-204.
+>
+> — INTAKE 2026-10-29-spider-all-categories
+
+- Lecturas de Claude ([D-215](../30-governance/decisions.md#d-215)): una categoría es un enlace de las migas de una ficha, a cualquier nivel, y cualquier URL con su forma; la paginación sigue mientras la página lista fichas; una categoría capturada antes de saberse que lo era se recorre igual, sin volver a pedirla; después de las categorías van las fichas halladas en otras páginas, las formas de URL aún no capturadas y el resto.
+
+- Una URL con parámetros (salvo la paginación) no entra en el universo por el rastreo; puede entrar por los sitemaps. Lecturas de Claude ([D-173](../30-governance/decisions.md#d-173)): solo enlaces `http` y `https` del host de inicio y el host final de la portada; no se siguen los recursos que no son páginas (por su extensión); un bloqueo para el rastreo. La cobertura queda incompleta por el tope, un bloqueo, una reserva, una interrupción o páginas con error cuyos enlaces no se leyeron; no por una exclusión de robots.txt ni por un 404.
 - Lecturas de Claude ([D-170](../30-governance/decisions.md#d-170)):
-  - El encargo sigue eligiendo las fichas auditadas, ahora entre las del universo.
+  - El encargo sigue eligiendo las fichas auditadas, ahora entre las del universo; sin lista del encargo, se auditan todas ([D-217](../30-governance/decisions.md#d-217)).
   - «No rastreable» es un hecho registrado, no un estado. Como toda ausencia, exige cobertura (por analogía con [effective-availability](effective-availability.md#reglas-e-invariantes), regla 5): solo se afirma si el rastreo terminó completo. Si quedó incompleto, se registra su cobertura.
+- **Auditoría sobre el rastreo** ([D-217](../30-governance/decisions.md#d-217)):
+
+> 1. **Sobre el rastreo:** las páginas de una auditoría (D-167) se eligen sobre el resultado del rastreo, con la instantánea de su visita. La auditoría no pide nada al sitio. Una página de D-167 que el rastreo no capturó se registra y no se audita.
+> 2. **Fichas sin lista del encargo:** se auditan todas las fichas del universo. Enmienda D-167 (ítem «Fichas de producto»).
+>
+> — INTAKE 2026-10-29-audit-on-the-crawl
+
+- Lecturas de Claude ([D-217](../30-governance/decisions.md#d-217)):
+  - El rastreo lee los sitemaps después de la portada. Al final captura una vez las URL de los sitemaps que no alcanzó, aunque lleven parámetros. Registra sus enlaces y no los sigue.
+  - Una URL de los sitemaps que es la URL, la URL final o la canónica de una página del rastreo es esa página.
+  - Cada URL del universo registra si el rastreo la alcanzó, si está en los sitemaps y su tipo de página. «No» solo se afirma con la cobertura completa; si no, queda indeterminado.
+  - El tipo (portada, política, ficha, categoría u otra) se decide por varias señales, no solo el marcado. Lo dudoso queda sin tipo; también lo no capturado, lo que no es HTML y lo de otro host. Las señales de cada tipo, en D-217.
+  - Las categorías auditadas son todas las del universo, sin su paginación, y la inmediata de cada ficha.
+  - Una ficha del encargo fuera del universo no se audita. Se registra como no alcanzada solo si el rastreo terminó completo.
+  - Un rastreo parado por una reserva TDM no se audita.
 - **Reserva de minería de textos y datos** ([D-171](../30-governance/decisions.md#d-171)): antes de capturar ninguna página de una auditoría, se comprueba si el sitio tiene reserva. Si la hay, no se captura nada: el proceso para y avisa. Los demás procesos de captura siguen [D-042](../30-governance/decisions.md#d-042).
-- **Descubribilidad** ([D-162](../30-governance/decisions.md#d-162)): «Toda página que se audita debe estar en el sitemaps» es un requisito obligatorio que funda una **condición del proyecto**, porque ninguna especificación lo pide. Sin sitemap, ninguna página está en él. De los sitemaps publicados, su forma la fijan las fuentes. Los enlaces internos no se auditan: solo descubren las páginas, y este es el único requisito que se valora del descubrimiento ([D-170](../30-governance/decisions.md#d-170)).
+- **Descubribilidad** ([D-162](../30-governance/decisions.md#d-162)): «Toda página que se audita debe estar en el sitemaps» es un requisito obligatorio que funda una **condición del proyecto**, porque ninguna especificación lo pide. Sin sitemap, ninguna página está en él. La URL que se busca es la canónica que declara la página; sin canónica, su URL final; con varias distintas, la comprobación queda NE. De los sitemaps publicados, su forma la fijan las fuentes. Los enlaces internos no se auditan: solo descubren las páginas, y este es el único requisito que se valora del descubrimiento ([D-170](../30-governance/decisions.md#d-170)).
 
 ## Reglas e invariantes
 

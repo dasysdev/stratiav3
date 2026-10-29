@@ -14,6 +14,30 @@ Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módul
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
 
+## 2026-10-29 — Descubribilidad: se busca en los sitemaps la URL canónica · aplicado
+
+- **canon** — `INTAKE 2026-10-29-sitemap-canonical-url` (T-084; decisión del usuario): la URL que se busca en los sitemaps es la canónica que declara la página; sin canónica, su URL final; con varias distintas, NE. Interpretación adoptada de [D-162](decisions.md#d-162).
+- **Módulos:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.11.
+- Fuera de `docs/`: web-audit, método de w-consumer/014 (commit 33ee4cc).
+
+## 2026-10-29 — La auditoría se elige sobre el resultado del rastreo · aplicado
+
+- **canon** — `INTAKE 2026-10-29-audit-on-the-crawl` (T-083; decisión del usuario): las páginas de una auditoría se eligen sobre el resultado del rastreo, sin pedir nada al sitio; sin lista del encargo, se auditan todas las fichas del universo (enmienda [D-167](decisions.md#d-167)). Lecturas de Claude: sitemaps tras la portada, captura única de sus URL no alcanzadas, universo con alcanzada, en los sitemaps y tipo de página por varias señales. Decisión [D-217](decisions.md#d-217).
+- **Módulos:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.10, [glossary](../glossary.md) 1.4.
+- Fuera de `docs/`: capture (`pages crawl` y `pages audit`, `crawl.json` y `audit.json`).
+
+## 2026-10-29 — Las especializaciones son bloques del catálogo que induce el entrenamiento · aplicado
+
+- **canon** — `INTAKE 2026-10-29-specialization-induction` (T-090; diseño revisado con el usuario, como pide [D-190](decisions.md#d-190)): las especializaciones son bloques del catálogo con una regla por nodo de anclaje; el entrenamiento fusiona sus sinónimos, decide su nivel por el árbol y las admite por la puerta de métricas, con la semilla y las propuestas al bloque como en D-088. Decisión [D-216](decisions.md#d-216).
+- **Módulos:** [model-training](../10-model/model-training.md#especializaciones) 1.25, [study-class](../10-model/study-class.md#criterio-de-especialización) 1.8, [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formato-del-catálogo) 1.36, [glossary](../glossary.md) 1.3. OQ-49 sigue abierta para la composición, las propiedades de Amazon y las inferidas.
+- Fuera de `docs/`: `demand-engine/catalog/esp/`, el reglamento v4 y `bin/train` (T-090).
+
+## 2026-10-29 — La auditoría busca todas las categorías; la araña va categoría a categoría · aplicado
+
+- **canon** — `INTAKE 2026-10-29-spider-all-categories` (T-093; decisión del usuario): las categorías de la auditoría son todas las del sitio, no solo la inmediata de cada ficha (enmienda [D-167](decisions.md#d-167)); la araña captura primero las políticas y después va categoría a categoría: la categoría, su paginación y sus fichas (enmienda [D-204](decisions.md#d-204)). Decisión [D-215](decisions.md#d-215).
+- **Módulo:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.9.
+- Fuera de `docs/`: la araña de capture (`capture/bin/pages crawl`).
+
 ## 2026-10-29 — Repaso de las incidencias abiertas · aplicado
 
 - **gobernanza** — `INTAKE 2026-10-29-issues-review`: Claude comprobó cada incidencia abierta contra el código y el catálogo y recomendó una salida; el usuario aceptó todas. Resueltas I-40 a I-47, I-50 e I-51; no queda ninguna incidencia abierta.
@@ -38,6 +62,24 @@ Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módul
 - **Módulos (10-model):** [acceptance-criteria](../10-model/acceptance-criteria.md) 1.8, [assessment-hints](../10-model/assessment-hints.md) 1.10, [choice-criteria](../10-model/choice-criteria.md) 1.12, [construction-routes](../10-model/construction-routes.md) 1.9, [demand-model](../10-model/demand-model.md) 3.9, [effective-availability](../10-model/effective-availability.md) 1.4, [informative-prominence](../10-model/informative-prominence.md) 1.1, [model-training](../10-model/model-training.md) 1.23, [paa-training](../10-model/paa-training.md) 1.5, [requirement-description](../10-model/requirement-description.md) 1.2, [resolving-information](../10-model/resolving-information.md) 1.10, [scoring-systems](../10-model/scoring-systems.md) 1.8, [study-class](../10-model/study-class.md) 1.7, [training-catalog](../10-model/training-catalog.md) 1.1; glosario 1.1 («Registro de revisiones de PAA» pasa a «Revisiones de PAA»).
 - **Módulos (20-methods):** audit-gsc: [README](../20-methods/audit-gsc/README.md) 0.5, [ac-guides](../20-methods/audit-gsc/ac-guides.md) 0.6, [availability-coverage](../20-methods/audit-gsc/availability-coverage.md) 0.4, [dossier](../20-methods/audit-gsc/dossier.md) 0.5, [evidence](../20-methods/audit-gsc/evidence.md) 0.4, [gsc-decision](../20-methods/audit-gsc/gsc-decision.md) 0.6, [property-checks](../20-methods/audit-gsc/property-checks.md) 0.4, [ri-profile](../20-methods/audit-gsc/ri-profile.md) 0.4; product-taxonomy: [README](../20-methods/product-taxonomy/README.md) 1.9, [data-model-governance](../20-methods/product-taxonomy/data-model-governance.md) 1.3, [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md) 1.35, [subclasses](../20-methods/product-taxonomy/subclasses.md) 1.9.
 - Fuera de `docs/`: tareas T-089 (catálogo), T-090 (inducción de especializaciones), T-091 (entrenamiento) y T-092 (PAA); nota en T-029.
+
+## 2026-10-29 — La araña de la auditoría captura primero las fichas y sigue la paginación · aplicado
+
+- **canon** — `INTAKE 2026-10-29-spider-products-first` (T-088; el usuario eligió entre alternativas de Claude): la araña da prioridad a las fichas, aprendidas en el rastreo por las señales del documento y la forma de URL, y sigue la paginación numérica como único parámetro. Enmienda [D-173](decisions.md#d-173) (sustituye su lectura «recorrido en anchura»). Decisión [D-204](decisions.md#d-204).
+- **Módulo:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.7; glosario (universo de la auditoría).
+- Fuera de `docs/`: la araña de capture (`capture/bin/pages crawl`).
+
+## 2026-10-29 — El rastreo de la auditoría solo sigue URL sin parámetros · aplicado
+
+- **canon** — `INTAKE 2026-10-29-spider-no-query` (T-082; decisión del usuario tras la prueba en burritoblanco): el rastreo no sigue los enlaces con parámetros (facetas); se cuentan. Enmienda [D-170](decisions.md#d-170) en la regla del rastreo. Decisión [D-173](decisions.md#d-173), con las lecturas de Claude sobre host, recursos, orden, bloqueo y cobertura.
+- **Módulo:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.6; glosario (universo de la auditoría).
+- Fuera de `docs/`: la araña de capture (`capture/bin/pages crawl`).
+
+## 2026-10-29 — El motor de captura no guarda el MHTML · aplicado
+
+- **método** — `INTAKE 2026-10-29-capture-no-mhtml` (el usuario aceptó la recomendación de Claude): el motor de captura deja de guardar el MHTML en todos los perfiles; una visita guarda el HTML de la respuesta y el DOM renderizado. Decisión [D-172](decisions.md#d-172).
+- **Módulo:** [sampling-capture](../20-methods/mpir/sampling-capture.md#contenido-dinámico-e-interacción-selectiva) 1.6.
+- Fuera de `docs/`: capture retira el MHTML del motor; las instantáneas existentes no se tocan.
 
 ## 2026-10-29 — Descubrimiento de las páginas de una auditoría y reserva TDM en la auditoría · aplicado
 

@@ -193,11 +193,13 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-164](#d-164) | Las unidades de un conjunto no son partes de la cuestión: las valoran los AC | aceptada | 2026-10-28 |
 | [D-165](#d-165) | Envío y plazos por zona de España en la capa general; impuestos y aduana de Canarias, Ceuta y Melilla | aceptada | 2026-10-28 |
 | [D-166](#d-166) | Tasa de cumplimiento técnico: una sola tasa con desglose por naturaleza y cobertura; agregación por tipo de página | aceptada (enmendada por D-169: la cobertura descuenta los NA) | 2026-10-28 |
-| [D-167](#d-167) | Páginas de una auditoría: fichas del encargo, portada, políticas, categoría inmediata, robots.txt y sitemaps | aceptada (enmendada por D-170: las fichas salen del universo descubierto) | 2026-10-28 |
+| [D-167](#d-167) | Páginas de una auditoría: fichas del encargo, portada, políticas, categoría inmediata, robots.txt y sitemaps | aceptada (enmendada por D-170: las fichas salen del universo descubierto; por D-215: todas las categorías; por D-217: sin lista, todas las fichas del universo) | 2026-10-28 |
 | [D-168](#d-168) | Mínimo de representación de Web: url, título y URL canónica; Open Graph condicional en el perfil de Web | aceptada | 2026-10-28 |
 | [D-169](#d-169) | Cobertura de la tasa técnica: evaluados / (pertinentes − NA) | aceptada | 2026-10-29 |
-| [D-170](#d-170) | Descubrimiento de las páginas de una auditoría: unión del rastreo y los sitemaps; los enlaces solo descubren | aceptada | 2026-10-29 |
+| [D-170](#d-170) | Descubrimiento de las páginas de una auditoría: unión del rastreo y los sitemaps; los enlaces solo descubren | aceptada (enmendada por D-173: el rastreo no sigue URL con parámetros) | 2026-10-29 |
 | [D-171](#d-171) | Reserva de minería de textos y datos en la auditoría: comprobación previa, parada y aviso | aceptada | 2026-10-29 |
+| [D-172](#d-172) | El motor de captura no guarda el MHTML | aceptada | 2026-10-29 |
+| [D-173](#d-173) | El rastreo de la auditoría solo sigue URL sin parámetros | aceptada (enmendada por D-204: paginación y fichas primero) | 2026-10-29 |
 | [D-174](#d-174) | Repaso de las OQ del 2026-10-29: cierres sin objeto y estado de las que siguen | aceptada | 2026-10-29 |
 | [D-175](#d-175) | El contraste empírico del modelo de demanda en la V1 es PAA | aceptada | 2026-10-29 |
 | [D-176](#d-176) | La calibración de la importancia relativa es el entrenamiento | aceptada | 2026-10-29 |
@@ -228,6 +230,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-201](#d-201) | Las pistas se escriben al redactar un bloque nuevo, y existe el origen «inferida» | aceptada | 2026-10-29 |
 | [D-202](#d-202) | Una pista se corrige en su sitio mientras nadie la haya usado | aceptada | 2026-10-29 |
 | [D-203](#d-203) | La prominencia informativa sigue activa; sus zonas son title, metadescripción y H1 | aceptada | 2026-10-29 |
+| [D-204](#d-204) | La araña de la auditoría captura primero las fichas y sigue la paginación | aceptada (enmendada por D-215: categoría a categoría) | 2026-10-29 |
 | [D-205](#d-205) | La información resolutiva ya se registra en el catálogo | aceptada | 2026-10-29 |
 | [D-206](#d-206) | El dígito de control es estructura del dato: Fiabilidad, y también requisito técnico si un perfil lo exige | aceptada | 2026-10-29 |
 | [D-207](#d-207) | Una pista dirigida a una fuente encaja hasta un separador propio de cada clase de fuente | aceptada | 2026-10-29 |
@@ -238,6 +241,9 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-212](#d-212) | El GS1 Web Vocabulary queda sin ficha hasta que un perfil lo necesite | aceptada | 2026-10-29 |
 | [D-213](#d-213) | «Reformular» es una revisión de PAA más, que taxo reevalúa al compilar | aceptada | 2026-10-29 |
 | [D-214](#d-214) | La capa de clases internas de la taxonomía queda superada por D-033 | aceptada | 2026-10-29 |
+| [D-215](#d-215) | La auditoría busca todas las categorías; la araña va categoría a categoría | aceptada | 2026-10-29 |
+| [D-216](#d-216) | Las especializaciones son bloques del catálogo que induce el entrenamiento | aceptada | 2026-10-29 |
+| [D-217](#d-217) | La auditoría se elige sobre el resultado del rastreo; sin lista, todas las fichas del universo | aceptada | 2026-10-29 |
 
 ---
 
@@ -2750,8 +2756,9 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - Es una condición adoptada, como el perfil sin JavaScript ([D-156](#d-156)). No afirma que los sistemas de IA lean los sitemaps.
   - **Lectura de Claude, no confirmada por el usuario:** lo evalúa la vista particular, porque se evalúa en cada página auditada, aunque su evidencia sean recursos de sitio, y se aplica a todos los tipos de página.
   - «Los sitemaps» son los que publica el sitio. Cuáles cuentan (los que declara robots.txt, el de la raíz, los índices de sitemaps) es método de la referencia técnica.
+  - **La URL que se busca es la canónica** (usuario, 2026-10-29; `INTAKE 2026-10-29-sitemap-canonical-url`): la URL canónica que declara la página, en un link rel=canonical de head o en la cabecera Link. Si no declara ninguna, se busca su URL final. Si declara varias distintas, la comprobación queda NE.
   - **Lectura de Claude, no confirmada por el usuario:** «lo que fijan las fuentes» amplía el perfil de Web ([D-159](#d-159)). El protocolo de sitemaps (sitemaps.org) entra en el nivel protocolo, y la guía de sitemaps de Google en el consumidor.
-- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.2 («Fuentes de los requisitos técnicos», puntos 1 y 3, y regla 7); glosario (requisito técnico general, condición del proyecto). Fuera de `docs/` (T-074): fuentes de los sitemaps, sus requisitos y el campo del requisito que nombra la decisión.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.2 («Fuentes de los requisitos técnicos», puntos 1 y 3, y regla 7); glosario (requisito técnico general, condición del proyecto). Fuera de `docs/` (T-074): fuentes de los sitemaps, sus requisitos y el campo del requisito que nombra la decisión; la URL canónica, en el método de w-consumer/014 (T-084).
 - **Relacionado:** D-132, D-156, D-159, D-161. (D-159 queda ampliada en su perfil: sitemaps.org y la guía de sitemaps de Google.)
 
 ### D-163
@@ -2828,7 +2835,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-167
 
-**Páginas de una auditoría: fichas del encargo, portada, políticas, categoría inmediata, robots.txt y sitemaps.** · aceptada (enmendada por [D-170](#d-170)) · 2026-10-28
+**Páginas de una auditoría: fichas del encargo, portada, políticas, categoría inmediata, robots.txt y sitemaps.** · aceptada (enmendada por [D-170](#d-170), [D-215](#d-215) y [D-217](#d-217)) · 2026-10-28
 
 - **Contexto:** `INTAKE 2026-10-28-technical-rate-pages-web-minimum` §3, tarea T-077. Cierra [OQ-85](open-questions.md#f-evaluación-técnica), abierta por [D-161](#d-161). Claude propuso tres alternativas (encargo y páginas fijas, muestra del sitemap, solo fichas y políticas). Usuario: «Encargo + fijas».
 - **Decisión:**
@@ -2875,7 +2882,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-170
 
-**Descubrimiento de las páginas de una auditoría: unión del rastreo y los sitemaps; los enlaces solo descubren.** · aceptada · 2026-10-29
+**Descubrimiento de las páginas de una auditoría: unión del rastreo y los sitemaps; los enlaces solo descubren.** · aceptada (enmendada por [D-173](#d-173)) · 2026-10-29
 
 - **Contexto:** `INTAKE 2026-10-29-audit-discovery-and-tdm` §1, tarea T-080. El usuario quiere descubrir todas las fichas de un sitio, y otras páginas de contenido, sin partir del sitemap: «No me quiero basar en el sitemaps porque eso me impide poder valorar el requisito de que el recurso este presente en el sitemaps». Claude propuso dos alternativas: Screaming Frog SEO Spider como motor (A) o una araña propia en capture, con Screaming Frog como modelo (B). En la conversación señaló que la araña sola no ve lo que no alcanza y que el universo es la unión del rastreo y los sitemaps. Usuario: «ok a B»; «Realmente no busco auditar rastreo profundamente. Solo un motor de descubrimiento de URLS»; «en la auditoria no valoramos cuestiones de los enlaces y su rastreabilidad. Simplemente los usamos como medio de descubrimiento»; «Si es acertado lo que dices que el universo es la union sitemaps con rastreo. lo que queda fuera se considera irrastreable»; «El unico requisito que valoramos es el del sitemaps»; «Aprovecha el mismo proceso para ambas cosas. descubrir + capturar». Procedencia: el rastreo por `<a href>` es una propuesta de Claude («OK»); el único requisito y el origen de las fichas auditadas son lecturas de Claude que el usuario aceptó («ok»).
 - **Decisión:**
@@ -2916,6 +2923,37 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - «Avisa»: la orden termina con error y un mensaje claro, y el registro de la auditoría guarda la parada con su evidencia.
 - **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.5. Fuera de `docs/`: capture comprueba la reserva antes de la auditoría y para (T-081).
 - **Relacionado:** D-042, D-046, D-150, D-167, D-170.
+
+### D-172
+
+**El motor de captura no guarda el MHTML.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-capture-no-mhtml`, tareas T-082 y T-085. El motor guardaba en cada visita el HTML de la respuesta, el DOM renderizado y el MHTML (la página con sus recursos). Usuario: «quita MHTML no hace falta para el perfil de audit-es»; después, «para los demás perfiles, con html solo no basta?». Claude comprobó que ningún proceso lee el MHTML del motor: el entrenamiento y `/demand-model` leen el DOM; PAA, el DOM; web-audit, la respuesta; el MPIR, aparcado ([D-095](#d-095)), no lo lee. Medida en burritoblanco (10 páginas con `audit-es`): 1,0 MB sin MHTML frente a 6,8 MB con él. Claude recomendó quitarlo de todos los perfiles. Usuario: «hazlo».
+- **Decisión:**
+  - El motor de captura deja de guardar el MHTML (`page.mhtml.gz`) en todos los perfiles.
+  - Una visita guarda el HTML de la respuesta y el DOM renderizado.
+  - Si se retoma el MPIR y necesita el aspecto de la página, se reintroduce con una decisión nueva.
+  - Las instantáneas existentes no se tocan.
+- **Motivo:** el MHTML solo aporta el aspecto (imágenes y CSS). [D-042](#d-042) ya descartó las capturas de pantalla para no juzgar por la prominencia.
+- **Consecuencias:** [sampling-capture](../20-methods/mpir/sampling-capture.md#contenido-dinámico-e-interacción-selectiva) 1.6. Fuera de `docs/`: capture retira el MHTML del motor. `mpir ingest` sigue aceptando un `.mhtml` guardado a mano.
+- **Relacionado:** D-042, D-046, D-095, D-150.
+
+### D-173
+
+**El rastreo de la auditoría solo sigue URL sin parámetros.** · aceptada (enmendada por [D-204](#d-204)) · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-spider-no-query`, tarea T-082. [D-170](#d-170) fijó que el rastreo «sigue los enlaces `<a href>` del documento», sin filtro. Prueba con un prototipo en burritoblanco.com (`audit-es`, tope de 50 visitas): ~280 enlaces por página; 1341 URL descubiertas desde 50 páginas, el 71 % con parámetros (facetas `?q=`, `?page=`). El tope de 50.000 URL se agotaría en facetas. Usuario: «sin facetas; la araña solo rastrea URL sin parámetros (query)». Segunda prueba: 1298 enlaces con parámetros descartados; 392 URL descubiertas desde 50 páginas.
+- **Decisión:**
+  - El rastreo solo sigue URL sin parámetros (query). Los enlaces con parámetros no se siguen; se cuentan.
+  - Enmienda D-170 en la regla del rastreo. El resto de D-170 no cambia.
+- **Interpretaciones adoptadas** (lecturas de Claude al construir la araña en capture):
+  - Solo se siguen enlaces `http` y `https` del host de la URL de inicio y del host final de la portada (`x.es` → `www.x.es`).
+  - No se siguen los enlaces a recursos que no son páginas, por su extensión (PDF, imágenes, vídeo, ficheros, CSS, JS).
+  - El sitio se recorre en anchura, en el orden de descubrimiento (sustituida por [D-204](#d-204)).
+  - Un bloqueo para el rastreo, como cualquier captura del motor ([D-042](#d-042)).
+  - La cobertura del rastreo queda incompleta por el tope, un bloqueo, una reserva TDM, una interrupción o páginas con error cuyos enlaces no se leyeron. Una página excluida por robots.txt o un 404 no la dejan incompleta.
+- **Consecuencias:** una URL con parámetros no entra en el universo por el rastreo; puede entrar por los sitemaps. [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.6; glosario (universo de la auditoría). Fuera de `docs/`: la araña de capture (`capture/bin/pages crawl`, T-082).
+- **Relacionado:** D-042, D-162, D-170, D-171.
 
 ### D-174
 
@@ -3294,6 +3332,22 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 - **Consecuencias:** [informative-prominence](../10-model/informative-prominence.md) (sigue en propuesta). OQ-32 se cierra.
 - **Relacionado:** D-018, D-019, OQ-28, OQ-32.
 
+### D-204
+
+**La araña de la auditoría captura primero las fichas y sigue la paginación.** · aceptada (enmendada por [D-215](#d-215)) · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-spider-products-first`, tarea T-088. Usuario: «para la araña. prioriza la captura de productos. Optimiza la estrategia para capturar productos». Claude comprobó dos problemas en burritoblanco. En anchura, tras 20 páginas, la primera ficha estaba en la posición 65 de la cola. Y con [D-173](#d-173), una ficha que solo aparece en la página 2 o siguientes de su categoría quedaba fuera del rastreo: se registraría como no rastreable aunque el sitio la enlaza. Claude propuso alternativas para cada problema. El usuario eligió aprender la prioridad en el rastreo y «admitir solo paginación».
+- **Decisión:**
+  - **Fichas primero, aprendidas en el rastreo** (sin configuración por sitio): la araña confirma una ficha por las señales de su documento (`og:type` `product`, o `Product` en JSON-LD o microdatos). Da prioridad a las URL con la forma de URL de las fichas confirmadas. Después visita los listados que más fichas descubren. Sustituye la lectura «recorrido en anchura» de D-173.
+  - **Paginación:** la araña sigue una URL cuyo único parámetro es de paginación y tiene valor numérico (`page`, `p`, `pag`, `pagina`, `pg`). Las facetas (`?q=`, filtros) siguen fuera. Enmienda D-173.
+- **Interpretaciones adoptadas:**
+  - El orden solo importa si el rastreo se corta (tope, interrupción, bloqueo). Un rastreo completo alcanza las mismas páginas, y el universo no cambia.
+  - Las señales de ficha de la araña sirven para ordenar. No son la clasificación del tipo de página del universo (T-083).
+  - Lecturas de Claude al construir la araña: antes de confirmar la primera ficha, el orden es en anchura; cada forma de URL aún no capturada se prueba una vez antes que el resto; un producto dentro de un `ItemList` (el de un listado) no es una señal de ficha.
+- **Medida:** burritoblanco, 35 fichas en las primeras 40 URL (en anchura, la primera ficha estaba en la posición 65 de la cola tras 20 páginas).
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.7; glosario (universo de la auditoría). Fuera de `docs/`: la araña de capture (`capture/bin/pages crawl`, T-088).
+- **Relacionado:** D-170, D-173.
+
 ### D-205
 
 **La información resolutiva ya se registra en el catálogo.** · aceptada · 2026-10-29
@@ -3405,3 +3459,61 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - Se retiran las orientaciones «mantener clases internas con IDs propios» y «crear subclases solo cuando…» de data-model-governance.
 - **Consecuencias:** [product-taxonomy](../20-methods/product-taxonomy/README.md) 1.10; [data-model-governance](../20-methods/product-taxonomy/data-model-governance.md) 1.4; [integration](../20-methods/product-taxonomy/integration.md) 1.3; glosario (Clase interna, Subclase interna, Correspondencia). Resuelve I-51.
 - **Relacionado:** D-023, D-033, D-095, D-174, I-51.
+
+### D-215
+
+**La auditoría busca todas las categorías; la araña va categoría a categoría.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-spider-all-categories`, tarea T-093. Lectura de Claude: con el orden de [D-204](#d-204), la araña podía dejar sin visitar las categorías y las políticas si el tope cortaba el rastreo. Usuario: «la prioridad son las fichas de producto, pero las categorías y las otras páginas de contenido que hemos definido como relevantes para la audit tb deben encontrarse»; después: «Buscamos todas las categorías no solo las inmediatas de cada producto». Claude propuso alternar fichas y categorías. Usuario: «no hace falta que hagas esa alternancia. ve por categoría obteniendo las urls de las fichas de forma paginada y luego saltando a otra categoría y así sucesivamente». A la pregunta de cuándo capturar las fichas reunidas, eligió «al terminar cada categoría».
+- **Decisión:**
+  - **Categorías de la auditoría:** todas las categorías del sitio, no solo la inmediata de cada ficha. Enmienda [D-167](#d-167) (ítem «Categoría o listado»).
+  - **Orden de la araña:** primero las políticas de D-167, localizadas desde la portada. Después, categoría a categoría: la categoría, toda su paginación y las fichas que listan sus páginas; luego, la siguiente categoría. Enmienda D-204.
+- **Interpretaciones adoptadas** (lecturas de Claude al construir la araña):
+  - Una categoría es un enlace de las migas de una ficha, a cualquier nivel, y cualquier URL con la forma de URL de esas categorías.
+  - La paginación de una categoría sigue mientras la página lista fichas.
+  - Una categoría capturada antes de saberse que lo era se recorre igual, sin volver a pedirla.
+  - Después de las categorías: las fichas halladas en otras páginas, las formas de URL aún no capturadas y el resto.
+- **Medida:** burritoblanco, 60 URL: la portada, 3 políticas, la categoría «lo más nuevo» con sus 5 páginas y 49 fichas.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.9. Fuera de `docs/`: la araña de capture (T-093). `pages audit` sigue con la categoría inmediata hasta T-083.
+- **Relacionado:** D-167, D-170, D-204.
+
+### D-216
+
+**Las especializaciones son bloques del catálogo que induce el entrenamiento.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-specialization-induction`. [D-190](#d-190) abre la tarea de inducir las especializaciones y pide revisarla con el usuario al empezar (T-090). El piloto mostró la misma especialización con dos nombres (`esp.a-bateria`, `esp.bateria`), y sin id estable sus requisitos no tenían regla. El usuario aceptó las cuatro recomendaciones de Claude.
+- **Decisión:**
+  - **Catálogo:** una especialización es un bloque del catálogo, con una regla por nodo de anclaje (`esp:<id>@<nodo>`). El clasificador usa la que encaja por su id. Si ninguna encaja, registra una nueva en ejecución, «no compilada» y encolada, como un bloque de categoría.
+  - **Sinónimos:** el entrenamiento los fusiona de forma determinista, por las palabras significativas, dentro de la misma vertical de Shopify (el usuario: «del nombre y del disparador»; la interpretación adoptada precisa el nombre y el id). El id es el ya compilado; si no, el más observado.
+  - **Admisión:** sin umbral de casos, como el criterio («No se fija ningún umbral numérico»). La decide la puerta de métricas: ninguna peor y alguna mejor.
+  - **Nivel** (condición 5 del criterio): por el árbol, como la importancia. Se ancla en la clase observada y sube a la madre si al menos dos hijas con datos la comparten. No sube por encima de las verticales.
+  - **Requisitos:** la semilla es la primera propuesta registrada. Lo que otras propuestas añadan entra como propuesta al bloque, como en [D-088](#d-088). Su importancia y su relevancia las dan las reglas de siempre.
+- **Interpretación adoptada (Claude, al construirlo):**
+  - Los sinónimos se comparan por el nombre y el id, sin tildes, y comparten al menos la mitad de sus palabras. El disparador no se compara: en el reglamento v3 es la evidencia de cada ficha. En un empate de observaciones gana la primera por orden alfabético.
+  - La puerta suma tres métricas: estabilidad de la clave, estabilidad de las especializaciones (por id, con los sinónimos fusionados) y especializaciones sin compilar en los modelos.
+  - El marco no admite una especialización sin apoyo en las referencias ([D-024](#d-024)), con un orden fuera del reglamento o con un requisito sin pregunta, sin rasgo o sin información resolutiva ([D-063](#d-063)).
+  - Sube a la madre cuando al menos dos hijas la tienen y todas sus hijas con datos la tienen (el mínimo estructural de las reglas de importancia). Los anclajes registrados se conservan.
+  - Sin registro (reglamento v3), la semilla es la primera propuesta admisible en el orden de las ejecuciones, y su disparador es su nombre. Una propuesta que el bloque ya cubre no entra; tampoco una sin información resolutiva.
+  - El juego se ofrece en cualquier clase, porque une categorías distintas ([D-086](#d-086)).
+- **Consecuencias:** [model-training](../10-model/model-training.md#especializaciones), [requirement-blocks](../20-methods/product-taxonomy/requirement-blocks.md#formato-del-catálogo), [glossary](../glossary.md). Fuera de `docs/`: `demand-engine/catalog/esp/`, el reglamento v4 y `bin/train` (T-090). La composición, las propiedades de Amazon y las inferidas siguen solo medidas ([OQ-49](open-questions.md)).
+- **Relacionado:** D-024, D-044, D-045, D-086, D-088, D-190, OQ-49.
+
+### D-217
+
+**La auditoría se elige sobre el resultado del rastreo; sin lista, todas las fichas del universo.** · aceptada · 2026-10-29
+
+- **Contexto:** `INTAKE 2026-10-29-audit-on-the-crawl`, tarea T-083. [D-170](#d-170) fijó que las fichas auditadas salen del universo y que la instantánea de una página auditada es la de la visita del rastreo; `pages audit` (capture) seguía capturando sus páginas aparte. Claude propuso tres opciones: elegir las páginas sobre el rastreo, guardar la selección en un fichero aparte del manifiesto o mantener dos modos. Usuario: «opcion 1, sobre el rastreo. eso de "solo pide aparte lo no rastreado" no tiene sentido. la auditoria solo se hace sobre el resultado del rastreo». A la pregunta de qué fichas se auditan sin lista del encargo: «Todas las del universo».
+- **Decisión:**
+  - **Sobre el rastreo:** las páginas de una auditoría (D-167) se eligen sobre el resultado del rastreo, con la instantánea de su visita. La auditoría no pide nada al sitio. Una página de D-167 que el rastreo no capturó se registra y no se audita.
+  - **Fichas sin lista del encargo:** se auditan todas las fichas del universo. Enmienda D-167 (ítem «Fichas de producto»).
+- **Interpretaciones adoptadas** (lecturas de Claude al construirlo en capture):
+  - El rastreo lee los sitemaps una vez, después de la portada. Cuando no queda nada que rastrear, captura una vez cada URL de los sitemaps que no alcanzó, aunque lleve parámetros. Registra sus enlaces y no los sigue.
+  - Una URL de los sitemaps que es la URL, la URL final o la URL canónica de una página del rastreo es esa página.
+  - Cada URL del universo registra si el rastreo la alcanzó y si está en los sitemaps. «No» solo se afirma con la cobertura completa (del rastreo o de la lectura de los sitemaps); si no, queda indeterminado.
+  - El tipo de página del universo se decide por varias señales, no solo el marcado: portada (la URL de inicio); política (localizada en la portada); ficha (señales de ficha en el documento y forma de URL de ficha); categoría (en las migas de una ficha o con su forma, también su paginación; lista URL con forma de ficha y no tiene señales de ficha); otra (ninguna de esas señales). Lo dudoso queda sin tipo, y también lo no capturado, lo que no es HTML y lo de otro host.
+  - Las categorías auditadas son todas las del universo, sin su paginación, y la inmediata de cada ficha ([D-215](#d-215)).
+  - Una ficha del encargo fuera del universo no se audita. Se registra como no alcanzada solo si el rastreo terminó completo (D-170).
+  - Un rastreo parado por una reserva TDM no se audita ([D-171](#d-171)).
+- **Medida:** burritoblanco, 40 URL: 6 sitemaps leídos completos, 791 URL; universo de 957 URL; 1 portada, 3 políticas, 29 fichas, 6 categorías (una y su paginación) y 1 otra; `pages audit` eligió 34 páginas.
+- **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md#vistas-de-la-evaluación-técnica) 2.10; glosario (universo de la auditoría). Fuera de `docs/`: capture (`crawl.json` con el universo; `audit.json` con las páginas elegidas, T-083) y web-audit sobre esa auditoría (T-084).
+- **Relacionado:** D-162, D-167, D-170, D-171, D-215.

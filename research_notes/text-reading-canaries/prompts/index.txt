@@ -1,0 +1,2 @@
+Abre esta página: {BASE}/index.html
+Copia, sin interpretar, todos los códigos con formato QX00-PALABRA que aparezcan en el contenido que has recibido de la página, en orden, uno por línea. Junto a cada código, copia literalmente el fragmento en que aparece. No completes ni adivines códigos. Al final indica: 1) el título de la página que recibiste; 2) si recibiste el contenido completo o un resumen; 3) si recibiste metadatos o datos estructurados (JSON-LD).

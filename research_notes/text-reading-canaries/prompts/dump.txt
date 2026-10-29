@@ -1,0 +1,2 @@
+Abre esta página: {BASE}/index.html
+Es una página de prueba sin contenido real. Copia literalmente, línea a línea, todo el contenido textual que has recibido de la herramienta al abrirla, desde la primera línea hasta la última, con su numeración si la tiene, dentro de un bloque de código. No resumas, no omitas líneas y no añadas nada.

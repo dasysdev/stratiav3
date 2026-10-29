@@ -1,0 +1,45 @@
+CHAT: claude.ai (Sonnet 5.5, con sesión; prueba manual del usuario)
+PROMPT: index.txt
+URL: https://dasys.es/test-read-canaries/index.html
+
+QX02-ULMO → `meta-description: Página de prueba de lectura. Código QX02-ULMO.`
+QX03-TOJAL → `meta-og:description: Código QX03-TOJAL.`
+QX01-PIZARRA → `title: Edredón de prueba Canario · QX01-PIZARRA`
+QX53-FANAL → `Tienda de prueba. Aviso de cabecera QX53-FANAL.`
+QX54-SALINA → `[Menú QX54-SALINA](#)`
+QX55-HUSILLO → `Migas QX55-HUSILLO`
+QX05-GALERNA → `# Edredón de prueba Canario QX05-GALERNA`
+QX06-SABINA → `Párrafo visible QX06-SABINA.`
+QX07-GRANITO → `Característica en lista QX07-GRANITO`
+QX08-ARCILLA → `Valor de tabla QX08-ARCILLA`
+QX09-ISTMO → `Definición QX09-ISTMO`
+QX10-BADANA → `Ficha técnica en bloque preformateado QX10-BADANA`
+QX11-ESCARCHA → `marca Microdato visible QX11-ESCARCHA`
+QX17-DOLMEN → `Bloque con display none en línea QX17-DOLMEN`
+QX18-CIERZO → `Bloque oculto por clase QX18-CIERZO`
+QX20-MIMBRE → `Bloque con aria-hidden QX20-MIMBRE`
+QX21-CERCETA → `Bloque con visibility hidden QX21-CERCETA`
+QX22-HORNACINA → `Texto de tamaño cero QX22-HORNACINA`
+QX23-JABEGA → `Texto solo para lectores de pantalla QX23-JABEGA`
+QX24-FRAGUA → `Medidas del panel lateral QX24-FRAGUA`
+QX25-DORNILLO → `Diálogo nativo cerrado QX25-DORNILLO`
+QX26-RAMBLA → `Contenido de details cerrado QX26-RAMBLA`
+QX28-NACAR → `<p>Descripción escapada QX28-NACAR</p>`
+QX33-NORIA → `Foto del edredón QX33-NORIA`
+QX35-ACEBO → `Pie de foto QX35-ACEBO`
+QX38-VENCEJO → `Cama 135 cm opción QX38-VENCEJO`
+QX40-ALMENA → `Color Nude etiqueta QX40-ALMENA`
+QX45-MARJAL → `Texto de textarea QX45-MARJAL`
+QX46-RETAMA → `Añadir al carrito QX46-RETAMA`
+QX47-TAHONA → `[Política de envíos QX47-TAHONA](https://dasys.es/politicas/envios)`
+QX48-FOGARIL → `[Ver referencia](https://dasys.es/ref/QX48-FOGARIL)`
+QX50-TOMILLO → `Texto SVG QX50-TOMILLO`
+QX51-VAGUADA → `Alternativa de canvas QX51-VAGUADA`
+QX56-PALOMAR → `Lateral con ofertas QX56-PALOMAR`
+QX57-PEDERNAL → `Producto relacionado QX57-PEDERNAL`
+QX58-RIBERA → `Pie de página. Envío gratis desde 49 €. Código QX58-RIBERA.`
+
+1) Título: «Edredón de prueba Canario» (origen del documento); campo title del bloque inicial: «Edredón de prueba Canario · QX01-PIZARRA».
+2) Conversión a Markdown con la estructura de la página; la herramienta aplica un paso de extracción con la instrucción del modelo antes de devolverla.
+3) Bloque inicial de metadatos: meta-description, meta-og:description, meta-og:title, meta-viewport, title, content_type, destination_url, final_url, mime_type. Sin JSON-LD.
+

@@ -1,0 +1,45 @@
+CHAT: gemini (Flash, con sesión; prueba manual del usuario)
+PROMPT: index.txt
+URL: https://dasys.es/test-read-canaries/index.html
+
+QX53-FANAL — `<header><p>Tienda de prueba. Aviso de cabecera QX53-FANAL.</p></header>`
+QX54-SALINA — `<nav><ul><li><a href="#">Edredones</a></li><li><a href="#">Menú QX54-SALINA</a></li></ul></nav>`
+QX55-HUSILLO — `<nav aria-label=breadcrumb><a href="#">Inicio</a> › <a href="#">Edredones</a> › Migas QX55-HUSILLO</nav>`
+QX05-GALERNA — `<h1>Edredón de prueba Canario QX05-GALERNA</h1>`
+QX06-SABINA — `<p>Edredón reversible para pruebas de lectura. Párrafo visible QX06-SABINA.</p>`
+QX07-GRANITO — `<ul><li>Reversible</li><li>Característica en lista QX07-GRANITO</li></ul>`
+QX08-ARCILLA — `<table><tbody><tr><th>Composición</th><td>100% poliéster</td></tr><tr><th>Gramaje</th><td>Valor de tabla QX08-ARCILLA</td></tr></tbody></table>`
+QX09-ISTMO — `<dl><dt>Lavado</dt><dd>A 30 grados. Definición QX09-ISTMO</dd></dl>`
+QX10-BADANA — `<pre>Ficha técnica en bloque preformateado QX10-BADANA</pre>`
+QX11-ESCARCHA — `<div itemscope itemtype="[https://schema.org/Product](https://schema.org/Product)"><span itemprop=name>Edredón Canario</span>, marca <span itemprop=brand>Microdato visible QX11-ESCARCHA</span></div>`
+QX17-DOLMEN — `<div>Bloque con display none en línea QX17-DOLMEN</div>`
+QX18-CIERZO — `<div>Bloque oculto por clase QX18-CIERZO</div>`
+QX19-HELECHO — `<div hidden>Bloque con atributo hidden QX19-HELECHO</div>`
+QX20-MIMBRE — `<div aria-hidden=true>Bloque con aria-hidden QX20-MIMBRE</div>`
+QX21-CERCETA — `<div>Bloque con visibility hidden QX21-CERCETA</div>`
+QX22-HORNACINA — `<span>Texto de tamaño cero QX22-HORNACINA</span>`
+QX23-JABEGA — `<span>Texto solo para lectores de pantalla QX23-JABEGA</span>`
+QX24-FRAGUA — `<aside aria-hidden=true inert role=dialog><h3>Qué incluye y medidas</h3><p>Medidas del panel lateral QX24-FRAGUA</p></aside>`
+QX25-DORNILLO — `<dialog><p>Diálogo nativo cerrado QX25-DORNILLO</p></dialog>`
+QX26-RAMBLA — `<details><summary>Cuidados</summary><p>Contenido de details cerrado QX26-RAMBLA</p></details>`
+QX27-SALOBRE — `<div hidden role=tabpanel><p>Pestaña de envíos oculta QX27-SALOBRE</p></div>`
+QX28-NACAR — `<span>&lt;p&gt;Descripción escapada QX28-NACAR&lt;/p&gt;</span>`
+QX33-NORIA — `<img alt="Foto del edredón QX33-NORIA" height=1 src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" title="Título de imagen QX34-LENTISCO" width=1>`
+QX34-LENTISCO — (mismo <img>)
+QX35-ACEBO — `<figcaption>Pie de foto QX35-ACEBO</figcaption>`
+QX37-CANTIL — `<span title="Ayuda emergente QX37-CANTIL">¿Qué medida elijo?</span>`
+QX47-TAHONA — `<p><a href="/politicas/envios">Política de envíos QX47-TAHONA</a> · <a href="/ref/QX48-FOGARIL">Ver referencia</a></p>`
+QX48-FOGARIL — (mismo <p>)
+QX51-VAGUADA — `<canvas height=1 width=1>Alternativa de canvas QX51-VAGUADA</canvas>`
+QX56-PALOMAR — `<aside><p>Lateral con ofertas QX56-PALOMAR</p></aside>`
+QX57-PEDERNAL — `<section><h2>También te puede gustar</h2><p>Producto relacionado QX57-PEDERNAL</p></section>`
+QX58-RIBERA — `<footer><p>Pie de página. Envío gratis desde 49 €. Código QX58-RIBERA.</p></footer>`
+
+1. Título: no recibió <title> ni metadatos del documento; solo el <h1>.
+2. Recibió un resumen del contenido («content_summary»): la extracción procesada del HTML.
+3. Sin JSON-LD ni <meta> del <head>; solo los atributos de microdatos del cuerpo (itemscope, itemprop).
+
+--- Página larga (largo.html) ---
+QT01-OLMEDA — `<p>Marca de posición 2000 caracteres: QT01-OLMEDA.</p>`
+QT02-HINOJO — `<p>Marca de posición 10000 caracteres: QT02-HINOJO.</p>`
+Último: QT02-HINOJO.

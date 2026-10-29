@@ -1,0 +1,25 @@
+Edredón de prueba Canario QX05-GALERNA
+Edredón reversible para pruebas de lectura. Párrafo visible QX06-SABINA.
+- Reversible
+- Característica en lista QX07-GRANITO
+| Composición | 100% poliéster |
+|---|---|
+| Gramaje | Valor de tabla QX08-ARCILLA |
+- Lavado
+- A 30 grados. Definición QX09-ISTMO
+Ficha técnica en bloque preformateado QX10-BADANA
+Edredón Canario, marca Microdato visible QX11-ESCARCHA
+Edredón Canario RDFa
+Bloque oculto por clase QX18-CIERZO
+Bloque con atributo hidden QX19-HELECHO
+Texto de tamaño cero QX22-HORNACINA
+Texto solo para lectores de pantalla QX23-JABEGA
+Cuidados
+Contenido de details cerrado QX26-RAMBLA
+Pestaña visible de descripción.
+Pestaña de envíos oculta QX27-SALOBRE
+Texto de template QX30-CARRASCA
+Elemento con atributo data.
+¿Qué medida elijo?
+Política de envíos QX47-TAHONA · Ver referencia
+: texto con pseudoelemento.

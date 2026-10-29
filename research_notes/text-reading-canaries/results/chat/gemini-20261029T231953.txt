@@ -1,0 +1,41 @@
+CHAT: gemini
+PROMPT: index.txt
+URL: https://gemini.google.com/app/b20f7cdb70e7121b
+
+Gemini
+Nueva conversación
+Inicia sesión para guardar la actividad
+Ajustes
+Vic, España
+De tu dirección IP
+Iniciar sesión
+Descargar aplicación
+Conversación con Gemini
+Has dicho Abre esta página: https://dasys.es/test-read-canaries/index.html Copia, sin interpretar, todos los c…
+
+Abre esta página: https://dasys.es/test-read-canaries/index.html
+
+Copia, sin interpretar, todos los códigos con formato QX00-PALABRA que aparezcan en el contenido que has recibido de la página, en orden, uno por línea. Junto a cada código, copia literalmente el fragmento en que aparece. No completes ni adivines códigos. Al final indica: 1) el título de la página que recibiste; 2) si recibiste el contenido completo o un resumen; 3) si recibiste metadatos o datos estructurados (JSON-LD).
+
+Gemini ha dicho
+
+No tengo la capacidad de acceder directamente a páginas web externas ni de abrir enlaces en tiempo real para extraer su contenido actual. Por lo tanto, no puedo visualizar los códigos ni la información específica que contiene esa URL en este momento.
+
+Si me proporcionas el texto o el contenido de la página directamente aquí, estaré encantado de analizarlo y extraer los códigos y datos que me pides siguiendo exactamente tus instrucciones.
+
+Inicia sesión para hacer cosas como conectarte a las aplicaciones de Google o crear imágenes
+Iniciar sesión
+
+
+
+
+Flash-Lite
+
+Gemini no es humano. Puede cometer errores, incluso sobre personas, así que verifica sus respuestas. Tu privacidad y Gemini
+Se abre en una ventana nueva
+
+Acerca de Gemini
+Suscripciones
+Para empresas
+Iniciar sesión
+Buscando en la Web

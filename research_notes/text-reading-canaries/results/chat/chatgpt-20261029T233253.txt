@@ -1,0 +1,90 @@
+CHAT: chatgpt
+PROMPT: corte.txt
+URL: https://chatgpt.com/uc/6ae3c971-399c-83ea-8548-d9bb07102efa
+
+Iniciar sesión
+Registrarse gratis
+Tú dijiste:
+
+Abre esta página: https://dasys.es/test-read-canaries/corte.html
+Copia todos los códigos con formato QC00-PALABRA que aparezcan en el contenido que has recibido, con el fragmento literal en que aparece cada uno. ¿Cuál es el último que recibiste? Copia literalmente la última línea que recibiste.
+
+ChatGPT Plus
+
+He abierto la página Prueba de longitud de lectura . En el contenido que he recibido, los códigos con el formato QC00-PALABRA aparecen en líneas que comienzan con «Marca de posición».
+
+Estos son los códigos que he podido verificar, junto con el fragmento literal en el que aparece cada uno: 
+dasys.es
+
+Códigos encontrados y fragmentos literales
+
+1. QC01-ALBUFERA
+
+Marca de posición 12000 caracteres: QC01-ALBUFERA.
+
+2. QC02-BREZO
+
+Marca de posición 14000 caracteres: QC02-BREZO.
+
+3. QC03-CANTUESO
+
+Marca de posición 16000 caracteres: QC03-CANTUESO.
+
+4. QC04-DUNA
+
+Marca de posición 18000 caracteres: QC04-DUNA.
+
+5. QC05-ESPLIEGO
+
+Marca de posición 20000 caracteres: QC05-ESPLIEGO.
+
+6. QC06-GAMONAL
+
+Marca de posición 22000 caracteres: QC06-GAMONAL.
+
+7. QC07-JARAMAGO
+
+Marca de posición 24000 caracteres: QC07-JARAMAGO.
+
+¿Cuál es el último código que recibí?
+
+El último código de este formato que aparece en el contenido recibido es QC07-JARAMAGO, dentro del fragmento literal:
+
+Marca de posición 24000 caracteres: QC07-JARAMAGO.
+
+Última línea recibida
+
+La última línea del contenido que recibí de la página, copiada literalmente, es:
+
+Las medidas se toman con la pieza extendida sobre una superficie plana. Lote 3272.
+
+Fuente: página original , contenido recibido hasta la línea 559 de la extracción consultada. 
+dasys.es
++1
+
+ChatGPT es una IA y puede equivocarse.
+
+ChatGPT
+Nuevo chat
+Imágenes
+Complementos
+Ver planes y precios
+Ayuda
+Investigación avanzada
+Configuración
+Obtén respuestas adaptadas a ti
+
+Inicia sesión para obtener respuestas basadas en chats guardados, además de crear imágenes y cargar archivos.
+
+Iniciar sesión
+Chat con ChatGPT
+Iniciar sesión o registrarse
+
+Obtendrás respuestas más inteligentes y podrás cargar archivos, imágenes y mucho más.
+
+Continuar con Google
+Continuar con Apple
+Continuar con el teléfono
+O
+Dirección de correo electrónico
+Continuar

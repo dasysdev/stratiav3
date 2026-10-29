@@ -1,0 +1,56 @@
+CHAT: chatgpt
+PROMPT: bb-corte.txt
+URL: https://chatgpt.com/uc/6ae3d095-54c4-83ea-937e-807efcb22ef0
+
+Iniciar sesión
+Registrarse gratis
+Tú dijiste:
+
+Abre esta página: https://www.burritoblanco.com/edredon-color-nude-diseno-geometrico-266-p-6172.html
+Copia literalmente las 3 últimas líneas del contenido que has recibido de la herramienta al abrirla, sin pedir más tramos. Después, sin buscar en otro sitio, dime si en lo recibido aparecen: 1) la composición del edredón; 2) el precio para cama de 135 cm; 3) el coste del envío. Para cada uno, copia el fragmento literal o di «no aparece».
+
+ChatGPT Plus
+1. Las 3 últimas líneas del contenido recibido
+text
+Selecciona un artículo de regalo
+
+[Button: Confirmar regalo ]
+
+La respuesta de la herramienta termina con esas dos líneas de contenido textual no vacío, precedidas por una línea vacía. No hay una tercera línea de texto no vacío al final del contenido recibido.
+
+2. Comprobación de los tres datos
+
+Según el contenido recibido al abrir la página, sin consultar otras fuentes:
+
+Composición del edredón: aparece.
+
+Fragmento literal: 100% Poliéster
+
+Precio para cama de 135 cm: aparece.
+
+Fragmento literal: Cama 135 cm (1 alm) 74,41 €
+
+Coste del envío: aparece.
+
+Fragmento literal:
+
+Pedido superior a 49 €, envío gratuito, en la modalidad estándar, todo el territorio peninsular de España. Envío premium a la península, 1 €. Baleares, 6 €.
+
+También aparece el coste para pedidos inferiores a 49 €: 5'9 € en el envío estándar, 6'9 € en la modalidad de envio premium. Baleares, 10'9 €.
+
+ChatGPT es una IA y puede equivocarse.
+
+ChatGPT
+Nuevo chat
+Imágenes
+Complementos
+Ver planes y precios
+Ayuda
+Investigación avanzada
+Configuración
+Obtén respuestas adaptadas a ti
+
+Inicia sesión para obtener respuestas basadas en chats guardados, además de crear imágenes y cargar archivos.
+
+Iniciar sesión
+Chat con ChatGPT

@@ -1,0 +1,8 @@
+CHAT: gemini (Flash, con sesión; prueba manual del usuario)
+PROMPT: corte.txt
+URL: https://dasys.es/test-read-canaries/corte.html
+
+QC01-ALBUFERA — `<p>Marca de posición 12000 caracteres: QC01-ALBUFERA.</p>`
+(No aparece ningún otro código.) Último: QC01-ALBUFERA.
+Última línea recibida: `<p>Las medidas se toman con la pieza extendida sobre una superficie plana. Lote 5400.</p>`
+→ en site/corte.html: byte 14.109 del HTML, carácter 12.845 del texto.

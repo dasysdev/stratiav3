@@ -1,0 +1,413 @@
+{
+  "seed": "stratia-cic-2026-10-29",
+  "constructs": [
+    {
+      "id": "title",
+      "token": "QX01-PIZARRA",
+      "construct": "<title>",
+      "where": "head"
+    },
+    {
+      "id": "meta-description",
+      "token": "QX02-ULMO",
+      "construct": "<meta name=description>",
+      "where": "head"
+    },
+    {
+      "id": "og",
+      "token": "QX03-TOJAL",
+      "construct": "<meta property=og:description>",
+      "where": "head"
+    },
+    {
+      "id": "jsonld-head",
+      "token": "QX04-BERILO",
+      "construct": "JSON-LD en <head>",
+      "where": "head"
+    },
+    {
+      "id": "h1",
+      "token": "QX05-GALERNA",
+      "construct": "<h1>",
+      "where": "body"
+    },
+    {
+      "id": "p-visible",
+      "token": "QX06-SABINA",
+      "construct": "<p> visible en el contenido principal",
+      "where": "body"
+    },
+    {
+      "id": "ul-li",
+      "token": "QX07-GRANITO",
+      "construct": "<li> visible",
+      "where": "body"
+    },
+    {
+      "id": "table-value",
+      "token": "QX08-ARCILLA",
+      "construct": "celda <td> de una tabla etiqueta | valor",
+      "where": "body"
+    },
+    {
+      "id": "dl-dd",
+      "token": "QX09-ISTMO",
+      "construct": "<dd> de una lista de definición",
+      "where": "body"
+    },
+    {
+      "id": "pre",
+      "token": "QX10-BADANA",
+      "construct": "<pre>",
+      "where": "body"
+    },
+    {
+      "id": "microdata-text",
+      "token": "QX11-ESCARCHA",
+      "construct": "microdato con valor en texto visible (itemprop en <span>)",
+      "where": "body"
+    },
+    {
+      "id": "microdata-meta",
+      "token": "QX12-GAZAPO",
+      "construct": "microdato en <meta itemprop content>",
+      "where": "body"
+    },
+    {
+      "id": "rdfa-meta",
+      "token": "QX13-QUEJIGO",
+      "construct": "RDFa en <meta property content>",
+      "where": "body"
+    },
+    {
+      "id": "jsonld-body",
+      "token": "QX14-VILANO",
+      "construct": "JSON-LD en <body>",
+      "where": "body"
+    },
+    {
+      "id": "json-state",
+      "token": "QX15-LABRADOR",
+      "construct": "<script type=application/json> (estado de la aplicación)",
+      "where": "body"
+    },
+    {
+      "id": "js-injected",
+      "token": "QX16-ENEBRO",
+      "construct": "texto que inserta un script en línea",
+      "where": "body"
+    },
+    {
+      "id": "inline-display-none",
+      "token": "QX17-DOLMEN",
+      "construct": "<div style=display:none>",
+      "where": "body"
+    },
+    {
+      "id": "class-display-none",
+      "token": "QX18-CIERZO",
+      "construct": "clase con display:none en una hoja <style>",
+      "where": "body"
+    },
+    {
+      "id": "hidden-attr",
+      "token": "QX19-HELECHO",
+      "construct": "atributo hidden",
+      "where": "body"
+    },
+    {
+      "id": "aria-hidden",
+      "token": "QX20-MIMBRE",
+      "construct": "<div aria-hidden=true>",
+      "where": "body"
+    },
+    {
+      "id": "visibility-hidden",
+      "token": "QX21-CERCETA",
+      "construct": "<div style=visibility:hidden>",
+      "where": "body"
+    },
+    {
+      "id": "font-size-zero",
+      "token": "QX22-HORNACINA",
+      "construct": "<span style=font-size:0>",
+      "where": "body"
+    },
+    {
+      "id": "sr-only",
+      "token": "QX23-JABEGA",
+      "construct": "clase sr-only (fuera de pantalla)",
+      "where": "body"
+    },
+    {
+      "id": "dialog-aside",
+      "token": "QX24-FRAGUA",
+      "construct": "<aside role=dialog aria-hidden=true inert> (panel lateral, patrón de BB)",
+      "where": "body"
+    },
+    {
+      "id": "dialog-native",
+      "token": "QX25-DORNILLO",
+      "construct": "<dialog> sin open",
+      "where": "body"
+    },
+    {
+      "id": "details-closed",
+      "token": "QX26-RAMBLA",
+      "construct": "contenido de <details> cerrado",
+      "where": "body"
+    },
+    {
+      "id": "tabpanel-hidden",
+      "token": "QX27-SALOBRE",
+      "construct": "pestaña <div role=tabpanel hidden>",
+      "where": "body"
+    },
+    {
+      "id": "escaped-html",
+      "token": "QX28-NACAR",
+      "construct": "HTML escapado como texto en un <span style=display:none>",
+      "where": "body"
+    },
+    {
+      "id": "noscript",
+      "token": "QX29-ZARZO",
+      "construct": "<noscript>",
+      "where": "body"
+    },
+    {
+      "id": "template",
+      "token": "QX30-CARRASCA",
+      "construct": "<template>",
+      "where": "body"
+    },
+    {
+      "id": "comment",
+      "token": "QX31-ERIAL",
+      "construct": "comentario HTML",
+      "where": "body"
+    },
+    {
+      "id": "data-attr",
+      "token": "QX32-GAVIOTA",
+      "construct": "atributo data-*",
+      "where": "body"
+    },
+    {
+      "id": "img-alt",
+      "token": "QX33-NORIA",
+      "construct": "atributo alt de <img>",
+      "where": "body"
+    },
+    {
+      "id": "img-title",
+      "token": "QX34-LENTISCO",
+      "construct": "atributo title de <img>",
+      "where": "body"
+    },
+    {
+      "id": "figcaption",
+      "token": "QX35-ACEBO",
+      "construct": "<figcaption>",
+      "where": "body"
+    },
+    {
+      "id": "aria-label",
+      "token": "QX36-URDIMBRE",
+      "construct": "atributo aria-label de un botón",
+      "where": "body"
+    },
+    {
+      "id": "title-attr",
+      "token": "QX37-CANTIL",
+      "construct": "atributo title de un <span> (tooltip)",
+      "where": "body"
+    },
+    {
+      "id": "select-option",
+      "token": "QX38-VENCEJO",
+      "construct": "texto de un <option>",
+      "where": "body"
+    },
+    {
+      "id": "option-value",
+      "token": "QX39-NEBLINA",
+      "construct": "atributo value de un <option>",
+      "where": "body"
+    },
+    {
+      "id": "radio-label",
+      "token": "QX40-ALMENA",
+      "construct": "<label> de un botón de radio",
+      "where": "body"
+    },
+    {
+      "id": "input-value",
+      "token": "QX41-ALCOR",
+      "construct": "value de un <input type=text>",
+      "where": "body"
+    },
+    {
+      "id": "input-hidden",
+      "token": "QX42-ZAFRA",
+      "construct": "value de un <input type=hidden>",
+      "where": "body"
+    },
+    {
+      "id": "input-submit",
+      "token": "QX43-CORNISA",
+      "construct": "value de un <input type=submit>",
+      "where": "body"
+    },
+    {
+      "id": "placeholder",
+      "token": "QX44-FALUCHO",
+      "construct": "atributo placeholder",
+      "where": "body"
+    },
+    {
+      "id": "textarea",
+      "token": "QX45-MARJAL",
+      "construct": "contenido de <textarea>",
+      "where": "body"
+    },
+    {
+      "id": "button",
+      "token": "QX46-RETAMA",
+      "construct": "texto de un <button>",
+      "where": "body"
+    },
+    {
+      "id": "link-text",
+      "token": "QX47-TAHONA",
+      "construct": "texto de un enlace",
+      "where": "body"
+    },
+    {
+      "id": "link-href",
+      "token": "QX48-FOGARIL",
+      "construct": "código en la URL de un enlace",
+      "where": "body"
+    },
+    {
+      "id": "iframe-srcdoc",
+      "token": "QX49-BOTIJO",
+      "construct": "<iframe srcdoc>",
+      "where": "body"
+    },
+    {
+      "id": "svg-text",
+      "token": "QX50-TOMILLO",
+      "construct": "<text> dentro de <svg>",
+      "where": "body"
+    },
+    {
+      "id": "canvas-fallback",
+      "token": "QX51-VAGUADA",
+      "construct": "texto alternativo dentro de <canvas>",
+      "where": "body"
+    },
+    {
+      "id": "css-before",
+      "token": "QX52-JUNCO",
+      "construct": "content de ::before",
+      "where": "body"
+    },
+    {
+      "id": "header",
+      "token": "QX53-FANAL",
+      "construct": "texto de <header>",
+      "where": "body"
+    },
+    {
+      "id": "nav",
+      "token": "QX54-SALINA",
+      "construct": "texto de <nav>",
+      "where": "body"
+    },
+    {
+      "id": "breadcrumbs",
+      "token": "QX55-HUSILLO",
+      "construct": "migas (<nav class=breadcrumbs>)",
+      "where": "body"
+    },
+    {
+      "id": "aside",
+      "token": "QX56-PALOMAR",
+      "construct": "<aside> lateral (no diálogo)",
+      "where": "body"
+    },
+    {
+      "id": "related",
+      "token": "QX57-PEDERNAL",
+      "construct": "sección de productos relacionados (class=related)",
+      "where": "body"
+    },
+    {
+      "id": "footer",
+      "token": "QX58-RIBERA",
+      "construct": "texto de <footer>",
+      "where": "body"
+    }
+  ],
+  "truncation": [
+    {
+      "offset_chars": 2000,
+      "token": "QT01-OLMEDA"
+    },
+    {
+      "offset_chars": 10000,
+      "token": "QT02-HINOJO"
+    },
+    {
+      "offset_chars": 25000,
+      "token": "QT03-OCRE"
+    },
+    {
+      "offset_chars": 50000,
+      "token": "QT04-LAUREL"
+    },
+    {
+      "offset_chars": 100000,
+      "token": "QT05-OTERO"
+    },
+    {
+      "offset_chars": 200000,
+      "token": "QT06-ALJIBE"
+    },
+    {
+      "offset_chars": 400000,
+      "token": "QT07-DORNAJO"
+    }
+  ],
+  "truncation_fine": [
+    {
+      "offset_chars": 12000,
+      "token": "QC01-ALBUFERA"
+    },
+    {
+      "offset_chars": 14000,
+      "token": "QC02-BREZO"
+    },
+    {
+      "offset_chars": 16000,
+      "token": "QC03-CANTUESO"
+    },
+    {
+      "offset_chars": 18000,
+      "token": "QC04-DUNA"
+    },
+    {
+      "offset_chars": 20000,
+      "token": "QC05-ESPLIEGO"
+    },
+    {
+      "offset_chars": 22000,
+      "token": "QC06-GAMONAL"
+    },
+    {
+      "offset_chars": 24000,
+      "token": "QC07-JARAMAGO"
+    }
+  ]
+}

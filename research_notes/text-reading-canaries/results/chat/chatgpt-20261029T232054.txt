@@ -1,0 +1,46 @@
+CHAT: chatgpt
+PROMPT: largo.txt
+URL: https://chatgpt.com/uc/6ae3c69c-8608-83ea-bec0-9a080a4dedb3
+
+Iniciar sesión
+Registrarse gratis
+Tú dijiste:
+
+Abre esta página: https://dasys.es/test-read-canaries/largo.html
+Copia todos los códigos con formato QT00-PALABRA que aparezcan en el contenido que has recibido, con el fragmento literal en que aparece cada uno. ¿Cuál es el último que recibiste?
+
+ChatGPT Plus
+
+He abierto la página Prueba de longitud de lectura . Voy a distinguir los códigos QT00-PALABRA de los números de lote y conservar el fragmento literal en el que aparece cada código, respetando el orden del contenido recibido. 
+dasys.es
+
+En el contenido que he recibido, aparecen estos códigos:
+
+1. QT01-OLMEDA — Fragmento literal (línea 46):
+
+Marca de posición 2000 caracteres: QT01-OLMEDA.
+
+2. QT02-HINOJO — Fragmento literal (línea 217):
+
+Marca de posición 10000 caracteres: QT02-HINOJO.
+
+El último código que recibí es QT02-HINOJO.
+
+Nota: la página contiene 8.502 líneas, pero el contenido que me devolvió la herramienta está truncado en el fragmento visible. Por tanto, estos son los códigos que puedo confirmar en el contenido recibido, no necesariamente todos los que existen en la página completa.
+
+ChatGPT es una IA y puede equivocarse.
+
+ChatGPT
+Nuevo chat
+Imágenes
+Complementos
+Ver planes y precios
+Ayuda
+Investigación avanzada
+Configuración
+Obtén respuestas adaptadas a ti
+
+Inicia sesión para obtener respuestas basadas en chats guardados, además de crear imágenes y cargar archivos.
+
+Iniciar sesión
+Chat con ChatGPT

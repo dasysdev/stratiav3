@@ -1,0 +1,81 @@
+Edredón de prueba Canario · QX01-PIZARRA
+
+Tienda de prueba. Aviso de cabecera QX53-FANAL.
+EdredonesMenú QX54-SALINA
+Inicio › Edredones › Migas QX55-HUSILLO
+
+
+Edredón de prueba Canario QX05-GALERNA
+Edredón reversible para pruebas de lectura. Párrafo visible QX06-SABINA.
+ReversibleCaracterística en lista QX07-GRANITO
+
+Composición100% poliéster
+GramajeValor de tabla QX08-ARCILLA
+
+LavadoA 30 grados. Definición QX09-ISTMO
+Ficha técnica en bloque preformateado QX10-BADANA
+
+Edredón Canario, marca Microdato visible QX11-ESCARCHA
+
+
+Edredón Canario RDFa
+
+
+
+
+Bloque con display none en línea QX17-DOLMEN
+Bloque oculto por clase QX18-CIERZO
+Bloque con atributo hidden QX19-HELECHO
+Bloque con aria-hidden QX20-MIMBRE
+Bloque con visibility hidden QX21-CERCETA
+Texto de tamaño cero QX22-HORNACINA
+Texto solo para lectores de pantalla QX23-JABEGA
+Qué incluye y medidas
+
+Qué incluye y medidasMedidas del panel lateral QX24-FRAGUA
+
+Diálogo nativo cerrado QX25-DORNILLO
+CuidadosContenido de details cerrado QX26-RAMBLA
+DescripciónEnvíos
+Pestaña visible de descripción.
+Pestaña de envíos oculta QX27-SALOBRE
+<p>Descripción escapada QX28-NACAR</p>
+Texto de noscript QX29-ZARZO
+
+
+Elemento con atributo data.
+
+
+Pie de foto QX35-ACEBO
+
+♥
+¿Qué medida elijo?
+
+Medida
+
+Cama 90 cm
+Cama 135 cm opción QX38-VENCEJO
+Cama 150 cm
+
+Color
+Nude etiqueta QX40-ALMENA
+
+
+
+
+Texto de textarea QX45-MARJAL
+
+Añadir al carrito QX46-RETAMA
+
+Política de envíos QX47-TAHONA · Ver referencia
+
+Texto SVG QX50-TOMILLO
+Alternativa de canvas QX51-VAGUADA
+: texto con pseudoelemento.
+
+Lateral con ofertas QX56-PALOMAR
+También te puede gustarProducto relacionado QX57-PEDERNAL
+
+Pie de página. Envío gratis desde 49 €. Código QX58-RIBERA.
+
+

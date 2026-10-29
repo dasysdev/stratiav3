@@ -1,0 +1,102 @@
+CHAT: chatgpt
+PROMPT: index.txt
+URL: https://chatgpt.com/uc/6ae3c6dd-3c0c-83ea-b15f-5318ec99ea15
+
+Iniciar sesión
+Registrarse gratis
+Tú dijiste:
+
+Abre esta página: https://dasys.es/test-read-canaries/index.html
+Copia, sin interpretar, todos los códigos con formato QX00-PALABRA que aparezcan en el contenido que has recibido de la página, en orden, uno por línea. Junto a cada código, copia literalmente el fragmento en que aparece. No completes ni adivines códigos. Al final indica: 1) el título de la página que recibiste; 2) si recibiste el contenido completo o un resumen; 3) si recibiste metadatos o datos estructurados (JSON-LD).
+
+ChatGPT Plus
+Códigos encontrados en el contenido recibido
+
+He abierto la página indicada y transcribo los códigos en el orden en que aparecen en el contenido recibido, conservando literalmente el fragmento de texto asociado. No completo ni deduzco códigos que no aparecen.
+
+QX53-FANAL — Tienda de prueba. Aviso de cabecera QX53-FANAL.
+
+QX54-SALINA — Menú QX54-SALINA
+
+QX05-GALERNA — Edredón de prueba Canario QX05-GALERNA
+
+QX06-SABINA — Edredón reversible para pruebas de lectura. Párrafo visible QX06-SABINA.
+
+QX07-GRANITO — Característica en lista QX07-GRANITO
+
+QX08-ARCILLA — Gramaje  | Valor de tabla QX08-ARCILLA
+
+QX09-ISTMO — A 30 grados. Definición QX09-ISTMO
+
+QX10-BADANA — Ficha técnica en bloque preformateado QX10-BADANA
+
+QX11-ESCARCHA — Edredón Canario, marca Microdato visible QX11-ESCARCHA
+
+QX17-DOLMEN — Bloque con display none en línea QX17-DOLMEN
+
+QX18-CIERZO — Bloque oculto por clase QX18-CIERZO
+
+QX19-HELECHO — Bloque con atributo hidden QX19-HELECHO
+
+QX20-MIMBRE — Bloque con aria-hidden QX20-MIMBRE
+
+QX21-CERCETA — Bloque con visibility hidden QX21-CERCETA
+
+QX22-HORNACINA — Texto de tamaño cero QX22-HORNACINA Texto solo para lectores de pantalla QX23-JABEGA
+
+QX23-JABEGA — Texto de tamaño cero QX22-HORNACINA Texto solo para lectores de pantalla QX23-JABEGA
+
+QX24-FRAGUA — Medidas del panel lateral QX24-FRAGUA
+
+QX25-DORNILLO — Diálogo nativo cerrado QX25-DORNILLO
+
+QX26-RAMBLA — Contenido de details cerrado QX26-RAMBLA
+
+QX27-SALOBRE — Pestaña de envíos oculta QX27-SALOBRE
+
+QX28-NACAR — <p>Descripción escapada QX28-NACAR</p>
+
+QX29-ZARZO — Texto de noscript QX29-ZARZO
+
+QX35-ACEBO — Pie de foto QX35-ACEBO [Button: ♥] ¿Qué medida elijo?
+
+QX40-ALMENA — Medida [Select] Color [Input]Nude etiqueta QX40-ALMENA [Input] [Input] [Input: Código postal QX44-FALUCHO] Texto de textarea QX45-MARJAL [Input] [Button: Añadir al carrito QX46-RETAMA]
+
+QX44-FALUCHO — Medida [Select] Color [Input]Nude etiqueta QX40-ALMENA [Input] [Input] [Input: Código postal QX44-FALUCHO] Texto de textarea QX45-MARJAL [Input] [Button: Añadir al carrito QX46-RETAMA]
+
+QX45-MARJAL — Medida [Select] Color [Input]Nude etiqueta QX40-ALMENA [Input] [Input] [Input: Código postal QX44-FALUCHO] Texto de textarea QX45-MARJAL [Input] [Button: Añadir al carrito QX46-RETAMA]
+
+QX46-RETAMA — Medida [Select] Color [Input]Nude etiqueta QX40-ALMENA [Input] [Input] [Input: Código postal QX44-FALUCHO] Texto de textarea QX45-MARJAL [Input] [Button: Añadir al carrito QX46-RETAMA]
+
+QX47-TAHONA — Política de envíos QX47-TAHONA
+
+QX51-VAGUADA — Alternativa de canvas QX51-VAGUADA
+
+QX56-PALOMAR — Lateral con ofertas QX56-PALOMAR
+
+QX58-RIBERA — Pie de página. Envío gratis desde 49 €. Código QX58-RIBERA.
+
+Información final solicitada
+
+Título de la página recibido: Edredón de prueba Canario · QX01-PIZARRA
+
+Contenido completo o resumen: recibí una extracción textual de la página, presentada en 66 líneas. No recibí el código HTML completo de origen, por lo que no puedo confirmar que la extracción incluya absolutamente todo el contenido de la página.
+
+Metadatos o datos estructurados (JSON-LD): la extracción recibida no muestra explícitamente el JSON-LD ni los metadatos completos. Por tanto, no puedo confirmar su presencia o ausencia en el código fuente original.
+
+ChatGPT es una IA y puede equivocarse.
+
+ChatGPT
+Nuevo chat
+Imágenes
+Complementos
+Ver planes y precios
+Ayuda
+Investigación avanzada
+Configuración
+Obtén respuestas adaptadas a ti
+
+Inicia sesión para obtener respuestas basadas en chats guardados, además de crear imágenes y cargar archivos.
+
+Iniciar sesión
+Chat con ChatGPT

@@ -1,0 +1,2 @@
+Abre esta página: {BASE}/largo.html
+Copia todos los códigos con formato QT00-PALABRA que aparezcan en el contenido que has recibido, con el fragmento literal en que aparece cada uno. ¿Cuál es el último que recibiste?

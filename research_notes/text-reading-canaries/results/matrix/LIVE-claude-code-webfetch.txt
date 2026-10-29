@@ -1,0 +1,15 @@
+CHAT: claude-code-webfetch (WebFetch de Claude Code: HTML → Markdown y respuesta de un modelo pequeño)
+PROMPT: códigos QX en orden + primeras 40 líneas literales
+URL: https://dasys.es/test-read-canaries/index.html
+
+Códigos informados (en orden): QX01-PIZARRA QX53-FANAL QX54-SALINA QX55-HUSILLO QX05-GALERNA QX06-SABINA
+QX07-GRANITO QX08-ARCILLA QX09-ISTMO QX10-BADANA QX11-ESCARCHA QX17-DOLMEN QX18-CIERZO QX19-HELECHO
+QX20-MIMBRE QX21-CERCETA QX22-HORNACINA QX23-JABEGA QX24-FRAGUA QX25-DORNILLO QX26-RAMBLA QX27-SALOBRE
+QX28-NACAR QX33-NORIA QX34-LENTISCO QX35-ACEBO QX38-VENCEJO QX40-ALMENA QX45-MARJAL QX46-RETAMA
+QX47-TAHONA QX48-FOGARIL QX50-TOMILLO QX51-VAGUADA QX56-PALOMAR QX57-PEDERNAL QX58-RIBERA
+
+Fragmentos notables: "![Foto del edredón QX33-NORIA]"; "[Ver referencia](/ref/QX48-FOGARIL)";
+"opción QX38-VENCEJO Cama 150 cm" (las opciones del select, seguidas); "<p>Descripción escapada QX28-NACAR</p>".
+Tabla: "Composición\n\n100% poliéster\n\nGramaje\n\nValor de tabla QX08-ARCILLA" (celdas en párrafos sueltos).
+Primera línea del contenido: el texto de <title>. Sin metadatos ni JSON-LD.
+

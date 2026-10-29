@@ -3,8 +3,8 @@ id: scoring-systems
 title: Sistemas de valoración
 layer: model
 status: vigente
-version: 1.6
-updated: 2026-10-28
+version: 1.7
+updated: 2026-10-29
 sources: [BASE §6, FUND §8, INTAKE 2026-10-24-prominencia-informativa, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-web-schema-technical-framework, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-technical-rate-pages-web-minimum]
 ---
 
@@ -106,10 +106,10 @@ FUND §8.5 añade: **No sustituye al diagnóstico informativo ni demuestra por s
 - El **perfil de implementación** (respecto del cual un requisito es pertinente, obligatorio o recomendado) y los **estados del requisito técnico** (satisfecho o no satisfecho; NA; NE como incidencia, que no equivale a «no satisfecho») están en [evaluation-scopes](evaluation-scopes.md#perfil-de-implementación) ([D-130](../30-governance/decisions.md#d-130), [D-131](../30-governance/decisions.md#d-131)).
 > - **Una sola tasa por ámbito y vista:** requisitos satisfechos / requisitos evaluados, donde evaluados = pertinentes − NA − NE. Entran las obligatorias y las recomendadas **sin pesos**: cada requisito cuenta uno.
 > - **Desglose obligatorio:** la tasa se presenta siempre con su desglose por naturaleza (obligatorias, recomendadas), con el mismo cálculo en cada parte.
-> - **Cobertura al lado:** evaluados / pertinentes. NE es una incidencia: no entra en el denominador de la tasa y se informa en la cobertura.
+> - **Cobertura al lado:** evaluados / (pertinentes − NA). NE es una incidencia: no entra en el denominador de la tasa y se informa en la cobertura.
 > - **Sin umbrales** ni estados derivados de la tasa (no hay «conforme»).
 >
-> — INTAKE 2026-10-28-technical-rate-pages-web-minimum
+> — INTAKE 2026-10-28-technical-rate-pages-web-minimum; la cobertura descuenta los NA, que se separan de los pertinentes, de modo que solo la bajan las NE (enmendada por [D-169](../30-governance/decisions.md#d-169))
 
 - **Agregación de las páginas** ([vistas](evaluation-scopes.md#vistas-de-la-evaluación-técnica)): la tasa de un **tipo de página** cuenta los casos requisito × página; además, por requisito, la proporción de páginas del tipo en que se satisface (sobre las que se evaluó), y el resultado de cada página. La vista general se evalúa una vez por sitio y da su propia tasa ([D-166](../30-governance/decisions.md#d-166)).
 

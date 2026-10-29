@@ -14,6 +14,12 @@ Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módul
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
 
+## 2026-10-29 — Cobertura de la tasa técnica sin los NA · aplicado
+
+- **canon** — Resuelve [I-49](issues.md#i-49) (decisión del usuario sobre la propuesta de Claude): la cobertura de la tasa de cumplimiento técnico es evaluados / (pertinentes − NA), de modo que solo la bajan las NE; evaluados y la tasa no cambian. Enmienda D-166. Decisión [D-169](decisions.md#d-169).
+  - Módulo: [scoring-systems](../10-model/scoring-systems.md#tasa-de-cumplimiento-técnico) 1.7; glosario (tasa de cumplimiento técnico).
+- **gobernanza** — I-49 resuelta; D-166 enmendada. Fuera de `docs/`: el auditor de web-audit calcula la cobertura así.
+
 ## 2026-10-28 — Tasa de cumplimiento técnico, páginas de una auditoría y mínimo de representación de Web · aplicado
 
 - **canon** — `INTAKE 2026-10-28-technical-rate-pages-web-minimum` (T-077; el usuario eligió entre alternativas de Claude): una sola tasa de cumplimiento técnico por ámbito y vista, sin pesos ni umbrales, con desglose por naturaleza y cobertura; en la vista particular, por tipo de página (casos requisito × página), por requisito y por página. Decisión [D-166](decisions.md#d-166).

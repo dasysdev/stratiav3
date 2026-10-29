@@ -211,13 +211,14 @@ def test_noindex_and_status(tmp_path):
 
 # --- Rate and judgements -----------------------------------------------------------------------------
 
-def test_counts_follow_d166():
+def test_counts_follow_d166_d169():
     cases = [{"state": s, "nature": "obligatoria"} for s in (SAT, SAT, UNSAT, NA, NE)]
     c = audit.counts(cases)
     assert (c["pertinentes"], c["evaluados"], c["satisfechos"]) == (5, 3, 2)
     assert c["tasa"] == round(2 / 3, 4)
-    assert c["cobertura"] == round(3 / 5, 4)
-    assert audit.counts([{"state": NA, "nature": "obligatoria"}])["tasa"] is None
+    assert c["cobertura"] == round(3 / 4, 4)
+    only_na = audit.counts([{"state": NA, "nature": "obligatoria"}])
+    assert only_na["tasa"] is None and only_na["cobertura"] is None
 
 
 def test_validate_judgments():

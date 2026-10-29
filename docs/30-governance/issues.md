@@ -62,7 +62,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 | [I-46](#i-46) | «Es un criterio, no una lista»: qué puede comprobar el código | Baja | abierta |
 | [I-47](#i-47) | GS1 Web Vocabulary no encaja en ninguna clase de fuente | Baja | abierta |
 | [I-48](#i-48) | Alcance de «la categoría madre en general» y de las preguntas sobre el material en el perímetro de PAA | Media | resuelta → D-146 |
-| [I-49](#i-49) | Cobertura de la tasa técnica: ¿los NA cuentan en los pertinentes? | Media | abierta |
+| [I-49](#i-49) | Cobertura de la tasa técnica: ¿los NA cuentan en los pertinentes? | Media | resuelta → D-169 |
 
 ---
 
@@ -648,3 +648,4 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - El auditor (`web-audit/bin/audit`) aplica hoy la lectura literal y publica al lado los recuentos de NA y NE, de modo que las dos lecturas se pueden calcular.
 - **Afecta a:** [scoring-systems](../10-model/scoring-systems.md#tasa-de-cumplimiento-técnico), [evaluation-scopes](../10-model/evaluation-scopes.md#estados-del-requisito-técnico) y el cálculo de `web-audit/src/web_audit/audit.py`.
 - **Propuesta:** cobertura = evaluados / (pertinentes − NA): la proporción de los casos aplicables que se pudieron comprobar, de modo que solo la bajan las NE. La fórmula de evaluados no cambia. La alternativa es mantener la literal y añadir, aparte, el número de NA.
+- **Resolución (2026-10-29):** decisión del usuario, la propuesta: cobertura = evaluados / (pertinentes − NA); la fórmula de evaluados y la tasa no cambian. → [D-169](decisions.md#d-169).

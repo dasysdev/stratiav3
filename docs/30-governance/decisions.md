@@ -192,9 +192,10 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-163](#d-163) | Cómo cumple la captura el perfil de consumo: JavaScript desactivado y un contexto de navegador nuevo por ficha | aceptada | 2026-10-28 |
 | [D-164](#d-164) | Las unidades de un conjunto no son partes de la cuestión: las valoran los AC | aceptada | 2026-10-28 |
 | [D-165](#d-165) | Envío y plazos por zona de España en la capa general; impuestos y aduana de Canarias, Ceuta y Melilla | aceptada | 2026-10-28 |
-| [D-166](#d-166) | Tasa de cumplimiento técnico: una sola tasa con desglose por naturaleza y cobertura; agregación por tipo de página | aceptada | 2026-10-28 |
+| [D-166](#d-166) | Tasa de cumplimiento técnico: una sola tasa con desglose por naturaleza y cobertura; agregación por tipo de página | aceptada (enmendada por D-169: la cobertura descuenta los NA) | 2026-10-28 |
 | [D-167](#d-167) | Páginas de una auditoría: fichas del encargo, portada, políticas, categoría inmediata, robots.txt y sitemaps | aceptada | 2026-10-28 |
 | [D-168](#d-168) | Mínimo de representación de Web: url, título y URL canónica; Open Graph condicional en el perfil de Web | aceptada | 2026-10-28 |
+| [D-169](#d-169) | Cobertura de la tasa técnica: evaluados / (pertinentes − NA) | aceptada | 2026-10-29 |
 
 ---
 
@@ -2768,7 +2769,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 ### D-166
 
-**Tasa de cumplimiento técnico: una sola tasa con desglose por naturaleza y cobertura; agregación por tipo de página.** · aceptada · 2026-10-28
+**Tasa de cumplimiento técnico: una sola tasa con desglose por naturaleza y cobertura; agregación por tipo de página.** · aceptada (enmendada por [D-169](#d-169)) · 2026-10-28
 
 - **Contexto:** `INTAKE 2026-10-28-technical-rate-pages-web-minimum` §1 y §2, tarea T-077. El sistema cuantitativo técnico seguía abierto en [OQ-30](open-questions.md#f-evaluación-técnica) ([D-131](#d-131)). Claude propuso cuatro formas (dos tasas sin tasa conjunta, dos tasas y un estado «conforme», una tasa con desglose, sin tasa) y tres de agregación. Usuario: «Una tasa y desglose» y «Por tipo de página».
 - **Decisión:**
@@ -2816,3 +2817,15 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 - **Interpretación adoptada:** Open Graph es una especificación del documento, no un consumidor, por eso entra en ese nivel; su naturaleza la fija el propio protocolo. Las páginas de Google sobre la canonicalización y los títulos se suman al consumidor Google Search. Las comprobaciones concretas son requisitos de la referencia técnica, que deciden los agentes con cita ([D-133](#d-133)).
 - **Consecuencias:** [commercial-information](../10-model/commercial-information.md#mínimo-de-representación) 1.6; [evaluation-scopes](../10-model/evaluation-scopes.md#perfil-de-implementación) 2.4; glosario (mínimo de representación, perfil de implementación); OQ-84 cerrada. Fuera de `docs/`: registrar y congelar Open Graph y la página de canonicalización de Google, y escribir los requisitos del mínimo de Web (T-077).
 - **Relacionado:** D-143, D-144, D-145, D-147, D-159, D-160, OQ-84.
+
+### D-169
+
+**Cobertura de la tasa técnica: evaluados / (pertinentes − NA).** · aceptada · 2026-10-29
+
+- **Contexto:** resuelve [I-49](issues.md#i-49). [D-166](#d-166) fijaba «evaluados = pertinentes − NA − NE» y «cobertura: evaluados / pertinentes». La primera fórmula cuenta los NA entre los pertinentes; el canon ([evaluation-scopes](../10-model/evaluation-scopes.md#estados-del-requisito-técnico), [D-131](#d-131)) y la interpretación adoptada de D-166 dicen que NA «se separa de los pertinentes». Con la lectura literal, los NA bajaban la cobertura sin ser incidencias: en el primer expediente real (T-049, `burritoblanco-t078`), la cobertura de Web Schema.org quedaba entre el 8 % y el 29 % por vista con pocas NE; descontando los NA, entre el 70 % y el 100 %. Claude propuso dos opciones (descontar los NA de la cobertura o mantener la literal con el número de NA al lado). Usuario: «Excluir los NA».
+- **Decisión:**
+  - **Cobertura = evaluados / (pertinentes − NA):** la proporción de los casos aplicables que se pudieron comprobar. Solo la bajan las NE, que son la incidencia.
+  - **Evaluados no cambia:** pertinentes − NA − NE. La tasa (satisfechos / evaluados) tampoco.
+  - El mismo cálculo en el desglose por naturaleza y en cada vista y tipo de página.
+- **Consecuencias:** [scoring-systems](../10-model/scoring-systems.md#tasa-de-cumplimiento-técnico) 1.7; glosario (tasa de cumplimiento técnico); I-49 resuelta. Fuera de `docs/`: el auditor de web-audit (`web-audit/src/web_audit/audit.py`) y su README calculan y describen la cobertura así.
+- **Relacionado:** D-131, D-166, I-49.

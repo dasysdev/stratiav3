@@ -15,7 +15,7 @@ judgements; `finish` validates them and writes the dossier with the rate of D-16
 
 Rate (D-166, scoring-systems): one per scope and view, and in the particular view per page type,
 counting the cases requirement × page; satisfied / evaluated, with evaluated = pertinent − NA − NE;
-the same by nature; coverage = evaluated / pertinent. No weights, thresholds or states derived
+the same by nature; coverage = evaluated / (pertinent − NA) (D-169). No weights, thresholds or states derived
 from it. Web and Web Schema.org are never added together.
 """
 from __future__ import annotations
@@ -94,16 +94,17 @@ def pending_tasks(site: Site, cases: list[dict], reqs: dict) -> list[dict]:
     return out
 
 
-# --- Rate (D-166) -------------------------------------------------------------------------------------
+# --- Rate (D-166, D-169) -------------------------------------------------------------------------------------
 
 def counts(cases: list[dict]) -> dict:
     n = {s: sum(1 for c in cases if c["state"] == s) for s in STATES}
     pertinent = len(cases)
-    evaluated = pertinent - n[NA] - n[NE]
+    applicable = pertinent - n[NA]
+    evaluated = applicable - n[NE]
     return {"pertinentes": pertinent, "NA": n[NA], "NE": n[NE], "evaluados": evaluated, "satisfechos": n[SAT],
             "no satisfechos": n[UNSAT],
             "tasa": round(n[SAT] / evaluated, 4) if evaluated else None,
-            "cobertura": round(evaluated / pertinent, 4) if pertinent else None}
+            "cobertura": round(evaluated / applicable, 4) if applicable else None}
 
 
 def rate(cases: list[dict]) -> dict:
@@ -184,8 +185,8 @@ def report(dossier: dict, reqs: dict) -> str:
     lines = [f"# Expediente técnico · {dossier['audit']}", "",
              f"Sitio: {dossier['site']} · auditoría de capture: `capture/var/audits/{dossier['audit']}` · "
              f"generado el {dossier['generated_at']}.", "",
-             "Tasa de cumplimiento técnico (D-166): satisfechos / evaluados, con evaluados = pertinentes − NA − NE; "
-             "cobertura = evaluados / pertinentes. Sin pesos ni umbrales. Web y Web Schema.org no se suman.", ""]
+             "Tasa de cumplimiento técnico (D-166, D-169): satisfechos / evaluados, con evaluados = pertinentes − NA − NE; "
+             "cobertura = evaluados / (pertinentes − NA). Sin pesos ni umbrales. Web y Web Schema.org no se suman.", ""]
     for scope, entry in dossier["rate"].items():
         lines += [f"## {scope}", ""]
         if entry["general"]:

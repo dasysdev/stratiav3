@@ -329,9 +329,10 @@
    "quotes": [
     "sitemaps-org-protocol#q15",
     "sitemaps-org-protocol#q17",
-    "google-search-sitemaps-overview#q02"
+    "google-search-sitemaps-overview#q02",
+    "google-search-sitemaps-build#q05"
    ],
-   "method": "Reunir las URL válidas de los sitemaps del sitio, en cualquiera de sus formatos (método común de Web, punto 5), y buscar la URL final de la página (url_final de meta.json). Se comparan sin distinguir mayúsculas en el esquema y el host y con el resto exacto, tras normalizar los escapes de porcentaje; la barra final cuenta. Se satisface si está. No se satisface si se obtuvieron todos los sitemaps y no está, también si el sitio no publica ninguno (D-162: sin sitemap, ninguna página está en él). Que esté la URL pedida y no la final se registra.",
+   "method": "Reunir las URL de los sitemaps del sitio que valen para su host con la lectura de Google, en cualquiera de sus formatos (método común de Web, punto 5), y buscar la URL final de la página (url_final de meta.json). Se comparan sin distinguir mayúsculas en el esquema y el host y con el resto exacto, tras normalizar los escapes de porcentaje; la barra final cuenta. Se satisface si está. No se satisface si se obtuvieron todos los sitemaps y no está, también si el sitio no publica ninguno (D-162: sin sitemap, ninguna página está en él). Que esté la URL pedida y no la final se registra.",
    "evidence": "Los sitemaps examinados (URL y estado), el sitemap y la entrada en que aparece la URL, o que no aparece; la URL pedida y la final.",
    "applicability": "universal",
    "view": "particular",

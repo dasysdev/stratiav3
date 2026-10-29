@@ -244,3 +244,14 @@ def test_end_to_end(tmp_path, monkeypatch):
     product = dossier["rate"]["Web Schema.org"]["particular"]["ficha de producto"]["total"]
     assert product["evaluados"] == product["pertinentes"] - product["NA"] - product["NE"]
     assert (tmp_path / "out" / "aud" / "report.md").read_text().startswith("# Expediente técnico")
+
+
+def test_sitemap_in_subdirectory_counts_for_its_host(tmp_path):
+    """Google's reading (method common to Web, point 5): a submitted sitemap is valid for its whole
+    host; the protocol's strict location is w-protocol/009."""
+    xml = (b'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+           b'<url><loc>https://shop.example/cojin</loc></url></urlset>')
+    site = make_audit(tmp_path, {"product-01": ("product", f"{SITE}/cojin", PRODUCT, None)},
+                      sitemaps=[(f"{SITE}/sitemaps/es/products.xml", 200, xml)])
+    assert load_all()["w-consumer/014"](case(site, "product-01", "w-consumer/014")).state == SAT
+    assert load_all()["w-protocol/009"](case(site, None, "w-protocol/009")).state == UNSAT

@@ -647,12 +647,11 @@ def sitemap_urls(site) -> dict[str, str]:
         if not s.obtained or s.index:
             continue
         base = urlsplit(s.url)
-        folder = base.path.rsplit("/", 1)[0] + "/"
         for loc in s.urls():
             u = urlsplit(loc)
-            valid = (u.scheme, u.netloc) == (base.scheme, base.netloc) and (u.path or "/").startswith(folder)
-            if not valid:
-                valid = s.url in site.declared_sitemaps(loc)
+            # Google's reading (method common to Web, point 5): a submitted sitemap is valid for its
+            # whole host, in any directory; another host, if its robots.txt declares the sitemap.
+            valid = (u.scheme, u.netloc) == (base.scheme, base.netloc) or s.url in site.declared_sitemaps(loc)
             if valid:
                 out.setdefault(normalize_url(loc), s.url)
             else:
@@ -675,7 +674,7 @@ def _in_sitemap(case: Case) -> Result:
         ev["está la URL pedida"] = urls[normalize_url(page.url)]
     outside = site.memo.get("sitemap_invalid", {}).get(normalize_url(final))
     if outside:
-        ev["aparece fuera de la ubicación de su sitemap (el protocolo la descarta)"] = outside
+        ev["aparece en un sitemap de otro host que no lo declara su robots.txt"] = outside
     if not site.sitemaps_complete:
         ev["no obtenidos"] = [s.url for s in site.sitemaps if not (s.obtained or s.missing)] + site.sitemaps_pending
         return Result(NE, ev, "Algún sitemap del conjunto no se pudo obtener y la URL no está en los obtenidos.")

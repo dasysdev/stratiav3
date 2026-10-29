@@ -27,6 +27,12 @@
    "id": "q04",
    "section": "#general-guidelines",
    "text": "Referenced URLs' properties: Use fully-qualified, absolute URLs in your sitemaps."
+  },
+  {
+   "id": "q05",
+   "section": "#general-guidelines",
+   "text": "You can host your sitemaps anywhere on your site, but unless you submit your sitemap through Search Console, a sitemap affects only descendants of the parent directory.",
+   "note": "Lectura de Google de la ubicación (método común de Web, punto 5): el envío del sitemap levanta la restricción de directorio. Decisión del usuario, 2026-10-29."
   }
  ]
 }

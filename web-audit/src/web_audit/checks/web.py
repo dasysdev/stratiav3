@@ -592,8 +592,14 @@ def noindex_rules(page, include_outside_head: bool = False) -> dict:
                         found.append(entry)
                 elif {"noindex", "none"} & set(values):
                     outside.append(entry)
-    header = page.headers.get("x-robots-tag")
-    tags = []
+    tags, noindex = x_robots_tag(page.headers.get("x-robots-tag"))
+    return {"meta": metas, "X-Robots-Tag": tags, "noindex": found + noindex, "fuera de head": outside}
+
+
+def x_robots_tag(header: str | None, agents: tuple = ("googlebot",)) -> tuple[list, list]:
+    """The rules of an X-Robots-Tag header (lines joined with a line break) and those of them
+    that are noindex or none for every agent or for one of `agents`."""
+    tags, found = [], []
     for line in (header or "").split("\n"):
         agent = None
         m = re.match(r"\s*([A-Za-z][\w-]*)\s*:\s*(.*)", line)
@@ -604,9 +610,9 @@ def noindex_rules(page, include_outside_head: bool = False) -> dict:
             rule = rule.strip().lower()
             if rule:
                 tags.append(f"{agent + ': ' if agent else ''}{rule}")
-                if rule in ("noindex", "none") and agent in (None, "googlebot"):
+                if rule in ("noindex", "none") and (agent is None or agent in agents):
                     found.append(f"X-Robots-Tag {agent + ': ' if agent else ''}{rule}")
-    return {"meta": metas, "X-Robots-Tag": tags, "noindex": found, "fuera de head": outside}
+    return tags, found
 
 
 @check("w-consumer/010")

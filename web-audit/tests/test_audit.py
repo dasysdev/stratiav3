@@ -298,3 +298,80 @@ def test_sitemap_in_subdirectory_counts_for_its_host(tmp_path):
                       sitemaps=[(f"{SITE}/sitemaps/es/products.xml", 200, xml)])
     assert load_all()["w-consumer/014"](case(site, "product-01", "w-consumer/014")).state == SAT
     assert load_all()["w-protocol/009"](case(site, None, "w-protocol/009")).state == UNSAT
+
+
+# --- Access to the images of the markup (T-087) ------------------------------------------------------
+
+IMAGES = """<!doctype html><html><head><meta charset="utf-8"><title>Lámpara</title>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Product", "name": "Lámpara",
+ "image": ["https://cdn.example/ok.jpg", {"@type": "ImageObject", "contentUrl": "/img/local.jpg", "url": "https://shop.example/x"}],
+ "offers": {"@type": "Offer", "price": "9", "priceCurrency": "EUR"}},
+ {"@context": "https://schema.org", "@type": "Organization", "name": "Tienda", "logo": "https://cdn.example/logo.png"}]</script>
+</head><body><h1>Lámpara</h1></body></html>"""
+
+
+def add_resources(site, records, cdn_robots="User-agent: *\nAllow: /\n"):
+    folder = site.folder
+    (folder / "resources" / "sites" / "cdn.example").mkdir(parents=True)
+    (folder / "resources" / "sites" / "cdn.example" / "robots.txt").write_text(cdn_robots)
+    hosts = {"cdn.example": {"host": "cdn.example", "robots": {
+        "status": 200, "file": "resources/sites/cdn.example/robots.txt", "source": "resources"}}}
+    resources = [{"url": url, "outcome": outcome, "status": status, "url_final": url,
+                  "headers": headers or {}, "redirects": []} for url, outcome, status, headers in records]
+    (folder / "resources.json").write_text(json.dumps({"hosts": hosts, "resources": resources}))
+    return Site("aud", folder)
+
+
+def image_states(site, ids, page="product-01"):
+    return {r: load_all()[r](case(site, page if r not in ("ws-consumer/333", "ws-consumer/334", "ws-consumer/335",
+                                                           "ws-consumer/336") else None, r)) for r in ids}
+
+
+ACCESS = ("ws-consumer/004", "ws-consumer/005", "ws-consumer/185", "ws-consumer/186", "ws-consumer/334",
+          "ws-consumer/335")
+
+
+@needs_vocab
+def test_image_list_of_the_markup(tmp_path):
+    site = make_audit(tmp_path, {"product-01": ("product", f"{SITE}/lampara", IMAGES, None)})
+    assert audit.image_list(site) == ["https://cdn.example/ok.jpg", "https://shop.example/img/local.jpg",
+                                      "https://cdn.example/logo.png"]
+
+
+@needs_vocab
+def test_images_answered_and_allowed_are_satisfied(tmp_path):
+    site = make_audit(tmp_path, {"product-01": ("product", f"{SITE}/lampara", IMAGES, None)})
+    site = add_resources(site, [("https://cdn.example/ok.jpg", "answered", 200, {"content-type": "image/jpeg"}),
+                                ("https://shop.example/img/local.jpg", "answered", 200, None),
+                                ("https://cdn.example/logo.png", "answered", 200, None)])
+    assert {r: res.state for r, res in image_states(site, ACCESS).items()} == dict.fromkeys(ACCESS, SAT)
+
+
+@needs_vocab
+def test_images_blocked_failing_or_noindex_are_not_satisfied(tmp_path):
+    site = make_audit(tmp_path, {"product-01": ("product", f"{SITE}/lampara", IMAGES, None)})
+    site = add_resources(site, [("https://cdn.example/ok.jpg", "answered", 404, None),
+                                ("https://shop.example/img/local.jpg", "answered", 200,
+                                 {"X-Robots-Tag": "googlebot-image: noindex"}),
+                                ("https://cdn.example/logo.png", "disallowed", None, None)],
+                         cdn_robots="User-agent: Googlebot\nDisallow: /logo\n")
+    states = image_states(site, ACCESS + ("ws-consumer/333", "ws-consumer/007"))
+    assert states["ws-consumer/004"].state == UNSAT                        # 404
+    assert states["ws-consumer/005"].state == UNSAT                        # noindex for Googlebot-Image
+    assert states["ws-consumer/185"].state == UNSAT                        # the logo is disallowed to Googlebot
+    assert states["ws-consumer/334"].state == UNSAT
+    assert states["ws-consumer/335"].state == NE                           # not asked for: no headers
+    assert "robots.txt no permite pedirla a nuestro bot" in states["ws-consumer/335"].reason
+    assert states["ws-consumer/333"].state == NE and states["ws-consumer/333"].reason.startswith("Fuera de V1")
+    assert states["ws-consumer/007"].state == NE and states["ws-consumer/007"].reason.startswith("Fuera de V1")
+
+
+@needs_vocab
+def test_images_not_asked_are_ne(tmp_path):
+    site = make_audit(tmp_path, {"product-01": ("product", f"{SITE}/lampara", IMAGES, None)})
+    states = image_states(site, ("ws-consumer/004", "ws-consumer/005", "ws-consumer/334"))
+    assert states["ws-consumer/004"].state == NE and "capture no la pidió" in states["ws-consumer/004"].reason
+    assert states["ws-consumer/005"].state == NE
+    assert states["ws-consumer/334"].state == NE                            # the CDN robots.txt is not in the audit
+    site = add_resources(site, [("https://cdn.example/ok.jpg", "failed", None, None)])
+    assert image_states(site, ("ws-consumer/004",))["ws-consumer/004"].reason.count("capture no obtuvo respuesta") == 1

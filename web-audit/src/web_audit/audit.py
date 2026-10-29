@@ -6,6 +6,10 @@ each case (checks/) gives its state with its evidence; the cases that need a jud
 visible content of the page stay `pendiente` for an agent (skill /web-audit), which writes its
 judgements; `finish` validates them and writes the dossier with the rate of D-166.
 
+The access to the images of the markup (ws-consumer/004, 005, 185, 186, 334, 335) reads the
+responses that capture recorded (capture.resources, T-086): `images` gives capture the list of
+image URLs of the markup of the pages, before `run`.
+
   web-audit/var/audits/<audit>/
     cases.json       every case, as the code decided it (pending ones included)
     pending.json     the pending cases, with what the agent needs to judge each one
@@ -23,9 +27,11 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import subprocess
 import traceback
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urljoin, urlsplit
 
 from . import ROOT
 from .checks import NA, NE, PENDING, SAT, STATES, UNSAT, Case, Result, load_all
@@ -272,6 +278,16 @@ def run(audit_id: str) -> tuple[list, list]:
     return cases, pending
 
 
+def image_list(site: Site) -> list[str]:
+    """The http(s) image URLs of the markup of every page of the audit (ws-consumer/185)."""
+    from .checks.consumer import markup_images
+    urls = []
+    for page in site.pages:
+        if page.doc is not None:
+            urls += markup_images(page.graph, lambda e, u, page=page: urljoin(page.url_final, u))
+    return [u for u in dict.fromkeys(urls) if urlsplit(u).scheme in ("http", "https")]
+
+
 def _summary(cases: list[dict]) -> str:
     by = {s: sum(1 for c in cases if c["state"] == s) for s in STATES + (PENDING,)}
     return " · ".join(f"{k} {v}" for k, v in by.items())
@@ -314,6 +330,18 @@ def cmd_text(args) -> None:
     print(page.doc.visible_text(body) if body is not None else "")
 
 
+def cmd_images(args) -> None:
+    urls = image_list(Site(args.audit))
+    if args.list:
+        print("\n".join(urls))
+        return
+    print(f"{args.audit}: {len(urls)} URL de imagen del marcado; las pide capture (pages resources)", flush=True)
+    if urls:
+        done = subprocess.run([str(ROOT.parent / "capture/bin/pages"), "resources", args.audit, "--from", "-"],
+                              input="\n".join(urls) + "\n", text=True)
+        raise SystemExit(done.returncode)
+
+
 def cmd_pending(args) -> None:
     pending = json.loads((folder(args.audit) / "pending.json").read_text(encoding="utf-8"))
     for p in pending:
@@ -330,6 +358,10 @@ def main() -> None:
         p = sub.add_parser(name, help=help_text)
         p.add_argument("audit")
         p.set_defaults(func=fn)
+    p = sub.add_parser("images", help="pasar a capture las URL de imagen del marcado (antes de run)")
+    p.add_argument("audit")
+    p.add_argument("--list", action="store_true", help="solo escribir la lista, sin pedirla")
+    p.set_defaults(func=cmd_images)
     p = sub.add_parser("text", help="el texto visible de una página de la auditoría")
     p.add_argument("audit")
     p.add_argument("page")

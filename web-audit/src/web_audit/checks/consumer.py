@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import re
 import unicodedata
-from urllib.parse import parse_qsl, urldefrag, urlsplit
+from urllib.parse import parse_qsl, urldefrag, urljoin, urlsplit
 
 from .. import vocab
 from ..graph import Entity, Lit, Ref, is_type
@@ -17,7 +17,6 @@ from .markup import (at_most_one, country, currency, enum, enum_name, has, iso_d
                      iso_datetime_with_zone, iso_time, label, non_negative_integer, none_has, not_both, number,
                      of_type, prop_is, select, text, value_types, values_ok, _result)
 
-IMAGES_NE = "No se pueden descargar las imágenes enlazadas: capture no congela las imágenes (T-049, decisión del usuario)."
 RENDERED_NE = "Hace falta el DOM renderizado de la página: el perfil de auditoría (audit-es) no ejecuta JavaScript y capture no guarda un DOM renderizado."
 SAMEAS_SITE = re.compile(r"^www\.", re.I)
 
@@ -68,54 +67,163 @@ bind("ws-consumer/153", has("Product", "offers", universal=True))
 bind("ws-consumer/042", has("Product", "sku", universal=True))
 
 
-def image_urls(e: Entity) -> list[str]:
+def object_url(e: Entity) -> list[str]:
+    """The contentUrl of an ImageObject or, if it has none, its url."""
+    for prop in ("contentUrl", "url"):
+        urls = [text(u).strip() for u in e.values(prop) if text(u).strip()]
+        if urls:
+            return urls
+    return []
+
+
+def url_values(e: Entity, prop: str) -> list[str]:
+    """The URLs of `prop`: a URL value, or the contentUrl (or url) of an ImageObject."""
     out = []
-    for v in e.values("image"):
+    for v in e.values(prop):
         if isinstance(v, Entity):
-            out += [text(u).strip() for p in ("contentUrl", "url") for u in v.values(p) if text(u).strip()]
+            out += object_url(v) if is_type(v, "ImageObject") else []
         elif text(v).strip():
             out.append(text(v).strip())
     return list(dict.fromkeys(out))
 
 
-def images_crawlable(path: str):
-    """Image URLs not excluded by robots.txt for Googlebot-Image (else Googlebot or *), and served
-    with success without authentication: the robots.txt of the site's own origins is in the audit;
-    the response of each image is not (capture does not freeze images)."""
+def image_urls(e: Entity) -> list[str]:
+    return url_values(e, "image")
+
+
+def absolute(case: Case, e: Entity, url: str) -> str:
+    """The URL resolved against the page of the entity (a relative image URL of the markup)."""
+    page = case.page if case.page is not None else next((p for p in case.site.pages if p.id == e.page), None)
+    return urljoin(page.url_final if page is not None else case.site.url, url)
+
+
+def markup_images(graph, resolve) -> list[str]:
+    """The image URLs of the markup (ws-consumer/185): the URL values of image, logo and
+    thumbnailUrl and the contentUrl (or url) of each ImageObject. `resolve(e, url)` makes it absolute."""
+    out = []
+    for e in graph.entities:
+        for prop in ("image", "logo", "thumbnailUrl"):
+            out += [resolve(e, u) for u in url_values(e, prop)]
+        if is_type(e, "ImageObject"):
+            out += [resolve(e, u) for u in object_url(e)]
+    return list(dict.fromkeys(u for u in out if not re.search(r"\s", u)))
+
+
+def product_images(case: Case) -> list[str]:
+    urls = [absolute(case, e, u) for e in select(case, "Product").entities for u in image_urls(e)]
+    return list(dict.fromkeys(urls))
+
+
+def all_images(case: Case) -> list[str]:
+    return markup_images(case.graph, lambda e, u: absolute(case, e, u))
+
+
+def logos(case: Case) -> list[str]:
+    urls = [absolute(case, o, u) for o in case.graph.top_of("Organization") for u in logo_urls(o)]
+    return list(dict.fromkeys(urls))
+
+
+# The response of each image is capture's (capture.resources, T-086): web-audit gives it the list
+# (bin/audit images). An outcome other than `answered` is an incident of the audit, not a failure.
+NOT_ANSWERED = {"failed": "capture no obtuvo respuesta", "disallowed": "robots.txt no permite pedirla a nuestro bot",
+                "reserved": "su host tiene una reserva TDM", "blocked": "el servidor respondió 429",
+                "invalid": "no es una URL http(s)"}
+IMAGES_NE = "Fuera de V1: no se descargan las imágenes."
+
+
+def not_obtained(case: Case, url: str) -> str | None:
+    """Why the audit holds no response of `url` (None if it holds one)."""
+    if urlsplit(url).scheme not in ("http", "https"):
+        return NOT_ANSWERED["invalid"]
+    rec = case.site.resource(url)
+    if rec is None:
+        return "capture no la pidió (web-audit/bin/audit images)"
+    if rec["outcome"] != "answered":
+        reason = NOT_ANSWERED.get(rec["outcome"], f"resultado {rec['outcome']}")
+        return f"{reason} ({rec['rule']})" if rec.get("rule") else reason
+    return None
+
+
+def image_allowed(rules, url: str) -> bool:
+    """robots.txt for Googlebot-Image or, if it has no group of its own, for Googlebot (or *)."""
+    own = any("googlebot-image" in g.agents for g in rules.groups)
+    return rules.allowed(url, "googlebot-image" if own else "googlebot")
+
+
+def images_crawlable(urls_of, success: bool = True):
+    """Each URL is not excluded by robots.txt for Googlebot-Image and, with `success`, answers
+    with a 2xx (after its redirects): without authentication."""
     def run(case: Case) -> Result:
-        urls = [u for e in select(case, path).entities for u in image_urls(e)]
+        urls = urls_of(case)
         if not urls:
             return Result(NA, None, "El marcado no contiene URL de imagen.")
-        blocked, unknown = [], []
+        blocked, failing, unknown = [], [], []
         for url in urls:
             rules = case.site.robots_rules(url) if urlsplit(url).scheme in ("http", "https") else None
-            if rules is None:
-                unknown.append(url)
-            elif not rules.allowed(url, "googlebot-image"):
+            if rules is not None and not image_allowed(rules, url):
                 blocked.append(url)
-        ev = {"URL": capped(urls), "bloqueadas por robots.txt": capped(blocked),
-              "host sin robots.txt en la auditoría": capped(unknown)}
-        if blocked:
+                continue
+            reason = not_obtained(case, url) if success else None
+            if reason:
+                unknown.append(f"{url}: {reason}")
+            elif success and not 200 <= (case.site.resource(url).get("status") or 0) < 300:
+                failing.append(f"{url}: HTTP {case.site.resource(url).get('status')}")
+            elif rules is None:
+                unknown.append(f"{url}: sin el robots.txt de su host en la auditoría")
+        ev = {"URL": capped(urls), "bloqueadas por robots.txt": capped(blocked)}
+        if success:
+            ev["sin éxito"] = capped(failing)
+        ev["sin comprobar"] = capped(unknown)
+        if blocked or failing:
             return Result(UNSAT, ev)
-        return Result(NE, ev, IMAGES_NE)
+        if unknown:
+            return Result(NE, ev, f"No se pudo comprobar {len(unknown)} de {len(urls)} URL de imagen: {unknown[0]}.")
+        return Result(SAT, ev)
     return run
 
 
-def images_need_download(path: str):
+def images_indexable(urls_of, agents: tuple):
+    """No response of the URLs carries an X-Robots-Tag noindex or none for one of `agents`."""
     def run(case: Case) -> Result:
-        urls = [u for e in select(case, path).entities for u in image_urls(e)]
+        from .web import x_robots_tag
+        urls = urls_of(case)
         if not urls:
             return Result(NA, None, "El marcado no contiene URL de imagen.")
+        bad, unknown = [], []
+        for url in urls:
+            reason = not_obtained(case, url)
+            if reason:
+                unknown.append(f"{url}: {reason}")
+                continue
+            headers = {k.lower(): v for k, v in (case.site.resource(url).get("headers") or {}).items()}
+            found = x_robots_tag(headers.get("x-robots-tag"), agents)[1]
+            if found:
+                bad.append(f"{url}: {'; '.join(found)}")
+        ev = {"URL": capped(urls), "con noindex": capped(bad), "sin comprobar": capped(unknown)}
+        if bad:
+            return Result(UNSAT, ev)
+        if unknown:
+            return Result(NE, ev, f"No se pudo comprobar {len(unknown)} de {len(urls)} URL de imagen: {unknown[0]}.")
+        return Result(SAT, ev)
+    return run
+
+
+def images_need_download(urls_of, none: str = "El marcado no contiene URL de imagen."):
+    def run(case: Case) -> Result:
+        urls = urls_of(case)
+        if not urls:
+            return Result(NA, None, none)
         return Result(NE, {"URL": capped(urls)}, IMAGES_NE)
     return run
 
 
-bind("ws-consumer/004", images_crawlable("Product"))
-bind("ws-consumer/005", images_need_download("Product"))
+GOOGLEBOT_IMAGE = ("googlebot", "googlebot-image")
+bind("ws-consumer/004", images_crawlable(product_images))
+bind("ws-consumer/005", images_indexable(product_images, GOOGLEBOT_IMAGE))
 for _n in ("007", "008", "009", "010"):
-    bind(f"ws-consumer/{_n}", images_need_download("Product"))
-bind("ws-consumer/185", images_crawlable("*"))
-bind("ws-consumer/186", images_need_download("*"))
+    bind(f"ws-consumer/{_n}", images_need_download(product_images))
+bind("ws-consumer/185", images_crawlable(all_images))
+bind("ws-consumer/186", images_indexable(all_images, GOOGLEBOT_IMAGE))
 
 
 @check("ws-consumer/006")
@@ -1158,37 +1266,18 @@ def logo_urls(o: Entity) -> list[str]:
     return out
 
 
-def _logo_need_download(case: Case) -> Result:
-    urls = [u for o in case.graph.top_of("Organization") for u in logo_urls(o)]
-    if not [o for o in case.graph.top_of("Organization") if o.has("logo")]:
-        return Result(NA, None, "Ninguna Organization de nivel superior tiene logo.")
-    return Result(NE, {"logo": capped(urls)}, "Hay que obtener la imagen del logo: capture no congela imágenes.")
+def _with_logo(fn):
+    def run(case: Case) -> Result:
+        if not [o for o in case.graph.top_of("Organization") if o.has("logo")]:
+            return Result(NA, None, "Ninguna Organization de nivel superior tiene logo.")
+        return fn(case)
+    return run
 
 
-bind("ws-consumer/333", _logo_need_download)
-bind("ws-consumer/335", _logo_need_download)
-bind("ws-consumer/336", _logo_need_download)
-
-
-@check("ws-consumer/334")
-def _logo_crawlable(case: Case) -> Result:
-    orgs = [o for o in case.graph.top_of("Organization") if o.has("logo")]
-    if not orgs:
-        return Result(NA, None, "Ninguna Organization de nivel superior tiene logo.")
-    urls = [u for o in orgs for u in logo_urls(o)]
-    blocked, unknown = [], []
-    for url in urls:
-        rules = case.site.robots_rules(url) if urlsplit(url).scheme in ("http", "https") else None
-        if rules is None:
-            unknown.append(url)
-        elif not rules.allowed(url, "googlebot-image"):
-            blocked.append(url)
-    ev = {"logo": capped(urls), "bloqueadas": capped(blocked), "host sin robots.txt en la auditoría": capped(unknown)}
-    if blocked:
-        return Result(UNSAT, ev)
-    if unknown or not urls:
-        return Result(NE, ev, "Hay que obtener el robots.txt del host de la imagen.")
-    return Result(SAT, ev)
+bind("ws-consumer/333", _with_logo(images_need_download(logos)))
+bind("ws-consumer/334", _with_logo(images_crawlable(logos, success=False)))
+bind("ws-consumer/335", _with_logo(images_indexable(logos, ("googlebot",))))
+bind("ws-consumer/336", _with_logo(images_need_download(logos)))
 
 
 bind("ws-consumer/337", has("^Organization>logo:ImageObject", "contentUrl", "url"))

@@ -1,8 +1,9 @@
 """The pages of an audit as capture froze them (capture.audit, D-167), read for the technical audit.
 
 An audit is capture/var/audits/<audit>/: its manifest (audit.json), the snapshot of each page
-(meta.json, the response document and its original bytes), robots.txt of each origin (sites/) and
-the sitemaps as they came (sitemaps/). This module reads them without Chrome and derives what the
+(meta.json, the response document and its original bytes), robots.txt of each origin (sites/),
+the sitemaps as they came (sitemaps/) and the responses to the images of the markup, without
+their bodies, with robots.txt of each host the audit did not hold (resources.json, resources/). This module reads them without Chrome and derives what the
 checks need: the document tree, the markup of each syntax as one graph, robots.txt and the URLs of
 the sitemaps in any of their formats (XML, RSS or Atom, text). The interpretation is web-audit's.
 
@@ -278,6 +279,19 @@ class Site:
     def page(self, page_id: str) -> Page:
         return next(p for p in self.pages if p.id == page_id)
 
+    # --- resources (capture.resources, T-086)
+    @functools.cached_property
+    def resources_manifest(self) -> dict:
+        return read_json(self.folder / "resources.json") or {}
+
+    @functools.cached_property
+    def resources(self) -> dict[str, dict]:
+        """The record of each resource URL capture asked for (by URL without fragment)."""
+        return {r["url"]: r for r in self.resources_manifest.get("resources", [])}
+
+    def resource(self, url: str) -> dict | None:
+        return self.resources.get(urldefrag(url)[0])
+
     # --- robots.txt
     def robots(self, url: str) -> tuple[int | None, str | None, str]:
         """(status, text, origin) of the robots.txt of the origin of `url`: the status as capture
@@ -291,6 +305,11 @@ class Site:
     def _read_robots(self, parts, origin: str) -> tuple:
         path = self.folder / "sites" / parts.netloc.replace(":", "_") / "robots.txt"
         text = path.read_text(encoding="utf-8", errors="replace") if path.exists() else None
+        kept = ((self.resources_manifest.get("hosts") or {}).get(parts.netloc) or {}).get("robots")
+        if text is None and kept and kept.get("source") == "resources":  # a host only the resources reached (a CDN)
+            file = self.folder / kept["file"] if kept.get("file") else None
+            text = file.read_text(encoding="utf-8", errors="replace") if file and file.exists() else None
+            return kept.get("status"), text, origin
         status = None
         if origin == self.url.rstrip("/"):
             status = ((self.manifest.get("legitimacy") or {}).get("robots") or {}).get("status")

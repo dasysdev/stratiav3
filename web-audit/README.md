@@ -26,7 +26,7 @@ Las fuentes de la referencia técnica son las de [references](../references/READ
 
 ## Auditado
 
-Lee las páginas que capture congeló con `audit-es` para una auditoría ([D-167](../docs/30-governance/decisions.md#d-167); `capture/var/audits/AUDIT/`, la misma instantánea que la auditoría informativa) y escribe el expediente técnico en `var/audits/AUDIT/`. El método de cada requisito es el de la referencia; el código lo aplica y, si el método y el código discrepan, prevalece el método.
+Lee las páginas que capture congeló con `audit-es` para una auditoría ([D-167](../docs/30-governance/decisions.md#d-167); `capture/var/audits/AUDIT/`, la misma instantánea que la auditoría informativa) y las respuestas a las imágenes del marcado (`resources.json`), y escribe el expediente técnico en `var/audits/AUDIT/`. El método de cada requisito es el de la referencia; el código lo aplica y, si el método y el código discrepan, prevalece el método.
 
 1. **Casos** ([D-161](../docs/30-governance/decisions.md#d-161)): un requisito `general` da un caso para el sitio; uno `particular`, un caso por página de la auditoría cuyo tipo está en `page_types`. Las páginas no localizadas no dan casos y se registran (D-167). Una página sin documento (un bloqueo, un 404) da NE en Web Schema.org; los requisitos de Web deciden con lo que haya de la respuesta.
 2. **Extracción** (`site`, `html`, `jsonld`, `microdata`, `rdfa`, `graph`): el documento de la respuesta, sin JavaScript ([D-156](../docs/30-governance/decisions.md#d-156)), el marcado de las tres sintaxis como un solo grafo (los nodos con el mismo identificador son una entidad, también entre páginas en la vista general), robots.txt de cada origen y los sitemaps en sus formatos. Schema.org es la release fijada (30.1, `vocab`); el contexto de Schema.org, el congelado. Solo biblioteca estándar.
@@ -34,8 +34,12 @@ Lee las páginas que capture congeló con `audit-es` para una auditoría ([D-167
 4. **Pendientes:** si el método pide un juicio (un soft 404 con indicios de error, el nombre de un autor) o el contenido visible (si la página muestra variantes, un precio tachado o un precio por unidad), el caso queda `pendiente` con la pregunta. Los decide un agente con `/web-audit`, que escribe `judgments.json`; `bin/audit check` lo valida.
 5. **Expediente** (`bin/audit finish`): `dossier.json` (cada caso con su estado, quién lo decidió y la evidencia, y las tasas) y `report.md`. La tasa es la de D-166 y D-169: por ámbito y vista, y en la particular por tipo de página con los casos requisito × página; satisfechos / evaluados, con evaluados = pertinentes − NA − NE; el mismo cálculo por naturaleza; cobertura = evaluados / (pertinentes − NA), que solo bajan las NE; por requisito, la proporción de páginas en que se satisface; y el resultado de cada página. Web y Web Schema.org no se suman.
 
-- **NE por falta de material:** las imágenes (dimensiones, formato, cabeceras) no se descargan: capture no las congela. El DOM renderizado no existe con `audit-es`: lo que compara HTML servido y renderizado es NE.
-- **Uso:** `web-audit/bin/audit run AUDIT` · `pending AUDIT` · `text AUDIT PÁGINA` (el texto visible, para el agente) · `check AUDIT` · `finish AUDIT`. Lo normal es la skill `/web-audit`.
+- **Imágenes del marcado** (T-087): `bin/audit images AUDIT` extrae de todas las páginas las URL de imagen del marcado (image, logo, thumbnailUrl y el contentUrl, o el url, de cada ImageObject) y se las pasa a capture (`capture/bin/pages resources`, T-086). capture pide cada una con GET y registra el estado y las cabeceras, sin el cuerpo, y el robots.txt de cada host nuevo (un CDN). Se ejecuta antes de `run`.
+  - **Rastreable** (ws-consumer/004, 185): no satisfecho si robots.txt de su host la bloquea a Googlebot-Image (o, sin grupo propio, a Googlebot o a `*`) o si la respuesta final no es 2xx. El logo (334) solo mira robots.txt.
+  - **Indexable** (005, 186, 335): no satisfecho si la cabecera X-Robots-Tag de la respuesta lleva noindex o none para todos o para Googlebot (y Googlebot-Image en 005 y 186).
+  - **NE:** una URL que capture no pidió, que no respondió o que no pudo pedir (robots.txt para nuestro bot, reserva TDM, 429, no http(s)), con su motivo. Si otra URL del caso no cumple, el caso es no satisfecho.
+- **NE por falta de material:** las dimensiones, la relación de aspecto y el formato de las imágenes (ws-consumer/007–010, 333, 336) son NE: fuera de V1, no se descargan las imágenes. El DOM renderizado no existe con `audit-es`: lo que compara HTML servido y renderizado es NE.
+- **Uso:** `web-audit/bin/audit images AUDIT` (`--list`: solo la lista) · `run AUDIT` · `pending AUDIT` · `text AUDIT PÁGINA` (el texto visible, para el agente) · `check AUDIT` · `finish AUDIT`. Lo normal es la skill `/web-audit`.
 
 ## Estructura
 
@@ -58,5 +62,5 @@ Todo lo de web-audit salvo `var/`: código, pruebas, `pyproject.toml` y `referen
 
 ## Ejecución
 
-- **`reqs`** y **`audit`** se ejecutan en el host (`web-audit/bin/reqs …`, `web-audit/bin/audit …`) y solo usan la biblioteca estándar, `references` y, `audit`, la lectura de capture.
+- **`reqs`** y **`audit`** se ejecutan en el host (`web-audit/bin/reqs …`, `web-audit/bin/audit …`) y solo usan la biblioteca estándar, `references` y, `audit`, la lectura de capture. `audit images` llama a `capture/bin/pages resources`, que delega en el contenedor.
 - **Pruebas:** `bin/run dev test web-audit/tests` (todas las del proyecto: `bin/run dev test`).

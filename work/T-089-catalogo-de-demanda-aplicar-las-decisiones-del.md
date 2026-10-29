@@ -23,3 +23,5 @@ Llevar a demand-engine/catalog lo que fijan D-184, D-185, D-196 y D-201 (repaso 
 - [ ] bin/model check sin errores y tests en verde
 
 ## Notas
+
+- 2026-10-29 Repaso de incidencias (D-208, D-211): (1) en hints.py, «para» admite una lista de valores de una misma llave (fuentes o tipos), sin mezclar llaves; la revisión de D-200 cubre todos sus valores; dirigir las pistas de certificaciones a sus dos rasgos y tres atributos. (2) En el paso que escribe las pistas, un agente revisor juzga «criterio, no lista»; bin/model check solo comprueba la forma.

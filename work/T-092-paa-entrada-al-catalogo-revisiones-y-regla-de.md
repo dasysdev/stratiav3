@@ -20,3 +20,5 @@ Llevar a demand-engine/paa lo que fijan D-178, D-179 y D-180
 - [ ] Tests en verde
 
 ## Notas
+
+- 2026-10-29 Repaso de incidencias (D-213): la compilación de taxo lee también las revisiones «reformular» de los classified.json, con el mismo tratamiento que separar, sacar y partir.

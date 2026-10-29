@@ -1,9 +1,10 @@
 ---
 id: T-029
 title: Escalado del entrenamiento a 300 fichas de ECI
-status: pendiente
+status: bloqueada
 depends: T-028, T-030, T-031
 milestone: codigo
+reason: Aparcada por decisión del usuario (2026-10-29): el entrenamiento masivo espera
 created: 2026-10-25
 ---
 

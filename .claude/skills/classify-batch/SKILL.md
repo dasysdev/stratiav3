@@ -23,7 +23,7 @@ Todo desde `demand-engine/`.
    - **Fase 1:** el primer caso de cada tipo. **Fase 2:** el resto.
    - Los estados son pendiente, con problemas, comprobada y ensamblada.
 2. **Fase 1.** Lanza un agente por cada caso pendiente o con problemas de la fase 1, todos en paralelo, con un máximo de 10 por mensaje (`Agent`, `general-purpose`, el encargo de abajo).
-   - Los casos de tipos distintos pueden generar a la vez el bloque de una madre común: `bin/model register` admite solo el primero, y el reglamento indica al otro agente que reutilice ese bloque.
+   - Los casos de tipos distintos pueden generar a la vez el bloque de una madre común o la misma especialización: `bin/model register` admite solo el primero, y el reglamento indica al otro agente que reutilice ese bloque o esa especialización.
    - Espera a que terminen **todos** los de la fase 1 antes de pasar a la fase 2: así esta encuentra los bloques en el catálogo y no los vuelve a generar.
 3. **Fase 2.** Igual que la fase 1, con los casos pendientes o con problemas de la fase 2, en tandas de hasta 10 agentes. Lanza una tanda cuando termine la anterior.
 4. **Tokens.** Cuando termina cada agente, registra su consumo con `bin/train batch usage RUN ID TRANSCRIPCIÓN`. `TRANSCRIPCIÓN` es el `output_file` que devuelve `Agent` al lanzarlo; no lo leas.
@@ -33,10 +33,11 @@ Todo desde `demand-engine/`.
 5. **Repaso:** `bin/train batch status RUN`.
    - Si queda algún caso con problemas, relanza **un** agente para él: el mismo encargo y los problemas de `status`.
    - Si un agente falla dos veces con el mismo caso, déjalo y anótalo para el informe.
+   - **Revisar las pistas** (D-211): si la ejecución registró bloques nuevos con pistas (`hints` en `catalog/runtime/`), lanza **un** agente revisor (`Agent`, `general-purpose`) con `classifier/hint-review.md` y todas esas pistas. Si rechaza alguna, continúa el agente que redactó el bloque (`SendMessage`) con sus motivos: reescribe la pista y registra de nuevo con `--replace`.
 6. **Ensamblar:** `bin/train batch assemble RUN`. Ensambla uno tras otro los casos comprobados, porque comparten `var/queue.jsonl`. **No** ensambles en paralelo.
 7. **Informar** al usuario, de forma breve:
    - casos ensamblados y casos sin terminar;
-   - bloques de categoría generados (`catalog/runtime/`, «no compilado»);
+   - bloques de categoría generados (`catalog/runtime/`, «no compilado») y especializaciones registradas (`catalog/runtime/esp/`, «no compilada»);
    - consumo de tokens por caso, por fase y en total (`status`);
    - las dudas del clasificador que se repitan.
 
@@ -51,9 +52,10 @@ Mismo encargo que en `/demand-model`, con la carpeta de la ejecución:
 - caso `ID`, con la URL (de `RUN/batch.json`) y la ficha congelada en `../capture/var/pages/ID.html`;
 - escribe la salida en `RUN/ID.json` y los bloques que generes en `RUN/`;
 - comprueba con `bin/model check RUN/ID.json` hasta que diga «correcto»;
-- si `bin/model register` rechaza un bloque porque la categoría ya lo tiene, aplica el paso 3 del reglamento;
+- si `bin/model register` rechaza un bloque porque la categoría ya lo tiene, aplica el paso 3 del reglamento; si rechaza una especialización porque ya existe, el paso 4;
 - no leas `cases/`, `var/runs/` (salvo tu salida y tus bloques), las salidas de otros casos ni `docs/`;
 - no ejecutes `bin/model assemble` ni `bin/train`;
+- escribe las dudas y los motivos con frases cortas, en voz activa y con los términos del reglamento;
 - devuelve en pocas líneas el nombre del modelo, los bloques generados y sus dudas principales.
 
 No le pases resultados esperados, el tipo de la selección ni conclusiones tuyas o de otros agentes. El tipo es una aproximación previa a la captura; la clase la decide el clasificador.

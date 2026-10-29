@@ -22,17 +22,19 @@ Todo desde `demand-engine/`.
 3. **Comprobar:** `bin/paa classify check CONJUNTO`.
    - Si no dice «correcto», continúa el mismo agente (`SendMessage`) con los problemas.
    - Si a la segunda sigue mal, para e informa.
+   - **Revisar las pistas** (D-211): lanza un agente revisor (`Agent`, `general-purpose`) con `classifier/hint-review.md` y las `hints` de `classify/output.json`. Si rechaza alguna, continúa el agente clasificador (`SendMessage`) con sus motivos y propuestas, y comprueba de nuevo. No pidas aprobación al usuario.
 4. **Tokens:** `bin/paa classify usage CONJUNTO TRANSCRIPCIÓN`.
    - `TRANSCRIPCIÓN` es el `output_file` que devuelve `Agent` al lanzarlo; no lo leas.
    - El `subagent_tokens` de la notificación no sirve: es el contexto de la última petición, no el consumo.
 5. **Resultado:** `bin/paa classify report CONJUNTO [--compare CLASIFICACIÓN.json] [--previous CLASSIFIED.json]`. Escribe en `var/paa/sets/CONJUNTO/`:
-   - `classified.json`: cada pregunta con su clasificación y su procedencia, más los criterios, los candidatos con sus fuentes `paa-q:`, las revisiones, las aportaciones, las pistas de valoración (origen «paa», sin número `PV-n`) y las marcas de dimensión de comparación (nueva, confirma o contradice la vigente);
+   - `classified.json`: cada pregunta con su clasificación y su procedencia, más los criterios, los candidatos con sus fuentes `paa-q:`, las revisiones, las aportaciones, las pistas de valoración (origen «paa», sin número `PV-n`) y las marcas de dimensión de comparación (nueva, confirma o contradice la vigente) y las especializaciones que propone PAA («no compilada», D-218);
    - `report.md`: reparto por tipo, criterios con C1–C4 y sus preguntas, candidatos, revisiones, aportaciones, pistas de valoración, marcas de comparación, requisitos que PAA confirma, preguntas que no generan, contrastes, consumo y dudas.
 6. **Control** (si el conjunto tiene caso en `cases/paa/`): `bin/paa control CONJUNTO`. Compara por contenido con lo esperado y escribe el informe en `var/paa/control/<fecha>/`.
 7. **Informar** al usuario, de forma breve:
    - reparto por tipo;
    - criterios y su veredicto;
    - candidatos (bloques, rasgo) y revisiones de requisitos existentes;
+   - especializaciones propuestas, con sus preguntas;
    - inferidas confirmadas;
    - lo que más discrepa del contraste y del control (regresiones);
    - consumo.
@@ -47,7 +49,7 @@ Todo desde `demand-engine/`.
 - La entrada está en `var/paa/sets/CONJUNTO/classify/input.md`. Escribe la salida en `var/paa/sets/CONJUNTO/classify/output.json`.
 - Comprueba con `bin/paa classify check CONJUNTO` hasta que diga «correcto».
 - No leas `docs/`, `cases/`, `var/runs/`, `var/paa/probe-*`, `var/paa/control/`, `var/paa/sets/*/classify/v*/`, ni `classified.json` o `report.md` de ningún conjunto.
-- Devuelve en pocas líneas: el reparto, los criterios que generan, los candidatos y tus dudas principales.
+- Devuelve en pocas líneas: el reparto, los criterios que generan, los candidatos, las revisiones, las especializaciones propuestas y tus dudas principales.
 
 No le pases la clasificación manual, conclusiones de sondas anteriores ni las tuyas: el contraste solo vale si el agente no las conoce.
 

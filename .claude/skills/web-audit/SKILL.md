@@ -9,11 +9,12 @@ El código aplica cada requisito técnico de `web-audit/reference/requirements/`
 
 **Entrada:** `AUDIT` (una auditoría de capture) o las URL de las fichas del encargo.
 
-- Si dan URL y no hay auditoría: `capture/bin/pages audit AUDIT URL…` (unos 3 min por ficha; un ID ocupado se rechaza). Elige un `AUDIT` corto: `tienda-AAAAMMDD`.
+- Si dan URL y no hay auditoría: primero, `capture/bin/pages crawl AUDIT PORTADA` (unos 3 s por página; un ID ocupado se rechaza); después, `capture/bin/pages audit AUDIT URL…` (sin URL, todas las fichas del universo). Elige un `AUDIT` corto: `tienda-AAAAMMDD`.
 - `ls capture/var/audits/` lista las que hay.
 
 ## Procedimiento
 
+0. **Imágenes:** `web-audit/bin/audit images AUDIT`. Pasa a capture las URL de imagen del marcado; capture pide cada una con GET, sin el cuerpo, una por segundo a cada host como máximo. Una URL ya registrada no se repite. Si termina con el código 3 (reserva TDM), para e informa.
 1. **Evaluar:** `web-audit/bin/audit run AUDIT`. Escribe `web-audit/var/audits/AUDIT/` (`cases.json`, `pending.json`, `run.json`). Si no hay pendientes, escribe también el expediente: salta al paso 4.
 2. **Juzgar:** lanza **un** agente (`Agent`, `general-purpose`) con el encargo de abajo y espera a que termine.
 3. **Comprobar:** `web-audit/bin/audit check AUDIT`. Si no dice «correcto», continúa el mismo agente (`SendMessage`) con los problemas; si a la segunda sigue mal, para e informa.
@@ -40,10 +41,11 @@ El código aplica cada requisito técnico de `web-audit/reference/requirements/`
 - Escribe `web-audit/var/audits/AUDIT/judgments.json`: una lista con un objeto por caso pendiente, `{"req", "page", "state", "evidence", "reason"}` (`reason` es obligatorio en NA y NE). `state` es `satisfecho`, `no satisfecho`, `NA` o `NE`.
 - Comprueba con `web-audit/bin/audit check AUDIT` hasta que diga «correcto».
 - No leas `cases.json`, `dossier.json` ni `report.md`.
+- Escribe `evidence` y `reason` con frases cortas y en voz activa. La evidencia es una cita literal: no la reescribas.
 - Devuelve en pocas líneas: cuántos casos de cada estado y tus dudas.
 
 ## Qué no hacer
 
 - No corregir a mano los estados que decidió el código ni los juicios del agente: si un estado está mal, el fallo es del método (`/web-reference`) o de la comprobación (`web-audit/src/web_audit/checks/`).
 - No sumar ni promediar Web y Web Schema.org, ni combinar la tasa de un tipo de página con la de otro o con la general; no añadir umbrales ni estados derivados de la tasa (D-166).
-- No descargar nada fuera de capture: los requisitos que exigen las imágenes son NE hasta que capture las congele.
+- No descargar nada fuera de capture. El acceso a las imágenes es de capture (paso 0); sus dimensiones, su relación de aspecto y su formato son NE: fuera de V1.

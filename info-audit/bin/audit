@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Wrapper: see src/info_audit/audit.py (standard library only; runs on the host)."""
+"""Wrapper: see src/info_audit/audit.py (standard library only; validate runs on the host, alfa in the container)."""
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path[:0] = [str(ROOT / "info-audit/src")]
+sys.path[:0] = [str(ROOT / "info-audit/src"), str(ROOT / "capture/src")]
 from info_audit.audit import main  # noqa: E402
 
 main()

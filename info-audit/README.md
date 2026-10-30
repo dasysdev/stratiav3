@@ -47,16 +47,56 @@ Los nombres de los campos son los de las plantillas del método (`contenido_orig
 
 ### Representaciones
 
-- **`alfa/1`:** la salida del filtro Alfa (`filter`, `version`, `ficha`, `title`, `text`, `fragments`). Un contenido original está en `title` o en `text`; `posicion` es [inicio, fin) en `text`. El filtro es T-103.
+- **`alfa/1`:** la salida del filtro Alfa (`filter`, `version`, `ficha`, `title`, `text`, `fragments`). Un contenido original está en `title` o en `text`; `posicion` es [inicio, fin) en `text`. Ver *Filtro Alfa*.
 - **`markup/1`:** el marcado Schema.org de la respuesta (JSON-LD, microdatos y RDFa): `reader` (`markup`), `version` (1), `ficha` y `blocks`, cada uno con su `text` literal. Su lector está pendiente (T-098).
+
+## Filtro Alfa (`alfa/1`)
+
+`audit alfa` aplica el filtro de lectura de Contenido a una ficha que capture congeló con `audit-es` ([D-221](../docs/30-governance/decisions.md#d-221)). La especificación es [filter-alfa](../docs/20-methods/audit-gsc/filter-alfa.md) y prevalece; esta sección dice cómo la aplica el código.
+
+- **Entrada:** el page-ID de una ficha de `capture/var/pages/`. El filtro lee con el lector del almacén (`capture.pages`) la ficha y los bytes originales de su respuesta (`response.html.gz` de la instantánea).
+  - Rechaza una ficha `reader`, una instantánea sin los bytes originales y una respuesta cuyo sha256 no es el de su `meta.json`.
+- **Codificación** (`encoding.py`): el BOM; si no hay, el `charset` del `Content-Type` de la respuesta; si no hay, `<meta charset>` o `<meta http-equiv>` en los primeros 1024 bytes. Las etiquetas son las del Encoding Standard.
+  - Sin ninguna declaración, el filtro usa UTF-8 si los bytes son UTF-8 válido, y si no, windows-1252. `encoding_from` lo dice: `detectada`.
+- **Análisis** (`htmltree.py`): el tokenizador de `html.parser`, con los scripts desactivados, y las reglas de construcción del árbol del HTML Living Standard que deciden dónde va cada nodo. El docstring del módulo da las reglas y las dos simplificaciones, que no cambian el texto ni su orden.
+- **Texto** (`alfa.py`): lo que entra y lo que no entra son las listas de la especificación. Cada bloque de su lista empieza una línea, y el texto que sigue a un bloque, otra.
+  - Un título lleva `#` a `######`; un elemento de lista, `- `; una fila, sus celdas separadas por ` | ` (una celda vacía deja su separador: `A | | C`).
+  - `<pre>` conserva sus espacios. En lo demás, los espacios ASCII se colapsan y el espacio duro (U+00A0) se conserva.
+  - Una imagen se sustituye por su `alt`, con un espacio colapsable a cada lado.
+
+| Campo | Contenido |
+|---|---|
+| `filter`, `version` | `alfa`, `1` |
+| `ficha` | El page-ID de la ficha |
+| `source` | Perfil, URL final, fecha de captura, instantánea, sha256 de la respuesta, codificación (`encoding`, `encoding_from`) y analizador (con la versión de Python) |
+| `title` | El título del documento: el primer `<title>` que no es de `<svg>`, con los espacios colapsados |
+| `text` | El contenido textual del cuerpo, en el orden del documento y sin corte |
+| `fragments` | Un fragmento por nodo de texto y por `alt`, en el orden del texto |
+
+Cada fragmento lleva `start` y `end` (su `posicion`: [inicio, fin) en `text`), `text` (igual a `text[start:end]`) y `ruta`. Las demás anotaciones solo aparecen si se dan:
+
+| Anotación | Valor |
+|---|---|
+| `ruta` | La ruta del elemento: `/html/body/div[2]/p`. El número va si hay hermanos con la misma etiqueta. |
+| `oculto` | Lo que lo oculta, de fuera a dentro: `hidden`, `aria-hidden`, `inert`, `display:none`, `visibility:hidden` (del atributo `style`), `dialog` (sin `open`) o `details` (cerrado, fuera de su `<summary>`). |
+| `region` | `header`, `nav`, `footer`, `aside`, `role=banner`, `role=navigation`, `role=contentinfo` o `role=complementary`, de fuera a dentro. |
+| `control` | `form`, `select`, `button`, `textarea` o `label`, de fuera a dentro. |
+| `alt` | `true`: el fragmento es el `alt` de un `<img>`. |
+| `enlace` | La URL absoluta del enlace (`<a href>`), contra la `<base href>` o la URL final de la ficha. |
+
+- **Salida:** `info-audit/var/representations/PAGE-ID.alfa-1.json` (fuera de git), con un fragmento por línea. Es el `representation.file` de los registros de Contenido.
+- **No se sustituye:** si la salida ya existe y es igual, no cambia. Si existe y es distinta, `alfa` termina con error, porque los registros citan sus posiciones. Para escribirla de nuevo, bórrala.
+- **Versión:** el filtro solo cambia de versión si cambia su definición o su lectura de la norma ([reading-filters](../docs/10-model/reading-filters.md)). Una corrección del código que cambia la salida es `alfa/2`.
 
 ## Uso
 
 ```
 info-audit/bin/audit validate RECORD.json [RECORD.json …]
+info-audit/bin/audit alfa PAGE-ID [PAGE-ID …]
 ```
 
-El comando escribe «válido» o los errores de cada registro. Si un registro tiene errores, termina con código 1.
+- `validate` escribe «válido» o los errores de cada registro. Si un registro tiene errores, termina con código 1.
+- `alfa` escribe, para cada ficha, los caracteres de `text`, los fragmentos, los fragmentos con `oculto` y la ruta de la salida. Si una ficha falla, termina con código 1.
 
 ## Estructura
 
@@ -65,9 +105,12 @@ info-audit/
 ├── pyproject.toml     miembro del workspace (solo biblioteca estándar)
 ├── bin/audit          envoltorio de línea de comandos (el código está en src/)
 ├── schemas/           esquemas JSON de los registros, versionados (D-199)
-├── src/info_audit/    schema (validador del subconjunto), records (reglas), audit (CLI)
+├── src/info_audit/    schema (validador del subconjunto), records (reglas), audit (CLI),
+│                      alfa (filtro Alfa), htmltree (árbol del documento), encoding (codificación)
 ├── tests/             pruebas
-└── var/audits/AUDIT/  registros de cada auditoría (fuera de git)
+└── var/
+    ├── audits/AUDIT/  registros de cada auditoría (fuera de git)
+    └── representations/  salida de alfa/1 de cada ficha (fuera de git)
 ```
 
 ## Qué entra en git
@@ -76,5 +119,6 @@ Todo lo de info-audit salvo `var/`: código, esquemas, pruebas y `pyproject.toml
 
 ## Ejecución
 
-- **`audit`** se ejecuta en el host (`info-audit/bin/audit …`) y solo usa la biblioteca estándar.
+- **`audit validate`** se ejecuta en el host (`info-audit/bin/audit …`) y solo usa la biblioteca estándar.
+- **`audit alfa`** se ejecuta con Python 3.13, en el contenedor: el tokenizador de `html.parser` cambia entre versiones de Python. Desde el host, con un Python anterior, delega en el contenedor. Solo usa la biblioteca estándar y el lector del almacén de capture.
 - **Pruebas:** `bin/run dev test info-audit/tests` (todas las del proyecto: `bin/run dev test`).

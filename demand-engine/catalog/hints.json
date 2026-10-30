@@ -297,6 +297,10 @@
         "apoyo": [
           "D-122"
         ]
+      },
+      "retirada": {
+        "fecha": "2026-10-30",
+        "motivo": "Nombraba el marcado dentro de Web. Con D-220, Contenido no usa el marcado, y el contraste entre el contenido y el marcado es consistencia transversal (D-124). La sustituye PV-49. Un modelo ya usó esta versión (D-202)."
       }
     },
     {
@@ -684,6 +688,26 @@
         "tipo": "marco",
         "apoyo": [
           "D-154"
+        ]
+      }
+    },
+    {
+      "id": "PV-49",
+      "pista": "Lo que se dice de una variante coincide en todo el ámbito (p. ej., el selector y el texto): una talla agotada en el selector y disponible en el texto es una incoherencia.",
+      "propiedad": [
+        "P16"
+      ],
+      "ac": [
+        "Fiabilidad"
+      ],
+      "para": {
+        "entidad": "variante"
+      },
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-122",
+          "D-220"
         ]
       }
     }

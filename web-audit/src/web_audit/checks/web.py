@@ -1,4 +1,4 @@
-"""Checks of Web (reference/requirements/web-*.json), with the method common to Web (reference/README.md).
+"""Checks of Contenido (reference/requirements/web-*.json), with the method common to Contenido (reference/README.md).
 
 The response is the one capture froze with audit-es (meta.json and the original bytes of the
 body); the DOM after load is not used (D-156). robots.txt is that of the origin of the requested
@@ -27,7 +27,7 @@ TEXT_TYPES = {"text/html", "application/xhtml+xml", "text/plain", "text/xml", "a
               "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
               "application/vnd.oasis.opendocument.presentation", "application/vnd.oasis.opendocument.spreadsheet",
               "application/vnd.oasis.opendocument.text", "application/rtf", "text/rtf"}
-NO_RESPONSE = "La ficha no tiene respuesta del recurso ({}): lo que depende de ella es NE (método común de Web, punto 1)."
+NO_RESPONSE = "La ficha no tiene respuesta del recurso ({}): lo que depende de ella es NE (método común de Contenido, punto 1)."
 
 
 # --- Common helpers -------------------------------------------------------------------------------
@@ -89,7 +89,7 @@ def same_url(a: str, b: str) -> bool:
 # --- Sitemaps (w-protocol) ------------------------------------------------------------------------
 
 def sitemap_form(test, describe: str):
-    """A form requirement over each XML sitemap of the site (method common to Web, point 5)."""
+    """A form requirement over each XML sitemap of the site (method common to Contenido, point 5)."""
     def run(case: Case) -> Result:
         site = case.site
         maps = [s for s in site.sitemaps if not s.missing]
@@ -107,7 +107,7 @@ def sitemap_form(test, describe: str):
             return Result(UNSAT, ev)
         if unobtained:
             return Result(NE, ev, "Algún sitemap del conjunto no se pudo obtener y ninguno de los obtenidos incumple "
-                                  "(método común de Web, punto 5).")
+                                  "(método común de Contenido, punto 5).")
         if not xml:
             return Result(NA, ev, "El sitio no publica ningún sitemap XML.")
         return Result(SAT, ev)
@@ -391,7 +391,7 @@ def _no_login(case: Case) -> Result:
         return Result(UNSAT, {"estado": 401, "URL final": page.url_final})
     if page.outcome == "blocked" or page.status in (403, 429):
         return Result(NE, {"outcome": page.outcome, "estado": page.status},
-                      "Un desafío o un bloqueo a nuestro navegador no es exigir iniciar sesión (método común de Web, punto 1).")
+                      "Un desafío o un bloqueo a nuestro navegador no es exigir iniciar sesión (método común de Contenido, punto 1).")
     if page.status != 200:
         return Result(NE, {"estado": page.status}, "La respuesta final no es 200 ni 401: capture no guarda su documento.")
     r = no_document(case)
@@ -655,7 +655,7 @@ def sitemap_urls(site) -> dict[str, str]:
         base = urlsplit(s.url)
         for loc in s.urls():
             u = urlsplit(loc)
-            # Google's reading (method common to Web, point 5): a submitted sitemap is valid for its
+            # Google's reading (method common to Contenido, point 5): a submitted sitemap is valid for its
             # whole host, in any directory; another host, if its robots.txt declares the sitemap.
             valid = (u.scheme, u.netloc) == (base.scheme, base.netloc) or s.url in site.declared_sitemaps(loc)
             if valid:

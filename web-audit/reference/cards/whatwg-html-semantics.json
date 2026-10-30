@@ -4,10 +4,10 @@
  "class": "especificación aplicable",
  "level": "documento",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
- "summary": "Metadatos del documento (WHATWG HTML, 4.2): el elemento meta y, en 4.2.5.4, la declaración de la codificación de caracteres: cuándo se exige, que nombre UTF-8, dónde se coloca y que la codificación real del documento sea UTF-8. El elemento title (4.2.2), que el modelo de contenido de head (4.2.1) exige una vez: dato del mínimo de representación de Web (D-168).",
- "note": "La versión congelada es la sección 4 del HTML Living Standard. Las demás restricciones de la declaración (sin referencias de carácter, una sola declaración meta) no entran en el reparto del perfil de Web (T-072) y no se citan.",
+ "summary": "Metadatos del documento (WHATWG HTML, 4.2): el elemento meta y, en 4.2.5.4, la declaración de la codificación de caracteres: cuándo se exige, que nombre UTF-8, dónde se coloca y que la codificación real del documento sea UTF-8. El elemento title (4.2.2), que el modelo de contenido de head (4.2.1) exige una vez: dato del mínimo de representación de Contenido (D-168).",
+ "note": "La versión congelada es la sección 4 del HTML Living Standard. Las demás restricciones de la declaración (sin referencias de carácter, una sola declaración meta) no entran en el reparto del perfil de Contenido (T-072) y no se citan.",
  "quotes": [
   {
    "id": "q01",

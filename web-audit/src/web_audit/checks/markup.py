@@ -1,4 +1,4 @@
-"""Primitives over the graph of the markup, for the checks of Web Schema.org.
+"""Primitives over the graph of the markup, for the checks of Marcado.
 
 A path selects entities: its first step is a type (`Product`: entities of Product or a subtype,
 minus those with their own rules, method common point 3), `^Organization` (top level only) or

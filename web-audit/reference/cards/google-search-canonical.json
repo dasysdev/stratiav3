@@ -4,9 +4,9 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
- "summary": "Cómo indicar a Google Search la URL canónica de una página (rel=canonical en el elemento link o en la cabecera Link, sitemaps, redirecciones) y sus buenas prácticas. La URL canónica es dato de sostén del mínimo de representación de Web (D-168).",
+ "summary": "Cómo indicar a Google Search la URL canónica de una página (rel=canonical en el elemento link o en la cabecera Link, sitemaps, redirecciones) y sus buenas prácticas. La URL canónica es dato de sostén del mínimo de representación de Contenido (D-168).",
  "note": "Ningún método es obligatorio (q01). «Don't specify a URL fragment as canonical» es una buena práctica sin must, should ni recommend: no da requisito. Que la canónica del sitemap coincida con la del elemento link (q08) es rastreo del sitio y depende de los sitemaps: no se escribe.",
  "quotes": [
   {

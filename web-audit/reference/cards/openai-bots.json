@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Página de OpenAI sobre sus bots: OAI-SearchBot (búsqueda de ChatGPT), GPTBot (entrenamiento), OAI-AdsBot (anuncios) y ChatGPT-User (acciones de un usuario, sin robots.txt asegurado). Recomienda permitir OAI-SearchBot en robots.txt para aparecer en la búsqueda.",
  "quotes": [

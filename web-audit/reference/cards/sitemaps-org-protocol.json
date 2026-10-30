@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "protocolo",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Protocolo de sitemaps (sitemaps.org): forma de un sitemap XML y de un índice de sitemaps (elementos exigidos, codificación, escape, límites), qué URL puede incluir según su ubicación y cómo se declara en robots.txt.",
  "quotes": [

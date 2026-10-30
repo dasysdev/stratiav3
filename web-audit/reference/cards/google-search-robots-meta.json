@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Especificación de la meta robots, el atributo data-nosnippet y la cabecera X-Robots-Tag: a qué rastreadores se dirigen, qué reglas admiten y cómo se combinan. Da el método de w-consumer/010.",
  "quotes": [

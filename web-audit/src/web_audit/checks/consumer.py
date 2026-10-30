@@ -1,4 +1,4 @@
-"""Checks of the consumer level of Web Schema.org (reference/requirements/consumer.json).
+"""Checks of the consumer level of Marcado (reference/requirements/consumer.json).
 
 Each requirement is bound by its id. Most are a primitive of `markup` over a path of the graph;
 those whose method is more than that have a function of their own. The general view (the

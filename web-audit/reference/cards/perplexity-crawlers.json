@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Página de Perplexity sobre sus bots: PerplexityBot (resultados de búsqueda de Perplexity, no entrenamiento) y Perplexity-User (peticiones de un usuario, que en general no sigue robots.txt). Recomienda permitir PerplexityBot en robots.txt; la configuración del WAF es opcional («may»).",
  "quotes": [

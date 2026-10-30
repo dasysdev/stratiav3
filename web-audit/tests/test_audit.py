@@ -242,7 +242,7 @@ def test_end_to_end(tmp_path, monkeypatch):
                   "reason": "No se da la aplicabilidad."} for p in pending]
     (tmp_path / "out" / "aud" / "judgments.json").write_text(json.dumps(judgments))
     dossier = audit.finish("aud")
-    product = dossier["rate"]["Web Schema.org"]["particular"]["ficha de producto"]["total"]
+    product = dossier["rate"]["Marcado"]["particular"]["ficha de producto"]["total"]
     assert product["evaluados"] == product["pertinentes"] - product["NA"] - product["NE"]
     assert (tmp_path / "out" / "aud" / "report.md").read_text().startswith("# Expediente técnico")
 
@@ -290,7 +290,7 @@ def test_sitemap_seeks_the_canonical_url(tmp_path):
 
 
 def test_sitemap_in_subdirectory_counts_for_its_host(tmp_path):
-    """Google's reading (method common to Web, point 5): a submitted sitemap is valid for its whole
+    """Google's reading (method common to Contenido, point 5): a submitted sitemap is valid for its whole
     host; the protocol's strict location is w-protocol/009."""
     xml = (b'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
            b'<url><loc>https://shop.example/cojin</loc></url></urlset>')

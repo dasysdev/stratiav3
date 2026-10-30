@@ -4,9 +4,9 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
- "summary": "Guía de Google para construir un sitemap: remite al protocolo de sitemaps y repite sus límites, la codificación UTF-8, la ubicación y las URL absolutas. No da requisitos propios: lo que fija ya lo fija sitemaps.org (triaje Web, «redundantes»).",
+ "summary": "Guía de Google para construir un sitemap: remite al protocolo de sitemaps y repite sus límites, la codificación UTF-8, la ubicación y las URL absolutas. No da requisitos propios: lo que fija ya lo fija sitemaps.org (triaje de Contenido, «redundantes»).",
  "quotes": [
   {
    "id": "q01",
@@ -32,7 +32,7 @@
    "id": "q05",
    "section": "#general-guidelines",
    "text": "You can host your sitemaps anywhere on your site, but unless you submit your sitemap through Search Console, a sitemap affects only descendants of the parent directory.",
-   "note": "Lectura de Google de la ubicación (método común de Web, punto 5): el envío del sitemap levanta la restricción de directorio. Decisión del usuario, 2026-10-29."
+   "note": "Lectura de Google de la ubicación (método común de Contenido, punto 5): el envío del sitemap levanta la restricción de directorio. Decisión del usuario, 2026-10-29."
   }
  ]
 }

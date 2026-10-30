@@ -1,6 +1,6 @@
 """The entities of the markup of a page, in the three syntaxes, as one graph.
 
-Method common to Web Schema.org (reference/README.md): every entity counts, also those of related
+Method common to Marcado (reference/README.md): every entity counts, also those of related
 products (point 2); nodes with the same identifier are one entity, across blocks and syntaxes
 (points 2 and 4); a link is followed by nesting or by identifier, and a reference whose entity is
 not on the page stays unresolved (`Ref`): what depends on it is NE (point 4). The rules of a type

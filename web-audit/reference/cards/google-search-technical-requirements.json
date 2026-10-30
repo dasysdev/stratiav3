@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Requisitos técnicos mínimos de Search Essentials para que Google Search pueda indexar una página: Googlebot no está bloqueado, la página responde con 200 y tiene contenido indexable.",
  "quotes": [

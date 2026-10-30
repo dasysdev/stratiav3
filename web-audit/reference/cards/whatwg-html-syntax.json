@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "documento",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Sintaxis HTML (WHATWG HTML, 13.1 «Writing HTML documents»): las partes del documento y su orden, el DOCTYPE, los elementos, las etiquetas, los atributos, el texto, las referencias de carácter y los comentarios. Obliga a los documentos y a quienes los generan, no a los validadores.",
  "note": "Los must de 13.1 obligan al documento regla a regla. Ninguno dice que el documento no tenga errores de análisis: esos errores los define 13.2 (whatwg-html-parsing), que se dirige a los agentes de usuario y a los validadores (q02). La recomendación de no usar la cadena heredada del DOCTYPE «unless the document is generated from a system that cannot output the shorter string» depende del sistema que genera el documento, que no se observa: no da requisito.",

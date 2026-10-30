@@ -3,7 +3,7 @@
  "requirements": [
   {
    "id": "ws-vocabulary/001",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "schemaorg-data-model",
    "condition": "Cada entidad con tipo declarado que es valor de una propiedad de Schema.org es de alguno de los tipos esperados de esa propiedad en 30.1, de un subtipo suyo o de Role.",
    "nature": "recomendada",
@@ -29,7 +29,7 @@
   },
   {
    "id": "ws-vocabulary/002",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "schemaorg-data-model",
    "condition": "Ninguna página u obra del marcado tiene más de una entidad principal declarada con mainEntity o con su inversa mainEntityOfPage.",
    "nature": "recomendada",
@@ -52,7 +52,7 @@
   },
   {
    "id": "ws-vocabulary/005",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "schemaorg",
    "condition": "Cada valor de gtin del marcado, o de gtin8, gtin12, gtin13 y gtin14, es una cadena de 8, 12, 13 o 14 dígitos o una URL GS1 Digital Link basada en una cadena así.",
    "nature": "recomendada",
@@ -77,7 +77,7 @@
   },
   {
    "id": "ws-vocabulary/006",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "schemaorg",
    "condition": "El componente numérico de cada valor de gtin del marcado, o de gtin8, gtin12, gtin13 y gtin14, tiene un dígito de control GS1 válido.",
    "nature": "recomendada",
@@ -100,7 +100,7 @@
   },
   {
    "id": "ws-vocabulary/007",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "schemaorg",
    "condition": "Cada entidad del marcado que da como gtin una URL GS1 Digital Link tiene la propiedad hasGS1DigitalLink.",
    "nature": "recomendada",
@@ -125,7 +125,7 @@
   },
   {
    "id": "ws-vocabulary/008",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "schemaorg",
    "condition": "Cada valor de position de los elementos de una BreadcrumbList del marcado es un número entero.",
    "nature": "recomendada",
@@ -147,7 +147,7 @@
   },
   {
    "id": "ws-vocabulary/009",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "schemaorg",
    "condition": "Cada propiedad de página web del marcado, como breadcrumb, está en una entidad con el tipo WebPage o un subtipo suyo declarado explícitamente.",
    "nature": "recomendada",
@@ -169,7 +169,7 @@
   },
   {
    "id": "ws-vocabulary/010",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "schemaorg",
    "condition": "Cada valor de texto de addressCountry del marcado es un código ISO 3166-1 alfa-2.",
    "nature": "recomendada",
@@ -191,7 +191,7 @@
   },
   {
    "id": "ws-vocabulary/011",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "schemaorg",
    "condition": "Cada valor de value de una entidad QuantitativeValue o MonetaryAmount del marcado es un número.",
    "nature": "recomendada",

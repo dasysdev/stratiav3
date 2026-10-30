@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "vocabulario",
  "scopes": [
-  "Web Schema.org"
+  "Marcado"
  ],
  "summary": "Página del tipo ProductGroup de Schema.org (V30.1): su lugar en la jerarquía y la tabla de sus propiedades (hasVariant, productGroupID, variesBy y las heredadas de Product y Thing), con sus tipos esperados. Es una vista legible de la release; no fija condiciones propias.",
  "quotes": [

@@ -4,7 +4,7 @@ reference/cards/<source>.json is the card of a registered source (sources.json):
 level in the canon (and, for an applicable specification, the scopes whose profile includes it),
 the version it cites, which must be the pinned one, and literal quotes, each from a section of
 that version. reference/requirements/<file>.json holds the technical requirements of one level of
-the implementation profile of a scope (Web Schema.org or Web; FILES): each names its applicable
+the implementation profile of a scope (Marcado or Contenido; FILES): each names its applicable
 specification (`spec`), or the decision of the canon that adopts it as a project condition
 (`decision`, D-162), cites quotes of the cards (`source#qNN`) and says its view, general or
 particular, with the page types a particular one applies to (D-161).
@@ -43,7 +43,7 @@ from . import ROOT
 REFERENCE = Path(os.environ.get("REFERENCE_DIR") or ROOT / "reference")
 
 # Canon values (evaluation-scopes): the classes of source (D-132), the levels of the profile of each
-# scope (Web Schema.org, D-130; Web, D-159), with the file of each level and the prefix of its ids,
+# scope (Marcado, D-130; Contenido, D-159), with the file of each level and the prefix of its ids,
 # and the natures, each with the terms that state it in the text of a specification («minimum
 # technical requirements» states what Google Search requires, D-159). Catálogos distribuidos has
 # no profile yet (OQ-30).
@@ -51,12 +51,12 @@ APPLICABLE = "especificación aplicable"
 CLASSES = (APPLICABLE, "instrumento del sistema", "principios generales", "método de comprobación",
            "práctica de terceros", "antecedente histórico", "datos comerciales distribuidos")
 FILES = {  # requirements/<file>.json: (scope, level, prefix of its ids)
-    "serialization": ("Web Schema.org", "serialización", "ws-serialization"),
-    "vocabulary": ("Web Schema.org", "vocabulario", "ws-vocabulary"),
-    "consumer": ("Web Schema.org", "consumidor", "ws-consumer"),
-    "web-protocol": ("Web", "protocolo", "w-protocol"),
-    "web-document": ("Web", "documento", "w-document"),
-    "web-consumer": ("Web", "consumidor", "w-consumer"),
+    "serialization": ("Marcado", "serialización", "ws-serialization"),
+    "vocabulary": ("Marcado", "vocabulario", "ws-vocabulary"),
+    "consumer": ("Marcado", "consumidor", "ws-consumer"),
+    "web-protocol": ("Contenido", "protocolo", "w-protocol"),
+    "web-document": ("Contenido", "documento", "w-document"),
+    "web-consumer": ("Contenido", "consumidor", "w-consumer"),
 }
 SCOPES = tuple(dict.fromkeys(scope for scope, _, _ in FILES.values()))
 LEVELS = tuple(dict.fromkeys(level for _, level, _ in FILES.values()))

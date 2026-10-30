@@ -4,9 +4,9 @@
  "class": "especificación aplicable",
  "level": "documento",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
- "summary": "Protocolo Open Graph: metadatos del documento en elementos meta (RDFa) que hacen de la página un objeto con título, tipo, imagen y URL canónica. Exige cuatro propiedades en toda página que lo use. Entra en el perfil de Web de forma condicional (D-168).",
+ "summary": "Protocolo Open Graph: metadatos del documento en elementos meta (RDFa) que hacen de la página un objeto con título, tipo, imagen y URL canónica. Exige cuatro propiedades en toda página que lo use. Entra en el perfil de Contenido de forma condicional (D-168).",
  "note": "No tiene ningún og:type de producto (solo música, vídeo, article, book, payment.link, profile y website, o tipos propios con prefijo de espacio de nombres), así que no se exige un tipo concreto. og:image:alt («should specify») no se escribe: describe la imagen, es contenido y no dato del mínimo. og:description y las demás opcionales tampoco.",
  "quotes": [
   {

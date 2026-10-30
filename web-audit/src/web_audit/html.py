@@ -7,7 +7,7 @@ p, li, option, dt or dd closes the open one; and an end tag closes up to its ope
 ignored if there is none. script and style keep their text as it is (html.parser does not decode
 references in them). Each element keeps its line and column in the document.
 
-Visible text (method common to Web Schema.org, point 7): the text outside script, style and
+Visible text (method common to Marcado, point 7): the text outside script, style and
 template and outside elements with hidden, aria-hidden="true" or an inline display:none. With
 JavaScript disabled (audit-es) noscript is rendered, so its text counts.
 """

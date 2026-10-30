@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web Schema.org"
+  "Marcado"
  ],
  "summary": "Propiedades exigidas y recomendadas por Google Search para los fragmentos de reseña (Review, AggregateRating y su Rating), con sus directrices técnicas. En el perfil se aplica a las reseñas y valoraciones agregadas que son valor de review o aggregateRating de una entidad valorada: una entidad de uno de los tipos válidos de la guía (q36) o de un subtipo.",
  "quotes": [

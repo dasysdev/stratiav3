@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Tipos de redirección (permanentes y temporales; del servidor, meta refresh, JavaScript y crypto) y cómo los interpreta Google Search. No fija requisitos comprobables de la cadena que sirve el recurso: sus recomendaciones dependen de la intención del sitio (cambiar la URL que muestra Google, o haber trasladado la página), que no se observa en la respuesta.",
  "quotes": [

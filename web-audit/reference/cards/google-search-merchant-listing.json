@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web Schema.org"
+  "Marcado"
  ],
  "summary": "Propiedades exigidas y recomendadas por Google Search para las fichas de comerciante (Product, Offer y sus entidades anidadas: precio, tallas, público, certificaciones, envío, devoluciones y modelo 3D), con sus directrices técnicas.",
  "quotes": [

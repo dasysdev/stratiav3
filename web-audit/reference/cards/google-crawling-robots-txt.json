@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Cómo interpreta Google el Robots Exclusion Protocol (RFC 9309): validez de robots.txt por origen, tratamiento de sus códigos de estado, formato, elección del grupo del user agent y precedencia de las reglas. No fija requisitos de la página: da la lectura de Google en el método de w-consumer/009, porque Search Essentials exige que Googlebot no esté bloqueado.",
  "quotes": [
@@ -104,5 +104,5 @@
    "text": "The [absoluteURL] line points to the location of a sitemap or sitemap index file. It must be a fully qualified URL, including the protocol and host,"
   }
  ],
- "note": "Sus «must» se refieren al propio fichero robots.txt (ubicación, UTF-8, ruta que empieza por /, sitemap como URL absoluta), no a la página: su efecto sobre ella lo recoge w-consumer/009, porque Google ignora las líneas inválidas (q08). Donde difiere de RFC 9309 rige para Googlebot (método común de Web, punto 3): un 429 o un 5xx no es «todo prohibido», sino 12 horas sin rastrear y después la última versión buena (q05–q07)."
+ "note": "Sus «must» se refieren al propio fichero robots.txt (ubicación, UTF-8, ruta que empieza por /, sitemap como URL absoluta), no a la página: su efecto sobre ella lo recoge w-consumer/009, porque Google ignora las líneas inválidas (q08). Donde difiere de RFC 9309 rige para Googlebot (método común de Contenido, punto 3): un 429 o un 5xx no es «todo prohibido», sino 12 horas sin rastrear y después la última versión buena (q05–q07)."
 }

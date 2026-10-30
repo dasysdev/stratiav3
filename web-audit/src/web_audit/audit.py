@@ -1,4 +1,4 @@
-"""The technical audit of an audit of capture: the technical dossier of Web and Web Schema.org.
+"""The technical audit of an audit of capture: the technical dossier of Contenido and Marcado.
 
 Each requirement of the reference gives its cases (D-161): one for the site if its view is general,
 and one per page of the audit whose type is in its page_types if it is particular. The check of
@@ -20,7 +20,7 @@ image URLs of the markup of the pages, before `run`.
 Rate (D-166, scoring-systems): one per scope and view, and in the particular view per page type,
 counting the cases requirement × page; satisfied / evaluated, with evaluated = pertinent − NA − NE;
 the same by nature; coverage = evaluated / (pertinent − NA) (D-169). No weights, thresholds or states derived
-from it. Web and Web Schema.org are never added together.
+from it. Contenido and Marcado are never added together.
 """
 from __future__ import annotations
 
@@ -39,7 +39,7 @@ from .site import PAGE_TYPES, Site
 
 REQUIREMENTS = Path(os.environ.get("REFERENCE_DIR") or ROOT / "reference") / "requirements"
 OUT = Path(os.environ.get("WEB_AUDIT_VAR") or ROOT / "var") / "audits"
-SCOPES = ("Web", "Web Schema.org")
+SCOPES = ("Contenido", "Marcado")
 NATURES = ("obligatoria", "recomendada")
 NO_DOCUMENT = "No se dispone del documento de la página (outcome {}): no se puede examinar su marcado."
 
@@ -69,9 +69,9 @@ def evaluate(site: Site, reqs: list[dict] | None = None) -> list[dict]:
             [p for p in site.pages if p.page_type in req.get("page_types", [])]
         for page in targets:
             case = Case(site, page, req)
-            if page is not None and req["scope"] == "Web Schema.org" and page.doc is None:
+            if page is not None and req["scope"] == "Marcado" and page.doc is None:
                 result = Result(NE, {"outcome": page.outcome}, NO_DOCUMENT.format(page.outcome))
-            elif page is None and req["scope"] == "Web Schema.org" and not any(p.doc is not None for p in site.pages):
+            elif page is None and req["scope"] == "Marcado" and not any(p.doc is not None for p in site.pages):
                 result = Result(NE, None, "No se dispone del documento de ninguna página de la auditoría.")
             else:
                 try:
@@ -192,7 +192,7 @@ def report(dossier: dict, reqs: dict) -> str:
              f"Sitio: {dossier['site']} · auditoría de capture: `capture/var/audits/{dossier['audit']}` · "
              f"generado el {dossier['generated_at']}.", "",
              "Tasa de cumplimiento técnico (D-166, D-169): satisfechos / evaluados, con evaluados = pertinentes − NA − NE; "
-             "cobertura = evaluados / (pertinentes − NA). Sin pesos ni umbrales. Web y Web Schema.org no se suman.", ""]
+             "cobertura = evaluados / (pertinentes − NA). Sin pesos ni umbrales. Contenido y Marcado no se suman.", ""]
     for scope, entry in dossier["rate"].items():
         lines += [f"## {scope}", ""]
         if entry["general"]:
@@ -349,7 +349,7 @@ def cmd_pending(args) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(prog="audit", description="Auditado técnico de Web y Web Schema.org (expediente técnico).")
+    parser = argparse.ArgumentParser(prog="audit", description="Auditado técnico de Contenido y Marcado (expediente técnico).")
     sub = parser.add_subparsers(dest="cmd", required=True)
     for name, fn, help_text in (("run", cmd_run, "evaluar una auditoría de capture"),
                                 ("check", cmd_check, "validar los juicios del agente (judgments.json)"),

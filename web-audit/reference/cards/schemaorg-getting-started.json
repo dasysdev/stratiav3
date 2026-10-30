@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "vocabulario",
  "scopes": [
-  "Web Schema.org"
+  "Marcado"
  ],
  "summary": "Guía de inicio de Schema.org (V30.1), centrada en Microdata: cómo marcar tipos y propiedades, qué admite donde una propiedad espera un tipo y cómo dar valores legibles por máquina (time, link, meta). Fija que solo se marque el contenido visible.",
  "quotes": [

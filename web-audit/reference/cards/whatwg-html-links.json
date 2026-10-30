@@ -4,9 +4,9 @@
  "class": "especificación aplicable",
  "level": "documento",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
- "summary": "Enlaces de HTML (WHATWG HTML, 4.6): los hiperenlaces que crean los elementos a y area, sus atributos y los tipos de enlace. En el perfil de Web fija la forma del href de a y area.",
+ "summary": "Enlaces de HTML (WHATWG HTML, 4.6): los hiperenlaces que crean los elementos a y area, sus atributos y los tipos de enlace. En el perfil de Contenido fija la forma del href de a y area.",
  "note": "«valid URL potentially surrounded by spaces» y «valid URL» los define HTML en 2.4.1 y remiten a la «valid URL string» del URL Standard (WHATWG). Ni esa sección ni el URL Standard están congelados: el método los nombra sin citarlos.",
  "quotes": [
   {

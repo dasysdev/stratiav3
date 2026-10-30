@@ -1,5 +1,7 @@
 # Triaje de los requisitos técnicos de Web
 
+> **Nombres** ([D-220](../../../docs/30-governance/decisions.md#d-220)): este informe conserva los nombres de su fecha. Web es hoy el ámbito Contenido, y Web Schema.org, el ámbito Marcado.
+
 Fecha: 2026-10-28. Tarea T-073. El usuario pidió revisar los 22 requisitos del [perfil de Web](2026-10-28-perfil-web.md) «teniendo en cuenta el scope de esta auditoría». Claude propuso un criterio y cinco bloques, y el usuario aceptó retirar los bloques 3, 4 y 5 y mantener el 2.
 
 ## Criterio

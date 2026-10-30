@@ -1,4 +1,4 @@
-"""Checks of the vocabulary level of Web Schema.org (reference/requirements/vocabulary.json), against
+"""Checks of the vocabulary level of Marcado (reference/requirements/vocabulary.json), against
 the release the reference pins (vocab: Schema.org 30.1)."""
 from __future__ import annotations
 

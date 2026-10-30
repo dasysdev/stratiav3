@@ -3,7 +3,7 @@
  "requirements": [
   {
    "id": "ws-serialization/001",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "El contenido de cada bloque JSON-LD de la página es texto JSON válido según RFC 8259.",
    "nature": "obligatoria",
@@ -30,7 +30,7 @@
   },
   {
    "id": "ws-serialization/002",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "La raíz de cada bloque JSON-LD es un objeto de nodo, un mapa con solo las entradas @context y/o @graph, o un array de objetos de nodo.",
    "nature": "obligatoria",
@@ -63,7 +63,7 @@
   },
   {
    "id": "ws-serialization/003",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "Ningún mapa de los bloques JSON-LD repite una clave.",
    "nature": "obligatoria",
@@ -88,7 +88,7 @@
   },
   {
    "id": "ws-serialization/004",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "Cada valor de @context de los bloques JSON-LD es null, una referencia IRI, una definición de contexto o un array de ellos.",
    "nature": "obligatoria",
@@ -114,7 +114,7 @@
   },
   {
    "id": "ws-serialization/005",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "El valor de @language de cada definición de contexto local es una etiqueta de idioma bien formada según BCP 47, o null.",
    "nature": "obligatoria",
@@ -142,7 +142,7 @@
   },
   {
    "id": "ws-serialization/006",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "Cada valor de @id de los objetos de nodo es una referencia IRI o una IRI compacta, incluidos los identificadores de nodo en blanco.",
    "nature": "obligatoria",
@@ -172,7 +172,7 @@
   },
   {
    "id": "ws-serialization/007",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "El valor de @type de cada objeto de nodo es una referencia IRI, una IRI compacta, un término del contexto activo que se expande a una IRI, o un array de ellos.",
    "nature": "obligatoria",
@@ -202,7 +202,7 @@
   },
   {
    "id": "ws-serialization/008",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "Cada valor de @graph de los bloques JSON-LD es un objeto de nodo o un array de objetos de nodo.",
    "nature": "obligatoria",
@@ -234,7 +234,7 @@
   },
   {
    "id": "ws-serialization/009",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "Ningún valor de una propiedad de un objeto de nodo es un array que contiene arrays.",
    "nature": "obligatoria",
@@ -261,7 +261,7 @@
   },
   {
    "id": "ws-serialization/010",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "Ningún objeto de nodo de primer nivel de los bloques JSON-LD está vacío o contiene solo @id.",
    "nature": "obligatoria",
@@ -291,7 +291,7 @@
   },
   {
    "id": "ws-serialization/011",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "Ningún objeto de valor contiene a la vez @type y @language o @direction.",
    "nature": "obligatoria",
@@ -319,7 +319,7 @@
   },
   {
    "id": "ws-serialization/012",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "Ningún objeto de valor contiene claves que se expandan a una IRI o a una palabra clave distintas de @value, @type, @language, @direction, @index y @context.",
    "nature": "obligatoria",
@@ -347,7 +347,7 @@
   },
   {
    "id": "ws-serialization/013",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "El valor de @value de cada objeto de valor es una cadena, un número, true, false o null, salvo si su @type es @json.",
    "nature": "obligatoria",
@@ -375,7 +375,7 @@
   },
   {
    "id": "ws-serialization/014",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "El valor de @type de cada objeto de valor es un término, una IRI, una IRI compacta, una cadena que el vocabulario convierte en IRI, @json o null.",
    "nature": "obligatoria",
@@ -403,7 +403,7 @@
   },
   {
    "id": "ws-serialization/015",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "El valor de @language de cada objeto de valor es una etiqueta de idioma bien formada según BCP 47, o null.",
    "nature": "obligatoria",
@@ -432,7 +432,7 @@
   },
   {
    "id": "ws-serialization/016",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "Ningún objeto de lista contiene claves que se expandan a una IRI o a una palabra clave distintas de @list e @index.",
    "nature": "obligatoria",
@@ -460,7 +460,7 @@
   },
   {
    "id": "ws-serialization/017",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "Ningún objeto de conjunto contiene claves que se expandan a una IRI o a una palabra clave distintas de @set e @index.",
    "nature": "obligatoria",
@@ -488,7 +488,7 @@
   },
   {
    "id": "ws-serialization/018",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-json-ld11",
    "condition": "Las referencias IRI del JSON-LD que se resuelven contra la IRI base son IRI absolutas, salvo que una definición de contexto local del bloque fije @base.",
    "nature": "recomendada",
@@ -519,7 +519,7 @@
   },
   {
    "id": "ws-serialization/019",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Cada atributo itemtype del documento tiene al menos un token.",
    "nature": "obligatoria",
@@ -540,7 +540,7 @@
   },
   {
    "id": "ws-serialization/020",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Ningún atributo itemtype del documento repite un token.",
    "nature": "obligatoria",
@@ -561,7 +561,7 @@
   },
   {
    "id": "ws-serialization/021",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Cada token de cada atributo itemtype es una URL absoluta válida.",
    "nature": "obligatoria",
@@ -582,7 +582,7 @@
   },
   {
    "id": "ws-serialization/022",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Todos los tokens de cada atributo itemtype son tipos de un mismo vocabulario.",
    "nature": "obligatoria",
@@ -605,7 +605,7 @@
   },
   {
    "id": "ws-serialization/023",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Cada token de itemtype del espacio de nombres de Schema.org nombra un tipo definido en Schema.org 30.1.",
    "nature": "obligatoria",
@@ -623,11 +623,11 @@
     "portada"
    ],
    "not_evaluable": [],
-   "rationale": "Para un item de Schema.org, la especificación que define sus tipos es Schema.org, en la versión que fija el perfil (D-130). Los tokens de otros vocabularios quedan fuera del ámbito Web Schema.org."
+   "rationale": "Para un item de Schema.org, la especificación que define sus tipos es Schema.org, en la versión que fija el perfil (D-130). Los tokens de otros vocabularios quedan fuera del ámbito Marcado."
   },
   {
    "id": "ws-serialization/024",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Cada elemento con atributo itemtype tiene también el atributo itemscope.",
    "nature": "obligatoria",
@@ -648,7 +648,7 @@
   },
   {
    "id": "ws-serialization/025",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Cada atributo itemid tiene como valor una URL válida, con espacios alrededor admitidos.",
    "nature": "obligatoria",
@@ -669,7 +669,7 @@
   },
   {
    "id": "ws-serialization/026",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Cada elemento con atributo itemid tiene también los atributos itemscope e itemtype.",
    "nature": "obligatoria",
@@ -687,11 +687,11 @@
     "portada"
    ],
    "not_evaluable": [],
-   "rationale": "q05 prohíbe itemid en elementos que no tengan a la vez itemscope e itemtype: una sola exigencia sobre la pareja. Su segunda parte (vocabularios que no admiten identificadores globales) no da requisito en Web Schema.org: Schema.org usa itemid como identificador de sus entidades."
+   "rationale": "q05 prohíbe itemid en elementos que no tengan a la vez itemscope e itemtype: una sola exigencia sobre la pareja. Su segunda parte (vocabularios que no admiten identificadores globales) no da requisito en Marcado: Schema.org usa itemid como identificador de sus entidades."
   },
   {
    "id": "ws-serialization/027",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Ningún atributo itemref del documento repite un token.",
    "nature": "obligatoria",
@@ -712,7 +712,7 @@
   },
   {
    "id": "ws-serialization/028",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Cada token de cada atributo itemref es el id de un elemento del mismo documento.",
    "nature": "obligatoria",
@@ -735,7 +735,7 @@
   },
   {
    "id": "ws-serialization/029",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Cada elemento con atributo itemref tiene también el atributo itemscope.",
    "nature": "obligatoria",
@@ -756,7 +756,7 @@
   },
   {
    "id": "ws-serialization/030",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Cada atributo itemprop del documento tiene al menos un token.",
    "nature": "obligatoria",
@@ -777,7 +777,7 @@
   },
   {
    "id": "ws-serialization/031",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Ningún atributo itemprop del documento repite un token.",
    "nature": "obligatoria",
@@ -798,7 +798,7 @@
   },
   {
    "id": "ws-serialization/032",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Cada token de itemprop que añade una propiedad a un item con tipos relevantes de Schema.org es un nombre de propiedad definido en Schema.org 30.1 o una URL absoluta.",
    "nature": "obligatoria",
@@ -821,7 +821,7 @@
   },
   {
    "id": "ws-serialization/033",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Cada propiedad Microdata cuyo valor es, por su definición en Schema.org 30.1, una URL se marca con un elemento de propiedad URL.",
    "nature": "obligatoria",
@@ -844,7 +844,7 @@
   },
   {
    "id": "ws-serialization/034",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Ningún item del documento da errores de microdata al determinar sus propiedades.",
    "nature": "obligatoria",
@@ -867,7 +867,7 @@
   },
   {
    "id": "ws-serialization/035",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "El grafo de items del documento, con una arista por cada propiedad cuyo valor es otro item, no tiene ciclos.",
    "nature": "obligatoria",
@@ -889,7 +889,7 @@
   },
   {
    "id": "ws-serialization/036",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "whatwg-html-microdata",
    "condition": "Cada elemento con atributo itemprop es propiedad de algún item del documento.",
    "nature": "obligatoria",
@@ -910,7 +910,7 @@
   },
   {
    "id": "ws-serialization/037",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-rdfa-core",
    "condition": "Cada CURIE de los atributos RDFa del documento se expande a un IRI sintácticamente válido según RFC 3987.",
    "nature": "obligatoria",
@@ -937,7 +937,7 @@
   },
   {
    "id": "ws-serialization/038",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-rdfa-core",
    "condition": "Ningún atributo prefix ni xmlns: del documento define una correspondencia para el prefijo «_».",
    "nature": "recomendada",
@@ -959,7 +959,7 @@
   },
   {
    "id": "ws-serialization/039",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-rdfa-core",
    "condition": "Los literales del marcado RDFa no tienen espacio en blanco innecesario al principio, al final ni repetido entre palabras.",
    "nature": "recomendada",
@@ -983,7 +983,7 @@
   },
   {
    "id": "ws-serialization/040",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-html-rdfa",
    "condition": "Cada elemento meta con atributo property tiene el atributo content.",
    "nature": "obligatoria",
@@ -1005,7 +1005,7 @@
   },
   {
    "id": "ws-serialization/041",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-html-rdfa",
    "condition": "Cada atributo cuyo nombre empieza por xmlns: cumple las reglas de producción de la sección 3 de Namespaces in XML 1.1.",
    "nature": "obligatoria",
@@ -1027,7 +1027,7 @@
   },
   {
    "id": "ws-serialization/042",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-html-rdfa",
    "condition": "Cada atributo cuyo nombre empieza por xmlns: está escrito solo con minúsculas, prefijo incluido.",
    "nature": "recomendada",
@@ -1051,7 +1051,7 @@
   },
   {
    "id": "ws-serialization/043",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-html-rdfa",
    "condition": "Cada atributo prefix tiene como valor una lista de pares formados por un NCName, «:», uno o más espacios y un IRI.",
    "nature": "recomendada",
@@ -1075,7 +1075,7 @@
   },
   {
    "id": "ws-serialization/044",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "w3c-html-rdfa",
    "condition": "Cada elemento que tiene los atributos lang y xml:lang tiene el mismo valor en ambos.",
    "nature": "obligatoria",

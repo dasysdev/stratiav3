@@ -1,5 +1,7 @@
 # Vistas de la evaluación técnica y sitemaps
 
+> **Nombres** ([D-220](../../../docs/30-governance/decisions.md#d-220)): este informe conserva los nombres de su fecha. Web es hoy el ámbito Contenido, y Web Schema.org, el ámbito Marcado.
+
 Fecha: 2026-10-28. Tarea T-074. Aplica [D-161](../../../docs/30-governance/decisions.md#d-161) (vista general y vista particular; tipos de página) y [D-162](../../../docs/30-governance/decisions.md#d-162) (toda página auditada está en los sitemaps, condición del proyecto).
 
 ## Resultado

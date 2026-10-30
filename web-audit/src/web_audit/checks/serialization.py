@@ -1,4 +1,4 @@
-"""Checks of the serialization level of Web Schema.org (reference/requirements/serialization.json):
+"""Checks of the serialization level of Marcado (reference/requirements/serialization.json):
 JSON-LD (001–018, over the analysis of jsonld.analyze), Microdata (019–036) and RDFa (037–044).
 
 The document examined is the HTTP response (method common, point 1).

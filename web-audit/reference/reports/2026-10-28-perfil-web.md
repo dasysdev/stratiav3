@@ -1,5 +1,7 @@
 # Perfil de Web: fuentes y requisitos técnicos
 
+> **Nombres** ([D-220](../../../docs/30-governance/decisions.md#d-220)): este informe conserva los nombres de su fecha. Web es hoy el ámbito Contenido, y Web Schema.org, el ámbito Marcado.
+
 Fecha: 2026-10-28. Tarea T-072. Construido sobre el documento base del usuario, con 19 requisitos técnicos del HTML (anexo A de `docs/archive/intake/2026-10-28-web-implementation-profile.md`). Aplica el perfil de implementación de Web ([D-159](../../../docs/30-governance/decisions.md#d-159)) y su frontera técnica/informativa ([D-160](../../../docs/30-governance/decisions.md#d-160)). Las fichas y los requisitos los escribieron cuatro autores, uno por nivel y uno para los operadores de IA, y se validaron juntos.
 
 ## Resultado

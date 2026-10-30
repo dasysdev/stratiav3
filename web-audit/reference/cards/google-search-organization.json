@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web Schema.org"
+  "Marcado"
  ],
  "summary": "Datos administrativos de la organización que reconoce Google Search (Organization y sus subtipos, como OnlineStore): todas sus propiedades son recomendadas, con reglas obligatorias para la imagen del logo. Enlaza las políticas de devolución y de envío de la organización (hasMerchantReturnPolicy, hasShippingService).",
  "quotes": [

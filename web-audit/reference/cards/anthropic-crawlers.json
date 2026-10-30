@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Página de Anthropic sobre sus bots: ClaudeBot (entrenamiento), Claude-User (peticiones de un usuario) y Claude-SearchBot (búsqueda), y el efecto de restringir cada uno en robots.txt. Describe y no fija ningún requisito: no dice must, should ni recommend al sitio.",
  "quotes": [

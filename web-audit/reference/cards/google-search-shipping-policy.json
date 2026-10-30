@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web Schema.org"
+  "Marcado"
  ],
  "summary": "Política de envío estándar del comerciante en Google Search: ShippingService anidado en Organization (hasShippingService), con sus condiciones de envío (ShippingConditions) y los tipos anidados que fijan destinos, tarifas, plazos de preparación y de tránsito, rangos y periodos de validez.",
  "quotes": [

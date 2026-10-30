@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Cómo se bloquea la indexación con noindex, en una meta o en la cabecera X-Robots-Tag, que tienen el mismo efecto. Da el método de w-consumer/010.",
  "quotes": [

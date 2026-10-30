@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Buenas prácticas de enlaces de Google: enlaces rastreables (elementos a con href cuya URL resuelve en una dirección web) y texto de anclaje. Recomienda la forma de los enlaces.",
  "quotes": [

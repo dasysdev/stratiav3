@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Cómo tratan los rastreadores de Google cada código de estado HTTP. No fija requisitos (no dice must, should ni recommend); su función es de método: qué respuesta procesa Google tras las redirecciones y cuántos saltos sigue, qué es un soft 404 y que el contenido de las respuestas 4xx y 5xx no se usa.",
  "quotes": [

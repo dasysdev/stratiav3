@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "vocabulario",
  "scopes": [
-  "Web Schema.org"
+  "Marcado"
  ],
  "summary": "Preguntas frecuentes de Schema.org (V30.1). Confirma que marcar solo algunas propiedades está bien (no hay propiedades obligatorias), que valen los espacios de nombres http y https, y fija que solo se marque el contenido visible.",
  "quotes": [

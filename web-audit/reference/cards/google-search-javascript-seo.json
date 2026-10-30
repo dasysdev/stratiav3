@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Cómo procesa Google Search el JavaScript (rastreo, renderizado e indexación) y buenas prácticas para aplicaciones web con JavaScript. No fija requisitos comprobables bajo el perfil de consumo sin JavaScript (D-156): sus recomendaciones tratan de cómo usar JavaScript, que el perfil no ejecuta, y sus indicaciones sobre los códigos de estado y los fragmentos no dicen must, should ni recommend. Su función es de método: Google mira robots.txt antes de pedir la URL, extrae los enlaces de los href, no renderiza una página con noindex y pide un 401 para las páginas tras un inicio de sesión.",
  "quotes": [

@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web Schema.org"
+  "Marcado"
  ],
  "summary": "Marcado de variantes de producto que admite Google Search: un ProductGroup con name, hasVariant, variesBy y productGroupID (o isVariantOf e inProductGroupWithID en las variantes), además del marcado Product de cada variante, en sitios de una o de varias páginas.",
  "quotes": [

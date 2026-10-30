@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "vocabulario",
  "scopes": [
-  "Web Schema.org"
+  "Marcado"
  ],
  "summary": "Modelo de datos de Schema.org (V30.1): tipos con herencia múltiple y propiedades con dominios y rangos esperados, y su visión pragmática de la conformidad. Fija que los valores de una propiedad deberían ser instancias de alguno de sus tipos esperados y que mainEntity señala solo la entidad principal.",
  "quotes": [

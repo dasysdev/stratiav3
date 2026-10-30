@@ -4,9 +4,9 @@
  "class": "especificación aplicable",
  "level": "protocolo",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
- "summary": "HTTP Semantics: la semántica de los mensajes HTTP. En el perfil de Web fija lo que el servidor genera en su respuesta: el campo Location en las redirecciones 301, 302, 307 y 308 («SHOULD»), Content-Type en un mensaje con contenido («SHOULD») y Content-Encoding cuando ha aplicado codificaciones de contenido («MUST»).",
+ "summary": "HTTP Semantics: la semántica de los mensajes HTTP. En el perfil de Contenido fija lo que el servidor genera en su respuesta: el campo Location en las redirecciones 301, 302, 307 y 308 («SHOULD»), Content-Type en un mensaje con contenido («SHOULD») y Content-Encoding cuando ha aplicado codificaciones de contenido («MUST»).",
  "quotes": [
   {
    "id": "q01",
@@ -86,5 +86,5 @@
    "text": "All content codings are case-insensitive and ought to be registered within the \"HTTP Content Coding Registry\", as described in Section 16.6"
   }
  ],
- "note": "Lo que fundamenta los requisitos del nivel protocolo de Web (web-protocol.json). capture registra, en meta.json, las cabeceras de la respuesta final (http.headers) tal como las envió el servidor; de las redirecciones que Chrome siguió solo guarda url, status y to. 303 (See Other) dice que la URI va en Location, sin «SHOULD», y 300 (Multiple Choices) lo condiciona a que el servidor tenga una opción preferida: no dan requisito."
+ "note": "Lo que fundamenta los requisitos del nivel protocolo de Contenido (web-protocol.json). capture registra, en meta.json, las cabeceras de la respuesta final (http.headers) tal como las envió el servidor; de las redirecciones que Chrome siguió solo guarda url, status y to. 303 (See Other) dice que la URI va en Location, sin «SHOULD», y 300 (Multiple Choices) lo condiciona a que el servidor tenga una opción preferida: no dan requisito."
 }

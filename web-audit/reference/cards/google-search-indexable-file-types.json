@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Tipos de fichero cuyo contenido indexa Google y cómo determina el tipo (la cabecera Content-Type). No fija requisitos por sí misma: da el método de w-consumer/004, porque Search Essentials exige que el contenido textual esté en un tipo de fichero que Google Search admite.",
  "quotes": [

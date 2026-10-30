@@ -4,10 +4,10 @@
  "class": "especificación aplicable",
  "level": "documento",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Encoding Standard (WHATWG): las codificaciones, sus nombres y etiquetas y sus algoritmos de decodificación y codificación. Exige a los autores UTF-8 y su etiqueta «utf-8».",
- "note": "En el perfil de Web, la condición de UTF-8 sobre el documento HTML la fija HTML (whatwg-html-semantics, 4.2.5.4), que remite a esta norma: aquí se cita como apoyo.",
+ "note": "En el perfil de Contenido, la condición de UTF-8 sobre el documento HTML la fija HTML (whatwg-html-semantics, 4.2.5.4), que remite a esta norma: aquí se cita como apoyo.",
  "quotes": [
   {
    "id": "q01",

@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "vocabulario",
  "scopes": [
-  "Web Schema.org"
+  "Marcado"
  ],
  "summary": "Release 30.1 del vocabulario Schema.org en formato máquina: tipos, propiedades, dominios (domainIncludes), rangos (rangeIncludes), jerarquía (rdfs:subClassOf, rdfs:subPropertyOf) y enumeraciones. Fija la definición de cada término y las pocas recomendaciones que traen sus rdfs:comment.",
  "quotes": [

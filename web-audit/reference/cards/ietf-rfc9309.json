@@ -4,9 +4,9 @@
  "class": "especificación aplicable",
  "level": "protocolo",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
- "summary": "Robots Exclusion Protocol: cómo lee un rastreador las reglas de robots.txt (el grupo de su product token o el de «*», combinación de grupos, coincidencia más específica, allow en empate, caracteres especiales) y qué hace según el resultado de obtener el fichero (éxito, redirecciones, «unavailable» en 4xx y «unreachable» en 5xx o error de red). En el perfil de Web no fundamenta requisitos propios: sirve al método (punto 3 del método común de Web) con el que los requisitos del consumidor deciden si robots.txt impide rastrear la URL a un bot.",
+ "summary": "Robots Exclusion Protocol: cómo lee un rastreador las reglas de robots.txt (el grupo de su product token o el de «*», combinación de grupos, coincidencia más específica, allow en empate, caracteres especiales) y qué hace según el resultado de obtener el fichero (éxito, redirecciones, «unavailable» en 4xx y «unreachable» en 5xx o error de red). En el perfil de Contenido no fundamenta requisitos propios: sirve al método (punto 3 del método común de Contenido) con el que los requisitos del consumidor deciden si robots.txt impide rastrear la URL a un bot.",
  "quotes": [
   {
    "id": "q01",

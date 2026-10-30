@@ -4,7 +4,7 @@
   "class": "especificación aplicable",
   "level": "serialización",
   "scopes": [
-    "Web Schema.org"
+    "Marcado"
   ],
   "summary": "RDFa 1.1 en HTML (HTML+RDFa 1.1, segunda edición): conformidad de un documento HTML con marcado RDFa, atributos admitidos, extensiones a la sintaxis de HTML (meta y link con property) y reglas propias de HTML (contexto inicial, idioma, atributos xmlns:).",
   "note": "La conformidad de procesador y de agente de usuario (2.2, 2.3, 3.4, 3.5, 5.3–5.5) queda fuera. Los criterios propios del modo XML (XHTML5+RDFa servido como application/xhtml+xml) no aplican a una ficha servida como text/html.",

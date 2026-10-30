@@ -4,7 +4,7 @@
  "class": "especificación aplicable",
  "level": "documento",
  "scopes": [
-  "Web"
+  "Contenido"
  ],
  "summary": "Análisis de documentos HTML (WHATWG HTML, 13.2): el algoritmo con que se construye el DOM a partir de una respuesta text/html, la determinación de la codificación y los errores de análisis, de los que informan los validadores. Obliga a los agentes de usuario, a las herramientas de minería de datos y a los validadores, no al documento.",
  "note": "No fundamenta requisitos propios: sus must se dirigen a los agentes de usuario y a los validadores (q01, q04). Sirve de método (un analizador conforme da siempre un DOM, q02, e informa de los errores de análisis, q04) y de apoyo a w-document/003 (q06).",

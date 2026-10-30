@@ -80,7 +80,7 @@ def reference(tmp_path, monkeypatch):
 
 
 def card(source="guide", version="2026-10-27", cls="especificación aplicable", level="consumidor", quotes=(),
-         scopes=("Web Schema.org",), **extra):
+         scopes=("Marcado",), **extra):
     data = {"source": source, "version": version, "class": cls, "summary": "What it fixes.",
             "quotes": [{"id": f"q{i:02d}", "section": s, "text": t} for i, (s, t) in enumerate(quotes, 1)], **extra}
     if level:
@@ -96,7 +96,7 @@ GUIDE = card(quotes=[("#definitions", "You must include the required properties"
 
 
 def requirement(n=1, **fields):
-    return {"id": f"ws-consumer/{n:03d}", "scope": "Web Schema.org", "spec": "guide",
+    return {"id": f"ws-consumer/{n:03d}", "scope": "Marcado", "spec": "guide",
             "condition": "Cada entidad Product del marcado tiene la propiedad offers.", "nature": "obligatoria",
             "quotes": ["guide#q02", "guide#q03"], "method": "Extraer los Product y buscar offers.",
             "evidence": "Cada Product y sus offers.", "applicability": "universal", "not_evaluable": [],
@@ -129,7 +129,7 @@ def test_a_valid_reference(reference):
     assert found == []
     assert summary == ["3 fichas (2 de especificaciones aplicables), 5 citas, 3 requisitos "
                        "(1 obligatorias, 2 recomendadas)",
-                       "por ámbito: Web Schema.org 3, Web 0 · por vista: general 0, particular 3",
+                       "por ámbito: Marcado 3, Contenido 0 · por vista: general 0, particular 3",
                        "sin ficha (1): spec-pdf"]
 
 
@@ -181,7 +181,7 @@ def test_requirement_errors(reference):
         requirement(7, nature="recomendada"),
         requirement(7),
         {**requirement(), "id": "ws-vocabulary/001"},
-        requirement(8, scope="Web"),
+        requirement(8, scope="Contenido"),
     ])
     found = errors(reference)
     assert "ws-consumer/001: campo no admitido «weight»" in found
@@ -198,38 +198,38 @@ def test_requirement_errors(reference):
     assert "ws-consumer/007: ninguna cita de guide contiene el término que fija la naturaleza recomendada" in found
     assert "ws-consumer/007: id repetido" in found
     assert "ws-vocabulary/001: el id ha de ser ws-consumer/001" in found
-    assert "ws-consumer/008: scope «Web» no es el del fichero (Web Schema.org)" in found
+    assert "ws-consumer/008: scope «Contenido» no es el del fichero (Marcado)" in found
 
 
 def test_web_profile(reference):
-    """Web has its own profile (D-159): its files, levels and ids, and the scopes of each card."""
-    protocol = card("principles", level="protocolo", scopes=["Web"],
+    """Contenido has its own profile (D-159): its files, levels and ids, and the scopes of each card."""
+    protocol = card("principles", level="protocolo", scopes=["Contenido"],
                     quotes=[("#p", "Data should be reusable."), ("#p", "minimum technical requirements")])
     guide_quotes = [(q["section"], q["text"]) for q in GUIDE["quotes"]]
-    write(reference, [card(quotes=guide_quotes, scopes=["Web Schema.org", "Web"]), protocol],
-          [{**requirement(), "id": "w-consumer/001", "scope": "Web"}], stem="web-consumer")
+    write(reference, [card(quotes=guide_quotes, scopes=["Marcado", "Contenido"]), protocol],
+          [{**requirement(), "id": "w-consumer/001", "scope": "Contenido"}], stem="web-consumer")
     write(reference, requirements=[
-        {**requirement(), "id": "w-protocol/001", "scope": "Web", "spec": "principles", "quotes": ["principles#q02"]},
-        {**requirement(), "id": "w-protocol/002", "scope": "Web", "spec": "principles", "nature": "recomendada",
+        {**requirement(), "id": "w-protocol/001", "scope": "Contenido", "spec": "principles", "quotes": ["principles#q02"]},
+        {**requirement(), "id": "w-protocol/002", "scope": "Contenido", "spec": "principles", "nature": "recomendada",
          "quotes": ["principles#q01"], "condition": "Los datos se pueden reutilizar."}],
         level="protocolo", stem="web-protocol")
     found, summary = reqs.check()
     assert found == []                                       # «requirements» states what is required
-    assert summary[1] == "por ámbito: Web Schema.org 0, Web 3 · por vista: general 0, particular 3"
+    assert summary[1] == "por ámbito: Marcado 0, Contenido 3 · por vista: general 0, particular 3"
 
     write(reference, [card(quotes=guide_quotes),
-                      card("principles", level="protocolo", scopes=["Web Schema.org"]),
+                      card("principles", level="protocolo", scopes=["Marcado"]),
                       card("spec-pdf", level="documento", scopes=[]),
-                      card("schemaorg", "30.1", cls="principios generales", level=None, scopes=["Web"])],
-          [{**requirement(), "id": "w-consumer/001", "scope": "Web"}, requirement(2, scope="Web")],
+                      card("schemaorg", "30.1", cls="principios generales", level=None, scopes=["Contenido"])],
+          [{**requirement(), "id": "w-consumer/001", "scope": "Contenido"}, requirement(2, scope="Contenido")],
           stem="web-consumer")
     (reference / "cards" / "schemaorg.json").write_text(json.dumps(
-        {**card("schemaorg", "30.1", cls="principios generales", level=None), "scopes": ["Web"]}), encoding="utf-8")
+        {**card("schemaorg", "30.1", cls="principios generales", level=None), "scopes": ["Contenido"]}), encoding="utf-8")
     found = errors(reference)
-    assert "principles.json: el perfil de Web Schema.org no tiene nivel protocolo" in found
+    assert "principles.json: el perfil de Marcado no tiene nivel protocolo" in found
     assert "spec-pdf.json: una especificación aplicable lleva scopes" in found
     assert "schemaorg.json: scopes solo corresponde a una especificación aplicable" in found
-    assert "web-consumer.json w-consumer/001: guide no es del perfil de Web (scopes de su ficha)" in found
+    assert "web-consumer.json w-consumer/001: guide no es del perfil de Contenido (scopes de su ficha)" in found
     assert "web-consumer.json ws-consumer/002: el id ha de ser w-consumer/001, w-consumer/002…" in found
 
 

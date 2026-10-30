@@ -3,7 +3,7 @@
  "requirements": [
   {
    "id": "ws-consumer/001",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Product del marcado tiene la propiedad offers.",
    "nature": "obligatoria",
@@ -24,7 +24,7 @@
   },
   {
    "id": "ws-consumer/002",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Product del marcado tiene la propiedad name.",
    "nature": "obligatoria",
@@ -45,7 +45,7 @@
   },
   {
    "id": "ws-consumer/003",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Product del marcado tiene la propiedad image.",
    "nature": "obligatoria",
@@ -66,7 +66,7 @@
   },
   {
    "id": "ws-consumer/004",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Las URL de image de cada Product son rastreables por Google.",
    "nature": "obligatoria",
@@ -89,7 +89,7 @@
   },
   {
    "id": "ws-consumer/005",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Las URL de image de cada Product son indexables por Google.",
    "nature": "obligatoria",
@@ -111,7 +111,7 @@
   },
   {
    "id": "ws-consumer/006",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Product del marcado tiene más de una imagen.",
    "nature": "recomendada",
@@ -129,7 +129,7 @@
   },
   {
    "id": "ws-consumer/007",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada imagen de un Product tiene al menos 50 000 píxeles (ancho por alto).",
    "nature": "recomendada",
@@ -149,7 +149,7 @@
   },
   {
    "id": "ws-consumer/008",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Entre las imágenes de cada Product hay al menos una con relación de aspecto 16x9.",
    "nature": "recomendada",
@@ -170,7 +170,7 @@
   },
   {
    "id": "ws-consumer/009",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Entre las imágenes de cada Product hay al menos una con relación de aspecto 4x3.",
    "nature": "recomendada",
@@ -191,7 +191,7 @@
   },
   {
    "id": "ws-consumer/010",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Entre las imágenes de cada Product hay al menos una con relación de aspecto 1x1.",
    "nature": "recomendada",
@@ -212,7 +212,7 @@
   },
   {
    "id": "ws-consumer/011",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada valor de offers de un Product es una entidad Offer y no AggregateOffer.",
    "nature": "obligatoria",
@@ -232,7 +232,7 @@
   },
   {
    "id": "ws-consumer/014",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada valor de audience de un Product es una entidad PeopleAudience.",
    "nature": "recomendada",
@@ -252,7 +252,7 @@
   },
   {
    "id": "ws-consumer/016",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Product del marcado tiene como máximo un nombre de marca.",
    "nature": "recomendada",
@@ -272,7 +272,7 @@
   },
   {
    "id": "ws-consumer/018",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada valor de texto de category de un Product tiene menos de 750 caracteres.",
    "nature": "recomendada",
@@ -291,7 +291,7 @@
   },
   {
    "id": "ws-consumer/019",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada CategoryCode de category tiene en inCodeSet una URL de la taxonomía de productos de Google.",
    "nature": "recomendada",
@@ -311,7 +311,7 @@
   },
   {
    "id": "ws-consumer/020",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada CategoryCode de category tiene en codeValue un ID numérico de la taxonomía de Google o una ruta de categorías separada por >.",
    "nature": "recomendada",
@@ -331,7 +331,7 @@
   },
   {
    "id": "ws-consumer/021",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada segmento de una ruta de categorías en codeValue contiene al menos una letra.",
    "nature": "obligatoria",
@@ -349,7 +349,7 @@
   },
   {
    "id": "ws-consumer/025",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Ningún Product usa la propiedad genérica gtin para un GTIN de 8, 12, 13 o 14 dígitos.",
    "nature": "recomendada",
@@ -368,7 +368,7 @@
   },
   {
    "id": "ws-consumer/026",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada valor de gtin, gtin8, gtin12, gtin13 o gtin14 de un Product está en forma numérica y no es una URL.",
    "nature": "recomendada",
@@ -388,7 +388,7 @@
   },
   {
    "id": "ws-consumer/027",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Product con isbn tiene también el tipo Book.",
    "nature": "recomendada",
@@ -408,7 +408,7 @@
   },
   {
    "id": "ws-consumer/028",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada isbn de un Product está en formato ISBN-13.",
    "nature": "recomendada",
@@ -428,7 +428,7 @@
   },
   {
    "id": "ws-consumer/029",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Product de orientación adulta tiene la propiedad hasAdultConsideration.",
    "nature": "obligatoria",
@@ -449,7 +449,7 @@
   },
   {
    "id": "ws-consumer/030",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada valor de hasAdultConsideration de un Product es https://schema.org/SexualContentConsideration.",
    "nature": "recomendada",
@@ -469,7 +469,7 @@
   },
   {
    "id": "ws-consumer/032",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Product que es una variante tiene la propiedad inProductGroupWithID.",
    "nature": "recomendada",
@@ -491,7 +491,7 @@
   },
   {
    "id": "ws-consumer/033",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Product tiene como máximo un valor de inProductGroupWithID.",
    "nature": "recomendada",
@@ -511,7 +511,7 @@
   },
   {
    "id": "ws-consumer/034",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Product que es una variante tiene la propiedad isVariantOf.",
    "nature": "recomendada",
@@ -533,7 +533,7 @@
   },
   {
    "id": "ws-consumer/039",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "El autor de cada Review de un Product tiene como nombre el de una persona o un equipo.",
    "nature": "obligatoria",
@@ -551,7 +551,7 @@
   },
   {
    "id": "ws-consumer/041",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Product tiene como máximo un valor de size.",
    "nature": "recomendada",
@@ -571,7 +571,7 @@
   },
   {
    "id": "ws-consumer/042",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Product del marcado tiene la propiedad sku.",
    "nature": "recomendada",
@@ -591,7 +591,7 @@
   },
   {
    "id": "ws-consumer/043",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Product tiene como máximo un valor de sku.",
    "nature": "recomendada",
@@ -611,7 +611,7 @@
   },
   {
    "id": "ws-consumer/044",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada sku de un Product usa solo caracteres Unicode válidos para el intercambio.",
    "nature": "obligatoria",
@@ -629,7 +629,7 @@
   },
   {
    "id": "ws-consumer/045",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Ningún sku de un Product contiene caracteres de espacio en blanco.",
    "nature": "obligatoria",
@@ -647,7 +647,7 @@
   },
   {
    "id": "ws-consumer/046",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada sku de un Product contiene solo caracteres ASCII.",
    "nature": "recomendada",
@@ -665,7 +665,7 @@
   },
   {
    "id": "ws-consumer/048",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Product tiene como máximo un 3DModel en subjectOf.",
    "nature": "recomendada",
@@ -685,7 +685,7 @@
   },
   {
    "id": "ws-consumer/049",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad 3DModel del marcado tiene la propiedad encoding.",
    "nature": "obligatoria",
@@ -706,7 +706,7 @@
   },
   {
    "id": "ws-consumer/050",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada encoding de un 3DModel tiene la propiedad contentUrl.",
    "nature": "obligatoria",
@@ -727,7 +727,7 @@
   },
   {
    "id": "ws-consumer/051",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada encoding.contentUrl de un 3DModel termina en .gltf o .glb.",
    "nature": "obligatoria",
@@ -745,7 +745,7 @@
   },
   {
    "id": "ws-consumer/052",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Offer del marcado tiene precio activo en price o en priceSpecification.price.",
    "nature": "obligatoria",
@@ -768,7 +768,7 @@
   },
   {
    "id": "ws-consumer/053",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "El precio activo de cada entidad Offer es mayor que cero.",
    "nature": "obligatoria",
@@ -787,7 +787,7 @@
   },
   {
    "id": "ws-consumer/054",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Offer tiene la moneda de su precio activo junto a él (priceCurrency con price o priceSpecification.priceCurrency con priceSpecification.price).",
    "nature": "obligatoria",
@@ -808,7 +808,7 @@
   },
   {
    "id": "ws-consumer/055",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada priceCurrency de una Offer o de sus priceSpecification es un código ISO 4217 de tres letras.",
    "nature": "obligatoria",
@@ -830,7 +830,7 @@
   },
   {
    "id": "ws-consumer/057",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada availability de una Offer es uno de los valores de ItemAvailability que admite Google.",
    "nature": "recomendada",
@@ -850,7 +850,7 @@
   },
   {
    "id": "ws-consumer/058",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Offer tiene como máximo un valor de availability.",
    "nature": "recomendada",
@@ -870,7 +870,7 @@
   },
   {
    "id": "ws-consumer/061",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada itemCondition de una Offer es NewCondition, RefurbishedCondition o UsedCondition.",
    "nature": "recomendada",
@@ -890,7 +890,7 @@
   },
   {
    "id": "ws-consumer/062",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Offer tiene como máximo un valor de itemCondition.",
    "nature": "recomendada",
@@ -910,7 +910,7 @@
   },
   {
    "id": "ws-consumer/064",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada priceValidUntil de una Offer está en formato ISO 8601.",
    "nature": "recomendada",
@@ -930,7 +930,7 @@
   },
   {
    "id": "ws-consumer/066",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Offer del marcado tiene la propiedad url.",
    "nature": "recomendada",
@@ -950,7 +950,7 @@
   },
   {
    "id": "ws-consumer/067",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Offer tiene como máximo un valor de url.",
    "nature": "recomendada",
@@ -970,7 +970,7 @@
   },
   {
    "id": "ws-consumer/070",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada validFrom de una Offer o de una UnitPriceSpecification está en formato ISO 8601.",
    "nature": "recomendada",
@@ -992,7 +992,7 @@
   },
   {
    "id": "ws-consumer/071",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada validThrough de una Offer o de una UnitPriceSpecification está en formato ISO 8601.",
    "nature": "recomendada",
@@ -1014,7 +1014,7 @@
   },
   {
    "id": "ws-consumer/072",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada validFrom, validThrough o priceValidUntil de una Offer o de su especificación de precio incluye la hora con su zona horaria.",
    "nature": "recomendada",
@@ -1033,7 +1033,7 @@
   },
   {
    "id": "ws-consumer/073",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Ninguna especificación de precio de una Offer tiene a la vez priceType y validForMemberTier.",
    "nature": "obligatoria",
@@ -1051,7 +1051,7 @@
   },
   {
    "id": "ws-consumer/074",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad UnitPriceSpecification del marcado tiene la propiedad price.",
    "nature": "obligatoria",
@@ -1072,7 +1072,7 @@
   },
   {
    "id": "ws-consumer/075",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad UnitPriceSpecification del marcado tiene la propiedad priceCurrency.",
    "nature": "obligatoria",
@@ -1093,7 +1093,7 @@
   },
   {
    "id": "ws-consumer/077",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada UnitPriceSpecification con membershipPointsEarned tiene también validForMemberTier.",
    "nature": "recomendada",
@@ -1113,7 +1113,7 @@
   },
   {
    "id": "ws-consumer/078",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada Offer con precio tachado tiene una UnitPriceSpecification con priceType.",
    "nature": "recomendada",
@@ -1135,7 +1135,7 @@
   },
   {
    "id": "ws-consumer/079",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada priceType de una UnitPriceSpecification es https://schema.org/StrikethroughPrice.",
    "nature": "obligatoria",
@@ -1155,7 +1155,7 @@
   },
   {
    "id": "ws-consumer/080",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada Offer con una UnitPriceSpecification con priceType tiene también un precio activo.",
    "nature": "obligatoria",
@@ -1174,7 +1174,7 @@
   },
   {
    "id": "ws-consumer/081",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada Offer cuyo precio la página muestra también por unidad de medida tiene una UnitPriceSpecification con referenceQuantity.",
    "nature": "recomendada",
@@ -1196,7 +1196,7 @@
   },
   {
    "id": "ws-consumer/082",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada precio para miembros de un programa de fidelización está en una UnitPriceSpecification con validForMemberTier.",
    "nature": "recomendada",
@@ -1218,7 +1218,7 @@
   },
   {
    "id": "ws-consumer/083",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada Offer con una UnitPriceSpecification con validForMemberTier tiene también un precio activo.",
    "nature": "obligatoria",
@@ -1237,7 +1237,7 @@
   },
   {
    "id": "ws-consumer/086",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada referenceQuantity de una UnitPriceSpecification tiene la propiedad unitCode.",
    "nature": "obligatoria",
@@ -1258,7 +1258,7 @@
   },
   {
    "id": "ws-consumer/087",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada referenceQuantity de una UnitPriceSpecification tiene la propiedad value.",
    "nature": "obligatoria",
@@ -1279,7 +1279,7 @@
   },
   {
    "id": "ws-consumer/088",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada referenceQuantity de una UnitPriceSpecification tiene la propiedad valueReference.",
    "nature": "recomendada",
@@ -1299,7 +1299,7 @@
   },
   {
    "id": "ws-consumer/090",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada SizeSpecification tiene la propiedad sizeGroup.",
    "nature": "recomendada",
@@ -1321,7 +1321,7 @@
   },
   {
    "id": "ws-consumer/091",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada SizeSpecification tiene la propiedad sizeSystem.",
    "nature": "recomendada",
@@ -1343,7 +1343,7 @@
   },
   {
    "id": "ws-consumer/092",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada sizeGroup de una SizeSpecification es un valor de la enumeración WearableSizeGroupEnumeration de schema.org.",
    "nature": "recomendada",
@@ -1362,7 +1362,7 @@
   },
   {
    "id": "ws-consumer/093",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada sizeSystem de una SizeSpecification es un valor de la enumeración WearableSizeSystemEnumeration de schema.org.",
    "nature": "recomendada",
@@ -1381,7 +1381,7 @@
   },
   {
    "id": "ws-consumer/095",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada suggestedGender de una PeopleAudience es Male, Female o Unisex.",
    "nature": "obligatoria",
@@ -1399,7 +1399,7 @@
   },
   {
    "id": "ws-consumer/098",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Certification tiene en issuedBy una organización con un name de los que admite Google (EC, European_Commission, ADEME o BMWK).",
    "nature": "obligatoria",
@@ -1420,7 +1420,7 @@
   },
   {
    "id": "ws-consumer/099",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Certification tiene un name de los que admite Google (EPREL, Vehicle_CO2_Class o Vehicle_CO2_Class_Discharged_Battery).",
    "nature": "obligatoria",
@@ -1441,7 +1441,7 @@
   },
   {
    "id": "ws-consumer/100",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada Certification de etiqueta energética europea tiene la propiedad certificationIdentification.",
    "nature": "obligatoria",
@@ -1460,7 +1460,7 @@
   },
   {
    "id": "ws-consumer/102",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada certificationRating de una Certification tiene la propiedad ratingValue.",
    "nature": "obligatoria",
@@ -1478,7 +1478,7 @@
   },
   {
    "id": "ws-consumer/103",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada certificationRating de eficiencia energética de la UE tiene la propiedad bestRating.",
    "nature": "obligatoria",
@@ -1496,7 +1496,7 @@
   },
   {
    "id": "ws-consumer/104",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada certificationRating de eficiencia energética de la UE tiene la propiedad worstRating.",
    "nature": "obligatoria",
@@ -1514,7 +1514,7 @@
   },
   {
    "id": "ws-consumer/105",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad OfferShippingDetails del marcado tiene la propiedad deliveryTime.",
    "nature": "obligatoria",
@@ -1535,7 +1535,7 @@
   },
   {
    "id": "ws-consumer/106",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad OfferShippingDetails tiene como máximo un deliveryTime.",
    "nature": "obligatoria",
@@ -1556,7 +1556,7 @@
   },
   {
    "id": "ws-consumer/107",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad OfferShippingDetails del marcado tiene la propiedad shippingDestination.",
    "nature": "obligatoria",
@@ -1577,7 +1577,7 @@
   },
   {
    "id": "ws-consumer/108",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad OfferShippingDetails del marcado tiene la propiedad shippingRate.",
    "nature": "obligatoria",
@@ -1598,7 +1598,7 @@
   },
   {
    "id": "ws-consumer/109",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad OfferShippingDetails tiene como máximo un shippingRate.",
    "nature": "obligatoria",
@@ -1619,7 +1619,7 @@
   },
   {
    "id": "ws-consumer/110",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada shippingRate de una OfferShippingDetails tiene la propiedad currency.",
    "nature": "obligatoria",
@@ -1641,7 +1641,7 @@
   },
   {
    "id": "ws-consumer/111",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada shippingRate.currency de una OfferShippingDetails es un código ISO 4217 de tres letras.",
    "nature": "obligatoria",
@@ -1662,7 +1662,7 @@
   },
   {
    "id": "ws-consumer/112",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada shippingRate.currency coincide con la moneda de la Offer a la que pertenece.",
    "nature": "obligatoria",
@@ -1682,7 +1682,7 @@
   },
   {
    "id": "ws-consumer/113",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada shippingRate de una OfferShippingDetails tiene value o maxValue.",
    "nature": "obligatoria",
@@ -1704,7 +1704,7 @@
   },
   {
    "id": "ws-consumer/114",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Ningún value o maxValue de shippingRate dado como texto contiene símbolos de moneda.",
    "nature": "obligatoria",
@@ -1725,7 +1725,7 @@
   },
   {
    "id": "ws-consumer/115",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Ningún value o maxValue de shippingRate dado como texto contiene separadores de miles.",
    "nature": "obligatoria",
@@ -1746,7 +1746,7 @@
   },
   {
    "id": "ws-consumer/116",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Ningún value o maxValue de shippingRate dado como texto contiene espacios.",
    "nature": "obligatoria",
@@ -1767,7 +1767,7 @@
   },
   {
    "id": "ws-consumer/117",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad DefinedRegion del marcado tiene la propiedad addressCountry.",
    "nature": "obligatoria",
@@ -1789,7 +1789,7 @@
   },
   {
    "id": "ws-consumer/118",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada addressCountry de una DefinedRegion es un código ISO 3166-1 alfa-2.",
    "nature": "obligatoria",
@@ -1810,7 +1810,7 @@
   },
   {
    "id": "ws-consumer/119",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada DefinedRegion de una zona de envío menor que un país tiene addressRegion o postalCode.",
    "nature": "recomendada",
@@ -1832,7 +1832,7 @@
   },
   {
    "id": "ws-consumer/120",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Ninguna DefinedRegion tiene a la vez addressRegion y postalCode.",
    "nature": "recomendada",
@@ -1853,7 +1853,7 @@
   },
   {
    "id": "ws-consumer/121",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada addressRegion de una DefinedRegion es un código de subdivisión ISO 3166-2 de 2 o 3 caracteres sin prefijo de país.",
    "nature": "obligatoria",
@@ -1871,7 +1871,7 @@
   },
   {
    "id": "ws-consumer/124",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada handlingTime o transitTime tiene la propiedad minValue.",
    "nature": "obligatoria",
@@ -1892,7 +1892,7 @@
   },
   {
    "id": "ws-consumer/125",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada handlingTime o transitTime tiene la propiedad maxValue.",
    "nature": "obligatoria",
@@ -1913,7 +1913,7 @@
   },
   {
    "id": "ws-consumer/126",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada minValue de un handlingTime o transitTime es un número entero no negativo.",
    "nature": "obligatoria",
@@ -1933,7 +1933,7 @@
   },
   {
    "id": "ws-consumer/127",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada maxValue de un handlingTime o transitTime es un número entero no negativo.",
    "nature": "obligatoria",
@@ -1953,7 +1953,7 @@
   },
   {
    "id": "ws-consumer/128",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada handlingTime o transitTime tiene la propiedad unitCode.",
    "nature": "obligatoria",
@@ -1974,7 +1974,7 @@
   },
   {
    "id": "ws-consumer/129",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada unitCode de un handlingTime o transitTime es DAY o d.",
    "nature": "obligatoria",
@@ -1994,7 +1994,7 @@
   },
   {
    "id": "ws-consumer/130",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada MerchantReturnPolicy de una Offer tiene la propiedad applicableCountry.",
    "nature": "obligatoria",
@@ -2016,7 +2016,7 @@
   },
   {
    "id": "ws-consumer/131",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada applicableCountry de una MerchantReturnPolicy es un código ISO 3166-1 alfa-2.",
    "nature": "obligatoria",
@@ -2038,7 +2038,7 @@
   },
   {
    "id": "ws-consumer/132",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada MerchantReturnPolicy de una Offer tiene la propiedad returnPolicyCategory.",
    "nature": "obligatoria",
@@ -2060,7 +2060,7 @@
   },
   {
    "id": "ws-consumer/133",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada returnPolicyCategory es MerchantReturnFiniteReturnWindow, MerchantReturnNotPermitted o MerchantReturnUnlimitedWindow.",
    "nature": "obligatoria",
@@ -2082,7 +2082,7 @@
   },
   {
    "id": "ws-consumer/134",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada MerchantReturnPolicy con returnPolicyCategory MerchantReturnFiniteReturnWindow tiene la propiedad merchantReturnDays.",
    "nature": "obligatoria",
@@ -2102,7 +2102,7 @@
   },
   {
    "id": "ws-consumer/136",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada returnFees es FreeReturn, ReturnFeesCustomerResponsibility o ReturnShippingFees.",
    "nature": "recomendada",
@@ -2122,7 +2122,7 @@
   },
   {
    "id": "ws-consumer/137",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Ninguna MerchantReturnPolicy con returnFees FreeReturn tiene returnShippingFeesAmount.",
    "nature": "recomendada",
@@ -2142,7 +2142,7 @@
   },
   {
    "id": "ws-consumer/138",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Ninguna MerchantReturnPolicy con returnFees ReturnFeesCustomerResponsibility tiene returnShippingFeesAmount.",
    "nature": "recomendada",
@@ -2162,7 +2162,7 @@
   },
   {
    "id": "ws-consumer/139",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada MerchantReturnPolicy con returnFees ReturnShippingFees tiene la propiedad returnShippingFeesAmount.",
    "nature": "obligatoria",
@@ -2182,7 +2182,7 @@
   },
   {
    "id": "ws-consumer/140",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada MerchantReturnPolicy con returnShippingFeesAmount tiene returnFees ReturnShippingFees.",
    "nature": "obligatoria",
@@ -2200,7 +2200,7 @@
   },
   {
    "id": "ws-consumer/144",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada returnMethod es ReturnAtKiosk, ReturnByMail o ReturnInStore.",
    "nature": "recomendada",
@@ -2220,7 +2220,7 @@
   },
   {
    "id": "ws-consumer/147",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Todos los precios de las Offer del marcado de la página están en una sola moneda.",
    "nature": "obligatoria",
@@ -2240,7 +2240,7 @@
   },
   {
    "id": "ws-consumer/148",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "Cada entidad Car con review o aggregateRating tiene también el tipo Product.",
    "nature": "obligatoria",
@@ -2260,7 +2260,7 @@
   },
   {
    "id": "ws-consumer/149",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-merchant-listing",
    "condition": "El marcado Product está en el HTML inicial que sirve el servidor.",
    "nature": "recomendada",
@@ -2281,7 +2281,7 @@
   },
   {
    "id": "ws-consumer/150",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada entidad Product del marcado tiene la propiedad name.",
    "nature": "obligatoria",
@@ -2302,7 +2302,7 @@
   },
   {
    "id": "ws-consumer/151",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada entidad Product del marcado tiene review, aggregateRating u offers.",
    "nature": "obligatoria",
@@ -2323,7 +2323,7 @@
   },
   {
    "id": "ws-consumer/153",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada entidad Product del marcado tiene la propiedad offers.",
    "nature": "recomendada",
@@ -2343,7 +2343,7 @@
   },
   {
    "id": "ws-consumer/154",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada valor de offers de un Product es una entidad Offer y no AggregateOffer.",
    "nature": "recomendada",
@@ -2363,7 +2363,7 @@
   },
   {
    "id": "ws-consumer/156",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "El autor de cada Review de un Product tiene como nombre el de una persona o un equipo.",
    "nature": "obligatoria",
@@ -2381,7 +2381,7 @@
   },
   {
    "id": "ws-consumer/157",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada entidad Offer del marcado tiene precio en price o en priceSpecification.price.",
    "nature": "obligatoria",
@@ -2402,7 +2402,7 @@
   },
   {
    "id": "ws-consumer/159",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada availability de una Offer es uno de los valores de ItemAvailability que enumera Google.",
    "nature": "recomendada",
@@ -2422,7 +2422,7 @@
   },
   {
    "id": "ws-consumer/160",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada entidad Offer tiene como máximo un valor de availability.",
    "nature": "recomendada",
@@ -2442,7 +2442,7 @@
   },
   {
    "id": "ws-consumer/161",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada entidad Offer tiene la moneda de su precio (priceCurrency o priceSpecification.priceCurrency).",
    "nature": "recomendada",
@@ -2462,7 +2462,7 @@
   },
   {
    "id": "ws-consumer/162",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada priceCurrency de una Offer o de sus priceSpecification es un código ISO 4217 de tres letras.",
    "nature": "recomendada",
@@ -2483,7 +2483,7 @@
   },
   {
    "id": "ws-consumer/164",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada priceValidUntil de una Offer es una fecha ISO 8601.",
    "nature": "recomendada",
@@ -2503,7 +2503,7 @@
   },
   {
    "id": "ws-consumer/165",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada entidad UnitPriceSpecification del marcado tiene la propiedad price.",
    "nature": "obligatoria",
@@ -2524,7 +2524,7 @@
   },
   {
    "id": "ws-consumer/166",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada entidad UnitPriceSpecification del marcado tiene la propiedad priceCurrency.",
    "nature": "recomendada",
@@ -2543,7 +2543,7 @@
   },
   {
    "id": "ws-consumer/167",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada entidad AggregateOffer del marcado tiene la propiedad lowPrice.",
    "nature": "obligatoria",
@@ -2564,7 +2564,7 @@
   },
   {
    "id": "ws-consumer/168",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada lowPrice de una AggregateOffer usa el punto como separador decimal.",
    "nature": "obligatoria",
@@ -2585,7 +2585,7 @@
   },
   {
    "id": "ws-consumer/169",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada entidad AggregateOffer del marcado tiene la propiedad priceCurrency.",
    "nature": "obligatoria",
@@ -2606,7 +2606,7 @@
   },
   {
    "id": "ws-consumer/170",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada priceCurrency de una AggregateOffer es un código ISO 4217 de tres letras.",
    "nature": "obligatoria",
@@ -2627,7 +2627,7 @@
   },
   {
    "id": "ws-consumer/173",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "La página con marcado Product se centra en un solo producto o en variantes de un mismo producto.",
    "nature": "recomendada",
@@ -2645,7 +2645,7 @@
   },
   {
    "id": "ws-consumer/174",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Todos los precios de las ofertas del marcado de la página están en una sola moneda.",
    "nature": "obligatoria",
@@ -2665,7 +2665,7 @@
   },
   {
    "id": "ws-consumer/175",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "Cada entidad Car con review o aggregateRating tiene también el tipo Product.",
    "nature": "obligatoria",
@@ -2685,7 +2685,7 @@
   },
   {
    "id": "ws-consumer/176",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-snippet",
    "condition": "El marcado Product está en el HTML inicial que sirve el servidor.",
    "nature": "recomendada",
@@ -2705,7 +2705,7 @@
   },
   {
    "id": "ws-consumer/177",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-sd-policies",
    "condition": "La página contiene datos estructurados en JSON-LD, Microdata o RDFa.",
    "nature": "obligatoria",
@@ -2728,7 +2728,7 @@
   },
   {
    "id": "ws-consumer/178",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-sd-policies",
    "condition": "Los datos estructurados de la página están en JSON-LD.",
    "nature": "recomendada",
@@ -2749,7 +2749,7 @@
   },
   {
    "id": "ws-consumer/179",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-sd-policies",
    "condition": "El robots.txt del sitio no impide a Googlebot rastrear la página.",
    "nature": "obligatoria",
@@ -2775,7 +2775,7 @@
   },
   {
    "id": "ws-consumer/180",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-sd-policies",
    "condition": "La página no tiene una directiva noindex aplicable a Googlebot.",
    "nature": "obligatoria",
@@ -2802,7 +2802,7 @@
   },
   {
    "id": "ws-consumer/184",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-sd-policies",
    "condition": "La página que declara como canónica otra URL tiene los mismos datos estructurados que la canónica.",
    "nature": "recomendada",
@@ -2825,7 +2825,7 @@
   },
   {
    "id": "ws-consumer/185",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-sd-policies",
    "condition": "Las URL de imagen del marcado son rastreables por Google.",
    "nature": "obligatoria",
@@ -2852,7 +2852,7 @@
   },
   {
    "id": "ws-consumer/186",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-sd-policies",
    "condition": "Las URL de imagen del marcado son indexables por Google.",
    "nature": "obligatoria",
@@ -2878,7 +2878,7 @@
   },
   {
    "id": "ws-consumer/187",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "Cada entidad ProductGroup del marcado tiene la propiedad name.",
    "nature": "obligatoria",
@@ -2898,7 +2898,7 @@
   },
   {
    "id": "ws-consumer/190",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "El brand de cada ProductGroup del marcado tiene la propiedad name.",
    "nature": "recomendada",
@@ -2918,7 +2918,7 @@
   },
   {
    "id": "ws-consumer/192",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "Cada entidad ProductGroup del marcado tiene al menos una variante Product enlazada, por hasVariant en el grupo o por isVariantOf en la variante.",
    "nature": "recomendada",
@@ -2941,7 +2941,7 @@
   },
   {
    "id": "ws-consumer/193",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "Cada entidad ProductGroup del marcado tiene productGroupID, o todas sus variantes tienen inProductGroupWithID.",
    "nature": "obligatoria",
@@ -2962,7 +2962,7 @@
   },
   {
    "id": "ws-consumer/194",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "En cada ProductGroup del marcado con productGroupID, el inProductGroupWithID de cada variante que lo tiene coincide con ese valor.",
    "nature": "obligatoria",
@@ -2981,7 +2981,7 @@
   },
   {
    "id": "ws-consumer/195",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "Cada variante de un ProductGroup del marcado tiene un identificador en una propiedad identificadora de Product (sku, gtin, gtin8, gtin12, gtin13, gtin14, mpn o productID).",
    "nature": "obligatoria",
@@ -3001,7 +3001,7 @@
   },
   {
    "id": "ws-consumer/196",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "Dentro de cada ProductGroup del marcado, dos variantes distintas no comparten el valor de una misma propiedad identificadora.",
    "nature": "obligatoria",
@@ -3021,7 +3021,7 @@
   },
   {
    "id": "ws-consumer/197",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "El marcado que contiene una entidad ProductGroup contiene también al menos una entidad Product que no es un ProductGroup.",
    "nature": "obligatoria",
@@ -3042,7 +3042,7 @@
   },
   {
    "id": "ws-consumer/198",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "Todas las URL de variante de un ProductGroup de un sitio de una sola página declaran la misma URL canónica.",
    "nature": "obligatoria",
@@ -3065,7 +3065,7 @@
   },
   {
    "id": "ws-consumer/199",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "En un sitio de varias páginas, el ProductGroup, sus variantes y las entidades que cuelgan de ellos no remiten por @id a entidades que no están definidas en la propia página.",
    "nature": "obligatoria",
@@ -3089,7 +3089,7 @@
   },
   {
    "id": "ws-consumer/200",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "Cada variante de un ProductGroup del marcado tiene una URL distinta de las de las demás variantes del grupo.",
    "nature": "obligatoria",
@@ -3112,7 +3112,7 @@
   },
   {
    "id": "ws-consumer/201",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "Las entidades ProductGroup y Product del marcado de variantes están en el HTML servido, sin necesidad de ejecutar JavaScript.",
    "nature": "recomendada",
@@ -3134,7 +3134,7 @@
   },
   {
    "id": "ws-consumer/202",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "En un sitio de una sola página, cada entidad ProductGroup del marcado tiene la propiedad url.",
    "nature": "recomendada",
@@ -3156,7 +3156,7 @@
   },
   {
    "id": "ws-consumer/203",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "El url de cada ProductGroup de un sitio de una sola página no lleva selectores de variante.",
    "nature": "recomendada",
@@ -3178,7 +3178,7 @@
   },
   {
    "id": "ws-consumer/204",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "En un sitio de varias páginas, ninguna entidad ProductGroup del marcado tiene la propiedad url.",
    "nature": "recomendada",
@@ -3201,7 +3201,7 @@
   },
   {
    "id": "ws-consumer/205",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "Cada entidad ProductGroup del marcado tiene la propiedad variesBy.",
    "nature": "recomendada",
@@ -3224,7 +3224,7 @@
   },
   {
    "id": "ws-consumer/206",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-product-variants",
    "condition": "Cada valor de variesBy de un ProductGroup del marcado es la URL completa de Schema.org de color, size, suggestedAge, suggestedGender, material o pattern.",
    "nature": "recomendada",
@@ -3245,7 +3245,7 @@
   },
   {
    "id": "ws-consumer/208",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada MerchantReturnPolicy del marcado que no es valor de hasMerchantReturnPolicy de un Offer es valor de hasMerchantReturnPolicy de una entidad Organization.",
    "nature": "obligatoria",
@@ -3263,7 +3263,7 @@
   },
   {
    "id": "ws-consumer/209",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada MerchantReturnPolicy de una Organization tiene applicableCountry o merchantReturnLink.",
    "nature": "obligatoria",
@@ -3284,7 +3284,7 @@
   },
   {
    "id": "ws-consumer/210",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada MerchantReturnPolicy de una Organization tiene returnPolicyCategory o merchantReturnLink.",
    "nature": "obligatoria",
@@ -3305,7 +3305,7 @@
   },
   {
    "id": "ws-consumer/211",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada valor de applicableCountry de una MerchantReturnPolicy de una Organization es un código de país ISO 3166-1 alfa-2.",
    "nature": "obligatoria",
@@ -3322,7 +3322,7 @@
   },
   {
    "id": "ws-consumer/212",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada valor de returnPolicyCategory de una MerchantReturnPolicy de una Organization es MerchantReturnFiniteReturnWindow, MerchantReturnNotPermitted o MerchantReturnUnlimitedWindow.",
    "nature": "obligatoria",
@@ -3339,7 +3339,7 @@
   },
   {
    "id": "ws-consumer/213",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada MerchantReturnPolicy de una Organization con returnPolicyCategory MerchantReturnFiniteReturnWindow tiene merchantReturnDays.",
    "nature": "obligatoria",
@@ -3358,7 +3358,7 @@
   },
   {
    "id": "ws-consumer/215",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada valor de returnFees de una MerchantReturnPolicy de una Organization es FreeReturn, ReturnFeesCustomerResponsibility o ReturnShippingFees.",
    "nature": "recomendada",
@@ -3375,7 +3375,7 @@
   },
   {
    "id": "ws-consumer/216",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada MerchantReturnPolicy de una Organization con returnFees ReturnShippingFees tiene returnShippingFeesAmount.",
    "nature": "obligatoria",
@@ -3393,7 +3393,7 @@
   },
   {
    "id": "ws-consumer/217",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada MerchantReturnPolicy de una Organization que tiene returnShippingFeesAmount tiene returnFees ReturnShippingFees.",
    "nature": "obligatoria",
@@ -3411,7 +3411,7 @@
   },
   {
    "id": "ws-consumer/218",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "El returnShippingFeesAmount de cada MerchantReturnPolicy de una Organization con returnFees ReturnShippingFees es distinto de cero.",
    "nature": "recomendada",
@@ -3428,7 +3428,7 @@
   },
   {
    "id": "ws-consumer/220",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada valor de returnMethod de una MerchantReturnPolicy de una Organization es ReturnAtKiosk, ReturnByMail o ReturnInStore.",
    "nature": "recomendada",
@@ -3445,7 +3445,7 @@
   },
   {
    "id": "ws-consumer/222",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada valor de customerRemorseReturnFees de una MerchantReturnPolicy de una Organization es FreeReturn, ReturnFeesCustomerResponsibility o ReturnShippingFees.",
    "nature": "recomendada",
@@ -3464,7 +3464,7 @@
   },
   {
    "id": "ws-consumer/224",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada valor de customerRemorseReturnLabelSource de una MerchantReturnPolicy de una Organization es ReturnLabelCustomerResponsibility, ReturnLabelDownloadAndPrint o ReturnLabelInBox.",
    "nature": "recomendada",
@@ -3483,7 +3483,7 @@
   },
   {
    "id": "ws-consumer/225",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada MerchantReturnPolicy de una Organization con customerRemorseReturnFees ReturnShippingFees tiene customerRemorseReturnShippingFeesAmount.",
    "nature": "obligatoria",
@@ -3501,7 +3501,7 @@
   },
   {
    "id": "ws-consumer/226",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada MerchantReturnPolicy de una Organization con itemDefectReturnFees ReturnShippingFees tiene itemDefectReturnShippingFeesAmount.",
    "nature": "obligatoria",
@@ -3519,7 +3519,7 @@
   },
   {
    "id": "ws-consumer/228",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada valor de itemCondition de una MerchantReturnPolicy de una Organization es DamagedCondition, NewCondition, RefurbishedCondition o UsedCondition.",
    "nature": "recomendada",
@@ -3536,7 +3536,7 @@
   },
   {
    "id": "ws-consumer/230",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada valor de itemDefectReturnFees de una MerchantReturnPolicy de una Organization es FreeReturn, ReturnFeesCustomerResponsibility o ReturnShippingFees.",
    "nature": "recomendada",
@@ -3555,7 +3555,7 @@
   },
   {
    "id": "ws-consumer/232",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada valor de itemDefectReturnLabelSource de una MerchantReturnPolicy de una Organization es ReturnLabelCustomerResponsibility, ReturnLabelDownloadAndPrint o ReturnLabelInBox.",
    "nature": "recomendada",
@@ -3574,7 +3574,7 @@
   },
   {
    "id": "ws-consumer/234",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada valor de refundType de una MerchantReturnPolicy de una Organization es ExchangeRefund, FullRefund o StoreCreditRefund.",
    "nature": "recomendada",
@@ -3591,7 +3591,7 @@
   },
   {
    "id": "ws-consumer/237",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada valor de returnLabelSource de una MerchantReturnPolicy de una Organization es ReturnLabelCustomerResponsibility, ReturnLabelDownloadAndPrint o ReturnLabelInBox.",
    "nature": "recomendada",
@@ -3608,7 +3608,7 @@
   },
   {
    "id": "ws-consumer/239",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada valor de returnPolicyCountry de una MerchantReturnPolicy de una Organization es un código de país ISO 3166-1 alfa-2.",
    "nature": "recomendada",
@@ -3625,7 +3625,7 @@
   },
   {
    "id": "ws-consumer/240",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada returnPolicySeasonalOverride de una MerchantReturnPolicy de una Organization tiene returnPolicyCategory.",
    "nature": "obligatoria",
@@ -3641,7 +3641,7 @@
   },
   {
    "id": "ws-consumer/241",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada valor de returnPolicyCategory de un returnPolicySeasonalOverride de una MerchantReturnPolicy de una Organization es MerchantReturnFiniteReturnWindow, MerchantReturnNotPermitted o MerchantReturnUnlimitedWindow.",
    "nature": "obligatoria",
@@ -3657,7 +3657,7 @@
   },
   {
    "id": "ws-consumer/242",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada returnPolicySeasonalOverride de una MerchantReturnPolicy de una Organization con returnPolicyCategory MerchantReturnFiniteReturnWindow tiene merchantReturnDays.",
    "nature": "obligatoria",
@@ -3674,7 +3674,7 @@
   },
   {
    "id": "ws-consumer/243",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada returnPolicySeasonalOverride de una MerchantReturnPolicy de una Organization tiene startDate.",
    "nature": "recomendada",
@@ -3690,7 +3690,7 @@
   },
   {
    "id": "ws-consumer/244",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-return-policy",
    "condition": "Cada returnPolicySeasonalOverride de una MerchantReturnPolicy de una Organization tiene endDate.",
    "nature": "recomendada",
@@ -3706,7 +3706,7 @@
   },
   {
    "id": "ws-consumer/245",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada entidad ShippingService del marcado que no es valor de hasShippingService de un OfferShippingDetails es valor de hasShippingService de una entidad Organization.",
    "nature": "obligatoria",
@@ -3724,7 +3724,7 @@
   },
   {
    "id": "ws-consumer/246",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada ShippingService de una Organization tiene shippingConditions.",
    "nature": "obligatoria",
@@ -3741,7 +3741,7 @@
   },
   {
    "id": "ws-consumer/248",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Dos ShippingService de una misma Organization no tienen el mismo name.",
    "nature": "recomendada",
@@ -3759,7 +3759,7 @@
   },
   {
    "id": "ws-consumer/251",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de fulfillmentType de un ShippingService de una Organization es FulfillmentTypeDelivery o FulfillmentTypeCollectionPoint.",
    "nature": "recomendada",
@@ -3776,7 +3776,7 @@
   },
   {
    "id": "ws-consumer/253",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada Organization del marcado cuya página muestra un servicio de envío reservado a los miembros de un programa de fidelización tiene al menos un ShippingService con validForMemberTier.",
    "nature": "recomendada",
@@ -3796,7 +3796,7 @@
   },
   {
    "id": "ws-consumer/254",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada Organization del marcado que tiene un ShippingService con validForMemberTier tiene también al menos un ShippingService sin validForMemberTier.",
    "nature": "obligatoria",
@@ -3814,7 +3814,7 @@
   },
   {
    "id": "ws-consumer/257",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada handlingTime de un ShippingService de una Organization tiene duration.",
    "nature": "recomendada",
@@ -3832,7 +3832,7 @@
   },
   {
    "id": "ws-consumer/258",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de cutoffTime de un handlingTime de un ShippingService de una Organization es una hora en formato ISO 8601.",
    "nature": "recomendada",
@@ -3850,7 +3850,7 @@
   },
   {
    "id": "ws-consumer/259",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada duration del handlingTime de un ShippingService de una Organization tiene value o maxValue.",
    "nature": "obligatoria",
@@ -3869,7 +3869,7 @@
   },
   {
    "id": "ws-consumer/260",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada duration del handlingTime de un ShippingService de una Organization tiene unitCode.",
    "nature": "obligatoria",
@@ -3886,7 +3886,7 @@
   },
   {
    "id": "ws-consumer/261",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de unitCode de la duration del handlingTime de un ShippingService de una Organization es DAY o d.",
    "nature": "obligatoria",
@@ -3901,7 +3901,7 @@
   },
   {
    "id": "ws-consumer/262",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de maxValue de la duration del handlingTime de un ShippingService de una Organization es un número entero no negativo.",
    "nature": "obligatoria",
@@ -3916,7 +3916,7 @@
   },
   {
    "id": "ws-consumer/263",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de minValue de la duration del handlingTime de un ShippingService de una Organization es un número entero no negativo.",
    "nature": "obligatoria",
@@ -3931,7 +3931,7 @@
   },
   {
    "id": "ws-consumer/264",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de value de la duration del handlingTime de un ShippingService de una Organization es un número entero no negativo.",
    "nature": "obligatoria",
@@ -3946,7 +3946,7 @@
   },
   {
    "id": "ws-consumer/265",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada duration del handlingTime de un ShippingService de una Organization que tiene value no tiene minValue ni maxValue.",
    "nature": "obligatoria",
@@ -3962,7 +3962,7 @@
   },
   {
    "id": "ws-consumer/274",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Ningún ShippingConditions de un ShippingService de una Organization con doesNotShip igual a true tiene shippingRate.",
    "nature": "recomendada",
@@ -3979,7 +3979,7 @@
   },
   {
    "id": "ws-consumer/276",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Ningún ShippingConditions de un ShippingService de una Organization con doesNotShip igual a true tiene transitTime.",
    "nature": "recomendada",
@@ -3996,7 +3996,7 @@
   },
   {
    "id": "ws-consumer/277",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada DefinedRegion de shippingDestination o shippingOrigin de un ShippingConditions de un ShippingService de una Organization tiene addressCountry.",
    "nature": "obligatoria",
@@ -4013,7 +4013,7 @@
   },
   {
    "id": "ws-consumer/278",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de addressCountry de un DefinedRegion de shippingDestination o shippingOrigin de un ShippingConditions de un ShippingService de una Organization es un código de país ISO 3166-1 alfa-2.",
    "nature": "obligatoria",
@@ -4030,7 +4030,7 @@
   },
   {
    "id": "ws-consumer/279",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de addressRegion de un DefinedRegion de shippingDestination o shippingOrigin de un ShippingConditions de un ShippingService de una Organization es un código de subdivisión ISO 3166-2 de 2 o 3 caracteres, sin el prefijo del país.",
    "nature": "obligatoria",
@@ -4046,7 +4046,7 @@
   },
   {
    "id": "ws-consumer/280",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Ningún DefinedRegion de shippingDestination o shippingOrigin de un ShippingConditions de un ShippingService de una Organization tiene a la vez addressRegion y postalCode.",
    "nature": "recomendada",
@@ -4063,7 +4063,7 @@
   },
   {
    "id": "ws-consumer/282",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada transitTime de un ShippingConditions de un ShippingService de una Organization tiene duration.",
    "nature": "recomendada",
@@ -4081,7 +4081,7 @@
   },
   {
    "id": "ws-consumer/283",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada duration del transitTime de un ShippingConditions de un ShippingService de una Organization tiene value o maxValue.",
    "nature": "obligatoria",
@@ -4100,7 +4100,7 @@
   },
   {
    "id": "ws-consumer/284",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada duration del transitTime de un ShippingConditions de un ShippingService de una Organization tiene unitCode.",
    "nature": "obligatoria",
@@ -4117,7 +4117,7 @@
   },
   {
    "id": "ws-consumer/285",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de unitCode de la duration del transitTime de un ShippingConditions de un ShippingService de una Organization es DAY o d.",
    "nature": "obligatoria",
@@ -4132,7 +4132,7 @@
   },
   {
    "id": "ws-consumer/286",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de maxValue de la duration del transitTime de un ShippingConditions de un ShippingService de una Organization es un número entero no negativo.",
    "nature": "obligatoria",
@@ -4147,7 +4147,7 @@
   },
   {
    "id": "ws-consumer/287",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de minValue de la duration del transitTime de un ShippingConditions de un ShippingService de una Organization es un número entero no negativo.",
    "nature": "obligatoria",
@@ -4162,7 +4162,7 @@
   },
   {
    "id": "ws-consumer/288",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de value de la duration del transitTime de un ShippingConditions de un ShippingService de una Organization es un número entero no negativo.",
    "nature": "obligatoria",
@@ -4177,7 +4177,7 @@
   },
   {
    "id": "ws-consumer/289",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada duration del transitTime de un ShippingConditions de un ShippingService de una Organization que tiene value no tiene minValue ni maxValue.",
    "nature": "obligatoria",
@@ -4193,7 +4193,7 @@
   },
   {
    "id": "ws-consumer/290",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada weight o numItems de un ShippingConditions de un ShippingService de una Organization tiene minValue o maxValue.",
    "nature": "obligatoria",
@@ -4208,7 +4208,7 @@
   },
   {
    "id": "ws-consumer/291",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "En cada weight o numItems de un ShippingConditions de un ShippingService de una Organization con minValue y maxValue, minValue es menor que maxValue.",
    "nature": "obligatoria",
@@ -4224,7 +4224,7 @@
   },
   {
    "id": "ws-consumer/292",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada weight de un ShippingConditions de un ShippingService de una Organization tiene unitCode.",
    "nature": "recomendada",
@@ -4241,7 +4241,7 @@
   },
   {
    "id": "ws-consumer/293",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de unitCode del weight de un ShippingConditions de un ShippingService de una Organization es LBR o KGM.",
    "nature": "obligatoria",
@@ -4257,7 +4257,7 @@
   },
   {
    "id": "ws-consumer/294",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada orderValue de un ShippingConditions de un ShippingService de una Organization tiene currency.",
    "nature": "obligatoria",
@@ -4273,7 +4273,7 @@
   },
   {
    "id": "ws-consumer/295",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de currency del orderValue de un ShippingConditions de un ShippingService de una Organization es un código de moneda ISO 4217.",
    "nature": "obligatoria",
@@ -4289,7 +4289,7 @@
   },
   {
    "id": "ws-consumer/296",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada orderValue de un ShippingConditions de un ShippingService de una Organization tiene minValue o maxValue.",
    "nature": "obligatoria",
@@ -4308,7 +4308,7 @@
   },
   {
    "id": "ws-consumer/297",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada shippingRate de tipo MonetaryAmount de un ShippingConditions de un ShippingService de una Organization tiene currency.",
    "nature": "obligatoria",
@@ -4325,7 +4325,7 @@
   },
   {
    "id": "ws-consumer/298",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de currency del shippingRate de tipo MonetaryAmount de un ShippingConditions de un ShippingService de una Organization es un código de moneda ISO 4217.",
    "nature": "obligatoria",
@@ -4341,7 +4341,7 @@
   },
   {
    "id": "ws-consumer/299",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada shippingRate de tipo MonetaryAmount de un ShippingConditions de un ShippingService de una Organization tiene maxValue o value.",
    "nature": "obligatoria",
@@ -4360,7 +4360,7 @@
   },
   {
    "id": "ws-consumer/300",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Ningún shippingRate de tipo MonetaryAmount de un ShippingConditions de un ShippingService de una Organization tiene a la vez maxValue y value.",
    "nature": "obligatoria",
@@ -4378,7 +4378,7 @@
   },
   {
    "id": "ws-consumer/301",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada shippingRate de tipo ShippingRateSettings de un ShippingConditions de un ShippingService de una Organization tiene orderPercentage o weightPercentage.",
    "nature": "obligatoria",
@@ -4393,7 +4393,7 @@
   },
   {
    "id": "ws-consumer/302",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de orderPercentage del shippingRate de tipo ShippingRateSettings de un ShippingConditions de un ShippingService de una Organization es un número entre 0 y 1.",
    "nature": "recomendada",
@@ -4410,7 +4410,7 @@
   },
   {
    "id": "ws-consumer/303",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de weightPercentage del shippingRate de tipo ShippingRateSettings de un ShippingConditions de un ShippingService de una Organization es un número entre 0 y 1.",
    "nature": "recomendada",
@@ -4427,7 +4427,7 @@
   },
   {
    "id": "ws-consumer/304",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada seasonalOverride de un ShippingConditions de un ShippingService de una Organization tiene validFrom o validThrough.",
    "nature": "obligatoria",
@@ -4442,7 +4442,7 @@
   },
   {
    "id": "ws-consumer/305",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de validFrom del seasonalOverride de un ShippingConditions de un ShippingService de una Organization es una fecha en formato ISO 8601.",
    "nature": "recomendada",
@@ -4459,7 +4459,7 @@
   },
   {
    "id": "ws-consumer/306",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-shipping-policy",
    "condition": "Cada valor de validThrough del seasonalOverride de un ShippingConditions de un ShippingService de una Organization es una fecha en formato ISO 8601.",
    "nature": "recomendada",
@@ -4476,7 +4476,7 @@
   },
   {
    "id": "ws-consumer/307",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-organization",
    "condition": "Cada Organization de nivel superior del marcado es de tipo OnlineStore o de un subtipo de LocalBusiness.",
    "nature": "recomendada",
@@ -4492,7 +4492,7 @@
   },
   {
    "id": "ws-consumer/314",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-organization",
    "condition": "Cada valor de addressCountry del address de una Organization de nivel superior es un código de país ISO 3166-1 alfa-2.",
    "nature": "recomendada",
@@ -4510,7 +4510,7 @@
   },
   {
    "id": "ws-consumer/319",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-organization",
    "condition": "Cada telephone de un contactPoint de una Organization de nivel superior incluye el prefijo internacional del país.",
    "nature": "recomendada",
@@ -4529,7 +4529,7 @@
   },
   {
    "id": "ws-consumer/333",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-organization",
    "condition": "La imagen del logo de cada Organization de nivel superior mide al menos 112×112 píxeles.",
    "nature": "obligatoria",
@@ -4548,7 +4548,7 @@
   },
   {
    "id": "ws-consumer/334",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-organization",
    "condition": "La URL de la imagen del logo de cada Organization de nivel superior no está bloqueada por robots.txt.",
    "nature": "obligatoria",
@@ -4567,7 +4567,7 @@
   },
   {
    "id": "ws-consumer/335",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-organization",
    "condition": "La respuesta de la URL de la imagen del logo de cada Organization de nivel superior no lleva una directiva noindex.",
    "nature": "obligatoria",
@@ -4586,7 +4586,7 @@
   },
   {
    "id": "ws-consumer/336",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-organization",
    "condition": "La imagen del logo de cada Organization de nivel superior está en un formato que admite Google Images.",
    "nature": "obligatoria",
@@ -4606,7 +4606,7 @@
   },
   {
    "id": "ws-consumer/337",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-organization",
    "condition": "Cada logo de tipo ImageObject de una Organization de nivel superior tiene contentUrl o url.",
    "nature": "recomendada",
@@ -4625,7 +4625,7 @@
   },
   {
    "id": "ws-consumer/339",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-organization",
    "condition": "Cada Organization de nivel superior del marcado tiene la propiedad name.",
    "nature": "recomendada",
@@ -4643,7 +4643,7 @@
   },
   {
    "id": "ws-consumer/340",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-organization",
    "condition": "El name de cada Organization de nivel superior coincide con el name de la entidad WebSite del marcado.",
    "nature": "recomendada",
@@ -4664,7 +4664,7 @@
   },
   {
    "id": "ws-consumer/341",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-organization",
    "condition": "El alternateName de cada Organization de nivel superior coincide con el alternateName de la entidad WebSite del marcado.",
    "nature": "recomendada",
@@ -4685,7 +4685,7 @@
   },
   {
    "id": "ws-consumer/346",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-organization",
    "condition": "Cada telephone de una Organization de nivel superior incluye el prefijo internacional del país.",
    "nature": "recomendada",
@@ -4704,7 +4704,7 @@
   },
   {
    "id": "ws-consumer/349",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada Review de una entidad valorada tiene la propiedad author.",
    "nature": "obligatoria",
@@ -4726,7 +4726,7 @@
   },
   {
    "id": "ws-consumer/350",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "El nombre del autor de cada Review de una entidad valorada es un nombre válido.",
    "nature": "obligatoria",
@@ -4747,7 +4747,7 @@
   },
   {
    "id": "ws-consumer/351",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "El nombre del autor de cada Review de una entidad valorada tiene menos de 100 caracteres.",
    "nature": "obligatoria",
@@ -4768,7 +4768,7 @@
   },
   {
    "id": "ws-consumer/352",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Ninguna Review de una entidad valorada tiene la propiedad itemReviewed.",
    "nature": "obligatoria",
@@ -4790,7 +4790,7 @@
   },
   {
    "id": "ws-consumer/353",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada entidad valorada con review tiene la propiedad name.",
    "nature": "obligatoria",
@@ -4812,7 +4812,7 @@
   },
   {
    "id": "ws-consumer/354",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada Review de una entidad valorada que no tiene a la vez author y datePublished tiene la propiedad reviewRating.",
    "nature": "obligatoria",
@@ -4835,7 +4835,7 @@
   },
   {
    "id": "ws-consumer/355",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada reviewRating de una Review de una entidad valorada tiene la propiedad ratingValue.",
    "nature": "obligatoria",
@@ -4857,7 +4857,7 @@
   },
   {
    "id": "ws-consumer/356",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada ratingValue del reviewRating de una Review de una entidad valorada es un número, una fracción o un porcentaje.",
    "nature": "obligatoria",
@@ -4879,7 +4879,7 @@
   },
   {
    "id": "ws-consumer/357",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada ratingValue con decimales del reviewRating de una Review de una entidad valorada usa el punto como separador decimal.",
    "nature": "obligatoria",
@@ -4902,7 +4902,7 @@
   },
   {
    "id": "ws-consumer/358",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada ratingValue numérico del reviewRating de una Review de una entidad valorada está entre su worstRating y su bestRating, que por omisión son 1 y 5.",
    "nature": "obligatoria",
@@ -4927,7 +4927,7 @@
   },
   {
    "id": "ws-consumer/359",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada reviewRating de una Review de una entidad valorada con un ratingValue numérico en una escala distinta de 1 a 5 tiene la propiedad bestRating.",
    "nature": "obligatoria",
@@ -4952,7 +4952,7 @@
   },
   {
    "id": "ws-consumer/360",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada reviewRating de una Review de una entidad valorada con un ratingValue numérico en una escala distinta de 1 a 5 tiene la propiedad worstRating.",
    "nature": "obligatoria",
@@ -4977,7 +4977,7 @@
   },
   {
    "id": "ws-consumer/361",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada reviewRating de una Review de una entidad valorada tiene la propiedad bestRating.",
    "nature": "recomendada",
@@ -4998,7 +4998,7 @@
   },
   {
    "id": "ws-consumer/362",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada reviewRating de una Review de una entidad valorada tiene la propiedad worstRating.",
    "nature": "recomendada",
@@ -5019,7 +5019,7 @@
   },
   {
    "id": "ws-consumer/364",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada datePublished de una Review de una entidad valorada es una fecha ISO 8601.",
    "nature": "recomendada",
@@ -5040,7 +5040,7 @@
   },
   {
    "id": "ws-consumer/365",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Ningún AggregateRating de una entidad valorada tiene la propiedad itemReviewed.",
    "nature": "obligatoria",
@@ -5062,7 +5062,7 @@
   },
   {
    "id": "ws-consumer/366",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada entidad valorada con aggregateRating tiene la propiedad name.",
    "nature": "obligatoria",
@@ -5084,7 +5084,7 @@
   },
   {
    "id": "ws-consumer/367",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada AggregateRating de una entidad valorada tiene ratingCount o reviewCount.",
    "nature": "obligatoria",
@@ -5107,7 +5107,7 @@
   },
   {
    "id": "ws-consumer/368",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada AggregateRating de una entidad valorada tiene la propiedad ratingValue.",
    "nature": "obligatoria",
@@ -5130,7 +5130,7 @@
   },
   {
    "id": "ws-consumer/369",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada ratingValue de un AggregateRating de una entidad valorada es un número, una fracción o un porcentaje.",
    "nature": "obligatoria",
@@ -5152,7 +5152,7 @@
   },
   {
    "id": "ws-consumer/370",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada ratingValue con decimales de un AggregateRating de una entidad valorada usa el punto como separador decimal.",
    "nature": "obligatoria",
@@ -5175,7 +5175,7 @@
   },
   {
    "id": "ws-consumer/371",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada ratingValue numérico de un AggregateRating de una entidad valorada está entre su worstRating y su bestRating, que por omisión son 1 y 5.",
    "nature": "obligatoria",
@@ -5200,7 +5200,7 @@
   },
   {
    "id": "ws-consumer/372",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada AggregateRating de una entidad valorada con un ratingValue numérico en una escala distinta de 1 a 5 tiene la propiedad bestRating.",
    "nature": "obligatoria",
@@ -5225,7 +5225,7 @@
   },
   {
    "id": "ws-consumer/373",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada AggregateRating de una entidad valorada con un ratingValue numérico en una escala distinta de 1 a 5 tiene la propiedad worstRating.",
    "nature": "obligatoria",
@@ -5250,7 +5250,7 @@
   },
   {
    "id": "ws-consumer/374",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada AggregateRating de una entidad valorada tiene la propiedad bestRating.",
    "nature": "recomendada",
@@ -5271,7 +5271,7 @@
   },
   {
    "id": "ws-consumer/375",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada AggregateRating de una entidad valorada tiene la propiedad worstRating.",
    "nature": "recomendada",
@@ -5292,7 +5292,7 @@
   },
   {
    "id": "ws-consumer/376",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada valor de aggregateRating de una entidad valorada es una entidad AggregateRating.",
    "nature": "obligatoria",
@@ -5313,7 +5313,7 @@
   },
   {
    "id": "ws-consumer/384",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Cada entidad valorada con más de una Review tiene la propiedad aggregateRating.",
    "nature": "obligatoria",
@@ -5334,7 +5334,7 @@
   },
   {
    "id": "ws-consumer/385",
-   "scope": "Web Schema.org",
+   "scope": "Marcado",
    "spec": "google-search-review-snippet",
    "condition": "Ninguna Organization (o LocalBusiness u otro subtipo) del marcado con aggregateRating o review es la organización del propio sitio.",
    "nature": "obligatoria",

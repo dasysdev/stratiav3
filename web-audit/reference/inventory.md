@@ -1,14 +1,14 @@
 # Inventario de fuentes
 
-Función y estado de cada fuente de la referencia técnica de Web Schema.org y de Web.
+Función y estado de cada fuente de la referencia técnica de Marcado y de Contenido.
 
-- **Origen:** el inventario de partida del estudio de Schema.org (códigos SCH, GSC, GMC, W3C, GS1, VAL y SKL; T-044), más los huecos detectados al planificar web-audit. Las de Web (columna **Inv.** `D-159`) salen del perfil de Web, construido sobre el documento base de 19 requisitos técnicos del HTML (T-072).
+- **Origen:** el inventario de partida del estudio de Schema.org (códigos SCH, GSC, GMC, W3C, GS1, VAL y SKL; T-044), más los huecos detectados al planificar web-audit. Las de Contenido (columna **Inv.** `D-159`) salen del perfil de Contenido, construido sobre el documento base de 19 requisitos técnicos del HTML (T-072).
 - **Dónde está cada dato:**
   - título, editor y URL: [references/sources.json](../../references/sources.json);
   - versión fijada: `references/var/pins.json`;
   - clase, nivel y citas: la ficha de cada fuente (`cards/`).
-- **Clases y niveles:** los del canon. Clases de fuente, [D-132](../../docs/30-governance/decisions.md#d-132); niveles del perfil, [D-130](../../docs/30-governance/decisions.md#d-130) (Web Schema.org) y [D-159](../../docs/30-governance/decisions.md#d-159) (Web).
-- **Estado:** a 2026-10-27, primera pasada (T-047), con el informe en [reports/2026-10-27-primera-pasada.md](reports/2026-10-27-primera-pasada.md). El 2026-10-28 se retiraron 118 requisitos (T-055, [reports/2026-10-28-retirada.md](reports/2026-10-28-retirada.md)); quedan en [retired.json](retired.json) y no cuentan en **Req.** El 2026-10-28, el perfil de Web (T-072): 19 fuentes nuevas y 22 requisitos, con el informe en [reports/2026-10-28-perfil-web.md](reports/2026-10-28-perfil-web.md); su triaje (T-073, [reports/2026-10-28-triaje-web.md](reports/2026-10-28-triaje-web.md)) deja 12. Con las vistas y los sitemaps (T-074, [reports/2026-10-28-vistas-sitemaps.md](reports/2026-10-28-vistas-sitemaps.md)), 23, y `w-consumer/014`, que funda una condición del proyecto (D-162) y no una fuente.
+- **Clases y niveles:** los del canon. Clases de fuente, [D-132](../../docs/30-governance/decisions.md#d-132); niveles del perfil, [D-130](../../docs/30-governance/decisions.md#d-130) (Marcado) y [D-159](../../docs/30-governance/decisions.md#d-159) (Contenido).
+- **Estado:** a 2026-10-27, primera pasada (T-047), con el informe en [reports/2026-10-27-primera-pasada.md](reports/2026-10-27-primera-pasada.md). El 2026-10-28 se retiraron 118 requisitos (T-055, [reports/2026-10-28-retirada.md](reports/2026-10-28-retirada.md)); quedan en [retired.json](retired.json) y no cuentan en **Req.** El 2026-10-28, el perfil de Contenido (T-072): 19 fuentes nuevas y 22 requisitos, con el informe en [reports/2026-10-28-perfil-web.md](reports/2026-10-28-perfil-web.md); su triaje (T-073, [reports/2026-10-28-triaje-web.md](reports/2026-10-28-triaje-web.md)) deja 12. Con las vistas y los sitemaps (T-074, [reports/2026-10-28-vistas-sitemaps.md](reports/2026-10-28-vistas-sitemaps.md)), 23, y `w-consumer/014`, que funda una condición del proyecto (D-162) y no una fuente.
 
 ## Especificaciones aplicables
 
@@ -51,25 +51,25 @@ Schema.org es permisivo por diseño: todos los requisitos de este nivel son reco
 | `google-search-sd-policies` | GSC-01 | Directrices generales. Entran por remisión: las fichas de comerciante y los fragmentos de producto exigen seguirlas. | 9 | 5 / 2 |
 | `google-search-javascript` | hueco | Marcado generado con JavaScript. Fija el método: Google procesa el marcado del DOM renderizado. | 3 | — |
 
-## Especificaciones aplicables de Web
+## Especificaciones aplicables de Contenido
 
-**Req.** = requisitos de Web con esa especificación como `spec`: obligatorios / recomendados.
+**Req.** = requisitos de Contenido con esa especificación como `spec`: obligatorios / recomendados.
 
 ### Protocolo
 
 | Fuente | Inv. | Función | Citas | Req. |
 |---|---|---|---|---|
-| `ietf-rfc9110` | D-159 | HTTP Semantics: la respuesta (estado, cabeceras). Sus tres requisitos (`Location`, `Content-Type`, `Content-Encoding`) no se auditan (triaje Web). | 14 | — |
+| `ietf-rfc9110` | D-159 | HTTP Semantics: la respuesta (estado, cabeceras). Sus tres requisitos (`Location`, `Content-Type`, `Content-Encoding`) no se auditan (triaje de Contenido). | 14 | — |
 | `sitemaps-org-protocol` | D-162 | Protocolo de sitemaps: forma del sitemap XML y del índice, codificación, escape, límites y URL válidas según su ubicación (vista general). | 17 | 9 / 0 |
-| `ietf-rfc9309` | D-159 | Robots Exclusion Protocol: cómo se leen las reglas de robots.txt (método común de Web, punto 3). Sus MUST son del rastreador. | 18 | — |
+| `ietf-rfc9309` | D-159 | Robots Exclusion Protocol: cómo se leen las reglas de robots.txt (método común de Contenido, punto 3). Sus MUST son del rastreador. | 18 | — |
 
 ### Documento
 
 | Fuente | Inv. | Función | Citas | Req. |
 |---|---|---|---|---|
-| `whatwg-html-semantics` | D-159, D-168 | Declaración de la codificación de caracteres (4.2.5.4): `meta charset` y `http-equiv`. La etiqueta y la posición no se auditan (triaje Web). El elemento `title` (4.2.1 y 4.2.2), dato del mínimo de representación. | 13 | 4 / 0 |
-| `whatwg-html-syntax` | D-159 | Sintaxis del documento (13.1): partes, orden y DOCTYPE. El DOCTYPE no se audita (triaje Web). | 7 | — |
-| `whatwg-html-links` | D-159 | `href` de `a` y `area`: una URL válida. No se audita: es rastreo del sitio (triaje Web). | 2 | — |
+| `whatwg-html-semantics` | D-159, D-168 | Declaración de la codificación de caracteres (4.2.5.4): `meta charset` y `http-equiv`. La etiqueta y la posición no se auditan (triaje de Contenido). El elemento `title` (4.2.1 y 4.2.2), dato del mínimo de representación. | 13 | 4 / 0 |
+| `whatwg-html-syntax` | D-159 | Sintaxis del documento (13.1): partes, orden y DOCTYPE. El DOCTYPE no se audita (triaje de Contenido). | 7 | — |
+| `whatwg-html-links` | D-159 | `href` de `a` y `area`: una URL válida. No se audita: es rastreo del sitio (triaje de Contenido). | 2 | — |
 | `whatwg-html-parsing` | D-159 | Análisis (13.2): errores de análisis y el límite de 1024 bytes. Sus must son del analizador y del validador, no del documento. | 6 | — |
 | `whatwg-encoding` | D-159 | UTF-8 y sus etiquetas. Apoya los requisitos de HTML. | 3 | — |
 | `ogp-protocol` | D-168 | Open Graph, condicional: si la página lo usa, `og:title`, `og:type`, `og:image` y `og:url`, y `og:url` igual a la canónica. Sin tipo de producto. | 6 | 5 / 0 |
@@ -79,8 +79,8 @@ Schema.org es permisivo por diseño: todos los requisitos de este nivel son reco
 | Fuente | Inv. | Función | Citas | Req. |
 |---|---|---|---|---|
 | `google-search-technical-requirements` | D-159 | Search Essentials: Googlebot no bloqueado, HTTP 200 y contenido indexable. | 7 | 7 / 0 |
-| `google-search-links-crawlable` | D-159 | Enlaces rastreables: `<a href>` con una dirección web. No se audita: es rastreo del sitio (triaje Web). | 10 | — |
-| `google-search-sd-policies` | GSC-01 | Directrices generales de datos estructurados (también en Web Schema.org): presencia del marcado. | 9 | 1 / 0 |
+| `google-search-links-crawlable` | D-159 | Enlaces rastreables: `<a href>` con una dirección web. No se audita: es rastreo del sitio (triaje de Contenido). | 10 | — |
+| `google-search-sd-policies` | GSC-01 | Directrices generales de datos estructurados (también en Marcado): presencia del marcado. | 9 | 1 / 0 |
 | `google-crawling-robots-txt` | D-159 | Lectura de robots.txt por Google (método de `w-consumer/009`) y el campo `sitemap:`. | 19 | 1 / 0 |
 | `google-search-sitemaps-build` | D-162 | Guía de sitemaps de Google: repite el protocolo (redundante). | 4 | — |
 | `google-search-sitemaps-overview` | D-162 | Cuándo conviene un sitemap: no exige ni recomienda tenerlo. | 2 | — |
@@ -118,10 +118,10 @@ Schema.org es permisivo por diseño: todos los requisitos de este nivel son reco
 
 | Documento | Lo citan | Situación |
 |---|---|---|
-| HTML Living Standard, sección 4 (`meta`, `link`, `time` y `script` como bloque de datos) | Microdata, JSON-LD | **Pendiente** para Web Schema.org; para Web está registrada la sección 4.2 (`whatwg-html-semantics`), con `meta`, sin `time` ni `script`. Es lo que HTML exige a los elementos que llevan el valor de una propiedad Microdata (las 5 fichas con Microdata usan `<meta itemprop>`) y al `script` de JSON-LD. |
+| HTML Living Standard, sección 4 (`meta`, `link`, `time` y `script` como bloque de datos) | Microdata, JSON-LD | **Pendiente** para Marcado; para Contenido está registrada la sección 4.2 (`whatwg-html-semantics`), con `meta`, sin `time` ni `script`. Es lo que HTML exige a los elementos que llevan el valor de una propiedad Microdata (las 5 fichas con Microdata usan `<meta itemprop>`) y al `script` de JSON-LD. |
 | ISO 4217 e ISO 3166-1/2 (códigos de moneda, país y región) | Google (precio, envío, devoluciones) | **ISO 4217 e ISO 3166-1 alfa-2, registradas en [references](../../references/README.md)** (T-062): `iso-4217`, la lista uno de SIX, agencia de mantenimiento de ISO 4217, y `iso-3166-1`, la tabla «Country» de EU Vocabularies (Oficina de Publicaciones de la UE, CC BY 4.0). ISO no publica una lista reutilizable de ISO 3166; la tabla de la UE incluye además algunos códigos que ISO reserva excepcionalmente (EU, IC, CP, CQ). Lectores: `references.read.currency_codes` y `country_codes`. Ficha de cada una como instrumento del sistema, sin citas (XML y RDF no tienen texto citable): la condición la fija la especificación que pide el código, y la lista solo sirve para comprobarla. Los métodos de los 13 requisitos de moneda y país las nombran y ya no tienen como NE la falta de la lista (T-065); los de país excluyen EU, IC, CP y CQ, que la tabla de la UE incluye y ISO no asigna (253 códigos en 20260923-0 = 249 asignados + 4). **ISO 3166-2 (región), sin registrar:** no hay fuente oficial reutilizable, y hoy ningún requisito la comprueba. |
 | Formatos de imagen de Google Images | Google (image, logo) | **Pendiente.** Hasta tenerlos, el formato del logo (`ws-consumer/336`) queda en NE. |
-| Search Essentials | Fichas de comerciante (#guidelines) | Sus requisitos técnicos, registrados para Web (`google-search-technical-requirements`, D-159). Las políticas de spam siguen fuera: juzgan el contenido. |
+| Search Essentials | Fichas de comerciante (#guidelines) | Sus requisitos técnicos, registrados para Contenido (`google-search-technical-requirements`, D-159). Las políticas de spam siguen fuera: juzgan el contenido. |
 | Free listings guidelines, Member program | Fichas de comerciante, Organization | Fuera: Merchant Center (Catálogos distribuidos). |
 | Local business, Breadcrumb y otros tipos de Google | Organization; fichas reales | Fuera del perfil (D-130). |
 | Namespaces in XML 1.1 y contextos iniciales de RDFa | RDFa | Sin prisa: ninguna ficha real usa RDFa. |

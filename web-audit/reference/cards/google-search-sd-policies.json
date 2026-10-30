@@ -4,8 +4,8 @@
  "class": "especificación aplicable",
  "level": "consumidor",
  "scopes": [
-  "Web Schema.org",
-  "Web"
+  "Marcado",
+  "Contenido"
  ],
  "summary": "Directrices generales de Google Search para todos los datos estructurados: formatos admitidos, acceso de Googlebot, contenido visible, ubicación, imágenes y elementos múltiples.",
  "quotes": [

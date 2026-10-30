@@ -586,7 +586,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): protocolo: estado, redirecciones, Content-Type y Content-Encoding."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): protocolo: estado, redirecciones, Content-Type y Content-Encoding."
   },
   {
    "id": "ietf-rfc9309",
@@ -597,7 +597,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): protocolo: cómo se leen las reglas de robots.txt."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): protocolo: cómo se leen las reglas de robots.txt."
   },
   {
    "id": "whatwg-html-syntax",
@@ -608,7 +608,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): documento: sintaxis del documento (DOCTYPE y partes)."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): documento: sintaxis del documento (DOCTYPE y partes)."
   },
   {
    "id": "whatwg-html-parsing",
@@ -619,7 +619,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): documento: errores de análisis."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): documento: errores de análisis."
   },
   {
    "id": "whatwg-html-semantics",
@@ -630,7 +630,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): documento: declaración de la codificación de caracteres."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): documento: declaración de la codificación de caracteres."
   },
   {
    "id": "whatwg-html-links",
@@ -641,7 +641,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): documento: forma del href de los enlaces."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): documento: forma del href de los enlaces."
   },
   {
    "id": "whatwg-encoding",
@@ -652,7 +652,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): documento: UTF-8."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): documento: UTF-8."
   },
   {
    "id": "google-search-technical-requirements",
@@ -663,7 +663,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: lo que Google Search exige de una página (Googlebot no bloqueado, HTTP 200, contenido indexable)."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): consumidor: lo que Google Search exige de una página (Googlebot no bloqueado, HTTP 200, contenido indexable)."
   },
   {
    "id": "google-search-links-crawlable",
@@ -674,7 +674,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: enlaces rastreables."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): consumidor: enlaces rastreables."
   },
   {
    "id": "google-crawling-robots-txt",
@@ -685,7 +685,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: robots.txt según Google."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): consumidor: robots.txt según Google."
   },
   {
    "id": "google-search-robots-meta",
@@ -696,7 +696,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: meta robots y X-Robots-Tag."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): consumidor: meta robots y X-Robots-Tag."
   },
   {
    "id": "google-search-block-indexing",
@@ -707,7 +707,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: bloqueo de la indexación."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): consumidor: bloqueo de la indexación."
   },
   {
    "id": "google-crawling-http-status",
@@ -718,7 +718,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: códigos de estado HTTP."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): consumidor: códigos de estado HTTP."
   },
   {
    "id": "google-search-redirects",
@@ -729,7 +729,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: redirecciones."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): consumidor: redirecciones."
   },
   {
    "id": "google-search-indexable-file-types",
@@ -740,7 +740,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: tipos de fichero indexables."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): consumidor: tipos de fichero indexables."
   },
   {
    "id": "google-search-javascript-seo",
@@ -751,7 +751,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): consumidor: JavaScript."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): consumidor: JavaScript."
   },
   {
    "id": "openai-bots",
@@ -762,7 +762,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): consumidor (operador de IA): bots de OpenAI y robots.txt."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): consumidor (operador de IA): bots de OpenAI y robots.txt."
   },
   {
    "id": "anthropic-crawlers",
@@ -773,7 +773,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): consumidor (operador de IA): bots de Anthropic y robots.txt. robots.txt de support.claude.com no excluye /en/articles (comprobado el 2026-10-28)."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): consumidor (operador de IA): bots de Anthropic y robots.txt. robots.txt de support.claude.com no excluye /en/articles (comprobado el 2026-10-28)."
   },
   {
    "id": "perplexity-crawlers",
@@ -784,7 +784,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-159, T-072): consumidor (operador de IA): bots de Perplexity y robots.txt."
+   "note": "Perfil de implementación de Contenido (D-159, T-072): consumidor (operador de IA): bots de Perplexity y robots.txt."
   },
   {
    "id": "sitemaps-org-protocol",
@@ -828,7 +828,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-168, T-077): documento, condicional: propiedades exigidas si la página usa Open Graph."
+   "note": "Perfil de implementación de Contenido (D-168, T-077): documento, condicional: propiedades exigidas si la página usa Open Graph."
   },
   {
    "id": "google-search-canonical",
@@ -839,7 +839,7 @@
    "uses": [
     "web-audit"
    ],
-   "note": "Perfil de implementación de Web (D-168, T-077): consumidor: URL canónica (mínimo de representación)."
+   "note": "Perfil de implementación de Contenido (D-168, T-077): consumidor: URL canónica (mínimo de representación)."
   }
  ]
 }

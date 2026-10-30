@@ -1,4 +1,4 @@
-# Reglamento de clasificación de las preguntas PAA · v7
+# Reglamento de clasificación de las preguntas PAA · v8
 
 Procedimiento del **agente** que clasifica las preguntas de «Más preguntas» (PAA) de un conjunto de semillas. El agente decide el perímetro y el objeto de cada pregunta y la contrasta con el catálogo de la clase. Reconoce los **criterios de elección**. Propone **requisitos candidatos**, **revisiones** de requisitos existentes, **aportaciones**, **pistas de valoración**, **marcas de dimensión de comparación** y **especializaciones**. Condensa el canon (`docs/10-model/choice-criteria.md`, `construction-routes.md`, `demand-model.md`, `assessment-hints.md`, `quality-properties.md`; `docs/20-methods/product-taxonomy/requirement-blocks.md`). Cada regla cita la decisión de la que sale. Si el reglamento y el canon discrepan, prevalece el canon: anota la discrepancia en `doubts`.
 
@@ -10,7 +10,7 @@ Procedimiento del **agente** que clasifica las preguntas de «Más preguntas» (
 - los términos de este reglamento, siempre los mismos;
 - la incertidumbre, una vez y con una palabra: «Causa probable: …».
 
-Cambios de la v2 (D-100 a D-107): lectura sobre la oferta, confirmaciones y aportaciones, apoyo mínimo, separación por dimensión, criterios intermedios, tacto, certificaciones, bloques hermanos y revisiones. Cambios de la v3 (D-108 a D-110): preguntas distintas para la prueba (a), cualquier atributo de lista, lista ausente en la clase, preguntas de grado, efecto frío al tacto, necesidades distintas de una fibra y sacar sin preguntas. Cambios de la v4 (D-125 a D-128, D-139): el paso 8 escribe pistas de valoración y marcas de dimensión de comparación en lugar de la pertinencia de los AC. Cambios de la v5 (D-141, D-142): productos vecinos fuera, antes de la lectura sobre la oferta; moda, popularidad, preferencia general y alternativa de producto. Cambios de la v6 (D-146): la categoría madre va dentro en lo que la clase hereda de su bloque; el material, si la clase lo tiene o lo hereda; denominación ambigua. Cambios de la v7 (D-218; T-057, T-079): prueba de la respuesta natural para la madre; especializaciones desde PAA; redacción con las reglas de estilo, sin cambiar las demás reglas.
+Cambios de la v2 (D-100 a D-107): lectura sobre la oferta, confirmaciones y aportaciones, apoyo mínimo, separación por dimensión, criterios intermedios, tacto, certificaciones, bloques hermanos y revisiones. Cambios de la v3 (D-108 a D-110): preguntas distintas para la prueba (a), cualquier atributo de lista, lista ausente en la clase, preguntas de grado, efecto frío al tacto, necesidades distintas de una fibra y sacar sin preguntas. Cambios de la v4 (D-125 a D-128, D-139): el paso 8 escribe pistas de valoración y marcas de dimensión de comparación en lugar de la pertinencia de los AC. Cambios de la v5 (D-141, D-142): productos vecinos fuera, antes de la lectura sobre la oferta; moda, popularidad, preferencia general y alternativa de producto. Cambios de la v6 (D-146): la categoría madre va dentro en lo que la clase hereda de su bloque; el material, si la clase lo tiene o lo hereda; denominación ambigua. Cambios de la v7 (D-218; T-057, T-079): prueba de la respuesta natural para la madre; especializaciones desde PAA; redacción con las reglas de estilo, sin cambiar las demás reglas. Cambios de la v8 (T-106): ampliar un requisito solo vale para el mismo hecho.
 
 ## 0. Propósito
 
@@ -218,6 +218,7 @@ Aplica igual en todos los bloques hermanos la revisión de un requisito repetido
 Cuándo escribir una revisión en lugar de un candidato:
 
 - Si lo que muestra la pregunta cabe en un requisito existente al ampliar su pregunta, propón `reformular`. No propongas un candidato. Ejemplo hipotético: «¿Se deshilacha la tapicería?» amplía «¿Qué resistencia al desgaste declara?».
+- Ampliar solo vale para el mismo hecho (prueba del paso 3). Si la pregunta trae otro hecho, propón un candidato. Ejemplo hipotético: «¿Encoge el algodón al lavarlo?» no amplía «¿Cómo se lava?».
 - Si una pregunta confirma una cuestión inferida (`inf/…` o un requisito de origen «inferida»), escribe siempre una revisión `reformular` sobre ella. La revisión la pasa a origen «paa» (D-097), aunque su pregunta no cambie.
 
 ### Paso 8 · Pistas de valoración y marca de dimensión de comparación

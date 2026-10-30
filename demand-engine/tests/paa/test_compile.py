@@ -135,6 +135,8 @@ def test_run_writes_blocks_register_and_accepted_pass(tmp_path, monkeypatch):
                      "paa-q:botas:se-estira": {"q": "¿Se estira el calzado de cuero?", "set": "botas", "at": "2026-10-27"}}
     accepted = json.loads((tmp_path / "accepted.json").read_text(encoding="utf-8"))
     assert accepted["total"] == TOTAL and "botas" in accepted["entered"]
+    again = paa_compile.run(["botas"])   # nothing new: the accepted pass keeps what entered with it
+    assert again["touched"] == [] and json.loads((tmp_path / "accepted.json").read_text(encoding="utf-8")) == accepted
 
     decision.update(accepted=False, against="ayer", worse=["criterios: esperados encontrados 1 (antes 2)"])
     assert paa_compile.run(["botas"])["decision"]["accepted"] is False

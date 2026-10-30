@@ -139,6 +139,8 @@ def run(set_ids: list[str]) -> dict:
     need = cited(blocks)
     write_json(catalog.PAA_QUESTIONS, {k: texts[k] for k in sorted(need) if k in texts})
     passed["touched"] = sorted(touched)
+    if not touched:  # nothing new enters: the accepted pass and what entered with it stay (D-180)
+        return passed
     write_json(control.ACCEPTED, {"at": passed["at"], "control": str(out), "sets": {k: v["summary"] for k, v in
                data["sets"].items()}, "total": data["total"], "entered": passed["sets"]})
     write_json(var_root() / "compile" / (passed["at"].replace(":", "")[:17] + ".json"), passed)

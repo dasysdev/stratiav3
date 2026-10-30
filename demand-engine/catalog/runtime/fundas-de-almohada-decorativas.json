@@ -1,0 +1,388 @@
+{
+  "id": "cat.fundas-de-almohada-decorativas",
+  "type": "categoría",
+  "name": "Fundas de almohada decorativas",
+  "shopify": "hg-15-1-8-1",
+  "parent": "cat.fundas-de-almohada-y-cojines",
+  "refs": [
+    "shopify:hg-15-1-8-1@v2026-08",
+    "google:2927@2021-09-21",
+    "amazon-ptd:DECORATIVE_PILLOW_COVER@2026-10-24",
+    "amazon-btg:3250026031@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.fundas-de-almohada-decorativas/01",
+      "question": "¿Cuántas fundas incluye la oferta?",
+      "dimension": "número de fundas",
+      "entity": "oferta",
+      "trait": "contenido",
+      "vote": "crítico",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.number_of_pieces"
+      ],
+      "applicability": "universal",
+      "rationale": "Las fundas decorativas se venden sueltas o por pares. El número de fundas fija lo que se vende. Repite cat.fundas-de-almohada/01 en la hermana (criterio 4): el entrenamiento puede subirlo a la madre común.",
+      "resolving_info": [
+        {
+          "contribution": "número de fundas que incluye la oferta",
+          "component": "cuántas fundas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.number_of_pieces"
+          ]
+        }
+      ],
+      "hints": [
+        {
+          "pista": "Un término de conjunto sin cifra («juego», «set») no fija cuántas fundas se venden; «par» sí fija dos. La respuesta da el número de unidades, o un término que lo fija, para comparar ofertas de una y de dos fundas.",
+          "propiedad": [
+            "P09",
+            "P13"
+          ],
+          "ac": [
+            "Precisión",
+            "Comparabilidad"
+          ],
+          "origen": {
+            "tipo": "referencias",
+            "apoyo": [
+              "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.number_of_pieces"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat.fundas-de-almohada-decorativas/02",
+      "question": "¿Qué tipo de tejido o ligamento tiene (liso, satén, sarga, jacquard, punto…)?",
+      "dimension": "tipo de tejido",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.weave_type"
+      ],
+      "applicability": "universal",
+      "rationale": "El PTD define el tipo de tejido por la forma en que se entrelazan los hilos. Es otra necesidad que la composición en fibras (cat.ropa-de-casa/01).",
+      "resolving_info": [
+        {
+          "contribution": "ligamento o tipo de tejido",
+          "component": "tipo de tejido o ligamento",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.weave_type"
+          ]
+        },
+        {
+          "contribution": "técnica de formación del tejido (calada o punto)",
+          "component": "tipo de tejido o ligamento",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.weave_type"
+          ]
+        },
+        {
+          "contribution": "nombre comercial del tejido",
+          "component": "tipo de tejido o ligamento",
+          "origin": "inferida",
+          "support": []
+        }
+      ],
+      "hints": [
+        {
+          "pista": "Un nombre comercial del tejido no dice cómo se entrelazan los hilos. La respuesta nombra el ligamento o la técnica, porque es lo que define la propiedad de origen.",
+          "propiedad": [
+            "P09"
+          ],
+          "ac": [
+            "Precisión"
+          ],
+          "origen": {
+            "tipo": "referencias",
+            "apoyo": [
+              "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.weave_type"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat.fundas-de-almohada-decorativas/03",
+      "question": "¿Para qué tipo de almohada o cojín está hecha la funda (almohada de cama, cojín decorativo…)?",
+      "dimension": "tipo de almohada o cojín",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.pillow_type"
+      ],
+      "applicability": "universal",
+      "rationale": "Una funda decorativa puede vestir una almohada de cama o un cojín decorativo. El tamaño (cat.ropa-de-cama/01) no dice el tipo de relleno que admite. Los valores de hamaca, suelo y muebles quedan fuera de la clase.",
+      "resolving_info": [
+        {
+          "contribution": "tipo de almohada o cojín al que corresponde la funda",
+          "component": "tipo de almohada o cojín",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.pillow_type"
+          ]
+        }
+      ],
+      "hints": [
+        {
+          "pista": "Una medida sola no dice si la funda viste una almohada de cama o un cojín. La respuesta nombra el tipo de almohada o cojín que admite.",
+          "propiedad": [
+            "P08"
+          ],
+          "ac": [
+            "Precisión",
+            "Aplicabilidad"
+          ],
+          "origen": {
+            "tipo": "referencias",
+            "apoyo": [
+              "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.pillow_type"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat.fundas-de-almohada-decorativas/04",
+      "question": "¿Es reversible?",
+      "dimension": "reversibilidad",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Reversible"
+      ],
+      "applicability": "universal",
+      "rationale": "Una funda reversible ofrece dos caras de uso. Es una pregunta de sí o no: un «no» fundamentado la resuelve.",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si es reversible",
+          "component": "reversible",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Reversible"
+          ]
+        },
+        {
+          "contribution": "descripción de cada cara",
+          "component": "reversible",
+          "origin": "inferida",
+          "support": []
+        }
+      ],
+      "hints": [
+        {
+          "pista": "«Reversible» sin describir la otra cara no deja saber qué se ve por cada lado. La respuesta describe las dos caras.",
+          "propiedad": [
+            "P06"
+          ],
+          "ac": [
+            "Concreción",
+            "Precisión"
+          ],
+          "origen": {
+            "tipo": "inferida",
+            "apoyo": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat.fundas-de-almohada-decorativas/05",
+      "question": "¿Qué propiedades higiénicas declara (hipoalergénica, antiácaros…)?",
+      "dimension": "propiedades higiénicas",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Hipoalergénico"
+      ],
+      "applicability": "universal",
+      "rationale": "La funda está en contacto con la piel. Las personas alérgicas comparan esta propiedad.",
+      "resolving_info": [
+        {
+          "contribution": "declaración de hipoalergenicidad",
+          "component": "propiedades higiénicas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Hipoalergénico"
+          ]
+        },
+        {
+          "contribution": "certificado o informe de ensayo que respalde la propiedad higiénica",
+          "component": "propiedades higiénicas",
+          "origin": "inferida",
+          "support": []
+        }
+      ],
+      "hints": [
+        {
+          "pista": "«Hipoalergénica» sin un certificado o un ensayo es una declaración que no se puede contrastar. La justificación cita el documento que la respalda.",
+          "propiedad": [
+            "P18"
+          ],
+          "ac": [
+            "Justificación"
+          ],
+          "origen": {
+            "tipo": "inferida",
+            "apoyo": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat.fundas-de-almohada-decorativas/06",
+      "question": "¿Qué resistencia al uso y al lavado tiene (decoloración, encogimiento, bolitas, arrugas, manchas…)?",
+      "dimension": "resistencia",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Resistente a la decoloración",
+        "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Resistente al encogimiento",
+        "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Resistente a la formación de bolitas",
+        "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Resistente a las arrugas",
+        "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Resistente a las manchas"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa por tema los valores de resistencia de special_feature (criterio 2). La durabilidad en años o en lavados la pregunta cat.ropa-de-casa/06.",
+      "resolving_info": [
+        {
+          "contribution": "solidez del color al lavado",
+          "component": "resistencia al lavado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Resistente a la decoloración"
+          ]
+        },
+        {
+          "contribution": "resistencia al encogimiento",
+          "component": "resistencia al lavado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Resistente al encogimiento"
+          ]
+        },
+        {
+          "contribution": "resistencia a la formación de bolitas",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Resistente a la formación de bolitas"
+          ]
+        },
+        {
+          "contribution": "resistencia a las arrugas",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Resistente a las arrugas"
+          ]
+        },
+        {
+          "contribution": "resistencia a las manchas",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Resistente a las manchas"
+          ]
+        }
+      ],
+      "hints": [
+        {
+          "pista": "Una resistencia genérica («duradera») no permite comparar. La respuesta nombra el defecto que resiste o el número de lavados que soporta.",
+          "propiedad": [
+            "P07"
+          ],
+          "ac": [
+            "Precisión",
+            "Comparabilidad"
+          ],
+          "origen": {
+            "tipo": "inferida",
+            "apoyo": []
+          }
+        }
+      ]
+    }
+  ],
+  "proposed_traits": [],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.fabric_type",
+      "reason": "Composición en fibras: la cubre cat.ropa-de-casa/01, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.cover",
+      "reason": "Material de la cubierta: en una funda es su composición, que cubre cat.ropa-de-casa/01."
+    },
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.closure",
+      "reason": "Cierre (botón, cremallera, sobre): lo cubre cat.fundas-de-almohada-y-cojines/01, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.item_length_width",
+      "reason": "Medidas de la funda: las cubre cat.ropa-de-cama/02, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.is_euro_pillow_size",
+      "reason": "Tamaño de la almohada a la que corresponde: lo cubre cat.ropa-de-cama/01, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.recommended_uses_for_product",
+      "reason": "Interior o exterior: una funda que viste la cama es de interior por definición."
+    },
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.indoor_outdoor_usage",
+      "reason": "Interior o exterior: una funda que viste la cama es de interior por definición."
+    },
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Exterior",
+      "reason": "Uso de exterior: propio de fundas de cojines de jardín, no de la ropa de cama."
+    },
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Resistente al agua",
+      "reason": "Uso de exterior: propio de fundas de cojines de jardín, no de la ropa de cama."
+    },
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.room_type",
+      "reason": "Tipo de habitación: una funda de la ropa de cama es de dormitorio por definición."
+    },
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.seasons",
+      "reason": "La funda no abriga. Su idoneidad estacional depende del tejido (/02 y cat.ropa-de-casa/01) o del diseño (cat.casa-y-jardin/02)."
+    },
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Esponjosa",
+      "reason": "Tacto del tejido: lo cubre cat.ropa-de-cama/03, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.special_feature=Transpirable",
+      "reason": "Confort térmico al dormir: es propio de la funda de la almohada en la que se duerme (hg-15-1-8-2), no de la funda decorativa."
+    },
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.collection_item",
+      "reason": "No tiene título ni descripción: es un dato de plataforma."
+    },
+    {
+      "source": "amazon-ptd-prop:DECORATIVE_PILLOW_COVER.item_weight",
+      "reason": "Peso del artículo: dato logístico; no es criterio de comparación de la clase."
+    }
+  ],
+  "status": "no compilado",
+  "version": "0",
+  "generated": "2026-10-30"
+}

@@ -15,7 +15,7 @@ def files(tmp_path):
     rep.write_text(json.dumps({"filter": "alfa", "version": 1, "ficha": "audit-bb-x", "title": "Edredón | BB",
                                "text": TEXT, "fragments": []}), encoding="utf-8")
     model = tmp_path / "model.json"
-    model.write_text(json.dumps({"case": "bb-x", "scope": "Web", "sheet": "web@0.1", "units": [
+    model.write_text(json.dumps({"case": "bb-x", "scope": "Contenido", "sheet": "content@0.2", "units": [
         {"id": "gen/01", "pertinent": True},
         {"id": "gen/02", "pertinent": True, "comparison": {"mark": "no", "case": "a", "reason": "…"}},
         {"id": "gen/03", "pertinent": True},
@@ -28,7 +28,7 @@ def header(files, kind):
     return {"schema": f"info-audit/{kind}", "version": 1, "audit": "piloto-bb", "scope": "Contenido",
             "representation": {"profile": "audit-es", "reader": "alfa/1", "page": "audit-bb-x",
                                "captured_at": "2026-10-30T00:40:00+01:00", "file": str(files / "alfa.json")},
-            "model": {"case": "bb-x", "sheet": "web@0.1", "file": str(files / "model.json")}}
+            "model": {"case": "bb-x", "sheet": "content@0.2", "file": str(files / "model.json")}}
 
 
 COVERAGE = {"objetivo": "plazo de entrega", "regiones_inspeccionadas": ["texto entero"], "metodos": ["lectura", "plazo|días"],
@@ -191,6 +191,13 @@ def test_scope_reads_its_representation(files):
     record = availability(files)
     record["scope"] = "Marcado"
     errors_of(record, "Marcado se lee con markup/1")
+
+
+def test_model_of_the_old_scope_names_rejected(files):
+    # D-220: the model is composed with the sheet of Contenido; Web is not an equivalent any more
+    model = json.loads((files / "model.json").read_text(encoding="utf-8"))
+    (files / "model.json").write_text(json.dumps(model | {"scope": "Web"}), encoding="utf-8")
+    errors_of(availability(files), "no es de bb-x en Contenido")
 
 
 def test_cited_evidence_must_exist(files):

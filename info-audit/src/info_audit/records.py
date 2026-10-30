@@ -18,8 +18,6 @@ from .schema import validate
 REPO = ROOT.parent
 SCHEMAS = {"info-audit/availability": "availability.v1.json", "info-audit/assessment": "assessment.v1.json"}
 READERS = {"Contenido": "alfa/1", "Marcado": "markup/1"}
-# Names of the scope in the composed model: the old ones stay until T-102 renames the sheets (D-220)
-MODEL_SCOPES = {"Contenido": {"Contenido", "Web"}, "Marcado": {"Marcado", "Web Schema.org"}}
 CRITERIA = ("Concreción", "Precisión", "Aplicabilidad", "Comparabilidad", "Fiabilidad", "Justificación")
 NOT_LITERAL = {"ausencia", "limitacion_acceso"}  # their contenido_original is the result of a check
 
@@ -82,7 +80,7 @@ def _context(record: dict) -> tuple[Representation, dict]:
     if representation.page and representation.page != rep["page"]:
         raise RecordError(f"la representación es de {representation.page}, no de {rep['page']}")
     model = _load(record["model"]["file"], "el modelo del ámbito")
-    if model.get("case") != record["model"]["case"] or model.get("scope") not in MODEL_SCOPES[scope]:
+    if model.get("case") != record["model"]["case"] or model.get("scope") != scope:   # the scope of the sheet (D-220)
         raise RecordError(f"el modelo {record['model']['file']} no es de {record['model']['case']} en {scope}")
     if model.get("sheet") != record["model"]["sheet"]:
         raise RecordError(f"el modelo usa la ficha {model.get('sheet')}, no {record['model']['sheet']}")

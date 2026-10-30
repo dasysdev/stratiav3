@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path[:0] = [str(ROOT / "demand-engine/src"), str(ROOT / "references/src")]
+sys.path[:0] = [str(ROOT / "demand-engine/src"), str(ROOT / "capture/src"), str(ROOT / "references/src")]
 from demand_engine.demand.model import main  # noqa: E402
 
 main()

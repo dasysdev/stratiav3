@@ -16,8 +16,9 @@ Usage:
   model check --catalog               check every block of the catalog and the general layer: ids, traits,
                                       origins and sources, and the resolving information of each requirement
   model assemble OUTPUT.json          build the demand model from a classifier output (rulebook v2 to v5):
-                                      writes <case>.model.json and <case>.model.md next to it and
-                                      appends what was used without compiling to the queue
+                                      writes <case>.model.json and <case>.model.md next to it, with the
+                                      frozen page of the case and its capture profile, and appends what
+                                      was used without compiling to the queue
   model show MODEL.json               print the readable version of an assembled model
   model hints check                   check the catalog of assessment hints (fields, id, origin, destination,
                                       same destination and property) and the comparison marks (D-136, D-139)
@@ -45,6 +46,7 @@ import sys
 from contextlib import contextmanager
 from pathlib import Path
 
+from capture import pages
 from references.store import pins
 
 from . import citations, hints, resolving, scopes
@@ -59,6 +61,7 @@ from .catalog import (CAT_DIR, COMPILED, ROOT, DOUBTFUL, ESP_ORDER, ESP_RUNTIME_
 LEGACY_RULEBOOKS = ("v0", "v1", "v2", "v3")  # their specializations were drafted inline, in each run
 
 EXCLUDED_ROLES = ("estético", "promocional", "beneficio reclamado")  # declared facts that need no question (D-045)
+
 
 
 def cmd_blocks(ids: list) -> None:
@@ -399,6 +402,16 @@ def split(entries: list) -> tuple:
     return [e for e in entries if not e["excluded"]], [e for e in entries if e["excluded"]]
 
 
+def frozen_page(case_id) -> dict | None:
+    """The frozen page the case was classified on, with its capture profile. The case takes the ID of its
+    page (taxo page fetch ID, /demand-model --page ID, the training). A page frozen before the profiles is
+    a «reader» one; None if the store has no page of that ID."""
+    path = pages.PAGES / f"{case_id}.json"   # the store of frozen pages (D-150)
+    if not case_id or not path.exists():
+        return None
+    return {"id": case_id, "profile": read_json(path).get("profile") or "reader"}
+
+
 def assemble(out_path: Path) -> dict:
     out = read_json(out_path)
     blocks, empty = load_blocks(), load_empty()
@@ -531,6 +544,7 @@ def assemble(out_path: Path) -> dict:
         r["hints"] = [h for _, h in hints.find(r, catalog_hints)]
     model = {
         "case": out.get("case"), "product": out.get("product"), "url": out.get("url"),
+        "page": frozen_page(out.get("case")),
         "engine": {"rulebook": out.get("rulebook"), "rules": rules.get("version"), "refs": pins("demand-engine"),
                    "google_search": google.get("version"), "assembled": datetime.date.today().isoformat()},
         "key": key, "name": name, "offer": offer,
@@ -552,8 +566,11 @@ def assemble(out_path: Path) -> dict:
 
 
 def render(model: dict) -> str:
+    page = model.get("page")
     lines = [f"# {model['name']}", "", f"- Oferta: **{model['offer']['label']}**", f"- Producto: {model.get('product')}",
-             f"- URL: {model.get('url')}", f"- Clave del modelo: `{' '.join(model['key']['model'])}`",
+             f"- URL: {model.get('url')}",
+             *([f"- Ficha: `{page['id']}` · perfil de captura `{page['profile']}`"] if page else []),
+             f"- Clave del modelo: `{' '.join(model['key']['model'])}`",
              f"- Aplicación de la oferta: `{' '.join(model['offer']['application']) or 'estándar'}`",
              f"- Reglas: versión {model['engine'].get('rules')} · reglamento {model['engine'].get('rulebook')}", ""]
     count = {}

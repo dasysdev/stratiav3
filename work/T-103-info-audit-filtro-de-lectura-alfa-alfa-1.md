@@ -13,7 +13,7 @@ Implementar en info-audit el filtro Alfa según docs/20-methods/audit-gsc/filter
 
 ## Criterios de aceptación
 
-- [ ] info-audit tiene un comando que aplica alfa/1 a una página de una auditoría de capture y escribe el JSON de filter-alfa.md (filter, version, ficha, title, text, fragments)
+- [ ] info-audit tiene un comando que aplica alfa/1 a una ficha congelada de capture (page-ID) y escribe el JSON de filter-alfa.md (filter, version, ficha, title, text, fragments)
 - [ ] Sobre la ficha de canarios (research_notes/text-reading-canaries/site/index.html), la salida contiene exactamente los códigos de las reglas Entra y ninguno de No entra; prueba automática
 - [ ] Cada fragmento lleva posicion y ruta, y las anotaciones oculto, region, control, alt y enlace según la especificación; pruebas por anotación
 - [ ] Sobre la ficha del edredón de BB, la composición, el envío y las devoluciones salen con la anotación oculto
@@ -22,3 +22,4 @@ Implementar en info-audit el filtro Alfa según docs/20-methods/audit-gsc/filter
 ## Notas
 
 - 2026-10-30 Entrada (T-097): bin/audit validate lee la salida de alfa/1 por filter, version, ficha, title y text; posicion es [inicio, fin) en text. Mantén esos nombres.
+- 2026-10-30 Saneamiento: el piloto no tiene auditoría de capture (decisión del usuario, T-094). El comando recibe el page-ID de la ficha audit-es.

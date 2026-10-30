@@ -2,7 +2,7 @@
 id: T-105
 title: demand-model: fase PAA tras el ensamblado, con entrada provisional
 status: pendiente
-depends: T-102, T-104, T-107, T-109
+depends: T-102, T-104, T-107, T-109, T-110
 milestone: piloto-gsc-bb
 created: 2026-10-30
 ---
@@ -36,3 +36,4 @@ Diseñar bin/paa seeds MODEL.json (clave → núcleo; taxo values → valores) y
 - 2026-10-30 Alcance añadido (saneamiento, T-109): D-138 pide que el modelo anote la versión del catálogo de pistas; engine solo lleva rulebook, rules, refs, google_search y assembled (model.py).
 - 2026-10-30 Código (agente): bin/paa seeds MODEL.json (núcleo de la clave con taxo; rasgo calibrado fabric/material si el modelo cita ley:UE-1007/2011; si no, para con OQ-93), reutilización de búsquedas por semilla y mercado (SeedSet.reuse, sin DOM, fuera del tope diario), bin/model assemble --paa SET (candidatos paa/N1/<bloque> fuera de la clave; confirmaciones, aportaciones, pistas sin PV-n y marcas «no compilado»; uncompiled.paa en la cola), comparison en el modelo y en cada unidad, pending_definition.comparison, engine.hints. 167 pruebas de demand-engine; workspace en verde.
 - 2026-10-30 Abierto para después: info-audit no puede citar en pistas_usadas una pista de PAA sin PV-n (el esquema exige PV-n): afecta a T-099. bin/paa compile sin argumentos compila también los conjuntos que crea cada ejecución: lo decide el entrenamiento (D-224 deja el entrenamiento de PAA sin cambios).
+- 2026-10-30 La primera reconstrucción del piloto se abortó: la Barbie clasificó sobre el catálogo con duplicados y el edredón se paró (salidas y el bloque runtime fundas-de-almohada-decorativas que generó, apartados en el scratchpad aborted-pilot-run). Se rehace después de T-110.

@@ -1,0 +1,782 @@
+{
+  "id": "cat.colchas-y-edredones",
+  "type": "categoría",
+  "name": "Colchas y edredones",
+  "shopify": "hg-15-1-10",
+  "parent": "cat.ropa-de-cama",
+  "refs": [
+    "shopify:hg-15-1-10@v2026-08",
+    "google:505287@2021-09-21",
+    "amazon-ptd:BLANKET@2026-10-24",
+    "amazon-btg:3250008031@2026-10-24"
+  ],
+  "requirements": [
+    {
+      "id": "cat.colchas-y-edredones/01",
+      "question": "¿Qué nivel de abrigo tiene?",
+      "dimension": "abrigo",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:warmth-level",
+        "amazon-ptd-prop:BLANKET.thermal_performance_description",
+        "amazon-ptd-prop:BLANKET.special_feature=Térmica"
+      ],
+      "applicability": "universal",
+      "rationale": "Une el nivel de calidez de Shopify con el «peso del edredón» y el valor «Térmica» de Amazon. El abrigo es uno de los criterios con los que se elige un edredón o una colcha. La temporada (uso) toma otro rasgo y va en /02 (D-196).",
+      "resolving_info": [
+        {
+          "contribution": "nivel de abrigo declarado",
+          "component": "nivel de abrigo",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:warmth-level"
+          ]
+        },
+        {
+          "contribution": "clase de peso de abrigo",
+          "component": "nivel de abrigo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.thermal_performance_description"
+          ]
+        },
+        {
+          "contribution": "declaración de propiedad térmica",
+          "component": "nivel de abrigo",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Térmica"
+          ]
+        },
+        {
+          "contribution": "valor de aislamiento térmico en TOG",
+          "component": "nivel de abrigo",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "gramaje del relleno del que se deriva el abrigo",
+          "component": "nivel de abrigo",
+          "origin": "inferida",
+          "support": []
+        }
+      ],
+      "hints": [
+        {
+          "pista": "Un abrigo solo cualitativo («gran poder calorífico») no permite comparar ofertas: se compara sobre una base común, como una clase de abrigo declarada, el TOG o el gramaje del relleno.",
+          "propiedad": [
+            "P13"
+          ],
+          "ac": [
+            "Comparabilidad",
+            "Precisión"
+          ],
+          "origen": {
+            "tipo": "inferida",
+            "apoyo": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/02",
+      "question": "¿Para qué época del año es adecuado?",
+      "dimension": "temporada",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:warmth-level",
+        "amazon-ptd-prop:BLANKET.seasons"
+      ],
+      "applicability": "universal",
+      "rationale": "El nivel de calidez de Shopify incluye la idoneidad estacional y Amazon tiene la temporada como propiedad. Es otra necesidad que el abrigo (/01), con otro rasgo (D-196). Se deriva en parte del abrigo.",
+      "resolving_info": [
+        {
+          "contribution": "estaciones de uso recomendadas",
+          "component": "época del año",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.seasons"
+          ]
+        },
+        {
+          "contribution": "idoneidad estacional declarada",
+          "component": "época del año",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:warmth-level"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/03",
+      "question": "¿Qué tipo de pieza es por su forma y su uso (edredón, colcha, nórdico, cubrecama…)?",
+      "dimension": "tipo",
+      "entity": "producto",
+      "trait": "identidad",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.blanket_form"
+      ],
+      "applicability": "universal",
+      "rationale": "Distingue piezas con usos distintos dentro de la clase: el nórdico necesita funda; el edredón y la colcha se usan como pieza exterior. Concreta gen/01 con algo propio de la clase.",
+      "resolving_info": [
+        {
+          "contribution": "tipo de pieza por su forma y su uso",
+          "component": "tipo de pieza",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.blanket_form"
+          ]
+        },
+        {
+          "contribution": "indicación de si se usa con funda o como pieza exterior",
+          "component": "uso",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/04",
+      "question": "¿De qué material es el relleno?",
+      "dimension": "relleno",
+      "entity": "producto",
+      "trait": "material",
+      "vote": "principal",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.fill_material"
+      ],
+      "applicability": "universal",
+      "rationale": "El relleno determina el abrigo, el peso y el cuidado del edredón o la colcha. La composición del tejido exterior la pregunta cat.ropa-de-casa/01.",
+      "resolving_info": [
+        {
+          "contribution": "material del relleno",
+          "component": "material del relleno",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.fill_material"
+          ]
+        },
+        {
+          "contribution": "proporción de cada material en un relleno mixto",
+          "component": "material del relleno",
+          "origin": "inferida",
+          "support": []
+        }
+      ],
+      "hints": [
+        {
+          "pista": "La composición que se publica sin decir a qué parte corresponde no fija si el relleno es de ese material: la respuesta separa el tejido exterior del relleno.",
+          "propiedad": [
+            "P10"
+          ],
+          "ac": [
+            "Precisión"
+          ],
+          "origen": {
+            "tipo": "inferida",
+            "apoyo": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/05",
+      "question": "¿Qué gramaje tiene el relleno (g/m²)?",
+      "dimension": "gramaje del relleno",
+      "entity": "producto",
+      "trait": "magnitud",
+      "vote": "principal",
+      "origin": "inferida",
+      "sources": [],
+      "applicability": "universal",
+      "rationale": "Ninguna referencia lo recoge (criterio 5). En España los edredones y los rellenos se comparan por el gramaje del relleno. El gramaje del tejido exterior lo pregunta cat.ropa-de-casa/05.",
+      "resolving_info": [
+        {
+          "contribution": "gramaje del relleno",
+          "component": "gramaje del relleno",
+          "origin": "inferida",
+          "support": []
+        },
+        {
+          "contribution": "peso del relleno y medidas de la pieza, de los que se deriva el gramaje",
+          "component": "gramaje del relleno",
+          "origin": "inferida",
+          "support": []
+        }
+      ],
+      "hints": [
+        {
+          "pista": "El gramaje se compara por unidad de superficie: un peso total sin las medidas de la pieza no permite comparar ofertas de tamaños distintos.",
+          "propiedad": [
+            "P13"
+          ],
+          "ac": [
+            "Comparabilidad"
+          ],
+          "origen": {
+            "tipo": "inferida",
+            "apoyo": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/06",
+      "question": "¿Cuánto pesa la pieza?",
+      "dimension": "peso",
+      "entity": "variante",
+      "trait": "magnitud",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.item_weight",
+        "amazon-ptd-prop:BLANKET.special_feature=Ligera"
+      ],
+      "applicability": "universal",
+      "rationale": "Informa del cuerpo y del abrigo de la pieza. Cambia con la medida elegida. El gramaje del relleno va en /05.",
+      "resolving_info": [
+        {
+          "contribution": "peso de la pieza",
+          "component": "peso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.item_weight"
+          ]
+        },
+        {
+          "contribution": "indicación cualitativa de ligereza",
+          "component": "peso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Ligera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/07",
+      "question": "¿Qué grosor tiene la pieza?",
+      "dimension": "grosor",
+      "entity": "producto",
+      "trait": "magnitud",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.item_thickness"
+      ],
+      "applicability": "universal",
+      "rationale": "Informa del volumen y del abrigo. Es otra necesidad que el peso (/06), por D-196.",
+      "resolving_info": [
+        {
+          "contribution": "grosor de la pieza",
+          "component": "grosor",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.item_thickness"
+          ]
+        },
+        {
+          "contribution": "descripción cualitativa del grosor",
+          "component": "grosor",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.item_thickness"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/08",
+      "question": "¿Qué tipo de acolchado o costura interna tiene (canal, cajas, cosido, diamante…)?",
+      "dimension": "acolchado",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:quilt-construction-type"
+      ],
+      "applicability": "universal",
+      "rationale": "Atributo propio de la categoría: la compartimentación del relleno influye en la distribución del calor y en la durabilidad.",
+      "resolving_info": [
+        {
+          "contribution": "tipo de costura interna o de compartimentación del relleno",
+          "component": "tipo de acolchado",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:quilt-construction-type"
+          ]
+        },
+        {
+          "contribution": "fotografía del acolchado",
+          "component": "tipo de acolchado",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/09",
+      "question": "¿Qué tipo de tejido o ligamento tiene la tela exterior (raso, jacquard, sarga, microfibra…)?",
+      "dimension": "tejido",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.weave_type",
+        "amazon-ptd-prop:BLANKET.compliance_weave_type",
+        "amazon-ptd-prop:BLANKET.compliance_fabric_type"
+      ],
+      "applicability": "universal",
+      "rationale": "El tejido exterior determina el tacto y el comportamiento al uso. La composición en fibras es cat.ropa-de-casa/01.",
+      "resolving_info": [
+        {
+          "contribution": "ligamento o tipo de tejido",
+          "component": "tipo de tejido",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.weave_type"
+          ]
+        },
+        {
+          "contribution": "técnica de formación del tejido",
+          "component": "tipo de tejido",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.compliance_weave_type"
+          ]
+        },
+        {
+          "contribution": "tipo de tela por su acabado o estructura",
+          "component": "tipo de tejido",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.compliance_fabric_type"
+          ]
+        },
+        {
+          "contribution": "nombre comercial del tejido",
+          "component": "tipo de tejido",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/10",
+      "question": "¿Qué tratamientos se han aplicado a los materiales (químico, térmico, fumigación)?",
+      "dimension": "tratamiento del material",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "shopify-attr:material-treatment"
+      ],
+      "applicability": "universal",
+      "rationale": "Atributo propio de la categoría: tratamientos de conservación o de seguridad de los materiales, sobre todo del relleno.",
+      "resolving_info": [
+        {
+          "contribution": "tratamiento aplicado al material",
+          "component": "tratamientos",
+          "origin": "referencias",
+          "support": [
+            "shopify-attr:material-treatment"
+          ]
+        },
+        {
+          "contribution": "finalidad del tratamiento",
+          "component": "tratamientos",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/11",
+      "question": "¿Es reversible?",
+      "dimension": "reversibilidad",
+      "entity": "producto",
+      "trait": "construccion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.special_feature=Reversible"
+      ],
+      "applicability": "universal",
+      "rationale": "Valor de special_feature que cambia el uso de la pieza: dos caras utilizables.",
+      "resolving_info": [
+        {
+          "contribution": "indicación de si es reversible",
+          "component": "reversible",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Reversible"
+          ]
+        },
+        {
+          "contribution": "descripción de cada cara",
+          "component": "reversible",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/12",
+      "question": "¿Qué tacto y confort ofrece (suave, esponjoso, transpirable)?",
+      "dimension": "tacto y confort",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.special_feature=Agradable para la piel",
+        "amazon-ptd-prop:BLANKET.special_feature=Esponjosa",
+        "amazon-ptd-prop:BLANKET.special_feature=Transpirable"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa los valores de special_feature sobre tacto y confort.",
+      "resolving_info": [
+        {
+          "contribution": "declaración de tacto suave o agradable para la piel",
+          "component": "tacto",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Agradable para la piel"
+          ]
+        },
+        {
+          "contribution": "esponjosidad o volumen",
+          "component": "confort",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Esponjosa"
+          ]
+        },
+        {
+          "contribution": "transpirabilidad",
+          "component": "confort",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Transpirable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/13",
+      "question": "¿Qué resistencia al uso y al lavado tiene (pelusa, electricidad estática, decoloración, arrugas, manchas, desgarro…)?",
+      "dimension": "durabilidad",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.special_feature=Duradera",
+        "amazon-ptd-prop:BLANKET.special_feature=Sin pelusa",
+        "amazon-ptd-prop:BLANKET.special_feature=Antiestático",
+        "amazon-ptd-prop:BLANKET.special_feature=Resistente a la decoloración",
+        "amazon-ptd-prop:BLANKET.special_feature=Resistente a las arrugas",
+        "amazon-ptd-prop:BLANKET.special_feature=Resistente a las manchas",
+        "amazon-ptd-prop:BLANKET.special_feature=Resistente a los olores",
+        "amazon-ptd-prop:BLANKET.special_feature=Resistente al cabello",
+        "amazon-ptd-prop:BLANKET.special_feature=Resistente al desgarro",
+        "amazon-ptd-prop:BLANKET.special_feature=Secado rápido"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa los valores de special_feature sobre durabilidad y mantenimiento.",
+      "resolving_info": [
+        {
+          "contribution": "durabilidad general declarada",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Duradera"
+          ]
+        },
+        {
+          "contribution": "resistencia a la pelusa y a la electricidad estática",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Sin pelusa",
+            "amazon-ptd-prop:BLANKET.special_feature=Antiestático"
+          ]
+        },
+        {
+          "contribution": "solidez del color al lavado",
+          "component": "resistencia al lavado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Resistente a la decoloración"
+          ]
+        },
+        {
+          "contribution": "resistencia a las arrugas y rapidez de secado",
+          "component": "resistencia al lavado",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Resistente a las arrugas",
+            "amazon-ptd-prop:BLANKET.special_feature=Secado rápido"
+          ]
+        },
+        {
+          "contribution": "resistencia a manchas, olores y pelo",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Resistente a las manchas",
+            "amazon-ptd-prop:BLANKET.special_feature=Resistente a los olores",
+            "amazon-ptd-prop:BLANKET.special_feature=Resistente al cabello"
+          ]
+        },
+        {
+          "contribution": "resistencia al desgarro",
+          "component": "resistencia al uso",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Resistente al desgarro"
+          ]
+        },
+        {
+          "contribution": "conservación del volumen del relleno tras el lavado",
+          "component": "resistencia al lavado",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/14",
+      "question": "¿Qué propiedades higiénicas declara (hipoalergénico, antibacteriano, antimicrobiano)?",
+      "dimension": "higiene",
+      "entity": "producto",
+      "trait": "prestacion",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.special_feature=Hipoalergénica",
+        "amazon-ptd-prop:BLANKET.special_feature=Antibacteriana",
+        "amazon-ptd-prop:BLANKET.special_feature=Antimicrobiana"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa los valores de special_feature sobre higiene. La seguridad (no tóxico, llamas) toma otro rasgo y va en /15.",
+      "resolving_info": [
+        {
+          "contribution": "declaración de hipoalergenicidad",
+          "component": "propiedades higiénicas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Hipoalergénica"
+          ]
+        },
+        {
+          "contribution": "declaración de tratamiento antibacteriano o antimicrobiano",
+          "component": "propiedades higiénicas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Antibacteriana",
+            "amazon-ptd-prop:BLANKET.special_feature=Antimicrobiana"
+          ]
+        },
+        {
+          "contribution": "certificado o informe de ensayo que respalde la propiedad higiénica",
+          "component": "propiedades higiénicas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/15",
+      "question": "¿Qué propiedades de seguridad declara (no tóxico, resistente a las llamas)?",
+      "dimension": "seguridad",
+      "entity": "producto",
+      "trait": "seguridad",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.special_feature=No tóxico",
+        "amazon-ptd-prop:BLANKET.special_feature=Resistente a las llamas"
+      ],
+      "applicability": "universal",
+      "rationale": "Agrupa los valores de special_feature sobre seguridad. Las certificaciones de ausencia de sustancias nocivas las pregunta cat.ropa-de-casa/03.",
+      "resolving_info": [
+        {
+          "contribution": "declaración de ausencia de sustancias tóxicas",
+          "component": "no tóxico",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=No tóxico"
+          ]
+        },
+        {
+          "contribution": "declaración de resistencia a las llamas",
+          "component": "resistente a las llamas",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.special_feature=Resistente a las llamas"
+          ]
+        },
+        {
+          "contribution": "norma o ensayo de inflamabilidad superado",
+          "component": "resistente a las llamas",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    },
+    {
+      "id": "cat.colchas-y-edredones/16",
+      "question": "¿Para qué edad o tipo de usuario está pensado (bebé, infantil, juvenil, adulto)?",
+      "dimension": "edad",
+      "entity": "producto",
+      "trait": "uso",
+      "vote": "complementario",
+      "origin": "referencias",
+      "sources": [
+        "amazon-ptd-prop:BLANKET.age_range_description"
+      ],
+      "applicability": "universal",
+      "rationale": "Los edredones de bebé tienen medidas y exigencias propias; en el resto de ofertas la edad no suele ser criterio.",
+      "resolving_info": [
+        {
+          "contribution": "rango de edad al que se destina",
+          "component": "edad",
+          "origin": "referencias",
+          "support": [
+            "amazon-ptd-prop:BLANKET.age_range_description"
+          ]
+        },
+        {
+          "contribution": "edad mínima recomendada o advertencia de uso en bebés",
+          "component": "edad",
+          "origin": "inferida",
+          "support": []
+        }
+      ]
+    }
+  ],
+  "proposed_traits": [],
+  "excluded": [
+    {
+      "source": "amazon-ptd-prop:BLANKET.fabric_type",
+      "reason": "Composición en fibras: la cubre cat.ropa-de-casa/01, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_size_type",
+      "reason": "Tamaño de cama: lo cubre cat.ropa-de-cama/01, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.item_length_width",
+      "reason": "Medidas de la pieza: las cubre cat.ropa-de-cama/02, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.fit_type",
+      "reason": "Tipo de corte: propiedad de prendas, sin valores; no aplica a la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.voltage",
+      "reason": "Solo aplica a mantas eléctricas, fuera de la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.compliance_operation_mode",
+      "reason": "Fuente de energía a efectos de cumplimiento: solo aplica a mantas eléctricas."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Alimentado por batería",
+      "reason": "Solo aplica a mantas eléctricas."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Eléctrico con cable",
+      "reason": "Solo aplica a mantas eléctricas."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.item_form",
+      "reason": "Forma del artículo: texto libre sin valores; el tipo de pieza lo cubre /03."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.included_components",
+      "reason": "Qué incluye la oferta: lo cubren gen/21 y esp.juego (criterio 3)."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.recommended_uses_for_product",
+      "reason": "Usos de exterior (playa, acampada): propios de mantas de viaje, no de la ropa de cama."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.thread",
+      "reason": "Número de hilos: no es criterio habitual en edredones y colchas; el tejido exterior lo cubre /09."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.compliance_fabric_weight",
+      "reason": "Gramaje del tejido: lo cubre cat.ropa-de-casa/05, en la cadena."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.compliance_printing_method",
+      "reason": "Método de estampación a efectos aduaneros; el estampado lo cubre cat.casa-y-jardin/02."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.compliance_warp_or_filling_coloring",
+      "reason": "Colores de la urdimbre o la trama a efectos aduaneros; el diseño lo cubre cat.casa-y-jardin/02."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=A prueba de arena",
+      "reason": "Uso de exterior: propio de mantas de viaje o de pícnic."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=A prueba de viento",
+      "reason": "Uso de exterior: propio de mantas de viaje o de pícnic."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Impermeable",
+      "reason": "Uso de exterior: propio de mantas de viaje o de pícnic."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Protección solar",
+      "reason": "Uso de exterior: propio de mantas de viaje o de pícnic."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Absorbente",
+      "reason": "Propio de mantas de playa; no informa sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Antideslizante",
+      "reason": "Propio de mantas de playa o alfombrillas; no informa sobre la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Brilla en la oscuridad",
+      "reason": "Efecto decorativo: valor del diseño (cat.casa-y-jardin/02)."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Sublimación",
+      "reason": "Técnica de estampado: valor del diseño (cat.casa-y-jardin/02)."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Elástico",
+      "reason": "No aplica a edredones y colchas en general."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Bolsa para los pies",
+      "reason": "Propio de mantas ponibles; no aplica a la clase."
+    },
+    {
+      "source": "amazon-ptd-prop:BLANKET.special_feature=Sin costuras",
+      "reason": "Una pieza acolchada tiene costuras por definición; el acolchado lo cubre /08."
+    }
+  ],
+  "status": "no compilado",
+  "version": "0",
+  "generated": "2026-10-30"
+}

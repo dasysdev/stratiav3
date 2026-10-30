@@ -31,7 +31,7 @@ Todo desde `demand-engine/`.
    No le pases resultados esperados ni conclusiones tuyas.
 
    Si el agente registró un bloque nuevo con pistas (`hints` en `catalog/runtime/`), lanza un agente revisor (`Agent`, `general-purpose`) con `classifier/hint-review.md` y esas pistas (D-211). Si rechaza alguna, continúa el clasificador (`SendMessage`) con sus motivos: reescribe la pista y registra de nuevo con `--replace`.
-4. **Ensamblar:** `bin/model assemble var/runs/live/ID.json`. Escribe `ID.model.json` e `ID.model.md` y deja en `var/queue.jsonl` lo usado sin compilar. Después, `bin/model scope var/runs/live/ID.model.json` compone el modelo con la ficha de cada ámbito (D-155) y escribe `ID.web.json` e `ID.web-schema-org.json`, con sus unidades RI × ámbito y su localización.
+4. **Ensamblar:** `bin/model assemble var/runs/live/ID.json`. Escribe `ID.model.json` e `ID.model.md` y deja en `var/queue.jsonl` lo usado sin compilar. Después, `bin/model scope var/runs/live/ID.model.json` compone el modelo con la ficha de cada ámbito (D-155) y escribe `ID.web.json` e `ID.web-schema-org.json`, con sus unidades RI × ámbito y el perfil del RI de cada una (D-177). Un requisito sin información resolutiva o sin descripción queda en `pendientes_de_definicion`: no lo completes.
 5. **Informar** al usuario, de forma breve:
    - el nombre y la clave del modelo;
    - el número de requisitos por importancia;

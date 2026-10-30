@@ -1,0 +1,31 @@
+{
+  "class": "Colchas y edredones + Fundas de almohada decorativas (Juegos de cama) · juego",
+  "model": "demand-engine/var/runs/live/audit-bb-edredon-6172.model.md",
+  "key": [
+    "gen",
+    "cat.casa-y-jardin",
+    "cat.ropa-de-casa",
+    "cat.ropa-de-cama",
+    "cat.colchas-y-edredones",
+    "cat.fundas-de-almohada-y-cojines",
+    "cat.fundas-de-almohada-decorativas",
+    "esp.juego"
+  ],
+  "rule": "Regla vigente (README del motor PAA, estrategia de semillas; D-224), con «paa seeds»: núcleo (la categoría de cada clase en la clave, sin las de sector, y cada especialización de la clave) + valores del rasgo que más condiciona las prestaciones, de las referencias de taxo. Valores: tejido (Shopify fabric; regla calibrada, clase textil: cat.ropa-de-casa/01 cita ley:UE-1007/2011 (README, regla 2)).",
+  "trait": {
+    "attribute": "fabric",
+    "name": "Tejido",
+    "chosen": "regla calibrada, clase textil: cat.ropa-de-casa/01 cita ley:UE-1007/2011 (README, regla 2)"
+  },
+  "generated": "2026-10-30",
+  "clicks": 8,
+  "seeds": [
+    {"q": "edredones", "group": "núcleo", "from": "cat.colchas-y-edredones"},
+    {"q": "fundas de cojín", "group": "núcleo", "from": "cat.fundas-de-almohada-decorativas"},
+    {"q": "juego de edredón", "group": "núcleo", "from": "esp.juego"},
+    {"q": "edredones de algodón", "group": "tejido", "from": "shopify-attr:fabric=Algodón"},
+    {"q": "edredones de poliéster", "group": "tejido", "from": "shopify-attr:fabric=Poliéster"},
+    {"q": "edredones de terciopelo", "group": "tejido", "from": "shopify-attr:fabric=Terciopelo"},
+    {"q": "edredones de franela", "group": "tejido", "from": "shopify-attr:fabric=Franela"}
+  ]
+}

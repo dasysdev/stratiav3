@@ -1,0 +1,19 @@
+{
+  "id": "content",
+  "scope": "Contenido",
+  "version": "0.2",
+  "decisions": [
+    "D-152",
+    "D-155",
+    "D-220"
+  ],
+  "note": "Ficha del ámbito Contenido (D-155, D-220): el título y el contenido textual del documento, tal como los da el filtro Alfa, sin el marcado. Sustituye a la ficha web@0.1 (ámbito Web), que incluía la localización de Web Schema.org.",
+  "pertinence": {
+    "default": "pertinente",
+    "exceptions": [],
+    "note": "Sin excepciones (D-155; en su cita, «Web» es el ámbito Contenido, D-220)."
+  },
+  "localization": {
+    "note": "Sin localización: Contenido no usa el marcado y no incluye la localización de Marcado (D-220). El texto del documento no tiene vocabulario que relacionar."
+  }
+}

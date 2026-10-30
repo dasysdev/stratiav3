@@ -7,7 +7,7 @@
     "D-148",
     "D-155"
   ],
-  "note": "Apoyo de demanda (origen «referencias», sin ámbito) de las propiedades que los consumidores de Google Search del perfil de Web Schema.org recomiendan sin exigir (D-145, D-155), como los PTD de Amazon (D-052). Las de la capa general están en las fuentes y el respaldo de su requisito en gen.json; las de los atributos de categoría, aquí, por equivalencia con los atributos de Shopify (apoyan todo requisito que cite uno de esos atributos); las que no cubre ningún requisito ni aportación, como candidatos. Su papel de localizador es de la ficha de Web Schema.org (catalog/scopes/web-schema-org.json).",
+  "note": "Apoyo de demanda (origen «referencias», sin ámbito) de las propiedades que los consumidores de Google Search del perfil de Marcado recomiendan sin exigir (D-145, D-155), como los PTD de Amazon (D-052). Las de la capa general están en las fuentes y el respaldo de su requisito en gen.json; las de los atributos de categoría, aquí, por equivalencia con los atributos de Shopify (apoyan todo requisito que cite uno de esos atributos); las que no cubre ningún requisito ni aportación, como candidatos. Su papel de localizador es de la ficha de Marcado (catalog/scopes/markup.json).",
   "retired": {
     "note": "Contrato con web-audit (T-055): los requisitos que la referencia técnica retiró con motivo «modelo de demanda» (web-audit/reference/retired.json), con la propiedad que nombran. Cada propiedad ha de estar en el respaldo de la capa general, en «attributes» o en «candidates» (bin/model check --catalog).",
     "requirements": [

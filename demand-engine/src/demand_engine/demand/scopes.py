@@ -5,11 +5,12 @@ scope. Each scope has a versioned sheet (catalog/scopes/<scope>.json) with two p
 
 - pertinence: every requirement of the model is pertinent in the scope, except the NA that rules grounded in the
   function of the scope give, by entity or component, never requirement by requirement. The lack of a property or a
-  field in the vocabulary of the scope is not a reason. Web has no exceptions.
+  field in the vocabulary of the scope is not a reason. Contenido (content) has no exceptions.
 - localization: the vocabulary of the scope related to the contributions of the resolving information, which reaches
   the auditor as illustrative expressions of the RI profile: it guides the search; it neither closes it nor decides
-  pertinence. In Web Schema.org it is derived from the Google Search support of the catalog (general layer and
+  pertinence. In Marcado (markup) it is derived from the Google Search support of the catalog (general layer and
   attributes) plus the sheet's own entries (the properties that are not support, such as the required ones).
+  Contenido has none: it does not use the markup, and a sheet never includes the localization of another (D-220).
 
 The audit composes model × sheet into RI × scope units and records the version of the sheet (compose). Each unit carries
 the fields of the RI profile that come from the model (D-177): the components and their contributions from the resolving
@@ -17,7 +18,7 @@ information, the description for «objeto», «alcance» and «casos_frontera»,
 localization as illustrative expressions (D-155). The auditor does not fill them in; what the model lacks is pointed out
 in «pendientes_de_definicion».
 
-The properties that the consumers of the Web Schema.org profile recommend without requiring are demand support with
+The properties that the consumers of the Marcado profile recommend without requiring are demand support with
 origin «referencias» and no scope, like the Amazon PTD (D-052): those of the general layer in the sources and support of
 their requirement in gen.json; those of category attributes in catalog/google-search.json, by equivalence with the
 Shopify attributes a requirement cites; the ones no requirement or contribution covers, as candidates there.
@@ -132,12 +133,8 @@ def profile(r: dict, where: list) -> dict:
 
 def compose(model: dict, sheet: dict, gen: dict, google: dict) -> dict:
     """The RI × scope units of a model in the scope of the sheet, with the version of the sheet (D-155)."""
-    included = [load_sheet(s) for s in sheet.get("localization", {}).get("include", [])]
-    found = {}
-    for s in [sheet] + included:
-        for rid, items in localization(s, gen).items():
-            found.setdefault(rid, []).extend(items)
-    by_attribute = any("google-search.json" in s.get("localization", {}).get("from", []) for s in [sheet] + included)
+    found = localization(sheet, gen)
+    by_attribute = "google-search.json" in sheet.get("localization", {}).get("from", [])
     rules = sheet.get("pertinence", {}).get("exceptions", [])
     units = []
     for r, block in requirements_of(model):
@@ -237,7 +234,7 @@ def google_problems(google: dict, gen: dict, shopify: dict, retired=None) -> lis
 
 def sheet_problems(sheet: dict, gen: dict) -> list:
     """What is wrong in a scope sheet: identity, NA rules with entity or component and reason, the sources of the
-    localization and the requirements and contributions its own entries name."""
+    localization, no included sheet (D-220) and the requirements and contributions its own entries name."""
     problems, name = [], sheet.get("id", "?")
     for key in ("id", "scope", "version"):
         if not sheet.get(key):
@@ -247,7 +244,8 @@ def sheet_problems(sheet: dict, gen: dict) -> list:
             problems.append(f"{name}: excepción sin entidad ni componente, o sin fundamento: {rule}")
     loc = sheet.get("localization", {})
     problems += [f"{name}: localización desde «{f}» desconocida" for f in loc.get("from", []) if f not in ("gen.json", "google-search.json")]
-    problems += [f"{name}: incluye la ficha «{s}», que no existe" for s in loc.get("include", []) if s not in scope_names()]
+    if "include" in loc:
+        problems.append(f"{name}: la localización incluye otra ficha; un ámbito no usa la de otro (D-220)")
     known = contributions(gen)
     for e in loc.get("properties", []):
         if e.get("requirement") not in known:

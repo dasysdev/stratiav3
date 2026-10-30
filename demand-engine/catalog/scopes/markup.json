@@ -1,14 +1,15 @@
 {
-  "id": "web-schema-org",
-  "scope": "Web Schema.org",
-  "version": "0.1",
+  "id": "markup",
+  "scope": "Marcado",
+  "version": "0.2",
   "decisions": [
     "D-145",
     "D-147",
     "D-152",
-    "D-155"
+    "D-155",
+    "D-220"
   ],
-  "note": "Ficha del ámbito Web Schema.org (D-155): se compone con el modelo de demanda, que es uno, para obtener las unidades RI × ámbito. La pertinencia es por excepción; la localización orienta al auditor, no cierra la búsqueda ni decide la pertinencia.",
+  "note": "Ficha del ámbito Marcado (D-155, D-220): el marcado Schema.org (JSON-LD, microdatos y RDFa) del documento, aislado del contenido. Se compone con el modelo de demanda, que es uno, para obtener las unidades RI × ámbito. La pertinencia es por excepción; la localización orienta al auditor, no cierra la búsqueda ni decide la pertinencia. Sustituye a la ficha web-schema-org@0.1 (ámbito Web Schema.org) con el mismo contenido: D-220 solo cambia el nombre.",
   "pertinence": {
     "default": "pertinente",
     "exceptions": [],

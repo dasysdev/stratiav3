@@ -1,4 +1,6 @@
-"""One demand model and one sheet per scope (D-155); the recommended properties of Google Search as support (D-145)."""
+"""One demand model and one sheet per scope (D-155, D-220); the recommended properties of Google Search as support (D-145)."""
+import json
+
 from demand_engine.demand import scopes
 from demand_engine.demand.scopes import (NO_DESCRIPTION, NO_RESOLVING, attribute_support, components, compose, exception,
                                          google_problems, handles, localization, profile, sheet_problems)
@@ -19,7 +21,7 @@ GEN = {"blocks": [{"id": "gen", "requirements": [
      "resolving_info": [{"contribution": "marca del producto", "component": "marca", "support": [BRAND]}]},
     {"id": "gen/10", "question": "¿Qué medios de pago se aceptan?", "entity": "oferta", "sources": [],
      "resolving_info": [{"contribution": "medios de pago aceptados", "component": "medios de pago", "support": []}]}]}]}
-SHEET = {"id": "web-schema-org", "scope": "Web Schema.org", "version": "0.1",
+SHEET = {"id": "markup", "scope": "Marcado", "version": "0.2",
          "pertinence": {"default": "pertinente", "exceptions": []},
          "localization": {"from": ["gen.json", "google-search.json"],
                           "properties": [{"source": NAME, "requirement": "gen/02", "contribution": "marca del producto"}]}}
@@ -45,10 +47,9 @@ def test_a_category_requirement_is_supported_through_the_shopify_attributes_it_c
     assert attribute_support(["shopify-attr:material-firmness", "amazon-ptd-prop:BOOT.color"], GOOGLE) == []
 
 
-def test_every_requirement_is_pertinent_and_the_localization_comes_from_the_catalog_and_the_sheet(monkeypatch):
-    monkeypatch.setattr(scopes, "load_sheet", lambda scope: SHEET)
+def test_every_requirement_is_pertinent_and_the_localization_comes_from_the_catalog_and_the_sheet():
     composed = compose(MODEL, SHEET, GEN, GOOGLE)
-    assert composed["sheet"] == "web-schema-org@0.1" and composed["scope"] == "Web Schema.org"
+    assert composed["sheet"] == "markup@0.2" and composed["scope"] == "Marcado"
     units = {u["id"]: u for u in composed["units"]}
     assert set(units) == {"gen/02", "gen/10", "cat.botas/01", "cat.botas/02", "cat.botas/03"}   # what does not apply is out
     assert all(u["pertinent"] for u in units.values())
@@ -58,12 +59,30 @@ def test_every_requirement_is_pertinent_and_the_localization_comes_from_the_cata
     assert loc(units["gen/10"]) == loc(units["cat.botas/03"]) == []   # no property is not a reason for NA
 
 
-def test_an_including_sheet_takes_the_localization_of_the_included_one(monkeypatch):
-    monkeypatch.setattr(scopes, "load_sheet", lambda scope: SHEET)
-    web = {"id": "web", "scope": "Web", "version": "0.1", "pertinence": {"exceptions": []},
-           "localization": {"include": ["web-schema-org"]}}
-    units = {u["id"]: u for u in compose(MODEL, web, GEN, GOOGLE)["units"]}
-    assert loc(units["gen/02"]) and loc(units["cat.botas/01"]) == [{"source": COLOR, "contribution": None}]
+def test_the_content_sheet_does_not_take_the_localization_of_markup():
+    content = {"id": "content", "scope": "Contenido", "version": "0.2", "pertinence": {"exceptions": []},
+               "localization": {"note": "Sin localización (D-220)."}}
+    composed = compose(MODEL, content, GEN, GOOGLE)
+    assert composed["sheet"] == "content@0.2" and composed["scope"] == "Contenido"
+    assert all(u["pertinent"] and loc(u) == [] for u in composed["units"])
+    including = {**content, "localization": {"include": ["markup"]}}   # a sheet never takes another's (D-220)
+    assert all(loc(u) == [] for u in compose(MODEL, including, GEN, GOOGLE)["units"])
+    assert sheet_problems(including, GEN) == ["content: la localización incluye otra ficha; un ámbito no usa la de otro (D-220)"]
+
+
+def test_the_catalog_has_the_sheets_of_content_and_markup_and_scope_writes_one_file_each(tmp_path, monkeypatch):
+    assert scopes.scope_names() == ["content", "markup"]
+    content, markup = scopes.load_sheet("content"), scopes.load_sheet("markup")
+    assert (content["scope"], markup["scope"]) == ("Contenido", "Marcado")
+    assert set(content["localization"]) == {"note"} and markup["localization"]["properties"]
+    monkeypatch.setattr("demand_engine.demand.catalog.load_gen", lambda: GEN)
+    monkeypatch.setattr(scopes, "load_google", lambda: GOOGLE)
+    path = tmp_path / "bota.model.json"
+    path.write_text(json.dumps(MODEL), encoding="utf-8")
+    scopes.cmd_scope(path, [])
+    assert sorted(p.name for p in tmp_path.iterdir()) == [
+        "bota.content.json", "bota.content.md", "bota.markup.json", "bota.markup.md", "bota.model.json"]
+    assert json.loads((tmp_path / "bota.content.json").read_text(encoding="utf-8"))["sheet"] == "content@0.2"
 
 
 def test_an_exception_is_a_rule_by_entity_or_by_component_with_its_reason():
@@ -130,10 +149,10 @@ def test_a_sheet_names_existing_contributions_and_grounds_its_exceptions():
            "localization": {"from": ["otro.json"], "properties": [{"source": NAME, "requirement": "gen/02", "contribution": "nombre"},
                                                         {"source": NAME, "requirement": "cat.botas/01", "contribution": "color"}]}}
     assert sheet_problems(bad, GEN) == [
-        "web-schema-org: excepción sin entidad ni componente, o sin fundamento: {'entity': 'vendedor'}",
-        "web-schema-org: localización desde «otro.json» desconocida",
-        f"web-schema-org: {NAME} → aportación «nombre» que gen/02 no tiene",
-        f"web-schema-org: {NAME} → requisito «cat.botas/01» fuera de la capa general"]
+        "markup: excepción sin entidad ni componente, o sin fundamento: {'entity': 'vendedor'}",
+        "markup: localización desde «otro.json» desconocida",
+        f"markup: {NAME} → aportación «nombre» que gen/02 no tiene",
+        f"markup: {NAME} → requisito «cat.botas/01» fuera de la capa general"]
 
 
 def test_the_catalog_is_clean():

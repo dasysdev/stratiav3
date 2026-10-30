@@ -27,7 +27,7 @@ Usage:
                                       without a registry and without a version apart;
                                       a citation of a law (ley:) must name an article and apartado of its version
   model scope MODEL.json [SCOPE ...]  compose an assembled model with the sheet of each scope (D-155; all by
-                                      default: web, web-schema-org): RI × scope units, NA by the rules of the
+                                      default: content, markup; D-220): RI × scope units, NA by the rules of the
                                       sheet and localization; writes <case>.<scope>.json and .md next to it
 
 The classifier decides the composition, specializations (from rulebook v4, a block of the catalog by
@@ -612,7 +612,7 @@ def render(model: dict) -> str:
     support += [(r["id"], r["references"]) for b in model["blocks"] for r in b["requirements"] if r.get("references")]
     if support:
         lines += ["", "## Apoyo de Google Search", "",
-                  "Propiedades que los consumidores del perfil de Web Schema.org recomiendan sin exigir: apoyo de demanda con "
+                  "Propiedades que los consumidores del perfil de Marcado recomiendan sin exigir: apoyo de demanda con "
                   "origen «referencias», sin ámbito (D-145, D-155). La importancia no sale de aquí.", ""]
         lines += [f"- {rid}: " + ", ".join(f"`{c.removeprefix('google-search-')}`" for c in cites) for rid, cites in support]
     if model.get("doubts"):

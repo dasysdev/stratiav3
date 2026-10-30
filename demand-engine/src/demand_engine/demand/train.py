@@ -557,7 +557,7 @@ RULEBOOK = ROOT / "classifier" / "rulebook.md"
 
 
 def current_versions() -> tuple:
-    """(rulebook, rules) in force: the version in the heading of the classifier's rulebook («… · v4») and that of
+    """(rulebook, rules) in force: the version in the heading of the classifier's rulebook («… · v5») and that of
     the published rules."""
     first = RULEBOOK.read_text(encoding="utf-8").splitlines()[0]
     return first.rsplit("·", 1)[-1].strip(), load_rules().get("version", "0")

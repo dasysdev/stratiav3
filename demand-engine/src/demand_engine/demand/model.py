@@ -15,7 +15,7 @@ Usage:
   model check OUTPUT.json             assemble in memory and report what is missing (for the classifier)
   model check --catalog               check every block of the catalog and the general layer: ids, traits,
                                       origins and sources, and the resolving information of each requirement
-  model assemble OUTPUT.json          build the demand model from a classifier output (rulebook v2 to v4):
+  model assemble OUTPUT.json          build the demand model from a classifier output (rulebook v2 to v5):
                                       writes <case>.model.json and <case>.model.md next to it and
                                       appends what was used without compiling to the queue
   model show MODEL.json               print the readable version of an assembled model

@@ -217,6 +217,16 @@ def test_prepare_shows_the_current_hints_and_marks(seedset):
     assert "  - PV-3 (fuente; P09; Precisión): La composición usa el nombre legal de cada fibra." in md
 
 
+def test_a_drafted_hint_of_a_runtime_block_has_no_number(monkeypatch):
+    draft = {"pista": "El abrigo se declara con su escala.", "propiedad": ["P09"], "ac": ["Precisión"],
+             "origen": {"tipo": "inferida"}}   # numbered when the block is compiled (D-201)
+    req = {"id": "cat.colchas/01", "question": "¿Qué abrigo da?", "hints": [draft]}
+    monkeypatch.setattr(classify.catalog_hints, "requirements", lambda: [req])
+    monkeypatch.setattr(classify.catalog_hints, "load_hints", lambda: {"hints": []})
+    monkeypatch.setattr(classify.catalog_hints, "find", lambda r, pool: [("propia", h) for h in r["hints"]])
+    assert classify.current()["cat.colchas/01"]["hints"][0]["id"] is None
+
+
 def test_taking_a_value_out_needs_no_questions_and_mirrors_must_exist(seedset):
     classify.prepare(seedset)
     out = good_output()

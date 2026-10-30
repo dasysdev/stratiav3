@@ -81,7 +81,8 @@ def current() -> dict:
     found = {}
     pool = catalog_hints.load_hints().get("hints", [])
     for r in catalog_hints.requirements():
-        hints = [{"id": h["id"], "key": key, "pista": h["pista"], "propiedad": h["propiedad"], "ac": h["ac"]}
+        # the drafted hints of a runtime block have no number until it is compiled (D-201)
+        hints = [{"id": h.get("id"), "key": key, "pista": h["pista"], "propiedad": h["propiedad"], "ac": h["ac"]}
                  for key, h in catalog_hints.find(r, pool)]
         if hints or r.get("comparison"):
             found[r["id"]] = {"hints": hints, "comparison": r.get("comparison")}
@@ -186,7 +187,7 @@ def render_input(spec: dict, vocabulary: dict) -> str:
         if not hints and not mark:
             continue
         lines.append(f"- **{r['id']}** · {mark_label(mark)}")
-        lines += [f"  - {h['id']} ({h['key']}; {'/'.join(h['propiedad'])}; {', '.join(h['ac'])}): {cell(h['pista'])}"
+        lines += [f"  - {h['id'] or 'sin número'} ({h['key']}; {'/'.join(h['propiedad'])}; {', '.join(h['ac'])}): {cell(h['pista'])}"
                   for h in hints]
     lines += ["", "## Rasgos", ""]
     lines += [f"- `{k}`: {cell(v.get('definition'))}" for k, v in sorted(vocabulary.items())]

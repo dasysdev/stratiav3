@@ -3,9 +3,9 @@ id: issues
 title: Registro de incidencias e incoherencias documentales
 layer: governance
 status: vigente
-version: 1.0
-updated: 2026-10-29
-sources: [INTAKE 2026-10-29-issues-review]
+version: 1.1
+updated: 2026-10-30
+sources: [INTAKE 2026-10-29-issues-review, INTAKE 2026-10-30-pilot-base-sanitation]
 ---
 
 # Registro de incidencias e incoherencias documentales
@@ -65,6 +65,7 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 | [I-49](#i-49) | Cobertura de la tasa técnica: ¿los NA cuentan en los pertinentes? | Media | resuelta → D-169 |
 | [I-50](#i-50) | El clasificador PAA propone «reformular» requisitos de referencias, una acción que D-115 no lista | Media | resuelta → [D-213](decisions.md#d-213) |
 | [I-51](#i-51) | El marco de taxonomía describe una capa de clases internas que D-033 no usa | Baja | resuelta → [D-214](decisions.md#d-214) |
+| [I-52](#i-52) | Las pistas provisionales de la fase PAA no tienen `PV-n` y la auditoría cita las pistas por su `PV-n` | Media | abierta |
 
 ---
 
@@ -680,3 +681,12 @@ Divergencias detectadas entre fuentes o dentro de una misma fuente. **No se resu
 - **Afecta a:** [product-taxonomy](../20-methods/product-taxonomy/README.md), [data-model-governance](../20-methods/product-taxonomy/data-model-governance.md).
 - **Propuesta:** marcar esa capa como superada por D-033 en los dos módulos y retirar de ellos lo que ya no rige, con una decisión nueva.
 - **Resolución (2026-10-29):** decisión del usuario, la propuesta: la capa queda marcada como superada en los módulos de taxonomía. → [D-214](decisions.md#d-214).
+
+### I-52
+
+**Las pistas provisionales de la fase PAA no tienen `PV-n` y la auditoría cita las pistas por su `PV-n`.**
+
+- La fase PAA de la ejecución ([D-224](decisions.md#d-224)) añade al modelo pistas de valoración sin número: se numeran al compilar ([D-201](decisions.md#d-201)).
+- El método de la auditoría informativa pide citar las pistas usadas por su `PV-n` ([gsc-decision](../20-methods/audit-gsc/gsc-decision.md), GSC-12; [D-138](decisions.md#d-138)), y el esquema de info-audit lo exige en `pistas_usadas`. Una pista provisional no se puede citar. Detectado en T-105 (`INTAKE 2026-10-30-pilot-base-sanitation`).
+- **Afecta a:** [gsc-decision](../20-methods/audit-gsc/gsc-decision.md), [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) (regla 10), el esquema de valoración de info-audit (fase 2 del piloto, T-099).
+- **Propuesta:** citar una pista provisional por el requisito y su posición en la lista de pistas, o por su texto, hasta que se compile.

@@ -3,9 +3,9 @@ id: reading-filters
 title: Filtros de lectura y alcance de lectura
 layer: model
 status: vigente
-version: 1.0
+version: 1.1
 updated: 2026-10-30
-sources: [INTAKE 2026-10-30-content-and-markup-scopes]
+sources: [INTAKE 2026-10-30-content-and-markup-scopes, INTAKE 2026-10-30-pilot-base-sanitation]
 ---
 
 # Filtros de lectura y alcance de lectura
@@ -85,7 +85,7 @@ Donde la evidencia es baja (`<noscript>`, `<option>`, `<svg>`), la regla la deci
 
 Ficha del edredón de Burrito Blanco (T-101). La composición, las medidas, el envío y las devoluciones están en paneles `<aside role="dialog" aria-hidden="true" inert>`.
 - **Contenido:** disponibilidad 1. Alfa los incluye, con la anotación `oculto`.
-- **Alcance:** por la construcción, los reciben los 4 lectores del panel 2026-10. Por la posición, la composición empieza en el carácter 10.035: con la primera lectura del corte de Gemini Flash (unos 12.800 caracteres de texto) la recibe; con la segunda (el tamaño de su HTML depurado), no ([OQ-88](../30-governance/open-questions.md#d-auditoría-informativa-localización-evidencias-gsc)).
+- **Alcance:** por la construcción, los reciben los 4 lectores del panel 2026-10. Por la posición, con la implementación alfa/1 sobre la ficha audit-es del piloto (`audit-bb-edredon-6172`; texto de 14.208 caracteres), la composición empieza en el carácter 9.638 (INTAKE 2026-10-30-pilot-base-sanitation): con la primera lectura del corte de Gemini Flash (unos 12.800 caracteres de texto) la recibe; con la segunda (el tamaño de su HTML depurado), no ([OQ-88](../30-governance/open-questions.md#d-auditoría-informativa-localización-evidencias-gsc)).
 
 Caso hipotético: si la política de devoluciones solo estuviera en una pestaña con `hidden`, la disponibilidad seguiría siendo 1. El hallazgo de alcance diría que Claude.ai no la recibe.
 

@@ -3,9 +3,9 @@ id: audit-gsc-gsc-decision
 title: Decisión de GSC, incidencias y control de materialidad
 layer: method
 status: propuesta
-version: 0.7
+version: 0.8
 updated: 2026-10-30
-sources: [GSC0 §12, GSC0 §14.4, FUND §8.1, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-30-content-and-markup-scopes]
+sources: [GSC0 §12, GSC0 §14.4, FUND §8.1, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-30-content-and-markup-scopes, INTAKE 2026-10-30-pilot-base-sanitation]
 ---
 
 # Decisión de GSC, incidencias y control de materialidad
@@ -36,7 +36,7 @@ La escala GSC 0/1/2 y los estados NA/NE son canon ([sistemas de valoración](../
 
 **GSC-11 · Revisión de nueva evidencia.** Si un hallazgo o candidato altera materialmente un juicio, reabrir la comprobación afectada y documentar el cambio.
 
-**GSC-12 · Decisión completa.** Todo GSC debe quedar acompañado de: criterio y condición, valor, hechos comprobados, propiedades relacionadas, pistas de valoración usadas (`PV-n`, [D-138](../../30-governance/decisions.md#d-138)), evidencias citadas, cobertura, motivo de la decisión y limitaciones.
+**GSC-12 · Decisión completa.** Todo GSC debe quedar acompañado de: criterio y condición, valor, hechos comprobados, propiedades relacionadas, pistas de valoración usadas (`PV-n`, [D-138](../../30-governance/decisions.md#d-138); ⚠ Ver [I-52](../../30-governance/issues.md#i-52)), evidencias citadas, cobertura, motivo de la decisión y limitaciones.
 
 ## Árbol de decisión operativo
 

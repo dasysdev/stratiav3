@@ -3,9 +3,9 @@ id: assessment-hints
 title: Pistas de valoración
 layer: model
 status: vigente
-version: 1.11
-updated: 2026-10-29
-sources: [INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-27-comparison-mark, INTAKE 2026-10-27-requirement-hints-location, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review]
+version: 1.12
+updated: 2026-10-30
+sources: [INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-27-comparison-mark, INTAKE 2026-10-27-requirement-hints-location, INTAKE 2026-10-28-informative-audit-v1, INTAKE 2026-10-28-scope-sheet, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review, INTAKE 2026-10-30-pilot-base-sanitation]
 ---
 
 # Pistas de valoración
@@ -84,7 +84,7 @@ Sustituyen a lo que [D-115](../30-governance/decisions.md#d-115) llamaba «regla
 
    Ejemplo (hipotético): `{"id": "PV-3", "pista": "La composición usa el nombre legal de cada fibra, con su % en peso: es lo que permite entenderla y compararla.", "propiedad": ["P09", "P13"], "ac": ["Precisión", "Comparabilidad"], "para": {"fuente": "ley:UE-1007/2011"}, "origen": {"tipo": "normativa", "apoyo": ["ley:UE-1007/2011-16.1"]}}`.
 10. **Cómo le llegan al auditor** ([D-135](../30-governance/decisions.md#d-135)). Al montar el modelo de una ficha, el código busca las pistas de cada requisito y las guarda ya resueltas en el modelo. El perfil del RI tiene un campo, `pistas_valoracion`, que se rellena solo desde el modelo: el auditor no lo escribe, solo lo usa ([ri-profile](../20-methods/audit-gsc/ri-profile.md)).
-    - El registro del GSC **cita las pistas que usó el auditor** (`PV-n`), para poder reexaminar la valoración ([D-138](../30-governance/decisions.md#d-138)).
+    - El registro del GSC **cita las pistas que usó el auditor** (`PV-n`), para poder reexaminar la valoración ([D-138](../30-governance/decisions.md#d-138)). ⚠ Ver [I-52](../30-governance/issues.md#i-52).
     - El modelo de una ficha **anota qué versión del catálogo de pistas usó**, como ya hace con el catálogo de requisitos. Las pistas de un requisito van con la versión de su bloque ([D-140](../30-governance/decisions.md#d-140)).
     - Las pistas **no dicen ámbito**: el auditor las aplica a lo que vea en cada ámbito. Si algún día una pista solo tiene sentido en uno, se añade el campo. Lo que cambia por ámbito es dónde y cómo aparece el dato: localización, en la [ficha del ámbito](demand-model.md#ficha-de-ámbito), no valoración ([D-155](../30-governance/decisions.md#d-155)).
 11. **Cómo nace y se acepta una pista** ([D-136](../30-governance/decisions.md#d-136)).
@@ -134,7 +134,7 @@ La prueba con nueve requisitos del catálogo que aplican a unas sábanas (`cat.r
   - Retirada y sustituida: PV-39, que pedía que el número existiera en el registro del emisor, por PV-46.
   - Retirada y sustituida: PV-40 por PV-45 (Aplicabilidad: la certificación se atribuye al producto que se vende).
   - PV-46 (Fiabilidad): fecha de validez vencida o sello incompatible con la composición.
-  - Nueva: PV-47 (Precisión: la norma concreta).
+  - PV-47 y PV-24, retiradas el 2026-10-30: las dos pedían la norma concreta (PV-24, además, la clase o el nivel). Las sustituye PV-48 (Precisión: la norma o el estándar concreto y, si tiene clases o niveles, con cuál se certifica), que llega a los mismos 10 requisitos que PV-47 ([D-209](../30-governance/decisions.md#d-209), [D-202](../30-governance/decisions.md#d-202); INTAKE 2026-10-30-pilot-base-sanitation).
   - Se mantiene: PV-38 (número de certificado y organismo, Justificación).
   - PV-4, PV-5 y PV-6 se retiraron antes, al pasar del rasgo «seguridad» a la fuente.
 - La prueba mostró además una comprobación de **consistencia entre requisitos del mismo ámbito** (una bajera de 90 × 190 en una ficha que dice «cama de 150»). Es consistencia por ámbito (P16) y sale del tipo.
@@ -154,7 +154,8 @@ La prueba con nueve requisitos del catálogo que aplican a unas sábanas (`cat.r
 Ver [open-questions](../30-governance/open-questions.md):
 
 - métrica de calidad de las pistas, cuando haya auditorías ([OQ-72](../30-governance/open-questions.md));
-- un índice generado de pistas por requisito, aplazado ([OQ-70](../30-governance/open-questions.md), [D-174](../30-governance/decisions.md#d-174)).
+- un índice generado de pistas por requisito, aplazado ([OQ-70](../30-governance/open-questions.md), [D-174](../30-governance/decisions.md#d-174));
+- cómo queda registrado un aviso de D-209 que el revisor resuelve como «no dicen lo mismo», para que no se repita ([OQ-94](../30-governance/open-questions.md)).
 
 ## Relacionado
 

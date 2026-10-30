@@ -3,9 +3,9 @@ id: paa-training
 title: Entrenamiento de PAA
 layer: model
 status: vigente
-version: 1.7
+version: 1.8
 updated: 2026-10-30
-sources: [INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-paa-pilot-classes, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review, INTAKE 2026-10-30-paa-phase-in-execution]
+sources: [INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-paa-pilot-classes, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review, INTAKE 2026-10-30-paa-phase-in-execution, INTAKE 2026-10-30-pilot-base-sanitation]
 ---
 
 # Entrenamiento de PAA
@@ -64,6 +64,18 @@ El entrenamiento de PAA **sí modifica el catálogo**. Tiene cuatro papeles, tod
 - Entran como versión nueva del bloque, con origen «paa».
 - La fuente guarda el texto literal de la pregunta PAA, no solo su referencia.
 
+**Duplicados entre conjuntos** ([D-225](../30-governance/decisions.md#d-225)):
+
+> - Son **posibles duplicados** dos candidatos de conjuntos distintos con el mismo rasgo que entran en el mismo bloque, o en un bloque y en uno de sus antepasados.
+> - La compilación los lista y no escribe nada mientras un posible duplicado no tenga decisión.
+> - Un **revisor** decide si son el mismo hecho, con la prueba del mismo hecho del reglamento PAA (paso 3), y deja su motivo.
+> - Si son el mismo hecho, entra **un solo requisito**: en el bloque más alto del grupo, con las preguntas de todos los conjuntos como fuente. Si no lo son, entran los dos.
+> - Las decisiones quedan registradas con la pasada (training/reports/paa/).
+>
+> — INTAKE 2026-10-30-pilot-base-sanitation
+
+Un candidato de un mismo conjunto en bloques hermanos no es un posible duplicado: el reglamento lo repite a propósito ([D-107](../30-governance/decisions.md#d-107)). Las cuestiones inferidas que la pasada confirma cuentan como candidatos (interpretación de D-225).
+
 Lo que D-115 llamaba «reglas de AC» son las pistas de valoración ([D-125](../30-governance/decisions.md#d-125)): dicen qué mirar, no puntúan ni ponderan. PAA las escribe junto con taxo, cada una con su origen, y solo se suman, salvo retirada ([D-136](../30-governance/decisions.md#d-136); [D-127](../30-governance/decisions.md#d-127)). Sus campos los fija [D-135](../30-governance/decisions.md#d-135) ([assessment-hints](assessment-hints.md#reglas-e-invariantes)).
 
 ### Un solo escritor por requisito
@@ -110,7 +122,7 @@ Lo provisional de PAA va fuera de la clave del modelo, como una [cuestión infer
 **Riesgos** (INTAKE 2026-10-30-paa-phase-in-execution):
 
 - más búsquedas en Google: una por semilla nueva en cada clave nueva (~8 semillas, ~10 min), con más probabilidad de bloqueo ([D-096](../30-governance/decisions.md#d-096)); los límites de ejecución del README no cambian;
-- coste de tokens del agente de PAA en cada ejecución (orientativo, [D-114](../30-governance/decisions.md#d-114): 0,7–1,3 M por clase, casi todo caché);
+- coste de tokens del agente de PAA en cada ejecución (orientativo, [D-114](../30-governance/decisions.md#d-114): 0,7–1,3 M por clase, casi todo caché; medido con el reglamento v8: 1,5 M por conjunto, INTAKE 2026-10-30-pilot-base-sanitation);
 - lo provisional de PAA queda sin validar en el modelo hasta el entrenamiento.
 
 ## Piloto de medición
@@ -138,14 +150,15 @@ Lo provisional de PAA va fuera de la clave del modelo, como una [cuestión infer
 - sobreajuste a sábanas, la única clase con que se calibró la regla de semillas;
 - dependencia de la versión del catálogo.
 
-Con 12 clases el volumen de búsquedas, y con él el riesgo de bloqueo, es mayor ([D-116](../30-governance/decisions.md#d-116)). Coste orientativo por clase: ~10 búsquedas (~5 min) y 0,7-1,3 M tokens, casi todo caché.
+Con 12 clases el volumen de búsquedas, y con él el riesgo de bloqueo, es mayor ([D-116](../30-governance/decisions.md#d-116)). Coste orientativo por clase: ~10 búsquedas (~5 min) y 0,7-1,3 M tokens, casi todo caché; medido con el reglamento v8: 1,5 M por conjunto ([riesgos de la fase PAA](#fase-paa-de-la-ejecución)).
 
 ## Pendiente
 
 Ver [open-questions](../30-governance/open-questions.md):
 
 - índice generado de pistas de valoración por requisito, aplazado ([OQ-70](../30-governance/open-questions.md));
-- elección automática del rasgo de los valores de las semillas en la fase PAA de la ejecución ([OQ-93](../30-governance/open-questions.md)).
+- elección automática del rasgo de los valores de las semillas en la fase PAA de la ejecución ([OQ-93](../30-governance/open-questions.md));
+- si los conjuntos que crea cada ejecución entran en la pasada siguiente del entrenamiento y cómo los mide el control ([OQ-96](../30-governance/open-questions.md)).
 
 ## Relacionado
 

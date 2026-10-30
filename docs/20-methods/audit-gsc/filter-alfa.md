@@ -3,9 +3,9 @@ id: audit-gsc-filter-alfa
 title: Filtro Alfa y alcance de lectura (operativa)
 layer: method
 status: propuesta
-version: 0.1
+version: 0.2
 updated: 2026-10-30
-sources: [INTAKE 2026-10-30-content-and-markup-scopes]
+sources: [INTAKE 2026-10-30-content-and-markup-scopes, INTAKE 2026-10-30-pilot-base-sanitation]
 ---
 
 # Filtro Alfa y alcance de lectura (operativa)
@@ -97,6 +97,10 @@ Ejemplo (hipotético): «Devoluciones: la única respuesta está en una pestaña
 
 - La batería de canarios se repite con los mismos generador y clave (`generate.py`, `canaries.json`). Cada pasada da una matriz fechada.
 - Cuándo se repite queda abierto: [OQ-90](../../30-governance/open-questions.md#d-auditoría-informativa-localización-evidencias-gsc).
+
+## Pendiente
+
+- **Limitación conocida de alfa/1:** `button`, `td`, `label`, `legend` y `hr` no son bloques en esta especificación. Dos botones seguidos salen pegados («DescripciónEnvíos» en la ficha de canarios). Es candidata a una versión alfa/2; no se decide aquí ([OQ-95](../../30-governance/open-questions.md#d-auditoría-informativa-localización-evidencias-gsc); INTAKE 2026-10-30-pilot-base-sanitation).
 
 ## Relacionado
 

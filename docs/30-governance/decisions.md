@@ -251,6 +251,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-222](#d-222) | Alcance de lectura: hallazgos sin escala con un panel de lectores fechado | aceptada | 2026-10-30 |
 | [D-223](#d-223) | Ejecución en dos fases sobre la representación de cada ámbito | propuesta | 2026-10-30 |
 | [D-224](#d-224) | PAA como fase de la ejecución del modelo de demanda, con entrada provisional | aceptada | 2026-10-30 |
+| [D-225](#d-225) | Duplicados entre conjuntos en la pasada de PAA: un revisor decide y se funden | aceptada | 2026-10-30 |
 
 ---
 
@@ -2315,6 +2316,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - El registro del GSC cita las pistas que usó el auditor (`PV-n`).
   - El modelo de una ficha anota qué versión del catálogo de pistas usó.
 - **Consecuencias:** precisa [D-125](#d-125); [assessment-hints](../10-model/assessment-hints.md) 1.3 (reglas 1 y 10); [gsc-decision](../20-methods/audit-gsc/gsc-decision.md) 0.4 (GSC-12 y plantilla YAML: `pistas_usadas`).
+- *Ejecutado en T-105 (2026-10-30).* El modelo anota la versión del catálogo de pistas en `engine.hints` (`INTAKE 2026-10-30-pilot-base-sanitation`).
 - **Relacionado:** D-125, D-135, D-136.
 
 ### D-139
@@ -2330,6 +2332,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - Quién y cuándo: como las pistas ([D-137](#d-137)); contradicciones, como duda ([D-136](#d-136)).
 - **Interpretación adoptada:** el estudio es orientativo (muestra pequeña, un solo clasificador). Cuando dos fuentes se contradicen y la marca queda como duda, se trata como dudosa: «se compara» mientras se resuelve. Sustituye la posibilidad, anotada en [D-134](#d-134) y OQ-69, de fijar la marca con las mismas llaves que las pistas.
 - **Consecuencias:** precisa [D-126](#d-126); cierra OQ-69. [assessment-hints](../10-model/assessment-hints.md) 1.4 (regla 5, pendiente); [demand-model](../10-model/demand-model.md) 3.3; glosario (Marca de dimensión de comparación).
+- *Ejecutado en T-105 (2026-10-30).* El modelo lleva la marca de comparación de cada RI (D-126); un RI sin marca queda en `pending_definition`, sin valor por defecto, y cada unidad RI × ámbito lleva la marca (`INTAKE 2026-10-30-pilot-base-sanitation`).
 - **Relacionado:** D-118, D-126, D-134, D-136, D-137, OQ-69.
 
 ### D-140
@@ -3042,6 +3045,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - Entran como versión nueva del bloque, con origen «paa».
   - La fuente guarda el texto literal de la pregunta PAA, no solo su referencia.
 - **Consecuencias:** [paa-training](../10-model/paa-training.md#lo-que-escribe-en-el-catálogo), [construction-routes](../10-model/construction-routes.md), [choice-criteria](../10-model/choice-criteria.md). Fuera de `docs/`: la compilación de PAA y el formato de la fuente en el catálogo (T-092).
+- *Ejecutado en T-107 (2026-10-30).* Primera pasada con el reglamento PAA v8 y los 12 conjuntos reclasificados sobre modelos del reglamento del clasificador v5: control sin regresiones, 63 entradas en 18 bloques. Se deshizo por los duplicados entre conjuntos y se compila de nuevo con [D-225](#d-225) (T-110).
 - **Relacionado:** D-097, D-099, D-108, D-114, D-115, D-136, OQ-62.
 
 ### D-179
@@ -3066,6 +3070,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - El informe muestra cada conjunto.
   - Lo nuevo y la eficiencia se informan, pero no deciden.
 - **Consecuencias:** [paa-training](../10-model/paa-training.md). Sin umbrales numéricos.
+- *Ejecutado en T-107 (2026-10-30).* Primera pasada aceptada sin regresiones en ningún apartado; ver la nota de [D-178](#d-178).
 - **Relacionado:** D-114, D-116, OQ-64.
 
 ### D-181
@@ -3410,6 +3415,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 - **Decisión:** además de la búsqueda por destino, el código avisa de las pistas que llegan a un mismo requisito por llaves distintas con la misma propiedad y el mismo AC. Un revisor resuelve cada aviso.
 - **Interpretación adoptada:** recoge lo que ya implanta el motor (`hints.py`, `check`).
 - **Consecuencias:** precisa D-136 (duplicadas). [assessment-hints](../10-model/assessment-hints.md#reglas-e-invariantes) 1.11 (regla 13). Resuelve I-44.
+- *Ejecutado en T-109 (2026-10-30).* Revisados los cuatro avisos: PV-47 y PV-24 se funden en PV-48, retiradas con fecha (D-202); los otros tres pares no son duplicados y su aviso queda, porque el código no puede marcarlo como revisado ([OQ-94](open-questions.md#a-modelo-de-demanda)).
 - **Relacionado:** D-136, D-140, I-44.
 
 ### D-210
@@ -3584,6 +3590,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - **D-203:** la metadescripción, zona prominente en HTML, no forma parte del ámbito Contenido. Qué hacer con ella queda en [OQ-91](open-questions.md#g-prominencia-informativa-propuesta).
   - **Lecturas de Claude, derivadas de «ningún ámbito evalúa el HTML entero» y de los nombres nuevos:** las enmiendas a D-124 (pares), D-152, FUND §4.1 y §4.3 y el caso H (FUND §10.4), y el cambio de nombre en la evaluación técnica. El artefacto no las enumera.
 - **Consecuencias:** [evaluation-scopes](../10-model/evaluation-scopes.md) 3.0; [scope](../00-context/scope.md); [evaluation-architecture](../10-model/evaluation-architecture.md); los módulos que nombran los ámbitos; glosario; `CLAUDE.md` raíz. Fuera de `docs/`: el cambio de nombre en el código y los datos (`demand-engine/catalog/scopes/`, `bin/model scope`, la referencia y el expediente de web-audit, las skills) queda en una tarea de `bin/pm`.
+- *Ejecutado en T-102 y T-108 (2026-10-30).* demand-engine (fichas `content@0.2`, sin la localización de Marcado, y `markup@0.2`; `CASO.content.json` y `CASO.markup.json`), info-audit (sin la equivalencia con Web y Web Schema.org), web-audit (referencia, auditado, expediente y skills; los nombres de fichero y los prefijos de id no cambian), capture y references. PV-13 se sustituye por PV-49, sin el marcado dentro del ámbito (D-124).
 - **Relacionado:** D-010, D-013, D-124, D-129, D-152, D-155, D-156, D-157, D-203, D-221, D-222.
 
 ### D-221
@@ -3603,6 +3610,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - Las reglas del filtro y su base van al canon ([reading-filters](../10-model/reading-filters.md)). La especificación operativa (estructura, anotaciones y formato) va al método, como propuesta V1 ([filter-alfa](../20-methods/audit-gsc/filter-alfa.md)).
   - La regla de «Marcado» sigue la de web-audit: sus analizadores de JSON-LD, microdatos y RDFa. No se le da nombre de filtro mientras el intake no lo pida.
 - **Consecuencias:** [reading-filters](../10-model/reading-filters.md) 1.0 (nuevo); [filter-alfa](../20-methods/audit-gsc/filter-alfa.md) 0.1 (nuevo); [effective-availability](../10-model/effective-availability.md); [availability-coverage](../20-methods/audit-gsc/availability-coverage.md); glosario (Filtro de lectura, Alfa).
+- *Ejecutado en T-103 (2026-10-30).* `info-audit/bin/audit alfa PAGE-ID` implementa alfa/1. Limitación conocida: [OQ-95](open-questions.md#d-auditoría-informativa-localización-evidencias-gsc).
 - **Relacionado:** D-156, D-195, D-220, D-222.
 
 ### D-222
@@ -3655,4 +3663,23 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - El artefacto no dice quién elige el rasgo de los valores en una clase sin calibrar, ni con qué criterio de forma automática: se abre [OQ-93](open-questions.md).
 - **Enmienda:** [D-045](#d-045) (la ejecución incluye la fase PAA) y [D-114](#d-114) (PAA se ejecuta además en cada modelo, con resultado provisional). Precisa [D-094](#d-094): PAA es también una fase de la ejecución.
 - **Consecuencias:** [paa-training](../10-model/paa-training.md#fase-paa-de-la-ejecución) 1.7; [model-training](../10-model/model-training.md#ejecución) 1.28; [construction-routes](../10-model/construction-routes.md) 1.12; glosario (Ejecución, PAA, Fase PAA de la ejecución). Fuera de `docs/`: `bin/paa seeds`, la reutilización de búsquedas, la entrada provisional en `bin/model assemble` y la fase en `/demand-model` (T-105).
+- *Ejecutado en T-105 (2026-10-30).* `bin/paa seeds`, la reutilización de búsquedas por semilla, `bin/model assemble --paa` y la fase en `/demand-model`. Coste medido de la clasificación PAA con el reglamento v8: 1,5 M de tokens por conjunto (18,1 M en 12 conjuntos), por encima de la estimación de 0,7–1,3 M. Las pistas provisionales no tienen número: [I-52](issues.md#i-52).
 - **Relacionado:** D-044, D-045, D-094, D-114, D-116, D-155, D-178, D-180.
+
+### D-225
+
+**Duplicados entre conjuntos en la pasada de PAA: un revisor decide y se funden.** · aceptada · 2026-10-30
+
+- **Contexto:** `INTAKE 2026-10-30-pilot-base-sanitation` (T-107, T-110). La primera pasada compilada metió en el catálogo requisitos duplicados: dos conjuntos proponen el mismo hecho y la compilación solo descartaba la misma pregunta en el mismo bloque. Casos: variedad de la fibra (mantas y sábanas, en cat.ropa-de-casa), tacto (fundas nórdicas en cat.ropa-de-cama y sábanas en sus hijas cat.sabanas y cat.fundas-de-almohada-y-cojines; cubrecolchones en cat.protectores-de-colchon), sujeción de la bajera (fundas nórdicas y sábanas, en cat.sabanas-ajustables) y durabilidad del sofá (sofás y sofás cama, en cat.sofas). Decisión del usuario: rehacer la pasada sin duplicados.
+- **Decisión:**
+  - Son **posibles duplicados** dos candidatos de conjuntos distintos con el mismo rasgo que entran en el mismo bloque, o en un bloque y en uno de sus antepasados.
+  - La compilación los lista y no escribe nada mientras un posible duplicado no tenga decisión.
+  - Un **revisor** decide si son el mismo hecho, con la prueba del mismo hecho del reglamento PAA (paso 3), y deja su motivo.
+  - Si son el mismo hecho, entra **un solo requisito**: en el bloque más alto del grupo, con las preguntas de todos los conjuntos como fuente. Si no lo son, entran los dos.
+  - Las decisiones quedan registradas con la pasada (`demand-engine/training/reports/paa/`).
+- **Interpretaciones adoptadas:**
+  - «Candidatos» incluye las cuestiones inferidas que la pasada confirma y lleva al catálogo como requisito ([D-097](#d-097)): son entradas de requisito de la pasada, igual que los candidatos (lectura de Claude; el artefacto no lo dice).
+  - Un candidato de un mismo conjunto en bloques hermanos no es un posible duplicado: el reglamento PAA lo repite a propósito en los hermanos ([D-107](#d-107)) (lectura de Claude; el artefacto dice «conjuntos distintos»).
+- **Precisa:** [D-178](#d-178) (entrada en el catálogo).
+- **Consecuencias:** [paa-training](../10-model/paa-training.md#lo-que-escribe-en-el-catálogo) 1.8; glosario (Posible duplicado de la pasada de PAA). Fuera de `docs/`: `bin/paa compile` y el fichero de decisiones (T-110).
+- **Relacionado:** D-097, D-107, D-178, D-180.

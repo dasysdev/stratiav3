@@ -95,3 +95,4 @@
 - 2026-10-30 T-104 demand-model: modelo sobre una ficha ya capturada (--page ID) — /demand-model --page ID clasifica sobre una ficha congelada; el modelo registra la ficha y su perfil de captura
 - 2026-10-30 T-106 PAA: reformular solo para el mismo hecho (paso 7) — paa.md v8: ampliar solo para el mismo hecho; en botas, el candidato esperado sale y cat.calzado/24 no se reformula
 - 2026-10-30 T-107 PAA: primera pasada al catálogo con el reglamento v8 (D-178, D-180) — Primera pasada de PAA con v8: 12 conjuntos reclasificados sobre modelos v5, control sin regresiones, 63 entradas en 18 bloques
+- 2026-10-30 T-110 PAA: fundir los duplicados entre conjuntos en la pasada al catálogo — Pasada de PAA sin duplicados: compile los lista, un revisor decide y se funden; 4 fusiones, 57 entradas en 16 bloques

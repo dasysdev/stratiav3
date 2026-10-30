@@ -75,3 +75,30 @@ def test_retry_after():
     assert retry_after({"retry-after": "Tue, 27 Oct 2026 14:55:00 GMT"}, at) == 300
     assert retry_after({"Retry-After": "Tue, 27 Oct 2026 14:00:00 GMT"}, at) == 0
     assert retry_after({"Retry-After": "pronto"}) is None and retry_after({}) is None and retry_after(None) is None
+
+
+def test_a_search_another_set_captured_with_the_same_seed_is_reused_and_not_repeated(paa_dirs):
+    """D-224: the same seed (normalised) on the same market takes the search of the other set, with its origin, without
+    the DOM and without counting as a search; another market, or a seed nobody captured, stays pending."""
+    url = "https://www.google.es/search?q=x&hl=es&gl=es"
+    a = make_set(paa_dirs, [{"q": "fundas nórdicas", "group": "núcleo"}, {"q": "fundas de lino"}], set_id="a")
+    a.save(a.seeds()[0], {**record("fundas nórdicas", [("¿Qué es?", None)]), "url": url, "hl": "es", "gl": "es"}, "<html/>")
+    other = make_set(paa_dirs, [{"q": "fundas de lino"}], set_id="fr", market={"base": "https://www.google.fr", "gl": "fr"})
+    other.save(other.seeds()[0], {**record("fundas de lino", [("¿Lino?", None)]),
+                                  "url": "https://www.google.fr/search?q=x&hl=es&gl=fr", "hl": "es", "gl": "fr"}, "")
+    b = make_set(paa_dirs, [{"q": "Fundas nordicas", "group": "núcleo"}, {"q": "fundas de lino", "group": "tejido"},
+                            {"q": "edredones"}], set_id="b")
+    done = b.reuse()
+    origin = {"set": "a", "record": a.state()["seeds"]["fundas nordicas"]["record"].replace("searches", "a/searches", 1)}
+    assert done == [{"q": "Fundas nordicas", **origin}]
+    assert [s["q"] for s in b.pending()] == ["fundas de lino", "edredones"]
+    entry = b.state()["seeds"]["fundas nordicas"]
+    assert entry["status"] == "captured" and entry["reused_from"] == origin
+    copied = json.loads((b.dir / entry["record"] / "record.json").read_text(encoding="utf-8"))
+    assert copied["set"] == "b" and copied["group"] == "núcleo" and copied["reused_from"] == origin
+    assert "files" not in copied and not (b.dir / entry["record"] / "dom.html.gz").exists()
+    assert [q["q"] for q in json.loads((b.dir / "questions.json").read_text(encoding="utf-8"))["questions"]] == ["¿Qué es?"]
+    assert b.searches_since(datetime.now().astimezone() - timedelta(minutes=1)) == 0   # not a search: the cap ignores it
+    assert b.reuse() == []
+    c = make_set(paa_dirs, [{"q": "fundas nórdicas"}], set_id="c")
+    assert c.reuse()[0] == {"q": "fundas nórdicas", **origin}   # a reused search points to its origin

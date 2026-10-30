@@ -2,8 +2,8 @@
 import json
 
 from demand_engine.demand import scopes
-from demand_engine.demand.scopes import (NO_DESCRIPTION, NO_RESOLVING, attribute_support, components, compose, exception,
-                                         google_problems, handles, localization, profile, sheet_problems)
+from demand_engine.demand.scopes import (NO_DESCRIPTION, NO_MARK, NO_RESOLVING, attribute_support, components, compose,
+                                         exception, google_problems, handles, localization, profile, sheet_problems)
 
 COLOR = "google-search-merchant-listing:Product.color@2026-10-27"
 MATERIAL = "google-search-merchant-listing:Product.material@2026-10-27"
@@ -99,6 +99,7 @@ def test_an_exception_is_a_rule_by_entity_or_by_component_with_its_reason():
 def test_the_profile_takes_components_description_and_hints_from_the_model():
     hint = {"id": "PV-1", "pista": "Suma 100 %.", "propiedad": ["P14"], "ac": ["Fiabilidad"], "origen": {"tipo": "marco"}}
     r = {"id": "gen/25", "description": "A qué zonas envía. Lo responde la tarifa. No lo responde gen/05.", "hints": [hint],
+         "comparison": {"mark": "sí", "reason": "Cambia de una oferta a otra."},
          "resolving_info": [{"contribution": "tarifa por zona", "component": "coste", "origin": "marco"},
                             {"contribution": "zonas de envío", "component": "zonas", "origin": "marco"},
                             {"contribution": "envío gratis desde un importe", "component": "coste", "origin": "inferida",
@@ -117,10 +118,28 @@ def test_the_profile_takes_components_description_and_hints_from_the_model():
 
 def test_what_the_model_lacks_is_pointed_out_and_not_filled_in():
     units = {u["id"]: u for u in compose(MODEL, SHEET, GEN, GOOGLE)["units"]}
-    assert units["gen/02"]["profile"]["pendientes_de_definicion"] == [NO_DESCRIPTION]
+    assert units["gen/02"]["profile"]["pendientes_de_definicion"] == [NO_DESCRIPTION, NO_MARK]
     bare = units["cat.botas/01"]["profile"]
-    assert bare["pendientes_de_definicion"] == [NO_RESOLVING, NO_DESCRIPTION]
+    assert bare["pendientes_de_definicion"] == [NO_RESOLVING, NO_DESCRIPTION, NO_MARK]
     assert bare["objeto"] is bare["alcance"] is bare["casos_frontera"] is None and bare["componentes_respuesta"] == []
+
+
+def test_each_unit_carries_the_comparison_mark_of_the_model_without_deciding_it():
+    """D-126: the mark is the model's; scope passes it to the unit, NA or not, and never gives a default (D-139)."""
+    no = {"mark": "no", "case": "c", "reason": "Identifica la oferta."}
+    paa = {"id": "paa/N1/botas", "question": "¿Para qué temporada es?", "entity": "producto", "sources": [],
+           "comparison": {"mark": "sí", "reason": "Cambia.", "origin": "paa", "status": "no compilado"}, "block": "cat.botas"}
+    marked = {**MODEL, "blocks": [{**MODEL["blocks"][0], "requirements": [
+        {**MODEL["blocks"][0]["requirements"][0], "comparison": no}, *MODEL["blocks"][0]["requirements"][1:]]}],
+        "paa": {"set": "botas", "requirements": [paa]}}
+    sheet = {**SHEET, "pertinence": {"exceptions": [{"entity": "producto", "reason": "Hipotético."}]}}
+    units = {u["id"]: u for u in compose(marked, sheet, GEN, GOOGLE)["units"]}
+    assert units["cat.botas/01"]["comparison"] == no and not units["cat.botas/01"]["pertinent"]
+    assert units["cat.botas/02"]["comparison"] is None and NO_MARK in units["cat.botas/02"]["profile"]["pendientes_de_definicion"]
+    assert units["paa/N1/botas"]["block"] == "cat.botas" and units["paa/N1/botas"]["comparison"]["origin"] == "paa"
+    text = scopes.render_units(compose(marked, SHEET, GEN, GOOGLE))
+    assert "- Marca de comparación (del modelo, D-126): 1 se compara · 1 no se compara · 4 sin marca (pendiente, D-139)" \
+        in text.splitlines()
 
 
 def test_the_localization_takes_the_google_support_of_each_contribution_only_when_the_sheet_says_so():

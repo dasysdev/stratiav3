@@ -2,8 +2,14 @@
 
 Usage:
   paa list                          seed sets and their progress
+  paa seeds MODEL.json [--set SET] [--trait ATTR] [--values V ...] [--seed KEY=TEXT ...]
+                                    the set of the PAA phase of an execution (D-224): one set per key of the model
+                                    (D-116; a set of the same key is used as it is) and its seeds from taxo, core
+                                    and values of the trait (rule of the README); without --values, only what taxo
+                                    gives; the trait outside textiles, only with --trait (OQ-93)
   paa run SET [--max N] [--ignore-hours]
-                                    search the pending seeds, one at a time
+                                    search the pending seeds, one at a time; a seed that another set already
+                                    captured reuses that search (D-224)
   paa status SET                    status of every seed, blocks and totals
   paa questions SET [--json]        consolidated questions (with the seeds that showed them)
   paa unblock                       clear the blocks of the engine after reviewing them
@@ -19,7 +25,7 @@ Usage:
   paa compile [SET ...]             the PAA pass (D-178): if the control accepts it, the candidates, the confirmed
                                     inferred questions and the contributions of each classified set (all by default)
                                     enter the catalog with origin «paa», as a new version of each block
-  (classify, control and compile run on the host: standard library only)
+  (seeds, classify, control and compile run on the host: standard library only)
 
 Seed sets are demand-engine/paa/<SET>.json; manual: src/demand_engine/paa/README.md
 """
@@ -33,12 +39,13 @@ from pathlib import Path
 
 from capture.files import read_json, write_json
 
-from . import classify, compile as paa_compile, control, store
+from . import classify, compile as paa_compile, control, seeds, store
 from .store import STATUS, SeedSet, StoreError, var_root
 from .text import norm
 
 
 def fail(msg: str) -> None:
+    sys.stdout.flush()  # what was printed goes before the reason
     sys.exit(f"paa: {msg}")
 
 
@@ -72,15 +79,59 @@ def cmd_list(args) -> None:
               ", ".join(f"{k} {v}" for k, v in c.items() if v))
 
 
+def cmd_seeds(args) -> None:
+    path = Path(args.model)
+    p = seeds.plan(path, args.set, args.trait, args.values, args.seed)
+    print(f"conjunto: {p['set']}" + (" (ya existe con la misma clave: D-116)" if p["existing"] else " (nuevo)"))
+    print(f"clase: {p['class']}")
+    print(f"clave: {' '.join(p['key'])}")
+    if p["existing"]:
+        s = SeedSet(p["existing"])
+        print(", ".join(f"{k} {v}" for k, v in counts(s).items() if v) +
+              (" · clasificado" if (s.dir / "classified.json").exists() else " · sin clasificar"))
+        return
+    print("núcleo, de taxo (--seed BLOQUE=TEXTO para el nombre del mercado español):")
+    for c in p["core"]:
+        print(f"  {c['key']}: {c['q']}")
+    if p["trait"]:
+        print(f"rasgo de los valores: {p['trait']} ({p['why']})")
+        print(f"  valores en taxo ({len(p['taxo_values'])}): {', '.join(p['taxo_values'])}")
+    else:
+        print(f"rasgo de los valores: ninguno · {p['why']}")
+    cited = {a.split(':', 1)[1].split('@')[0].split('=')[0] for r in seeds.requirements(p["model"])
+             for a in r.get("sources", []) if a.startswith("shopify-attr:")}
+    print("  atributos de las clases (* los cita un requisito del modelo): " +
+          ", ".join(f"{h}{'*' if h in cited else ''}" for h in sorted(p["attributes"])))
+    for set_id, qs in p["related"].items():
+        print(f"semillas de {set_id}, con bloques en común (una semilla igual reutiliza su búsqueda): {'; '.join(qs)}")
+    if not p["trait"]:
+        fail("OQ-93: sin rasgo de los valores no se escribe el conjunto (elige uno con --trait)")
+    if not p["values"]:
+        fail("elige con --values los valores con uso en España, entre los de taxo (README, regla 2); no se escribe nada")
+    out = seeds.write(p, path)
+    print(f"semillas ({len(p['seeds'])}):")
+    for x in p["seeds"]:
+        print(f"  {x['group']:<10} {x['q']}" + (f"  · reutiliza la búsqueda de {x['_reuse']}" if x["_reuse"] else ""))
+    new = sum(not x["_reuse"] for x in p["seeds"])
+    print(f"→ {shown(out)}: {len(p['seeds']) - new} búsquedas reutilizadas y {new} nuevas")
+
+
 def cmd_run(args) -> None:
-    from .run import run
     seedset = SeedSet(args.set)
-    b = browser()
-    b.start()
-    try:
-        summary = run(seedset, b, args.max, args.ignore_hours)
-    finally:
-        b.stop()
+    reused = seedset.reuse()  # D-224: what another set already captured is not searched again (no Chrome)
+    for r in reused:
+        print(f"  {r['q']}: reutilizada de {r['set']}")
+    if seedset.pending():
+        from .run import run
+        b = browser()
+        b.start()
+        try:
+            summary = run(seedset, b, args.max, args.ignore_hours)
+        finally:
+            b.stop()
+        summary["reused"] += len(reused)
+    else:
+        summary = {"reused": len(reused), "stopped": "no quedan semillas pendientes"}
     done = ", ".join(f"{k} {v}" for k, v in summary.items() if k != "stopped" and v)
     print(f"{seedset.id}: {done or 'ninguna búsqueda'}" + (f" · {summary['stopped']}" if summary["stopped"] else ""))
     data = read_json(seedset.dir / "questions.json", {})
@@ -92,7 +143,8 @@ def cmd_status(args) -> None:
     state = seedset.state()
     for seed in seedset.seeds():
         entry = state["seeds"].get(norm(seed["q"])) or {}
-        print(f"  {entry.get('status', 'pending'):<9} {seed.get('group', ''):<10} {seed['q']}  {entry.get('at', '')}")
+        origin = f"  (de {entry['reused_from']['set']})" if entry.get("reused_from") else ""
+        print(f"  {entry.get('status', 'pending'):<9} {seed.get('group', ''):<10} {seed['q']}  {entry.get('at', '')}{origin}")
     reason, blocks = store.blocked_now(), store.engine_state()["blocks"]
     if reason or blocks:
         print(f"bloqueos del motor: {len(blocks)}" + (f" · {reason}" if reason else ""))
@@ -181,6 +233,9 @@ def main(argv=None) -> None:
     ap = argparse.ArgumentParser(prog="paa", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("list").set_defaults(func=cmd_list)
+    p = sub.add_parser("seeds"); p.add_argument("model"); p.add_argument("--set"); p.add_argument("--trait")
+    p.add_argument("--values", nargs="+"); p.add_argument("--seed", action="append", metavar="KEY=TEXT")
+    p.set_defaults(func=cmd_seeds)
     p = sub.add_parser("run"); p.add_argument("set"); p.add_argument("--max", type=int)
     p.add_argument("--ignore-hours", action="store_true"); p.set_defaults(func=cmd_run)
     p = sub.add_parser("status"); p.add_argument("set"); p.set_defaults(func=cmd_status)

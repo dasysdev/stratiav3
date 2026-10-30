@@ -69,9 +69,12 @@ def model_path(seedset: SeedSet) -> Path:
 
 
 def requirement(r: dict, block: str | None) -> dict:
+    """A requirement of the class as the agent reads it. What a PAA phase added to the model as provisional (D-224,
+    «no compilado») is not the catalog: it stays out."""
     return {"id": r["id"], "block": block, "question": r["question"], "trait": r.get("trait"),
             "applicability": r.get("applicability"), "origin": r.get("origin"), "sources": r.get("sources") or [],
-            "contributions": [c["contribution"] for c in r.get("resolving_info") or [] if c.get("contribution")],
+            "contributions": [c["contribution"] for c in r.get("resolving_info") or [] if c.get("contribution")
+                              and not (c.get("origin") == "paa" and c.get("status") == demand_catalog.UNCOMPILED)],
             "excluded": bool(r.get("excluded"))}
 
 
@@ -91,7 +94,7 @@ def current() -> dict:
 
 def catalog(model: dict) -> list[dict]:
     """Every requirement of the class: the general layer (also what this offer does not activate: PAA is about the
-    class), the blocks of the key and the inferred questions."""
+    class), the blocks of the key and the inferred questions; not the candidates of a PAA phase (model["paa"])."""
     out = [requirement(r, block["id"]) for block in model.get("general", []) for r in block.get("requirements", [])]
     out += [requirement(r, block["id"]) for block in model.get("blocks", []) for r in block.get("requirements", [])]
     out += [requirement(r, r.get("block")) for r in model.get("inferred", [])]

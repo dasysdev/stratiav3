@@ -15,10 +15,14 @@ Usage:
   model check OUTPUT.json             assemble in memory and report what is missing (for the classifier)
   model check --catalog               check every block of the catalog and the general layer: ids, traits,
                                       origins and sources, and the resolving information of each requirement
-  model assemble OUTPUT.json          build the demand model from a classifier output (rulebook v2 to v5):
+  model assemble OUTPUT.json [--paa SET]
+                                      build the demand model from a classifier output (rulebook v2 to v5):
                                       writes <case>.model.json and <case>.model.md next to it, with the
-                                      frozen page of the case and its capture profile, and appends what
-                                      was used without compiling to the queue
+                                      frozen page of the case and its capture profile, the comparison mark
+                                      of each requirement (D-126; without one, pending, D-139) and the
+                                      version of the catalog of hints (D-138), and appends what was used
+                                      without compiling to the queue; --paa adds the classification of
+                                      the PAA set of its key as provisional, «no compilado» (phase 2, D-224)
   model show MODEL.json               print the readable version of an assembled model
   model hints check                   check the catalog of assessment hints (fields, id, origin, destination,
                                       same destination and property) and the comparison marks (D-136, D-139)
@@ -395,7 +399,8 @@ def requirement_entry(r: dict, trait: str, classes: list, rules: dict, vote, tra
             "classes": classes, "origin": r.get("origin"), "sources": sources,
             "applicability": r.get("applicability"),
             **({"description": r["description"]} if r.get("description") else {}),
-            "resolving_info": resolving.for_model(r, compiled or {}), "hints": r.get("hints", [])}
+            "resolving_info": resolving.for_model(r, compiled or {}), "hints": r.get("hints", []),
+            "comparison": r.get("comparison")}  # D-126: the model carries the mark; without one, None (D-139)
 
 
 def split(entries: list) -> tuple:
@@ -412,7 +417,9 @@ def frozen_page(case_id) -> dict | None:
     return {"id": case_id, "profile": read_json(path).get("profile") or "reader"}
 
 
-def assemble(out_path: Path) -> dict:
+def assemble(out_path: Path, paa_set: str = None) -> dict:
+    """The model of a classifier output; with `paa_set`, phase 2 of the execution: what the classification of that
+    PAA set proposes, as provisional (D-224, paa/provisional.py)."""
     out = read_json(out_path)
     blocks, empty = load_blocks(), load_empty()
     by_node = blocks_by_node(blocks)
@@ -476,6 +483,14 @@ def assemble(out_path: Path) -> dict:
         entry.update({"block": r.get("block"), "origin": "referencias" if proposal else "inferida",
                       "rationale": r.get("rationale"), "block_proposal": proposal})
         inferred.append(entry)
+    # D-224: the candidates of the PAA set, out of the key like an inferred question; the rest goes on below
+    phase, paa_reqs, paa_skipped = None, [], []
+    if paa_set:
+        from ..paa import provisional as paa_phase
+        phase = paa_phase.load(paa_set)
+        paa_reqs, paa_skipped = paa_phase.candidates(phase, model_blocks, lambda r, host: requirement_entry(
+            r, r.get("trait"), class_nodes_for(host.get("shopify"), classes), rules, r.get("vote"), r.get("trait"),
+            compiled))
     # D-047: the model goes with the product, the application with the offer; conditions that do
     # not hold in the offer stay greyed (NA); product-scope conditional blocks join the model.
     triggered = {a["block"] if isinstance(a, dict) else a for a in out.get("application", [])}
@@ -498,7 +513,7 @@ def assemble(out_path: Path) -> dict:
                                           "sources": r.get("sources", []),
                                           "references": scopes.google_sources(r.get("sources", [])),
                                           "resolving_info": resolving.for_model(r, compiled),
-                                          "hints": r.get("hints", [])}
+                                          "hints": r.get("hints", []), "comparison": r.get("comparison")}
                                          for r in b["requirements"]]})
     esp = sorted((b for b in model_blocks if b["type"] == "especialización"),
                  key=lambda b: (ESP_ORDER.index(b["order"]) if b.get("order") in ESP_ORDER else len(ESP_ORDER), b["id"]))
@@ -525,28 +540,30 @@ def assemble(out_path: Path) -> dict:
     contributions = [{"answers": d["answers"], **c} for d in counted if d.get("answers") in ids
                      for c in [resolving.contribution(d)] if c]
     provisional = [r["id"] for b in model_blocks for r in b["requirements"] if r["provisional"] and r["rule"] == NO_RULE] \
-        + [r["id"] for r in inferred if r["provisional"] and r["rule"] == NO_RULE]
+        + [r["id"] for r in inferred + paa_reqs if r["provisional"] and r["rule"] == NO_RULE]
     doubtful = [r["id"] for b in model_blocks for r in b["requirements"] if r["doubtful"]] \
         + [r["id"] for r in inferred if r["doubtful"]]
     # D-192: a trait proposed by whoever drafts a block is used before it wins a vote: provisional and queued
     vocabulary = set(load_traits()["vocabulary"])
     provisional_traits = [r["id"] for b in model_blocks for r in b["requirements"] if r.get("trait") and r["trait"] not in vocabulary] \
-        + [r["id"] for r in inferred if r.get("trait") and r["trait"] not in vocabulary]
+        + [r["id"] for r in inferred + paa_reqs if r.get("trait") and r["trait"] not in vocabulary]
     # D-155: the recommended properties of Google Search support category requirements through the Shopify
     # attributes they cite (catalog/google-search.json); those of the general layer are in its sources.
     google = scopes.load_google()
-    for r in [r for b in model_blocks for r in b["requirements"] + b.get("excluded", [])] + inferred:
+    for r in [r for b in model_blocks for r in b["requirements"] + b.get("excluded", [])] + inferred + paa_reqs:
         r["references"] = scopes.attribute_support(r.get("sources", []), google)
     # D-135: the model keeps the resolved hints of each requirement (those of the catalog that reach it and its own);
     # the RI profile takes them in «pistas_valoracion»
-    catalog_hints = hints.load_hints().get("hints", [])
-    for r in [r for b in general + model_blocks for r in b["requirements"] + b.get("excluded", [])] + inferred:
+    hint_catalog = hints.load_hints()
+    catalog_hints = hint_catalog.get("hints", [])
+    for r in [r for b in general + model_blocks for r in b["requirements"] + b.get("excluded", [])] + inferred + paa_reqs:
         r["hints"] = [h for _, h in hints.find(r, catalog_hints)]
     model = {
         "case": out.get("case"), "product": out.get("product"), "url": out.get("url"),
         "page": frozen_page(out.get("case")),
         "engine": {"rulebook": out.get("rulebook"), "rules": rules.get("version"), "refs": pins("demand-engine"),
-                   "google_search": google.get("version"), "assembled": datetime.date.today().isoformat()},
+                   "google_search": google.get("version"), "hints": hint_catalog.get("version"),  # D-138
+                   "assembled": datetime.date.today().isoformat()},
         "key": key, "name": name, "offer": offer,
         "composition": {"classes": classes, "aliases": aliases},
         "general": general, "blocks": model_blocks, "inferred": inferred,
@@ -562,6 +579,12 @@ def assemble(out_path: Path) -> dict:
         "proposed_traits": out.get("proposed_traits", []),
         "doubts": out.get("doubts", []),
     }
+    if phase:  # D-224: confirmations, contributions, hints and marks of the set, «no compilado», and to the queue
+        model["paa"] = paa_phase.apply(model, phase, paa_reqs, paa_skipped)
+        model["uncompiled"]["paa"] = paa_phase.queued(model["paa"])
+    # D-139: a requirement without a comparison mark is pointed out; no default value is given
+    model["pending_definition"] = {"comparison": [r["id"] for r, _ in scopes.requirements_of(model)
+                                                  if not r.get("comparison")]}
     return model
 
 
@@ -572,7 +595,10 @@ def render(model: dict) -> str:
              *([f"- Ficha: `{page['id']}` · perfil de captura `{page['profile']}`"] if page else []),
              f"- Clave del modelo: `{' '.join(model['key']['model'])}`",
              f"- Aplicación de la oferta: `{' '.join(model['offer']['application']) or 'estándar'}`",
-             f"- Reglas: versión {model['engine'].get('rules')} · reglamento {model['engine'].get('rulebook')}", ""]
+             f"- Reglas: versión {model['engine'].get('rules')} · reglamento {model['engine'].get('rulebook')} · "
+             f"pistas {model['engine'].get('hints') or '—'}",
+             *([f"- Fase PAA (D-224): conjunto `{model['paa']['set']}`, provisional (no compilado)"] if model.get("paa") else []),
+             ""]
     count = {}
     for b in model["general"]:
         for r in b["requirements"]:
@@ -582,30 +608,36 @@ def render(model: dict) -> str:
         for r in b["requirements"]:
             count[r["importance"]] = count.get(r["importance"], 0) + 1
     lines.append("Requisitos: " + ", ".join(f"{count.get(level, 0)} {level}" for level in reversed(LEVELS))
-                 + f" · {len(model['inferred'])} inferidos provisionales")
-    lines += ["", "## Capa general", "", "| Requisito | Pregunta | Importancia | En esta oferta |", "|---|---|---|---|"]
+                 + f" · {len(model['inferred'])} inferidos provisionales"
+                 + (f" · {len(model['paa']['requirements'])} de PAA provisionales" if model.get("paa") else ""))
+    lines += ["", "## Capa general", "", "| Requisito | Pregunta | Importancia | En esta oferta | Comparación |",
+              "|---|---|---|---|---|"]
     for b in model["general"]:
         for r in b["requirements"]:
             cond = r.get("applicability") or "universal"
             state = (f"no aplica (gris: no se declara «{b.get('name', b['id']).lower()}»)" if not r.get("applies", True)
                      else "aplica" if cond.startswith("universal") or b["id"] != "gen" else f"aplica {cond}")
-            lines.append(f"| {r['id']} | {r['question']} | {r['importance'] or 'por fijar (OQ-45)'} | {state} |")
+            lines.append(f"| {r['id']} | {r['question']} | {r['importance'] or 'por fijar (OQ-45)'} | {state} "
+                         f"| {comparison_label(r.get('comparison'))} |")
     for b in model["blocks"]:
         head = f"## {b['id']}@{b['version']} — {b.get('name')}"
         tag = b.get("position") or "especialización"
         lines += ["", head, "", f"{tag} · {b['status']} · {b['where']}" + (f" · disparador: {b['trigger']}" if b.get("trigger") else ""),
-                  "", "| Requisito | Pregunta | Rasgo | Importancia | Regla |", "|---|---|---|---|---|"]
+                  "", "| Requisito | Pregunta | Rasgo | Importancia | Regla | Comparación |", "|---|---|---|---|---|---|"]
         for r in b["requirements"]:
             mark = f" ({DOUBTFUL})" if r.get("doubtful") else " (provisional)" if r["provisional"] else ""
-            lines.append(f"| {r['id']} | {r['question']} | {r['trait']} | {r['importance']}{mark} | `{r['rule']}` |")
+            lines.append(f"| {r['id']} | {r['question']} | {r['trait']} | {r['importance']}{mark} | `{r['rule']}` "
+                         f"| {comparison_label(r.get('comparison'))} |")
         if b.get("excluded"):
             lines += ["", "Excluidos en esta clase (no se auditan):", ""]
             lines += [f"- {r['id']} {r['question']} — `{r['relevance_rule']}`" for r in b["excluded"]]
     if model["inferred"]:
         lines += ["", "## Cuestiones inferidas (provisionales, fuera de la clave)", "",
-                  "| Requisito | Bloque | Pregunta | Rasgo | Importancia | Regla |", "|---|---|---|---|---|---|"]
+                  "| Requisito | Bloque | Pregunta | Rasgo | Importancia | Regla | Comparación |", "|---|---|---|---|---|---|---|"]
         for r in model["inferred"]:
-            lines.append(f"| {r['id']} | {r.get('block')} | {r['question']} | {r['trait']} | {r['importance']} | `{r['rule']}` |")
+            lines.append(f"| {r['id']} | {r.get('block')} | {r['question']} | {r['trait']} | {r['importance']} | `{r['rule']}` "
+                         f"| {comparison_label(r.get('comparison'))} |")
+    lines += render_paa(model.get("paa"))
     u = model["uncompiled"]
     lines += ["", "## Usado sin compilar", "",
               f"- Bloques: {', '.join(u['blocks']) or '—'}",
@@ -614,6 +646,15 @@ def render(model: dict) -> str:
               f"- Cuestiones inferidas: {len(u['inferred'])}",
               f"- Rasgos propuestos aún sin votos (provisionales, D-192): {', '.join(u.get('provisional_traits', [])) or '—'}",
               f"- Categorías sin bloque: {', '.join(u['missing_blocks']) or '—'}"]
+    if u.get("paa"):
+        q = u["paa"]
+        lines.append(f"- PAA, conjunto {q['set']} (D-224): {len(q['requirements'])} requisitos candidatos; aportaciones en "
+                     f"{len(q['contributions'])} requisitos, pistas en {len(q['hints'])} y marcas en {len(q['marks'])}")
+    pending = (model.get("pending_definition") or {}).get("comparison")
+    if pending is not None:
+        lines += ["", "## Pendiente de definición", "",
+                  f"- Sin marca de comparación (D-139: sin valor por defecto): {len(pending)} requisitos"
+                  + (f": {', '.join(pending)}" if pending else "")]
     c = model["coverage"]
     lines += ["", "## Cobertura", "", f"Hechos declarados que cuentan: {c['declared_counted']} · sin pregunta en el modelo: {len(c['gaps'])}"]
     for g in c["gaps"]:
@@ -635,6 +676,38 @@ def render(model: dict) -> str:
     if model.get("doubts"):
         lines += ["", "## Dudas del clasificador", ""] + [f"- {d}" for d in model["doubts"]]
     return "\n".join(lines) + "\n"
+
+
+def comparison_label(mark: dict | None) -> str:
+    """The comparison mark of a requirement in the tables (D-126): «sí», «no (c)», a doubt, or «—» without one."""
+    if not mark:
+        return "—"
+    label = "sí" if mark.get("mark") == "sí" else f"no ({mark.get('case')})" if mark.get("case") else "no"
+    return label + (" (duda)" if mark.get("doubt") else "") + (" (PAA)" if mark.get("origin") == "paa" else "")
+
+
+def render_paa(paa: dict | None) -> list:
+    """The PAA phase in the readable model (D-224): what entered as provisional and what was left out."""
+    if not paa:
+        return []
+    lines = ["", "## PAA (fase 2, provisional: no compilado, fuera de la clave)", "",
+             f"Conjunto `{paa['set']}` · clasificación `{paa['classified']}` ({paa.get('at')}) · {paa.get('rulebook') or '—'}"]
+    if paa["requirements"]:
+        lines += ["", "| Requisito | Bloque | Pregunta | Rasgo | Importancia | Regla | Comparación |", "|---|---|---|---|---|---|---|"]
+        for r in paa["requirements"]:
+            mark = " (provisional)" if r["provisional"] else ""
+            lines.append(f"| {r['id']} | {r['block']} | {r['question']} | {r['trait']} | {r['importance']}{mark} | `{r['rule']}` "
+                         f"| {comparison_label(r.get('comparison'))} |")
+    lines += ["", f"- Requisitos que confirman sus preguntas: {len(paa['confirmed'])}",
+              f"- Aportaciones: {len(paa['contributions'])}"
+              + "".join(f"\n  - {c['target']} ({c.get('kind') or '—'}): {c['contribution']}" for c in paa["contributions"]),
+              f"- Pistas de valoración (sin PV-n): {len(paa['hints'])}"
+              + "".join(f"\n  - {h['target']} ({', '.join(h['ac'])}): {h['pista']}" for h in paa["hints"]),
+              f"- Marcas de comparación: {len(paa['marks'])}"
+              + "".join(f"\n  - {m['target']}: {m['mark']} · {m['status']}" for m in paa["marks"])]
+    if paa["skipped"]:
+        lines += ["", "No entran:", ""] + [f"- {x}" for x in paa["skipped"]]
+    return lines
 
 
 def check(path: Path) -> tuple:
@@ -739,8 +812,12 @@ def cmd_check(path: Path) -> None:
     print("  correcto" if not problems else "  problemas:\n    " + "\n    ".join(problems))
 
 
-def cmd_assemble(path: Path) -> None:
-    model = assemble(path)
+def cmd_assemble(path: Path, paa_set: str = None) -> None:
+    from ..paa.store import StoreError
+    try:
+        model = assemble(path, paa_set)
+    except StoreError as exc:
+        sys.exit(f"model: fase PAA: {exc}")
     stem = path.name.removesuffix(".json")
     model_path, md_path = path.with_name(f"{stem}.model.json"), path.with_name(f"{stem}.model.md")
     write_json(model_path, model)
@@ -758,6 +835,12 @@ def cmd_assemble(path: Path) -> None:
     print(f"  sin compilar: {len(u['blocks'])} bloques, {len(u['without_rule'])} requisitos sin regla, "
           f"{len(u['inferred'])} inferidas, {len(u['missing_blocks'])} categorías sin bloque")
     print(f"  cobertura: {len(model['coverage']['gaps'])} hechos sin pregunta de {model['coverage']['declared_counted']}")
+    if model.get("paa"):
+        q = model["paa"]
+        print(f"  PAA (conjunto {q['set']}, no compilado): {len(q['requirements'])} requisitos candidatos, "
+              f"{len(q['confirmed'])} confirmados, {len(q['contributions'])} aportaciones, {len(q['hints'])} pistas, "
+              f"{len(q['marks'])} marcas; no entran {len(q['skipped'])}")
+    print(f"  marca de comparación: {len(model['pending_definition']['comparison'])} requisitos sin marca (pendientes, D-139)")
     print(f"  → {model_path} y {md_path}")
 
 
@@ -784,6 +867,8 @@ def main() -> None:
         cmd_check(Path(args[1]))
     elif args[0] == "assemble" and len(args) == 2:
         cmd_assemble(Path(args[1]))
+    elif args[0] == "assemble" and len(args) == 4 and args[2] == "--paa":
+        cmd_assemble(Path(args[1]), args[3])
     elif args[0] == "scope" and len(args) > 1:
         scopes.cmd_scope(Path(args[1]), args[2:])
     elif args[0] == "show" and len(args) == 2:

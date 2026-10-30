@@ -38,6 +38,8 @@ Viene de dos sondas sobre la clase de sábanas (2026-10-26). La de 25 semillas, 
 
 Está calibrada con **una sola clase**. En otra, el rasgo de los valores puede ser otro (tecnología, tipo), y la regla se revisa con datos.
 
+`paa seeds` aplica esta regla a un modelo ensamblado (ver [Fase PAA de la ejecución](#fase-paa-de-la-ejecución)).
+
 ## Límites de ejecución
 
 Decididos por el usuario (2026-10-26 y 2026-10-27): **pausa de 5 s entre búsquedas**, sin pausa larga, sin horario, sin tope diario y sin tope por hora. Un conjunto puede fijar cualquiera de ellos en su `pacing`.
@@ -68,13 +70,21 @@ Módulo de [demand-engine](../../../README.md). Se ejecuta dentro del contenedor
 
 ```bash
 demand-engine/bin/paa list                  # conjuntos y su avance
-demand-engine/bin/paa run sabanas           # busca las semillas pendientes, una a una
+demand-engine/bin/paa seeds MODEL.json      # conjunto y semillas de la fase PAA de una ejecución (en el host)
+demand-engine/bin/paa run sabanas           # reutiliza lo ya capturado y busca las semillas pendientes, una a una
 demand-engine/bin/paa status sabanas        # estado de cada semilla y bloqueos
 demand-engine/bin/paa questions sabanas     # preguntas consolidadas (--json, con su procedencia)
 demand-engine/bin/paa unblock               # tras revisar un bloqueo (es del motor)
 ```
 
 `run` es reanudable: lo capturado no se repite, y un fallo o un bloqueo se reintentan en la siguiente ejecución. `--max N` limita las búsquedas; `--ignore-hours` ignora el horario, si el conjunto fija uno.
+
+**Reutilización de búsquedas** ([D-224](../../../../docs/30-governance/decisions.md#d-224)). Antes de buscar, `run` mira cada semilla pendiente en los otros conjuntos:
+
+- Si otro conjunto ya capturó la misma semilla (normalizada) en el mismo mercado (host, `hl` y `gl`), `run` la reutiliza y no la busca.
+- El registro se copia en el conjunto con `reused_from` (el conjunto y el registro de origen) y `reused_at`, sin el DOM, que queda en el origen.
+- Una búsqueda reutilizada no es una búsqueda: no cuenta en el tope diario y el registro la anota como `reuse`.
+- Si todas las semillas se reutilizan, `run` no abre Chrome.
 
 ## Conjunto de semillas
 
@@ -83,7 +93,8 @@ demand-engine/bin/paa unblock               # tras revisar un bloqueo (es del mo
 | Campo | Contenido | Por defecto |
 |---|---|---|
 | `class` · `model` · `rule` | Clase, modelo de demanda del que sale y regla con que se hicieron las semillas | — |
-| `seeds` | `[{"q": "sábanas", "group": "núcleo"}, …]` | — |
+| `key` · `trait` · `generated` | Los escribe `paa seeds`: la clave del modelo sin versiones (la clase del conjunto, D-116), el atributo de Shopify de los valores y por qué se eligió, y la fecha | — |
+| `seeds` | `[{"q": "sábanas", "group": "núcleo"}, …]`; con `paa seeds`, cada una con su origen en `from` (el bloque o `shopify-attr:ATRIBUTO=VALOR`) | — |
 | `market` | `base`, `hl`, `gl` | `https://www.google.es`, `es`, `es` |
 | `clicks` · `patience` | Preguntas que se abren por búsqueda · clics seguidos sin nada nuevo que la terminan | 8 · 2 |
 | `pacing` | `pause_s` entre búsquedas, `dwell_s` antes del primer clic, pausa larga (`long_every`, `long_pause_s`), `daily_cap` (de todos los conjuntos: una IP), `hours`, `timezone` | 5 s, 1,5–4 s, sin pausa larga, sin tope, sin horario, Europe/Madrid |
@@ -117,7 +128,7 @@ Lo que produce el motor es desechable, en `demand-engine/var/paa/sets/<conjunto>
 | Ruta | Contenido |
 |---|---|
 | `state.json` | Estado de cada semilla (`pending`, `captured`, `blocked`, `failed`). |
-| `searches/<semilla>/<fecha>/record.json` | URL pedida y final, estado HTTP, acciones (consentimiento, clics, bloqueos de respuestas aprendidos), preguntas con `position` y `via`, búsquedas relacionadas, si hay caja y vista de IA, llamadas bloqueadas (`blocked_callbacks`), tiempo de cada paso y navegador. |
+| `searches/<semilla>/<fecha>/record.json` | URL pedida y final, estado HTTP, acciones (consentimiento, clics, bloqueos de respuestas aprendidos), preguntas con `position` y `via`, búsquedas relacionadas, si hay caja y vista de IA, llamadas bloqueadas (`blocked_callbacks`), tiempo de cada paso y navegador. Una búsqueda reutilizada lleva además `reused_from` y `reused_at`. |
 | `searches/<semilla>/<fecha>/dom.html.gz` | El DOM tras la última apertura (solo si se capturó). |
 | `questions.json` · `related.json` | Cada pregunta o búsqueda relacionada una vez, con todas las búsquedas que la mostraron. |
 | `log.jsonl` | Una línea por búsqueda, consentimiento, bloqueo y pestañas cerradas al empezar. |
@@ -215,8 +226,52 @@ Por cada apartado cuenta lo esperado que encuentra, lo que coincide sin diferenc
 - El texto literal de cada pregunta citada queda en `catalog/paa-questions.json`, porque `var/` es desechable. `bin/model check` comprueba que cada etiqueta `paa-q:` del catálogo tiene su texto.
 - La pasada aceptada queda en `training/reports/paa/accepted.json` (resumen del control y lo que entró), que es la línea base de la siguiente. El detalle, en `var/paa/compile/<fecha>.json`.
 
+La fase PAA de una ejecución no es esta pasada: lo que entra en el modelo de una ficha es provisional y no cambia el catálogo (ver [Fase PAA de la ejecución](#fase-paa-de-la-ejecución)).
+
 Las revisiones (separar, sacar, partir, reformular) no las escribe PAA: `bin/train compile` las lee de los `classified.json` y las lista en su salida y en el informe del ciclo, para quien redacta el bloque ([D-179](../../../../docs/30-governance/decisions.md#d-179), [D-213](../../../../docs/30-governance/decisions.md#d-213)). Si `var/` se limpia antes, se pierden.
+
+## Fase PAA de la ejecución
+
+La ejecución de un modelo de demanda (`/demand-model`) tiene dos fases ([D-224](../../../../docs/30-governance/decisions.md#d-224)): la fase 1 clasifica con el reglamento de taxo y ensambla el modelo; la fase 2, PAA, trabaja sobre ese modelo. Los pasos de la fase 2:
+
+1. **Semillas:** `bin/paa seeds MODEL.json` (en el host).
+2. **Búsqueda:** `bin/paa run CONJUNTO` (en el contenedor). Reutiliza lo ya capturado y busca el resto, con los límites de ejecución de siempre.
+3. **Clasificación:** `/paa-classify CONJUNTO`, como en el entrenamiento.
+4. **Entrada provisional:** `bin/model assemble OUTPUT.json --paa CONJUNTO` y, después, `bin/model scope MODEL.json`.
+
+Si la fase 2 no termina (un bloqueo de Google, un fallo de la búsqueda o de la clasificación), queda el modelo de la fase 1. `run` es reanudable: la fase 2 se puede terminar después.
+
+### Semillas: `paa seeds`
+
+`paa seeds MODEL.json [--set CONJUNTO] [--trait ATRIBUTO] [--values VALOR …] [--seed CLAVE=TEXTO …]`
+
+- **Conjunto:** la clase del conjunto es la clave del modelo, sin versiones. Hay un conjunto por clave (D-116). Si ya existe uno con esa clave, el comando lo nombra, muestra su avance y no escribe nada: usa ese. Si no, propone un conjunto nuevo con el nombre de la clase (o el de `--set`).
+- **Núcleo:** una semilla por la categoría de cada clase (su bloque, o el del ancestro más cercano con bloque; sin los sectores) y por cada especialización de la clave. Toma el nombre de la categoría en Shopify; una especialización de orden «juego» da «juego de …».
+- **Rasgo de los valores:** si un requisito del modelo cita el reglamento textil (`ley:UE-1007/2011`), la clase es textil y se aplica la regla calibrada: `fabric` (Tejido), o `material` si las clases no tienen `fabric`. En otra clase, el código no elige el rasgo: quién lo elige y con qué criterio está abierto ([OQ-93](../../../../docs/30-governance/open-questions.md)). Sin `--trait`, el comando lista los atributos de las clases y no escribe nada.
+- **Valores:** `--values` elige los valores con uso en España entre los de taxo para ese atributo (`ATRIBUTO=VALOR`, un valor de otro atributo de las clases). La semilla es «<primera semilla del núcleo> de <valor>». Sin `--values`, el comando muestra los valores de taxo y no escribe nada.
+- **Nombres del mercado español:** `--seed CLAVE=TEXTO` cambia el texto de una semilla. `CLAVE` es el bloque de una semilla del núcleo o un valor elegido. Si cambia la primera del núcleo, las de los valores y la del juego la usan.
+- **Otros conjuntos:** el comando muestra las semillas de los conjuntos con bloques de la clave en común y, para cada semilla, si ya hay una búsqueda capturada que `run` reutilizará. Usa el mismo texto cuando signifique lo mismo: así no se repite la búsqueda.
+
+Elegir los valores y los nombres del mercado es un juicio, como en los conjuntos de `paa/`. El comando comprueba que los valores son de taxo y que no hay semillas repetidas.
+
+### Entrada provisional en el modelo
+
+`bin/model assemble OUTPUT.json --paa CONJUNTO` ensambla el modelo de la fase 1 y añade lo que propone `var/paa/sets/CONJUNTO/classified.json`. Todo lleva `status: «no compilado»` y queda en `paa` del modelo (detalle en `src/demand_engine/paa/provisional.py`):
+
+| Qué | Dónde entra |
+|---|---|
+| Candidatos | Un requisito de origen «paa» en cada bloque del modelo al que va (`paa/N1/<bloque>`), fuera de la clave, como una cuestión inferida. Importancia de las reglas o, sin regla, el voto del agente, provisional. |
+| Confirmaciones | `paa_confirmed` del requisito o de la cuestión inferida: las preguntas que lo responden. |
+| Aportaciones | La información resolutiva del requisito, con origen «paa» y sus preguntas como apoyo. |
+| Pistas de valoración | Las pistas del requisito, con origen «paa» y sin `PV-n`: el sistema numera una pista cuando la guarda. |
+| Marcas de comparación | La marca de un requisito sin marca. Si contradice la del modelo, es una duda: «se compara» mientras se resuelve (D-139). |
+
+- Un candidato que el bloque ya tiene (la misma pregunta, o un requisito «paa» con sus mismas preguntas: una pasada compilada) no se repite; sus pistas y marcas van a ese requisito.
+- Lo que el modelo no tiene (otro bloque, un requisito excluido en la clase, una cuestión inferida de otro caso) queda fuera, con su motivo, en `paa.skipped`. También quedan fuera las especializaciones y las revisiones que propone PAA.
+- La cola (`var/queue.jsonl`) recibe lo de PAA en `paa`, junto al resto de lo usado sin compilar. Reensamblar sin `--paa` sustituye la entrada.
+- El comando falla si el conjunto es de otra clave o si su clasificación no tiene todas las preguntas de `questions.json`.
+- Una clasificación posterior del conjunto no lee lo que añadió la fase 2: `classify prepare` deja fuera los candidatos y las aportaciones «no compilado».
 
 ## Pruebas
 
-`tests/paa/`: semillas, estado, bloqueos, consolidación, clasificación (entrada, comprobación, resultado y contraste), control contra los casos, su decisión y la entrada al catálogo. Con Chrome (`test_e2e.py`), una imitación local de la página de resultados que hace, como Google, una llamada con las preguntas y otras con la respuesta. Cubre consentimiento, eco de la búsqueda, despliegue por clics, aprendizaje y bloqueo de las respuestas, parada temprana, pestaña sobrante, bloqueo y página que deja de responder.
+`tests/paa/`: semillas, estado, bloqueos, consolidación, reutilización de búsquedas, `paa seeds`, clasificación (entrada, comprobación, resultado y contraste), control contra los casos, su decisión, la entrada al catálogo y la entrada provisional en el modelo. Con Chrome (`test_e2e.py`), una imitación local de la página de resultados que hace, como Google, una llamada con las preguntas y otras con la respuesta. Cubre consentimiento, eco de la búsqueda, despliegue por clics, aprendizaje y bloqueo de las respuestas, parada temprana, pestaña sobrante, bloqueo y página que deja de responder.

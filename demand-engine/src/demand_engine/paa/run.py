@@ -1,5 +1,6 @@
 """Run the pending seeds of a set, one search at a time, at a person's pace.
 
+First, a seed that another set already captured takes that search and is not repeated (D-224, store.reuse).
 One window, one Google session: searches never go in parallel (one IP). The run closes any
 other tab its Chrome still has (a run cut short leaves its tab behind), opens the home page,
 as a person does, and rejects consent. Between searches there is a pause; a long pause every so
@@ -38,7 +39,7 @@ def run(seedset: SeedSet, browser: Browser, max_searches: int | None = None, ign
     spec = seedset.definition()
     pacing, market = spec["pacing"], spec["market"]
     tz = ZoneInfo(pacing["timezone"])
-    summary = {"captured": 0, "blocked": 0, "failed": 0, "retries": 0, "stopped": None}
+    summary = {"captured": 0, "reused": len(seedset.reuse()), "blocked": 0, "failed": 0, "retries": 0, "stopped": None}
     reason = store.blocked_now()
     if reason:
         summary["stopped"] = reason

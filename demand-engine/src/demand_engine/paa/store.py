@@ -9,6 +9,9 @@ What the engine produces is disposable, in demand-engine/var/paa/sets/<set>/ (PA
   questions.json · related.json      consolidated, with their provenance
   log.jsonl                          one line per search and per change
 and, for the whole engine (Google blocks the IP, not a set), var/paa/engine.json: the blocks.
+
+A search that another set already captured with the same seed, on the same market, is reused and not repeated
+(D-224): its record is copied into the set with «reused_from», the origin of the search.
 """
 from __future__ import annotations
 
@@ -17,6 +20,7 @@ import os
 import re
 from datetime import datetime, timedelta
 from pathlib import Path
+from urllib.parse import urlparse
 
 from capture.files import now, read_json, unique_dir, write_evidence, write_json
 
@@ -61,6 +65,30 @@ def var_root() -> Path:
 
 def slug(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", norm(text)).strip("-") or "consulta"
+
+
+def same_market(record: dict, market: dict) -> bool:
+    """A search record of the market of a set: the same host, language and country."""
+    return (urlparse(record.get("url") or "").netloc, record.get("hl"), record.get("gl")) == \
+        (urlparse(market["base"]).netloc, market["hl"], market["gl"])
+
+
+def find_capture(query: str, market: dict, exclude: str | None = None) -> tuple | None:
+    """The last search of a seed (normalised) on a market that a set other than `exclude` captured:
+    (set id, folder, record), or None. A reused search keeps the origin it came from."""
+    best = None
+    for set_id in SeedSet.ids():
+        if set_id == exclude:
+            continue
+        other = SeedSet(set_id)
+        entry = other.state()["seeds"].get(norm(query)) or {}
+        if entry.get("status") != "captured":
+            continue
+        folder = other.dir / entry["record"]
+        record = read_json(folder / "record.json")
+        if record and same_market(record, market) and (best is None or record["at"] > best[2]["at"]):
+            best = (set_id, folder, record)
+    return best
 
 
 def merged(base: dict, extra: dict) -> dict:
@@ -124,6 +152,31 @@ class SeedSet:
         self.log({"event": "search", "query": seed["q"], "outcome": record["outcome"],
                   "questions": len(record.get("questions", [])), "elapsed_s": record.get("elapsed_s")})
         return folder
+
+    def reuse(self) -> list[dict]:
+        """D-224: each pending seed that another set already captured, on the same market, takes that search
+        instead of a new one. The record is copied without the DOM (it stays with the origin), with «reused_from»;
+        it is not a search (the daily cap does not count it). Returns [{q, set, record}] of the origin."""
+        market, done = self.definition()["market"], []
+        for seed in self.pending():
+            found = find_capture(seed["q"], market, exclude=self.id)
+            if not found:
+                continue
+            set_id, folder, original = found
+            origin = original.get("reused_from") or {"set": set_id, "record": str(folder.relative_to(self.dir.parent))}
+            record = {k: v for k, v in original.items() if k not in ("set", "group", "files", "reused_from")}
+            target = unique_dir(self.dir / "searches" / slug(seed["q"]))
+            write_json(target / "record.json", {"set": self.id, "group": seed.get("group"), **record,
+                                                "reused_from": origin, "reused_at": now()})
+            state = self.state()
+            state["seeds"][norm(seed["q"])] = {"status": "captured", "at": record["at"],
+                                               "record": str(target.relative_to(self.dir)), "reused_from": origin}
+            self.write_state(state)
+            self.log({"event": "reuse", "query": seed["q"], "from": origin, "questions": len(record.get("questions", []))})
+            done.append({"q": seed["q"], **origin})
+        if done:
+            self.consolidate()
+        return done
 
     def log(self, entry: dict) -> None:
         self.dir.mkdir(parents=True, exist_ok=True)

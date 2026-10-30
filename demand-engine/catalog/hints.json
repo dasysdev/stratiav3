@@ -1,6 +1,6 @@
 {
   "catalog": "pistas de valoración",
-  "version": "0.3",
+  "version": "0.4",
   "decisions": [
     "D-125",
     "D-126",
@@ -632,6 +632,37 @@
     {
       "id": "PV-47",
       "pista": "Una certificación solo es precisa si nombra la norma o el estándar concreto que certifica, no solo el sello o el organismo: «OEKO-TEX» no dice cuál de sus normas.",
+      "propiedad": [
+        "P09"
+      ],
+      "ac": [
+        "Precisión"
+      ],
+      "para": [
+        {
+          "fuente": "shopify-attr:safety-certifications"
+        },
+        {
+          "fuente": "shopify-attr:product-certifications-standards"
+        },
+        {
+          "fuente": "shopify-attr:organic-certification"
+        }
+      ],
+      "origen": {
+        "tipo": "marco",
+        "apoyo": [
+          "D-154"
+        ]
+      },
+      "retirada": {
+        "fecha": "2026-10-30",
+        "motivo": "La sustituye PV-48, que la funde con PV-24 (D-209): las dos piden la norma concreta y no solo el sello; PV-48 añade la clase o el nivel de PV-24. Un modelo ya usó esta versión (D-202)."
+      }
+    },
+    {
+      "id": "PV-48",
+      "pista": "Una certificación solo es precisa si nombra la norma o el estándar concreto que certifica y, si la norma tiene clases o niveles, con cuál se certifica: el sello o el organismo solos («OEKO-TEX») no dicen qué se ha certificado.",
       "propiedad": [
         "P09"
       ],

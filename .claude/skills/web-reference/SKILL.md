@@ -1,11 +1,11 @@
 ---
 name: web-reference
-description: Crea y mantiene la referencia técnica de web-audit (D-133). Añade una fuente (registro, congelación, ficha con citas literales y requisitos técnicos), la actualiza ante una versión nueva (refs diff, pin, revisión de citas y requisitos) y valida con web-audit/bin/reqs check. El canon prevalece; no crea estados, pesos, fórmulas, clases, niveles ni perfiles. Úsala cuando el usuario pida añadir o actualizar fuentes de la evaluación técnica, escribir o revisar requisitos técnicos de Web Schema.org o de Web o validar la referencia.
+description: Crea y mantiene la referencia técnica de web-audit (D-133). Añade una fuente (registro, congelación, ficha con citas literales y requisitos técnicos), la actualiza ante una versión nueva (refs diff, pin, revisión de citas y requisitos) y valida con web-audit/bin/reqs check. El canon prevalece; no crea estados, pesos, fórmulas, clases, niveles ni perfiles. Úsala cuando el usuario pida añadir o actualizar fuentes de la evaluación técnica, escribir o revisar requisitos técnicos de Marcado o de Contenido o validar la referencia.
 ---
 
 # web-reference: referencia técnica de web-audit
 
-Fichas de fuente con citas literales y requisitos técnicos de Web Schema.org y de Web, en `web-audit/reference/`. El formato está en `web-audit/reference/README.md`. Las fuentes las custodia `references/` (D-149): registro, versiones congeladas y versión fijada, comunes a todos los sistemas (`references/README.md`; lo propio de web-audit, en `web-audit/README.md`). Los comandos (`references/bin/refs` y `web-audit/bin/reqs`) se ejecutan en el host, desde la raíz del proyecto.
+Fichas de fuente con citas literales y requisitos técnicos de Marcado y de Contenido, en `web-audit/reference/`. El formato está en `web-audit/reference/README.md`. Las fuentes las custodia `references/` (D-149): registro, versiones congeladas y versión fijada, comunes a todos los sistemas (`references/README.md`; lo propio de web-audit, en `web-audit/README.md`). Los comandos (`references/bin/refs` y `web-audit/bin/reqs`) se ejecutan en el host, desde la raíz del proyecto.
 
 **Entrada:** `añadir FUENTE|URL…`, `actualizar [FUENTE…]` o `validar` (lo que se haga si no se indica nada).
 
@@ -19,14 +19,14 @@ Fichas de fuente con citas literales y requisitos técnicos de Web Schema.org y 
    - Los validadores y las skills de terceros no se registran (D-132).
    - Añade la fuente a `web-audit/reference/inventory.md`, con su función y su estado.
 2. **Congelar:** `references/bin/refs fetch ID`. La primera versión queda fijada sola.
-3. **Clase, nivel y ámbitos**, según las tablas del canon: la de clases de fuente (D-132) y, si es una especificación aplicable, la de niveles del perfil de cada ámbito (Web Schema.org, D-130; Web, D-159), con los ámbitos de cuyo perfil es (`scopes`).
+3. **Clase, nivel y ámbitos**, según las tablas del canon: la de clases de fuente (D-132) y, si es una especificación aplicable, la de niveles del perfil de cada ámbito (Marcado, D-130; Contenido, D-159), con los ámbitos de cuyo perfil es (`scopes`).
    - Si la fuente no encaja en ellas (un consumidor que el perfil no recoge, una clase que no está), no la trates como especificación aplicable.
    - Regístralo en `docs/30-governance/issues.md` con una propuesta, o prepara un intake para `/docs-update`, y dilo en el informe.
 4. **Ficha** (`web-audit/reference/cards/ID.json`).
    - `reqs section ID` lista las secciones y `reqs section ID SECCIÓN` muestra su texto. Copia las citas de ahí, nunca de memoria ni de la web en vivo.
    - Cita solo lo que fundamenta un requisito o la función de la fuente.
    - En una especificación aplicable, cita también el texto que fija cada naturaleza: «MUST» y «SHOULD», o las cabeceras «Required properties» y «Recommended properties».
-5. **Requisitos** (solo de una especificación aplicable), en el fichero de su ámbito y nivel (Web Schema.org: `requirements/serialization.json`, `vocabulary.json` o `consumer.json`; Web: `web-protocol.json`, `web-document.json` o `web-consumer.json`):
+5. **Requisitos** (solo de una especificación aplicable), en el fichero de su ámbito y nivel (Marcado: `requirements/serialization.json`, `vocabulary.json` o `consumer.json`; Contenido: `web-protocol.json`, `web-document.json` o `web-consumer.json`):
    - **Una sola condición comprobable** por requisito (D-132). Si una frase de la especificación exige dos cosas (`name` y `offers`), salen dos requisitos.
    - La **naturaleza** la fija la especificación, nunca tú. Si no dice must, required, shall, should ni recommend, no hay requisito: un «may» es opcional.
    - **Solo lo técnico** (D-145, D-147, D-148; «Qué se escribe» en el README): la presencia de lo exigido, la forma de lo que se publica y la formación estructural (partes exigidas, partes para interpretar un valor, coherencia entre partes), más los recomendados del mínimo de representación. La presencia de un recomendado que solo añade otro hecho no se escribe: es de la evaluación informativa. Si una pasada anterior lo escribió, va a `retired.json` con `reason` `modelo de demanda`.

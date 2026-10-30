@@ -1,6 +1,6 @@
 ---
 name: web-audit
-description: Auditado técnico de Web y Web Schema.org de un sitio (T-049, D-166, D-167). Sobre las páginas que capture congeló con audit-es (capture/var/audits/AUDIT), aplica los requisitos técnicos de la referencia de web-audit, deja a un agente los casos que piden juicio o el contenido visible de la página y escribe el expediente técnico con la tasa de cumplimiento técnico. Úsala cuando el usuario pida el expediente técnico, la evaluación técnica o la tasa de cumplimiento técnico de un sitio, o auditar técnicamente unas fichas.
+description: Auditado técnico de Contenido y Marcado de un sitio (T-049, D-166, D-167). Sobre las páginas que capture congeló con audit-es (capture/var/audits/AUDIT), aplica los requisitos técnicos de la referencia de web-audit, deja a un agente los casos que piden juicio o el contenido visible de la página y escribe el expediente técnico con la tasa de cumplimiento técnico. Úsala cuando el usuario pida el expediente técnico, la evaluación técnica o la tasa de cumplimiento técnico de un sitio, o auditar técnicamente unas fichas.
 ---
 
 # web-audit: expediente técnico de un sitio
@@ -20,7 +20,7 @@ El código aplica cada requisito técnico de `web-audit/reference/requirements/`
 3. **Comprobar:** `web-audit/bin/audit check AUDIT`. Si no dice «correcto», continúa el mismo agente (`SendMessage`) con los problemas; si a la segunda sigue mal, para e informa.
 4. **Expediente:** `web-audit/bin/audit finish AUDIT`. Escribe `dossier.json` (cada caso con su estado final, quién lo decidió y su evidencia, y las tasas) y `report.md`.
 5. **Informar** al usuario, breve:
-   - la tasa y la cobertura de cada ámbito, vista y tipo de página, con su desglose por naturaleza (Web y Web Schema.org por separado, nunca sumados);
+   - la tasa y la cobertura de cada ámbito, vista y tipo de página, con su desglose por naturaleza (Contenido y Marcado por separado, nunca sumados);
    - los no satisfechos que importan, agrupados (obligatorios primero);
    - las incidencias (NE) por causa;
    - lo que decidió el agente;
@@ -47,5 +47,5 @@ El código aplica cada requisito técnico de `web-audit/reference/requirements/`
 ## Qué no hacer
 
 - No corregir a mano los estados que decidió el código ni los juicios del agente: si un estado está mal, el fallo es del método (`/web-reference`) o de la comprobación (`web-audit/src/web_audit/checks/`).
-- No sumar ni promediar Web y Web Schema.org, ni combinar la tasa de un tipo de página con la de otro o con la general; no añadir umbrales ni estados derivados de la tasa (D-166).
+- No sumar ni promediar Contenido y Marcado, ni combinar la tasa de un tipo de página con la de otro o con la general; no añadir umbrales ni estados derivados de la tasa (D-166).
 - No descargar nada fuera de capture. El acceso a las imágenes es de capture (paso 0); sus dimensiones, su relación de aspecto y su formato son NE: fuera de V1.

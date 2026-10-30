@@ -1,6 +1,6 @@
 {
   "class": "Mantas",
-  "model": "demand-engine/var/runs/2026-10-26-v6-b/manta-nacarina-046.model.md",
+  "model": "demand-engine/var/runs/2026-10-30-v5-a/manta-nacarina-046.model.md",
   "rule": "Regla vigente (README del motor PAA, estrategia de semillas; piloto T-042, D-116): núcleo (cada categoría y especialización de la clave, con su nombre en el mercado español; sin las categorías de sector) + valores del rasgo que más condiciona las prestaciones, de las referencias. Valores: tejido (Shopify fabric; Amazon BLANKET material: lana, forro polar, algodón, sherpa). La manta y el plaid de los casos comparten clave y conjunto.",
   "clicks": 8,
   "seeds": [

@@ -1,6 +1,6 @@
 {
   "class": "Sofás",
-  "model": "demand-engine/var/runs/2026-10-26-v6-b/stressless-wave-outlet.model.md",
+  "model": "demand-engine/var/runs/2026-10-30-v5-a/stressless-wave-outlet.model.md",
   "rule": "Regla vigente (README del motor PAA, estrategia de semillas; piloto T-042, D-116): núcleo (cada categoría y especialización de la clave, con su nombre en el mercado español; sin las categorías de sector) + valores del rasgo que más condiciona las prestaciones, de las referencias. Valores: material de la tapicería (Shopify seat-upholstery-material, sin valores; Amazon SOFA fabric_type, texto libre): el atributo está en las referencias, los valores no. A decidir.",
   "clicks": 8,
   "seeds": [

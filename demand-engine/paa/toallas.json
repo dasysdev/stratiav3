@@ -1,6 +1,6 @@
 {
   "class": "Toallas de baño + Toallas de mano · juego",
-  "model": "demand-engine/var/runs/2026-10-26-v6-b/toallas-azul-080.model.md",
+  "model": "demand-engine/var/runs/2026-10-30-v5-a/toallas-azul-080.model.md",
   "rule": "Regla vigente (README del motor PAA, estrategia de semillas; piloto T-042, D-116): núcleo (cada categoría y especialización de la clave, con su nombre en el mercado español; sin las categorías de sector) + valores del rasgo que más condiciona las prestaciones, de las referencias. Valores: tejido (Shopify fabric; Amazon TOWEL material). La clave solo tiene cat.toallas y esp.juego: toallas de baño y de mano no tienen bloque propio y no entran en el núcleo.",
   "clicks": 8,
   "seeds": [

@@ -1,6 +1,6 @@
 {
   "class": "Comida para perros sin prescripción médica",
-  "model": "demand-engine/var/runs/2026-10-26-v6-b/pienso-josera-sea-fish.model.md",
+  "model": "demand-engine/var/runs/2026-10-30-v5-a/pienso-josera-sea-fish.model.md",
   "rule": "Regla vigente (README del motor PAA, estrategia de semillas; piloto T-042, D-116): núcleo (cada categoría y especialización de la clave, con su nombre en el mercado español; sin las categorías de sector) + valores del rasgo que más condiciona las prestaciones, de las referencias. Valores: forma (Shopify pet-food-form: seco, húmedo, semihúmeda). No es un material: en alimentos, la forma condiciona conservación, hidratación y ración. Alternativa sin elegir: requisitos dietéticos (pet-dietary-requirements).",
   "clicks": 8,
   "seeds": [

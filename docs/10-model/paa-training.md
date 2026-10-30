@@ -3,14 +3,14 @@ id: paa-training
 title: Entrenamiento de PAA
 layer: model
 status: vigente
-version: 1.6
-updated: 2026-10-29
-sources: [INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-paa-pilot-classes, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review]
+version: 1.7
+updated: 2026-10-30
+sources: [INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-paa-pilot-classes, INTAKE 2026-10-27-ac-applicability-and-reliability, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hint-fields, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review, INTAKE 2026-10-30-paa-phase-in-execution]
 ---
 
 # Entrenamiento de PAA
 
-People Also Ask (PAA) es una [vía de construcción](construction-routes.md) del modelo de demanda ([D-094](../30-governance/decisions.md#d-094)). Tiene un **entrenamiento propio**, independiente del [entrenamiento del modelo de demanda](model-training.md) (el de taxo), que refina cómo se recogen y se leen las preguntas y escribe en el catálogo lo que es de PAA ([D-114](../30-governance/decisions.md#d-114), [D-115](../30-governance/decisions.md#d-115)).
+People Also Ask (PAA) es una [vía de construcción](construction-routes.md) del modelo de demanda ([D-094](../30-governance/decisions.md#d-094)). Tiene un **entrenamiento propio**, independiente del [entrenamiento del modelo de demanda](model-training.md) (el de taxo), que refina cómo se recogen y se leen las preguntas y escribe en el catálogo lo que es de PAA ([D-114](../30-governance/decisions.md#d-114), [D-115](../30-governance/decisions.md#d-115)). Además, PAA es una [fase de cada ejecución](#fase-paa-de-la-ejecución), con resultado provisional ([D-224](../30-governance/decisions.md#d-224)).
 
 ## Definición
 
@@ -87,6 +87,32 @@ Enmendado por [D-179](../30-governance/decisions.md#d-179): no hay un registro p
 | Escribe | Bloques compilados, requisitos de las referencias e inferidas propuestas | Requisitos «paa», pistas de valoración, confirmación o revisión de inferidas y aportaciones aditivas; revisiones para taxo, en sus `classified.json` |
 | Importancia | La deciden sus reglas | No la decide: PAA no prueba la importancia ([D-094](../30-governance/decisions.md#d-094)) |
 
+## Fase PAA de la ejecución
+
+> 1. **PAA es una fase de la ejecución.** La ejecución de un modelo de demanda (`/demand-model`) tiene dos fases:
+>    - **fase 1:** clasificación con el reglamento de taxo y ensamblado del modelo (lo de hoy);
+>    - **fase 2, PAA:** sobre el modelo ensamblado de la fase 1.
+> 2. **Clase y semillas con taxo.** La clase del conjunto es la clave del modelo ensamblado. Las semillas siguen la regla vigente del README del motor PAA (núcleo + valores del rasgo que más condiciona las prestaciones). Las semillas salen de la clave del modelo y de las referencias que consulta taxo (`bin/taxo`). Un conjunto por clave distinta, como ya fija D-116.
+> 3. **Reutilización de búsquedas.** Una búsqueda ya capturada con la misma semilla, en otro conjunto, se reutiliza: no se repite. […]
+> 4. **Búsqueda y clasificación** como hoy […].
+> 5. **Entrada provisional en el modelo (opción A).** Lo que propone la clasificación del conjunto (requisitos candidatos, confirmaciones de requisitos y de cuestiones inferidas, aportaciones, pistas de valoración y marcas de comparación) entra en el modelo de esa ejecución:
+>    - marcado «no compilado» y encolado para el entrenamiento, igual que un bloque generado en ejecución (D-044, D-045);
+>    - el catálogo compilado no cambia en la ejecución;
+>    - la importancia de un requisito candidato sin regla es el voto del agente, provisional (D-045).
+> 6. **Nuevo ensamblado.** Después de la fase 2, el modelo se ensambla de nuevo y se vuelve a componer por ámbito (D-155), para que las unidades RI × ámbito incluyan lo de PAA.
+> 7. **El entrenamiento de PAA sigue igual.** La entrada en el catálogo compilado sigue siendo la pasada de PAA con el control (D-178, D-180). La ejecución no decide nada sobre el catálogo: solo usa lo de PAA como provisional.
+> 8. **Si la fase 2 no termina** (un bloqueo de Google, un fallo de la búsqueda o de la clasificación), el modelo de la fase 1 queda como resultado y la ejecución lo informa. La fase 2 se puede reanudar después (`bin/paa run` es reanudable).
+>
+> — INTAKE 2026-10-30-paa-phase-in-execution ([D-224](../30-governance/decisions.md#d-224))
+
+Lo provisional de PAA va fuera de la clave del modelo, como una [cuestión inferida](model-training.md#ejecución), y entra en la lista de lo usado sin compilar. PAA sigue sin decidir la importancia ([D-094](../30-governance/decisions.md#d-094)). La fase de ejecución no es una pasada de este entrenamiento ni la sustituye. Quién elige el rasgo de los valores en una clase sin calibrar queda abierto ([OQ-93](../30-governance/open-questions.md)).
+
+**Riesgos** (INTAKE 2026-10-30-paa-phase-in-execution):
+
+- más búsquedas en Google: una por semilla nueva en cada clave nueva (~8 semillas, ~10 min), con más probabilidad de bloqueo ([D-096](../30-governance/decisions.md#d-096)); los límites de ejecución del README no cambian;
+- coste de tokens del agente de PAA en cada ejecución (orientativo, [D-114](../30-governance/decisions.md#d-114): 0,7–1,3 M por clase, casi todo caché);
+- lo provisional de PAA queda sin validar en el modelo hasta el entrenamiento.
+
 ## Piloto de medición
 
 > Empieza por un piloto de medición de 3-4 clases [las clases, enmendadas por D-116], sin inducción.
@@ -118,7 +144,8 @@ Con 12 clases el volumen de búsquedas, y con él el riesgo de bloqueo, es mayor
 
 Ver [open-questions](../30-governance/open-questions.md):
 
-- índice generado de pistas de valoración por requisito, aplazado ([OQ-70](../30-governance/open-questions.md)).
+- índice generado de pistas de valoración por requisito, aplazado ([OQ-70](../30-governance/open-questions.md));
+- elección automática del rasgo de los valores de las semillas en la fase PAA de la ejecución ([OQ-93](../30-governance/open-questions.md)).
 
 ## Relacionado
 

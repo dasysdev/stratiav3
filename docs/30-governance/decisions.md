@@ -250,6 +250,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 | [D-221](#d-221) | Filtros de lectura con nombre y versión; Alfa, el filtro de Contenido | aceptada | 2026-10-30 |
 | [D-222](#d-222) | Alcance de lectura: hallazgos sin escala con un panel de lectores fechado | aceptada | 2026-10-30 |
 | [D-223](#d-223) | Ejecución en dos fases sobre la representación de cada ámbito | propuesta | 2026-10-30 |
+| [D-224](#d-224) | PAA como fase de la ejecución del modelo de demanda, con entrada provisional | aceptada | 2026-10-30 |
 
 ---
 
@@ -904,7 +905,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - **Casos:** el conjunto de entrenamiento es un catálogo grande capturado con el motor de captura compartido ([D-046](#d-046)); los 14 casos actuales son el conjunto de control.
   - **Alcance de la primera versión:** solo se induce la importancia; para composición, especializaciones, relevancia de Amazon e inferidas se miden las divergencias y el informe las agrupa por patrón.
   - **I-19:** la clave del modelo lleva la versión de cada bloque; un bloque generado en ejecución lleva el estado «no compilado» hasta que el entrenamiento lo compila.
-  - **Ejecución:** un comando de Claude Code (`/demand-model URL`) que lanza los agentes y llama al código determinista, para probar productos reales; el entrenamiento a escala, por lotes con la API (T-020). (Enmendada por [D-054](#d-054): el entrenamiento a escala clasifica con agentes de Claude Code.)
+  - **Ejecución:** un comando de Claude Code (`/demand-model URL`) que lanza los agentes y llama al código determinista, para probar productos reales; el entrenamiento a escala, por lotes con la API (T-020). (Enmendada por [D-054](#d-054): el entrenamiento a escala clasifica con agentes de Claude Code.) (Enmendada por [D-224](#d-224): la ejecución tiene una fase PAA después del ensamblado, con entrada provisional.)
 - **Interpretaciones adoptadas:**
   - La opción C sustituye solo el ámbito global del punto 2 («lo único que no me encaja es que se mire a nivel global»); el resto del mecanismo explicado se mantiene: etiquetas, regla que sale de las importancias con la misma etiqueta, excepciones constantes como reglas específicas, votos, «manda la regla» y límites del marco.
   - Se incorpora a `10-model` como vigente, igual que D-044: es la operación aprobada para la primera versión; lo que no fija queda en OQ-48 y OQ-49.
@@ -1938,7 +1939,7 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
 
 - **Contexto:** `INTAKE 2026-10-27-paa-training` (T-042). La regla de semillas y las reglas de lectura de las preguntas ([D-100](#d-100) a [D-113](#d-113)) salen de una sola clase, sábanas. El usuario quiere que PAA se refine con datos de otras clases.
 - **Decisión:**
-  - PAA tiene un entrenamiento propio, independiente del de taxo ([model-training](../10-model/model-training.md)), con pasadas solo de PAA, «para que se autorefine en reglas, criterios, definición de semillas» (palabras del usuario).
+  - PAA tiene un entrenamiento propio, independiente del de taxo ([model-training](../10-model/model-training.md)), con pasadas solo de PAA, «para que se autorefine en reglas, criterios, definición de semillas» (palabras del usuario). (Enmendada por [D-224](#d-224): PAA es además una fase de cada ejecución, con resultado provisional; el entrenamiento sigue independiente.)
   - Refina solo tres cosas: la estrategia de semillas, el vocabulario de criterios de elección (como el de rasgos, [D-056](#d-056)) y la calibración de reglas.
   - Calibrar una regla es ajustar sus parámetros dentro de las reglas vigentes (p. ej., cuántas preguntas o materiales exige la prueba (a) de [D-103](#d-103)), validado contra los casos de control de PAA y con informe.
   - Crear o retirar reglas sigue siendo decisión del usuario. Nada se acepta si empeora una métrica frente al control. El número de candidatos no es objetivo.
@@ -3629,3 +3630,29 @@ Registro **de solo adición**. Una decisión no se borra: se marca como `sustitu
   - Desaparece «en Web ve juntos el HTML y el Schema.org».
 - **Consecuencias:** [execution](../20-methods/audit-gsc/execution.md#ejecución-en-dos-fases); [qa](../20-methods/audit-gsc/qa.md) (QA-15).
 - **Relacionado:** D-153, D-220, D-221.
+
+### D-224
+
+**PAA como fase de la ejecución del modelo de demanda, con entrada provisional.** · aceptada · 2026-10-30
+
+- **Contexto:** `INTAKE 2026-10-30-paa-phase-in-execution` (piloto GSC de Burrito Blanco, T-105). Los modelos del piloto (T-095) no tenían nada de PAA: `/demand-model` no lanzaba PAA, y la pasada de PAA no se había compilado en el catálogo real. El usuario: «PAA debe ejecutarse como una fase posterior a la creación del modelo usando taxo». Claude propuso dos opciones para la entrada en el modelo: A, provisional; B, la pasada de PAA con el control. El usuario eligió A.
+- **Decisión:**
+  - La ejecución de un modelo de demanda tiene dos fases: la fase 1, clasificación con el reglamento de taxo y ensamblado; la fase 2, **PAA**, sobre el modelo ensamblado.
+  - La clase del conjunto es la clave del modelo ensamblado. Las semillas siguen la regla vigente del README del motor PAA: salen de la clave y de las referencias que consulta taxo. Un conjunto por clave distinta ([D-116](#d-116)).
+  - Una búsqueda ya capturada con la misma semilla, en otro conjunto, se reutiliza.
+  - La búsqueda y la clasificación no cambian: el motor PAA y el agente con su reglamento, con el catálogo de la clase del modelo.
+  - Lo que propone la clasificación (requisitos candidatos, confirmaciones de requisitos y de inferidas, aportaciones, pistas de valoración y marcas de comparación) entra en el modelo de esa ejecución «no compilado» y encolado, como un bloque generado en ejecución ([D-044](#d-044), [D-045](#d-045)). El catálogo compilado no cambia. La importancia de un candidato sin regla es el voto del agente, provisional.
+  - Después de la fase 2, el modelo se ensambla de nuevo y se compone otra vez por ámbito ([D-155](#d-155)).
+  - El entrenamiento de PAA no cambia: la entrada en el catálogo compilado sigue siendo la pasada con el control ([D-178](#d-178), [D-180](#d-180)).
+  - Si la fase 2 no termina (bloqueo de Google, fallo de la búsqueda o de la clasificación), el resultado es el modelo de la fase 1 y la ejecución lo informa. La fase 2 se puede reanudar.
+- **Riesgos:** más búsquedas en Google (~8 semillas y ~10 min por clave nueva) y más probabilidad de bloqueo ([D-096](#d-096)), sin cambiar los límites de ejecución; coste de tokens del agente en cada ejecución (0,7–1,3 M por clase, [D-114](#d-114)); lo provisional de PAA queda sin validar hasta el entrenamiento.
+- **Alternativa descartada (B):** que la ejecución compile la pasada de PAA. Cada ficha movería el catálogo compartido, y el control solo decide sobre el total de los conjuntos: un conjunto nuevo sin caso de control no se mide.
+- **Interpretaciones adoptadas:**
+  - «Usando taxo» se lee como el origen de la clase y de las semillas: la clave que compone la clasificación de taxo y las referencias que consulta `bin/taxo`. La regla de semillas sigue siendo operativa y vive en el README del motor ([D-114](#d-114)).
+  - Lo provisional de PAA va fuera de la clave del modelo, como una cuestión inferida ([D-041](#d-041)): la versión de un bloque solo cambia al compilar ([D-178](#d-178)). La lista de lo usado sin compilar lo incluye (trazabilidad, [D-044](#d-044)).
+  - PAA sigue sin decidir la importancia ([D-094](#d-094)): el candidato recibe la de las reglas vigentes o, sin regla, el voto del agente.
+  - D-114 («independiente del de taxo») se mantiene para el entrenamiento. La fase de ejecución no es una pasada del entrenamiento de PAA ni la sustituye.
+  - El artefacto no dice quién elige el rasgo de los valores en una clase sin calibrar, ni con qué criterio de forma automática: se abre [OQ-93](open-questions.md).
+- **Enmienda:** [D-045](#d-045) (la ejecución incluye la fase PAA) y [D-114](#d-114) (PAA se ejecuta además en cada modelo, con resultado provisional). Precisa [D-094](#d-094): PAA es también una fase de la ejecución.
+- **Consecuencias:** [paa-training](../10-model/paa-training.md#fase-paa-de-la-ejecución) 1.7; [model-training](../10-model/model-training.md#ejecución) 1.28; [construction-routes](../10-model/construction-routes.md) 1.12; glosario (Ejecución, PAA, Fase PAA de la ejecución). Fuera de `docs/`: `bin/paa seeds`, la reutilización de búsquedas, la entrada provisional en `bin/model assemble` y la fase en `/demand-model` (T-105).
+- **Relacionado:** D-044, D-045, D-094, D-114, D-116, D-155, D-178, D-180.

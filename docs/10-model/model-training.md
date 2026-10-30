@@ -3,14 +3,14 @@ id: model-training
 title: Entrenamiento y ejecución del modelo de demanda
 layer: model
 status: vigente
-version: 1.27
-updated: 2026-10-29
-sources: [INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-25-training-catalog-selection, INTAKE 2026-10-25-training-classifier, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-26-color-and-requirement-exceptions, INTAKE 2026-10-26-any-property-precision, INTAKE 2026-10-26-critical-count-not-a-goal, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-formulation, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-capture-system, INTAKE 2026-10-28-curated-training-catalog, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review, INTAKE 2026-10-29-specialization-induction, INTAKE 2026-10-29-paa-natural-answer-and-specializations, INTAKE 2026-10-29-detail-measure-trait]
+version: 1.28
+updated: 2026-10-30
+sources: [INTAKE 2026-10-25-training-runtime, INTAKE 2026-10-25-induced-rules, INTAKE 2026-10-25-training-operation, INTAKE 2026-10-25-relevance-origin, INTAKE 2026-10-25-training-catalog-selection, INTAKE 2026-10-25-training-classifier, INTAKE 2026-10-26-training-v4-review, INTAKE 2026-10-26-color-and-requirement-exceptions, INTAKE 2026-10-26-any-property-precision, INTAKE 2026-10-26-critical-count-not-a-goal, INTAKE 2026-10-26-resolving-information-rules, INTAKE 2026-10-26-resolving-contribution-name, INTAKE 2026-10-26-general-layer-formulation, INTAKE 2026-10-26-open-issues-resolution, INTAKE 2026-10-27-paa-classification-criteria, INTAKE 2026-10-27-paa-training, INTAKE 2026-10-27-assessment-hints, INTAKE 2026-10-27-hints-catalog, INTAKE 2026-10-27-hints-governance, INTAKE 2026-10-28-capture-system, INTAKE 2026-10-28-curated-training-catalog, INTAKE 2026-10-29-oq-review, INTAKE 2026-10-29-issues-review, INTAKE 2026-10-29-specialization-induction, INTAKE 2026-10-29-paa-natural-answer-and-specializations, INTAKE 2026-10-29-detail-measure-trait, INTAKE 2026-10-30-paa-phase-in-execution]
 ---
 
 # Entrenamiento y ejecución del modelo de demanda
 
-Parte del [modelo de demanda](demand-model.md). Define cómo se produce el modelo de demanda de un producto: un **entrenamiento** periódico que induce las reglas y compila el catálogo de bloques, y una **ejecución** automática que construye cada modelo con ellos. La persona responsable solo define el **marco** ([D-041](../30-governance/decisions.md#d-041), [D-044](../30-governance/decisions.md#d-044)). La operación de la primera versión está en [D-045](../30-governance/decisions.md#d-045). PAA tiene un [entrenamiento propio](paa-training.md), independiente de este ([D-114](../30-governance/decisions.md#d-114)).
+Parte del [modelo de demanda](demand-model.md). Define cómo se produce el modelo de demanda de un producto: un **entrenamiento** periódico que induce las reglas y compila el catálogo de bloques, y una **ejecución** automática que construye cada modelo con ellos. La persona responsable solo define el **marco** ([D-041](../30-governance/decisions.md#d-041), [D-044](../30-governance/decisions.md#d-044)). La operación de la primera versión está en [D-045](../30-governance/decisions.md#d-045). PAA tiene un [entrenamiento propio](paa-training.md), independiente de este ([D-114](../30-governance/decisions.md#d-114)), y es además una [fase de la ejecución](paa-training.md#fase-paa-de-la-ejecución) ([D-224](../30-governance/decisions.md#d-224)).
 
 ## Definición
 
@@ -85,6 +85,8 @@ El entrenamiento compila también las [pistas de valoración](assessment-hints.m
 > — INTAKE 2026-10-25-induced-rules; «no revisada» es el estado «no compilado», y lo nuevo sin regla en su rama recibe el voto del agente como provisional ([D-045](../30-governance/decisions.md#d-045))
 
 Una cuestión inferida se usa en la ejecución como añadido provisional del modelo, marcado como tal y fuera de la clave; cuando el entrenamiento la acepta, pasa al bloque del catálogo como nueva versión ([D-041](../30-governance/decisions.md#d-041)). La clave del modelo lleva la versión de cada bloque, y un bloque generado en ejecución está «no compilado» hasta que el entrenamiento lo compila ([D-045](../30-governance/decisions.md#d-045)).
+
+Después del ensamblado, la ejecución tiene una segunda fase, PAA, sobre la clave del modelo. Lo que propone entra como provisional, «no compilado» y encolado, y el modelo se ensambla de nuevo. El detalle está en [paa-training](paa-training.md#fase-paa-de-la-ejecución) ([D-224](../30-governance/decisions.md#d-224)).
 
 ## Conexiones y principios
 

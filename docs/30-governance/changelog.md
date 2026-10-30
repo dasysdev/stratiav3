@@ -14,6 +14,13 @@ Entradas en orden cronológico inverso. Cada entrada indica la fecha, los módul
 
 **Tipos:** `estructura` · `canon` (cambia una definición, regla, escala o indicador) · `método` · `editorial` (sin cambio de significado) · `gobernanza`.
 
+## 2026-10-30 — PAA como fase de la ejecución · aplicado
+
+- **canon** — `INTAKE 2026-10-30-paa-phase-in-execution` (piloto GSC de Burrito Blanco, T-105; decisión del usuario, opción A): [D-224](decisions.md#d-224). La ejecución del modelo de demanda tiene una fase PAA después del ensamblado: semillas de la clave y de las referencias de taxo, reutilización de búsquedas, entrada provisional («no compilado» y encolada; fuera de la clave, interpretación de Claude) y nuevo ensamblado. Enmienda D-045 y D-114; precisa D-094. El entrenamiento de PAA y la entrada en el catálogo compilado (D-178, D-180) no cambian.
+- **Módulos:** [paa-training](../10-model/paa-training.md#fase-paa-de-la-ejecución) 1.7 (sección nueva), [model-training](../10-model/model-training.md#ejecución) 1.28, [construction-routes](../10-model/construction-routes.md) 1.12; [glossary](../glossary.md) (Ejecución, PAA, Fase PAA de la ejecución).
+- **gobernanza** — OQ nueva: [OQ-93](open-questions.md#a-modelo-de-demanda) (elección automática del rasgo de los valores de las semillas).
+- Fuera de `docs/`: `bin/paa seeds`, la reutilización de búsquedas, la entrada provisional en `bin/model assemble` y la fase en `/demand-model`, en T-105.
+
 ## 2026-10-30 — Ámbitos Contenido y Marcado, filtro Alfa y alcance de lectura · aplicado
 
 - **canon** — `INTAKE 2026-10-30-content-and-markup-scopes` (T-101; decisiones del usuario tras la prueba de canarios): [D-220](decisions.md#d-220) sustituye Web por **Contenido** y Web Schema.org por **Marcado**; ningún ámbito evalúa el HTML entero. Enmienda D-013 (nombres), D-124 (pares), D-152, D-155 (localización de Contenido), D-156 («todo el documento»), D-157 (frontera del documento), FUND §4.1 y §4.3, el caso H (FUND §10.4) y las invariantes 1 y 2 del `CLAUDE.md` raíz.

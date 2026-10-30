@@ -40,7 +40,7 @@ Orden de lectura recomendado:
 | 4e | [requirement-description](10-model/requirement-description.md) | Descripción de cada requisito: tres partes que concretan la pregunta, sin repetir la información resolutiva. |
 | 4f | [choice-criteria](10-model/choice-criteria.md) | Criterios de elección: cuándo generan un requisito (C1–C4), lectura de las preguntas PAA y por qué una prestación no se resuelve con el atributo del que se deduciría. |
 | 4g | [construction-routes](10-model/construction-routes.md) | Vías de construcción del modelo de demanda (taxonomía, MPIR aparcado, People Also Ask), cuestiones inferidas, origen de cada requisito y recorrido. |
-| 4h | [paa-training](10-model/paa-training.md) | Entrenamiento propio de PAA: qué refina, lo que escribe en el catálogo, un solo escritor por requisito y piloto de medición. |
+| 4h | [paa-training](10-model/paa-training.md) | Entrenamiento propio de PAA: qué refina, lo que escribe en el catálogo, un solo escritor por requisito, piloto de medición y fase PAA de la ejecución. |
 | 4i | [training-catalog](10-model/training-catalog.md) | Catálogo de entrenamiento curado: vías de entrada, filtros, motivos de admisión, topes, casos manuales y conservación de sus fichas. |
 | 5 | [evaluation-architecture](10-model/evaluation-architecture.md) | Dos naturalezas de requisitos, componentes y cadenas de análisis y justificación. |
 | 6 | [effective-availability](10-model/effective-availability.md) | Puerta binaria previa; pertinencia de lo derivado y prueba de derivación. |

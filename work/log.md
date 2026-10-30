@@ -96,3 +96,4 @@
 - 2026-10-30 T-106 PAA: reformular solo para el mismo hecho (paso 7) — paa.md v8: ampliar solo para el mismo hecho; en botas, el candidato esperado sale y cat.calzado/24 no se reformula
 - 2026-10-30 T-107 PAA: primera pasada al catálogo con el reglamento v8 (D-178, D-180) — Primera pasada de PAA con v8: 12 conjuntos reclasificados sobre modelos v5, control sin regresiones, 63 entradas en 18 bloques
 - 2026-10-30 T-110 PAA: fundir los duplicados entre conjuntos en la pasada al catálogo — Pasada de PAA sin duplicados: compile los lista, un revisor decide y se funden; 4 fusiones, 57 entradas en 16 bloques
+- 2026-10-30 T-105 demand-model: fase PAA tras el ensamblado, con entrada provisional — Fase PAA en /demand-model y marca de comparación en el modelo; los 2 modelos del piloto rehechos sobre las fichas audit-es y el catálogo vigente

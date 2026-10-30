@@ -224,7 +224,9 @@ def check(spec: dict, output: dict) -> list[str]:
     """What is missing or wrong in the agent's output (classifier/paa.md, §4)."""
     problems = []
     req_ids = {r["id"] for r in spec["catalog"]}
-    known = {s["id"] for s in spec.get("specializations") or []}
+    # a question about a specialization goes to it: one of the key or one of the class (paa.md, step 1)
+    known = {s["id"] for s in spec.get("specializations") or []} | \
+        {b["id"] for b in spec["blocks"] if b.get("type") == "especialización"}
     proposed = {s.get("id"): s for s in output.get("specializations") or []}
     block_ids = {b["id"] for b in spec["blocks"]} | known | set(proposed)
     expected = {q["n"] for q in spec["questions"]}

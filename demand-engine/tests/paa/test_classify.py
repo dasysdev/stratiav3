@@ -320,6 +320,17 @@ def test_a_question_goes_to_a_specialization_of_the_catalog_or_a_proposed_one(se
     assert "### S1 · de lino lavado (material)" in md and "«¿Se arruga mucho el lino?»" in md
 
 
+def test_a_question_goes_to_a_specialization_of_the_key(seedset):
+    classify.prepare(seedset)
+    output = good_output()
+    output["questions"][0]["specialization"] = "esp.juego"
+    write_output(seedset, output)
+    spec, output = classify.load(seedset)
+    spec["blocks"].append({"id": "esp.juego", "name": "juego", "type": "especialización", "shopify": None})
+    spec["specializations"] = [s for s in spec["specializations"] if s["id"] != "esp.juego"]
+    assert classify.check(spec, output) == []
+
+
 def test_check_of_specializations(seedset):
     classify.prepare(seedset)
     out = with_specialization(good_output())

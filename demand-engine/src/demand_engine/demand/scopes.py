@@ -11,7 +11,11 @@ scope. Each scope has a versioned sheet (catalog/scopes/<scope>.json) with two p
   pertinence. In Web Schema.org it is derived from the Google Search support of the catalog (general layer and
   attributes) plus the sheet's own entries (the properties that are not support, such as the required ones).
 
-The audit composes model × sheet into RI × scope units and records the version of the sheet (compose).
+The audit composes model × sheet into RI × scope units and records the version of the sheet (compose). Each unit carries
+the fields of the RI profile that come from the model (D-177): the components and their contributions from the resolving
+information, the description for «objeto», «alcance» and «casos_frontera», the resolved hints (D-135) and the
+localization as illustrative expressions (D-155). The auditor does not fill them in; what the model lacks is pointed out
+in «pendientes_de_definicion».
 
 The properties that the consumers of the Web Schema.org profile recommend without requiring are demand support with
 origin «referencias» and no scope, like the Amazon PTD (D-052): those of the general layer in the sources and support of
@@ -100,6 +104,32 @@ def requirements_of(model: dict) -> list:
     return out
 
 
+NO_RESOLVING, NO_DESCRIPTION = "sin información resolutiva", "sin descripción"
+
+
+def components(resolving_info: list) -> list:
+    """«componentes_respuesta»: the contributions of the resolving information grouped by the component they answer, in
+    the order of the catalog (D-177)."""
+    out = {}
+    for c in resolving_info:
+        entry = {"aportacion": c["contribution"], "origen": c.get("origin")}
+        if c.get("status"):
+            entry["estado"] = c["status"]
+        out.setdefault(c.get("component"), []).append(entry)
+    return [{"componente": k, "aportaciones": v} for k, v in out.items()]
+
+
+def profile(r: dict, where: list) -> dict:
+    """The fields of the RI profile that the demand engine composes from the model (D-177, D-135, D-155). «objeto»,
+    «alcance» and «casos_frontera» take the whole description; what the model lacks is pointed out, never filled in."""
+    description = r.get("description")
+    missing = [NO_RESOLVING] * (not r.get("resolving_info")) + [NO_DESCRIPTION] * (not description)
+    return {"objeto": description, "alcance": description, "casos_frontera": description,
+            "componentes_respuesta": components(r.get("resolving_info", [])),
+            "pistas_valoracion": r.get("hints", []), "expresiones_ejemplo": where,
+            "pendientes_de_definicion": missing}
+
+
 def compose(model: dict, sheet: dict, gen: dict, google: dict) -> dict:
     """The RI × scope units of a model in the scope of the sheet, with the version of the sheet (D-155)."""
     included = [load_sheet(s) for s in sheet.get("localization", {}).get("include", [])]
@@ -117,7 +147,7 @@ def compose(model: dict, sheet: dict, gen: dict, google: dict) -> dict:
             where += [{"source": s, "contribution": None} for s in attribute_support(r.get("sources", []), google)]
         units.append({"id": r["id"], "block": block, "question": r.get("question"), "importance": r.get("importance"),
                       "pertinent": rule is None, "na_reason": rule.get("reason") if rule else None,
-                      "localization": [] if rule else where})
+                      "profile": profile(r, [] if rule else where)})
     return {"case": model.get("case"), "model_key": model["key"]["model"], "scope": sheet["scope"],
             "sheet": f"{sheet['id']}@{sheet['version']}", "units": units}
 
@@ -125,17 +155,24 @@ def compose(model: dict, sheet: dict, gen: dict, google: dict) -> dict:
 def render_units(composed: dict) -> str:
     units = composed["units"]
     na = [u for u in units if not u["pertinent"]]
-    located = [u for u in units if u["localization"]]
+    located = [u for u in units if u["profile"]["expresiones_ejemplo"]]
+    lacking = {gap: [u for u in units if gap in u["profile"]["pendientes_de_definicion"]] for gap in (NO_RESOLVING, NO_DESCRIPTION)}
     lines = [f"# {composed['case']} × {composed['scope']}", "",
              f"- Ficha: `{composed['sheet']}` · clave del modelo: `{' '.join(composed['model_key'])}`",
              f"- Unidades RI × ámbito: {len(units)} · pertinentes: {len(units) - len(na)} · NA: {len(na)}",
-             f"- Con localización: {len(located)}", ""]
+             f"- Con localización: {len(located)}",
+             f"- Perfil del RI: {sum(bool(u['profile']['pistas_valoracion']) for u in units)} con pistas de valoración · "
+             + " · ".join(f"{len(v)} {gap}" for gap, v in lacking.items()), ""]
     if na:
         lines += ["## No pertinentes", ""] + [f"- {u['id']} {u['question']} — {u['na_reason']}" for u in na] + [""]
+    if lacking[NO_RESOLVING]:
+        lines += [f"## Perfil del RI {NO_RESOLVING} (no se completa)", ""] \
+            + [f"- {u['id']} {u['question']}" for u in lacking[NO_RESOLVING]] + [""]
     lines += ["## Localización (orienta; no cierra la búsqueda)", ""]
     for u in located:
         lines.append(f"- {u['id']} {u['question']}")
-        lines += [f"  - `{s['source']}`" + (f" → {s['contribution']}" if s.get("contribution") else "") for s in u["localization"]]
+        lines += [f"  - `{s['source']}`" + (f" → {s['contribution']}" if s.get("contribution") else "")
+                  for s in u["profile"]["expresiones_ejemplo"]]
     return "\n".join(lines) + "\n"
 
 
@@ -150,7 +187,10 @@ def cmd_scope(model_path: Path, scopes: list) -> None:
         out.with_suffix(".md").write_text(render_units(composed), encoding="utf-8")
         units = composed["units"]
         print(f"{composed['scope']} ({composed['sheet']}): {len(units)} unidades, "
-              f"{sum(not u['pertinent'] for u in units)} NA, {sum(bool(u['localization']) for u in units)} con localización")
+              f"{sum(not u['pertinent'] for u in units)} NA, {sum(bool(u['profile']['expresiones_ejemplo']) for u in units)} "
+              f"con localización; perfil del RI: "
+              + ", ".join(f"{sum(gap in u['profile']['pendientes_de_definicion'] for u in units)} {gap}"
+                          for gap in (NO_RESOLVING, NO_DESCRIPTION)))
         print(f"  → {out} y {out.with_suffix('.md')}")
 
 

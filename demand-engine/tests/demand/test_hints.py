@@ -150,3 +150,28 @@ def test_the_training_numbers_the_hints_of_the_blocks_it_compiled(tmp_path, monk
     saved = json.loads((cat / "a.json").read_text(encoding="utf-8"))["requirements"][0]["hints"]
     assert [h["id"] for h in saved] == ["PV-4", "PV-8"] and saved[1]["pista"] == drafted["pista"]
     assert hints.consolidate() == []
+
+
+def test_the_model_keeps_the_resolved_hints_and_the_description_of_each_requirement(tmp_path, monkeypatch):
+    from demand_engine.demand import model as engine
+    own = {"id": "PV-90", "pista": "Propia.", "propiedad": ["P06"], "ac": ["Precisión"], "origen": {"tipo": "referencias"}}
+    by_type = {"id": "PV-91", "pista": "Por tipo.", "propiedad": ["P14"], "ac": ["Fiabilidad"], "para": {"entidad": "producto"},
+               "origen": {"tipo": "marco"}}
+    retired = {**by_type, "id": "PV-92", "retirada": "D-136"}
+    spec = {"id": "esp.bateria", "type": "especialización", "name": "a batería", "order": "función", "trigger": "batería",
+            "anchors": ["ha-15-59"], "version": "1", "status": "compilado", "_where": "catálogo",
+            "requirements": [{"id": "esp.bateria/01", "question": "¿Qué batería usa?", "entity": "producto", "trait": "uso",
+                              "description": "Qué batería. No lo responde la potencia.", "hints": [own], "sources": [],
+                              "importance": "principal", "origin": "inferida",
+                              "resolving_info": [{"contribution": "x", "component": "y", "origin": "inferida", "support": []}]}]}
+    monkeypatch.setattr(engine, "load_specializations", lambda: {"esp.bateria": spec})
+    monkeypatch.setattr(engine.hints, "load_hints", lambda: {"hints": [by_type, retired]})
+    out = {"case": "x", "rulebook": "v4", "declared": [], "application": [], "inferred": [],
+           "composition": {"categories": [{"shopify": "ha-15-59-3", "alias": False}]},
+           "specializations": [{"id": "esp.bateria"}], "votes": {}, "trait_votes": {}}
+    path = tmp_path / "x.json"
+    path.write_text(json.dumps(out), encoding="utf-8")
+    m = engine.assemble(path)
+    r = next(b for b in m["blocks"] if b["id"] == "esp.bateria")["requirements"][0]
+    assert r["hints"] == [by_type, own] and r["description"] == spec["requirements"][0]["description"]
+    assert all(h["id"] != "PV-92" for b in m["general"] for g in b["requirements"] for h in g["hints"])

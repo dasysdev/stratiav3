@@ -391,7 +391,8 @@ def requirement_entry(r: dict, trait: str, classes: list, rules: dict, vote, tra
             "provisional": provisional or doubtful, "doubtful": doubtful, "excluded": excluded, "relevance_rule": rel_rule,
             "classes": classes, "origin": r.get("origin"), "sources": sources,
             "applicability": r.get("applicability"),
-            "resolving_info": resolving.for_model(r, compiled or {})}
+            **({"description": r["description"]} if r.get("description") else {}),
+            "resolving_info": resolving.for_model(r, compiled or {}), "hints": r.get("hints", [])}
 
 
 def split(entries: list) -> tuple:
@@ -483,7 +484,8 @@ def assemble(out_path: Path) -> dict:
                                           "applicability": r.get("applicability", "universal"), "origin": r.get("origin"),
                                           "sources": r.get("sources", []),
                                           "references": scopes.google_sources(r.get("sources", [])),
-                                          "resolving_info": resolving.for_model(r, compiled)}
+                                          "resolving_info": resolving.for_model(r, compiled),
+                                          "hints": r.get("hints", [])}
                                          for r in b["requirements"]]})
     esp = sorted((b for b in model_blocks if b["type"] == "especialización"),
                  key=lambda b: (ESP_ORDER.index(b["order"]) if b.get("order") in ESP_ORDER else len(ESP_ORDER), b["id"]))
@@ -522,6 +524,11 @@ def assemble(out_path: Path) -> dict:
     google = scopes.load_google()
     for r in [r for b in model_blocks for r in b["requirements"] + b.get("excluded", [])] + inferred:
         r["references"] = scopes.attribute_support(r.get("sources", []), google)
+    # D-135: the model keeps the resolved hints of each requirement (those of the catalog that reach it and its own);
+    # the RI profile takes them in «pistas_valoracion»
+    catalog_hints = hints.load_hints().get("hints", [])
+    for r in [r for b in general + model_blocks for r in b["requirements"] + b.get("excluded", [])] + inferred:
+        r["hints"] = [h for _, h in hints.find(r, catalog_hints)]
     model = {
         "case": out.get("case"), "product": out.get("product"), "url": out.get("url"),
         "engine": {"rulebook": out.get("rulebook"), "rules": rules.get("version"), "refs": pins("demand-engine"),

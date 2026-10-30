@@ -1,7 +1,7 @@
 """One demand model and one sheet per scope (D-155); the recommended properties of Google Search as support (D-145)."""
 from demand_engine.demand import scopes
-from demand_engine.demand.scopes import (attribute_support, compose, exception, google_problems, handles, localization,
-                                         sheet_problems)
+from demand_engine.demand.scopes import (NO_DESCRIPTION, NO_RESOLVING, attribute_support, components, compose, exception,
+                                         google_problems, handles, localization, profile, sheet_problems)
 
 COLOR = "google-search-merchant-listing:Product.color@2026-10-27"
 MATERIAL = "google-search-merchant-listing:Product.material@2026-10-27"
@@ -34,6 +34,10 @@ MODEL = {"case": "bota", "key": {"model": ["gen@0.8", "cat.botas@4"]},
          "inferred": []}
 
 
+def loc(unit: dict) -> list:
+    return unit["profile"]["expresiones_ejemplo"]
+
+
 def test_a_category_requirement_is_supported_through_the_shopify_attributes_it_cites():
     assert handles(["shopify-attr:color=Rojo@v2026-08", "shopify-attr:fabric", "amazon-ptd-prop:BOOT.color"]) == {"color", "fabric"}
     assert attribute_support(["shopify-attr:color=Negro"], GOOGLE) == [COLOR]
@@ -48,10 +52,10 @@ def test_every_requirement_is_pertinent_and_the_localization_comes_from_the_cata
     units = {u["id"]: u for u in composed["units"]}
     assert set(units) == {"gen/02", "gen/10", "cat.botas/01", "cat.botas/02", "cat.botas/03"}   # what does not apply is out
     assert all(u["pertinent"] for u in units.values())
-    assert units["gen/02"]["localization"] == [{"source": BRAND, "contribution": "marca del producto"},
-                                               {"source": NAME, "contribution": "marca del producto"}]
-    assert units["cat.botas/01"]["localization"] == [{"source": COLOR, "contribution": None}]
-    assert units["gen/10"]["localization"] == units["cat.botas/03"]["localization"] == []   # no property is not a reason for NA
+    assert loc(units["gen/02"]) == [{"source": BRAND, "contribution": "marca del producto"},
+                                     {"source": NAME, "contribution": "marca del producto"}]
+    assert loc(units["cat.botas/01"]) == [{"source": COLOR, "contribution": None}]
+    assert loc(units["gen/10"]) == loc(units["cat.botas/03"]) == []   # no property is not a reason for NA
 
 
 def test_an_including_sheet_takes_the_localization_of_the_included_one(monkeypatch):
@@ -59,7 +63,7 @@ def test_an_including_sheet_takes_the_localization_of_the_included_one(monkeypat
     web = {"id": "web", "scope": "Web", "version": "0.1", "pertinence": {"exceptions": []},
            "localization": {"include": ["web-schema-org"]}}
     units = {u["id"]: u for u in compose(MODEL, web, GEN, GOOGLE)["units"]}
-    assert units["gen/02"]["localization"] and units["cat.botas/01"]["localization"] == [{"source": COLOR, "contribution": None}]
+    assert loc(units["gen/02"]) and loc(units["cat.botas/01"]) == [{"source": COLOR, "contribution": None}]
 
 
 def test_an_exception_is_a_rule_by_entity_or_by_component_with_its_reason():
@@ -70,7 +74,34 @@ def test_an_exception_is_a_rule_by_entity_or_by_component_with_its_reason():
     assert exception(MODEL["general"][0]["requirements"][0], rules) is None
     sheet = {**SHEET, "pertinence": {"exceptions": rules}}
     units = {u["id"]: u for u in compose(MODEL, sheet, GEN, GOOGLE)["units"]}
-    assert not units["gen/10"]["pertinent"] and units["gen/10"]["na_reason"] == "Hipotético." and units["gen/10"]["localization"] == []
+    assert not units["gen/10"]["pertinent"] and units["gen/10"]["na_reason"] == "Hipotético." and loc(units["gen/10"]) == []
+
+
+def test_the_profile_takes_components_description_and_hints_from_the_model():
+    hint = {"id": "PV-1", "pista": "Suma 100 %.", "propiedad": ["P14"], "ac": ["Fiabilidad"], "origen": {"tipo": "marco"}}
+    r = {"id": "gen/25", "description": "A qué zonas envía. Lo responde la tarifa. No lo responde gen/05.", "hints": [hint],
+         "resolving_info": [{"contribution": "tarifa por zona", "component": "coste", "origin": "marco"},
+                            {"contribution": "zonas de envío", "component": "zonas", "origin": "marco"},
+                            {"contribution": "envío gratis desde un importe", "component": "coste", "origin": "inferida",
+                             "status": "provisional"}]}
+    p = profile(r, [{"source": ORIGIN, "contribution": "zonas de envío"}])
+    assert p["objeto"] == p["alcance"] == p["casos_frontera"] == r["description"]   # the whole text, not cut (D-177)
+    assert p["componentes_respuesta"] == [
+        {"componente": "coste", "aportaciones": [{"aportacion": "tarifa por zona", "origen": "marco"},
+                                                 {"aportacion": "envío gratis desde un importe", "origen": "inferida",
+                                                  "estado": "provisional"}]},
+        {"componente": "zonas", "aportaciones": [{"aportacion": "zonas de envío", "origen": "marco"}]}]
+    assert p["pistas_valoracion"] == [hint] and p["expresiones_ejemplo"] == [{"source": ORIGIN, "contribution": "zonas de envío"}]
+    assert p["pendientes_de_definicion"] == []
+    assert components([]) == []
+
+
+def test_what_the_model_lacks_is_pointed_out_and_not_filled_in():
+    units = {u["id"]: u for u in compose(MODEL, SHEET, GEN, GOOGLE)["units"]}
+    assert units["gen/02"]["profile"]["pendientes_de_definicion"] == [NO_DESCRIPTION]
+    bare = units["cat.botas/01"]["profile"]
+    assert bare["pendientes_de_definicion"] == [NO_RESOLVING, NO_DESCRIPTION]
+    assert bare["objeto"] is bare["alcance"] is bare["casos_frontera"] is None and bare["componentes_respuesta"] == []
 
 
 def test_the_localization_takes_the_google_support_of_each_contribution_only_when_the_sheet_says_so():
@@ -97,7 +128,7 @@ def test_a_sheet_names_existing_contributions_and_grounds_its_exceptions():
     assert sheet_problems(SHEET, GEN) == []
     bad = {**SHEET, "pertinence": {"exceptions": [{"entity": "vendedor"}]},
            "localization": {"from": ["otro.json"], "properties": [{"source": NAME, "requirement": "gen/02", "contribution": "nombre"},
-                                                                  {"source": NAME, "requirement": "cat.botas/01", "contribution": "color"}]}}
+                                                        {"source": NAME, "requirement": "cat.botas/01", "contribution": "color"}]}}
     assert sheet_problems(bad, GEN) == [
         "web-schema-org: excepción sin entidad ni componente, o sin fundamento: {'entity': 'vendedor'}",
         "web-schema-org: localización desde «otro.json» desconocida",

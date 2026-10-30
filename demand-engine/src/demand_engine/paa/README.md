@@ -211,7 +211,7 @@ Por cada apartado cuenta lo esperado que encuentra, lo que coincide sin diferenc
 
 ## Entrada al catálogo
 
-`bin/paa compile [CONJUNTO…]` (en el host; sin conjuntos, todos los clasificados) es la pasada de PAA ([D-178](../../../../docs/30-governance/decisions.md#d-178)). Primero ejecuta el control de todos los conjuntos. Si el control rechaza, no entra nada y el comando termina con error. Si acepta, entra lo de cada `classified.json`, con origen «paa»:
+`bin/paa compile [CONJUNTO…]` (en el host; sin conjuntos, todos los clasificados) es la pasada de PAA ([D-178](../../../../docs/30-governance/decisions.md#d-178)). Primero comprueba los [posibles duplicados](#posibles-duplicados) entre conjuntos. Si un grupo no tiene decisión, no escribe nada y termina con error. Después ejecuta el control de todos los conjuntos. Si el control rechaza, no entra nada y el comando termina con error. Si acepta, entra lo de cada `classified.json`, con origen «paa»:
 
 | Qué | Dónde | Fuentes |
 |---|---|---|
@@ -225,6 +225,37 @@ Por cada apartado cuenta lo esperado que encuentra, lo que coincide sin diferenc
 - Un destino que no está en un bloque del catálogo (la capa general, un bloque ausente) queda fuera y se informa.
 - El texto literal de cada pregunta citada queda en `catalog/paa-questions.json`, porque `var/` es desechable. `bin/model check` comprueba que cada etiqueta `paa-q:` del catálogo tiene su texto.
 - La pasada aceptada queda en `training/reports/paa/accepted.json` (resumen del control y lo que entró), que es la línea base de la siguiente. El detalle, en `var/paa/compile/<fecha>.json`.
+
+### Posibles duplicados
+
+Dos conjuntos pueden proponer el mismo hecho (T-110). Son **posibles duplicados** dos entradas de requisito (candidatos o inferidas confirmadas) que cumplen todo esto:
+
+- son de conjuntos distintos: las entradas de un mismo conjunto no se comparan;
+- tienen el mismo rasgo;
+- entran en el mismo bloque, o en un bloque y uno de sus antepasados por el árbol de Shopify.
+
+Los pares que comparten una entrada forman un solo grupo. Cada entrada se nombra `CONJUNTO:ID@BLOQUE` (p. ej., `mantas:N1@cat.ropa-de-casa`).
+
+`bin/paa compile --duplicates [CONJUNTO…]` lista los grupos sin compilar y escribe el borrador de los que no tienen decisión en `var/paa/compile/duplicates.json`. Termina con error si un grupo no tiene decisión válida. `bin/paa compile` hace la misma comprobación antes de compilar.
+
+El revisor decide cada grupo en `training/reports/paa/merges.json` (en git), con la prueba del mismo hecho del reglamento PAA (paso 3):
+
+```json
+{"groups": [{"entries": ["mantas:N1@cat.ropa-de-casa", "sabanas:N5@cat.ropa-de-casa"],
+             "same": true, "keep": "mantas:N1@cat.ropa-de-casa", "reason": "La misma variedad de la fibra."}]}
+```
+
+1. Copia el grupo del borrador a `merges.json`. Los campos `trait`, `problems` y `detail` son de consulta: puedes dejarlos.
+2. Si las entradas son el mismo hecho, pon `same: true` y en `keep` la entrada que queda.
+3. Si no lo son, pon `same: false` y deja `keep` vacío.
+4. Escribe el motivo en `reason`. Sin motivo, la decisión no vale.
+5. Si el grupo junta varios hechos, pártelo en varias decisiones. Cada entrada del grupo ha de estar en una decisión, y solo en una.
+
+`keep` ha de estar en el bloque más alto de lo que funde: el bloque de cada entrada o un antepasado suyo. Si no lo está, la decisión es un error.
+
+Con `same: true`, entra solo `keep`, con las preguntas (`paa-q:`) de todas las entradas como fuentes. Su `rationale` dice «fundido con …; D-178». Las demás entradas no entran y el resultado de su conjunto lo dice («fundido en …»). Con `same: false`, entran todas. Las aportaciones no cambian.
+
+Si una clasificación cambia, sus entradas cambian de nombre: el grupo vuelve a quedar sin decisión. La salida lista las decisiones de `merges.json` que no casan con ningún grupo.
 
 La fase PAA de una ejecución no es esta pasada: lo que entra en el modelo de una ficha es provisional y no cambia el catálogo (ver [Fase PAA de la ejecución](#fase-paa-de-la-ejecución)).
 
@@ -274,4 +305,4 @@ Elegir los valores y los nombres del mercado es un juicio, como en los conjuntos
 
 ## Pruebas
 
-`tests/paa/`: semillas, estado, bloqueos, consolidación, reutilización de búsquedas, `paa seeds`, clasificación (entrada, comprobación, resultado y contraste), control contra los casos, su decisión, la entrada al catálogo y la entrada provisional en el modelo. Con Chrome (`test_e2e.py`), una imitación local de la página de resultados que hace, como Google, una llamada con las preguntas y otras con la respuesta. Cubre consentimiento, eco de la búsqueda, despliegue por clics, aprendizaje y bloqueo de las respuestas, parada temprana, pestaña sobrante, bloqueo y página que deja de responder.
+`tests/paa/`: semillas, estado, bloqueos, consolidación, reutilización de búsquedas, `paa seeds`, clasificación (entrada, comprobación, resultado y contraste), control contra los casos, su decisión, la entrada al catálogo (con los posibles duplicados y su fusión) y la entrada provisional en el modelo. Con Chrome (`test_e2e.py`), una imitación local de la página de resultados que hace, como Google, una llamada con las preguntas y otras con la respuesta. Cubre consentimiento, eco de la búsqueda, despliegue por clics, aprendizaje y bloqueo de las respuestas, parada temprana, pestaña sobrante, bloqueo y página que deja de responder.

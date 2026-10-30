@@ -22,9 +22,13 @@ Usage:
   paa control [SET ...]             the classification of each set against its control case (cases/paa; all of
                                     them by default), by content, and the decision against the last accepted pass
                                     (D-180, only over all the sets); report in var/paa/control/<date>/
-  paa compile [SET ...]             the PAA pass (D-178): if the control accepts it, the candidates, the confirmed
+  paa compile [SET ...] [--duplicates]
+                                    the PAA pass (D-178): if the control accepts it, the candidates, the confirmed
                                     inferred questions and the contributions of each classified set (all by default)
-                                    enter the catalog with origin «paa», as a new version of each block
+                                    enter the catalog with origin «paa», as a new version of each block. First, each
+                                    possible duplicate between sets needs a decision in training/reports/paa/merges.json
+                                    (T-110); without one, nothing is written and the pending ones go to their draft,
+                                    var/paa/compile/duplicates.json. --duplicates: only list them and write the draft
   (seeds, classify, control and compile run on the host: standard library only)
 
 Seed sets are demand-engine/paa/<SET>.json; manual: src/demand_engine/paa/README.md
@@ -214,15 +218,53 @@ def cmd_control(args) -> None:
         print(f"decisión (D-180): se rechaza frente a la pasada del {d['against']}: " + "; ".join(d["worse"]))
 
 
+def print_duplicates(dup: dict) -> None:
+    groups, waiting = dup["groups"], paa_compile.pending(dup)
+    print(f"posibles duplicados entre conjuntos: {len(groups)} grupos, {len(waiting)} sin decisión válida")
+    for i, g in enumerate(groups, 1):
+        print(f"{i}. rasgo {g['trait']} · " + ("; ".join(g["problems"]) if g["problems"] else "decidido"))
+        for k in g["entries"]:
+            print(f"   {k}  {g['detail'][k]['question']}")
+            print(f"     PAA: {' · '.join(g['detail'][k]['paa'])}")
+        for d in g["decisions"]:
+            if d["same"] is True:
+                print(f"   = mismo hecho, queda {d['keep']}: {d['reason']}")
+            elif d["same"] is False:
+                print(f"   ≠ hechos distintos ({', '.join(d['entries'] or [])}): {d['reason']}")
+    for d in dup["orphans"]:
+        print(f"decisión sin grupo en esta pasada: {', '.join(d.get('entries') or [])}")
+    if waiting:
+        print(f"borrador de los grupos sin decisión: {shown(Path(dup['draft']))}")
+
+
+def no_decision(dup: dict) -> None:
+    fail(f"{len(paa_compile.pending(dup))} posibles duplicados sin decisión válida; no se escribe nada. "
+         f"Decide cada grupo en {shown(paa_compile.MERGES)} (README de PAA, «Posibles duplicados»)")
+
+
 def cmd_compile(args) -> None:
-    passed = paa_compile.run(args.sets or paa_compile.classified_ids())
+    sets = args.sets or paa_compile.classified_ids()
+    if args.duplicates:
+        dup = paa_compile.prepare(sets)[3]
+        print_duplicates(dup)
+        if paa_compile.pending(dup):
+            no_decision(dup)
+        return
+    passed = paa_compile.run(sets)
+    if paa_compile.pending(passed["duplicates"]):
+        print_duplicates(passed["duplicates"])
+        no_decision(passed["duplicates"])
     d = passed["decision"]
     if not d["accepted"]:
         fail(f"el control empeora frente a la pasada del {d['against']}; no entra nada: " + "; ".join(d["worse"]))
+    merges = [x for g in passed["duplicates"]["groups"] for x in g["decisions"] if x["same"]]
+    print(f"posibles duplicados: {len(passed['duplicates']['groups'])} grupos · fusiones: {len(merges)}")
     for set_id, x in passed["sets"].items():
         print(f"{set_id}: {len(x['added'])} entradas")
         for line in x["added"]:
             print(f"  + {line}")
+        for line in x["merged"]:
+            print(f"  = {line}")
         for line in x["skipped"]:
             print(f"  - {line}")
     print(f"bloques con versión nueva: {', '.join(passed['touched']) or 'ninguno'}")
@@ -247,7 +289,9 @@ def main(argv=None) -> None:
     p.add_argument("--compare", help="manual classification ([{q, code}]) for the contrast")
     p.add_argument("--previous", help="an earlier classified.json of the set"); p.set_defaults(func=cmd_classify)
     p = sub.add_parser("control"); p.add_argument("sets", nargs="*"); p.set_defaults(func=cmd_control)
-    p = sub.add_parser("compile"); p.add_argument("sets", nargs="*"); p.set_defaults(func=cmd_compile)
+    p = sub.add_parser("compile"); p.add_argument("sets", nargs="*")
+    p.add_argument("--duplicates", action="store_true", help="only list the possible duplicates and write their draft")
+    p.set_defaults(func=cmd_compile)
     args = ap.parse_args(argv)
     try:
         args.func(args)

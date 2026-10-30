@@ -10,7 +10,7 @@
     "amazon-ptd:FITTED_SHEET@2026-10-24",
     "amazon-btg:3250023031@2026-10-24"
   ],
-  "version": "2",
+  "version": "3",
   "status": "compilado",
   "requirements": [
     {
@@ -85,6 +85,44 @@
           "support": []
         }
       ]
+    },
+    {
+      "id": "cat.sabanas-ajustables/05",
+      "question": "¿Cómo se ajusta la bajera al colchón (goma en todo el contorno, goma solo en las esquinas, cintas…)?",
+      "dimension": "sistema de ajuste al colchón",
+      "trait": "construccion",
+      "entity": "producto",
+      "applicability": "universal",
+      "rationale": "Toda bajera ajustable se sujeta al colchón con algún sistema. El sistema decide cómo queda sujeta. El bloque pregunta la altura del colchón, pero no el sistema. Ni Shopify ni el PTD FITTED_SHEET lo recogen. Pasada de PAA, conjunto fundas-nordicas (inf/01; fundido con sabanas:inf/02@cat.sabanas-ajustables; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:fundas-nordicas:como-hacer-para-que-no-se-salga-la-sabana-de-abajo",
+        "paa-q:fundas-nordicas:como-son-las-sabanas-ajustables",
+        "paa-q:fundas-nordicas:cual-es-el-truco-para-evitar-que-las-sabanas-se-salgan-de-lugar",
+        "paa-q:fundas-nordicas:cuanto-elastico-lleva-una-sabana-ajustable",
+        "paa-q:fundas-nordicas:cuantos-metros-de-elastico-lleva-una-sabana-ajustable",
+        "paa-q:sabanas:como-hacer-para-que-no-se-salga-la-sabana-de-abajo",
+        "paa-q:sabanas:cuanto-elastico-lleva-una-sabana-ajustable"
+      ],
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "sistema de ajuste de la bajera al colchón",
+          "component": "cómo se ajusta",
+          "origin": "paa",
+          "support": [
+            "paa-q:fundas-nordicas:como-hacer-para-que-no-se-salga-la-sabana-de-abajo",
+            "paa-q:fundas-nordicas:como-son-las-sabanas-ajustables",
+            "paa-q:fundas-nordicas:cual-es-el-truco-para-evitar-que-las-sabanas-se-salgan-de-lugar",
+            "paa-q:fundas-nordicas:cuanto-elastico-lleva-una-sabana-ajustable",
+            "paa-q:fundas-nordicas:cuantos-metros-de-elastico-lleva-una-sabana-ajustable",
+            "paa-q:sabanas:como-hacer-para-que-no-se-salga-la-sabana-de-abajo",
+            "paa-q:sabanas:cuanto-elastico-lleva-una-sabana-ajustable"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "imp:construccion@hg-15-1-2"
     }
   ],
   "excluded": [

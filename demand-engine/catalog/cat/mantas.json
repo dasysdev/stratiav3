@@ -10,7 +10,7 @@
     "amazon-ptd:BLANKET@2026-10-24",
     "amazon-btg:3250001031@2026-10-24"
   ],
-  "version": "5",
+  "version": "6",
   "status": "compilado",
   "requirements": [
     {
@@ -68,6 +68,16 @@
           "component": "nivel de abrigo",
           "origin": "inferida",
           "support": []
+        },
+        {
+          "contribution": "escala a la que pertenece el nivel de abrigo declarado",
+          "component": "nivel de abrigo declarado",
+          "kind": "precisión",
+          "origin": "paa",
+          "support": [
+            "paa-q:mantas:cuales-son-las-mantas-termicas",
+            "paa-q:mantas:cuanto-calienta-una-manta-termica"
+          ]
         }
       ]
     },
@@ -150,6 +160,21 @@
           "component": "tipo de tejido",
           "origin": "inferida",
           "support": []
+        },
+        {
+          "contribution": "descripción de la estructura o del acabado que define el nombre comercial del tejido",
+          "component": "nombre comercial del tejido",
+          "kind": "precisión",
+          "origin": "paa",
+          "support": [
+            "paa-q:mantas:cual-es-la-manta-polar",
+            "paa-q:mantas:que-es-la-manta-sherpa",
+            "paa-q:mantas:que-quiere-decir-sherpa-en-espanol",
+            "paa-q:mantas:que-significa-manta-sherpa",
+            "paa-q:mantas:que-son-las-mantas-polares",
+            "paa-q:mantas:que-tipo-de-tela-es-el-sherpa",
+            "paa-q:mantas:que-tipo-de-tela-es-sherpa"
+          ]
         }
       ]
     },
@@ -615,6 +640,43 @@
           "support": []
         }
       ]
+    },
+    {
+      "id": "cat.mantas/16",
+      "question": "¿Para qué uso está pensada la manta (en la cama, en el sofá, de viaje…)?",
+      "dimension": null,
+      "trait": "uso",
+      "entity": null,
+      "applicability": "universal",
+      "rationale": "Q60 pregunta para qué se usa la manta polar y Q4 cómo se llaman las mantas de cama. El uso previsto es un hecho de la oferta. Va en cat.mantas: las demás hijas de ropa de cama son siempre de cama. Pasada de PAA, conjunto mantas (N3; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:mantas:como-se-llaman-las-mantas-que-se-ponen-en-la-cama",
+        "paa-q:mantas:para-que-se-utiliza-la-manta-polar"
+      ],
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "uso previsto de la manta",
+          "component": "uso previsto",
+          "origin": "paa",
+          "support": [
+            "paa-q:mantas:como-se-llaman-las-mantas-que-se-ponen-en-la-cama",
+            "paa-q:mantas:para-que-se-utiliza-la-manta-polar"
+          ]
+        },
+        {
+          "contribution": "denominación que nombra el uso (manta de cama, de sofá, de viaje)",
+          "component": "uso previsto",
+          "origin": "paa",
+          "support": [
+            "paa-q:mantas:como-se-llaman-las-mantas-que-se-ponen-en-la-cama",
+            "paa-q:mantas:para-que-se-utiliza-la-manta-polar"
+          ]
+        }
+      ],
+      "importance": "complementario",
+      "rule": "imp:uso@hg-15-1-4"
     }
   ],
   "excluded": [

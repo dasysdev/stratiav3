@@ -1,0 +1,75 @@
+{
+  "groups": [
+    {
+      "entries": [
+        "cubrecolchones:N1@cat.ropa-de-casa",
+        "toallas:N1@cat.toallas",
+        "toallas:N2@cat.toallas",
+        "fundas-nordicas:N2@cat.fundas-de-nordico",
+        "sabanas:N2@cat.sabanas",
+        "sabanas:N3@cat.sabanas",
+        "sabanas:N4@cat.sabanas",
+        "sabanas:N2@cat.fundas-de-almohada"
+      ],
+      "same": false,
+      "keep": null,
+      "reason": "Son prestaciones distintas: durabilidad, absorción, nivel térmico, arrugas, resistencias al uso y al lavado y transpiración. Las resistencias concretas de sabanas:N3 no dan la vida útil de cubrecolchones:N1, y su descripción las excluye."
+    },
+    {
+      "entries": [
+        "mantas:N1@cat.ropa-de-casa",
+        "sabanas:N5@cat.ropa-de-casa"
+      ],
+      "same": true,
+      "keep": "mantas:N1@cat.ropa-de-casa",
+      "reason": "Las dos piden la variedad de la fibra natural de la composición (lana merino, seda de morera). Queda mantas:N1 porque liga la variedad a la fibra de la composición."
+    },
+    {
+      "entries": [
+        "sofas-cama:N1@cat.sofas",
+        "sofas:N1@cat.sofas"
+      ],
+      "same": true,
+      "keep": "sofas-cama:N1@cat.sofas",
+      "reason": "Las dos piden la durabilidad que declara el sofá: vida útil y ensayos superados. Queda sofas-cama:N1 porque abarca también el mecanismo, y cat.sofas incluye los sofás cama."
+    },
+    {
+      "entries": [
+        "sofas:N2@cat.sofas",
+        "sofas:N3@cat.sofas"
+      ],
+      "same": false,
+      "keep": null,
+      "reason": "Son prestaciones de la tapicería, transpirabilidad y arrugas, y no la durabilidad del sofá. Son hechos distintos entre sí."
+    },
+    {
+      "entries": [
+        "fundas-nordicas:inf/01@cat.sabanas-ajustables",
+        "sabanas:inf/02@cat.sabanas-ajustables"
+      ],
+      "same": true,
+      "keep": "fundas-nordicas:inf/01@cat.sabanas-ajustables",
+      "reason": "Las dos piden cómo se sujeta la bajera al colchón. Queda fundas-nordicas:inf/01 porque su lista de sistemas es abierta e incluye las cintas."
+    },
+    {
+      "entries": [
+        "toallas:N3@cat.ropa-de-casa",
+        "fundas-nordicas:N1@cat.fundas-de-nordico"
+      ],
+      "same": false,
+      "keep": null,
+      "reason": "El acabado del tejido y las sujeciones interiores del relleno son hechos distintos. Ninguno dice cómo se ajusta la bajera al colchón."
+    },
+    {
+      "entries": [
+        "fundas-nordicas:N3@cat.ropa-de-cama",
+        "cubrecolchones:N2@cat.protectores-de-colchon",
+        "sabanas:N1@cat.fundas-de-almohada-y-cojines",
+        "sabanas:N1@cat.sabanas"
+      ],
+      "same": true,
+      "keep": "fundas-nordicas:N3@cat.ropa-de-cama",
+      "reason": "Las cuatro piden el tipo de tacto del tejido: sedoso o liso, crujiente, afelpado o fresco al tacto. En el protector es el tejido de la cara sobre la que se duerme."
+    }
+  ]
+}

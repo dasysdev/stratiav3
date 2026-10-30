@@ -10,7 +10,7 @@
     "amazon-ptd:FITTED_SHEET@2026-10-24",
     "amazon-ptd:FLAT_SHEET@2026-10-24"
   ],
-  "version": "3",
+  "version": "4",
   "status": "compilado",
   "requirements": [
     {
@@ -108,6 +108,15 @@
           "component": "número de hilos",
           "origin": "inferida",
           "support": []
+        },
+        {
+          "contribution": "unidad de superficie sobre la que se cuenta el número de hilos",
+          "component": "número de hilos por unidad de superficie",
+          "kind": "precisión",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:que-significa-144-hilos-en-una-sabana"
+          ]
         }
       ],
       "comparison": {
@@ -178,6 +187,196 @@
           "component": "de abrigo o fresco",
           "origin": "inferida",
           "support": []
+        }
+      ],
+      "importance": "principal",
+      "rule": "imp:prestacion@hg-15-1-2"
+    },
+    {
+      "id": "cat.sabanas/05",
+      "question": "¿Qué resistencia a las arrugas tiene el tejido (antiarrugas, de fácil planchado, no necesita plancha…)?",
+      "dimension": null,
+      "trait": "prestacion",
+      "entity": null,
+      "applicability": "universal",
+      "rationale": "PAA muestra la resistencia a las arrugas como dimensión de comparación de la clase (R1). Sale de cat.fundas-de-almohada/06 y no entra en el candidato espejo N3. Va repetido en cat.sabanas y en cat.fundas-de-almohada, con la misma pregunta y la misma descripción. No sube a cat.ropa-de-cama: no vale para todas sus hijas (almohadas). Pasada de PAA, conjunto sabanas (N2; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:sabanas:las-sabanas-de-100-algodon-se-arrugan",
+        "paa-q:sabanas:que-sabanas-son-las-que-menos-se-arrugan",
+        "paa-q:sabanas:se-arruga-mucho-el-lino"
+      ],
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "declaración de resistencia a las arrugas o de que no necesita plancha",
+          "component": "resistencia a las arrugas",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:las-sabanas-de-100-algodon-se-arrugan",
+            "paa-q:sabanas:que-sabanas-son-las-que-menos-se-arrugan",
+            "paa-q:sabanas:se-arruga-mucho-el-lino"
+          ]
+        },
+        {
+          "contribution": "acabado antiarrugas declarado",
+          "component": "resistencia a las arrugas",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:las-sabanas-de-100-algodon-se-arrugan",
+            "paa-q:sabanas:que-sabanas-son-las-que-menos-se-arrugan",
+            "paa-q:sabanas:se-arruga-mucho-el-lino"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de aspecto tras el lavado",
+          "component": "resistencia a las arrugas",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:las-sabanas-de-100-algodon-se-arrugan",
+            "paa-q:sabanas:que-sabanas-son-las-que-menos-se-arrugan",
+            "paa-q:sabanas:se-arruga-mucho-el-lino"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "imp:prestacion@hg-15-1-2"
+    },
+    {
+      "id": "cat.sabanas/06",
+      "question": "¿Qué resistencia al uso y al lavado tiene (decoloración, encogimiento, bolitas, manchas, desgarro…)?",
+      "dimension": null,
+      "trait": "prestacion",
+      "entity": null,
+      "applicability": "universal",
+      "rationale": "Lista ausente (D-109): cat.fundas-de-almohada/06 viene del tipo PILLOWCASE de Amazon, y los tipos de las sábanas no la traen. Se propone la misma lista en cat.sabanas, sin la resistencia a las arrugas, que R1 separa. Las preguntas sobre el encogimiento, el agua y el secado apoyan la lista, no un candidato por valor. Pasada de PAA, conjunto sabanas (N3; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:sabanas:que-le-pasa-al-lino-si-se-moja",
+        "paa-q:sabanas:que-seca-mas-la-microfibra-o-el-algodon",
+        "paa-q:sabanas:se-encoge-el-lino-cuando-se-lava",
+        "paa-q:sabanas:se-estropea-el-bambu-con-el-agua"
+      ],
+      "seed_importance": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "solidez del color al lavado",
+          "component": "decoloración",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:que-le-pasa-al-lino-si-se-moja",
+            "paa-q:sabanas:que-seca-mas-la-microfibra-o-el-algodon",
+            "paa-q:sabanas:se-encoge-el-lino-cuando-se-lava",
+            "paa-q:sabanas:se-estropea-el-bambu-con-el-agua"
+          ]
+        },
+        {
+          "contribution": "estabilidad dimensional al lavado",
+          "component": "encogimiento",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:que-le-pasa-al-lino-si-se-moja",
+            "paa-q:sabanas:que-seca-mas-la-microfibra-o-el-algodon",
+            "paa-q:sabanas:se-encoge-el-lino-cuando-se-lava",
+            "paa-q:sabanas:se-estropea-el-bambu-con-el-agua"
+          ]
+        },
+        {
+          "contribution": "resistencia a la formación de bolitas",
+          "component": "bolitas",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:que-le-pasa-al-lino-si-se-moja",
+            "paa-q:sabanas:que-seca-mas-la-microfibra-o-el-algodon",
+            "paa-q:sabanas:se-encoge-el-lino-cuando-se-lava",
+            "paa-q:sabanas:se-estropea-el-bambu-con-el-agua"
+          ]
+        },
+        {
+          "contribution": "resistencia a manchas, derrames y olores",
+          "component": "manchas",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:que-le-pasa-al-lino-si-se-moja",
+            "paa-q:sabanas:que-seca-mas-la-microfibra-o-el-algodon",
+            "paa-q:sabanas:se-encoge-el-lino-cuando-se-lava",
+            "paa-q:sabanas:se-estropea-el-bambu-con-el-agua"
+          ]
+        },
+        {
+          "contribution": "resistencia al desgarro y refuerzo de la confección",
+          "component": "desgarro",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:que-le-pasa-al-lino-si-se-moja",
+            "paa-q:sabanas:que-seca-mas-la-microfibra-o-el-algodon",
+            "paa-q:sabanas:se-encoge-el-lino-cuando-se-lava",
+            "paa-q:sabanas:se-estropea-el-bambu-con-el-agua"
+          ]
+        },
+        {
+          "contribution": "rapidez de secado",
+          "component": "resistencia al lavado",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:que-le-pasa-al-lino-si-se-moja",
+            "paa-q:sabanas:que-seca-mas-la-microfibra-o-el-algodon",
+            "paa-q:sabanas:se-encoge-el-lino-cuando-se-lava",
+            "paa-q:sabanas:se-estropea-el-bambu-con-el-agua"
+          ]
+        },
+        {
+          "contribution": "resultado de ensayos de solidez o de resistencia al lavado",
+          "component": "resistencia al lavado",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:que-le-pasa-al-lino-si-se-moja",
+            "paa-q:sabanas:que-seca-mas-la-microfibra-o-el-algodon",
+            "paa-q:sabanas:se-encoge-el-lino-cuando-se-lava",
+            "paa-q:sabanas:se-estropea-el-bambu-con-el-agua"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "imp:prestacion@hg-15-1-2"
+    },
+    {
+      "id": "cat.sabanas/07",
+      "question": "¿Qué transpiración y gestión de la humedad ofrece (transpirable, evacúa la humedad, resistente al sudor…)?",
+      "dimension": null,
+      "trait": "prestacion",
+      "entity": null,
+      "applicability": "universal",
+      "rationale": "Lista ausente (D-109): cat.fundas-de-almohada/05 viene del tipo PILLOWCASE de Amazon, y las sábanas no la tienen. Se propone la misma lista en cat.sabanas, sin el efecto frío, que R2 saca por ser un tipo de tacto (D-108). «¿Qué tipo de sábanas no hacen sudar?» apoya la lista. Pasada de PAA, conjunto sabanas (N4; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:sabanas:que-tipo-de-sabanas-no-hacen-sudar"
+      ],
+      "seed_importance": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "declaración de transpirabilidad del tejido",
+          "component": "transpirable",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:que-tipo-de-sabanas-no-hacen-sudar"
+          ]
+        },
+        {
+          "contribution": "declaración de gestión de la humedad y el sudor",
+          "component": "gestión de la humedad y el sudor",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:que-tipo-de-sabanas-no-hacen-sudar"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de permeabilidad al vapor",
+          "component": "transpirable",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:que-tipo-de-sabanas-no-hacen-sudar"
+          ]
         }
       ],
       "importance": "principal",

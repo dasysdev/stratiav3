@@ -8,7 +8,7 @@
     "shopify:hg-3@v2026-08",
     "google:696@2021-09-21"
   ],
-  "version": "3",
+  "version": "4",
   "status": "compilado",
   "requirements": [
     {
@@ -138,6 +138,20 @@
           "component": "limpieza y cuidado",
           "origin": "inferida",
           "support": []
+        },
+        {
+          "contribution": "indicaciones de cuidado del relleno cuando difieren de las de la funda",
+          "component": "método de lavado admitido",
+          "kind": "precisión",
+          "origin": "paa",
+          "support": [
+            "paa-q:cojines:como-lavar-plumas-sin-lavadora",
+            "paa-q:cojines:como-lavar-un-cojin-de-espuma",
+            "paa-q:cojines:como-se-lavan-los-cojines-de-plumas",
+            "paa-q:cojines:como-secar-plumas-en-la-secadora",
+            "paa-q:cojines:se-puede-lavar-un-cojin-de-plumas-en-la-lavadora",
+            "paa-q:cojines:se-pueden-lavar-las-plumas-en-la-lavadora"
+          ]
         }
       ]
     }

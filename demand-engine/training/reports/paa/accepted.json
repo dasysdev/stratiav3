@@ -1,0 +1,722 @@
+{
+  "at": "2026-10-30T13:34:06+01:00",
+  "control": "/home/gonwsl/projects/stratiav3/demand-engine/var/paa/control/2026-10-30T133406",
+  "sets": {
+    "botas": {
+      "out_expected": 7,
+      "out_found": 6,
+      "out_new": 3,
+      "criteria": {
+        "expected": 3,
+        "found": 3,
+        "agree": 3,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "candidates": {
+        "expected": 1,
+        "found": 1,
+        "agree": 1,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "revisions": {
+        "expected": 1,
+        "found": 1,
+        "agree": 1,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "contributions": {
+        "expected": 5,
+        "found": 4,
+        "agree": 4,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "specializations": {
+        "expected": 1,
+        "found": 1,
+        "agree": 1,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      }
+    },
+    "cojines": {
+      "out_expected": 74,
+      "out_found": 74,
+      "out_new": 1,
+      "criteria": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "candidates": {
+        "expected": 1,
+        "found": 1,
+        "agree": 1,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "revisions": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "contributions": {
+        "expected": 1,
+        "found": 1,
+        "agree": 1,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "specializations": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      }
+    },
+    "comida-perros": {
+      "out_expected": 9,
+      "out_found": 9,
+      "out_new": 1,
+      "criteria": {
+        "expected": 3,
+        "found": 3,
+        "agree": 2,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "candidates": {
+        "expected": 3,
+        "found": 2,
+        "agree": 2,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "revisions": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "contributions": {
+        "expected": 2,
+        "found": 1,
+        "agree": 1,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "specializations": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      }
+    },
+    "cubrecolchones": {
+      "out_expected": 18,
+      "out_found": 18,
+      "out_new": 8,
+      "criteria": {
+        "expected": 2,
+        "found": 2,
+        "agree": 2,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "candidates": {
+        "expected": 3,
+        "found": 2,
+        "agree": 2,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "revisions": {
+        "expected": 1,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "contributions": {
+        "expected": 1,
+        "found": 1,
+        "agree": 1,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "specializations": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      }
+    },
+    "fundas-nordicas": {
+      "out_expected": 57,
+      "out_found": 55,
+      "out_new": 5,
+      "criteria": {
+        "expected": 3,
+        "found": 3,
+        "agree": 3,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "candidates": {
+        "expected": 3,
+        "found": 3,
+        "agree": 1,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "revisions": {
+        "expected": 2,
+        "found": 2,
+        "agree": 2,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 4
+      },
+      "contributions": {
+        "expected": 6,
+        "found": 2,
+        "agree": 2,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "specializations": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      }
+    },
+    "juguetes-perros": {
+      "out_expected": 30,
+      "out_found": 30,
+      "out_new": 0,
+      "criteria": {
+        "expected": 3,
+        "found": 3,
+        "agree": 3,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "candidates": {
+        "expected": 2,
+        "found": 2,
+        "agree": 1,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "revisions": {
+        "expected": 3,
+        "found": 2,
+        "agree": 2,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 4
+      },
+      "contributions": {
+        "expected": 1,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 3
+      },
+      "specializations": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      }
+    },
+    "mantas": {
+      "out_expected": 30,
+      "out_found": 24,
+      "out_new": 2,
+      "criteria": {
+        "expected": 1,
+        "found": 1,
+        "agree": 1,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "candidates": {
+        "expected": 2,
+        "found": 2,
+        "agree": 2,
+        "not_expected": 1,
+        "regressions": 0,
+        "new": 1
+      },
+      "revisions": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 2
+      },
+      "contributions": {
+        "expected": 6,
+        "found": 2,
+        "agree": 2,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "specializations": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      }
+    },
+    "pantuflas": {
+      "out_expected": 22,
+      "out_found": 21,
+      "out_new": 5,
+      "criteria": {
+        "expected": 3,
+        "found": 3,
+        "agree": 3,
+        "not_expected": 1,
+        "regressions": 0,
+        "new": 0
+      },
+      "candidates": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 1,
+        "regressions": 0,
+        "new": 0
+      },
+      "revisions": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "contributions": {
+        "expected": 3,
+        "found": 2,
+        "agree": 2,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "specializations": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      }
+    },
+    "sabanas": {
+      "out_expected": 21,
+      "out_found": 21,
+      "out_new": 0,
+      "criteria": {
+        "expected": 4,
+        "found": 4,
+        "agree": 4,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 2
+      },
+      "candidates": {
+        "expected": 6,
+        "found": 6,
+        "agree": 6,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "revisions": {
+        "expected": 6,
+        "found": 4,
+        "agree": 4,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 2
+      },
+      "contributions": {
+        "expected": 5,
+        "found": 5,
+        "agree": 5,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "specializations": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      }
+    },
+    "sofas": {
+      "out_expected": 8,
+      "out_found": 5,
+      "out_new": 2,
+      "criteria": {
+        "expected": 5,
+        "found": 5,
+        "agree": 4,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 3
+      },
+      "candidates": {
+        "expected": 3,
+        "found": 3,
+        "agree": 3,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "revisions": {
+        "expected": 2,
+        "found": 2,
+        "agree": 2,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "contributions": {
+        "expected": 3,
+        "found": 3,
+        "agree": 3,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "specializations": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      }
+    },
+    "sofas-cama": {
+      "out_expected": 6,
+      "out_found": 6,
+      "out_new": 2,
+      "criteria": {
+        "expected": 5,
+        "found": 5,
+        "agree": 5,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "candidates": {
+        "expected": 1,
+        "found": 1,
+        "agree": 1,
+        "not_expected": 1,
+        "regressions": 0,
+        "new": 0
+      },
+      "revisions": {
+        "expected": 2,
+        "found": 2,
+        "agree": 2,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "contributions": {
+        "expected": 1,
+        "found": 1,
+        "agree": 1,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "specializations": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      }
+    },
+    "toallas": {
+      "out_expected": 35,
+      "out_found": 33,
+      "out_new": 0,
+      "criteria": {
+        "expected": 1,
+        "found": 1,
+        "agree": 1,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 1
+      },
+      "candidates": {
+        "expected": 2,
+        "found": 1,
+        "agree": 1,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 2
+      },
+      "revisions": {
+        "expected": 1,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 2
+      },
+      "contributions": {
+        "expected": 3,
+        "found": 3,
+        "agree": 3,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      },
+      "specializations": {
+        "expected": 0,
+        "found": 0,
+        "agree": 0,
+        "not_expected": 0,
+        "regressions": 0,
+        "new": 0
+      }
+    }
+  },
+  "total": {
+    "out_expected": 317,
+    "out_found": 302,
+    "out_new": 29,
+    "criteria": {
+      "expected": 33,
+      "found": 33,
+      "agree": 31,
+      "not_expected": 1,
+      "regressions": 0,
+      "new": 11
+    },
+    "candidates": {
+      "expected": 27,
+      "found": 24,
+      "agree": 21,
+      "not_expected": 3,
+      "regressions": 0,
+      "new": 3
+    },
+    "revisions": {
+      "expected": 18,
+      "found": 13,
+      "agree": 13,
+      "not_expected": 0,
+      "regressions": 0,
+      "new": 17
+    },
+    "contributions": {
+      "expected": 37,
+      "found": 25,
+      "agree": 25,
+      "not_expected": 0,
+      "regressions": 0,
+      "new": 10
+    },
+    "specializations": {
+      "expected": 1,
+      "found": 1,
+      "agree": 1,
+      "not_expected": 0,
+      "regressions": 0,
+      "new": 1
+    }
+  },
+  "entered": {
+    "botas": {
+      "added": [
+        "cat.calzado/29 ← N1: ¿Cede o se da de sí el corte con el uso?",
+        "cat.calzado/04 · sustento: certificación o marca de autenticidad de la piel emitida por un tercero",
+        "cat.calzado/04 · precisión: material de base de un sintético que se denomina polipiel o piel sintética (poliuretano, PVC…)",
+        "cat.calzado/08 · precisión: compuesto concreto de una suela que se denomina goma o caucho (caucho natural, caucho sintético…)",
+        "cat.calzado/13 · precisión: métodos o productos de limpieza que el material no admite"
+      ],
+      "skipped": []
+    },
+    "cojines": {
+      "added": [
+        "cat.cojines-decorativos/16 ← N1: ¿Qué densidad tiene la espuma del relleno?",
+        "cat.cojines-decorativos/04 · precisión: denominación del material o de la fibra del relleno cuando la oferta usa un término comercial (microfibra, fibra siliconada, memory foam)",
+        "cat.decoracion/03 · precisión: indicaciones de cuidado del relleno cuando difieren de las de la funda"
+      ],
+      "skipped": []
+    },
+    "comida-perros": {
+      "added": [
+        "cat.comida-para-perros/19 ← N1: ¿Cómo se sirve (tal cual o humedecida; fría, a temperatura ambiente o templada)?",
+        "cat.comida-para-perros/20 ← N2: ¿Cómo se introduce en la dieta al cambiar desde otra comida?",
+        "cat.comida-para-perros/02 · precisión: contenido de humedad que corresponde a la forma"
+      ],
+      "skipped": [
+        "aportación a gen/17: el requisito no está en un bloque del catálogo"
+      ]
+    },
+    "cubrecolchones": {
+      "added": [
+        "cat.ropa-de-casa/06 ← N1: ¿Cuánto dura (años de uso o lavados que soporta sin perder sus prestaciones)?",
+        "cat.protectores-de-colchon/09 ← N2: ¿Qué tacto tiene la superficie sobre la que se duerme (afelpado, liso o sedoso, crujiente, fresco al tacto…)?",
+        "cat.ropa-de-casa/01 · precisión: denominación legal de la fibra que corresponde a una marca comercial de fibra"
+      ],
+      "skipped": [
+        "aportación a gen/01: el requisito no está en un bloque del catálogo"
+      ]
+    },
+    "fundas-nordicas": {
+      "added": [
+        "cat.fundas-de-nordico/06 ← N1: ¿Lleva la funda sujeciones interiores para el relleno (cintas, lazos o broches en las esquinas) y de qué tipo son?",
+        "cat.fundas-de-nordico/07 ← N2: ¿Para qué temporada está pensado el tejido (de abrigo para invierno, fresco para verano o para todo el año)?",
+        "cat.ropa-de-cama/03 ← N3: ¿Qué tacto tiene el tejido (liso y sedoso, crujiente, afelpado, fresco al tacto…)?",
+        "cat.sabanas-ajustables/05 ← inf/01: ¿Cómo se ajusta la bajera al colchón (goma en todo el contorno, goma solo en las esquinas, cintas…)?",
+        "cat.ropa-de-casa/01 · precisión: denominación legal de la fibra que forma un tejido de nombre comercial (microfibra, coralina, polar)",
+        "cat.ropa-de-casa/01 · sustento: imagen de la etiqueta de composición del producto",
+        "cat.ropa-de-cama/01 · precisión: tamaño del relleno nórdico al que corresponde la funda"
+      ],
+      "skipped": []
+    },
+    "juguetes-perros": {
+      "added": [
+        "cat.juguetes-para-perros/19 ← N1: ¿Está pensado para aliviar la ansiedad o el estrés del perro?",
+        "cat.juguetes-para-perros/20 ← N2: ¿Está pensado para que el perro haga ejercicio o gaste energía?",
+        "cat.juguetes-para-perros/04 · precisión: significado de cada nivel de la escala de intensidad de masticación que usa la oferta",
+        "cat.juguetes-para-perros/12 · precisión: tipo de reto mental que plantea el juguete inteligente o interactivo",
+        "cat.juguetes-para-perros/17 · precisión: materiales o partes del juguete que cubre la declaración de no toxicidad"
+      ],
+      "skipped": []
+    },
+    "mantas": {
+      "added": [
+        "cat.ropa-de-casa/07 ← N1: ¿De qué variedad es la fibra natural de la composición (p. ej., lana merino)?",
+        "cat.mantas/16 ← N3: ¿Para qué uso está pensada la manta (en la cama, en el sofá, de viaje…)?",
+        "cat.mantas/03 · precisión: descripción de la estructura o del acabado que define el nombre comercial del tejido",
+        "cat.mantas/01 · precisión: escala a la que pertenece el nivel de abrigo declarado",
+        "cat.ropa-de-casa/01 · sustento: certificado o ensayo que acredita la composición en fibras"
+      ],
+      "skipped": [
+        "N2: el bloque S1 no está en el catálogo"
+      ]
+    },
+    "pantuflas": {
+      "added": [
+        "cat.pantuflas/01 · precisión: indicación de que es calzado para estar por casa",
+        "cat.calzado/04 · precisión: indicación de si el cuero es natural o un material sintético que lo imita",
+        "cat.calzado/04 · sustento: certificación o marca de garantía de cuero auténtico emitida por un tercero"
+      ],
+      "skipped": []
+    },
+    "sabanas": {
+      "added": [
+        "cat.sabanas/05 ← N1: ¿Qué tacto tiene el tejido (sedoso o liso, crujiente, afelpado, fresco al tacto…)?",
+        "cat.fundas-de-almohada-y-cojines/02 ← N1: ¿Qué tacto tiene el tejido (sedoso o liso, crujiente, afelpado, fresco al tacto…)?",
+        "cat.sabanas/06 ← N2: ¿Qué resistencia a las arrugas tiene el tejido (antiarrugas, de fácil planchado, no necesita plancha…)?",
+        "cat.fundas-de-almohada/10 ← N2: ¿Qué resistencia a las arrugas tiene el tejido (antiarrugas, de fácil planchado, no necesita plancha…)?",
+        "cat.sabanas/07 ← N3: ¿Qué resistencia al uso y al lavado tiene (decoloración, encogimiento, bolitas, manchas, desgarro…)?",
+        "cat.sabanas/08 ← N4: ¿Qué transpiración y gestión de la humedad ofrece (transpirable, evacúa la humedad, resistente al sudor…)?",
+        "cat.ropa-de-casa/08 ← N5: ¿Qué variedad de fibra es (seda de morera, algodón de fibra larga…)?",
+        "cat.ropa-de-casa/09 ← N6: ¿De qué país o región procede la fibra?",
+        "cat.sabanas-ajustables/06 ← inf/02: ¿Cómo se sujeta la bajera al colchón: con elástico en todo el contorno o solo en las esquinas?",
+        "cat.ropa-de-casa/01 · precisión: denominación legal de cada fibra (Reglamento (UE) 1007/2011) cuando la oferta usa un término comercial (microfibra, bambú, «seda»)",
+        "cat.ropa-de-casa/01 · sustento: certificación o informe de ensayo de la composición en fibras",
+        "cat.sabanas/03 · precisión: unidad de superficie sobre la que se cuenta el número de hilos",
+        "cat.fundas-de-almohada/03 · precisión: unidad de superficie sobre la que se cuenta el número de hilos",
+        "cat.ropa-de-cama/01 · precisión: medidas en cm del colchón que corresponden a una denominación de tamaño importada (full, queen, king)",
+        "cat.ropa-de-cama/01 · precisión: largo y ancho en cm de la almohada a la que corresponde la funda"
+      ],
+      "skipped": []
+    },
+    "sofas": {
+      "added": [
+        "cat.sofas/37 ← N1: ¿Qué durabilidad declara el sofá en uso (ensayos de resistencia y durabilidad del asiento y de la estructura, vida útil estimada)?",
+        "cat.sofas/38 ← N2: ¿Qué transpirabilidad declara la tapicería (deja pasar el aire y no retiene el calor al sentarse)?",
+        "cat.sofas/39 ← N3: ¿Qué resistencia a las arrugas declara la tapicería?",
+        "cat.sofas/07 · precisión: tipo de piel natural (plena flor, flor corregida, serraje o piel regenerada)",
+        "cat.sofas/07 · precisión: material del recubrimiento y del soporte de la imitación de piel (polipiel, piel sintética)",
+        "cat.sofas/07 · sustento: certificación o marca que acredita que la tapicería es piel natural"
+      ],
+      "skipped": []
+    },
+    "sofas-cama": {
+      "added": [
+        "cat.sofas/40 ← N1: ¿Qué durabilidad declara (vida útil prevista o ensayos de durabilidad que supera)?",
+        "cat.sofas-cama/03 · precisión: explicación del funcionamiento del mecanismo que nombra el término comercial (italiano, clic-clac, libro, nido)"
+      ],
+      "skipped": []
+    },
+    "toallas": {
+      "added": [
+        "cat.toallas/10 ← N1: ¿Qué capacidad de absorción tiene la toalla?",
+        "cat.toallas/11 ← N2: ¿Qué nivel térmico tiene la toalla al usarla (fresca, cálida)?",
+        "cat.ropa-de-casa/10 ← N3: ¿Qué acabado tiene el tejido (lavado, prelavado, lavado a la piedra…)?",
+        "cat.ropa-de-casa/01 · precisión: denominación legal de las fibras que forman una microfibra, con su porcentaje en peso",
+        "cat.ropa-de-casa/01 · sustento: etiqueta de composición o certificado que acredite el contenido en fibras",
+        "cat.ropa-de-casa/05 · precisión: unidad del gramaje en masa por superficie (g/m²), distinta del peso de la pieza"
+      ],
+      "skipped": []
+    }
+  }
+}

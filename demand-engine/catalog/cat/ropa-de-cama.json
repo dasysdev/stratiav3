@@ -13,7 +13,7 @@
     "amazon-ptd:DUVET_COVER@2026-10-24",
     "amazon-ptd:BLANKET@2026-10-24"
   ],
-  "version": "2",
+  "version": "3",
   "status": "compilado",
   "requirements": [
     {
@@ -61,6 +61,36 @@
           "component": "tamaño de cama, colchón o almohada",
           "origin": "inferida",
           "support": []
+        },
+        {
+          "contribution": "tamaño del relleno nórdico al que corresponde la funda",
+          "component": "tamaño de cama, colchón o almohada",
+          "kind": "precisión",
+          "origin": "paa",
+          "support": [
+            "paa-q:fundas-nordicas:como-elegir-el-tamano-de-la-funda-nordica",
+            "paa-q:fundas-nordicas:como-elegir-el-tamano-de-una-funda-nordica",
+            "paa-q:fundas-nordicas:cuanto-tiene-que-medir-la-funda-nordica-para-cama-de-135",
+            "paa-q:fundas-nordicas:cuanto-tiene-que-medir-la-funda-nordica-para-una-cama-de-1-80"
+          ]
+        },
+        {
+          "contribution": "medidas en cm del colchón que corresponden a una denominación de tamaño importada (full, queen, king)",
+          "component": "denominación del tamaño de cama",
+          "kind": "precisión",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:que-significa-full-en-las-sabanas"
+          ]
+        },
+        {
+          "contribution": "largo y ancho en cm de la almohada a la que corresponde la funda",
+          "component": "tamaño de la almohada a la que corresponde",
+          "kind": "precisión",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:cuales-son-las-medidas-de-una-funda-de-almohada-de-70-cm"
+          ]
         }
       ],
       "comparison": {
@@ -151,8 +181,48 @@
           "support": []
         }
       ]
+    },
+    {
+      "id": "cat.ropa-de-cama/03",
+      "question": "¿Qué tacto tiene el tejido (liso y sedoso, crujiente, afelpado, fresco al tacto…)?",
+      "dimension": null,
+      "trait": "sensorial",
+      "entity": null,
+      "applicability": "universal",
+      "rationale": "La pregunta 151 pregunta por qué son tan suaves las sábanas de hotel. Es de grado y apoya el tacto por su tipo (D-105, D-110). Va a cat.ropa-de-cama porque vale para todas sus hijas. Pasada de PAA, conjunto fundas-nordicas (N3; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:fundas-nordicas:por-que-las-sabanas-de-los-hoteles-son-tan-suaves"
+      ],
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "declaración del tipo de tacto del tejido",
+          "component": "tipo de tacto",
+          "origin": "paa",
+          "support": [
+            "paa-q:fundas-nordicas:por-que-las-sabanas-de-los-hoteles-son-tan-suaves"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de frescor al tacto",
+          "component": "fresco al tacto",
+          "origin": "paa",
+          "support": [
+            "paa-q:fundas-nordicas:por-que-las-sabanas-de-los-hoteles-son-tan-suaves"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "sin-regla:voto"
     }
   ],
   "excluded": [],
-  "compiled_by": "reglas 8"
+  "compiled_by": "reglas 8",
+  "proposed_traits": [
+    {
+      "name": "sensorial",
+      "definition": "Sensación que produce el producto al tacto: sedoso, crujiente, afelpado o fresco al tacto (D-105)."
+    }
+  ]
 }

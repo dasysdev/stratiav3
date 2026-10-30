@@ -10,7 +10,7 @@
     "amazon-ptd:DUVET_COVER@2026-10-24",
     "amazon-btg:3250006031@2026-10-24"
   ],
-  "version": "4",
+  "version": "5",
   "status": "compilado",
   "requirements": [
     {
@@ -112,6 +112,80 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cat.fundas-de-nordico/06",
+      "question": "¿Lleva la funda sujeciones interiores para el relleno (cintas, lazos o broches en las esquinas) y de qué tipo son?",
+      "dimension": null,
+      "trait": "construccion",
+      "entity": null,
+      "applicability": "universal (un «no» fundamentado la resuelve)",
+      "rationale": "La pregunta 96 busca que la funda no se mueva. Sobre la oferta, la responde la sujeción interior del relleno, un hecho de construcción. Pasada de PAA, conjunto fundas-nordicas (N1; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:fundas-nordicas:que-hacer-para-que-no-se-mueva-la-funda-nordica"
+      ],
+      "seed_importance": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "declaración de las sujeciones interiores del relleno o de que no las tiene",
+          "component": "sujeciones interiores",
+          "origin": "paa",
+          "support": [
+            "paa-q:fundas-nordicas:que-hacer-para-que-no-se-mueva-la-funda-nordica"
+          ]
+        },
+        {
+          "contribution": "tipo y posición de las sujeciones",
+          "component": "tipo de sujeción",
+          "origin": "paa",
+          "support": [
+            "paa-q:fundas-nordicas:que-hacer-para-que-no-se-mueva-la-funda-nordica"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "imp:construccion@hg-15-1-5"
+    },
+    {
+      "id": "cat.fundas-de-nordico/07",
+      "question": "¿Para qué temporada está pensado el tejido (de abrigo para invierno, fresco para verano o para todo el año)?",
+      "dimension": null,
+      "trait": "prestacion",
+      "entity": null,
+      "applicability": "universal",
+      "rationale": "Las preguntas 140 y 148 preguntan por el calor y el frescor de la microfibra, desde fundas nórdicas. Es la misma pregunta que cat.sabanas/04, que falta en el bloque hermano (D-109). Pasada de PAA, conjunto fundas-nordicas (N2; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:fundas-nordicas:la-microfibra-da-calor",
+        "paa-q:fundas-nordicas:las-sabanas-de-microfibra-son-frescas",
+        "paa-q:fundas-nordicas:que-es-mas-fresco-el-algodon-o-la-microfibra"
+      ],
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "temporada para la que está pensado el tejido",
+          "component": "temporada",
+          "origin": "paa",
+          "support": [
+            "paa-q:fundas-nordicas:la-microfibra-da-calor",
+            "paa-q:fundas-nordicas:las-sabanas-de-microfibra-son-frescas",
+            "paa-q:fundas-nordicas:que-es-mas-fresco-el-algodon-o-la-microfibra"
+          ]
+        },
+        {
+          "contribution": "declaración de abrigo o de frescor del tejido",
+          "component": "abrigo o frescor",
+          "origin": "paa",
+          "support": [
+            "paa-q:fundas-nordicas:la-microfibra-da-calor",
+            "paa-q:fundas-nordicas:las-sabanas-de-microfibra-son-frescas",
+            "paa-q:fundas-nordicas:que-es-mas-fresco-el-algodon-o-la-microfibra"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "sin-regla:voto"
     }
   ],
   "excluded": [

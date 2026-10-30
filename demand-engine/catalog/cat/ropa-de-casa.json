@@ -12,7 +12,7 @@
     "amazon-ptd:BLANKET@2026-10-24",
     "amazon-ptd:TOWEL@2026-10-24"
   ],
-  "version": "4",
+  "version": "5",
   "status": "compilado",
   "requirements": [
     {
@@ -71,6 +71,97 @@
           "component": "composición en fibras",
           "origin": "inferida",
           "support": []
+        },
+        {
+          "contribution": "denominación legal de la fibra que corresponde a una marca comercial de fibra",
+          "component": "denominación de las fibras",
+          "kind": "precisión",
+          "origin": "paa",
+          "support": [
+            "paa-q:cubrecolchones:que-es-el-protector-tencel",
+            "paa-q:cubrecolchones:que-es-tencel-en-colchon"
+          ]
+        },
+        {
+          "contribution": "denominación legal de la fibra que forma un tejido de nombre comercial (microfibra, coralina, polar)",
+          "component": "denominación de las fibras",
+          "kind": "precisión",
+          "origin": "paa",
+          "support": [
+            "paa-q:fundas-nordicas:el-algodon-y-la-microfibra-son-lo-mismo",
+            "paa-q:fundas-nordicas:el-poliester-es-la-misma-cosa-que-la-microfibra",
+            "paa-q:fundas-nordicas:la-microfibra-es-plastico",
+            "paa-q:fundas-nordicas:que-es-mejor-microfibra-o-poliester",
+            "paa-q:fundas-nordicas:que-es-mejor-poliester-o-microfibra",
+            "paa-q:fundas-nordicas:que-quiere-decir-100-microfibra"
+          ]
+        },
+        {
+          "contribution": "imagen de la etiqueta de composición del producto",
+          "component": "denominación de las fibras",
+          "kind": "sustento",
+          "origin": "paa",
+          "support": [
+            "paa-q:fundas-nordicas:como-saber-si-es-microfibra"
+          ]
+        },
+        {
+          "contribution": "certificado o ensayo que acredita la composición en fibras",
+          "component": "porcentaje en peso de cada fibra",
+          "kind": "sustento",
+          "origin": "paa",
+          "support": [
+            "paa-q:mantas:como-saber-si-la-tela-es-100-algodon"
+          ]
+        },
+        {
+          "contribution": "denominación legal de cada fibra (Reglamento (UE) 1007/2011) cuando la oferta usa un término comercial (microfibra, bambú, «seda»)",
+          "component": "denominación de las fibras",
+          "kind": "precisión",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:como-se-llama-la-seda-falsa",
+            "paa-q:sabanas:cual-es-la-tela-microfibra-en-las-sabanas",
+            "paa-q:sabanas:la-microfibra-es-plastico",
+            "paa-q:sabanas:que-quiere-decir-100-microfibra",
+            "paa-q:sabanas:que-sabana-es-mejor-microfibra-o-poliester",
+            "paa-q:sabanas:que-significa-que-las-sabanas-sean-de-microfibra"
+          ]
+        },
+        {
+          "contribution": "certificación o informe de ensayo de la composición en fibras",
+          "component": "porcentaje en peso de cada fibra",
+          "kind": "sustento",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:como-saber-si-es-100-seda",
+            "paa-q:sabanas:como-saber-si-una-sabana-es-100-algodon"
+          ]
+        },
+        {
+          "contribution": "denominación legal de las fibras que forman una microfibra, con su porcentaje en peso",
+          "component": "denominación de las fibras",
+          "kind": "precisión",
+          "origin": "paa",
+          "support": [
+            "paa-q:toallas:el-algodon-y-la-microfibra-son-lo-mismo",
+            "paa-q:toallas:la-microfibra-es-plastico",
+            "paa-q:toallas:que-es-mejor-microfibra-o-poliester",
+            "paa-q:toallas:que-quiere-decir-100-microfibra",
+            "paa-q:toallas:que-tipos-de-microfibra-hay"
+          ]
+        },
+        {
+          "contribution": "etiqueta de composición o certificado que acredite el contenido en fibras",
+          "component": "porcentaje en peso de cada fibra",
+          "kind": "sustento",
+          "origin": "paa",
+          "support": [
+            "paa-q:toallas:como-saber-si-es-100-algodon",
+            "paa-q:toallas:como-saber-si-es-tela-de-lino",
+            "paa-q:toallas:como-saber-si-una-toalla-es-de-algodon",
+            "paa-q:toallas:como-se-que-una-toalla-es-de-microfibra"
+          ]
         }
       ],
       "comparison": {
@@ -299,6 +390,16 @@
           "component": "gramaje",
           "origin": "inferida",
           "support": []
+        },
+        {
+          "contribution": "unidad del gramaje en masa por superficie (g/m²), distinta del peso de la pieza",
+          "component": "gramaje del tejido",
+          "kind": "precisión",
+          "origin": "paa",
+          "support": [
+            "paa-q:toallas:cuantos-gramos-de-algodon-debe-tener-una-toalla-de-bano",
+            "paa-q:toallas:donde-puedo-encontrar-una-toalla-de-bano-de-600-gramos"
+          ]
         }
       ],
       "comparison": {
@@ -343,6 +444,196 @@
           }
         }
       ]
+    },
+    {
+      "id": "cat.ropa-de-casa/06",
+      "question": "¿Cuánto dura (años de uso o lavados que soporta sin perder sus prestaciones)?",
+      "dimension": null,
+      "trait": "prestacion",
+      "entity": null,
+      "applicability": "universal",
+      "rationale": "Las preguntas 35 y 56 piden cuánto dura la pieza. Releídas sobre la oferta, piden su vida útil declarada. Pongo el candidato en cat.ropa-de-casa porque vale para todas sus hijas: toda pieza textil se usa y se lava (D-107). Pasada de PAA, conjunto cubrecolchones (N1; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:cubrecolchones:cuanto-dura-un-cubre-colchon",
+        "paa-q:cubrecolchones:cuanto-dura-un-protector-de-colchon"
+      ],
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "vida útil declarada en años de uso",
+          "component": "años de uso",
+          "origin": "paa",
+          "support": [
+            "paa-q:cubrecolchones:cuanto-dura-un-cubre-colchon",
+            "paa-q:cubrecolchones:cuanto-dura-un-protector-de-colchon"
+          ]
+        },
+        {
+          "contribution": "número de lavados que soporta sin perder sus prestaciones",
+          "component": "lavados que soporta",
+          "origin": "paa",
+          "support": [
+            "paa-q:cubrecolchones:cuanto-dura-un-cubre-colchon",
+            "paa-q:cubrecolchones:cuanto-dura-un-protector-de-colchon"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de durabilidad al lavado",
+          "component": "lavados que soporta",
+          "origin": "paa",
+          "support": [
+            "paa-q:cubrecolchones:cuanto-dura-un-cubre-colchon",
+            "paa-q:cubrecolchones:cuanto-dura-un-protector-de-colchon"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "sin-regla:voto"
+    },
+    {
+      "id": "cat.ropa-de-casa/07",
+      "question": "¿De qué variedad es la fibra natural de la composición (p. ej., lana merino)?",
+      "dimension": null,
+      "trait": "material",
+      "entity": null,
+      "applicability": "si la composición incluye una fibra natural (lana, algodón, seda…)",
+      "rationale": "Q48 verifica si una manta es de lana merino y Q33 elige entre lana y lana merino. La variedad es un hecho distinto de la fibra legal. Va en cat.ropa-de-casa porque vale para todas sus hijas textiles. Pasada de PAA, conjunto mantas (N1; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:mantas:como-saber-si-es-lana-merino"
+      ],
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "nombre de la variedad de la fibra",
+          "component": "variedad de la fibra",
+          "origin": "paa",
+          "support": [
+            "paa-q:mantas:como-saber-si-es-lana-merino"
+          ]
+        },
+        {
+          "contribution": "fibra de la composición a la que se refiere la variedad y su porcentaje",
+          "component": "variedad de la fibra",
+          "origin": "paa",
+          "support": [
+            "paa-q:mantas:como-saber-si-es-lana-merino"
+          ]
+        },
+        {
+          "contribution": "certificado o sello que acredita la variedad de la fibra",
+          "component": "variedad de la fibra",
+          "origin": "paa",
+          "support": [
+            "paa-q:mantas:como-saber-si-es-lana-merino"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "imp:material@hg"
+    },
+    {
+      "id": "cat.ropa-de-casa/08",
+      "question": "¿Qué variedad de fibra es (seda de morera, algodón de fibra larga…)?",
+      "dimension": null,
+      "trait": "material",
+      "entity": null,
+      "applicability": "si la composición incluye una fibra natural con variedades comerciales (seda, algodón, lino)",
+      "rationale": "«¿Cuáles son 5 tipos de seda?», leída sobre la oferta, pregunta qué seda es. La variedad y el origen de una fibra son dos necesidades (D-108): dan N5 y N6. Va a cat.ropa-de-casa porque vale para todas sus hijas textiles, como la composición. Pasada de PAA, conjunto sabanas (N5; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:sabanas:cuales-son-5-tipos-de-seda"
+      ],
+      "seed_importance": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "denominación de la variedad de la fibra",
+          "component": "variedad de la fibra",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:cuales-son-5-tipos-de-seda"
+          ]
+        },
+        {
+          "contribution": "longitud de la fibra cuando define la variedad",
+          "component": "variedad de la fibra",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:cuales-son-5-tipos-de-seda"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "imp:material@hg"
+    },
+    {
+      "id": "cat.ropa-de-casa/09",
+      "question": "¿De qué país o región procede la fibra?",
+      "dimension": null,
+      "trait": "certificacion-origen",
+      "entity": null,
+      "applicability": "si la composición incluye una fibra natural (algodón, lino, seda)",
+      "rationale": "«¿Qué país produce la mejor seda del mundo?» muestra un criterio de elección por el origen de la fibra. Es un hecho declarable y neutral, distinto del país de fabricación (gen/20). La variedad va aparte, en N5 (D-108). Va a cat.ropa-de-casa, como N5. Pasada de PAA, conjunto sabanas (N6; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:sabanas:que-pais-produce-la-mejor-seda-del-mundo"
+      ],
+      "seed_importance": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "país o región de cultivo o de producción de la fibra",
+          "component": "país o región de la fibra",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:que-pais-produce-la-mejor-seda-del-mundo"
+          ]
+        },
+        {
+          "contribution": "certificación del origen de la fibra",
+          "component": "país o región de la fibra",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:que-pais-produce-la-mejor-seda-del-mundo"
+          ]
+        }
+      ],
+      "importance": "complementario",
+      "rule": "imp:certificacion-origen@hg"
+    },
+    {
+      "id": "cat.ropa-de-casa/10",
+      "question": "¿Qué acabado tiene el tejido (lavado, prelavado, lavado a la piedra…)?",
+      "dimension": null,
+      "trait": "construccion",
+      "entity": null,
+      "applicability": "universal",
+      "rationale": "Quien compra pregunta la diferencia entre «lino» y «lino lavado»: el término de acabado no lo explica la composición. Basta una pregunta (D-102). Va en cat.ropa-de-casa porque el acabado vale para todas sus hijas textiles. Pasada de PAA, conjunto toallas (N3; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:toallas:que-diferencia-hay-entre-lino-y-lino-lavado"
+      ],
+      "seed_importance": "complementario",
+      "resolving_info": [
+        {
+          "contribution": "denominación del acabado del tejido",
+          "component": "acabado del tejido",
+          "origin": "paa",
+          "support": [
+            "paa-q:toallas:que-diferencia-hay-entre-lino-y-lino-lavado"
+          ]
+        },
+        {
+          "contribution": "descripción del tratamiento aplicado al tejido después de tejerlo",
+          "component": "acabado del tejido",
+          "origin": "paa",
+          "support": [
+            "paa-q:toallas:que-diferencia-hay-entre-lino-y-lino-lavado"
+          ]
+        }
+      ],
+      "importance": "complementario",
+      "rule": "sin-regla:voto"
     }
   ],
   "excluded": [

@@ -8,7 +8,7 @@
     "shopify:hg-15-1-8@v2026-08",
     "google:2927@2021-09-21"
   ],
-  "version": "2",
+  "version": "3",
   "status": "compilado",
   "requirements": [
     {
@@ -44,8 +44,56 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cat.fundas-de-almohada-y-cojines/02",
+      "question": "¿Qué tacto tiene el tejido (sedoso o liso, crujiente, afelpado, fresco al tacto…)?",
+      "dimension": null,
+      "trait": "sensorial",
+      "entity": null,
+      "applicability": "universal",
+      "rationale": "La pregunta de grado «tan suaves» indica el aspecto tacto, que se formula por tipo (D-105, D-110). El efecto frío al tacto es un tipo de tacto (D-108): por eso recibe lo que R2 saca de cat.fundas-de-almohada/05. Va a cat.sabanas y a cat.fundas-de-almohada-y-cojines, con la misma pregunta. No sube a cat.ropa-de-cama: no vale para todas sus hijas (doseles). Pasada de PAA, conjunto sabanas (N1; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:sabanas:por-que-las-sabanas-de-los-hoteles-son-tan-suaves"
+      ],
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "declaración del tipo de tacto del tejido",
+          "component": "tipo de tacto",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:por-que-las-sabanas-de-los-hoteles-son-tan-suaves"
+          ]
+        },
+        {
+          "contribution": "declaración de efecto frío o de tacto fresco",
+          "component": "fresco al tacto",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:por-que-las-sabanas-de-los-hoteles-son-tan-suaves"
+          ]
+        },
+        {
+          "contribution": "resultado de un ensayo de frescor al tacto",
+          "component": "fresco al tacto",
+          "origin": "paa",
+          "support": [
+            "paa-q:sabanas:por-que-las-sabanas-de-los-hoteles-son-tan-suaves"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "sin-regla:voto"
     }
   ],
   "excluded": [],
-  "compiled_by": "reglas 8"
+  "compiled_by": "reglas 8",
+  "proposed_traits": [
+    {
+      "name": "sensorial",
+      "definition": "Sensación que produce el producto al tacto: tipo de tacto (sedoso, crujiente, afelpado) o efecto frío al tacto."
+    }
+  ]
 }

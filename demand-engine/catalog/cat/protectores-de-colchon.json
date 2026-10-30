@@ -10,7 +10,7 @@
     "amazon-ptd:MATTRESS_COVER@2026-10-24",
     "amazon-btg:2822732031@2026-10-24"
   ],
-  "version": "3",
+  "version": "4",
   "status": "compilado",
   "requirements": [
     {
@@ -467,6 +467,43 @@
           "support": []
         }
       ]
+    },
+    {
+      "id": "cat.protectores-de-colchon/09",
+      "question": "¿Qué tacto tiene la superficie sobre la que se duerme (afelpado, liso o sedoso, crujiente, fresco al tacto…)?",
+      "dimension": null,
+      "trait": "sensorial",
+      "entity": null,
+      "applicability": "universal",
+      "rationale": "La pregunta 65 pide un protector suave: es una pregunta de grado y apoya el tacto por su tipo (D-110). Pongo el candidato en cat.protectores-de-colchon porque vale para sus dos hijas. No sube a cat.ropa-de-cama: en cubrecanapés o doseles el tacto no es una prestación de uso. Pasada de PAA, conjunto cubrecolchones (N2; D-178).",
+      "origin": "paa",
+      "sources": [
+        "paa-q:cubrecolchones:cual-es-el-cubre-colchon-mas-fresco",
+        "paa-q:cubrecolchones:que-protector-de-colchon-es-suave"
+      ],
+      "seed_importance": "principal",
+      "resolving_info": [
+        {
+          "contribution": "declaración del tipo de tacto de la superficie",
+          "component": "tipo de tacto",
+          "origin": "paa",
+          "support": [
+            "paa-q:cubrecolchones:cual-es-el-cubre-colchon-mas-fresco",
+            "paa-q:cubrecolchones:que-protector-de-colchon-es-suave"
+          ]
+        },
+        {
+          "contribution": "declaración del efecto frío al tacto",
+          "component": "tipo de tacto",
+          "origin": "paa",
+          "support": [
+            "paa-q:cubrecolchones:cual-es-el-cubre-colchon-mas-fresco",
+            "paa-q:cubrecolchones:que-protector-de-colchon-es-suave"
+          ]
+        }
+      ],
+      "importance": "principal",
+      "rule": "sin-regla:voto"
     }
   ],
   "excluded": [
@@ -575,5 +612,11 @@
       "reason": "Subcampo de largo o ancho: las medidas de la pieza las pregunta cat.ropa-de-cama/02, en la cadena; aquí se usa depth (/05)."
     }
   ],
-  "compiled_by": "reglas 8"
+  "compiled_by": "reglas 8",
+  "proposed_traits": [
+    {
+      "name": "sensorial",
+      "definition": "Sensaciones que da el producto al tacto: tipo de tacto (afelpado, liso, crujiente) y efecto frío al tacto."
+    }
+  ]
 }

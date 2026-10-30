@@ -82,3 +82,8 @@
 - 2026-10-29 T-057 Frontera de «solo tiene sentido para otro producto» en el reglamento PAA (podólogos, pies doloridos, montaña) — Reglamento PAA v7 con la prueba de la respuesta natural y especializaciones desde PAA (D-218); control sin regresiones
 - 2026-10-29 T-091 Entrenamiento: aplicar D-191 a D-194 y D-201 — bin/train aplica D-191 (rasgo medida-detalle, D-219), D-192, D-193, D-194 y D-201; pasada sin empeorar
 - 2026-10-30 T-101 Prueba de canarios: qué texto reciben los asistentes de IA al leer una página — Canarios con 4 lectores en vivo; ámbitos Contenido y Marcado, filtro Alfa y alcance de lectura al canon (D-220 a D-223)
+- 2026-10-30 T-094 Piloto GSC: auditoría de capture de Burrito Blanco con 2 fichas — Piloto: 2 fichas de Burrito Blanco capturadas con audit-es (audit-bb-edredon-6172, audit-bb-barbie-5611), sin rastreo completo
+- 2026-10-30 T-095 Piloto GSC: modelos de demanda de las 2 fichas de Burrito Blanco — Modelos de demanda y unidades RI × ámbito de las 2 fichas de Burrito Blanco: Barbie 51 RI, edredón 66 RI (bloque nuevo cat.colchas-y-edredones sin compilar)
+- 2026-10-30 T-096 Perfil del RI compuesto por el motor de demanda (D-177) — Perfil del RI en cada unidad RI × ámbito (D-177, D-135, D-155); las 2 fichas del piloto recompuestas
+- 2026-10-30 T-097 info-audit: sistema nuevo, esquemas JSON y validador de los registros (D-199) — info-audit: miembro del workspace, esquemas v1 de disponibilidad y valoración y bin/audit validate (D-199, QA-15)
+- 2026-10-30 T-092 PAA: entrada al catálogo, revisiones y regla de aceptación — bin/paa compile y control: entrada «paa» con texto literal, revisiones para taxo (D-179) y regla D-180; la ejecución real pasa a T-107

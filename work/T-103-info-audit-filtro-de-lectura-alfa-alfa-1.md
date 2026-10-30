@@ -20,3 +20,5 @@ Implementar en info-audit el filtro Alfa según docs/20-methods/audit-gsc/filter
 - [ ] info-audit/README describe el filtro y su versión
 
 ## Notas
+
+- 2026-10-30 Entrada (T-097): bin/audit validate lee la salida de alfa/1 por filter, version, ficha, title y text; posicion es [inicio, fin) en text. Mantén esos nombres.

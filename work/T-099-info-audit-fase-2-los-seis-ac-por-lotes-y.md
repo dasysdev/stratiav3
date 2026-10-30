@@ -21,3 +21,8 @@ Agentes por lote de RI con disponibilidad 1 valoran los seis AC con sus pistas (
 - [ ] La lista de NE y comprobaciones inconclusas para la revisión humana (D-186) sale aparte
 
 ## Notas
+
+- 2026-10-30 Entrada (T-097): las unidades de bin/model scope no llevan la marca de comparación (comparison) y el catálogo solo marca 9 de 527 requisitos. Sin la marca en la unidad, bin/audit validate rechaza todo NA de Comparabilidad (D-126). Añadir comparison a las unidades en demand-engine antes de la fase 2.
+- 2026-10-30 Corrige la nota anterior: la marca de comparación la lleva el modelo del producto (D-126). bin/model assemble copia hints pero no comparison (model.py:395 y :488); que la copie y que bin/model scope la pase a la unidad. Un RI sin marca queda señalado, sin valor por defecto (D-139).
+- 2026-10-30 La marca de comparación pasa a T-105.
+- 2026-10-30 Riesgo (saneamiento): solo 9 de 527 requisitos tienen marca de comparación. Sin marca, el RI queda señalado (D-139) y no admite NA de Comparabilidad (D-126): casi todos los RI del piloto valoran Comparabilidad. Lo mide T-100.

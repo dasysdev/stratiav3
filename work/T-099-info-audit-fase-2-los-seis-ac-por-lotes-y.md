@@ -26,3 +26,4 @@ Agentes por lote de RI con disponibilidad 1 valoran los seis AC con sus pistas (
 - 2026-10-30 Corrige la nota anterior: la marca de comparación la lleva el modelo del producto (D-126). bin/model assemble copia hints pero no comparison (model.py:395 y :488); que la copie y que bin/model scope la pase a la unidad. Un RI sin marca queda señalado, sin valor por defecto (D-139).
 - 2026-10-30 La marca de comparación pasa a T-105.
 - 2026-10-30 Riesgo (saneamiento): solo 9 de 527 requisitos tienen marca de comparación. Sin marca, el RI queda señalado (D-139) y no admite NA de Comparabilidad (D-126): casi todos los RI del piloto valoran Comparabilidad. Lo mide T-100.
+- 2026-10-30 Entrada (T-105): las pistas que la fase PAA añade a una unidad no tienen PV-n (D-201: se numeran al compilar) y el esquema de info-audit exige PV-n en pistas_usadas. Antes de la fase 2, decide cómo se citan (p. ej., por requisito e índice) y ajusta el esquema.

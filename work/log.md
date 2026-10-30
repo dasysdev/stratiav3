@@ -87,3 +87,11 @@
 - 2026-10-30 T-096 Perfil del RI compuesto por el motor de demanda (D-177) — Perfil del RI en cada unidad RI × ámbito (D-177, D-135, D-155); las 2 fichas del piloto recompuestas
 - 2026-10-30 T-097 info-audit: sistema nuevo, esquemas JSON y validador de los registros (D-199) — info-audit: miembro del workspace, esquemas v1 de disponibilidad y valoración y bin/audit validate (D-199, QA-15)
 - 2026-10-30 T-092 PAA: entrada al catálogo, revisiones y regla de aceptación — bin/paa compile y control: entrada «paa» con texto literal, revisiones para taxo (D-179) y regla D-180; la ejecución real pasa a T-107
+- 2026-10-30 T-109 Pistas: revisar los 4 avisos de D-209 (gen/03, gen/04, cat.ropa-de-casa/03) — Avisos D-209 revisados: PV-24 y PV-47 fundidas en PV-48; los otros 3 pares no son duplicados y su aviso queda
+- 2026-10-30 T-102 Ámbitos Contenido y Marcado en demand-engine e info-audit (D-220) — Ámbitos content y markup en demand-engine e info-audit; Contenido sin la localización de Marcado; PV-13 → PV-49
+- 2026-10-30 T-108 Ámbitos Contenido y Marcado en web-audit y sus skills (D-220) — web-audit, sus skills, capture, references y CLAUDE.md nombran los ámbitos Contenido y Marcado
+- 2026-10-30 T-079 Reglamentos y prompts de agentes con el estilo de redacción (ASD-STE100) — Reglamento del clasificador v5 con las reglas de estilo; control de 14 casos sin empeorar, con el doble de coste por caso
+- 2026-10-30 T-103 info-audit: filtro de lectura Alfa (alfa/1) — Filtro Alfa alfa/1 en info-audit: canarios exactos y anotaciones; el edredón saca composición, envío y devoluciones como ocultos
+- 2026-10-30 T-104 demand-model: modelo sobre una ficha ya capturada (--page ID) — /demand-model --page ID clasifica sobre una ficha congelada; el modelo registra la ficha y su perfil de captura
+- 2026-10-30 T-106 PAA: reformular solo para el mismo hecho (paso 7) — paa.md v8: ampliar solo para el mismo hecho; en botas, el candidato esperado sale y cat.calzado/24 no se reformula
+- 2026-10-30 T-107 PAA: primera pasada al catálogo con el reglamento v8 (D-178, D-180) — Primera pasada de PAA con v8: 12 conjuntos reclasificados sobre modelos v5, control sin regresiones, 63 entradas en 18 bloques

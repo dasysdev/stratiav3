@@ -1,0 +1,85 @@
+{
+ "$id": "assessment.v1.json",
+ "title": "info-audit: valoración de los seis AC de un lote de RI (fase 2, v1)",
+ "description": "Salida de un agente de la fase 2 (D-153, gsc-decision.md): los seis AC de cada RI con disponibilidad 1 del lote. Cada AC tiene su juicio: GSC 0/1/2, NE (incidencia, con la comprobación fallida) o NA solo en Comparabilidad si el modelo marca el requisito como no dimensión de comparación (D-126). No hay GSC global, media de los AC, pesos ni fórmula de IR.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": ["schema", "version", "audit", "scope", "representation", "model", "availability", "lote", "evidencias", "hallazgos", "unidades"],
+ "properties": {
+  "schema": {"const": "info-audit/assessment"},
+  "version": {"const": 1},
+  "audit": {"$ref": "common.v1.json#/$defs/text"},
+  "scope": {"$ref": "common.v1.json#/$defs/scope"},
+  "representation": {"$ref": "common.v1.json#/$defs/representation"},
+  "model": {"$ref": "common.v1.json#/$defs/model"},
+  "availability": {"description": "Ruta, desde la raíz del repositorio, del registro de la fase 1 de la misma ficha × ámbito.", "$ref": "common.v1.json#/$defs/text"},
+  "lote": {"$ref": "common.v1.json#/$defs/text"},
+  "evidencias": {"description": "Evidencias nuevas de la reapertura (execution.md); las de la fase 1 se citan por su id.", "type": "array", "items": {"$ref": "common.v1.json#/$defs/evidence"}},
+  "hallazgos": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["hallazgo_id", "ri_id", "descripcion", "evidencias"],
+    "properties": {
+     "hallazgo_id": {"$ref": "common.v1.json#/$defs/finding_id"},
+     "ri_id": {"$ref": "common.v1.json#/$defs/text"},
+     "descripcion": {"$ref": "common.v1.json#/$defs/text"},
+     "propiedades": {"type": "array", "items": {"$ref": "common.v1.json#/$defs/property"}},
+     "evidencias": {"type": "array", "items": {"$ref": "common.v1.json#/$defs/evidence_id"}, "minItems": 1}
+    }
+   }
+  },
+  "unidades": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["ri_id", "disponibilidad_efectiva", "valoraciones"],
+    "properties": {
+     "ri_id": {"$ref": "common.v1.json#/$defs/text"},
+     "disponibilidad_efectiva": {"description": "GSC-01: solo se valoran AC con disponibilidad 1.", "const": 1},
+     "valoraciones": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": ["criterio", "estado", "gsc", "justificacion"],
+       "properties": {
+        "criterio": {"$ref": "common.v1.json#/$defs/criterion"},
+        "estado": {"enum": ["valorado", "NE", "NA"]},
+        "gsc": {"description": "Ordinal 0/1/2; null si NE o NA.", "enum": [0, 1, 2, null]},
+        "condicion_evaluada": {"$ref": "common.v1.json#/$defs/text"},
+        "propiedades_consideradas": {
+         "description": "D-198: las propiedades citadas y su efecto en el juicio. Sin puntuación de propiedades.",
+         "type": "array",
+         "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["propiedad", "efecto"],
+          "properties": {
+           "propiedad": {"$ref": "common.v1.json#/$defs/property"},
+           "efecto": {"$ref": "common.v1.json#/$defs/text"}
+          }
+         }
+        },
+        "pistas_usadas": {"type": "array", "items": {"$ref": "common.v1.json#/$defs/hint_id"}},
+        "evidencias": {"type": "array", "items": {"$ref": "common.v1.json#/$defs/evidence_id"}},
+        "hallazgos": {"type": "array", "items": {"$ref": "common.v1.json#/$defs/finding_id"}},
+        "parte_satisfecha": {"$ref": "common.v1.json#/$defs/text"},
+        "limitacion_material": {"$ref": "common.v1.json#/$defs/text"},
+        "justificacion": {"$ref": "common.v1.json#/$defs/text"},
+        "cobertura": {"$ref": "common.v1.json#/$defs/text"},
+        "comprobacion_fallida": {"$ref": "common.v1.json#/$defs/failed_check"},
+        "limitaciones_de_evaluacion": {"$ref": "common.v1.json#/$defs/texts"}
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

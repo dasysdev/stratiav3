@@ -1,0 +1,10 @@
+[project]
+name = "info-audit"
+version = "0.1.0"
+description = "stratia.cic: auditoría informativa (disponibilidad efectiva y GSC por AC) de Contenido y Marcado"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.uv]
+# Not a distributable package: the code runs from src/ with PYTHONPATH (see env/docker/app/Dockerfile)
+package = false

@@ -1,0 +1,46 @@
+{
+ "$id": "availability.v1.json",
+ "title": "info-audit: disponibilidad efectiva de una ficha × ámbito (fase 1, v1)",
+ "description": "Salida del agente de la fase 1 (D-153, execution.md): la disponibilidad efectiva de todos los RI pertinentes de una ficha en un ámbito, con sus evidencias y la cobertura de cada ausencia. Disponibilidad 0/1, o null con estado inconclusa: no hay tercer valor. Los RI con 0 cierran con IR = 0 y no se valoran sus AC.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": ["schema", "version", "audit", "scope", "representation", "model", "universo_examinable", "evidencias", "unidades"],
+ "properties": {
+  "schema": {"const": "info-audit/availability"},
+  "version": {"const": 1},
+  "audit": {"$ref": "common.v1.json#/$defs/text"},
+  "scope": {"$ref": "common.v1.json#/$defs/scope"},
+  "representation": {"$ref": "common.v1.json#/$defs/representation"},
+  "model": {"$ref": "common.v1.json#/$defs/model"},
+  "universo_examinable": {
+   "description": "CO-01, CO-02: qué se pudo examinar y con qué límites.",
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["regiones", "entidades", "limitaciones"],
+   "properties": {
+    "regiones": {"type": "array", "items": {"$ref": "common.v1.json#/$defs/text"}, "minItems": 1},
+    "entidades": {"$ref": "common.v1.json#/$defs/texts"},
+    "limitaciones": {"$ref": "common.v1.json#/$defs/texts"}
+   }
+  },
+  "evidencias": {"type": "array", "items": {"$ref": "common.v1.json#/$defs/evidence"}},
+  "unidades": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["ri_id", "estado_disponibilidad", "disponibilidad_efectiva", "pertinencia", "evidencias"],
+    "properties": {
+     "ri_id": {"$ref": "common.v1.json#/$defs/text"},
+     "estado_disponibilidad": {"enum": ["determinada", "inconclusa"]},
+     "disponibilidad_efectiva": {"enum": [0, 1, null]},
+     "ir": {"description": "Solo con disponibilidad 0 (invariante 3). Sin fórmula de IR.", "const": 0},
+     "pertinencia": {"description": "Por qué los candidatos aportan o no información pertinente (relevance.md).", "$ref": "common.v1.json#/$defs/text"},
+     "evidencias": {"type": "array", "items": {"$ref": "common.v1.json#/$defs/evidence_id"}},
+     "cobertura": {"$ref": "common.v1.json#/$defs/coverage"},
+     "comprobacion_fallida": {"$ref": "common.v1.json#/$defs/failed_check"}
+    }
+   }
+  }
+ }
+}

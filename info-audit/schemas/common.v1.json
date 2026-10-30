@@ -1,0 +1,101 @@
+{
+ "$id": "common.v1.json",
+ "title": "info-audit: definiciones comunes de los registros (v1)",
+ "description": "Evidencia (evidence.md), cobertura (availability-coverage.md), comprobación fallida de una NE o de una disponibilidad inconclusa (gsc-decision.md) y representación del ámbito (inputs-outputs.md, filter-alfa.md). D-199: JSON validado y versionado.",
+ "$defs": {
+  "scope": {"enum": ["Contenido", "Marcado"]},
+  "criterion": {"enum": ["Concreción", "Precisión", "Aplicabilidad", "Comparabilidad", "Fiabilidad", "Justificación"]},
+  "property": {
+   "description": "P06–P18; P15 · Actualidad está retirada (D-123).",
+   "enum": ["P06", "P07", "P08", "P09", "P10", "P11", "P12", "P13", "P14", "P16", "P17", "P18"]
+  },
+  "text": {"type": "string", "minLength": 1},
+  "texts": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+  "evidence_id": {"type": "string", "pattern": "^E-[0-9]{3,}$"},
+  "finding_id": {"type": "string", "pattern": "^H-[0-9]{3,}$"},
+  "hint_id": {"type": "string", "pattern": "^PV-[0-9]+$"},
+  "representation": {
+   "description": "La representación del ámbito que leen los agentes (D-220, D-223): en Contenido, la salida de Alfa; en Marcado, el marcado. file: ruta desde la raíz del repositorio.",
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["profile", "reader", "page", "captured_at", "file"],
+   "properties": {
+    "profile": {"const": "audit-es"},
+    "reader": {"enum": ["alfa/1", "markup/1"]},
+    "page": {"$ref": "#/$defs/text"},
+    "captured_at": {"$ref": "#/$defs/text"},
+    "file": {"$ref": "#/$defs/text"}
+   }
+  },
+  "model": {
+   "description": "El modelo de demanda compuesto con la ficha del ámbito (bin/model scope, D-155). file: ruta desde la raíz del repositorio.",
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["case", "sheet", "file"],
+   "properties": {
+    "case": {"$ref": "#/$defs/text"},
+    "sheet": {"$ref": "#/$defs/text"},
+    "file": {"$ref": "#/$defs/text"}
+   }
+  },
+  "locator": {
+   "description": "Dónde está el contenido original en la representación: posicion [inicio, fin) en el texto de Alfa, ruta del elemento o ruta del dato en el marcado.",
+   "type": "object",
+   "additionalProperties": false,
+   "properties": {
+    "posicion": {"type": "array", "items": {"type": "integer", "minimum": 0}, "minItems": 2, "maxItems": 2},
+    "ruta": {"$ref": "#/$defs/text"}
+   }
+  },
+  "evidence": {
+   "description": "Evidencia elemental (evidence.md, EV-01…EV-15). En los tipos con contenido literal, contenido_original está literal en la representación (QA-15).",
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["evidencia_id", "tipo", "localizador", "contenido_original", "resultado_observado"],
+   "properties": {
+    "evidencia_id": {"$ref": "#/$defs/evidence_id"},
+    "tipo": {"enum": ["presencia", "identidad", "relacion", "normalizacion", "coherencia", "exactitud", "ausencia", "limitacion_acceso"]},
+    "localizador": {"$ref": "#/$defs/locator"},
+    "contenido_original": {"$ref": "#/$defs/text"},
+    "contexto_necesario": {"$ref": "#/$defs/text"},
+    "entidad_y_alcance": {"$ref": "#/$defs/text"},
+    "metodo_comprobacion": {"$ref": "#/$defs/text"},
+    "resultado_observado": {"$ref": "#/$defs/text"},
+    "fuentes_de_regla": {"description": "Reglas generales citadas (EV-14): nunca contenido comercial.", "$ref": "#/$defs/texts"},
+    "limitaciones": {"$ref": "#/$defs/texts"}
+   }
+  },
+  "coverage": {
+   "description": "Registro de cobertura de una ausencia (availability-coverage.md, CO-01…CO-09, EV-06).",
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["objetivo", "regiones_inspeccionadas", "metodos", "alternativas_verificadas", "resultados", "candidatos_pendientes", "limitaciones", "diagnostico", "conclusion"],
+   "properties": {
+    "objetivo": {"$ref": "#/$defs/text"},
+    "componentes_buscados": {"$ref": "#/$defs/texts"},
+    "regiones_inspeccionadas": {"type": "array", "items": {"$ref": "#/$defs/text"}, "minItems": 1},
+    "metodos": {"type": "array", "items": {"$ref": "#/$defs/text"}, "minItems": 1},
+    "alternativas_verificadas": {"$ref": "#/$defs/texts"},
+    "resultados": {"$ref": "#/$defs/text"},
+    "candidatos_pendientes": {"$ref": "#/$defs/texts"},
+    "limitaciones": {"$ref": "#/$defs/texts"},
+    "diagnostico": {
+     "description": "CO-07. «No comprobado por cobertura insuficiente» no es un 0: es una comprobación inconclusa.",
+     "enum": ["no_publicado", "no_legible_bajo_perfil", "no_localizado_tras_revision"]
+    },
+    "evidencias": {"type": "array", "items": {"$ref": "#/$defs/evidence_id"}},
+    "conclusion": {"$ref": "#/$defs/text"}
+   }
+  },
+  "failed_check": {
+   "description": "La comprobación que no se pudo hacer: de una NE (incidencia del AC) o de una disponibilidad inconclusa (gsc-decision.md, GSC-03).",
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["comprobacion", "motivo"],
+   "properties": {
+    "comprobacion": {"$ref": "#/$defs/text"},
+    "motivo": {"$ref": "#/$defs/text"}
+   }
+  }
+ }
+}

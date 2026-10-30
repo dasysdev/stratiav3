@@ -21,6 +21,9 @@ references/var/
 # web-audit: var/ es desechable (expedientes técnicos de cada auditoría). Ver web-audit/README.md.
 web-audit/var/
 
+# info-audit: var/ es desechable (registros de cada auditoría informativa). Ver info-audit/README.md.
+info-audit/var/
+
 # Código Python (el corpus del MPIR va en demand-engine/var/mpir/)
 __pycache__/
 .pytest_cache/

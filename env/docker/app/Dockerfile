@@ -9,7 +9,7 @@ FROM python:3.13-slim-bookworm AS base
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONPATH=/work/capture/src:/work/demand-engine/src:/work/references/src:/work/web-audit/src \
+    PYTHONPATH=/work/capture/src:/work/demand-engine/src:/work/info-audit/src:/work/references/src:/work/web-audit/src \
     LANG=es_ES.UTF-8 \
     LC_ALL=es_ES.UTF-8 \
     TZ=Europe/Madrid \
@@ -53,6 +53,7 @@ FROM base AS dev
 COPY pyproject.toml uv.lock /work/
 COPY capture/pyproject.toml /work/capture/
 COPY demand-engine/pyproject.toml /work/demand-engine/
+COPY info-audit/pyproject.toml /work/info-audit/
 COPY references/pyproject.toml /work/references/
 COPY web-audit/pyproject.toml /work/web-audit/
 RUN uv sync --locked --all-packages && rm -rf /tmp/uv-cache
@@ -64,11 +65,14 @@ FROM base AS prod
 COPY pyproject.toml uv.lock /work/
 COPY capture/pyproject.toml /work/capture/
 COPY demand-engine/pyproject.toml /work/demand-engine/
+COPY info-audit/pyproject.toml /work/info-audit/
 COPY references/pyproject.toml /work/references/
 COPY web-audit/pyproject.toml /work/web-audit/
 RUN uv sync --locked --all-packages --no-dev && rm -rf /tmp/uv-cache
 COPY capture/src /work/capture/src
 COPY demand-engine/src /work/demand-engine/src
+COPY info-audit/src /work/info-audit/src
+COPY info-audit/schemas /work/info-audit/schemas
 COPY references/src /work/references/src
 COPY web-audit/src /work/web-audit/src
 USER app

@@ -8,6 +8,9 @@
 !capture/src/
 !demand-engine/pyproject.toml
 !demand-engine/src/
+!info-audit/pyproject.toml
+!info-audit/src/
+!info-audit/schemas/
 !references/pyproject.toml
 !references/src/
 !web-audit/pyproject.toml

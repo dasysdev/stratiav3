@@ -11,7 +11,7 @@
     "amazon-btg:2844244031@2026-10-24",
     "ley:UE-1007/2011-16.1@2018-02-15"
   ],
-  "version": "7",
+  "version": "6",
   "status": "compilado",
   "requirements": [
     {
@@ -202,17 +202,6 @@
           "component": "material del relleno",
           "origin": "inferida",
           "support": []
-        },
-        {
-          "contribution": "denominación del material o de la fibra del relleno cuando la oferta usa un término comercial (microfibra, fibra siliconada, memory foam)",
-          "component": "material del relleno",
-          "kind": "precisión",
-          "origin": "paa",
-          "support": [
-            "paa-q:cojines:la-microfibra-es-plastico",
-            "paa-q:cojines:que-es-mejor-espuma-o-memory-foam",
-            "paa-q:cojines:que-es-mejor-memory-foam-o-espuma-de-alta-densidad"
-          ]
         }
       ]
     },
@@ -703,49 +692,6 @@
           "support": []
         }
       ]
-    },
-    {
-      "id": "cat.cojines-decorativos/16",
-      "question": "¿Qué densidad tiene la espuma del relleno?",
-      "dimension": null,
-      "trait": "magnitud",
-      "entity": null,
-      "applicability": "si el relleno es de espuma",
-      "rationale": "Las preguntas piden qué significa un grado de densidad (79, 87, 91) y para qué sirve (97). Quien compra lee la espuma por su densidad. Es un criterio para comparar ofertas con relleno de espuma: el voto es principal. Pasada de PAA, conjunto cojines (N1; D-178).",
-      "origin": "paa",
-      "sources": [
-        "paa-q:cojines:para-que-se-utiliza-la-espuma-de-densidad-21",
-        "paa-q:cojines:que-significa-densidad-30-en-espuma",
-        "paa-q:cojines:que-significa-espuma-de-densidad-30",
-        "paa-q:cojines:que-significa-espuma-densidad-26"
-      ],
-      "seed_importance": "principal",
-      "resolving_info": [
-        {
-          "contribution": "densidad declarada de la espuma del relleno, con su valor y su unidad",
-          "component": "densidad de la espuma",
-          "origin": "paa",
-          "support": [
-            "paa-q:cojines:para-que-se-utiliza-la-espuma-de-densidad-21",
-            "paa-q:cojines:que-significa-densidad-30-en-espuma",
-            "paa-q:cojines:que-significa-espuma-de-densidad-30",
-            "paa-q:cojines:que-significa-espuma-densidad-26"
-          ]
-        },
-        {
-          "contribution": "ficha técnica o informe de ensayo de la densidad de la espuma",
-          "component": "densidad de la espuma",
-          "origin": "paa",
-          "support": [
-            "paa-q:cojines:para-que-se-utiliza-la-espuma-de-densidad-21",
-            "paa-q:cojines:que-significa-densidad-30-en-espuma",
-            "paa-q:cojines:que-significa-espuma-de-densidad-30",
-            "paa-q:cojines:que-significa-espuma-densidad-26"
-          ]
-        }
-      ],
-      "importance": "complementario",
-      "rule": "imp:magnitud@hg-3-64"
     }
   ],
   "excluded": [

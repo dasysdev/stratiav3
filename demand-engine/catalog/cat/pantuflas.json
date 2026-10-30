@@ -10,7 +10,7 @@
     "amazon-ptd:SLIPPER@2026-10-24",
     "amazon-btg:2008202031@2026-10-24"
   ],
-  "version": "6",
+  "version": "5",
   "status": "compilado",
   "requirements": [
     {
@@ -42,15 +42,6 @@
           "component": "tipo de zapatilla de casa",
           "origin": "inferida",
           "support": []
-        },
-        {
-          "contribution": "indicación de que es calzado para estar por casa",
-          "component": "tipo de zapatilla de casa",
-          "kind": "precisión",
-          "origin": "paa",
-          "support": [
-            "paa-q:pantuflas:como-se-llaman-las-zapatillas-de-ir-por-casa"
-          ]
         }
       ]
     },

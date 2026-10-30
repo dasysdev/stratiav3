@@ -9,7 +9,7 @@
     "google:5010@2021-09-21",
     "amazon-ptd:PET_TOY@2026-10-24"
   ],
-  "version": "8",
+  "version": "7",
   "status": "compilado",
   "requirements": [
     {
@@ -202,16 +202,6 @@
             "amazon-ptd-prop:PET_TOY.special_feature=Resistente a los arañazos",
             "amazon-ptd-prop:PET_TOY.special_feature=Resistente a la decoloración",
             "amazon-ptd-prop:PET_TOY.special_feature=Resistente al óxido"
-          ]
-        },
-        {
-          "contribution": "significado de cada nivel de la escala de intensidad de masticación que usa la oferta",
-          "component": "intensidad de masticación para la que está indicado",
-          "kind": "precisión",
-          "origin": "paa",
-          "support": [
-            "paa-q:juguetes-perros:que-juguete-para-perro-rompe-todo",
-            "paa-q:juguetes-perros:que-juguetes-son-super-resistentes-para-perros"
           ]
         }
       ]
@@ -539,15 +529,6 @@
           "component": "materiales no tóxicos",
           "origin": "inferida",
           "support": []
-        },
-        {
-          "contribution": "materiales o partes del juguete que cubre la declaración de no toxicidad",
-          "component": "no toxicidad de los materiales",
-          "kind": "precisión",
-          "origin": "paa",
-          "support": [
-            "paa-q:juguetes-perros:que-material-no-es-seguro-para-juguetes-de-perro"
-          ]
         }
       ]
     },
@@ -587,15 +568,6 @@
           "support": [
             "shopify-attr:dog-toy-type=Interactivo",
             "amazon-ptd-prop:PET_TOY.special_feature=Interactivo"
-          ]
-        },
-        {
-          "contribution": "tipo de reto mental que plantea el juguete inteligente o interactivo",
-          "component": "estimulación mental",
-          "kind": "precisión",
-          "origin": "paa",
-          "support": [
-            "paa-q:juguetes-perros:que-juguete-inteligente-hay-para-perros"
           ]
         }
       ]
@@ -731,98 +703,6 @@
           "support": []
         }
       ]
-    },
-    {
-      "id": "cat.juguetes-para-perros/19",
-      "question": "¿Está pensado para aliviar la ansiedad o el estrés del perro?",
-      "dimension": null,
-      "trait": "uso",
-      "entity": null,
-      "applicability": "universal (un «no» fundamentado la resuelve)",
-      "rationale": "Cinco preguntas eligen un juguete para calmar la ansiedad: sobre el peluche y, por su semilla, la cuerda y el nylon. La referencia de Amazon tiene el uso «Alivio de la ansiedad». Pasada de PAA, conjunto juguetes-perros (N1; D-178).",
-      "origin": "paa",
-      "sources": [
-        "paa-q:juguetes-perros:que-juguete-puedo-usar-para-calmar-la-ansiedad-de-mi-perro",
-        "paa-q:juguetes-perros:que-juguetes-calman-la-ansiedad",
-        "paa-q:juguetes-perros:que-juguetes-para-perros-pueden-calmar-la-ansiedad",
-        "paa-q:juguetes-perros:que-juguetes-son-buenos-para-la-ansiedad-en-perros",
-        "paa-q:juguetes-perros:que-peluche-calma-la-ansiedad-de-un-perro"
-      ],
-      "seed_importance": "principal",
-      "resolving_info": [
-        {
-          "contribution": "indicación de uso para aliviar la ansiedad o el estrés del perro",
-          "component": "alivio de la ansiedad o el estrés",
-          "origin": "paa",
-          "support": [
-            "paa-q:juguetes-perros:que-juguete-puedo-usar-para-calmar-la-ansiedad-de-mi-perro",
-            "paa-q:juguetes-perros:que-juguetes-calman-la-ansiedad",
-            "paa-q:juguetes-perros:que-juguetes-para-perros-pueden-calmar-la-ansiedad",
-            "paa-q:juguetes-perros:que-juguetes-son-buenos-para-la-ansiedad-en-perros",
-            "paa-q:juguetes-perros:que-peluche-calma-la-ansiedad-de-un-perro"
-          ]
-        },
-        {
-          "contribution": "estudio o ensayo que respalda el efecto calmante",
-          "component": "alivio de la ansiedad o el estrés",
-          "origin": "paa",
-          "support": [
-            "paa-q:juguetes-perros:que-juguete-puedo-usar-para-calmar-la-ansiedad-de-mi-perro",
-            "paa-q:juguetes-perros:que-juguetes-calman-la-ansiedad",
-            "paa-q:juguetes-perros:que-juguetes-para-perros-pueden-calmar-la-ansiedad",
-            "paa-q:juguetes-perros:que-juguetes-son-buenos-para-la-ansiedad-en-perros",
-            "paa-q:juguetes-perros:que-peluche-calma-la-ansiedad-de-un-perro"
-          ]
-        }
-      ],
-      "importance": "principal",
-      "rule": "imp:uso@ap-2"
-    },
-    {
-      "id": "cat.juguetes-para-perros/20",
-      "question": "¿Está pensado para que el perro haga ejercicio o gaste energía?",
-      "dimension": null,
-      "trait": "uso",
-      "entity": null,
-      "applicability": "universal (un «no» fundamentado la resuelve)",
-      "rationale": "Cinco preguntas eligen el juguete que cansa o que sirve a un perro inquieto o hiperactivo, sobre el peluche y la cuerda. La referencia de Amazon tiene el uso «Ejercicio». Pasada de PAA, conjunto juguetes-perros (N2; D-178).",
-      "origin": "paa",
-      "sources": [
-        "paa-q:juguetes-perros:cuales-son-los-mejores-juguetes-para-perros-hiperactivos",
-        "paa-q:juguetes-perros:cuales-son-los-mejores-juguetes-para-perros-muy-hiperactivos",
-        "paa-q:juguetes-perros:que-juguete-es-bueno-para-perros-hiperactivos",
-        "paa-q:juguetes-perros:que-juguete-es-bueno-para-perros-inquietos",
-        "paa-q:juguetes-perros:que-juguetes-cansan-a-los-perros"
-      ],
-      "seed_importance": "principal",
-      "resolving_info": [
-        {
-          "contribution": "indicación de uso para el ejercicio o el gasto de energía del perro",
-          "component": "ejercicio o gasto de energía",
-          "origin": "paa",
-          "support": [
-            "paa-q:juguetes-perros:cuales-son-los-mejores-juguetes-para-perros-hiperactivos",
-            "paa-q:juguetes-perros:cuales-son-los-mejores-juguetes-para-perros-muy-hiperactivos",
-            "paa-q:juguetes-perros:que-juguete-es-bueno-para-perros-hiperactivos",
-            "paa-q:juguetes-perros:que-juguete-es-bueno-para-perros-inquietos",
-            "paa-q:juguetes-perros:que-juguetes-cansan-a-los-perros"
-          ]
-        },
-        {
-          "contribution": "nivel de actividad del perro al que se destina",
-          "component": "ejercicio o gasto de energía",
-          "origin": "paa",
-          "support": [
-            "paa-q:juguetes-perros:cuales-son-los-mejores-juguetes-para-perros-hiperactivos",
-            "paa-q:juguetes-perros:cuales-son-los-mejores-juguetes-para-perros-muy-hiperactivos",
-            "paa-q:juguetes-perros:que-juguete-es-bueno-para-perros-hiperactivos",
-            "paa-q:juguetes-perros:que-juguete-es-bueno-para-perros-inquietos",
-            "paa-q:juguetes-perros:que-juguetes-cansan-a-los-perros"
-          ]
-        }
-      ],
-      "importance": "principal",
-      "rule": "imp:uso@ap-2"
     }
   ],
   "excluded": [

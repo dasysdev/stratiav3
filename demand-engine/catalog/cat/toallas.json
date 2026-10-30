@@ -10,7 +10,7 @@
     "amazon-ptd:TOWEL@2026-10-24",
     "amazon-btg:3244784031@2026-10-24"
   ],
-  "version": "3",
+  "version": "2",
   "status": "compilado",
   "requirements": [
     {
@@ -450,86 +450,6 @@
           "support": []
         }
       ]
-    },
-    {
-      "id": "cat.toallas/10",
-      "question": "¿Qué capacidad de absorción tiene la toalla?",
-      "dimension": null,
-      "trait": "prestacion",
-      "entity": null,
-      "applicability": "universal",
-      "rationale": "Es la prestación por la que más se pregunta en el conjunto. Las preguntas comparan toallas y tejidos por lo bien que secan. Va en cat.toallas, como cat.toallas/04, porque vale para todas sus hijas y no para toda la ropa de casa. Pasada de PAA, conjunto toallas (N1; D-178).",
-      "origin": "paa",
-      "sources": [
-        "paa-q:toallas:cuales-son-las-toallas-que-secan-mejor",
-        "paa-q:toallas:las-toallas-de-microfibra-secan-bien",
-        "paa-q:toallas:que-tela-de-toalla-seca-mejor",
-        "paa-q:toallas:que-toallas-de-bano-secan-mejor"
-      ],
-      "seed_importance": "principal",
-      "resolving_info": [
-        {
-          "contribution": "declaración de la capacidad de absorción de la toalla",
-          "component": "capacidad de absorción",
-          "origin": "paa",
-          "support": [
-            "paa-q:toallas:cuales-son-las-toallas-que-secan-mejor",
-            "paa-q:toallas:las-toallas-de-microfibra-secan-bien",
-            "paa-q:toallas:que-tela-de-toalla-seca-mejor",
-            "paa-q:toallas:que-toallas-de-bano-secan-mejor"
-          ]
-        },
-        {
-          "contribution": "resultado de un ensayo de absorción, con su método",
-          "component": "capacidad de absorción",
-          "origin": "paa",
-          "support": [
-            "paa-q:toallas:cuales-son-las-toallas-que-secan-mejor",
-            "paa-q:toallas:las-toallas-de-microfibra-secan-bien",
-            "paa-q:toallas:que-tela-de-toalla-seca-mejor",
-            "paa-q:toallas:que-toallas-de-bano-secan-mejor"
-          ]
-        }
-      ],
-      "importance": "complementario",
-      "rule": "imp:prestacion@hg-15-4"
-    },
-    {
-      "id": "cat.toallas/11",
-      "question": "¿Qué nivel térmico tiene la toalla al usarla (fresca, cálida)?",
-      "dimension": null,
-      "trait": "prestacion",
-      "entity": null,
-      "applicability": "universal",
-      "rationale": "Dos preguntas sobre fibras de la clase preguntan cuál da menos calor y si la microfibra da calor. El nivel térmico es la temporada o el abrigo, no el tacto (D-108). Va en cat.toallas: en el resto de la ropa de casa no se ha visto. Causa probable de duda: el calor se vive más al vestir o al dormir. Pasada de PAA, conjunto toallas (N2; D-178).",
-      "origin": "paa",
-      "sources": [
-        "paa-q:toallas:la-microfibra-da-calor",
-        "paa-q:toallas:que-da-menos-calor-algodon-o-lino"
-      ],
-      "seed_importance": "complementario",
-      "resolving_info": [
-        {
-          "contribution": "declaración del nivel térmico de la toalla",
-          "component": "nivel térmico",
-          "origin": "paa",
-          "support": [
-            "paa-q:toallas:la-microfibra-da-calor",
-            "paa-q:toallas:que-da-menos-calor-algodon-o-lino"
-          ]
-        },
-        {
-          "contribution": "temporada para la que se indica la toalla",
-          "component": "nivel térmico",
-          "origin": "paa",
-          "support": [
-            "paa-q:toallas:la-microfibra-da-calor",
-            "paa-q:toallas:que-da-menos-calor-algodon-o-lino"
-          ]
-        }
-      ],
-      "importance": "complementario",
-      "rule": "imp:prestacion@hg-15-4"
     }
   ],
   "excluded": [

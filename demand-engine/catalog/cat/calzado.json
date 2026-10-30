@@ -10,7 +10,7 @@
     "amazon-ptd:BOOT@2026-10-24",
     "amazon-ptd:SLIPPER@2026-10-24"
   ],
-  "version": "5",
+  "version": "4",
   "status": "compilado",
   "requirements": [
     {
@@ -193,46 +193,6 @@
           "component": "material del exterior o corte",
           "origin": "inferida",
           "support": []
-        },
-        {
-          "contribution": "certificación o marca de autenticidad de la piel emitida por un tercero",
-          "component": "material del corte",
-          "kind": "sustento",
-          "origin": "paa",
-          "support": [
-            "paa-q:botas:como-saber-si-es-cuero-o-cuero-sintetico",
-            "paa-q:botas:como-saber-si-una-bota-es-de-piel"
-          ]
-        },
-        {
-          "contribution": "material de base de un sintético que se denomina polipiel o piel sintética (poliuretano, PVC…)",
-          "component": "material del corte",
-          "kind": "precisión",
-          "origin": "paa",
-          "support": [
-            "paa-q:botas:que-son-las-botas-de-poliuretano",
-            "paa-q:botas:que-son-las-botas-de-pvc"
-          ]
-        },
-        {
-          "contribution": "indicación de si el cuero es natural o un material sintético que lo imita",
-          "component": "material del corte",
-          "kind": "precisión",
-          "origin": "paa",
-          "support": [
-            "paa-q:pantuflas:como-saber-si-es-100-cuero",
-            "paa-q:pantuflas:como-saber-si-unas-zapatillas-son-de-piel"
-          ]
-        },
-        {
-          "contribution": "certificación o marca de garantía de cuero auténtico emitida por un tercero",
-          "component": "material del corte",
-          "kind": "sustento",
-          "origin": "paa",
-          "support": [
-            "paa-q:pantuflas:como-saber-si-es-100-cuero",
-            "paa-q:pantuflas:como-saber-si-unas-zapatillas-son-de-piel"
-          ]
         }
       ]
     },
@@ -392,15 +352,6 @@
           "support": [
             "amazon-ptd-prop:BOOT.compliance_sole_material",
             "amazon-ptd-prop:SLIPPER.compliance_sole_material"
-          ]
-        },
-        {
-          "contribution": "compuesto concreto de una suela que se denomina goma o caucho (caucho natural, caucho sintético…)",
-          "component": "material de la suela exterior",
-          "kind": "precisión",
-          "origin": "paa",
-          "support": [
-            "paa-q:botas:que-es-mejor-la-suela-de-caucho-o-de-goma"
           ]
         }
       ]
@@ -571,19 +522,6 @@
           "component": "cómo se cuida",
           "origin": "inferida",
           "support": []
-        },
-        {
-          "contribution": "métodos o productos de limpieza que el material no admite",
-          "component": "cómo se limpia y se cuida",
-          "kind": "precisión",
-          "origin": "paa",
-          "support": [
-            "paa-q:botas:se-puede-limpiar-el-ante-con-agua",
-            "paa-q:botas:se-puede-limpiar-el-ante-con-alcohol",
-            "paa-q:botas:se-puede-limpiar-el-ante-con-amoniaco",
-            "paa-q:botas:se-puede-limpiar-el-ante-con-bicarbonato-de-sodio",
-            "paa-q:botas:se-puede-limpiar-el-ante-con-vinagre"
-          ]
         }
       ]
     },
@@ -1102,40 +1040,6 @@
           "support": []
         }
       ]
-    },
-    {
-      "id": "cat.calzado/29",
-      "question": "¿Cede o se da de sí el corte con el uso?",
-      "dimension": null,
-      "trait": "uso",
-      "entity": null,
-      "applicability": "universal",
-      "rationale": "La pregunta 18 pregunta si el calzado de cuero se estira. El material no lo dice por sí solo (D-090). Pregunta por calzado, y vale para todas las hijas de Calzado: sube a cat.calzado. Pasada de PAA, conjunto botas (N1; D-178).",
-      "origin": "paa",
-      "sources": [
-        "paa-q:botas:se-estira-el-calzado-de-cuero"
-      ],
-      "seed_importance": "complementario",
-      "resolving_info": [
-        {
-          "contribution": "declaración de si el corte cede o mantiene su forma con el uso",
-          "component": "si cede con el uso",
-          "origin": "paa",
-          "support": [
-            "paa-q:botas:se-estira-el-calzado-de-cuero"
-          ]
-        },
-        {
-          "contribution": "indicación de la zona del corte que cede (ancho, empeine, caña)",
-          "component": "si cede con el uso",
-          "origin": "paa",
-          "support": [
-            "paa-q:botas:se-estira-el-calzado-de-cuero"
-          ]
-        }
-      ],
-      "importance": "principal",
-      "rule": "imp:uso@aa"
     }
   ],
   "excluded": [

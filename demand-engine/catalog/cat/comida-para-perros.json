@@ -13,7 +13,7 @@
     "ley:CE-767/2009-15.a@2018-12-26",
     "ley:CE-767/2009-17.1.f@2018-12-26"
   ],
-  "version": "6",
+  "version": "5",
   "status": "compilado",
   "requirements": [
     {
@@ -77,16 +77,6 @@
           "component": "forma en que se presenta",
           "origin": "inferida",
           "support": []
-        },
-        {
-          "contribution": "contenido de humedad que corresponde a la forma",
-          "component": "forma o consistencia del alimento",
-          "kind": "precisión",
-          "origin": "paa",
-          "support": [
-            "paa-q:comida-perros:cual-es-la-diferencia-entre-el-pienso-seco-y-el-semihumedo",
-            "paa-q:comida-perros:que-es-el-pienso-semihumedo"
-          ]
         }
       ]
     },
@@ -738,77 +728,6 @@
           "support": []
         }
       ]
-    },
-    {
-      "id": "cat.comida-para-perros/19",
-      "question": "¿Cómo se sirve (tal cual o humedecida; fría, a temperatura ambiente o templada)?",
-      "dimension": null,
-      "trait": "uso",
-      "entity": null,
-      "applicability": "universal",
-      "rationale": "Las preguntas 63 y 66 preguntan si se moja el pienso y a qué temperatura se da la comida. Es una instrucción de uso. No sube a cat.productos-para-perros: no vale para casetas ni juguetes. Pasada de PAA, conjunto comida-perros (N1; D-178).",
-      "origin": "paa",
-      "sources": [
-        "paa-q:comida-perros:como-es-mejor-darle-la-comida-a-los-perros-fria-o-caliente",
-        "paa-q:comida-perros:es-bueno-mojar-el-pienso-para-perros"
-      ],
-      "seed_importance": "complementario",
-      "resolving_info": [
-        {
-          "contribution": "instrucción de preparación antes de servir (tal cual o humedecido)",
-          "component": "tal cual o humedecida",
-          "origin": "paa",
-          "support": [
-            "paa-q:comida-perros:como-es-mejor-darle-la-comida-a-los-perros-fria-o-caliente",
-            "paa-q:comida-perros:es-bueno-mojar-el-pienso-para-perros"
-          ]
-        },
-        {
-          "contribution": "temperatura de servicio recomendada",
-          "component": "temperatura",
-          "origin": "paa",
-          "support": [
-            "paa-q:comida-perros:como-es-mejor-darle-la-comida-a-los-perros-fria-o-caliente",
-            "paa-q:comida-perros:es-bueno-mojar-el-pienso-para-perros"
-          ]
-        }
-      ],
-      "importance": "principal",
-      "rule": "imp:uso@ap-2"
-    },
-    {
-      "id": "cat.comida-para-perros/20",
-      "question": "¿Cómo se introduce en la dieta al cambiar desde otra comida?",
-      "dimension": null,
-      "trait": "uso",
-      "entity": null,
-      "applicability": "universal",
-      "rationale": "La pregunta 73 pregunta qué pasa al cambiar el pienso. Sobre la oferta, pide la pauta de cambio. No sube a cat.productos-para-perros: no vale para casetas ni juguetes. Pasada de PAA, conjunto comida-perros (N2; D-178).",
-      "origin": "paa",
-      "sources": [
-        "paa-q:comida-perros:que-pasa-si-le-cambias-el-pienso-a-un-perro"
-      ],
-      "seed_importance": "complementario",
-      "resolving_info": [
-        {
-          "contribution": "pauta de transición desde la comida anterior",
-          "component": "pauta de cambio",
-          "origin": "paa",
-          "support": [
-            "paa-q:comida-perros:que-pasa-si-le-cambias-el-pienso-a-un-perro"
-          ]
-        },
-        {
-          "contribution": "duración del cambio y proporción de mezcla en cada fase",
-          "component": "días y proporciones",
-          "origin": "paa",
-          "support": [
-            "paa-q:comida-perros:que-pasa-si-le-cambias-el-pienso-a-un-perro"
-          ]
-        }
-      ],
-      "importance": "principal",
-      "rule": "imp:uso@ap-2"
     }
   ],
   "excluded": [

@@ -43,7 +43,7 @@ Un perfil fija **cómo se lee la página**. Quien pide la captura lo elige; si n
 
 | | `reader` (por defecto) | `audit-es` ([D-156](../docs/30-governance/decisions.md#d-156), [D-157](../docs/30-governance/decisions.md#d-157)) |
 |---|---|---|
-| Quién lo usa | PAA, el entrenamiento, el MPIR y cualquier captura que no nombre otro | La auditoría informativa de Web y Web Schema.org (`pages audit`, `pages crawl`) y la captura suelta que lo nombre |
+| Quién lo usa | PAA, el entrenamiento, el MPIR y cualquier captura que no nombre otro | La auditoría informativa de Contenido y Marcado (`pages audit`, `pages crawl`) y la captura suelta que lo nombre |
 | Estado | Perfil de Chrome persistente | Un contexto de navegador nuevo por ficha (sin cookies, almacenamiento ni caché de ningún sitio), que se desecha al terminar |
 | JavaScript | Se ejecuta | No se ejecuta (`Emulation.setScriptExecutionDisabled`): `<noscript>` es marcado |
 | Interacción | Desplazamiento con la rueda (por lotes, a ritmo de lector) | Primera carga, sin desplazamiento ni permanencia |

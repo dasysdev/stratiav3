@@ -2,8 +2,8 @@
 
   reader     the default: the persistent profile with JavaScript, the page scrolled through
              (PAA, the training catalog, the MPIR and any single page that names no profile)
-  audit-es   the consumption profile of the informative audit of Web and Web Schema.org (D-156,
-             D-157): a real Chrome that runs no JavaScript, a fresh browser context per page
+  audit-es   the consumption profile of the informative audit of Contenido and Marcado (D-156,
+             D-157, D-220): a real Chrome that runs no JavaScript, a fresh browser context per page
              (no cookies, storage or cache of any site, never a consent given), the first load
              without scrolling; it keeps the original bytes of the response and the headers of
              each redirect, and records Accept-Language, the origin (IP, country, ASN) and what
